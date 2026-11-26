@@ -14,6 +14,7 @@ Worktree (shared with the lead and one other worker; touch ONLY your assigned fi
 - Never change the `:::` block syntax (agreed with the UX lead). Fences: `:::check` / `:::answer` / `:::`, `:::try` / `:::answer` / `:::`, `:::why`, `:::pair #slug` (lines `Right:`, `Wrong:`, then a 1 to 2 sentence note), `:::checklist` with only item lines `- Cue: right move {#slug}`. At most 3 pairs and 3 checklist items per lesson. Every checklist item ends with `{#slug}` naming a pair id or a `###` heading slug. Only `:::check` and `:::try` contain `:::answer`; nothing else nests.
 - Do not change front matter except where the brief says so.
 - Option lists (`A)` / `(A)` lines, and any lines meant to show on separate rows): put a blank line between them. The app's converters join a paragraph's lines with spaces, so lines that end in two trailing spaces still run together on screen. Remove trailing double spaces wherever you see them.
+- Emphasis: one level per span, `*italic*` or `**bold**`. Never nest them (`**After *sheets***`, `*She **must** go*`) and never use `***`: the app's converter leaves stray stars on screen. When you edit the last line of a block, keep its closing `:::` on its own line.
 
 ## The standard (read in full before editing)
 

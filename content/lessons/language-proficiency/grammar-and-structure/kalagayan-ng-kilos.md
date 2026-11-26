@@ -81,7 +81,7 @@ Alin ang anyong kontemplatibo (magaganap pa) ng pandiwang ugat na *kain*: (A) *K
 1. Suriin ang (A) *kumain*: tapos na ang kilos (perpektibo).
 2. Suriin ang (B) *kumakain*: nagpapatuloy ang kilos (imperpektibo).
 3. Suriin ang (D) *kainin*: ibang **pokus** na nakatuon sa bagay, hindi anyong *-um-* ng **tagaganap** (actor).
-4. Piliin ang **(C) *Kakain***: "Kakain kami bukas ng tanghali."
+4. Piliin ang **(C) Kakain**: "Kakain kami bukas ng tanghali."
 
 **Check:** Mali ang "Kumain kami bukas ng tanghali," dahil hindi pa nangyayari ang kilos bukas.
 

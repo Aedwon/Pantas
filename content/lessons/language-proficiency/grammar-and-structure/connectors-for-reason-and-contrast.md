@@ -50,7 +50,7 @@ Comma use depends on clause order. Usually put a comma after an opening dependen
 :::check
 Where does a comma belong in *"Although the shop was open we left without buying anything"*?
 :::answer
-The answer is **After *open***. *"Although the shop was open, we left without buying anything."* An opening dependent clause usually takes a comma before the main clause.
+The answer is **after "open"**. *"Although the shop was open, we left without buying anything."* An opening dependent clause usually takes a comma before the main clause.
 :::
 
 ### Completing a Dependent-Clause Fragment

@@ -22,7 +22,7 @@ A **function** analogy links a tool or instrument to what it does or measures. K
 2. Sentence: "A knife is used to cut."
 3. Test it: "A broom is used to **sweep**."
 
-For instruments, link the tool to its reading: *compass : direction* matches *clock : **time***.
+For instruments, link the tool to its reading: *compass : direction* matches *clock : time*.
 
 :::pair #property-not-function
 Right: "Pen is to write" matches **scissors : cut**.

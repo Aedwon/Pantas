@@ -31,7 +31,7 @@ Wrong: "After, the meeting we went home." or "After the meeting we, went home."
 :::check
 Where does the comma go in *"Before the proctor collected the sheets everyone stopped writing"*?
 :::answer
-The answer is **After *sheets***. *"Before the proctor collected the sheets"* is an opening dependent clause, so the comma follows it.
+The answer is **after "sheets"**. *"Before the proctor collected the sheets"* is an opening dependent clause, so the comma follows it.
 :::
 
 ### Extra Information vs. Identifying Information

@@ -97,7 +97,7 @@ Isinulat ng kawani, "Bukas ay magkakain kami matapos maglinis." Kung ang pandiwa
 2. Tingnan ang hinihinging kalagayan: plano para sa *bukas*, kaya angkop ang kontemplatibo sa pangungusap na ito.
 3. Alisin ang maling *mag-* at ulitin ang *ka* nang walang *-um-*: "Bukas ay **kakain** kami matapos maglinis."
 
-Sagot: **Palitan ang *magkakain* ng *kakain*.**
+Sagot: Palitan ang *magkakain* ng **kakain**.
 
 **Check:** Kung may *-um-* pa, *kumakain* na iyon, hindi *kakain*.
 
