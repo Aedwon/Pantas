@@ -59,7 +59,7 @@ Why switch to semicolons when inside commas blur the items? Semicolons act as he
 :::pair #semicolons-in-complex-list
 Right: "We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea."
 Wrong: "We visited Manila, Philippines, Tokyo, Japan, and Seoul, Korea." or "We visited Manila; Philippines, Tokyo; Japan, and Seoul; Korea."
-All commas blur the pairs into six places, while semicolons inside each pair split each city from its country.
+All commas blur the pairs into six places. Keep commas inside pairs and put semicolons between pairs.
 :::
 
 :::check

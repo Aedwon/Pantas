@@ -141,7 +141,7 @@ Isang makapag-iisa na may di-makapag-iisa: hugnayan; dalawa o higit pang makapag
 ## Traps to Watch For
 
 :::checklist
-- Sugnay na may *dahil* kasama ng isang buong diwa: hugnayan ito, hindi tambalan at hindi payak. {#hugnayan-laban-sa-tambalan}
+- Sugnay na may *dahil* kasama ng isang buong diwa: hugnayan, hindi tambalan o payak. {#hugnayan-laban-sa-tambalan}
 - Dalawang buong diwa na may kasamang *dahil* o *sapagkat*: bilangin lahat ng sugnay para sa langkapan. {#langkapan-bilangin-ang-bawat-sugnay}
 - Mga panandang *una*, *pagkatapos*, at *sa huli*: ilagay ang *una* sa simula at *sa huli* sa wakas. {#ayos-ng-pananda-sa-salaysay}
 :::

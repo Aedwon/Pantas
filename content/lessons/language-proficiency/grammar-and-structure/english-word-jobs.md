@@ -20,7 +20,8 @@ keyPoints:
 A **part of speech**, or **word class**, names a word's job in a sentence. Traditional school grammar uses eight classes. This lesson covers five, and the next part covers three more.
 
 - **Noun**: names a person, place, thing, or idea (*Maria, city, book, freedom*). In "Maria bought a **book**," *book* names a thing.
-- **Pronoun**: often stands in for a noun phrase (*he, she, they, it, who*). In "Carlos finished his part, and **he** left," *he* stands for *Carlos*.- **Verb**: states an action, event, or state (*laughed, happen, is, felt*). In "The children **laughed**," *laughed* tells what they did.
+- **Pronoun**: often stands in for a noun phrase (*he, she, they, it, who*). In "Carlos finished his part, and **he** left," *he* stands for *Carlos*.
+- **Verb**: states an action, event, or state (*laughed, happen, is, felt*). In "The children **laughed**," *laughed* tells what they did.
 - **Adjective**: describes a noun or pronoun (*diligent, light, silly*). In "The **diligent** student smiled," *diligent* describes *student*.
 - **Adverb**: modifies a verb, adjective, another adverb, or a whole statement (*loudly, very, remarkably*). In "She finished **quickly**," *quickly* tells how she finished. In "**Remarkably**, the library reopened," *remarkably* comments on the statement.
 
