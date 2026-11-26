@@ -28,8 +28,7 @@ The answer is *daring*: "She made a daring move and took a big risk." Both words
 
 ### Word Pairings
 
-A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. For a large amount, *heavy* is a usual partner. For an intense flavor, *strong* is, as in *strong tea*.
-
+A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. For a large amount, *heavy* is a usual partner.
 :::pair #heavy-rain
 Right: The road closed during heavy rain.
 Wrong: The road closed during powerful rain.
@@ -37,7 +36,7 @@ English still pairs *heavy* with *rain*.
 :::
 
 :::check
-Which pairing is the usual one in standard English for a large number of cars on the road: *heavy traffic* or *strong traffic*?
+Which pairing is the usual one in standard English for lots of cars: *heavy traffic* or *strong traffic*?
 :::answer
 The answer is *heavy traffic*. A large amount takes *heavy*, and *strong traffic* is not the usual pairing.
 :::
