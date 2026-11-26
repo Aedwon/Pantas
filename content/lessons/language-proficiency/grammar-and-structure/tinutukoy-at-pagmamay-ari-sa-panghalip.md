@@ -19,8 +19,8 @@ keyPoints:
 
 Nagbabago ang panghalip na **paari** (possessive) depende sa puwesto nito sa pangungusap:
 
-1. Pagkatapos ng bagay na pag-aari: gamitin ang anyong *ng* (*ko, mo, niya, namin, natin, ninyo, nila*). Halimbawa: "Ito ang aklat **ko**."
-2. Nauuna ang nagsasabi ng may-ari: gamitin ang anyong *sa* (*akin, iyo, kaniya, amin, atin, inyo, kanila*), at walang *sa* sa unahan. Halimbawa: "**Akin** ang aklat na nasa mesa."
+1. Pagkatapos ng bagay na pag-aari: gamitin ang anyong *ng* (*ko, mo, niya, namin, natin, ninyo, nila*), gaya sa "Ito ang aklat **ko**."
+2. Nauuna ang nagsasabi ng may-ari: gamitin ang anyong *sa* (*akin, iyo, kaniya, amin, atin, inyo, kanila*) nang walang *sa* sa unahan, gaya sa "**Akin** ang aklat na nasa mesa."
 
 :::pair #ayos-ng-pagmamay-ari
 Right: "Akin ang aklat na nasa mesa."

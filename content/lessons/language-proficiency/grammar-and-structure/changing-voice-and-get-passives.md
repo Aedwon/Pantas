@@ -20,7 +20,7 @@ To change active to passive, move the **object** (what receives the action) into
 
 <!-- ILLUSTRATION: two stacked sentences showing role swap: top "The committee [actor] approved [simple past] the new budget [receiver]." with crossing arrows to bottom "The new budget [subject] was approved [simple past passive] by the committee [agent]." -->
 
-To change passive to active, make the agent the subject and drop passive *be*. A verb needs an object to allow a standard passive form: "The child slept" has no object, so it has no passive partner.
+To change passive to active, make the agent the subject and drop passive *be*. A verb needs an object to allow a standard passive form: "The child slept" has no object, so it has no passive partner. Switch "The committee approved the new budget" between active and passive:
 
 - Active: "The committee **approved** the new budget."
 - Passive: "The new budget **was approved** by the committee."

@@ -38,7 +38,7 @@ The answer is **Is**. Treating the family as one unit making a shared plan takes
 
 ### Indefinite Pronouns
 
-An **indefinite pronoun** refers to people or things without naming them. Words such as *everybody*, *everyone*, *someone*, *somebody*, *anyone*, *nothing*, and *each* take singular verbs.
+An **indefinite pronoun** refers to people or things without naming them. Words such as *everybody*, *everyone*, *someone*, *somebody*, *anyone*, *nothing*, and *each* take singular verbs. Match *everybody* and *nothing* to singular verbs:
 
 - "Everybody in the auditorium **is** welcome."
 - "Nothing about the missing files **seems** to make sense."
@@ -91,7 +91,7 @@ Choose the natural form for each context: (a) Under standard American English tr
 **Solution:**
 
 1. In (a), the committee acts as one unit under American English, so choose singular **has**.
-2. In (b), *among themselves* shows members acting separately, and British English permits plural agreement for that meaning, so choose **are**.
+2. In (b), *among themselves* shows members acting separately, so British English uses plural **are**.
 
 **Check:** Read each sentence with a matching substitute: "The committee *it* has reached" (one unit) versus "The team members *they* are arguing" (separate members).
 
@@ -101,7 +101,7 @@ Fix the error in "Everybody have their own opinion" while keeping modern gender-
 
 **Solution:**
 
-1. Find the subject of the main verb: *everybody*.
+1. Find the main subject: *everybody*.
 2. *Everybody* is grammatically singular, so change *have* to **has**.
 3. Keep *their*, since modern formal English accepts singular *their* for an unspecified person.
 
@@ -115,7 +115,7 @@ Choose the correct verbs: Most of the water in the tank *(has / have)* evaporate
 
 **Solution:**
 
-1. In the first clause, set aside *in the tank*. *Most* refers to *water*, which is a mass amount, so choose singular **has**.
+1. In the first clause, set aside *in the tank*. *Most* refers to mass noun *water*, so choose singular **has**.
 2. In the second clause, set aside *on the tray*.
 
 :::try

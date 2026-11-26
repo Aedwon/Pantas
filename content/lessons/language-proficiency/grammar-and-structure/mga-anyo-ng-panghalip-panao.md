@@ -19,7 +19,7 @@ keyPoints:
 
 Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa papel ng tao sa pangungusap at sa bilang kung isa o marami.
 
-Gamitin ang anyong **ang** kapag ipinapalit sa taong itinatampok bilang paksa: *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila*. (Ginagamit ang *ikaw* sa unahan ng pangungusap tulad ng "Ikaw ang sumulat," at ang *ka* sa loob tulad ng "Sumulat ka.")
+Gamitin ang anyong **ang** kapag ipinapalit sa taong itinatampok bilang paksa: *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila*. (Ginagamit ang *ikaw* sa unahan ng pangungusap tulad ng "Ikaw ang sumulat," at ang *ka* sa loob tulad ng "Sumulat ka.") Palitan ng anyong *ang* ang paksang *si Ana*:
 
 - "Si Ana ang dumating." -> "**Siya** ang dumating."
 
@@ -58,7 +58,7 @@ Ang sagot ay **Nila**. *Ang ulat* ang paksa, kaya anyong *ng* para sa maraming g
 
 ### Anyong Sa: Para sa Tumanggap o Pinaglaanan
 
-Gamitin ang anyong **sa** (*akin, iyo, kaniya, amin, atin, inyo, kanila*) pagkatapos ng *sa* o *para sa* upang ipakita kung kanino ibinigay o para kanino ang isang bagay.
+Gamitin ang anyong **sa** (*akin, iyo, kaniya, amin, atin, inyo, kanila*) pagkatapos ng *sa* o *para sa* upang ipakita kung kanino ibinigay o para kanino ang isang bagay. Palitan ng anyong *sa* ang *kay Ana*:
 
 - "Ibinigay ng kawani **kay Ana** ang resibo." -> "Ibinigay ng kawani **sa kaniya** ang resibo."
 

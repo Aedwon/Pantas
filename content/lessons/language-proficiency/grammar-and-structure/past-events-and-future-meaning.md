@@ -55,7 +55,7 @@ The answer is **Will close**. *Tomorrow* points to the future, and *will* always
 
 ### When a Tense Shift Is Correct
 
-Keep the same tense when two actions happen at the same time. Allow a verb form to change when the time clues move from one timeline to another.
+Keep the same tense when two actions happen at the same time. Allow a verb form to change when the time clues move from one timeline to another. Compare keeping one tense with shifting across two times:
 
 - Same time: "Yesterday, she **walked** to the store and **bought** bread." (Both are yesterday.)
 - Different times: "I **studied** yesterday, and I **will practice** tomorrow." (Past moves to future.)
