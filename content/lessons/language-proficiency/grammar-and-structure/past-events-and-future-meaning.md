@@ -80,17 +80,17 @@ The answer is **Yes**. *Yesterday* calls for past *was*, and *now* calls for pre
 
 ### #1: Fixing a Broken Past Timeline
 
-Both events happened yesterday. Correct the sentence: "Yesterday, she walks to the store and bought some bread."
+Both events happened last night. Correct the sentence: "Last night, we eat dinner and watched a film."
 
 **Solution:**
 
-1. Find the time clue: *Yesterday* places the whole sentence in past time.
-2. Check the first verb: *walks* is simple present, which clashes with *yesterday*.
-3. Change *walks* to simple past *walked*, and keep *bought*.
+1. Find the time clue: *Last night* places the whole sentence in past time.
+2. Check the first verb: *eat* is simple present, which clashes with *last night*.
+3. Change *eat* to simple past *ate*, and keep *watched*.
 
-Correct: "Yesterday, she walked to the store and bought some bread."
+Correct: "Last night, we ate dinner and watched a film."
 
-**Check:** Both verbs now match *yesterday*.
+**Check:** Both verbs now match *last night*.
 
 ### #2: Naming a Verb Form
 
@@ -115,9 +115,9 @@ Decide whether the tense shift in "We cleaned the room last Saturday, and we pai
 :::try
 Finish the job: check the second clause, then say whether the shift is justified and why.
 :::answer
-The answer is **No, the shift is not justified.** Both clauses share the clue *last Saturday*, which is past, so *paint* must become *painted*: **"We cleaned the room last Saturday, and we painted the walls last Saturday."** (*Will paint* would fit a future clue such as *next week*.)
+The answer is **No, the shift is not justified.** Both clauses share the clue *last Saturday*, which is past, so *paint* must become *painted*: **"We cleaned the room last Saturday, and we painted the walls last Saturday."**
 
-**Check:** Read each verb with its clue: *cleaned last Saturday* and *painted last Saturday* are both past.
+**Check:** Swap the second clue: with *next Saturday*, *will paint* would fit; with *last Saturday*, only *painted* does.
 :::
 
 ## Speed Tricks & Shortcuts

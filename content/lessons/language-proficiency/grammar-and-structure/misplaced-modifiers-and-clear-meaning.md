@@ -20,14 +20,14 @@ A **modifier** is a word, phrase, or clause that adds detail about another part 
 
 A **misplaced modifier** sits where it seems to describe the wrong noun or action. In *"The waiter served pasta to the customer covered in cheese,"* *covered in cheese* sits right after *the customer*, making the customer sound covered in cheese.
 
-Move the modifier right next to the noun it describes: *"The waiter served the customer pasta covered in cheese."* Now *covered in cheese* follows *pasta* directly.
+Move the modifier right next to the noun it describes: *"The waiter served the customer pasta covered in cheese."*
 
 <!-- ILLUSTRATION: two stacked sentences: top "The waiter served pasta to the [customer] [covered in cheese]." with an arrow from "covered in cheese" pointing mistakenly to "customer"; bottom "The waiter served the customer [pasta] [covered in cheese]." with a teal arrow from "covered in cheese" pointing to "pasta" -->
 
 :::pair #wrong-noun-attachment
 Right: *"The waiter served the customer pasta covered in cheese."*
 Wrong: Write *"The waiter served pasta to the customer covered in cheese."* or *"Covered in cheese, the waiter served pasta to the customer."*
-After *customer*, *covered in cheese* attaches to the customer; at the front before *the waiter*, it attaches to the waiter. Put the phrase right beside *pasta*.
+After *customer*, *covered in cheese* attaches to the customer; at the front before *the waiter*, it attaches to the waiter.
 :::
 
 :::check
@@ -64,48 +64,44 @@ The answer is **"Tom put the cracked mug on the shelf."** Putting *cracked* befo
 
 ### #1: Moving a Phrase Next to Its Noun
 
-The book has a torn cover. Revise *"The librarian handed a book to the student with a torn cover"* clearly.
+The toy has a missing wheel. Revise *"The clerk gave a toy to the girl with a missing wheel"* clearly.
 
 **Solution:**
 
-1. Find the modifier: *with a torn cover*.
-2. Notice it sits after *the student*, making the student seem to have a torn cover.
-3. Move it right after *a book*: **"The librarian handed the student a book with a torn cover."**
-
-**Check:** *With a torn cover* now follows *a book*.
+1. Find the modifier: *with a missing wheel*.
+2. Notice it sits after *the girl*, making the girl seem to have a missing wheel.
+3. Move it right after *a toy*: **"The clerk gave the girl a toy with a missing wheel."**
 
 ### #2: Preserving Which Object Is Damaged
 
-Which sentence identifies a broken window, not a broken ladder: *"A worker on a broken ladder repaired the window"* or *"A worker on a ladder repaired the broken window"*?
+Which sentence identifies a chipped glass, not a chipped tray: *"A waiter carried the glass on a chipped tray"* or *"A waiter carried the chipped glass on a tray"*?
 
 **Solution:**
 
-1. In *"A worker on a broken ladder repaired the window,"* *broken* describes *ladder*.
-2. In *"A worker on a ladder repaired the broken window,"* *broken* sits right before *window*.
-3. The second sentence keeps the intended meaning: **"A worker on a ladder repaired the broken window."**
-
-**Check:** Drop *"on a ladder"* and read *"A worker repaired the broken window."* The damage stays on *window*.
+1. In *"A waiter carried the glass on a chipped tray,"* *chipped* describes *tray*.
+2. In *"A waiter carried the chipped glass on a tray,"* *chipped* sits right before *glass*.
+3. The second sentence keeps the intended meaning: **"A waiter carried the chipped glass on a tray."**
 
 ### #3: Fixing Two Modifier Targets in One Passage
 
-The visitors walk into the room, and the bread is wrapped in a napkin. Check this draft: *"Entering the room, we smelled fresh bread. We received bread from the baker wrapped in a napkin."* What works, what is misplaced, and how do you fix it?
+The travelers wait at the station, and the snack is wrapped in foil. Check this draft: *"Waiting at the station, we heard a whistle. We bought a snack from the vendor wrapped in foil."* What works, what is misplaced, and how do you fix it?
 
 **Solution:**
 
-1. In sentence 1, *we* sits right after *"Entering the room,"* so the visitors are clearly named.
-2. In sentence 2, *"wrapped in a napkin"* sits after *the baker*, attaching the napkin to the baker.
+1. In sentence 1, *we* sits right after *"Waiting at the station,"* so the travelers are clearly named.
+2. In sentence 2, *"wrapped in foil"* sits after *the vendor*, attaching the foil to the vendor.
 
 :::try
-Finish the last step: which rewrite of sentence 2 makes *"wrapped in a napkin"* describe *bread*: (A) *"Wrapped in a napkin, we received bread from the baker."* or (B) *"We received bread wrapped in a napkin from the baker."*?
+Finish the last step: which rewrite of sentence 2 makes *"wrapped in foil"* describe *snack*: (A) *"Wrapped in foil, we bought a snack from the vendor."* or (B) *"We bought a snack wrapped in foil from the vendor."*?
 :::answer
-**B: "Entering the room, we smelled fresh bread. We received bread wrapped in a napkin from the baker."** *Wrapped in a napkin* follows *bread*, with *the baker* no longer between them. In A, the opener would describe *we*.
+**B: "Waiting at the station, we heard a whistle. We bought a snack wrapped in foil from the vendor."** *Wrapped in foil* follows *snack*, with *the vendor* no longer between them. In A, the opener would describe *we*.
 
-**Check:** Match each modifier to its noun: *"Entering the room, we..."* (people enter) and *"...bread wrapped in a napkin"* (bread is wrapped).
+**Check:** Match each modifier to its noun: *"Waiting at the station, we..."* (people wait) and *"...snack wrapped in foil"* (the snack is wrapped).
 :::
 
 ## Speed Tricks & Shortcuts
 
-For every modifier, ask what word or action it should describe. Then check what the wording puts beside it.
+For every modifier, ask what word or action it should describe.
 
 ## Traps to Watch For
 

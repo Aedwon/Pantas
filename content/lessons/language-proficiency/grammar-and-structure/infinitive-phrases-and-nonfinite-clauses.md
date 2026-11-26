@@ -30,15 +30,15 @@ Why do two books give different labels? School grammar requires a finite verb ca
 :::
 
 :::pair #infinitive-not-finite-clause
-Right: Under basic school grammar, in *"The applicant hopes **to obtain a certified copy** before the office closes,"* the bold group is an **Infinitive phrase**.
+Right: Under basic school grammar, in "The applicant hopes **to obtain a certified copy** before the office closes," the bold group is an **Infinitive phrase**.
 Wrong: Classify *to obtain a certified copy* as an **Independent clause**, a **Finite dependent clause**, or a **Complete formal sentence**.
 Although *the applicant* is understood to act, *to obtain* carries no tense. Without a finite verb, the group cannot be a finite clause or stand as a sentence.
 :::
 
 :::check
-Using basic school grammar, how is **to submit the report** classified in *"The team plans **to submit the report** by Friday"*?
+Using modern clause grammar, how is *to submit the report* classified in "The team plans to submit the report by Friday"?
 :::answer
-The answer is **Infinitive phrase**. *To submit* carries no tense, and basic school grammar calls an infinitive plus its object a phrase.
+The answer is **Nonfinite clause**. *To submit* carries no tense, and the doer, *the team*, is understood. Basic school grammar would call it an infinitive phrase.
 :::
 
 ### Fragments and Sentences
@@ -78,19 +78,19 @@ In *"Ana hopes to finish the project,"* can *"to finish the project"* stand alon
 
 ### #2: Spotting an Infinitive Fragment
 
-Which entry is a complete formal sentence: *"To have the policy revised before the inspection."* or *"The unit plans to revise the policy."*?
+Which entry is a complete formal sentence: *"To mail all the forms before the deadline."* or *"The office plans to mail the forms."*?
 
 **Solution:**
 
-1. In *"To have the policy revised before the inspection,"* *to have* is an infinitive and no finite verb carries tense. It is a fragment.
-2. In *"The unit plans to revise the policy,"* *The unit* is the subject and *plans* is the finite verb.
-3. *"The unit plans to revise the policy."* is the complete formal sentence.
+1. In *"To mail all the forms before the deadline,"* *to mail* is an infinitive and no finite verb carries tense. It is a fragment.
+2. In *"The office plans to mail the forms,"* *The office* is the subject and *plans* is the finite verb.
+3. *"The office plans to mail the forms."* is the complete formal sentence.
 
 **Check:** *Plans* becomes *planned* in past time, so it is finite.
 
 ### #3: Checking Tense and Label Together
 
-Using basic school grammar, classify the bold words in *"The manager wants **to review the budget** before Monday,"* and find which verb supplies the main tense.
+Using basic school grammar, classify the bold words in "The manager wants **to review the budget** before Monday," and find which verb supplies the main tense.
 
 **Solution:**
 

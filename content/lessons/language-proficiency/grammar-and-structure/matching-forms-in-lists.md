@@ -47,7 +47,7 @@ Two items are noun phrases, and *it grew financially* inserts a full clause. Del
 :::check
 Which option matches the two *-ing* items in *"The class teaches reading, writing, and ___"*: *"to count"*, *"how to count"*, or *"counting"*?
 :::answer
-The answer is **counting**. *Reading* and *writing* are *-ing* forms, so *counting* matches them.
+The answer is **counting**: *"The class teaches reading, writing, and counting."* *Reading* and *writing* are *-ing* forms, so *counting* matches them.
 :::
 
 ## Examples
@@ -65,14 +65,14 @@ Find and fix the error: *"The guide told the hikers to bring water, wearing boot
 
 ### #2: Matching Two Choices After Between
 
-Revise *"We must choose between repairing the roof and a new roof will be installed"* so both choices match.
+Revise *"We can choose between taking the bus and a taxi will pick us up"* so both choices match.
 
 **Solution:**
 
-1. After *between*, the first option is an *-ing* phrase (*repairing the roof*), while the second is a full clause (*a new roof will be installed*).
-2. Change the second option to a matching *-ing* phrase: **"We must choose between repairing the roof and installing a new roof."**
+1. After *between*, the first option is an *-ing* phrase (*taking the bus*), while the second is a full clause (*a taxi will pick us up*).
+2. Change the second option to a matching *-ing* phrase: **"We can choose between taking the bus and taking a taxi."**
 
-**Check:** Read both sides right after *between*: *"between repairing the roof"* and *"between installing a new roof."* Both use *-ing* phrases.
+**Check:** Read both sides after *between*: *"between taking the bus"* and *"between taking a taxi."* Both use *-ing* phrases.
 
 ### #3: Reading a Clerk's Three Actions
 
@@ -93,12 +93,12 @@ Change *counts* to **counted**. Items (1) and (3) are simple past, and item (2) 
 
 ## Speed Tricks & Shortcuts
 
-Read each item after its shared lead-in (*"The report covers..."*, *"We must choose between..."*) and confirm the forms match and the meaning stays.
+Read each item after its shared lead-in (*"The report covers..."*, *"We can choose between..."*) and confirm the forms match and the meaning stays.
 
 ## Traps to Watch For
 
 :::checklist
 - Changing an already matching item in a three-item list: compare all three items and fix the single outlier. {#fix-only-two-items}
 - Replacing an *-ing* item with a finite verb like *swims*: keep both items inside the shared structure so meaning stays intact. {#changing-meaning-in-pair}
-- *-ing* phrase or clause among noun phrases: match the noun phrases. *It grew financially* cannot follow *The report covers*. {#noun-list-vs-clause}
+- *-ing* phrase or clause among noun phrases: usually match the noun phrases. *It grew financially* cannot follow *The report covers*. {#noun-list-vs-clause}
 :::

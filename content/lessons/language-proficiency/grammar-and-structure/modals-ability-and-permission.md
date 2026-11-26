@@ -33,7 +33,7 @@ Even with a singular subject like *the assistant*, never add *-s*, *-ed*, or *-i
 :::pair #no-to-after-modal
 Right: The new clerk can answer routine inquiries without assistance.
 Wrong: The new clerk can to answer (or *answers*, or *answering*) routine inquiries without assistance.
-True modals like *can* take the bare base form *answer* directly, never *to* plus a verb (*to answer*), an *-s* ending (*answers*), or an *-ing* form (*answering*).
+True modals like *can* take the bare base form *answer*, never *to* plus a verb (*to answer*), an *-s* ending (*answers*), or an *-ing* form (*answering*).
 :::
 
 :::check
@@ -103,8 +103,6 @@ Choose each modal: (a) Present ability: "Maria *(can / must)* solve the problem 
 1. Present ability pairs with **can**: "Maria **can** solve the problem now."
 2. General past ability pairs with **could**: "Before college, she **could** speak three languages."
 3. Formal permission pairs with **May**: "**May** I enter the room?"
-
-**Check:** Each sentence fits its meaning: able now, able in the past, formal permission.
 
 ### #3: Reading Three Sentences with Could
 

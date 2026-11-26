@@ -74,8 +74,6 @@ Choose the past-perfect form to make earlier completion explicit: "By the time t
 
 Correct: "By the time the bus left, Ben had bought his ticket."
 
-**Check:** *Had bought* finishes before *the bus left*.
-
 ### #2: Two Past Actions in One Sentence
 
 Complete "When Rita reached the shop, the owner ___ home" with *went* or *had gone*. The owner was already gone.

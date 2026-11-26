@@ -16,8 +16,6 @@ keyPoints:
 
 ### Prepositions, Conjunctions, and Interjections
 
-The remaining three classes in traditional school grammar connect words or express reactions.
-
 - **Preposition**: introduces a noun or pronoun phrase to show a relation such as place, time, or direction (*under the table, before dinner, toward home*). In "The cat hid **under** the table," *under* links *the table* to *hid*.
 - **Conjunction**: joins words, phrases, or clauses (*and, but, or, because, before*). A **coordinating conjunction** (*for, and, nor, but, or, yet, so*) joins equal parts, such as two full clauses.
 - **Interjection**: expresses a sudden feeling or reaction and stands apart from the sentence grammar (*Ouch!, Wow!, Hey!*). In "**Ouch!** That really hurt," *Ouch* shows pain on its own.
@@ -73,15 +71,13 @@ The answer is **Subordinating conjunction**. *After the meeting ended* is a subo
 
 ### #1: Interjection and Conjunction
 
-Identify the parts of speech of **Wow** and **but**: "**Wow!** Ana solved the puzzle." "She wanted to attend, **but** she had homework."
+Identify the parts of speech of **Yikes** and **but**: "**Yikes!** The pot is hot." "Leo wanted a snack, **but** the jar was empty."
 
 **Solution:**
 
-1. *Wow* stands apart and shows sudden surprise, so it is an **interjection**.
-2. *She wanted to attend* and *she had homework* are both complete clauses.
+1. *Yikes* stands apart and shows sudden alarm, so it is an **interjection**.
+2. *Leo wanted a snack* and *the jar was empty* are both complete clauses.
 3. *But* joins two equal clauses, so it is a **conjunction**.
-
-**Check:** Drop *Wow!* and the sentence still works.
 
 ### #2: Preposition or Subordinating Conjunction
 
@@ -97,25 +93,25 @@ In traditional school grammar, identify **before** in each sentence: "We met **b
 
 ### #3: Four Words in One Sentence
 
-In school grammar, identify **(1) extremely**, **(2) diligent**, **(3) quietly**, and **(4) before** in: "The **extremely** **diligent** students **quietly** finished their difficult exam **before** the bell rang."
+In school grammar, identify **(1) very**, **(2) patient**, **(3) calmly**, and **(4) until** in: "The **very** **patient** guests **calmly** waited **until** the rain stopped."
 
 **Solution:**
 
-1. *Extremely* modifies the adjective *diligent*, so **(1) extremely** is an **adverb**.
-2. *Diligent* describes the noun *students*, so **(2) diligent** is an **adjective**.
-3. *Quietly* modifies the verb *finished*, so **(3) quietly** is an **adverb**.
+1. *Very* modifies the adjective *patient*, so **(1) very** is an **adverb**.
+2. *Patient* describes the noun *guests*, so **(2) patient** is an **adjective**.
+3. *Calmly* modifies the verb *waited*, so **(3) calmly** is an **adverb**.
 
 :::try
-Finish the last step: is **(4) before** a preposition or a conjunction?
+Finish the last step: is **(4) until** a preposition or a conjunction?
 :::answer
-The answer is **Conjunction** (a subordinating conjunction). *The bell* is a subject and *rang* is a verb, so *before the bell rang* is the subordinate clause.
+The answer is **Conjunction** (a subordinating conjunction). *The rain* is a subject and *stopped* is a verb, so *until the rain stopped* is the subordinate clause.
 
-**Check:** Stopping at *the bell* would miss the verb *rang*; reading the full group "before the bell rang" confirms a subject-verb clause.
+**Check:** Stopping at *the rain* would miss the verb *stopped*; reading the full group "until the rain stopped" confirms a subject-verb clause.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Look past *before*, *after*, *since*, and *until*. In these sentences, a noun phrase alone signals a preposition; a subject and verb signal a subordinating conjunction. Alone (*seen it before*), *before* is an adverb.
+Look past *before*, *after*, *since*, and *until*. In these sentences, a noun phrase alone signals a preposition; a subject and verb signal a subordinating conjunction.
 
 ## Traps to Watch For
 

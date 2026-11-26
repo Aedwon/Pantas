@@ -39,7 +39,7 @@ Wrong: *"Applicants may either submit online or a mailed application."*
 :::
 
 :::check
-Choose the matching verb in *"The shop will neither lower prices nor *(offer / offering / offers)* discounts."*
+Choose the matching verb in "The shop will neither lower prices nor ___ discounts": *(offer / offering / offers)*
 :::answer
 **The shop will neither lower prices nor offer discounts.** The shared helping verb *will* governs both base verbs: *will lower* and *will offer*.
 :::
@@ -49,8 +49,6 @@ Choose the matching verb in *"The shop will neither lower prices nor *(offer / o
 Comparisons with *than* or *as* should compare the same kind of thing or activity on both sides.
 
 In *"Reading a book is more relaxing than to watch television,"* the left side uses *-ing* (*reading*) while the right switches to *to watch*. Change *to watch* to *watching*: *"Reading a book is more relaxing than watching television."*
-
-*"The cost of a bus trip is lower than a taxi"* compares a *cost* with a *vehicle*. State the cost on both sides.
 
 <!-- ILLUSTRATION: two balanced comparison cards joined by "is lower than": left card "The cost of a bus trip" tagged "cost"; right card "the cost of a taxi trip" tagged "cost", with "a taxi driver" and "taking a taxi" crossed out below -->
 
@@ -81,9 +79,6 @@ Identify and fix the error: *"He is both intelligent and he works hard."*
 1. Find the pair: *both...and*.
 2. After *both* sits the adjective *intelligent*; after *and* sits the clause *he works hard*.
 3. Replace the clause with a matching adjective: **"He is both intelligent and hardworking."**
-
-**Check:** Both words after *He is* are adjectives.
-
 ### #2: Moving a Misplaced Connector
 
 Revise *"He either wanted to win the race or to finish in the top three"* so *either* and *or* introduce the two goals.
@@ -92,9 +87,6 @@ Revise *"He either wanted to win the race or to finish in the top three"* so *ei
 
 1. After *either* sits *wanted to win the race*; after *or* sits *to finish*.
 2. Move *either* after the shared verb: *"He wanted either to win the race or to finish in the top three."*
-
-**Check:** Both goals remain.
-
 ### #3: Fixing Two Errors in One Passage
 
 Fix both errors in: *"The room is neither dark nor it is small. The rent is lower than the apartment next door."*
@@ -108,7 +100,7 @@ Finish the last step: which rewrite of sentence 2 is fair: (A) *"The rent is low
 :::answer
 **B: "The rent is lower than the rent for the apartment next door."** Now a rent is compared with a rent.
 
-**Check:** Name the thing on each side: *rent* and *rent*. In A, the right side is an activity.
+**Check:** In A, the right side is an activity, not a rent.
 :::
 
 ## Speed Tricks & Shortcuts

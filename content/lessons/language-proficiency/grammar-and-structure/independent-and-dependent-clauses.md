@@ -79,17 +79,17 @@ Which group contains a finite clause: *"Before the sale"* or *"Before the sale e
 
 ### #1: Testing a Short Statement
 
-How is the whole group *"the cat slept"* classified?
+How is the whole group *"the dog barked"* classified?
 
 **Solution:**
 
-1. Find the subject: *the cat*.
-2. Find the finite verb: *slept*.
+1. Find the subject: *the dog*.
+2. Find the finite verb: *barked*.
 3. Check for any opening subordinating word: none appears.
 
 The group is an **independent clause**.
 
-**Check:** *"The cat slept."* stands as a complete sentence.
+**Check:** *"The dog barked."* stands as a complete sentence.
 
 ### #2: Finding the Signal Word
 
@@ -101,7 +101,7 @@ In *"Because the road flooded, the bus was late,"* which word signals that the f
 2. Remove *Because*: *"the road flooded"* has subject *the road* and verb *flooded*, and stands alone.
 3. So **Because** is the signal word making the clause dependent.
 
-**Check:** *"The road flooded"* stands on its own, so *Because* caused the dependence.
+**Check:** Put *Because* back: *"Because the road flooded."* leaves you waiting for a main clause.
 
 ### #3: Phrase or Clause After a Time Word
 

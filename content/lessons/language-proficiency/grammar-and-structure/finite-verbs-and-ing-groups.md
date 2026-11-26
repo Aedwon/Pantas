@@ -64,25 +64,25 @@ The second one: **The nurse is checking the forms before noon.** *The nurse* is 
 
 ### #1: Finding the Finite Verb in a Verb Group
 
-Which is a complete formal sentence: *"Running quickly through the park"* or *"Lia was running quickly through the park"*?
+Which is a complete formal sentence: *"Waiting by the gate"* or *"Mia was waiting by the gate"*?
 
 **Solution:**
 
-1. In *"Running quickly through the park,"* *running* has no helper verb carrying tense and no stated subject. It is a nonfinite verb group.
-2. In *"Lia was running quickly through the park,"* *Lia* is the subject and *was* carries past tense.
-3. The second entry is the complete formal sentence.
+1. In *"Waiting by the gate,"* *waiting* has no helper verb carrying tense and no stated subject. It is a nonfinite verb group.
+2. In *"Mia was waiting by the gate,"* *Mia* is the subject and *was* carries past tense.
+3. So the second entry is the complete formal sentence: *"Mia was waiting by the gate."*
 
-**Check:** Shift the second sentence to present time: *was* changes to *is* (*"Lia is running"*).
+**Check:** Shift the second sentence to present time: *was* changes to *is* (*"Mia is waiting"*).
 
 ### #2: Sorting -ing Words and Infinitives
 
-In *"The assistant is preparing the documents to submit before closing,"* identify which word supplies the finite verb form.
+In *"The driver is loading the boxes to deliver before leaving,"* identify which word supplies the finite verb form.
 
 **Solution:**
 
-1. Find the main subject: *The assistant*.
-2. Look at the main verb group *is preparing*: *is* carries present tense and agrees with *the assistant*, while *preparing* is an *-ing* participle.
-3. Check the remaining action words: *to submit* is an infinitive and *closing* is an *-ing* noun after *before*, so neither carries tense.
+1. Find the main subject: *The driver*.
+2. Look at the main verb group *is loading*: *is* carries present tense and agrees with *the driver*, while *loading* is an *-ing* participle.
+3. Check the remaining action words: *to deliver* is an infinitive and *leaving* is an *-ing* noun after *before*, so neither carries tense.
 
 The word that supplies the finite verb form is **is**.
 

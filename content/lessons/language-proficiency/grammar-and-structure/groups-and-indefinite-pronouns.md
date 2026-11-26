@@ -31,9 +31,9 @@ Even though a committee has many members, the American one-unit convention treat
 :::
 
 :::check
-In standard American English, treating the family as one unit, choose the correct verb: The family *(is / are)* planning a trip this summer.
+In standard American English, treating the class as one unit, choose the correct verb: The class *(is / are)* taking its final exam on Friday.
 :::answer
-The answer is **Is**. Treating the family as one unit making a shared plan takes singular *is*.
+The answer is **is**: "The class is taking its final exam on Friday." One unit taking one exam takes singular *is*.
 :::
 
 ### Indefinite Pronouns
@@ -58,7 +58,7 @@ Do not use *are* because *everybody* means many people, or match the plural *fil
 :::check
 Choose the correct verb: Everybody in both offices *(needs / need)* a new badge.
 :::answer
-The answer is **Needs**. Set aside *in both offices*; *everybody* is grammatically singular and takes *needs*.
+The answer is **needs**: "Everybody in both offices needs a new badge." Set aside *in both offices*; *everybody* is grammatically singular and takes *needs*.
 :::
 
 ### Words Like All, Some, Most, and None
@@ -79,37 +79,37 @@ Do not match *tray* or *tank*, or treat *some* as always singular or *most* as a
 :::check
 Choose the correct verb: Most of the milk in the pitchers *(has / have)* spoiled.
 :::answer
-The answer is **Has**. Set aside *in the pitchers*; *most* points to the mass noun *milk*, so choose singular *has*.
+The answer is **has**: "Most of the milk in the pitchers has spoiled." Set aside *in the pitchers*; *most* points to the mass noun *milk*, so choose singular *has*.
 :::
 
 ## Examples
 
 ### #1: Collective Nouns by Context
 
-Choose the natural form for each context: (a) Under standard American English treating the committee as one unit: The committee *(has / have)* reached a decision. (b) In British English stressing separate members: The team *(is / are)* arguing among themselves.
+Choose the natural form for each context: (a) Under standard American English treating the jury as one unit: The jury *(has / have)* reached a verdict. (b) In British English stressing separate members: The staff *(is / are)* arguing about their own schedules.
 
 **Solution:**
 
-1. In (a), the committee acts as one unit under American English, so choose singular **has**.
-2. In (b), *among themselves* shows members acting separately, so British English can use plural **are**.
+1. In (a), the jury acts as one unit under American English, so choose singular **has**.
+2. In (b), *their own schedules* shows members acting separately, so British English can use plural **are**.
 
-Correct: (a) "The committee has reached a decision." (b) "The team are arguing among themselves."
+Correct: (a) "The jury has reached a verdict." (b) "The staff are arguing about their own schedules."
 
-**Check:** "It has reached a decision" (one unit); "They are arguing" (separate members).
+**Check:** "It has reached a verdict" (one unit); "They are arguing" (separate members).
 
 ### #2: Indefinite Pronoun with Singular Their
 
-Fix the error in "Everybody have their own opinion" while keeping modern gender-neutral pronoun use.
+Fix the error in "Everyone have their own locker" while keeping modern gender-neutral pronoun use.
 
 **Solution:**
 
-1. Find the main subject: *everybody*.
-2. *Everybody* is grammatically singular, so change *have* to **has**.
+1. Find the main subject: *everyone*.
+2. *Everyone* is grammatically singular, so change *have* to **has**.
 3. Keep *their*, since modern formal English accepts singular *their* for an unspecified person.
 
-Correct: "Everybody **has** their own opinion."
+Correct: "Everyone **has** their own locker."
 
-**Check:** Test the subject and verb alone: "Everybody has" fits singular agreement, while "Everybody have" does not.
+**Check:** Test the subject and verb alone: "Everyone has" fits singular agreement, while "Everyone have" does not.
 
 ### #3: Choosing Two Verbs
 

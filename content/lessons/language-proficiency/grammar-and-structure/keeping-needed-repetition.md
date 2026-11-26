@@ -43,7 +43,7 @@ The answer is **"Please repeat the date."** No earlier repeat happened yet, so *
 Check the timeline of events before you cut *again*:
 
 1. Count whether the action happened once or was already repeated.
-2. Keep *again* when it marks a further repeat beyond an earlier repeat; cut it when it adds no new step.
+2. *Again* can stay when it marks a further repeat beyond an earlier repeat; cut it when it adds no new step.
 
 :::pair #missing-prior-repeat
 Right: After an officer gave an instruction and already repeated it once, in *"Please repeat the instruction again for the late arrival,"* *again* means *"It requests a further repeat."*
@@ -61,14 +61,14 @@ A pilot announced a gate change, then repeated it twice. Now a late passenger as
 
 ### #1: Cutting Needless "Again" on a First Repeat
 
-No earlier repetition has occurred. For concise formal writing, revise: *"Could you please repeat again what you just said?"*
+Nobody has repeated the room number yet. For concise formal writing, revise: *"Please repeat again the room number."*
 
 **Solution:**
 
 1. Check the context: no earlier repeat has happened.
 2. *Repeat* already means say the same words once more, so cut *again*.
 
-Correct sentence: **"Could you please repeat what you just said?"**
+Correct sentence: **"Please repeat the room number."**
 
 **Check:** The revised sentence still asks for the same words.
 
@@ -79,9 +79,9 @@ Mara read a notice aloud. At Ben's request, she repeated it. Ben still could not
 **Solution:**
 
 1. Count prior readings: (1) first reading, (2) first repeat for Ben.
-2. Ben now wants a **second** repeat, so *again* adds that further step and stays: **"Please repeat it again."**
+2. Ben now wants a **second** repeat, so *again* adds that further step and can stay: **"Please repeat it again."**
 
-**Check:** Two readings came before this request.
+**Check:** The request asks for a third saying of the notice.
 
 ### #3: Reading a Longer Timeline
 
@@ -92,7 +92,7 @@ A coach explained a drill once, and no one asked for a repeat. Sam came late. Fo
 1. List what happened before Sam arrived.
 
 :::try
-Finish the last step: write the shorter request that keeps the same meaning.
+Finish the last step: delete one word and keep the same meaning.
 :::answer
 **"Could you repeat the drill for Sam?"** The coach has not repeated the drill yet, so *repeat* alone asks for the first repeat.
 
@@ -107,5 +107,5 @@ Before cutting *again* after *repeat*, count how many times the words were alrea
 
 :::checklist
 - First-time repeat request: usually cut *again* (do not pile on *once more* or change the request into a new idea). {#cutting-or-changing-first-repeat}
-- Request after an earlier repeat: keep *again* because it marks a further repeat, not a first repeat or a new instruction. {#missing-prior-repeat}
+- Request after an earlier repeat: *again* can stay because it marks a further repeat, not a first repeat or a new instruction. {#missing-prior-repeat}
 :::

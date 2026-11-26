@@ -74,35 +74,33 @@ The signed sheet and lit room are evidence for what is happening now, not a rule
 :::
 
 :::check
-In "Ana's bag is on her chair, so she must be here," which words give the clue, and what does *must* express?
+In "Ana's bag is on her chair, so she must be here," which words give the clue?
 :::answer
-The clue is **her bag is on her chair**. *Must* expresses a strong conclusion from that clue, not a rule.
+The clue is **her bag is on her chair**. *Must* then expresses a strong conclusion from that clue, not a rule.
 :::
 
 ## Examples
 
 ### #1: Matching an Optional Notice
 
-A notice states that bringing a printed reference sheet is optional. Choose the sentence that preserves that meaning: "Applicants must not bring a printed sheet," "Applicants have to bring a printed reference sheet," "Applicants should bring a printed reference sheet," or "Applicants do not have to bring a sheet."
+A notice states that bringing a calculator is optional. Choose the sentence that preserves that meaning: "Students must not bring a calculator," "Students have to bring a calculator," "Students should bring a calculator," or "Students do not have to bring a calculator."
 
 **Solution:**
 
 1. Define *optional*: allowed to bring it, and allowed to skip it.
 2. Rule out *must not* (ban), *have to* (rule), and *should* (advice).
-3. Choose **"Applicants do not have to bring a sheet."**
-
-**Check:** Bringing a sheet is allowed (not *must not*), not required (not *have to*), and *should* adds advice the notice does not state.
+3. Choose **"Students do not have to bring a calculator."**
 
 ### #2: Identifying Possibility in Context
 
-In "The delivery might arrive after the office closes," determine what *might* expresses.
+In "The storm may reach the coast by night," determine what *may* expresses.
 
 **Solution:**
 
-1. Check the subject *the delivery*: an event arriving, not a person asking to enter or showing past skill.
-2. Match *might* before *arrive*: it presents late arrival as uncertain, expressing **possibility**.
+1. Check the subject *the storm*: an event arriving, not a person asking to enter or showing past skill.
+2. Match *may* before *reach*: it presents arrival as uncertain, expressing **possibility**.
 
-**Check:** Replace *might* with *may* ("The delivery may arrive after the office closes"): the uncertain prediction stays intact, confirming possibility.
+**Check:** Replace *may* with *might* ("The storm might reach the coast by night"): the uncertain prediction stays intact, confirming possibility.
 
 ### #3: Two Modals in One Notice
 
