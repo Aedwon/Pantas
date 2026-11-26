@@ -90,10 +90,10 @@ Sa ganitong ayos, panatilihin ang *u* at maglagay ng *w* bago ang kasunod na pat
 
 Which word is misspelled?
 
-A) chief  
-B) concieve  
-C) neighbor  
-D) seize
+- A) chief
+- B) concieve
+- C) neighbor
+- D) seize
 
 **Solution:**
 
@@ -104,10 +104,10 @@ D) seize
 
 Which spelling is standard?
 
-A) manageing  
-B) managing  
-C) mannaging  
-D) managging
+- A) manageing
+- B) managing
+- C) mannaging
+- D) managging
 
 **Solution:**
 
@@ -118,10 +118,10 @@ D) managging
 
 Which spelling is standard?
 
-A) noticable  
-B) noticeable  
-C) noticeible  
-D) notiseable
+- A) noticable
+- B) noticeable
+- C) noticeible
+- D) notiseable
 
 **Solution:**
 
@@ -132,10 +132,10 @@ D) notiseable
 
 Which spelling is standard?
 
-A) truely  
-B) trueley  
-C) truly  
-D) truley
+- A) truely
+- B) trueley
+- C) truly
+- D) truley
 
 **Solution:**
 
@@ -146,10 +146,10 @@ D) truley
 
 Choose the correctly spelled word to complete the sentence: “The report presents a strong ______ for extending office hours.”
 
-A) arguement  
-B) argumant  
-C) argument  
-D) arguemant
+- A) arguement
+- B) argumant
+- C) argument
+- D) arguemant
 
 **Solution:**
 
@@ -160,10 +160,10 @@ D) arguemant
 
 Choose the standard spelling.
 
-A) runing  
-B) running  
-C) runeing  
-D) runnning
+- A) runing
+- B) running
+- C) runeing
+- D) runnning
 
 **Solution:**
 
@@ -174,10 +174,10 @@ D) runnning
 
 Choose the standard spelling.
 
-A) beginning  
-B) begining  
-C) beggining  
-D) begininning
+- A) beginning
+- B) begining
+- C) beggining
+- D) begininning
 
 **Solution:**
 
@@ -189,10 +189,10 @@ D) begininning
 
 Choose the standard spelling.
 
-A) visitting  
-B) visiteing  
-C) visiting  
-D) vissiting
+- A) visitting
+- B) visiteing
+- C) visiting
+- D) vissiting
 
 **Solution:**
 
@@ -203,10 +203,10 @@ D) vissiting
 
 Choose the correctly spelled word to complete the sentence: “Flooding is a frequent ______ in the area.”
 
-A) occurrence  
-B) occurrance  
-C) occurence  
-D) ocurrence
+- A) occurrence
+- B) occurrance
+- C) occurence
+- D) ocurrence
 
 **Solution:**
 
@@ -219,10 +219,10 @@ D) ocurrence
 
 Aling baybay ang naaayon sa Ortograpiyang Pambansa upang mabuo ang pangungusap? “Binasa niya ang maikling ______ bago matulog.”
 
-A) kwento  
-B) kuwento  
-C) kuwentu  
-D) kwentu
+- A) kwento
+- B) kuwento
+- C) kuwentu
+- D) kwentu
 
 **Solution:**
 
@@ -233,10 +233,10 @@ D) kwentu
 
 Choose the pair in which both words are spelled correctly.
 
-A) fixxing; playing  
-B) fixing; playying  
-C) fixxing; playying  
-D) fixing; playing
+- A) fixxing; playing
+- B) fixing; playying
+- C) fixxing; playying
+- D) fixing; playing
 
 **Solution:**
 

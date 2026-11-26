@@ -32,9 +32,9 @@ A branch tested an appointment service on several mornings. On each test morning
 
 Which conclusion is best supported?
 
-(A) Appointments will remove waiting time at every branch.  
-(B) Having an appointment appears to be linked with shorter waits at the branch during the test.  
-(C) Visitors without appointments caused the branch's delays.
+- (A) Appointments will remove waiting time at every branch.
+- (B) Having an appointment appears to be linked with shorter waits at the branch during the test.
+- (C) Visitors without appointments caused the branch's delays.
 
 **Solution:**
 

@@ -36,9 +36,12 @@ In psychology, *affect* can be a noun for the outward signs of emotion. For exam
 
 The prolonged drought will severely ______ crop yield.
 
-A) affect  
-B) effect  
-C) affects  
+A) affect
+
+B) effect
+
+C) affects
+
 D) effects
 
 **Solution:**
@@ -50,9 +53,12 @@ D) effects
 
 The new schedule had a positive ______ on attendance.
 
-A) affect  
-B) effect  
-C) affected  
+A) affect
+
+B) effect
+
+C) affected
+
 D) effected
 
 **Solution:**
@@ -64,9 +70,12 @@ D) effected
 
 Which sentence uses the word in bold correctly?
 
-A) The rain will **effect** our travel plans.  
-B) The new law **effected** major changes in procedure.  
-C) The medicine had no **affect**.  
+A) The rain will **effect** our travel plans.
+
+B) The new law **effected** major changes in procedure.
+
+C) The medicine had no **affect**.
+
 D) The delay had a serious **affect** on service.
 
 **Solution:**
@@ -78,9 +87,12 @@ D) The delay had a serious **affect** on service.
 
 The psychologist noted the patient's flat ______ during the interview.
 
-A) affect  
-B) effect  
-C) affected  
+A) affect
+
+B) effect
+
+C) affected
+
 D) effected
 
 **Solution:**

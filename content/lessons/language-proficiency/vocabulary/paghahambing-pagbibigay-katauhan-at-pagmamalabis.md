@@ -30,10 +30,10 @@ Maaaring magkaiba nang kaunti ang tawag sa ilang aklat. Tingnan kung paano ginam
 
 Malaki ang kinita ng tindahan ngayong buwan. Sinabi ng may-ari, “Umuulan ng salapi sa negosyo ko.” Anong tayutay ang pinakamalinaw na ginamit?
 
-A) Pagtutulad  
-B) Pagmamalabis  
-C) Pagwawangis  
-D) Pagbibigay-katauhan
+- A) Pagtutulad
+- B) Pagmamalabis
+- C) Pagwawangis
+- D) Pagbibigay-katauhan
 
 **Solution:**
 
@@ -44,10 +44,10 @@ D) Pagbibigay-katauhan
 
 “Ang tinig ni Ana ay parang banayad na agos ng ilog.” Anong tayutay ang ginamit?
 
-A) Pagmamalabis  
-B) Pagtutulad  
-C) Pagbibigay-katauhan  
-D) Pagwawangis
+- A) Pagmamalabis
+- B) Pagtutulad
+- C) Pagbibigay-katauhan
+- D) Pagwawangis
 
 **Solution:**
 
@@ -58,10 +58,10 @@ D) Pagwawangis
 
 “Si Liza ang ilaw ng aming pangkat sa panahon ng problema.” Anong tayutay ang ginamit?
 
-A) Pagwawangis  
-B) Pagtutulad  
-C) Pagmamalabis  
-D) Pagbibigay-katauhan
+- A) Pagwawangis
+- B) Pagtutulad
+- C) Pagmamalabis
+- D) Pagbibigay-katauhan
 
 **Solution:**
 
@@ -72,10 +72,10 @@ D) Pagbibigay-katauhan
 
 “Niyakap ng gabi ang tahimik na bayan.” Anong tayutay ang ginamit?
 
-A) Pagtutulad  
-B) Pagmamalabis  
-C) Pagbibigay-katauhan  
-D) Pagwawangis
+- A) Pagtutulad
+- B) Pagmamalabis
+- C) Pagbibigay-katauhan
+- D) Pagwawangis
 
 **Solution:**
 

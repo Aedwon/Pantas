@@ -25,9 +25,9 @@ Before a branch changed its schedule, few people arrived early in the morning. A
 
 Which conclusion is best supported?
 
-(A) Opening earlier caused the increase in early-morning visits.  
-(B) Early-morning visits were higher after the schedule change.  
-(C) Visitors came earlier because they disliked the old schedule.
+- (A) Opening earlier caused the increase in early-morning visits.
+- (B) Early-morning visits were higher after the schedule change.
+- (C) Visitors came earlier because they disliked the old schedule.
 
 **Solution:**
 
@@ -41,9 +41,9 @@ Carlo approved a revised schedule after reading staff feedback. The passage give
 
 Which conclusion is supported?
 
-(A) Carlo approved the schedule because he feared complaints.  
-(B) Carlo approved the revised schedule after reading staff feedback.  
-(C) Carlo wanted to impress the director.
+- (A) Carlo approved the schedule because he feared complaints.
+- (B) Carlo approved the revised schedule after reading staff feedback.
+- (C) Carlo wanted to impress the director.
 
 **Solution:**
 

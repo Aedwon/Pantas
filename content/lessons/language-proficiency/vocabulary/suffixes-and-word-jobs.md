@@ -24,10 +24,10 @@ These patterns have limits. *Friendly* ends in *-ly*, but it describes a person 
 
 Which statement correctly describes the words in bold in "The **helpful** clerk answered **quickly**"?
 
-A) Helpful names a quality; quickly names a person.  
-B) Helpful describes the clerk; quickly tells how the clerk answered.  
-C) Helpful tells how the clerk answered; quickly describes the clerk.  
-D) Helpful means without help; quickly means without speed.
+- A) Helpful names a quality; quickly names a person.
+- B) Helpful describes the clerk; quickly tells how the clerk answered.
+- C) Helpful tells how the clerk answered; quickly describes the clerk.
+- D) Helpful means without help; quickly means without speed.
 
 **Solution:**
 
@@ -38,10 +38,10 @@ D) Helpful means without help; quickly means without speed.
 
 In "A **friendly** guard welcomed the visitors," what job does the word in bold do?
 
-A) It names the act of welcoming.  
-B) It tells how the visitors arrived.  
-C) It describes the guard.  
-D) It names a group of visitors.
+- A) It names the act of welcoming.
+- B) It tells how the visitors arrived.
+- C) It describes the guard.
+- D) It names a group of visitors.
 
 **Solution:**
 

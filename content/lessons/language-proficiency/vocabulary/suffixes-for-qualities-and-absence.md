@@ -30,10 +30,10 @@ The suffix **-ness** makes a noun naming a state or quality. *Kind* describes a 
 
 In "Her **kindness** comforted the child," what does the suffix in the word in bold do?
 
-A) It adds the meaning "not kind."  
-B) It forms a noun naming the quality of being kind.  
-C) It forms a verb meaning "to become kind."  
-D) It forms an adverb telling how an action happens.
+- A) It adds the meaning "not kind."
+- B) It forms a noun naming the quality of being kind.
+- C) It forms a verb meaning "to become kind."
+- D) It forms an adverb telling how an action happens.
 
 **Solution:**
 
@@ -44,10 +44,10 @@ D) It forms an adverb telling how an action happens.
 
 The family was **homeless** after the fire. Which phrase best gives the meaning of the word in bold?
 
-A) without a home  
-B) full of homes  
-C) returning home  
-D) building a home
+- A) without a home
+- B) full of homes
+- C) returning home
+- D) building a home
 
 **Solution:**
 

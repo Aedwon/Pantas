@@ -28,9 +28,12 @@ Try both full forms. If neither fits, check whether the sentence needs *its* to 
 
 The university updated ______ guidelines regarding artificial intelligence.
 
-A) it's  
-B) its  
-C) its'  
+A) it's
+
+B) its
+
+C) its'
+
 D) they’re
 
 **Solution:**
@@ -42,9 +45,12 @@ D) they’re
 
 Choose the pair that completes the sentence correctly: "______ clear that ______ been a difficult week."
 
-A) Its; its  
-B) It's; its  
-C) Its; it's  
+A) Its; its
+
+B) It's; its
+
+C) Its; it's
+
 D) It's; it's
 
 **Solution:**

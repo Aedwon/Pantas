@@ -32,10 +32,10 @@ In *unhappy*, *un-* means "not," and *happy* is a real base. In *uncle*, the fir
 
 Which word analysis is valid?
 
-A) uncle = un- + cle  
-B) unhappy = un- + happy  
-C) benefit = be- + nefit  
-D) ready = re- + ady
+- A) uncle = un- + cle
+- B) unhappy = un- + happy
+- C) benefit = be- + nefit
+- D) ready = re- + ady
 
 **Solution:**
 

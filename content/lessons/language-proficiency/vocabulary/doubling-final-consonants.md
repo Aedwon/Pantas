@@ -33,10 +33,10 @@ These are useful patterns, not rules for every suffix or every English word. Che
 
 Choose the standard spelling.
 
-A) runing  
-B) running  
-C) runeing  
-D) runnning
+- A) runing
+- B) running
+- C) runeing
+- D) runnning
 
 **Solution:**
 
@@ -47,10 +47,10 @@ D) runnning
 
 Choose the standard spelling.
 
-A) beginning  
-B) begining  
-C) beggining  
-D) begininning
+- A) beginning
+- B) begining
+- C) beggining
+- D) begininning
 
 **Solution:**
 
@@ -62,10 +62,10 @@ D) begininning
 
 Choose the standard spelling.
 
-A) visitting  
-B) visiteing  
-C) visiting  
-D) vissiting
+- A) visitting
+- B) visiteing
+- C) visiting
+- D) vissiting
 
 **Solution:**
 
@@ -76,10 +76,10 @@ D) vissiting
 
 Choose the pair in which both words are spelled correctly.
 
-A) fixxing; playing  
-B) fixing; playying  
-C) fixxing; playying  
-D) fixing; playing
+- A) fixxing; playing
+- B) fixing; playying
+- C) fixxing; playying
+- D) fixing; playing
 
 **Solution:**
 

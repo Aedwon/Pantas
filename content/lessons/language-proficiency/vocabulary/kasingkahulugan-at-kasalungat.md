@@ -26,10 +26,10 @@ Maaaring hindi literal ang gamit ng salita. Kapag *gumuho ang mga pangarap*, hin
 
 Ang kaniyang mga pangarap ay **gumuho** matapos siyang mabigo sa pagsusulit. Alin ang pinakamalapit na kahulugan ng salitang nakadiin?
 
-A) natupad  
-B) nasira  
-C) lumakas  
-D) nagsimula
+- A) natupad
+- B) nasira
+- C) lumakas
+- D) nagsimula
 
 **Solution:**
 
@@ -40,10 +40,10 @@ D) nagsimula
 
 Alin ang kasalungat ng salitang nakadiin na **maralita**?
 
-A) mahirap  
-B) mayaman  
-C) masipag  
-D) tamad
+- A) mahirap
+- B) mayaman
+- C) masipag
+- D) tamad
 
 **Solution:**
 

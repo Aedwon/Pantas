@@ -32,9 +32,12 @@ Maaari ring mangahulugan ng "noong" ang *nang*: "Nang dumating siya, nagsimula a
 
 Tumakbo ______ mabilis ang aso nang makita nito ang pusa.
 
-A) ng  
-B) nang  
-C) na  
+A) ng
+
+B) nang
+
+C) na
+
 D) may
 
 **Solution:**
@@ -46,9 +49,12 @@ D) may
 
 Piliin ang tamang pares: "Bumili ______ mangga si Ana para sa anak ______ guro."
 
-A) ng; ng  
-B) nang; ng  
-C) ng; nang  
+A) ng; ng
+
+B) nang; ng
+
+C) ng; nang
+
 D) nang; nang
 
 **Solution:**
@@ -60,9 +66,12 @@ D) nang; nang
 
 Bumili si Liza ng tatlong kilo ______ bigas.
 
-A) nang  
-B) ng  
-C) na  
+A) nang
+
+B) ng
+
+C) na
+
 D) may
 
 **Solution:**
@@ -74,9 +83,12 @@ D) may
 
 Nagsimula ang programa nang alas tres ______ hapon.
 
-A) nang  
-B) ng  
-C) na  
+A) nang
+
+B) ng
+
+C) na
+
 D) may
 
 **Solution:**
@@ -88,9 +100,12 @@ D) may
 
 Piliin ang tamang pares: "______ dumating ang bus, tawag ______ tawag si Mila sa kapatid niya."
 
-A) Ng; ng  
-B) Nang; ng  
-C) Ng; nang  
+A) Ng; ng
+
+B) Nang; ng
+
+C) Ng; nang
+
 D) Nang; nang
 
 **Solution:**

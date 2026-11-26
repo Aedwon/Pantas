@@ -80,10 +80,10 @@ Hanapin ang ugat na nagpapaliwanag sa kahulugan ng buong salita. Huwag magtangga
 
 What does the prefix add to the meaning of the word in bold, **pseudoscientific**?
 
-A) ancient  
-B) false or imitation  
-C) complete  
-D) fast
+- A) ancient
+- B) false or imitation
+- C) complete
+- D) fast
 
 **Solution:**
 
@@ -96,10 +96,10 @@ Ang "tukuyin" ay nangangahulugang hanapin at sabihin ang hinihinging sagot.
 
 Tukuyin ang salitang-ugat ng salitang nakadiin: **pinagsumikapan**.
 
-A) sikap  
-B) pinag  
-C) sumikap  
-D) sikapan
+- A) sikap
+- B) pinag
+- C) sumikap
+- D) sikapan
 
 **Solution:**
 
@@ -110,10 +110,10 @@ D) sikapan
 
 Aling salita ang may panlaping kabilaan?
 
-A) kabataan  
-B) pag-ibig  
-C) sumulat  
-D) bahay
+- A) kabataan
+- B) pag-ibig
+- C) sumulat
+- D) bahay
 
 **Solution:**
 
@@ -124,10 +124,10 @@ D) bahay
 
 In "Her **kindness** comforted the child," what does the suffix in the word in bold do?
 
-A) It adds the meaning "not kind."  
-B) It forms a noun naming the quality of being kind.  
-C) It forms a verb meaning "to become kind."  
-D) It forms an adverb telling how an action happens.
+- A) It adds the meaning "not kind."
+- B) It forms a noun naming the quality of being kind.
+- C) It forms a verb meaning "to become kind."
+- D) It forms an adverb telling how an action happens.
 
 **Solution:**
 
@@ -138,10 +138,10 @@ D) It forms an adverb telling how an action happens.
 
 Which word analysis is valid?
 
-A) uncle = un- + cle  
-B) unhappy = un- + happy  
-C) benefit = be- + nefit  
-D) ready = re- + ady
+- A) uncle = un- + cle
+- B) unhappy = un- + happy
+- C) benefit = be- + nefit
+- D) ready = re- + ady
 
 **Solution:**
 
@@ -153,10 +153,10 @@ D) ready = re- + ady
 
 The official's reply was criticized for its **circumlocution**. Which meaning best fits the word in bold?
 
-A) direct statement  
-B) indirect, wordy expression  
-C) complete silence  
-D) angry shouting
+- A) direct statement
+- B) indirect, wordy expression
+- C) complete silence
+- D) angry shouting
 
 **Solution:**
 
@@ -167,10 +167,10 @@ D) angry shouting
 
 Which pair best gives the meanings of the words in bold, in order: **malevolent**, **benevolent**?
 
-A) wishing harm; wishing good  
-B) acting slowly; acting quickly  
-C) very old; very new  
-D) speaking loudly; speaking softly
+- A) wishing harm; wishing good
+- B) acting slowly; acting quickly
+- C) very old; very new
+- D) speaking loudly; speaking softly
 
 **Solution:**
 
@@ -181,10 +181,10 @@ D) speaking loudly; speaking softly
 
 Anong uri ng panlapi ang makikita sa salitang nakadiin: **pinagsumikapan**?
 
-A) unlapi lamang  
-B) gitlapi lamang  
-C) kabilaan  
-D) laguhan
+- A) unlapi lamang
+- B) gitlapi lamang
+- C) kabilaan
+- D) laguhan
 
 **Solution:**
 
@@ -195,10 +195,10 @@ D) laguhan
 
 Which statement correctly describes the words in bold in "The **helpful** clerk answered **quickly**"?
 
-A) Helpful names a quality; quickly names a person.  
-B) Helpful describes the clerk; quickly tells how the clerk answered.  
-C) Helpful tells how the clerk answered; quickly describes the clerk.  
-D) Helpful means without help; quickly means without speed.
+- A) Helpful names a quality; quickly names a person.
+- B) Helpful describes the clerk; quickly tells how the clerk answered.
+- C) Helpful tells how the clerk answered; quickly describes the clerk.
+- D) Helpful means without help; quickly means without speed.
 
 **Solution:**
 
@@ -209,10 +209,10 @@ D) Helpful means without help; quickly means without speed.
 
 In "A **friendly** guard welcomed the visitors," what job does the word in bold do?
 
-A) It names the act of welcoming.  
-B) It tells how the visitors arrived.  
-C) It describes the guard.  
-D) It names a group of visitors.
+- A) It names the act of welcoming.
+- B) It tells how the visitors arrived.
+- C) It describes the guard.
+- D) It names a group of visitors.
 
 **Solution:**
 
@@ -223,10 +223,10 @@ D) It names a group of visitors.
 
 The family was **homeless** after the fire. Which phrase best gives the meaning of the word in bold?
 
-A) without a home  
-B) full of homes  
-C) returning home  
-D) building a home
+- A) without a home
+- B) full of homes
+- C) returning home
+- D) building a home
 
 **Solution:**
 

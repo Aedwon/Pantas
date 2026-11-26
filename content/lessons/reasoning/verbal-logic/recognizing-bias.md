@@ -27,9 +27,9 @@ Passage: "Only a careless manager would reject our plan. It is clearly the sensi
 
 Which feature most strongly suggests bias?
 
-(A) The passage states a conclusion.  
-(B) The writer insults those who disagree instead of supporting the plan.  
-(C) The passage discusses a manager's decision.
+- (A) The passage states a conclusion.
+- (B) The writer insults those who disagree instead of supporting the plan.
+- (C) The passage discusses a manager's decision.
 
 **Solution:**
 

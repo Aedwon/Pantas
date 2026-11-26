@@ -33,10 +33,10 @@ Which word or phrase best completes this formal notice?
 
 “The examination will _____ at $8{:}00$ a.m.”
 
-A) commence  
-B) kick off  
-C) get going  
-D) fire up
+- A) commence
+- B) kick off
+- C) get going
+- D) fire up
 
 **Solution:**
 
@@ -47,10 +47,10 @@ D) fire up
 
 The article praised the athlete's **slim** build. Which replacement best keeps the positive tone of the word in bold?
 
-A) skinny  
-B) slender  
-C) frail  
-D) bony
+- A) skinny
+- B) slender
+- C) frail
+- D) bony
 
 **Solution:**
 
@@ -61,10 +61,10 @@ D) bony
 
 Rina was **annoyed** by the brief delay, but she soon forgot about it. Which replacement best keeps the strength of the word in bold?
 
-A) enraged  
-B) delighted  
-C) irritated  
-D) furious
+- A) enraged
+- B) delighted
+- C) irritated
+- D) furious
 
 **Solution:**
 

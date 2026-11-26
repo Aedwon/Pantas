@@ -32,9 +32,9 @@ Argument: "The office should replace its printed notices with website notices. T
 
 Which assumption is necessary to the argument?
 
-(A) Every employee prefers reading on a screen.  
-(B) Every employee can access the website notices.  
-(C) Every nearby office uses website notices.
+- (A) Every employee prefers reading on a screen.
+- (B) Every employee can access the website notices.
+- (C) Every nearby office uses website notices.
 
 **Solution:**
 

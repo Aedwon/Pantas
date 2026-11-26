@@ -51,10 +51,10 @@ Maaaring magkaiba nang kaunti ang tawag sa ilang aklat. Tingnan kung paano ginam
 
 After losing his unsaved research paper, Mark knew he was **back to square one**. What does the phrase in bold mean?
 
-A) To play a board game  
-B) To return to the beginning  
-C) To become angry  
-D) To give up permanently
+- A) To play a board game
+- B) To return to the beginning
+- C) To become angry
+- D) To give up permanently
 
 **Solution:**
 
@@ -65,10 +65,10 @@ D) To give up permanently
 
 During a board game, Mark moved his piece **back to square one** after drawing a penalty card. What does the phrase in bold mean in this sentence?
 
-A) He restarted his research.  
-B) He stopped playing the game.  
-C) He returned his piece to the first space.  
-D) He forgot the rules of the game.
+- A) He restarted his research.
+- B) He stopped playing the game.
+- C) He returned his piece to the first space.
+- D) He forgot the rules of the game.
 
 **Solution:**
 
@@ -79,10 +79,10 @@ D) He forgot the rules of the game.
 
 “The wind whispered through the dark forest.” Which literary device is used most clearly?
 
-A) Metaphor  
-B) Hyperbole  
-C) Personification  
-D) Simile
+- A) Metaphor
+- B) Hyperbole
+- C) Personification
+- D) Simile
 
 **Solution:**
 
@@ -93,10 +93,10 @@ D) Simile
 
 Dahil kapos sa kita, **naghigpit ng sinturon** ang pamilya. Ano ang ibig sabihin ng pariralang naka-bold?
 
-A) Bumili ng sinturon  
-B) Nagtipid sa gastusin  
-C) Naglakad nang mabilis  
-D) Nagpalit ng damit
+- A) Bumili ng sinturon
+- B) Nagtipid sa gastusin
+- C) Naglakad nang mabilis
+- D) Nagpalit ng damit
 
 **Solution:**
 
@@ -107,10 +107,10 @@ D) Nagpalit ng damit
 
 Malaki ang kinita ng tindahan ngayong buwan. Sinabi ng may-ari, “Umuulan ng salapi sa negosyo ko.” Anong tayutay ang pinakamalinaw na ginamit?
 
-A) Pagtutulad  
-B) Pagmamalabis  
-C) Pagwawangis  
-D) Pagbibigay-katauhan
+- A) Pagtutulad
+- B) Pagmamalabis
+- C) Pagwawangis
+- D) Pagbibigay-katauhan
 
 **Solution:**
 
@@ -121,10 +121,10 @@ D) Pagbibigay-katauhan
 
 “Hope is a bird that carries us beyond our fear.” Which literary device is used most clearly?
 
-A) Metaphor  
-B) Simile  
-C) Alliteration  
-D) Onomatopoeia
+- A) Metaphor
+- B) Simile
+- C) Alliteration
+- D) Onomatopoeia
 
 **Solution:**
 
@@ -135,10 +135,10 @@ D) Onomatopoeia
 
 “The calm lake shone like a mirror under the moon.” Which literary device is used most clearly?
 
-A) Simile  
-B) Hyperbole  
-C) Oxymoron  
-D) Personification
+- A) Simile
+- B) Hyperbole
+- C) Oxymoron
+- D) Personification
 
 **Solution:**
 
@@ -149,10 +149,10 @@ D) Personification
 
 “Silver snakes silently slid across the sand.” Which sound device is used most clearly?
 
-A) Alliteration  
-B) Onomatopoeia  
-C) Metaphor  
-D) Oxymoron
+- A) Alliteration
+- B) Onomatopoeia
+- C) Metaphor
+- D) Oxymoron
 
 **Solution:**
 
@@ -163,10 +163,10 @@ D) Oxymoron
 
 “The firecracker went **bang** beside the gate.” Which device is shown by the word in bold?
 
-A) Onomatopoeia  
-B) Simile  
-C) Metaphor  
-D) Oxymoron
+- A) Onomatopoeia
+- B) Simile
+- C) Metaphor
+- D) Oxymoron
 
 **Solution:**
 
@@ -177,10 +177,10 @@ D) Oxymoron
 
 “The crowd waited in **deafening silence**.” Which literary device is created by the phrase in bold?
 
-A) Personification  
-B) Simile  
-C) Oxymoron  
-D) Onomatopoeia
+- A) Personification
+- B) Simile
+- C) Oxymoron
+- D) Onomatopoeia
 
 **Solution:**
 
@@ -191,10 +191,10 @@ D) Onomatopoeia
 
 “Ang tinig ni Ana ay parang banayad na agos ng ilog.” Anong tayutay ang ginamit?
 
-A) Pagmamalabis  
-B) Pagtutulad  
-C) Pagbibigay-katauhan  
-D) Pagwawangis
+- A) Pagmamalabis
+- B) Pagtutulad
+- C) Pagbibigay-katauhan
+- D) Pagwawangis
 
 **Solution:**
 
@@ -205,10 +205,10 @@ D) Pagwawangis
 
 “Si Liza ang ilaw ng aming pangkat sa panahon ng problema.” Anong tayutay ang ginamit?
 
-A) Pagwawangis  
-B) Pagtutulad  
-C) Pagmamalabis  
-D) Pagbibigay-katauhan
+- A) Pagwawangis
+- B) Pagtutulad
+- C) Pagmamalabis
+- D) Pagbibigay-katauhan
 
 **Solution:**
 
@@ -219,10 +219,10 @@ D) Pagbibigay-katauhan
 
 “Niyakap ng gabi ang tahimik na bayan.” Anong tayutay ang ginamit?
 
-A) Pagtutulad  
-B) Pagmamalabis  
-C) Pagbibigay-katauhan  
-D) Pagwawangis
+- A) Pagtutulad
+- B) Pagmamalabis
+- C) Pagbibigay-katauhan
+- D) Pagwawangis
 
 **Solution:**
 

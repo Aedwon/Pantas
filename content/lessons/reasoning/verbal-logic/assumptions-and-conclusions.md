@@ -82,9 +82,9 @@ Argument: "The office should replace its printed notices with website notices. T
 
 Which assumption is necessary to the argument?
 
-(A) Every employee prefers reading on a screen.  
-(B) Every employee can access the website notices.  
-(C) Every nearby office uses website notices.
+- (A) Every employee prefers reading on a screen.
+- (B) Every employee can access the website notices.
+- (C) Every nearby office uses website notices.
 
 **Solution:**
 
@@ -144,9 +144,9 @@ Statement: "The road may close if the river rises further."
 
 Which conclusion is justified?
 
-(A) The road will close if the river rises further.  
-(B) The road cannot close if the river rises further.  
-(C) Road closure is possible if the river rises further.
+- (A) The road will close if the river rises further.
+- (B) The road cannot close if the river rises further.
+- (C) Road closure is possible if the river rises further.
 
 **Solution:**
 
@@ -160,9 +160,9 @@ A branch tested an appointment service on several mornings. On each test morning
 
 Which conclusion is best supported?
 
-(A) Appointments will remove waiting time at every branch.  
-(B) Having an appointment appears to be linked with shorter waits at the branch during the test.  
-(C) Visitors without appointments caused the branch's delays.
+- (A) Appointments will remove waiting time at every branch.
+- (B) Having an appointment appears to be linked with shorter waits at the branch during the test.
+- (C) Visitors without appointments caused the branch's delays.
 
 **Solution:**
 
@@ -177,9 +177,9 @@ Before a branch changed its schedule, few people arrived early in the morning. A
 
 Which conclusion is best supported?
 
-(A) Opening earlier caused the increase in early-morning visits.  
-(B) Early-morning visits were higher after the schedule change.  
-(C) Visitors came earlier because they disliked the old schedule.
+- (A) Opening earlier caused the increase in early-morning visits.
+- (B) Early-morning visits were higher after the schedule change.
+- (C) Visitors came earlier because they disliked the old schedule.
 
 **Solution:**
 
@@ -193,9 +193,9 @@ Carlo approved a revised schedule after reading staff feedback. The passage give
 
 Which conclusion is supported?
 
-(A) Carlo approved the schedule because he feared complaints.  
-(B) Carlo approved the revised schedule after reading staff feedback.  
-(C) Carlo wanted to impress the director.
+- (A) Carlo approved the schedule because he feared complaints.
+- (B) Carlo approved the revised schedule after reading staff feedback.
+- (C) Carlo wanted to impress the director.
 
 **Solution:**
 
@@ -209,9 +209,9 @@ Argument: "Each regional office must handle its own online forms. We can start t
 
 To test the claim about all regional offices, which statement is its correct negation?
 
-(A) No regional office can process online forms.  
-(B) At least one regional office cannot process online forms.  
-(C) Some regional offices can process online forms.
+- (A) No regional office can process online forms.
+- (B) At least one regional office cannot process online forms.
+- (C) Some regional offices can process online forms.
 
 **Solution:**
 
@@ -240,9 +240,9 @@ Passage: "Only a careless manager would reject our plan. It is clearly the sensi
 
 Which feature most strongly suggests bias?
 
-(A) The passage states a conclusion.  
-(B) The writer insults those who disagree instead of supporting the plan.  
-(C) The passage discusses a manager's decision.
+- (A) The passage states a conclusion.
+- (B) The writer insults those who disagree instead of supporting the plan.
+- (C) The passage discusses a manager's decision.
 
 **Solution:**
 

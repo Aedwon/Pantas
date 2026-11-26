@@ -29,10 +29,10 @@ An **antonym** is a word with an opposite or contrasting meaning. The right oppo
 
 Choose the word closest in meaning to the word in bold: **ephemeral**.
 
-A) eternal  
-B) fleeting  
-C) glowing  
-D) rigid
+- A) eternal
+- B) fleeting
+- C) glowing
+- D) rigid
 
 **Solution:**
 
@@ -43,10 +43,10 @@ D) rigid
 
 Select the word most nearly opposite to the word in bold: **mitigate**.
 
-A) aggravate  
-B) alleviate  
-C) placate  
-D) isolate
+- A) aggravate
+- B) alleviate
+- C) placate
+- D) isolate
 
 **Solution:**
 
@@ -57,10 +57,10 @@ D) isolate
 
 Which phrase sounds most natural in standard English?
 
-A) strong rain  
-B) muscular rain  
-C) heavy rain  
-D) powerful rain
+- A) strong rain
+- B) muscular rain
+- C) heavy rain
+- D) powerful rain
 
 **Solution:**
 

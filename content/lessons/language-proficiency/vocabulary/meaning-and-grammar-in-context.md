@@ -28,10 +28,10 @@ Grammar matters too. A replacement must fit how the word is used. *Decide* names
 
 They rested on the **bank** of the river after crossing the bridge. Which word is closest in meaning to the word in bold?
 
-A) lender  
-B) shore  
-C) account  
-D) vault
+- A) lender
+- B) shore
+- C) account
+- D) vault
 
 **Solution:**
 
@@ -42,10 +42,10 @@ D) vault
 
 The manager's **sycophantic** assistant praised every idea, even bad ones, in hopes of gaining favor. Which meaning best fits the word in bold?
 
-A) resisting orders to show independence  
-B) giving too much praise to win approval  
-C) offering sound advice to solve problems  
-D) avoiding tasks to reduce effort
+- A) resisting orders to show independence
+- B) giving too much praise to win approval
+- C) offering sound advice to solve problems
+- D) avoiding tasks to reduce effort
 
 **Solution:**
 
@@ -56,10 +56,10 @@ D) avoiding tasks to reduce effort
 
 The committee will **decide** tomorrow. Which word can replace the word in bold without changing the sentence's meaning or grammar?
 
-A) decision  
-B) choice  
-C) choose  
-D) decisive
+- A) decision
+- B) choice
+- C) choose
+- D) decisive
 
 **Solution:**
 

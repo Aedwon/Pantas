@@ -27,9 +27,9 @@ Argument: "Each regional office must handle its own online forms. We can start t
 
 To test the claim about all regional offices, which statement is its correct negation?
 
-(A) No regional office can process online forms.  
-(B) At least one regional office cannot process online forms.  
-(C) Some regional offices can process online forms.
+- (A) No regional office can process online forms.
+- (B) At least one regional office cannot process online forms.
+- (C) Some regional offices can process online forms.
 
 **Solution:**
 

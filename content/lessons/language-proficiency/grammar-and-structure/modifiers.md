@@ -56,8 +56,8 @@ Another clear form is: "After **she finished the marathon**, a warm bath felt am
 
 Which sentence clearly shows that the tourists were driving through the mountains?
 
-(A) "Driving through the mountains, the scenery amazed the tourists."  
-(B) "Driving through the mountains, the tourists were amazed by the scenery."
+- (A) "Driving through the mountains, the scenery amazed the tourists."
+- (B) "Driving through the mountains, the tourists were amazed by the scenery."
 
 **Solution:**
 
@@ -69,8 +69,8 @@ Which sentence clearly shows that the tourists were driving through the mountain
 
 How does the meaning change between these sentences?
 
-(A) "Only she gave him the answer."  
-(B) "She gave only him the answer."
+- (A) "Only she gave him the answer."
+- (B) "She gave only him the answer."
 
 **Solution:**
 

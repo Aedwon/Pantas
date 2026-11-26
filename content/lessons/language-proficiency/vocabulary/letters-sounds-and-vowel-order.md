@@ -38,10 +38,10 @@ The rhyme “i before e except after c” helps with words such as *believe*, *r
 
 Which word is misspelled?
 
-A) chief  
-B) concieve  
-C) neighbor  
-D) seize
+- A) chief
+- B) concieve
+- C) neighbor
+- D) seize
 
 **Solution:**
 

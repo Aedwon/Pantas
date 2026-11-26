@@ -34,10 +34,10 @@ Ang "tukuyin" ay nangangahulugang hanapin at sabihin ang hinihinging sagot.
 
 Tukuyin ang salitang-ugat ng salitang nakadiin: **pinagsumikapan**.
 
-A) sikap  
-B) pinag  
-C) sumikap  
-D) sikapan
+- A) sikap
+- B) pinag
+- C) sumikap
+- D) sikapan
 
 **Solution:**
 

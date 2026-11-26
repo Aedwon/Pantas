@@ -27,10 +27,10 @@ Sa ganitong ayos, panatilihin ang *u* at maglagay ng *w* bago ang kasunod na pat
 
 Aling baybay ang naaayon sa Ortograpiyang Pambansa upang mabuo ang pangungusap? “Binasa niya ang maikling ______ bago matulog.”
 
-A) kwento  
-B) kuwento  
-C) kuwentu  
-D) kwentu
+- A) kwento
+- B) kuwento
+- C) kuwentu
+- D) kwentu
 
 **Solution:**
 

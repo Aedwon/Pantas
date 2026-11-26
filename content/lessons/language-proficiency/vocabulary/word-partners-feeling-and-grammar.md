@@ -29,10 +29,10 @@ First guess the meaning from the sentence. Then put a possible answer in place o
 
 The official letter asked the applicant to **furnish** proof of residence before the office could process the request. What does the word in bold most likely mean?
 
-A) decorate  
-B) inspect  
-C) provide  
-D) withhold
+- A) decorate
+- B) inspect
+- C) provide
+- D) withhold
 
 **Solution:**
 

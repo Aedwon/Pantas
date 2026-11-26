@@ -25,10 +25,10 @@ Not every opening group of letters is a prefix. *Uncle* does not mean “not cle
 
 The report was **incomplete** because it lacked the final page. Which phrase is closest in meaning to the word in bold?
 
-A) not finished  
-B) not correct  
-C) not clear  
-D) not needed
+- A) not finished
+- B) not correct
+- C) not clear
+- D) not needed
 
 **Solution:**
 

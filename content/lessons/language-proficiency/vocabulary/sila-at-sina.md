@@ -27,9 +27,12 @@ Sa pormal na pagsulat, gamitin ang *sina* bago ang mga pangalan. Gamitin ang *si
 
 ______ Maria, Jose, at Juan ay naghanda para sa pagsusulit.
 
-A) Sila  
-B) Sina  
-C) Kina  
+A) Sila
+
+B) Sina
+
+C) Kina
+
 D) Ang
 
 **Solution:**
@@ -41,9 +44,12 @@ D) Ang
 
 Maagang dumating sina Ana at Lito. ______ ang unang pumasok sa silid.
 
-A) Sila  
-B) Sina  
-C) Kina  
+A) Sila
+
+B) Sina
+
+C) Kina
+
 D) Ang
 
 **Solution:**

@@ -26,10 +26,10 @@ Ang **sawikain** (idiom) ay pahayag na may nakasanayang kahulugan. Maaaring iba 
 
 After losing his unsaved research paper, Mark knew he was **back to square one**. What does the phrase in bold mean?
 
-A) To play a board game  
-B) To return to the beginning  
-C) To become angry  
-D) To give up permanently
+- A) To play a board game
+- B) To return to the beginning
+- C) To become angry
+- D) To give up permanently
 
 **Solution:**
 
@@ -40,10 +40,10 @@ D) To give up permanently
 
 During a board game, Mark moved his piece **back to square one** after drawing a penalty card. What does the phrase in bold mean in this sentence?
 
-A) He restarted his research.  
-B) He stopped playing the game.  
-C) He returned his piece to the first space.  
-D) He forgot the rules of the game.
+- A) He restarted his research.
+- B) He stopped playing the game.
+- C) He returned his piece to the first space.
+- D) He forgot the rules of the game.
 
 **Solution:**
 
@@ -54,10 +54,10 @@ D) He forgot the rules of the game.
 
 Dahil kapos sa kita, **naghigpit ng sinturon** ang pamilya. Ano ang ibig sabihin ng pariralang naka-bold?
 
-A) Bumili ng sinturon  
-B) Nagtipid sa gastusin  
-C) Naglakad nang mabilis  
-D) Nagpalit ng damit
+- A) Bumili ng sinturon
+- B) Nagtipid sa gastusin
+- C) Naglakad nang mabilis
+- D) Nagpalit ng damit
 
 **Solution:**
 

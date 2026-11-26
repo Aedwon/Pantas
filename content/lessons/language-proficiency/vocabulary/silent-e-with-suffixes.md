@@ -30,10 +30,10 @@ Some forms must be learned separately. *True* becomes *truly*, even though *-ly*
 
 Which spelling is standard?
 
-A) manageing  
-B) managing  
-C) mannaging  
-D) managging
+- A) manageing
+- B) managing
+- C) mannaging
+- D) managging
 
 **Solution:**
 
@@ -44,10 +44,10 @@ D) managging
 
 Which spelling is standard?
 
-A) noticable  
-B) noticeable  
-C) noticeible  
-D) notiseable
+- A) noticable
+- B) noticeable
+- C) noticeible
+- D) notiseable
 
 **Solution:**
 
@@ -58,10 +58,10 @@ D) notiseable
 
 Which spelling is standard?
 
-A) truely  
-B) trueley  
-C) truly  
-D) truley
+- A) truely
+- B) trueley
+- C) truly
+- D) truley
 
 **Solution:**
 
@@ -72,10 +72,10 @@ D) truley
 
 Choose the correctly spelled word to complete the sentence: “The report presents a strong ______ for extending office hours.”
 
-A) arguement  
-B) argumant  
-C) argument  
-D) arguemant
+- A) arguement
+- B) argumant
+- C) argument
+- D) arguemant
 
 **Solution:**
 

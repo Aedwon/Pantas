@@ -27,10 +27,10 @@ Use that rule only when the stated system allows no middle state. A stone is not
 
 A record classifies each fish as either alive or dead, with no other category. A fish is recorded as not **alive**. Which opposite of the word in bold must describe its state in this record?
 
-A) weak  
-B) asleep  
-C) injured  
-D) dead
+- A) weak
+- B) asleep
+- C) injured
+- D) dead
 
 **Solution:**
 
@@ -41,10 +41,10 @@ D) dead
 
 The soup is not **hot**. Given the meaning of the word in bold, which statement must be true based on this sentence alone?
 
-A) The soup is cold.  
-B) The soup is warm.  
-C) The soup is cool.  
-D) The exact temperature is not given.
+- A) The soup is cold.
+- B) The soup is warm.
+- C) The soup is cool.
+- D) The exact temperature is not given.
 
 **Solution:**
 

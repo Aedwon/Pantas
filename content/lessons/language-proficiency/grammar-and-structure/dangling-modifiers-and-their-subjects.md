@@ -35,8 +35,8 @@ Another clear form is: "After **she finished the marathon**, a warm bath felt am
 
 Which sentence clearly shows that the tourists were driving through the mountains?
 
-(A) "Driving through the mountains, the scenery amazed the tourists."  
-(B) "Driving through the mountains, the tourists were amazed by the scenery."
+- (A) "Driving through the mountains, the scenery amazed the tourists."
+- (B) "Driving through the mountains, the tourists were amazed by the scenery."
 
 **Solution:**
 

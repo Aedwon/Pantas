@@ -27,10 +27,10 @@ Sound matters in alliteration, not just spelling.
 
 “Silver snakes silently slid across the sand.” Which sound device is used most clearly?
 
-A) Alliteration  
-B) Onomatopoeia  
-C) Metaphor  
-D) Oxymoron
+- A) Alliteration
+- B) Onomatopoeia
+- C) Metaphor
+- D) Oxymoron
 
 **Solution:**
 
@@ -41,10 +41,10 @@ D) Oxymoron
 
 “The firecracker went **bang** beside the gate.” Which device is shown by the word in bold?
 
-A) Onomatopoeia  
-B) Simile  
-C) Metaphor  
-D) Oxymoron
+- A) Onomatopoeia
+- B) Simile
+- C) Metaphor
+- D) Oxymoron
 
 **Solution:**
 
@@ -55,10 +55,10 @@ D) Oxymoron
 
 “The crowd waited in **deafening silence**.” Which literary device is created by the phrase in bold?
 
-A) Personification  
-B) Simile  
-C) Oxymoron  
-D) Onomatopoeia
+- A) Personification
+- B) Simile
+- C) Oxymoron
+- D) Onomatopoeia
 
 **Solution:**
 

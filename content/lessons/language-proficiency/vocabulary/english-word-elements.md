@@ -33,10 +33,10 @@ These parts give clues, not the whole meaning of every word. Do not force a spli
 
 What does the prefix add to the meaning of the word in bold, **pseudoscientific**?
 
-A) ancient  
-B) false or imitation  
-C) complete  
-D) fast
+- A) ancient
+- B) false or imitation
+- C) complete
+- D) fast
 
 **Solution:**
 
@@ -47,10 +47,10 @@ D) fast
 
 The official's reply was criticized for its **circumlocution**. Which meaning best fits the word in bold?
 
-A) direct statement  
-B) indirect, wordy expression  
-C) complete silence  
-D) angry shouting
+- A) direct statement
+- B) indirect, wordy expression
+- C) complete silence
+- D) angry shouting
 
 **Solution:**
 
@@ -61,10 +61,10 @@ D) angry shouting
 
 Which pair best gives the meanings of the words in bold, in order: **malevolent**, **benevolent**?
 
-A) wishing harm; wishing good  
-B) acting slowly; acting quickly  
-C) very old; very new  
-D) speaking loudly; speaking softly
+- A) wishing harm; wishing good
+- B) acting slowly; acting quickly
+- C) very old; very new
+- D) speaking loudly; speaking softly
 
 **Solution:**
 

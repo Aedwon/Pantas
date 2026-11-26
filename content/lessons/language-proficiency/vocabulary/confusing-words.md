@@ -67,9 +67,12 @@ Sa pormal na pagsulat, gamitin ang *sina* bago ang mga pangalan. Gamitin ang *si
 
 The prolonged drought will severely ______ crop yield.
 
-A) affect  
-B) effect  
-C) affects  
+A) affect
+
+B) effect
+
+C) affects
+
 D) effects
 
 **Solution:**
@@ -81,9 +84,12 @@ D) effects
 
 The new schedule had a positive ______ on attendance.
 
-A) affect  
-B) effect  
-C) affected  
+A) affect
+
+B) effect
+
+C) affected
+
 D) effected
 
 **Solution:**
@@ -95,9 +101,12 @@ D) effected
 
 The university updated ______ guidelines regarding artificial intelligence.
 
-A) it's  
-B) its  
-C) its'  
+A) it's
+
+B) its
+
+C) its'
+
 D) they’re
 
 **Solution:**
@@ -109,9 +118,12 @@ D) they’re
 
 Choose the pair that completes the sentence correctly: "______ clear that ______ been a difficult week."
 
-A) Its; its  
-B) It's; its  
-C) Its; it's  
+A) Its; its
+
+B) It's; its
+
+C) Its; it's
+
 D) It's; it's
 
 **Solution:**
@@ -123,9 +135,12 @@ D) It's; it's
 
 Tumakbo ______ mabilis ang aso nang makita nito ang pusa.
 
-A) ng  
-B) nang  
-C) na  
+A) ng
+
+B) nang
+
+C) na
+
 D) may
 
 **Solution:**
@@ -137,9 +152,12 @@ D) may
 
 Piliin ang tamang pares: "Bumili ______ mangga si Ana para sa anak ______ guro."
 
-A) ng; ng  
-B) nang; ng  
-C) ng; nang  
+A) ng; ng
+
+B) nang; ng
+
+C) ng; nang
+
 D) nang; nang
 
 **Solution:**
@@ -151,9 +169,12 @@ D) nang; nang
 
 Bumili si Liza ng tatlong kilo ______ bigas.
 
-A) nang  
-B) ng  
-C) na  
+A) nang
+
+B) ng
+
+C) na
+
 D) may
 
 **Solution:**
@@ -165,9 +186,12 @@ D) may
 
 Nagsimula ang programa nang alas tres ______ hapon.
 
-A) nang  
-B) ng  
-C) na  
+A) nang
+
+B) ng
+
+C) na
+
 D) may
 
 **Solution:**
@@ -179,9 +203,12 @@ D) may
 
 Piliin ang tamang pares: "______ dumating ang bus, tawag ______ tawag si Mila sa kapatid niya."
 
-A) Ng; ng  
-B) Nang; ng  
-C) Ng; nang  
+A) Ng; ng
+
+B) Nang; ng
+
+C) Ng; nang
+
 D) Nang; nang
 
 **Solution:**
@@ -193,9 +220,12 @@ D) Nang; nang
 
 ______ Maria, Jose, at Juan ay naghanda para sa pagsusulit.
 
-A) Sila  
-B) Sina  
-C) Kina  
+A) Sila
+
+B) Sina
+
+C) Kina
+
 D) Ang
 
 **Solution:**
@@ -207,9 +237,12 @@ D) Ang
 
 Maagang dumating sina Ana at Lito. ______ ang unang pumasok sa silid.
 
-A) Sila  
-B) Sina  
-C) Kina  
+A) Sila
+
+B) Sina
+
+C) Kina
+
 D) Ang
 
 **Solution:**
@@ -221,9 +254,12 @@ D) Ang
 
 Which sentence uses the word in bold correctly?
 
-A) The rain will **effect** our travel plans.  
-B) The new law **effected** major changes in procedure.  
-C) The medicine had no **affect**.  
+A) The rain will **effect** our travel plans.
+
+B) The new law **effected** major changes in procedure.
+
+C) The medicine had no **affect**.
+
 D) The delay had a serious **affect** on service.
 
 **Solution:**
@@ -235,9 +271,12 @@ D) The delay had a serious **affect** on service.
 
 The psychologist noted the patient's flat ______ during the interview.
 
-A) affect  
-B) effect  
-C) affected  
+A) affect
+
+B) effect
+
+C) affected
+
 D) effected
 
 **Solution:**

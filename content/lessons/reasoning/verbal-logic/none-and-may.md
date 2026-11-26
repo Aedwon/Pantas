@@ -36,9 +36,9 @@ Statement: "The road may close if the river rises further."
 
 Which conclusion is justified?
 
-(A) The road will close if the river rises further.  
-(B) The road cannot close if the river rises further.  
-(C) Road closure is possible if the river rises further.
+- (A) The road will close if the river rises further.
+- (B) The road cannot close if the river rises further.
+- (C) Road closure is possible if the river rises further.
 
 **Solution:**
 

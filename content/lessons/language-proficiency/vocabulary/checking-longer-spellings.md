@@ -37,10 +37,10 @@ For example, sound can help you hear the parts of *occurrence*. It cannot tell y
 
 Choose the correctly spelled word to complete the sentence: “Flooding is a frequent ______ in the area.”
 
-A) occurrence  
-B) occurrance  
-C) occurence  
-D) ocurrence
+- A) occurrence
+- B) occurrance
+- C) occurence
+- D) ocurrence
 
 **Solution:**
 

@@ -21,10 +21,10 @@ keyPoints:
 
 Mara sold a used book to Leo. From Leo's point of view, what did he do?
 
-A) bought the book from Mara  
-B) sold the book to Mara  
-C) lent the book to Mara  
-D) returned the book to Mara
+- A) bought the book from Mara
+- B) sold the book to Mara
+- C) lent the book to Mara
+- D) returned the book to Mara
 
 **Solution:**
 

@@ -72,10 +72,10 @@ Maaaring hindi literal ang gamit ng salita. Kapag *gumuho ang mga pangarap*, hin
 
 Choose the word closest in meaning to the word in bold: **ephemeral**.
 
-A) eternal  
-B) fleeting  
-C) glowing  
-D) rigid
+- A) eternal
+- B) fleeting
+- C) glowing
+- D) rigid
 
 **Solution:**
 
@@ -86,10 +86,10 @@ D) rigid
 
 Select the word most nearly opposite to the word in bold: **mitigate**.
 
-A) aggravate  
-B) alleviate  
-C) placate  
-D) isolate
+- A) aggravate
+- B) alleviate
+- C) placate
+- D) isolate
 
 **Solution:**
 
@@ -100,10 +100,10 @@ D) isolate
 
 Ang kaniyang mga pangarap ay **gumuho** matapos siyang mabigo sa pagsusulit. Alin ang pinakamalapit na kahulugan ng salitang nakadiin?
 
-A) natupad  
-B) nasira  
-C) lumakas  
-D) nagsimula
+- A) natupad
+- B) nasira
+- C) lumakas
+- D) nagsimula
 
 **Solution:**
 
@@ -114,10 +114,10 @@ D) nagsimula
 
 Alin ang kasalungat ng salitang nakadiin na **maralita**?
 
-A) mahirap  
-B) mayaman  
-C) masipag  
-D) tamad
+- A) mahirap
+- B) mayaman
+- C) masipag
+- D) tamad
 
 **Solution:**
 
@@ -128,10 +128,10 @@ D) tamad
 
 They rested on the **bank** of the river after crossing the bridge. Which word is closest in meaning to the word in bold?
 
-A) lender  
-B) shore  
-C) account  
-D) vault
+- A) lender
+- B) shore
+- C) account
+- D) vault
 
 **Solution:**
 
@@ -144,10 +144,10 @@ Which word or phrase best completes this formal notice?
 
 “The examination will _____ at $8{:}00$ a.m.”
 
-A) commence  
-B) kick off  
-C) get going  
-D) fire up
+- A) commence
+- B) kick off
+- C) get going
+- D) fire up
 
 **Solution:**
 
@@ -158,10 +158,10 @@ D) fire up
 
 The article praised the athlete's **slim** build. Which replacement best keeps the positive tone of the word in bold?
 
-A) skinny  
-B) slender  
-C) frail  
-D) bony
+- A) skinny
+- B) slender
+- C) frail
+- D) bony
 
 **Solution:**
 
@@ -172,10 +172,10 @@ D) bony
 
 Rina was **annoyed** by the brief delay, but she soon forgot about it. Which replacement best keeps the strength of the word in bold?
 
-A) enraged  
-B) delighted  
-C) irritated  
-D) furious
+- A) enraged
+- B) delighted
+- C) irritated
+- D) furious
 
 **Solution:**
 
@@ -186,10 +186,10 @@ D) furious
 
 Which phrase sounds most natural in standard English?
 
-A) strong rain  
-B) muscular rain  
-C) heavy rain  
-D) powerful rain
+- A) strong rain
+- B) muscular rain
+- C) heavy rain
+- D) powerful rain
 
 **Solution:**
 
@@ -200,10 +200,10 @@ D) powerful rain
 
 Mara sold a used book to Leo. From Leo's point of view, what did he do?
 
-A) bought the book from Mara  
-B) sold the book to Mara  
-C) lent the book to Mara  
-D) returned the book to Mara
+- A) bought the book from Mara
+- B) sold the book to Mara
+- C) lent the book to Mara
+- D) returned the book to Mara
 
 **Solution:**
 
@@ -214,10 +214,10 @@ D) returned the book to Mara
 
 A record classifies each fish as either alive or dead, with no other category. A fish is recorded as not **alive**. Which opposite of the word in bold must describe its state in this record?
 
-A) weak  
-B) asleep  
-C) injured  
-D) dead
+- A) weak
+- B) asleep
+- C) injured
+- D) dead
 
 **Solution:**
 
@@ -228,10 +228,10 @@ D) dead
 
 The soup is not **hot**. Given the meaning of the word in bold, which statement must be true based on this sentence alone?
 
-A) The soup is cold.  
-B) The soup is warm.  
-C) The soup is cool.  
-D) The exact temperature is not given.
+- A) The soup is cold.
+- B) The soup is warm.
+- C) The soup is cool.
+- D) The exact temperature is not given.
 
 **Solution:**
 
@@ -242,10 +242,10 @@ D) The exact temperature is not given.
 
 The report was **incomplete** because it lacked the final page. Which phrase is closest in meaning to the word in bold?
 
-A) not finished  
-B) not correct  
-C) not clear  
-D) not needed
+- A) not finished
+- B) not correct
+- C) not clear
+- D) not needed
 
 **Solution:**
 
@@ -256,10 +256,10 @@ D) not needed
 
 The manager's **sycophantic** assistant praised every idea, even bad ones, in hopes of gaining favor. Which meaning best fits the word in bold?
 
-A) resisting orders to show independence  
-B) giving too much praise to win approval  
-C) offering sound advice to solve problems  
-D) avoiding tasks to reduce effort
+- A) resisting orders to show independence
+- B) giving too much praise to win approval
+- C) offering sound advice to solve problems
+- D) avoiding tasks to reduce effort
 
 **Solution:**
 
@@ -270,10 +270,10 @@ D) avoiding tasks to reduce effort
 
 The committee will **decide** tomorrow. Which word can replace the word in bold without changing the sentence's meaning or grammar?
 
-A) decision  
-B) choice  
-C) choose  
-D) decisive
+- A) decision
+- B) choice
+- C) choose
+- D) decisive
 
 **Solution:**
 

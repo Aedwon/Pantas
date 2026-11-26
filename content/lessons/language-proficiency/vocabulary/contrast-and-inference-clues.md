@@ -25,10 +25,10 @@ A sentence can use more than one clue. A signal word helps, but it does not prov
 
 Unlike his **gregarious** sister, who loved meeting people and attending parties, Simon preferred quiet isolation. What does the word in bold most likely mean?
 
-A) sociable  
-B) intelligent  
-C) shy  
-D) angry
+- A) sociable
+- B) intelligent
+- C) shy
+- D) angry
 
 **Solution:**
 
@@ -39,10 +39,10 @@ D) angry
 
 The politician's speech was full of **platitudes**; the audience yawned at the repetitive, familiar phrases they had heard many times before. What does the word in bold most likely mean?
 
-A) original ideas  
-B) angry insults  
-C) clichéd statements  
-D) false promises
+- A) original ideas
+- B) angry insults
+- C) clichéd statements
+- D) false promises
 
 **Solution:**
 
@@ -53,10 +53,10 @@ D) false promises
 
 Pilit na **ikinubli** ni Maria ang kaniyang mga luha sa pamamagitan ng pagtalikod sa kaniyang mga kaibigan. Ano ang malamang na ibig sabihin ng salitang naka-bold?
 
-A) ipinakita  
-B) itinago  
-C) ipinagmalaki  
-D) iniyak
+- A) ipinakita
+- B) itinago
+- C) ipinagmalaki
+- D) iniyak
 
 **Solution:**
 

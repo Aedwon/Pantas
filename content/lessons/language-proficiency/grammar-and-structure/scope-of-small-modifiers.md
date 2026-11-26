@@ -24,8 +24,8 @@ The **scope** of a modifier is the part of the sentence that it affects. Small w
 
 How does the meaning change between these sentences?
 
-(A) "Only she gave him the answer."  
-(B) "She gave only him the answer."
+- (A) "Only she gave him the answer."
+- (B) "She gave only him the answer."
 
 **Solution:**
 

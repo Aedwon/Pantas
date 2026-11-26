@@ -28,10 +28,10 @@ Common clue types include:
 
 The king's **edict**, or official command, required all citizens to pay the tax. What does the word in bold most likely mean?
 
-A) request  
-B) suggestion  
-C) official order  
-D) secret
+- A) request
+- B) suggestion
+- C) official order
+- D) secret
 
 **Solution:**
 
@@ -42,10 +42,10 @@ D) secret
 
 The forest contains many **nocturnal** animals, such as owls, bats, and flying foxes, that are active after dark. What does the word in bold most likely mean?
 
-A) dangerous  
-B) flying  
-C) active at night  
-D) noisy
+- A) dangerous
+- B) flying
+- C) active at night
+- D) noisy
 
 **Solution:**
 
@@ -56,10 +56,10 @@ D) noisy
 
 The clerk was **courteous** throughout the interview. She remained polite even when an applicant spoke rudely. What does the word in bold most likely mean?
 
-A) hurried  
-B) respectful  
-C) uncertain  
-D) talkative
+- A) hurried
+- B) respectful
+- C) uncertain
+- D) talkative
 
 **Solution:**
 

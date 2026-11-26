@@ -41,10 +41,10 @@ First guess the meaning from the sentence. Then put a possible answer in place o
 
 The king's **edict**, or official command, required all citizens to pay the tax. What does the word in bold most likely mean?
 
-A) request  
-B) suggestion  
-C) official order  
-D) secret
+- A) request
+- B) suggestion
+- C) official order
+- D) secret
 
 **Solution:**
 
@@ -55,10 +55,10 @@ D) secret
 
 The forest contains many **nocturnal** animals, such as owls, bats, and flying foxes, that are active after dark. What does the word in bold most likely mean?
 
-A) dangerous  
-B) flying  
-C) active at night  
-D) noisy
+- A) dangerous
+- B) flying
+- C) active at night
+- D) noisy
 
 **Solution:**
 
@@ -69,10 +69,10 @@ D) noisy
 
 The clerk was **courteous** throughout the interview. She remained polite even when an applicant spoke rudely. What does the word in bold most likely mean?
 
-A) hurried  
-B) respectful  
-C) uncertain  
-D) talkative
+- A) hurried
+- B) respectful
+- C) uncertain
+- D) talkative
 
 **Solution:**
 
@@ -83,10 +83,10 @@ D) talkative
 
 Unlike his **gregarious** sister, who loved meeting people and attending parties, Simon preferred quiet isolation. What does the word in bold most likely mean?
 
-A) sociable  
-B) intelligent  
-C) shy  
-D) angry
+- A) sociable
+- B) intelligent
+- C) shy
+- D) angry
 
 **Solution:**
 
@@ -97,10 +97,10 @@ D) angry
 
 The politician's speech was full of **platitudes**; the audience yawned at the repetitive, familiar phrases they had heard many times before. What does the word in bold most likely mean?
 
-A) original ideas  
-B) angry insults  
-C) clichéd statements  
-D) false promises
+- A) original ideas
+- B) angry insults
+- C) clichéd statements
+- D) false promises
 
 **Solution:**
 
@@ -111,10 +111,10 @@ D) false promises
 
 Pilit na **ikinubli** ni Maria ang kaniyang mga luha sa pamamagitan ng pagtalikod sa kaniyang mga kaibigan. Ano ang malamang na ibig sabihin ng salitang naka-bold?
 
-A) ipinakita  
-B) itinago  
-C) ipinagmalaki  
-D) iniyak
+- A) ipinakita
+- B) itinago
+- C) ipinagmalaki
+- D) iniyak
 
 **Solution:**
 
@@ -125,10 +125,10 @@ D) iniyak
 
 The official letter asked the applicant to **furnish** proof of residence before the office could process the request. What does the word in bold most likely mean?
 
-A) decorate  
-B) inspect  
-C) provide  
-D) withhold
+- A) decorate
+- B) inspect
+- C) provide
+- D) withhold
 
 **Solution:**
 

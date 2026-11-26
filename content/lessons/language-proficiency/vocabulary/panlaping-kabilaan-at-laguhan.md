@@ -26,10 +26,10 @@ Hanapin ang ugat na nagpapaliwanag sa kahulugan ng buong salita. Huwag magtangga
 
 Aling salita ang may panlaping kabilaan?
 
-A) kabataan  
-B) pag-ibig  
-C) sumulat  
-D) bahay
+- A) kabataan
+- B) pag-ibig
+- C) sumulat
+- D) bahay
 
 **Solution:**
 
@@ -40,10 +40,10 @@ D) bahay
 
 Anong uri ng panlapi ang makikita sa salitang nakadiin: **pinagsumikapan**?
 
-A) unlapi lamang  
-B) gitlapi lamang  
-C) kabilaan  
-D) laguhan
+- A) unlapi lamang
+- B) gitlapi lamang
+- C) kabilaan
+- D) laguhan
 
 **Solution:**
 

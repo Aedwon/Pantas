@@ -31,10 +31,10 @@ A simile needs a comparison, not just *like* or *as*. “She works as a teacher�
 
 “The wind whispered through the dark forest.” Which literary device is used most clearly?
 
-A) Metaphor  
-B) Hyperbole  
-C) Personification  
-D) Simile
+- A) Metaphor
+- B) Hyperbole
+- C) Personification
+- D) Simile
 
 **Solution:**
 
@@ -45,10 +45,10 @@ D) Simile
 
 “Hope is a bird that carries us beyond our fear.” Which literary device is used most clearly?
 
-A) Metaphor  
-B) Simile  
-C) Alliteration  
-D) Onomatopoeia
+- A) Metaphor
+- B) Simile
+- C) Alliteration
+- D) Onomatopoeia
 
 **Solution:**
 
@@ -59,10 +59,10 @@ D) Onomatopoeia
 
 “The calm lake shone like a mirror under the moon.” Which literary device is used most clearly?
 
-A) Simile  
-B) Hyperbole  
-C) Oxymoron  
-D) Personification
+- A) Simile
+- B) Hyperbole
+- C) Oxymoron
+- D) Personification
 
 **Solution:**
 
