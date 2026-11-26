@@ -21,10 +21,10 @@ Article III, Section $19(1)$ forbids **excessive fines** and **cruel, degrading,
 
 Section $19(2)$ directs Congress to pass laws punishing physical, psychological, or degrading abuse of prisoners or detainees. It also requires laws against keeping prison facilities in subhuman conditions.
 
-Test Section $19$ when guards force detainees to sleep standing in a flooded dark cell:
+Test Section $19$ when wardens force detainees to wear insulting signs in a public courtyard to humiliate them:
 
-1. Check the harm: the treatment is degrading and subhuman even if no bones are broken.
-2. Apply Section $19$: Sections $19(1)$ and $19(2)$ bar degrading treatment and subhuman prison conditions.
+1. Check the harm: public humiliation attacks human dignity even with no physical blows.
+2. Apply Section $19$: Sections $19(1)$ and $19(2)$ bar degrading treatment and psychological abuse of detainees.
 
 :::pair #cruel-not-all-punishment
 Right: Section $19(1)$ bars excessive fines and cruel, degrading, or inhuman penalties, not lawful punishment.
@@ -50,10 +50,10 @@ Article III, Section $19(1)$ states that the death penalty shall not be imposed 
 
 Keep that constitutional wording separate from current statutory law. **Republic Act No. $9346$**, Section $1$, prohibits courts from imposing the death penalty. Section $2$ supplies replacement penalties, covered in Part $3$.
 
-Test a judge asked to impose death under an old statute for a heinous offense:
+Test how Section $19(1)$ and Republic Act No. $9346$ govern a legislative bill versus a current sentence:
 
-1. Check constitutional wording: Section $19(1)$ allows Congress to restore death, not courts acting alone.
-2. Check current law: Republic Act No. $9346$, Section $1$ prohibits imposing death.
+1. Check Congress's role: Section $19(1)$ allows Congress to enact a future law for compelling reasons involving heinous crimes.
+2. Check current law: until Congress acts, Republic Act No. $9346$, Section $1$ bars imposing death.
 
 :::why
 Why distinguish the Constitution from Republic Act No. $9346$? The Constitution permits future laws for heinous crimes, while the statute currently in force bans imposing death.
@@ -61,14 +61,14 @@ Why distinguish the Constitution from Republic Act No. $9346$? The Constitution 
 
 :::pair #constitution-permission-vs-ra9346
 Right: Section $19(1)$ lets Congress authorize death for heinous crimes, while Republic Act No. $9346$ forbids imposing it.
-Wrong: Claiming the Constitution requires death for heinous crimes, or lets judges ignore Republic Act No. $9346$.
-The constitutional clause is conditional permission for Congress, while the Act binds courts today.
+Wrong: Claiming Article III, Section $19(1)$ requires Congress to impose the death penalty for heinous crimes.
+The constitutional clause is conditional permission for Congress, while Republic Act No. $9346$ binds courts today.
 :::
 
 :::check
-Does Article III, Section $19(1)$ require Congress to impose the death penalty for every heinous crime?
+A senator argues the Constitution forbids Congress from ever passing a future law restoring the death penalty for heinous crimes. Is the senator right?
 :::answer
-The answer is **No**. Section $19(1)$ merely allows Congress to provide for it, and Republic Act No. $9346$ currently prohibits imposing death.
+The answer is **No**. Article III, Section $19(1)$ allows Congress to provide for the death penalty for compelling reasons involving heinous crimes, though Republic Act No. $9346$ currently bars it.
 :::
 
 ## Examples

@@ -37,9 +37,9 @@ Sections $15$ and $20$ sit inside the article, while Sections $21$ and $22$ fini
 :::
 
 :::check
-Which section ends Article III of the $1987$ Constitution, and which half of the article holds it?
+Where inside Article III does a question about bail (Section $13$) sit: the civil-and-political half or the accused-protection half?
 :::answer
-The answer is **Section $22$, in the accused-protection half**. Sections $12$ through $22$ protect suspects and the accused, ending with prohibited laws in Section $22$.
+The answer is **The accused-protection half**. Sections $12$ to $22$ protect suspects and the accused, so Section $13$ belongs in that second half.
 :::
 
 ### Section $1$: Due Process

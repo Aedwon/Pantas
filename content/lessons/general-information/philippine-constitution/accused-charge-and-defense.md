@@ -51,10 +51,10 @@ Article III, Section $14(2)$ gives the accused the right to know the **nature an
 
 Section $14(2)$ also guarantees the right to **be heard by himself and counsel**. This protects answering the charge personally and through a lawyer. These differ from public observation, witness confrontation, witness orders, or trial speed.
 
-Test a hearing where a clerk hands out a blank summons naming no acts and silences defense counsel:
+Test an arraignment where the prosecutor reads "unlawful conduct in May" without naming the specific crime or alleged act:
 
-1. Check notice: hiding the crime and alleged acts denies notice of nature and cause.
-2. Check reply: silencing the accused and lawyer denies the right to be heard.
+1. Check notice: hiding the crime and specific act fails notice of nature and cause.
+2. Result: the accused cannot prepare a proper defense until the charge names the offense and alleged acts.
 
 :::pair #notice-vs-other-trial-rights
 Right: Asking what crime and acts are alleged invokes notice of the accusation's nature and cause.
@@ -65,7 +65,7 @@ Notice tells the accused what to answer, while public observation and confrontat
 :::pair #heard-by-self-and-counsel
 Right: Barring the accused and defense lawyer from answering breaks the right to be heard.
 Wrong: Treating a refusal to hear the defense as a speedy-disposition or subpoena issue.
-Even a fast, public hearing violates Section $14(2)$ if it silences the defense reply.
+Each Section $14(2)$ guarantee stands on its own, so silencing the accused and counsel breaks the right to be heard.
 :::
 
 :::check

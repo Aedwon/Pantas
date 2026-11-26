@@ -66,9 +66,9 @@ The exception is tied to the arrested person, not any place the officer wants to
 :::
 
 :::check
-After lawfully arresting a pickpocket, an officer searches the suspect's jacket pockets for weapons and stolen cash. Is a separate warrant needed?
+An officer searches a commuter's backpack first on a hunch, finds illegal goods, and then makes an arrest. Does Rule $126$, Section $13$ validate that search?
 :::answer
-The answer is **No**. Rule $126$, Section $13$ allows searching a lawfully arrested person for weapons or evidence.
+The answer is **No**. A search incident to lawful arrest must follow a lawful arrest, never precede it.
 :::
 
 ## Examples

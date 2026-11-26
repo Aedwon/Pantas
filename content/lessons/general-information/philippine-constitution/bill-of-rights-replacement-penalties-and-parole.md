@@ -24,7 +24,7 @@ Under Article III, Section $19(1)$ and **Republic Act No. $9346$**, Section $1$,
 
 These two severe prison penalties carry distinct legal names and effects, so never swap them or apply one to both types of law.
 
-Test Section $2$ on an anti-trafficking law that sets fixed prison years instead of Revised Penal Code names:
+Test Section $2$ on a special anti-trafficking law that formerly imposed death and uses fixed prison years instead of Revised Penal Code penalty names:
 
 1. Check the statute's penalty names: fixed years are not Revised Penal Code penalty names.
 2. Apply Section $2$: the replacement penalty is **life imprisonment**, not *reclusion perpetua*.
@@ -45,12 +45,12 @@ The answer is **Reclusion perpetua**. Republic Act No. $9346$, Section $2$ assig
 
 **Parole** is conditional release after a prisoner serves a minimum sentence under **Act No. $4103$** (the Indeterminate Sentence Law).
 
-Republic Act No. $9346$, Section $3$ bars parole for offenses punished with *reclusion perpetua*. It also bars parole for death sentences reduced to *reclusion perpetua* under the Act. Never treat a reduced sentence as a promise of parole, and the prisoner cannot pick another penalty.
+Republic Act No. $9346$, Section $3$ bars parole for offenses punished with *reclusion perpetua* by reason of the Act. It also bars parole when death sentences are reduced to *reclusion perpetua* by reason of the Act. Never treat a reduced sentence as a promise of parole, and the prisoner cannot pick another penalty.
 
-Test Section $3$ on a prisoner whose death sentence was reduced to *reclusion perpetua* by Republic Act No. $9346$:
+Test Sections $2$ and $3$ when a prisoner convicted of a Revised Penal Code crime under the Act requests life imprisonment instead:
 
-1. Check how the sentence arose: it was reduced to *reclusion perpetua* by reason of the Act.
-2. Apply Section $3$: parole is barred, even after years of good conduct in prison.
+1. Check Section $2$: Revised Penal Code naming fixes *reclusion perpetua*, leaving no prisoner option.
+2. Check Section $3$: parole is barred for sentences imposed by reason of the Act.
 
 :::why
 Why bar parole for reduced death sentences? Congress replaced execution with severe prison terms without parole under Section $3$ for crimes that formerly carried death.
@@ -69,9 +69,9 @@ Courts apply the statutory replacement dictated by Section $2$, leaving no priso
 :::
 
 :::check
-A prisoner convicted of an offense originally punishable by *reclusion perpetua* applies for parole under Act No. $4103$. Does Section $3$ allow parole?
+A prisoner convicted of an offense punished with *reclusion perpetua* by reason of Republic Act No. $9346$ applies for parole under Act No. $4103$. Does Section $3$ allow parole?
 :::answer
-The answer is **No**. Republic Act No. $9346$, Section $3$ bars parole for offenses punished with *reclusion perpetua* as well as reduced death sentences.
+The answer is **No**. Republic Act No. $9346$, Section $3$ bars parole for offenses punished with *reclusion perpetua* by reason of the Act.
 :::
 
 ## Examples

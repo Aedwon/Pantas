@@ -39,14 +39,14 @@ The answer is **Protection against double jeopardy**. Article III, Section $21$ 
 
 ### Rule $117$, Section $7$: Conditions for First Jeopardy
 
-Under Section $21$ and **Rule $117$, Section $7$**, the general rule blocks a second trial when four steps hold. Later lessons cover narrow exceptions for certain requested dismissals and ordinance cases:
+Under Section $21$ and **Rule $117$, Section $7$**, the general rule blocks a second trial when four steps hold:
 
 1. There was a **valid formal charge**.
 2. A **court with legal authority** heard the case.
 3. The accused underwent **arraignment** (formal reading of the charge) and entered a **valid plea** (such as guilty or not guilty).
 4. The case ended in **conviction**, **acquittal** (a not-guilty judgment), or **dismissal without the accused's express consent**.
 
-Filing or withdrawing a complaint before arraignment never triggers double jeopardy. Serving a prison sentence is unnecessary too, because a valid acquittal protects the accused without any jail time.
+Later lessons cover narrow exceptions for certain requested dismissals and ordinance cases. Filing or withdrawing a complaint before arraignment never triggers double jeopardy. Serving a prison sentence is unnecessary too, because a valid acquittal protects the accused without any jail time.
 
 Test Rule $117$, Section $7$ when a prosecutor withdraws a complaint before arraignment:
 

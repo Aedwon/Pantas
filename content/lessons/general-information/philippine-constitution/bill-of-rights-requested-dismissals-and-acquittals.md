@@ -28,8 +28,8 @@ Test Rule $117$, Section $7$ when a defendant wins dismissal because a clerk omi
 
 :::pair #requested-dismissal-reason-matters
 Right: A requested procedural dismissal allows retrial unless based on insufficient evidence or speedy-trial denial.
-Wrong: Treating every dismissal after a plea as an acquittal, or letting any request allow retrial regardless of ground.
-Always inspect why the court dismissed the case before deciding double jeopardy.
+Wrong: Treating every dismissal after a plea as an acquittal that bars retrial.
+Always inspect why the court dismissed the case, since a requested procedural dismissal leaves retrial open unless an exception applies.
 :::
 
 :::check
@@ -67,9 +67,9 @@ Both insufficient-evidence demurrers and constitutional speedy-trial dismissals 
 :::
 
 :::check
-After years of unexcused prosecution delays, the accused wins dismissal for a Section $14(2)$ speedy-trial violation. May prosecutors refile?
+After the prosecution rests in a fraud bench trial, the judge grants a demurrer to evidence for weak proof. Prosecutors argue only a jury verdict bars retrial. Are they right?
 :::answer
-The answer is **No**. A dismissal grounded on a constitutional speedy-trial violation bars retrial despite the accused's request.
+The answer is **No**. Philippine trials have no juries, and a judge's granted demurrer for insufficient proof under Rule $119$, Section $23$ is an acquittal barring retrial.
 :::
 
 ## Examples

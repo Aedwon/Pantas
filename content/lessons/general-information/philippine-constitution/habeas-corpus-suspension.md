@@ -58,8 +58,8 @@ Why keep strict limits during valid suspension? Suspending the writ's privilege 
 
 :::pair #both-suspension-conditions
 Right: Suspension requires invasion or rebellion together with a real public-safety need.
-Wrong: Suspending on rebellion alone without public-safety need, or on an emergency label with no armed conflict.
-Both prongs in Section $15$ must hold, and a storm or calamity label never substitutes for invasion or rebellion.
+Wrong: Suspending the writ privilege on rebellion alone without showing that public safety requires it.
+Both prongs in Section $15$ must hold, and a storm or calamity label never replaces invasion or rebellion.
 :::
 
 :::pair #suspension-never-blank-power
@@ -91,7 +91,7 @@ Answer: No, convenience meets neither requirement under Article III, Section $15
 
 ### #2: Transit Strike Without Armed Conflict
 
-During a city-wide port and transit strike, officials declare an economic emergency and propose suspending the privilege of the writ of *habeas corpus* to clear blocked terminals. Neither invasion nor rebellion exists. May the privilege be suspended?
+During a city-wide port and transit strike, officials declare an economic emergency. They propose suspending the privilege of the writ of *habeas corpus* to clear blocked terminals. Neither invasion nor rebellion exists. May the privilege be suspended?
 
 **Solution:**
 
@@ -102,21 +102,21 @@ Answer: No, Section $15$ forbids suspension without invasion or rebellion.
 
 **Check:** Order concerns during a labor strike cannot bypass Section $15$'s invasion-or-rebellion test.
 
-### #3: Detention During Valid Suspension
+### #3: Five Days Uncharged During Rebellion
 
-During an actual invasion, officials validly suspend the privilege of the writ of *habeas corpus* for public safety. A detention warden locks up a shopkeeper over a private contract fight. The warden says valid suspension makes every detention lawful and cancels all trial safeguards. Is the warden right?
+During an actual rebellion, officials validly suspend the privilege of the writ of *habeas corpus* for public safety. A camp commander holds a local journalist for $5$ days with no court charge and refuses her bail application on a bailable offense. He claims the suspension removes all custody deadlines and bail rights. Is the commander right?
 
 **Solution:**
 
-1. Check the suspension context: invasion plus public safety supports suspending the writ privilege for covered cases.
-2. Check the scope of power: valid suspension never turns every detention into a lawful custody or cancels trial and bail rules.
+1. Check the suspension context: rebellion and public safety support suspending the writ privilege for covered cases.
+2. Check constitutional limits: Article III, Section $13$ keeps bail intact, and Article VII, Section $18$ requires judicial charging within $3$ days or release.
 
 :::try
-Finish the last step: rule on the warden's two claims and name the constitutional limits that still restrain detention during suspension.
+Finish the last step: rule on the $5$-day uncharged detention and the refusal of bail under the Constitution.
 :::answer
-The answer is **No, the warden is wrong on both claims**. Valid suspension neither makes every detention lawful nor cancels trial safeguards. Under Article III, Sections $13$ and $15$, and the Executive Article, detainees keep bail and trial rights. They must be judicially charged within $3$ days or released.
+The answer is **No, the commander violates both the $3$-day charging rule and the right to bail.** Under Article VII, Section $18$, a detainee must be judicially charged within $3$ days or released. Under Article III, Section $13$, suspension never impairs the right to bail.
 
-**Check:** Suspending the writ privilege pauses one remedy for covered security cases without granting unlimited detention power.
+**Check:** Valid suspension under Section $15$ leaves both the $3$-day court-charge deadline and bail rights fully in force.
 :::
 
 ## Traps to Watch For

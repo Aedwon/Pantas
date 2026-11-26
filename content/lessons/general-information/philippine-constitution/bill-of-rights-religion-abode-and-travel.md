@@ -20,13 +20,13 @@ keyPoints:
 Article III, Section $5$ sets three rules on religion:
 
 1. **Non-establishment:** No law may establish a State religion or favor one faith.
-2. **Free exercise:** Religious profession and worship are allowed without discrimination or preference, though belief never excuses harming others or breaking valid general laws.
+2. **Free exercise:** Religious profession and worship are allowed without discrimination or preference, though belief gives no general right to harm others or ignore every law.
 3. **No religious test:** No religious test may be required to exercise civil or political rights, such as voting.
 
-Test a rule requiring voters to join a government-approved church before casting a ballot:
+Test a city rule requiring food-stall applicants to show a baptism certificate from one parish before receiving a permit:
 
-1. Identify the right restricted: voting is a political right.
-2. Match the condition: forcing church membership to vote is a barred religious test.
+1. Identify the right restricted: applying for a civil business permit is a civil right.
+2. Match the condition: demanding church membership for a civil permit breaks the ban on religious tests.
 
 :::pair #religious-test-political-rights
 Right: Conditioning voting or civil rights on religion breaks Section $5$'s ban on religious tests.
@@ -47,10 +47,10 @@ Article III, Section $6$ sets separate rules for two freedoms:
 1. **Liberty of abode** (choosing where to live): may be impaired only **within the limits prescribed by law** and **upon lawful order of the court**.
 2. **Right to travel**: may be limited only for **national security, public safety, or public health**, as provided by law.
 
-Test a mayor ordering a family to move to another town on national security grounds without a court order:
+Test a barangay council ordering a family to leave their neighborhood permanently on public-health grounds without a court order:
 
-1. Identify the freedom affected: forced relocation targets liberty of abode, not travel.
-2. Check the abode rule: a lawful court order is missing, so national security alone cannot save the order.
+1. Identify the freedom affected: forcing a family out of their home targets liberty of abode, not travel.
+2. Check the abode rule: a lawful court order is missing, so public health alone cannot save the order.
 
 :::why
 Why does abode require a court order? Moving someone's home uproots their daily life, so a judge must review it first. By contrast, urgent health or security risks can require legal travel limits.
@@ -69,9 +69,9 @@ Section $6$ allows restrictions on abode when both a law and a lawful court orde
 :::
 
 :::check
-May a health department restrict travel out of an outbreak zone under a valid public-health law without a court order?
+Under a valid national-security law, immigration officers stop a traveler from boarding a flight into an active border conflict zone without a court order. Is that lawful?
 :::answer
-The answer is **Yes**. Public health, as provided by law, is a valid Section $6$ ground for restricting travel.
+The answer is **Yes**. National security, as provided by law, is a valid Section $6$ ground for restricting travel without a court order.
 :::
 
 ## Examples

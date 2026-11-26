@@ -68,10 +68,10 @@ To **waive** a right means to give it up. Under Article III, Section $12(1)$, cu
 
 Both conditions must hold together. An oral agreement before a lawyer fails writing, and a signature signed alone fails counsel's presence.
 
-Test a suspect who tells officers aloud, with counsel watching, that she waives her rights without signing:
+Test a burglary suspect who receives warnings, consults an independent lawyer, and signs a written waiver with that lawyer present:
 
-1. Check counsel: a lawyer heard the statement.
-2. Check writing: nothing is in writing, so the waiver fails Section $12(1)$.
+1. Check writing: the waiver is written and signed.
+2. Check counsel: competent, independent counsel was present, so the waiver satisfies Section $12(1)$.
 
 :::why
 Why require both writing and counsel? Writing prevents disputes over what was agreed, and counsel guards against quiet pressure in custody.
@@ -84,9 +84,9 @@ Both writing and counsel's presence are mandatory under Section $12(1)$.
 :::
 
 :::check
-A suspect signs a written waiver alone while waiting for an appointed lawyer to arrive. Is that waiver valid?
+A suspect signs a written waiver while an investigator's colleague, not an independent lawyer, sits beside him. Is that waiver valid?
 :::answer
-The answer is **No**. A written waiver signed without counsel present fails Section $12(1)$.
+The answer is **No**. Section $12(1)$ requires a written waiver in the presence of competent and independent counsel.
 :::
 
 ## Examples

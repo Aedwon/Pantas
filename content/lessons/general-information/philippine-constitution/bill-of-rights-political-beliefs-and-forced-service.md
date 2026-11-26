@@ -29,8 +29,8 @@ Test Section $18(1)$ when police jail a peaceful speaker for handing out flyers 
 
 :::pair #political-belief-sole-ground
 Right: Section $18(1)$ bars detention solely for unpopular political beliefs, while separate crimes remain punishable.
-Wrong: Allowing detention for unpopular beliefs, or treating beliefs as a shield from all lawful detention.
-Check whether the custody rests on beliefs alone or on a separate crime.
+Wrong: Treating an unpopular political belief alone as a lawful ground for detention.
+Check whether custody rests on beliefs alone or a separate crime; beliefs never excuse an actual crime.
 :::
 
 :::check
@@ -100,21 +100,21 @@ Answer: Yes, the due-conviction punishment exception under Article III, Section 
 
 **Check:** Both conditions of the exception hold because a due conviction came before the lawful work punishment.
 
-### #3: Unpopular Views and a Pending Charge
+### #3: Peaceful Protest Custody and Post-Conviction Duty
 
-A resident leads peaceful rallies against a city project. Later, police arrest him on a valid vandalism warrant and hold him for trial. Before any trial or conviction occurs, a jail guard forces him to repair municipal fences without pay. How does Section $18$ apply to the arrest and to the fence work?
+Police detain a town teacher overnight solely for leading a peaceful march criticizing road budgets, with no crime charged. Elsewhere, a warden assigns mandatory laundry duty to a prisoner serving a final court sentence for fraud. How does Section $18$ apply to each case?
 
 **Solution:**
 
-1. Check the arrest: the warrant rests on a separate vandalism charge, not political beliefs alone.
-2. Check the fence work: the detainee faces an accusation and has not been duly convicted.
+1. Check the teacher's custody: no separate offense exists, so detention rests solely on political beliefs.
+2. Check the prisoner's laundry duty: the work is imposed as lawful punishment after due conviction for fraud.
 
 :::try
-Finish the last step: rule on both the arrest and the forced fence work under Section $18$.
+Finish the last step: state the Section $18$ ruling for both the teacher and the convicted prisoner.
 :::answer
-The answer is **The vandalism arrest is not barred by Section $18(1)$, while the forced fence work violates Section $18(2)$.** Section $18(1)$ stops jail solely for political beliefs, not separate crimes. Section $18(2)$ forbids forced work before due conviction.
+The answer is **The teacher's detention breaks Section $18(1)$, while the prisoner's laundry duty fits Section $18(2)$'s conviction exception.** Detention for peaceful political views alone is barred. Mandatory work imposed as punishment after due conviction is expressly permitted.
 
-**Check:** Separate lawful grounds allow custody pending trial, yet an unconvicted detainee cannot be forced to work.
+**Check:** Test Section $18(1)$ for any separate crime and Section $18(2)$ for a prior court conviction.
 :::
 
 ## Traps to Watch For

@@ -45,7 +45,7 @@ The answer is **No**. Only a judge can personally determine probable cause for a
 
 Under Article III, Section $2$, a search warrant requires two extra safeguards:
 
-1. The judge must personally examine the complainant and witnesses in writing under **oath or affirmation** (a formal promise to tell the truth).
+1. Under Section $2$, the judge must personally examine the complainant and witnesses under **oath or affirmation** (a formal promise to tell the truth). Rule $126$, Section $5$ requires that examination in writing.
 2. The warrant must particularly describe the place to be searched and the persons or things to be seized.
 
 Test a warrant naming "$14$ Rizal Street" and ordering officers to seize "any illegal items inside":
@@ -65,10 +65,10 @@ An arrest warrant must particularly identify the person to be arrested. The judg
 
 Supreme Court case law interpreting Section $2$ allows a different step for arrest warrants. A judge may personally evaluate the prosecutor's report and supporting evidence. Personal questioning of witnesses is not always required when written records already show probable cause.
 
-Test an arrest warrant issued after a judge reads the prosecutor's report and sworn affidavits without calling witnesses:
+Test an arrest warrant where the prosecutor's report leaves factual gaps, so the judge calls a witness before signing:
 
-1. Check independence: the judge personally reviewed the supporting records.
-2. Check witness questioning: written records suffice here, so personal questioning is unnecessary.
+1. Check records: when written files leave doubts, the judge may still question witnesses to verify probable cause.
+2. Check independence: personally evaluating the added facts before signing meets Section $2$'s judicial-review duty.
 
 :::pair #arrest-warrant-records
 Right: For an arrest warrant, personal review of the prosecutor's report and sufficient supporting evidence meets the judge's duty.

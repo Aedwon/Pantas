@@ -54,6 +54,7 @@ Apply Section $10$ when a new city health rule requires pricier food covers for 
 
 1. Check the contract duty: the catering deal sets meal delivery and price duties.
 2. Check public welfare: inspect both the law's effect on those duties and its valid health purpose.
+3. Result: because the rule serves a genuine food-safety purpose, added cost alone does not violate Section $10$.
 
 :::pair #contract-public-welfare-balance
 Right: Examine both a later law's effect on contract duties and its valid public-welfare basis.

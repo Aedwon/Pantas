@@ -25,10 +25,10 @@ Test Section $9$ when a town widens a road across private land:
 1. Check the taking: private land goes to public road use.
 2. Check payment: public use triggers just compensation.
 
-Test Section $10$ on a law cutting interest owed under an existing loan contract:
+Test Section $10$ on a special law erasing interest owed under an existing private loan, with no valid public-welfare regulation behind it:
 
-1. Check the duty: the loan fixed a lawful payment duty.
-2. Apply Section $10$: changing that duty impairs the contract.
+1. Check the duty: the loan fixed a lawful payment obligation.
+2. Apply Section $10$: wiping out that duty without a valid public-welfare basis impairs the contract.
 
 :::pair #just-compensation-always
 Right: Public taking under Section $9$ always requires just compensation.
@@ -76,10 +76,10 @@ Waiving these rights requires **both**:
 
 Section $12(2)$ bans torture, force, threats, and secret detention. Section $12(3)$ bars statements taken against Section $12$ or $17$.
 
-Test an invited theft suspect who signs a waiver alone without a lawyer:
+Test an invited fraud suspect whose confession is forced through threats during precinct questioning:
 
-1. Check custody: a suspect invitation counts under Republic Act No. $7438$.
-2. Check the waiver: writing without counsel fails Section $12(1)$, barring any statement.
+1. Check custody: a suspect invitation triggers Section $12$ under Republic Act No. $7438$.
+2. Check Sections $12(2)$ and $12(3)$: threats are banned, making the forced statement inadmissible.
 
 :::why
 Why require a lawyer during a written waiver? A suspect alone under police questioning faces heavy pressure, so counsel ensures the choice is truly free and informed.
@@ -112,32 +112,32 @@ Answer: Just compensation to the owner.
 
 **Check:** Public use is why taking is allowed, so it never removes the duty to pay.
 
-### #2: Filing vs. Legal Help at a Housing Board
+### #2: Poverty at a Land Dispute Board
 
-A housing board that hears evidence and resolves tenant disputes waives its filing fee for a poor renter. It then refuses legal help solely for lack of money. Is waiving the fee enough?
+A provincial land board hears evidence and resolves tenant claims. When an indigent farmer cannot pay for counsel, the board waives her docketing fee yet bars free legal aid. Did the board satisfy Section $11$?
 
 **Solution:**
 
-1. Classify the board: hearing disputes makes it quasi-judicial under Section $11$.
-2. Check both rights: free filing never cures denying legal help for poverty.
+1. Classify the board: hearing evidence and resolving disputes makes it quasi-judicial under Section $11$.
+2. Check both rights: waiving the filing fee never cures denying legal help for poverty.
 
-Answer: No, Section $11$ protects both access and legal help.
+Answer: No, Section $11$ requires both free access and adequate legal assistance despite poverty.
 
 **Check:** Courts and quasi-judicial bodies must protect filing access and legal help separately.
 
-### #3: Precinct Waiver Without Counsel
+### #3: Arson Questioning Without Counsel
 
-At a precinct robbery questioning, an indigent suspect cannot afford a lawyer. Officers give a printed waiver of silence and counsel, which the suspect signs alone. How does Section $12$ apply?
+Police invite an indigent mechanic to the station for arson questioning. He tells two officers he waives silence, answers questions with no lawyer present, and signs a printed waiver afterward. How does Section $12$ apply?
 
 **Solution:**
 
-1. Check indigent counsel: Section $12(1)$ requires providing counsel when a suspect cannot pay.
-2. Check the waiver: writing exists, yet counsel was absent.
+1. Check custody and counsel: an invited suspect is under Section $12$, and indigent suspects must receive free counsel.
+2. Check the waiver: signing afterward without counsel present fails Section $12(1)$'s dual requirement.
 
 :::try
-Finish the last step: rule on the waiver and any statement taken under it.
+Finish the last step: rule on the waiver and the admissibility of his answers.
 :::answer
-The answer is **The waiver is invalid without counsel, so any resulting statement is inadmissible.** Section $12(1)$ requires both writing and counsel's presence, and Section $12(3)$ bars unlawful statements.
+The answer is **The waiver fails without counsel's presence, so his answers are inadmissible under Section $12(3)$.** Under Section $12(1)$, a valid waiver needs both writing and counsel's presence, and officers must provide free counsel when a suspect cannot pay.
 
 **Check:** Writing alone never replaces counsel, and poverty never removes appointed counsel.
 :::

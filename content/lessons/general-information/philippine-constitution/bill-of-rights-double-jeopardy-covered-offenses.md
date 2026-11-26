@@ -36,16 +36,16 @@ Check whether all execution acts finished before checking the result.
 :::
 
 :::check
-A thief pries open a door and steps inside, yet a guard grabs him before he touches goods. Which stage is this?
+A thief reaches into an open cash drawer and grips cash bills, yet a guard grabs his wrist before he can remove the money. Which stage is this?
 :::answer
-The answer is **Attempted**. Direct acts began, yet guards stopped him before completing all execution acts.
+The answer is **Attempted**. Direct acts toward taking the money began, yet the guard stopped him before completing all execution acts.
 :::
 
 ### Rule $117$: Necessarily Included Offenses
 
 Under Rule $117$, Section $7$, double jeopardy covers any offense that **necessarily includes**, or is **necessarily included in**, the first charge. An **included offense** has all its required parts inside the larger charge, which adds an extra part.
 
-Under Revised Penal Code Articles $248$, $249$, and $14(16)$, **homicide** is an unlawful killing. **Murder** is an unlawful killing plus a qualifying circumstance like **treachery**, choosing an attack method blocking victim defense.
+Under Revised Penal Code Articles $248$, $249$, and $14(16)$, **homicide** is an unlawful killing. **Murder** adds a qualifying circumstance such as **treachery**. Treachery means using attack methods that directly ensure execution without risk from the victim's defense.
 
 Homicide sits inside a murder charge alleging those facts. A valid conviction or acquittal of murder bars a homicide trial for the same killing. Changing the title or charging fewer elements never bypasses Section $21$.
 
@@ -93,7 +93,7 @@ Answer: No, double jeopardy under Section $21$ bars the second trial.
 
 ### #2: Incomplete Stages of Arson
 
-One person splashes fuel on a shed and strikes a match before neighbors tackle him. Another person lights a gasoline-soaked rag beside a storeroom door and leaves, yet sudden rain puts the fire out before any part of the building burns. Under Article $6$, classify each stage.
+One person splashes fuel on a shed and strikes a match before neighbors tackle him. Another person lights a gasoline-soaked rag beside a storeroom door and leaves. Sudden rain puts the fire out before any part of the building burns. Under Article $6$, classify each stage.
 
 **Solution:**
 

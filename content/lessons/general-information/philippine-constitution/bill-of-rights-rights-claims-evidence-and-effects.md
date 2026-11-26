@@ -23,7 +23,7 @@ To **analyze** a rights claim means to study its parts and explain how the facts
 2. Match those facts against the exact Article III right, its conditions, and any stated exceptions.
 3. Determine lawful next steps, such as seeking a lawyer, legal aid, or a proper court remedy.
 
-An accusation or a "rights violation" label alone is never proof. Also remember that lawful or unlawful detention never strips away Article III, Section $19$'s ban on cruel or degrading treatment.
+An accusation or a "rights violation" label alone is never proof. Lawful or unlawful detention never strips away Article III, Section $19$'s ban on cruel or degrading treatment.
 
 Test this process when a prisoner reports guards withheld food for three days:
 
@@ -72,9 +72,9 @@ Match every stated personal or family effect directly to a fact in the record.
 :::
 
 :::check
-A detainee's record proves two weeks of unlawful detention and lost salary, with no clinic report. Does it establish a proven physical injury?
+A worker's file proves four days of unlawful custody and missed wages while her bank loan remains unpaid. Does the unlawful detention erase her bank loan?
 :::answer
-The answer is **No**. Without medical or factual proof of injury, only lost liberty and missed income are supported by the record.
+The answer is **No**. State only effects backed by the record, and unlawful detention never cancels a valid loan.
 :::
 
 ## Examples

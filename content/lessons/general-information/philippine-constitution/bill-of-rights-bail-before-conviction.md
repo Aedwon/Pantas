@@ -22,12 +22,13 @@ Under Article III, Section $13$, all persons before conviction have a right to b
 
 Release may use sufficient **sureties**, who guarantee the accused's required appearance. **Release on recognizance** is also allowed when provided by law, using a lawful undertaking instead of a bail bond.
 
-Bail never decides guilt, admits no charge, and ends no trial. These sections guide your reading, while each real case turns on its exact conditions.
+Bail never decides guilt, admits no charge, and ends no trial.
 
 Test Section $13$ when an accused posts a surety bond in a theft case:
 
 1. Check the sureties' duty: they guarantee required court appearance, not acquittal or dismissal.
 2. Check the stage: bail allows release before conviction while trial proceeds.
+3. Result: the accused stays free pending trial, yet must still appear and answer the charge.
 
 :::pair #bail-secures-appearance
 Right: Bail and sureties guarantee required appearance without deciding guilt or ending trial.
@@ -139,6 +140,6 @@ The answer is **The detainee keeps the right to bail, and excessive bail remains
 
 :::checklist
 - Accused posts bail with sureties: remember sureties guarantee appearance, not innocence or dismissal. {#bail-secures-appearance}
-- Charge carries *reclusion perpetua*: deny bail as of right only when strong evidence is also shown. {#bail-exception-two-parts}
+- Charge carries *reclusion perpetua*: deny bail before conviction only when strong evidence is also shown. {#bail-exception-two-parts}
 - Writ of *habeas corpus* is suspended: keep bail intact and reject excessive bail. {#bail-survives-suspension}
 :::

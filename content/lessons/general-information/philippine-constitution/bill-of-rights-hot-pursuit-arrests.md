@@ -53,10 +53,10 @@ The answer is **No**. The crime just happened and the officer personally saw fac
 
 **Personal knowledge** means facts the officer sees, hears, or gathers directly at the scene or during an immediate investigation. A bare guess, rumor, or unverified text message does not give probable cause.
 
-Test a bare tip. An officer receives an unverified text about a theft from last week and arrests the named person without checking facts:
+Test secondhand rumor. Three days after a street assault, an officer hears neighborhood gossip naming a driver and arrests him without checking facts:
 
-1. Check immediacy: last week is not an offense that just occurred.
-2. Check personal knowledge: an unverified message supplies no personally known facts or circumstances.
+1. Check immediacy: an assault from three days ago did not just occur.
+2. Check personal knowledge: secondhand gossip supplies no personally known facts or circumstances.
 3. Since both conditions fail, hot pursuit does not justify the arrest.
 
 :::pair #personal-knowledge-not-tip
@@ -99,7 +99,7 @@ An officer arrests a man without a warrant based solely on an unverified message
 :::try
 Finish the last step: state whether hot pursuit applies and name both missing conditions.
 :::answer
-The answer is **No, hot pursuit fails because the theft did not just occur and the officer lacks personal knowledge.** Without a recent offense and personally observed facts, officers must apply for an arrest warrant.
+The answer is **No, hot pursuit fails on both rules: a month-old theft is not recent, and a bare message gives no personal knowledge.** Without both conditions, officers must apply to a judge for an arrest warrant.
 
 **Check:** Even acting quickly after reading a tip cannot replace the two mandatory conditions under Rule $113$, Section $5$.
 :::

@@ -87,20 +87,20 @@ Investigators threaten a person until the person signs a confession. May that co
 
 Answer: No, the threatened confession cannot be used as evidence against the person.
 
-**Check:** Threats vitiate free will under Section $12(2)$, triggering automatic exclusion under Section $12(3)$.
+**Check:** Threats destroy free choice under Section $12(2)$, triggering automatic exclusion under Section $12(3)$.
 
-### #2: Hidden Room Without Violence
+### #2: Solitary Lockup With No Confession
 
-Police hold a theft suspect for two days inside an unmarked warehouse room and forbid phone calls or family visits. A supervisor says no rule was broken because nobody struck the suspect or questioned him yet. Does Section $12(2)$ allow that detention?
+Officers place an arson suspect in solitary lockup for $36$ hours and block visits from family or counsel. A commander says Section $12(2)$ was not broken because the suspect never confessed. Is the commander right?
 
 **Solution:**
 
-1. Classify the custody: holding someone in an unmarked room without outside contact is secret and incommunicado detention.
-2. Apply Section $12(2)$: secret and incommunicado detention are prohibited even with no physical violence or interrogation.
+1. Classify the custody: isolating a suspect without communication is solitary, incommunicado detention.
+2. Apply Section $12(2)$: solitary and incommunicado detention are banned outright even when no confession follows.
 
-Answer: No, the detention violates Article III, Section $12(2)$.
+Answer: No, the commander is wrong because Section $12(2)$ bans that detention regardless of any confession.
 
-**Check:** Section $12(2)$ bans secret and cut-off detention on its own, without needing physical blows or a confession.
+**Check:** Section $12(2)$ forbids secret, solitary, and incommunicado detention on its own, without needing blows or a confession.
 
 ### #3: Forced Partial Admission
 

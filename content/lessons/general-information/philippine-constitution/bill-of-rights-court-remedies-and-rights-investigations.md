@@ -19,7 +19,7 @@ keyPoints:
 
 Article III, Section $15$ and **Rule $102$, Sections $1$ and $2$** govern the **writ of habeas corpus**. This writ orders a custodian to bring a detainee before a court to check whether detention is lawful.
 
-Keep *habeas corpus* separate from **parole**, conditional early release after serving part of a sentence under **Act No. $4103$**. Two other writs protect related rights: **amparo** guards life, liberty, and security from threats, and **habeas data** guards information privacy tied to them.
+Keep *habeas corpus* separate from **parole**, conditional early release after serving part of a sentence under **Act No. $4103$**.
 
 Only courts decide criminal guilt, issue acquittals, or grant judicial writs. Congress passes laws and never acquits detained individuals.
 
@@ -70,9 +70,9 @@ Evidence must still be heard, and criminal charges belong to trial courts.
 :::
 
 :::check
-After investigating jail abuse, may the Commission on Human Rights directly sentence guards to two years in prison?
+An indigent resident whose civil rights were violated asks the Commission on Human Rights for protective measures and legal aid. Does Article XIII, Section $18$ allow that help?
 :::answer
-The answer is **No**. Under Article XIII, Section $18$, the CHR investigates and refers findings, while courts impose criminal sentences.
+The answer is **Yes**. Article XIII, Section $18$ authorizes the CHR to provide protective measures and legal aid to underprivileged people alongside investigating violations.
 :::
 
 ## Examples

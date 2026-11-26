@@ -75,9 +75,9 @@ Section $3(2)$ bars unlawfully obtained evidence in criminal, civil, and adminis
 :::
 
 :::check
-Officials seize letters in violation of Section $3$ and offer them in a civil service disciplinary hearing. May the hearing officer admit them?
+Investigators copy a borrower's private texts without a court order and offer them in a civil debt lawsuit. May the civil judge admit them?
 :::answer
-The answer is **No**. Under Section $3(2)$, unlawfully obtained evidence is barred in any proceeding for any purpose.
+The answer is **No**. Section $3(2)$ bars unlawfully obtained communication for any purpose in any proceeding, including civil lawsuits.
 :::
 
 ## Examples
@@ -97,7 +97,7 @@ Answer: No, silence and obedience to officers under pressure do not establish fr
 
 ### #2: Unlawfully Obtained Messages
 
-City investigators intercept an employee's private emails without a court order or any law allowing the intrusion. They later offer the printed emails in a civil service disciplinary hearing, arguing the hearing is not a criminal trial and the messages look genuine. Should the hearing officer admit the emails?
+Board inspectors intercept an engineer's private emails without a court order or any law allowing the intrusion. They offer the printed emails in a license-revocation inquiry, arguing the hearing is not a criminal trial and the emails look genuine. Should the board admit the emails?
 
 **Solution:**
 
@@ -105,11 +105,11 @@ City investigators intercept an employee's private emails without a court order 
 2. Apply Section $3(2)$: any evidence obtained in violation of Section $3$ is inadmissible for any purpose in any proceeding.
 
 :::try
-Finish the last step: rule on admitting the emails and explain why reliability and the non-criminal hearing do not allow them.
+Finish the last step: rule on admitting the emails and explain why reliability and the non-criminal board setting do not allow them.
 :::answer
-The answer is **No, the hearing officer must exclude the emails for any purpose because Section $3(2)$ applies to all proceedings.** Neither the non-criminal administrative setting nor the apparent reliability of the emails cures a Section $3$ violation.
+The answer is **No, the board must exclude the emails for any purpose because Section $3(2)$ applies to all proceedings.** Neither the non-criminal licensing setting nor the apparent reliability of the emails cures a Section $3$ violation.
 
-**Check:** Section $3(2)$ covers criminal, civil, and administrative hearings alike, so unlawfully intercepted messages cannot be used in a disciplinary case.
+**Check:** Section $3(2)$ covers criminal, civil, and administrative inquiries alike, so unlawfully intercepted messages cannot be used in a licensing case.
 :::
 
 ## Traps to Watch For

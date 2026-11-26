@@ -48,10 +48,10 @@ Article III, Section $11$ also states that **adequate legal assistance** shall n
 
 Access to a hearing and help from a lawyer are related protections, yet they are separate. Allowing a person to file a case does not settle whether needed legal help was given. Nor does letting someone file guarantee winning the case.
 
-Apply Section $11$ when a municipal labor board waives filing fees for a poor cleaner, then denies adequate legal assistance solely because of poverty:
+Apply Section $11$ when a civil court accepts an indigent tenant's answer, yet denies public legal help as outside police custody:
 
-1. Check filing access: waiving fees covers access to the hearing.
-2. Check legal help: denying adequate legal assistance solely because the cleaner is poor still breaks Section $11$.
+1. Check scope: Section $11$ protects adequate legal assistance in court and quasi-judicial cases, beyond Section $12$ custody.
+2. Check the denial: refusing legal help to an indigent civil litigant breaks Section $11$.
 
 :::pair #access-and-help-separate
 Right: Free access to file and adequate legal assistance are separate Section $11$ protections.

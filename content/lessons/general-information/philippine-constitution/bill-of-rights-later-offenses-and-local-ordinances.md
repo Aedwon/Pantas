@@ -48,7 +48,7 @@ Article III, Section $21$ sets a special rule for an act punished by both a **na
 
 National rank never overrides this rule. Seeking a different penalty also fails to allow a second trial.
 
-Test Section $21$ when a vendor pays a city littering fine and national prosecutors charge that same act:
+Test Section $21$ when a vendor is validly convicted and fined under a city littering ordinance, and national prosecutors charge that same act:
 
 1. Check the act: both measures punish the exact same littering act.
 2. Apply Section $21$: the ordinance conviction bars the national prosecution.

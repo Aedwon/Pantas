@@ -296,11 +296,6 @@
           "questionId": "q-philippine-constitution-bill-of-rights-0032",
           "wrongChoice": "The second prosecution is allowed because the two laws have different sources",
           "mistakeNote": "Overlooks that Section 21 expressly bars dual prosecution of the same act under a law and an ordinance."
-        },
-        {
-          "questionId": "q-philippine-constitution-bill-of-rights-0032",
-          "wrongChoice": "Only a prior conviction can bar the second prosecution",
-          "mistakeNote": "Ignores that Section 21 makes both conviction and acquittal under either law a bar under the other."
         }
       ]
     },
@@ -564,11 +559,6 @@
           "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0008",
           "wrongChoice": "Yes, because arraignment removes the need for notice of trial",
           "mistakeNote": "Drops Section 14(2)'s due-notice requirement once arraignment occurs."
-        },
-        {
-          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0008",
-          "wrongChoice": "No, because trial can never proceed when the accused is absent",
-          "mistakeNote": "Overstates the rule by denying that trial in absence can ever proceed even when all three conditions hold."
         }
       ],
       "absence-not-proof-of-guilt": [
@@ -602,11 +592,6 @@
           "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0010",
           "wrongChoice": "Rebellion alone makes the proposed ground sufficient",
           "mistakeNote": "Drops Section 15's requirement that public safety must also require suspension."
-        },
-        {
-          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0011",
-          "wrongChoice": "Any emergency declaration automatically suspends the privilege",
-          "mistakeNote": "Treats a general emergency declaration as replacing invasion or rebellion."
         }
       ],
       "suspension-never-blank-power": [
@@ -694,11 +679,6 @@
           "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0001",
           "wrongChoice": "Any unpopular belief permits detention, while any official may impose labor without conviction.",
           "mistakeNote": "Removes Section 18's safeguard against detention solely for unpopular political beliefs."
-        },
-        {
-          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0001",
-          "wrongChoice": "All detention is forbidden in every case, and all punishment after conviction is automatically unlawful.",
-          "mistakeNote": "Turns Section 18(1)'s bar on belief-only detention into an absolute ban on all lawful detention."
         }
       ],
       "servitude-conviction-exception": [
@@ -736,11 +716,6 @@
           "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0017",
           "wrongChoice": "The Constitution requires death for every heinous crime.",
           "mistakeNote": "Turns Section 19(1)'s conditional permission for Congress into a mandatory death penalty."
-        },
-        {
-          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0017",
-          "wrongChoice": "The Constitution leaves courts free to disregard the Act's prohibition.",
-          "mistakeNote": "Treats Section 19(1)'s conditional wording as allowing courts to ignore Republic Act No. 9346, Section 1."
         }
       ]
     },
@@ -910,11 +885,6 @@
           "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0012",
           "wrongChoice": "Every dismissal after a plea is an acquittal that bars another prosecution.",
           "mistakeNote": "Ignores that a dismissal requested by the accused for a procedural defect generally permits reprosecution."
-        },
-        {
-          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0014",
-          "wrongChoice": "The request permits a new prosecution regardless of the court's reason for dismissal.",
-          "mistakeNote": "Applies the general requested-dismissal rule blindly without checking the court's ground for dismissal."
         }
       ],
       "granted-demurrer-is-acquittal": [
@@ -967,11 +937,6 @@
           "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0015",
           "wrongChoice": "It is ex post facto because every new penal law changes criminal consequences.",
           "mistakeNote": "Calls a prospective penal law ex post facto even though it applies only to future conduct."
-        },
-        {
-          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0015",
-          "wrongChoice": "It is a bill of attainder because Congress defined a punishable offense.",
-          "mistakeNote": "Confuses defining a general offense tried in court with inflicting legislative punishment without trial."
         }
       ]
     },

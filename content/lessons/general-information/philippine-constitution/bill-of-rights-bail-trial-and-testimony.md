@@ -62,7 +62,7 @@ Test a civil service complaint stalled at a board for five years:
 :::pair #speedy-disposition-all-bodies
 Right: Section $16$ covers judicial, quasi-judicial, and administrative bodies alike.
 Wrong: Limiting speedy disposition only to courts hearing criminal prosecutions.
-Section $16$ expressly names quasi-judicial and administrative bodies directly.
+Section $16$ expressly names quasi-judicial and administrative bodies.
 :::
 
 :::check
@@ -98,29 +98,29 @@ The answer is **Protection against compelled self-incrimination**. Article III, 
 
 ## Examples
 
-### #1: The Bail Exception
+### #1: Bail on a Ten-Year Penalty
 
-An accused awaiting trial faces a charge punishable by *reclusion perpetua*. After a hearing, the judge finds proof weak yet denies bail due to the penalty. Did the judge follow Section $13$?
+A store clerk is charged with an offense carrying a $10$-year maximum prison sentence. Prosecutors present strong video evidence and ask the judge to deny bail before trial. May the judge deny bail under Section $13$?
 
 **Solution:**
 
-1. Check timing: before conviction, bail is a right unless the exception holds.
-2. Check both parts: *reclusion perpetua* applies, yet strong evidence of guilt is missing.
+1. Check the penalty: a $10$-year prison term is not *reclusion perpetua*.
+2. Apply Section $13$: strong evidence alone never removes bail without the required severe penalty.
 
-Answer: No, denying bail also requires strong evidence of guilt.
+Answer: No, denying bail before conviction requires both *reclusion perpetua* and strong evidence of guilt.
 
 **Check:** Both Section $13$ conditions must hold together.
 
-### #2: Habeas Corpus Suspension and Bail
+### #2: Rebellion Suspension and Bail
 
-During an invasion, officials validly suspend the *habeas corpus* privilege for public safety. A detainee on a bailable charge seeks bail, and a prosecutor claims suspension ended bail too. How do Sections $13$ and $15$ apply?
+During an armed rebellion, officials validly suspend the privilege of the writ of *habeas corpus* for public safety. A civilian detained on a bailable charge applies for bail, and the jail warden claims the suspension froze all bail petitions. Is the warden right?
 
 **Solution:**
 
-1. Check Section $15$: invasion plus public safety supports suspending *habeas corpus*.
-2. Check Section $13$: suspension does not impair the right to bail.
+1. Check Section $15$: rebellion and public safety support suspending *habeas corpus*.
+2. Check Section $13$: the right to bail is not impaired even when the writ's privilege is suspended.
 
-Answer: Suspension stands, yet bail stays protected under Section $13$.
+Answer: No, the warden is wrong because bail stays protected under Section $13$.
 
 **Check:** Suspending *habeas corpus* limits that remedy while leaving bail governed by Section $13$.
 

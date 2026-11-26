@@ -26,7 +26,7 @@ Under Rule $117$, Section $7$, these are the basic general conditions for double
 3. **Arraignment** (formal reading of the charge) and a **valid plea** (such as guilty or not guilty), and
 4. A protected end: **conviction**, **acquittal** (not-guilty judgment), or **dismissal without the accused's express consent**.
 
-Recognized exceptions, such as certain dismissals requested by the accused, are covered in Article III, Part $4$.
+Recognized exceptions, such as certain dismissals requested by the accused, follow specific rules under Rule $117$, Section $7$.
 
 Test a theft complaint dropped before arraignment:
 
@@ -56,21 +56,21 @@ Section $21$ and Rule $117$, Section $7$ also cover two related situations:
 - **Included offenses:** An offense whose parts all sit inside the first charge (or one that includes it), plus attempt or frustrated stages. Renaming the charge does not evade the bar.
 - **National law and local ordinance:** One act may violate both a national law and a local ordinance. Conviction or acquittal under either bars another prosecution for the **same act** under the other.
 
-Test an ordinance acquittal for illegal dumping when prosecutors later file a national-law charge for the exact same act:
+Test a conviction under a city noise ordinance when prosecutors later file a national-law charge for the exact same late-night act:
 
-1. Check the first case: valid charge, proper court, arraignment, plea, and acquittal under the ordinance.
-2. Apply Section $21$: an acquittal under the ordinance bars prosecuting the same act under national law.
+1. Check the first case: valid charge, proper court, arraignment, plea, and conviction under the ordinance.
+2. Apply Section $21$: a conviction under the ordinance bars prosecuting the same act under national law.
 
 :::pair #law-and-ordinance
-Right: When an act is punished by a law and an ordinance, either conviction or acquittal under one bars prosecuting the same act under the other.
-Wrong: Allowing a second trial because the law and ordinance have different sources, or thinking only a conviction bars the second case.
-Section $21$ names both conviction and acquittal as a bar between law and ordinance.
+Right: Under a law and an ordinance, conviction or acquittal under either bars prosecuting the same act under the other.
+Wrong: Allowing a second trial for the same act because a city ordinance and a national statute come from different lawmakers.
+Section $21$ treats both conviction and acquittal under one as barring prosecution for the same act under the other.
 :::
 
 :::check
 A driver is acquitted under a city traffic ordinance after arraignment and plea in a proper court. Can prosecutors charge the same act under a national law?
 :::answer
-The answer is **No**. Under Section $21$, an ordinance acquittal bars prosecuting the same act under national law.
+The answer is **No**. Once the driver wins a valid acquittal under the city ordinance, Section $21$ blocks prosecuting that same driving act under national law.
 :::
 
 ## Examples

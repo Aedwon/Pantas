@@ -49,10 +49,10 @@ Under Article III, Section $14(2)$, trial may proceed without the accused **only
 
 Missing any one condition bars trial in absence. When all three hold, the trial may proceed, yet absence never proves guilt. The prosecution must still prove its case.
 
-Test a hearing where a pleaded accused misses court because the clerk mailed notice to an old wrong address:
+Test a hearing where a pleaded accused receives due notice yet undergoes emergency surgery that morning:
 
-1. Check the conditions: arraignment occurred, yet proper notice failed.
-2. Apply Section $14(2)$: without due notice, trial cannot proceed in absence.
+1. Check the conditions: arraignment and notice pass, yet emergency surgery is a justifiable reason.
+2. Apply Section $14(2)$: because absence is justifiable, trial cannot proceed without the accused.
 
 :::why
 Why require arraignment and notice first? Arraignment confirms the accused knows the charge, and due notice gives a fair chance to appear.
@@ -60,8 +60,8 @@ Why require arraignment and notice first? Arraignment confirms the accused knows
 
 :::pair #absence-needs-all-three
 Right: Trial in absence requires prior arraignment, due notice, and an unjustifiable absence.
-Wrong: Proceeding on arraignment without notice, or claiming trial can never proceed in absence.
-All three Section $14(2)$ conditions must hold together before proceeding without the accused.
+Wrong: Proceeding to trial in absence after arraignment without giving due notice.
+All three Section $14(2)$ conditions must hold together, and when all three hold, trial may proceed.
 :::
 
 :::pair #absence-not-proof-of-guilt

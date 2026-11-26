@@ -68,14 +68,14 @@ Check whether the defect is harmful retroactivity or Congress punishing directly
 
 :::pair #prospective-general-crime-valid
 Right: A prospective general penal law requiring a court trial violates neither Section $22$ ban.
-Wrong: Calling every new crime *ex post facto*, or calling a general crime definition a bill of attainder.
-Defining a future offense for courts to try is ordinary lawmaking, not a Section $22$ violation.
+Wrong: Calling every new penal law *ex post facto* simply because it defines criminal consequences.
+Defining a future offense for courts to try is ordinary lawmaking, not an *ex post facto* law or bill of attainder.
 :::
 
 :::check
-Congress passes a law naming three former officials and ordering them jailed for five years without any court hearing. Which ban applies?
+Congress passes a general cyber-fraud law taking effect next year and leaves all prosecutions to regular courts. Does it violate Section $22$?
 :::answer
-The answer is **Bill of attainder**. A legislative act directly punishing named individuals without a judicial trial violates Article III, Section $22$.
+The answer is **No**. A prospective general law tried in court is neither an *ex post facto* law nor a bill of attainder.
 :::
 
 ## Examples
@@ -106,19 +106,19 @@ Answer: The *ex post facto* prohibition under Article III, Section $22$.
 
 **Check:** Punishing conduct that was innocent when done is a core harmful backward penal change.
 
-### #3: Legislative Punishment
+### #3: Legislative Penalty on Named Contractors
 
-Congress passes a law identifying a group and directly imposing punishment on it without a court trial. Which constitutional limit is involved?
+Congress passes a special statute naming four bridge contractors and ordering their officers jailed for $6$ years without any court hearing. Which constitutional prohibition applies, and how does this differ from a general prospective anti-fraud law?
 
 **Solution:**
 
-1. Check the target: Congress singled out an identified group.
-2. Check the process: the law inflicts punishment directly without leaving guilt to a judicial trial.
+1. Check the target: the statute singles out four named contractors.
+2. Check the process: Congress imposes jail directly without leaving guilt to a judicial trial.
 
 :::try
-Finish the last step: name the prohibited act under Article III, Section $22$ and contrast it with a general prospective law tried in court.
+Finish the last step: name the Section $22$ violation and contrast it with a general prospective law tried in court.
 :::answer
-The answer is **A bill of attainder, unlike a general prospective law tried in court.** Section $22$ bars legislative punishment of an identified group without trial. A general law punishing future acts after court proof violates neither ban.
+The answer is **A bill of attainder, unlike a general prospective law tried in court.** Section $22$ bars legislative punishment of named persons without trial. A general law covering future acts after court proof violates neither ban.
 
 **Check:** Legislative punishment without a court trial is the exact mark of a bill of attainder.
 :::
