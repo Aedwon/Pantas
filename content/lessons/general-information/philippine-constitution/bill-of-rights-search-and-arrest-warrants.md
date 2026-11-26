@@ -67,7 +67,7 @@ Supreme Court case law interpreting Section $2$ allows a different step for arre
 
 Test an arrest warrant where the prosecutor's report leaves factual gaps, so the judge calls a witness before signing:
 
-1. Check records: had the written report and affidavits already shown probable cause, records alone would have been enough.
+1. Check records: complete written records can be enough alone, yet this report leaves gaps.
 2. Check independence: when gaps appear, calling a witness to verify probable cause meets Section $2$'s judicial-review duty.
 
 :::pair #arrest-warrant-records

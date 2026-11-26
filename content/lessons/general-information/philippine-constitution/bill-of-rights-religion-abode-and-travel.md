@@ -31,7 +31,7 @@ Test a city rule requiring food-stall applicants to show a baptism certificate f
 :::pair #religious-test-political-rights
 Right: Conditioning voting or civil rights on religion breaks Section $5$'s ban on religious tests.
 Wrong: Confusing a religious membership requirement for voting with involuntary servitude.
-Like civil permits, voting is a political right, so requiring church membership breaks Section $5$, not forced labor.
+A permit is a civil right, and voting is a political right. A faith rule for either is a religious test, not forced labor.
 :::
 
 :::check
