@@ -16,9 +16,8 @@ keyPoints:
 
 ### Pagtutulad at Pagwawangis
 
-Ang **tayutay** (figure of speech) ay masining na paggamit ng salita. Maaari itong maghambing, magbigay ng kilos ng tao sa hindi tao, o magpalabis ng paglalarawan.
-
-May dalawang karaniwang paraan ng paghahambing:
+Ang **tayutay** (figure of speech) ay masining na paggamit ng salita.
+Hanapin ang salitang panulad para mapili ang tayutay:
 
 1. **Pagtutulad** (simile): naghahambing gamit ang salitang panulad gaya ng *parang*, *tulad ng*, *gaya ng*, o *kasing-*. Halimbawa: "Ang tinig ni Ana ay **parang** banayad na agos ng ilog."
 2. **Pagwawangis** (metaphor): tuwirang ipinapantay ang isang bagay sa iba nang walang salitang panulad. Halimbawa: "Ang guro ay **ilaw** ng silid-aralan."
@@ -37,16 +36,16 @@ Ang sagot ay **pagwawangis**. Tuwirang ipinantay ang buhay sa gulong nang walang
 
 ### Pagbibigay-katauhan at Pagmamalabis
 
-Bukod sa paghahambing, may dalawa pang karaniwang tayutay:
+Hanapin ang kilos ng tao o ang sobrang paglalarawan para mapili ang tayutay:
 
 1. **Pagbibigay-katauhan** (personification): pagbibigay ng kilos o katangian ng tao sa bagay na hindi tao. Halimbawa: "**Ngumiti** ang araw habang **sumasayaw** ang mga dahon."
 2. **Pagmamalabis** (hyperbole): sadyang pagsobra sa paglalarawan. Halimbawa: "Parang isang **bundok** ang bigat ng bag ko!" (Karaniwan lamang ang bigat ng bag, ngunit pinalabis ito.)
 
-May *parang* din ang halimbawang iyon. Kung matinding paglalabis ang pangunahing punto ng linya, pagmamalabis ang sagot.
+Aling tayutay ang sadyang labis na pahayag tungkol sa bigat ng bag sa "Parang isang bundok ang bigat ng bag ko!"?
 
 :::pair #labis-hindi-tulad
-Right: Pagmamalabis ang "Parang isang bundok ang bigat ng bag ko!" dahil sadyang labis ang paglalarawan sa karaniwang bigat ng bag.
-Wrong: Pagtutulad ang "Parang isang bundok ang bigat ng bag ko!" dahil may salitang *parang*.
+Right: Pagmamalabis ang sadyang labis na pahayag tungkol sa bigat ng bag.
+Wrong: Pagtutulad ang sadyang labis na pahayag tungkol sa bigat ng bag, dahil may salitang *parang*.
 Naghahambing ito gamit ang *parang*, ngunit sadyang sobra ang bigat. Pagmamalabis ang tawag sa pagsobrang iyon.
 :::
 
@@ -64,28 +63,35 @@ Ang sagot ay **pagbibigay-katauhan**. Kilos ng tao ang pagsigaw na ibinigay sa h
 
 ## Examples
 
-### #1: Pagmamalabis
+### #1: Ang Tindahan
 
-Malaki ang kinita ng tindahan ngayong buwan. Sinabi ng may-ari, "Umuulan ng salapi sa negosyo ko." Anong tayutay ang pinakamalinaw na ginamit?
+Maliit ang tindahan, at kakaunti ang pumasok ngayong umaga. Sinabi ng may-ari, "Milyon-milyong kostumer ang pumasok sa tindahan ko!" Anong tayutay ang ginamit?
 
-A) Pagtutulad  
-B) Pagmamalabis  
-C) Pagwawangis  
+A) Pagtutulad
+
+B) Pagmamalabis
+
+C) Pagwawangis
+
 D) Pagbibigay-katauhan
 
 **Solution:**
 
-1. Hindi totoong umuulan ng salapi. Sobra ang paglalarawan sa dami ng kita.
+1. Hindi totoong milyon-milyon ang pumasok. Sobra ang dami.
 2. Ang sadyang pagsobra sa paglalarawan ay pagmamalabis. Sagot: **B**.
 
+**Check:** Walang salitang panulad. Sobra lamang ang dami.
 
-### #2: Pagtutulad
+### #2: Ang Tinig ni Ana
 
 "Ang tinig ni Ana ay parang banayad na agos ng ilog." Anong tayutay ang ginamit?
 
-A) Pagmamalabis  
-B) Pagtutulad  
-C) Pagbibigay-katauhan  
+A) Pagmamalabis
+
+B) Pagtutulad
+
+C) Pagbibigay-katauhan
+
 D) Pagwawangis
 
 **Solution:**
@@ -93,14 +99,18 @@ D) Pagwawangis
 1. Inihahambing ang tinig sa banayad na agos ng ilog gamit ang *parang*.
 2. Ang ganitong paghahambing ay pagtutulad. Sagot: **B**.
 
+**Check:** May *parang*, at hindi pinalabis ang tinig.
 
-### #3: Pagwawangis
+### #3: Si Liza
 
 "Si Liza ang ilaw ng aming pangkat sa panahon ng problema." Anong tayutay ang ginamit?
 
-A) Pagwawangis  
-B) Pagtutulad  
-C) Pagmamalabis  
+A) Pagwawangis
+
+B) Pagtutulad
+
+C) Pagmamalabis
+
 D) Pagbibigay-katauhan
 
 **Solution:**
@@ -110,13 +120,16 @@ D) Pagbibigay-katauhan
 
 **Check:** Walang salitang panulad sa pangungusap, at tuwirang ipinantay si Liza sa ilaw.
 
-### #4: Pagbibigay-katauhan
+### #4: Ang Gabi
 
 "Niyakap ng gabi ang tahimik na bayan." Anong tayutay ang ginamit?
 
-A) Pagtutulad  
-B) Pagmamalabis  
-C) Pagbibigay-katauhan  
+A) Pagtutulad
+
+B) Pagmamalabis
+
+C) Pagbibigay-katauhan
+
 D) Pagwawangis
 
 **Solution:**
@@ -124,14 +137,18 @@ D) Pagwawangis
 1. Ang pagyakap ay kilos ng tao. Hindi literal na yumayakap ang gabi.
 2. Binigyan ng kilos ng tao ang gabi. Ito ay pagbibigay-katauhan. Sagot: **C**.
 
+**Check:** Hindi tao ang gabi, pero kilos ng tao ang ginawa nito.
 
 ### #5: Ulan sa Bubong
 
 "Humihikbi ang ulan sa bubong buong gabi." Anong tayutay ang ginamit?
 
-A) Pagtutulad  
-B) Pagwawangis  
-C) Pagmamalabis  
+A) Pagtutulad
+
+B) Pagwawangis
+
+C) Pagmamalabis
+
 D) Pagbibigay-katauhan
 
 **Solution:**
@@ -148,12 +165,12 @@ Ang sagot ay **D**, **Pagbibigay-katauhan**. Ang *humihikbi* ay kilos ng tao, at
 
 ## Speed Tricks & Shortcuts
 
-Hanapin muna kung may salitang panulad, tuwirang pagpapantay, kilos ng tao sa hindi tao, o sadyang pagsobra. Pagkatapos, itugma ito sa pangalan ng tayutay.
+Hanapin ang panulad, tuwirang pagpapantay, kilos ng tao, o sadyang pagsobra.
 
 ## Traps to Watch For
 
 :::checklist
-- May salitang panulad gaya ng *kasingganda ng mga bituin*: pagtutulad. Tuwirang pagpapantay na walang panulad gaya ng *ang guro ay ilaw*: pagwawangis. {#tulad-hindi-wangis}
+- May salitang panulad na nagpapakilala ng matalinghagang paghahambing, gaya ng *kasingganda ng mga bituin*: pagtutulad. Tuwirang pagpapantay na walang panulad gaya ng *ang guro ay ilaw*: pagwawangis. {#tulad-hindi-wangis}
 - Sadyang pagsobra na may *parang* gaya ng "Parang isang bundok ang bigat ng bag ko!": pagmamalabis ang tawag sa pagsobra, kahit paghahambing din ito. {#labis-hindi-tulad}
 - Kilos ng tao sa hindi tao gaya ng "Ngumiti ang araw": pagbibigay-katauhan ito, hindi paghahambing. {#katauhan-hindi-hambing}
 :::

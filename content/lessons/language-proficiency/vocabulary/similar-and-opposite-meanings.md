@@ -19,12 +19,12 @@ keyPoints:
 
 A **synonym** is a word or phrase with the same or a closely related meaning in a sentence. Synonyms do not fit every sentence in the same way.
 
-Words with close meanings can differ in strength. They can also sound more formal, friendly, or harsh. Choose the word that keeps the meaning and fits the sentence.
+Words with close meanings can differ in strength. Choose the word that keeps the meaning and fits the sentence.
 
 :::check
-Which word is a synonym of *bold*: *daring*, *polite*, *tired*, or *mild*?
+In "She made a bold move and took a big risk," which word keeps the meaning of *bold*: *daring*, *polite*, *tired*, or *mild*?
 :::answer
-The answer is *daring*. Both words mean willing to take risks.
+The answer is *daring*: "She made a daring move and took a big risk." Both words mean willing to take risks.
 :::
 
 ### Word Pairings
@@ -47,8 +47,11 @@ The answer is *heavy traffic*. A large amount of traffic takes *heavy*.
 
 An **antonym** is a word with an opposite or contrasting meaning. The right opposite must match the meaning used in the sentence.
 
-- *Mitigate* means to make something less severe.
-- Its antonym makes something worse.
+Let's find the antonym of *mitigate* in "The new rules mitigate the problem":
+
+- *Mitigate* makes a problem less severe.
+- Its antonym makes the problem more severe.
+- *Aggravate* does that: "The new rules aggravate the problem."
 
 :::pair #mitigate-opposite
 Right: The opposite of *mitigate* is *aggravate*.
@@ -68,9 +71,12 @@ The answer is *scarce*. *Abundant* means plentiful, and *scarce* means hard to f
 
 Choose the word closest in meaning to the word in bold: **ephemeral**.
 
-A) eternal  
-B) fleeting  
-C) glowing  
+A) eternal
+
+B) fleeting
+
+C) glowing
+
 D) rigid
 
 **Solution:**
@@ -79,46 +85,52 @@ D) rigid
 2. *Eternal* and *rigid* do not mean that, and *glowing* is about light.
 3. **Fleeting** has the closest meaning. The answer is **B**.
 
-**Check:** "A fleeting moment" and "an ephemeral moment" mean the same.
-
 ### #2: The Word Mitigate
 
 Select the word most nearly opposite to the word in bold: **mitigate**.
 
-A) aggravate  
-B) alleviate  
-C) placate  
+A) aggravate
+
+B) alleviate
+
+C) placate
+
 D) isolate
 
 **Solution:**
 
-1. **Mitigate** means to make something less severe.
-2. *Alleviate* and *placate* ease or calm. They are not opposites.
-3. **Aggravate** can mean to make it worse or more severe. The answer is **A**.
-### #3: Weather Words
+1. *Alleviate* and *placate* ease or calm. They are not opposites.
+2. **Aggravate** can mean to make it worse or more severe. The answer is **A**.
 
-Which phrase sounds most natural in standard English?
+**Check:** "The delay will aggravate the problem" makes it worse, the reverse of *mitigate*.
 
-A) strong snow  
-B) powerful snow  
-C) mighty snow  
-D) heavy snow
+### #3: A Cup of Coffee
+
+Which phrase sounds most natural in standard English for coffee with a very intense flavor?
+
+A) heavy coffee
+
+B) strong coffee
+
+C) mighty coffee
+
+D) hard coffee
 
 **Solution:**
 
-1. All four mean great in force or amount, so check which pairs naturally with *snow*.
+1. Test each choice with *coffee*.
 
 :::try
 Finish the last step: which choice is the natural English pairing?
 :::answer
-The answer is **D**, **heavy snow**. A large amount of snow takes *heavy*, not *strong*, *powerful*, or *mighty*.
+The answer is **B**, **strong coffee**. Coffee with an intense flavor takes *strong*, not *heavy*, *mighty*, or *hard*.
 
-**Check:** "Heavy snow fell on the town overnight." It sounds natural in standard English.
+**Check:** "I need a cup of strong coffee." It sounds natural in standard English.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Read the task first. Check whether it asks for a similar meaning or an opposite. Then read the whole sentence.
+Read the task first. Check whether it asks for a similar meaning or an opposite.
 
 ## Traps to Watch For
 

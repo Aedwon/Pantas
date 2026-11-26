@@ -20,8 +20,10 @@ A **suffix** is a word part added at the end of a base. The **base** is the word
 
 A final silent *e* is often dropped before a suffix that begins with a vowel.
 
-- *Manage* becomes *managing*.
-- *Hope* becomes *hoping*.
+Let's add *-ing* to each base:
+
+- *Manage* + *-ing*: drop the *e*, giving *managing*.
+- *Hope* + *-ing*: drop the *e*, giving *hoping*.
 
 Sometimes *e* stays to help keep a sound. In *noticeable*, the *e* stays after *c*. This keeps the soft *s* sound of *c*. After *g*, *courage* keeps its *e* before *-ous* the same way.
 
@@ -39,9 +41,10 @@ The answer is *believable*. *-able* starts with a vowel and *v* needs no soft so
 
 ### Exceptions Before Consonant Suffixes
 
-Most words keep a final silent *e* before a suffix that starts with a consonant, such as *care* becoming *careful*.
-- *True* becomes *truly*, even though *-ly* begins with a consonant.
-- *Argue* becomes *argument*, which also loses its *e*.
+Most words keep a final silent *e* before a suffix that starts with a consonant, such as *care* becoming *careful*. Two words are exceptions:
+
+- *True* + *-ly*: the *e* drops even though *-ly* begins with a consonant, giving *truly*.
+- *Argue* + *-ment*: the *e* drops too, giving *argument*.
 
 :::pair #truly
 Right: Truly
@@ -61,13 +64,16 @@ The answers are *useful* and *safely*. Both suffixes start with a consonant, and
 
 ## Examples
 
-### #1: Dropping a Silent E
+### #1: Manage
 
-We choose the spelling of *manage* plus *-ing*.
+Choose the spelling of *manage* plus *-ing*.
 
-A) manageing  
-B) managing  
-C) mannaging  
+A) manageing
+
+B) managing
+
+C) mannaging
+
 D) managging
 
 **Solution:**
@@ -78,15 +84,18 @@ D) managging
 
 The spelling is **managing**. Answer: **B**.
 
-**Check:** *Manage* without its final *e*, plus *-ing*, is *manag* + *ing*. Only one *i* comes before *ng*.
+**Check:** *Manag* + *ing*: the *g* is followed directly by *-ing*, with no leftover *e*.
 
-### #2: Keeping a Silent E
+### #2: Notice
 
-We choose the spelling of *notice* plus *-able*.
+Choose the spelling of *notice* plus *-able*.
 
-A) noticable  
-B) noticeable  
-C) noticeible  
+A) noticable
+
+B) noticeable
+
+C) noticeible
+
 D) notiseable
 
 **Solution:**
@@ -97,14 +106,18 @@ D) notiseable
 
 The spelling is **noticeable**. Answer: **B**.
 
+**Check:** *Notice* + *able* keeps both parts whole: *notice* then *able*.
 
-### #3: An Exception Before Ly
+### #3: True
 
-We choose the spelling of *true* plus *-ly*.
+Choose the spelling of *true* plus *-ly*.
 
-A) truely  
-B) trueley  
-C) truly  
+A) truely
+
+B) trueley
+
+C) truly
+
 D) truley
 
 **Solution:**
@@ -115,25 +128,28 @@ D) truley
 
 The spelling is **truly**. Answer: **C**.
 
+**Check:** *Tru* + *ly*: no *e* is left between *u* and *l*.
 
-### #4: A Consonant Suffix After Silent E
+### #4: A Sentence Blank
 
 Choose the correctly spelled word to complete the sentence: "The staff could not hide their ______ about the new office."
 
-A) excitment  
-B) excitemant  
-C) excitement  
+A) excitment
+
+B) excitemant
+
+C) excitement
+
 D) excitmant
 
 **Solution:**
 
-1. Identify the base and suffix: *excite* plus *-ment*.
-2. *-ment* begins with a consonant. Is *excite* an exception?
+1. Find the base and the suffix in the word the sentence needs.
 
 :::try
-Finish the last step: apply the spelling rule for *excite* plus *-ment* and choose the correct option.
+Finish the last step: apply the spelling rule to that base and suffix and choose the correct option.
 :::answer
-Choice **C**, **excitement**. *-ment* starts with a consonant, and *excite* is not one of the exceptions, so it keeps its silent *e*.
+Choice **C**, **excitement**: *excite* plus *-ment*. *-ment* starts with a consonant, and *excite* is not one of the exceptions, so it keeps its silent *e*.
 
 **Check:** Read it back: "The staff could not hide their excitement about the new office." *Excitement* keeps the *e*, as *careful* does.
 :::

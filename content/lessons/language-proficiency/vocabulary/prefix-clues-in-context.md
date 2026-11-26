@@ -45,11 +45,14 @@ The answer is *safe*, so *unsafe* means *not safe*. *Safe* is a real base word, 
 
 ### #1: The Directions
 
-The directions were **unclear** because they skipped a step. Which phrase is closest in meaning to the word in bold?
+The team read the **unclear** directions three times and still could not follow them. Which phrase is closest in meaning to the word in bold?
 
-A) not finished  
-B) not correct  
-C) not clear  
+A) left out a step
+
+B) printed too small
+
+C) hard to understand
+
 D) not needed
 
 **Solution:**
@@ -57,11 +60,11 @@ D) not needed
 1. Split the word into its prefix and its base.
 
 :::try
-Finish the last step: say what each part means and put them together. Which phrase fits, and does the sentence agree?
+Finish the last step: say what each part means and put them together. Which phrase fits?
 :::answer
-*Un-* means *not*, and *clear* is a real word, so *unclear* means not clear. Directions that skip a step are hard to follow. The answer is **C**.
+*Un-* means *not*, and *clear* is a real word, so *unclear* means not clear: hard to understand. The answer is **C**.
 
-**Check:** Put the phrase in the sentence: "The directions were not clear because they skipped a step." It makes sense.
+**Check:** Put the phrase in the sentence: "The team read the hard-to-understand directions three times and still could not follow them." It makes sense.
 :::
 
 ## Speed Tricks & Shortcuts

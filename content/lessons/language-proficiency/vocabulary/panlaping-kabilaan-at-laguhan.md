@@ -23,7 +23,7 @@ Suriin natin ang *kabataan*:
 1. Salitang-ugat: *bata*.
 2. **Unlapi** (prefix) sa unahan: *ka-*.
 3. **Hulapi** (suffix) sa hulihan: *-an*.
-4. Walang panlapi sa loob ng *bata*, kaya kabilaan ito.
+4. Walang panlapi sa loob: `ka` + `bata` + `an` = *kabataan*. Kabilaan ito.
 
 :::pair #kabilaan-ka-an
 Right: Ang panlapi sa *kabataan* ay *ka-* at *-an*.
@@ -47,7 +47,7 @@ Sa karaniwang pagsusuri sa paaralan, ganito natin sinusuri ang *pinagsumikapan*:
 2. Unlapi sa unahan: *pinag-*.
 3. **Gitlapi** (infix) sa loob ng ugat: *-um-*.
 4. Hulapi sa hulihan: *-an*.
-5. May panlapi sa tatlong puwesto, kaya laguhan ito.
+5. May panlapi sa tatlong puwesto: `pinag-` + `s<um>ikap` + `-an` = *pinagsumikapan*. Laguhan ito.
 
 :::pair #laguhan-hindi-kabilaan
 Right: Laguhan ang *pinagsumikapan*.
@@ -63,13 +63,16 @@ Ang sagot ay **kabilaan**. Nasa unahan ng *laya* ang *ka-* at nasa hulihan ang *
 
 ## Examples
 
-### #1: Panlapi sa Magkabilang Panig
+### #1: Piliin ang Salita
 
 Aling salita ang may panlaping kabilaan?
 
-A) kabataan  
-B) pag-ibig  
-C) sumulat  
+A) kabataan
+
+B) pag-ibig
+
+C) sumulat
+
 D) bahay
 
 **Solution:**
@@ -79,28 +82,35 @@ D) bahay
 
 **Check:** Ang *pag-ibig* ay may unlapi lamang. Ang *sumulat* ay may gitlapi lamang. Ang *bahay* ay walang panlapi.
 
-### #2: Panlaping Laguhan
+### #2: Ang Makapal na Salita
 
 Anong uri ng panlapi ang makikita sa salitang may makapal na titik na **pinagsumikapan**?
 
-A) unlapi lamang  
-B) gitlapi lamang  
-C) kabilaan  
+A) unlapi lamang
+
+B) gitlapi lamang
+
+C) kabilaan
+
 D) laguhan
 
 **Solution:**
 
-1. Ang ugat ay *sikap*. May *pinag-* sa unahan, *-um-* sa loob, at *-an* sa hulihan.
+1. Sa pagsusuri sa paaralan, ang ugat ay *sikap*. May *pinag-* sa unahan, *-um-* sa loob, at *-an* sa hulihan.
 2. May panlapi sa tatlong puwesto, kaya **laguhan** ito. Sagot: **D**.
 
+**Check:** Unahan, loob, hulihan: tatlo.
 
 ### #3: Pagsuri sa Uri ng Panlapi
 
 Sa salitang **katapatan**, anong uri ng panlapi ang ginamit?
 
-A) unlapi lamang  
-B) gitlapi lamang  
-C) kabilaan  
+A) unlapi lamang
+
+B) gitlapi lamang
+
+C) kabilaan
+
 D) laguhan
 
 **Solution:**
@@ -108,7 +118,7 @@ D) laguhan
 1. Hanapin muna ang salitang-ugat ng *katapatan*: ang ugat ay *tapat*.
 
 :::try
-Tapusin ang huling hakbang: tukuyin ang mga panlapi sa paligid ng *tapat* at piliin ang tamang uri ng panlapi.
+Tapusin ang huling hakbang: hanapin ang mga panlapi ng *katapatan* at piliin ang tamang uri.
 :::answer
 Ang sagot ay **C**, **kabilaan**. Nasa unahan ang *ka-* at nasa hulihan ang *-an*, at walang panlapi sa loob ng *tapat*.
 

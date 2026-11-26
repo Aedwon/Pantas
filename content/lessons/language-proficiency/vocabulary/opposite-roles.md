@@ -17,7 +17,12 @@ keyPoints:
 
 **Converse opposites** describe the same relationship from different roles.
 
-If Ana sells a book to Ben, Ben buys the book from Ana. The book and exchange stay the same. The person doing the action changes.
+Let's switch the viewpoint from the seller to the buyer:
+
+- Ana sells a book to Ben.
+- Ben buys the book from Ana.
+
+The book stays the same. The person doing the action changes.
 
 :::pair #same-exchange
 Right: If the office bought a printer from a supplier, the supplier sold the printer.
@@ -25,7 +30,7 @@ Wrong: If the office bought a printer from a supplier, the supplier bought the p
 The office is the buyer, so the supplier is on the other side of the exchange and sold it.
 :::
 
-The same holds for other pairs. One person borrows what another person lends.
+Switch the viewpoint the same way for borrow and lend.
 
 :::pair #borrow-lend
 Right: If Ana borrows a book from Ben, Ben lends the book to Ana.
@@ -49,9 +54,12 @@ The answer is *borrows*. Leo takes the pen from Dina. *Lend* and *borrow* are tw
 
 Nina gave a gift to Rico. From Rico's point of view, what did he do?
 
-A) gave the gift to Nina  
-B) received the gift from Nina  
-C) wrapped the gift for Nina  
+A) gave the gift to Nina
+
+B) received the gift from Nina
+
+C) wrapped the gift for Nina
+
 D) returned the gift to Nina
 
 **Solution:**

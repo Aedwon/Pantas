@@ -16,16 +16,16 @@ keyPoints:
 
 ### -ly as an Adverb
 
-The suffix **-ly** often makes an adverb. In "She spoke quietly," *quietly* tells how she spoke.
+The suffix **-ly** often makes an adverb. Let's add *-ly* to *quiet* in a sentence:
 
 - *Quiet* describes a noun.
 - Add *-ly* to make *quietly*.
-- *Quietly* tells how an action happens.
+- "She spoke quietly": *quietly* tells how she spoke.
 
 :::pair #ly-adverb
 Right: In "The officer read the instructions quietly," *quietly* tells how the officer read.
 Wrong: In "The officer read the instructions quietly," *quietly* tells which officer was present.
-An adverb tells about the action. It does not pick out a person.
+Here, *quietly* tells how the action happens. It does not pick out a person.
 :::
 
 :::check
@@ -56,9 +56,12 @@ The answer is *loudly*. It tells how the action happens, so it is an adverb. *Li
 
 Which statement correctly describes the words in bold in "The **helpful** clerk answered **quickly**"?
 
-A) Helpful names a quality; quickly names a person.  
-B) Helpful describes the clerk; quickly tells how the clerk answered.  
-C) Helpful tells how the clerk answered; quickly describes the clerk.  
+A) Helpful names a quality; quickly names a person.
+
+B) Helpful describes the clerk; quickly tells how the clerk answered.
+
+C) Helpful tells how the clerk answered; quickly describes the clerk.
+
 D) Helpful means without help; quickly means without speed.
 
 **Solution:**
@@ -73,9 +76,12 @@ D) Helpful means without help; quickly means without speed.
 
 In "A **lovely** garden surrounded the house," what job does the word in bold do?
 
-A) It names the act of surrounding.  
-B) It tells how the house was built.  
-C) It describes the garden.  
+A) It names the act of surrounding.
+
+B) It tells how the house was built.
+
+C) It describes the garden.
+
 D) It names a group of houses.
 
 **Solution:**
@@ -85,7 +91,7 @@ D) It names a group of houses.
 :::try
 Finish the last step: which choice names the job *lovely* does?
 :::answer
-The answer is **C**, **it describes the garden**. *Lovely* sits before the noun *garden*, so it is an adjective despite its *-ly* ending.
+The answer is **C**, **it describes the garden**. *Lovely* tells what kind of garden it is, so it describes a noun and is an adjective despite its *-ly* ending.
 
 **Check:** "A lovely garden surrounded the house." *Lovely* describes the noun *garden*, not an action.
 :::

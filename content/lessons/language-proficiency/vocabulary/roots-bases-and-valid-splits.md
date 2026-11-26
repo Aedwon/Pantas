@@ -41,20 +41,19 @@ The answer is *hopeless*. *-Ness* is added to *hopeless*, so *hopeless* is the s
 
 ### Valid Splits and False Prefixes
 
-Word parts can help you work out meaning, but a familiar set of letters is not always a real word part.
+A familiar set of letters is not always a real word part.
 
-Ask whether your split leaves a meaningful base. Then check whether the parts explain the whole word.
+Let's test the split *un-* in *unhappy* and *uncle*. Ask whether it leaves a meaningful base, then whether the parts explain the whole word.
 
-- In *unhappy*, *un-* means "not."
-- *Happy* is a real base.
-- The split explains the word.
+- *Unhappy* = *un-* + *happy*. *Happy* is a real base, so *unhappy* = not happy.
+- *Uncle* = *un-* + *cle*. *Cle* is not a base, so there is no valid *un-* split in *uncle*.
 
-In *uncle*, the first letters are also *un*, but *cle* is not its base. The split does not explain the word. Even when a real base is left, check which prefix is used.
+Even when a real base is left, check which prefix is used.
 
 :::pair #inflammable
-Right: *Inflammable* means easily ignited. Its *in-* comes from *inflame* ("cause to catch fire"), not "not."
-Wrong: *Inflammable* means protected from fire. The *in-* is read as "not."
-Here *in-* is not the negative prefix *in-* ("not"). Read the sentence too.
+Right: In the warning "Inflammable: keep away from flames," *inflammable* means easily ignited. Its *in-* comes from *inflame* ("cause to catch fire").
+Wrong: In the warning "Inflammable: keep away from flames," *inflammable* means protected from fire. The *in-* is read as "not."
+Here *in-* is not the negative prefix.
 :::
 
 :::check
@@ -67,12 +66,15 @@ The answer is *ady*, and no. *Ady* is not a base with a meaning, so *re-* change
 
 ### #1: Four Splits
 
-We test four splits and keep the one that explains its word.
+Keep the split that explains its word.
 
-A) pretty = pre- + tty  
-B) replay = re- + play  
-C) mother = mo- + ther  
-D) unite = un- + ite
+A) pretty = pre- + tty
+
+B) replay = re- + play
+
+C) mother = mo- + ther
+
+D) unit = un- + it
 
 **Solution:**
 
@@ -81,7 +83,7 @@ D) unite = un- + ite
 :::try
 Finish the last step: check the other three splits. Which one is valid, and why?
 :::answer
-The answer is **B**. In C, *ther* is not a base, and in D, *ite* is not a base, so those splits fail. In B, *play* is a meaningful base, and *re-* changes it to "play again," so the split explains the whole word.
+The answer is **B**. In C, *ther* is not a base. In D, *it* is a real word, but *unit* does not mean "not it," so both splits fail. In B, *play* is a meaningful base, and *re-* changes it to "play again," so the split explains the whole word.
 
 **Check:** Join the parts of B. *Re-* plus *play* gives *replay*, which means "play again."
 :::

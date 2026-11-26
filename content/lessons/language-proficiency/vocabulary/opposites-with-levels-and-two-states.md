@@ -17,7 +17,7 @@ keyPoints:
 
 **Gradable opposites** have levels between them. *Hot* and *cold* are opposites, but *warm* and *cool* fall between them.
 
-Here is the ladder from top to bottom.
+Here is the temperature ladder, top to bottom.
 
 - Hot
 - Warm
@@ -33,18 +33,19 @@ Warm and cool sit between hot and cold. *Not hot* does not pick one of them.
 :::
 
 :::check
-A cup is not cold. What could it be?
+A cup is not cold. Which is true: the cup must be hot, or the cup could be cool?
 :::answer
-The answer is cool, warm, or hot. Not cold does not pick one level, because the levels between cold and hot are still possible.
+The cup could be cool. Not cold leaves hot, warm, or cool, so it does not pick one level.
 :::
 
 ### Complementary Opposites
 
 **Complementary opposites** divide a stated system into two states. If those are the only states allowed, ruling out one leaves the other.
 
-- The record has two labels: alive and dead.
-- A fish is not alive.
-- So the label is dead.
+Let's choose the label for a fish in a record with two labels, alive and dead:
+
+- The fish is not alive.
+- So the fish is dead.
 
 Use that rule only when the stated system allows no middle state. A stone is not alive, but calling it dead would not fit this use.
 
@@ -66,9 +67,12 @@ The answer is off. With only two states allowed, ruling out *on* leaves *off*.
 
 A record marks each student as either pass or fail, with no other mark. Maya's mark is not **pass**. Which opposite of the word in bold must describe her mark in this record?
 
-A) weak  
-B) absent  
-C) average  
+A) weak
+
+B) absent
+
+C) average
+
 D) fail
 
 **Solution:**
@@ -82,9 +86,12 @@ D) fail
 
 The box is not **large**. Which statement must be true?
 
-A) The box is tiny.  
-B) The box is medium.  
-C) The box is small.  
+A) The box is tiny.
+
+B) The box is medium.
+
+C) The box is small.
+
 D) The exact size is not given.
 
 **Solution:**
@@ -101,8 +108,7 @@ The answer is **D**: from "The box is not large," the exact size is not given. *
 
 ## Speed Tricks & Shortcuts
 
-For opposites, check the relationship. Are there middle levels, or only two allowed states? Do not use a two-state rule when middle levels are possible.
-
+For opposites, check the relationship. Are there middle levels, or only two allowed states?
 ## Traps to Watch For
 
 :::checklist

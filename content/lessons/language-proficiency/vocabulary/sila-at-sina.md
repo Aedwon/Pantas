@@ -15,14 +15,14 @@ keyPoints:
 
 ### Sila at Sina
 
-Ang **sila** ay **panghalip** (pronoun) na pumapalit sa mga pangalan ng dalawa o higit pang tao: "Umalis **sila** nang maaga." Karaniwang walang kasunod na pangalan ng tao ang *sila*.
+Ang **sila** ay **panghalip** (pronoun) na tumutukoy sa dalawa o higit pang tao nang hindi sila pinapangalanan: "Umalis **sila** nang maaga." Karaniwang walang kasunod na pangalan ng tao ang *sila*.
 
 Ang **sina** ay **pananda** (marker) na ginagamit bago ang pangalan ng mga tao: "**Sina** Ana at Lito ay dumating." Maaari ring isang pangalan lamang ang kasunod, para sa taong iyon at sa mga kasama niya: "Dumating na **sina** Mara."
 
-Sa pormal na pagsulat, sundin ang dalawang hakbang na ito:
+Para mapili ang *sila* sa "Umalis sila nang maaga" at ang *sina* sa "Sina Ana at Lito ay dumating," sundin ang dalawang hakbang:
 
 1. Tingnan ang kasunod agad ng salita: pangalan ba ng tao?
-2. Kung mga pangalan ang kasunod agad, gamitin ang *sina*. Kung pumapalit lamang ito sa mga pangalan, gamitin ang *sila*.
+2. Kung mga pangalan ang kasunod, gamitin ang *sina*. Kung wala, gamitin ang *sila*.
 
 :::pair #bago-ang-pangalan
 Right: Sina Pedro, Ana, at Miguel ang mga kasapi ng grupong ito.
@@ -33,7 +33,7 @@ Mga pangalan ang kasunod. Kaya *sina* ang gamit.
 :::pair #pamalit
 Right: Nagtapos sina Elena at Ricardo kahapon. Sila ay naghahanap na ng trabaho.
 Wrong: Nagtapos sina Elena at Ricardo kahapon. Sina ay naghahanap na ng trabaho.
-Walang pangalang kasunod. Pamalit sa dalawang tao ang kailangan, kaya *sila*.
+Walang pangalang kasunod. Ang tinutukoy ay ang dalawang taong nabanggit na, kaya *sila*.
 :::
 
 :::check
@@ -44,13 +44,16 @@ Ang sagot ay **sina**. May kasunod na mga pangalan (*Marco at Joy*), kaya *sina*
 
 ## Examples
 
-### #1: Bago ang mga Pangalan
+### #1: Ang Pagsusulit
 
 Punan ang patlang: "______ Maria, Jose, at Juan ay naghanda para sa pagsusulit."
 
-A) Sila  
-B) Sina  
-C) Kina  
+A) Sila
+
+B) Sina
+
+C) Kina
+
 D) Ang
 
 **Solution:**
@@ -58,30 +61,35 @@ D) Ang
 1. Sinusundan ang patlang ng mga pangalan ng tao.
 2. Gamitin ang **sina**: "Sina Maria, Jose, at Juan ay naghanda para sa pagsusulit." Sagot: **B**.
 
-
-### #2: Pamalit sa mga Pangalan
+### #2: Sa Silid
 
 Punan ang patlang: "Maagang dumating sina Ana at Lito. ______ ang unang pumasok sa silid."
 
-A) Sila  
-B) Sina  
-C) Kina  
+A) Sila
+
+B) Sina
+
+C) Kina
+
 D) Ang
 
 **Solution:**
 
-1. Pumapalit ang patlang sa *Ana at Lito*, at walang pangalang kasunod.
-2. Gamitin ang panghalip na **sila**: "Sila ang unang pumasok sa silid." Sagot: **A**.
+1. Tumutukoy ang patlang kina *Ana at Lito*, at walang pangalang kasunod.
+2. Gamitin ang panghalip na **sila**: "Maagang dumating sina Ana at Lito. Sila ang unang pumasok sa silid." Sagot: **A**.
 
 **Check:** Hindi puwede ang *sina* dahil walang pangalang kasunod.
 
-### #3: Mga Bisita
+### #3: Sa Hardin
 
-Piliin ang tamang pares: "Nang dumating ______ Liza at Ben, nagpasalamat ______ sa mga bisita."
+Piliin ang tamang pares: "Kumain ______ sa hardin matapos magluto ______ Dan at Rita."
 
-A) sina; sila  
-B) sila; sina  
-C) sina; sina  
+A) sina; sila
+
+B) sila; sina
+
+C) sina; sina
+
 D) sila; sila
 
 **Solution:**
@@ -91,9 +99,9 @@ D) sila; sila
 :::try
 Tapusin ang mga hakbang: ano ang tamang salita sa bawat patlang at aling letra ang sagot?
 :::answer
-Ang sagot ay **A**. May kasunod na pangalang *Liza at Ben* ang unang patlang, kaya **sina**. Pumapalit sa mga pangalan ang ikalawang patlang at walang pangalang kasunod, kaya **sila**.
+Ang sagot ay **B**. Walang pangalang kasunod ang unang patlang, at tumutukoy ito kina *Dan at Rita*, kaya **sila**. May kasunod na pangalan ang ikalawang patlang, kaya **sina**.
 
-**Check:** Basahin: "Nang dumating sina Liza at Ben, nagpasalamat sila sa mga bisita." May pangalan pagkatapos ng *sina*, at pamalit sa dalawang tao ang *sila*.
+**Check:** Basahin: "Kumain sila sa hardin matapos magluto sina Dan at Rita." May pangalan pagkatapos ng *sina*, at wala pagkatapos ng *sila*.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -104,5 +112,5 @@ Tingnan kung pangalan ang kasunod agad.
 
 :::checklist
 - Bago ang mga pangalan: gamitin ang *sina*, tulad ng "Sina Pedro at Ana." {#bago-ang-pangalan}
-- Pamalit sa mga pangalan: gamitin ang *sila*, tulad ng "Sila ay naghahanap ng trabaho." {#pamalit}
+- Walang kasunod na pangalan: gamitin ang *sila*, tulad ng "Sila ay naghahanap ng trabaho." {#pamalit}
 :::

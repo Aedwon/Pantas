@@ -45,13 +45,13 @@ Ang sagot ay **luto**. Ang *nag-* sa unahan ay panlapi lamang, at ang *luto* ang
 
 ### Unlapi, Gitlapi, at Hulapi
 
-Tatlo sa mga uri ng panlapi, ayon sa puwesto nito sa salitang-ugat:
+Tingnan natin ang puwesto ng panlapi sa salitang-ugat. Tatlo ito sa mga uri ng panlapi:
 
-1. **Unlapi** (prefix) sa unahan ng ugat: *pag-* + *ibig* = *pag-ibig*; *um-* + *alis* = *umalis*.
-2. **Gitlapi** (infix) sa loob ng ugat: *sulat* + *-um-* = *sumulat*; *sayaw* + *-um-* = *sumayaw*.
-3. **Hulapi** (suffix) sa hulihan ng ugat: *sulat* + *-an* = *sulatan*.
+1. **Unlapi** (prefix) sa unahan ng ugat: `pag-` + `ibig` = *pag-ibig*; `um-` + `alis` = *umalis*.
+2. **Gitlapi** (infix) sa loob ng ugat: `s<um>ulat` = *sumulat*; `s<um>ayaw` = *sumayaw*.
+3. **Hulapi** (suffix) sa hulihan ng ugat: `sulat` + `-an` = *sulatan*.
 
-Sa karaniwang pagsusuri sa paaralan, magkaiba ang puwesto ng *um* sa dalawang salita. Gitlapi ang *-um-* sa *sumayaw* dahil nasa loob ito ng *sayaw*. Unlapi ang *um-* sa *umalis* dahil nasa unahan ito ng *alis*.
+Sa karaniwang pagsusuri sa paaralan, magkaiba ang puwesto ng *um* sa *sumayaw* at *umalis*.
 
 :::pair #puwesto-ng-um
 Right: Gitlapi ang *-um-* sa *sumayaw* dahil nasa loob ng *sayaw*. Unlapi ang *um-* sa *umalis* dahil nasa unahan ng *alis*.
@@ -71,25 +71,31 @@ Ang sagot ay **gitlapi**. Nakasingit ang *-um-* sa loob ng salitang-ugat na *tak
 
 Tukuyin ang salitang-ugat ng salitang may makapal na titik: **pinagsumikapan**.
 
-A) sikap  
-B) pinag  
-C) sumikap  
+A) sikap
+
+B) pinag
+
+C) sumikap
+
 D) sikapan
 
 **Solution:**
 
-1. Hanapin ang bahaging nagdadala ng pangunahing kahulugan.
-2. Ang **sikap** ang ugat. May dagdag na panlapi pa ang *sumikap* at *sikapan*. Sagot: **A**.
+1. Sa pagsusuri sa paaralan, alisin ang *pinag-* sa unahan, *-um-* sa loob, at *-an* sa hulihan.
+2. Ang natira ay **sikap**, ang ugat. May dagdag na panlapi pa ang *sumikap* at *sikapan*. Sagot: **A**.
 
-**Check:** Alisin ang *pinag-*, *-um-*, at *-an* sa *pinagsumikapan*, at matitira ang *sikap*.
+**Check:** Ibalik ang mga panlapi: `pinag-` + `s<um>ikap` + `-an` = *pinagsumikapan*.
 
 ### #2: Ang Pinaghintayan
 
 Tukuyin ang salitang-ugat ng salitang may makapal na titik: **pinaghintayan**.
 
-A) pinag  
-B) naghintay  
-C) hintay  
+A) pinag
+
+B) naghintay
+
+C) hintay
+
 D) hintayan
 
 **Solution:**

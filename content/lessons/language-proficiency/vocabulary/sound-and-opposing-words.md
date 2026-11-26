@@ -19,7 +19,7 @@ keyPoints:
 
 **Alliteration** repeats the same starting sound, usually a consonant, in nearby words, as in *busy bees buzzed*. Sound matters in alliteration, not just spelling.
 
-*Peter Piper picked a peck of pickled peppers.* Many nearby words start with the *p* sound.
+Let's mark the repeated starting sound: **P**eter **P**iper **p**icked a **p**eck of **p**ickled **p**eppers. Every marked word starts with the *p* sound.
 
 :::pair #repeated-sound
 Right: "Peter Piper picked a peck of pickled peppers" is alliteration.
@@ -47,6 +47,8 @@ The answer is *croaked*. It sounds like the noise it names, so it is onomatopoei
 
 An **oxymoron** puts words with opposing meanings together, such as *jumbo shrimp*.
 
+Which device comes from adjacent words that contradict each other in "deafening silence"?
+
 :::pair #opposing-words
 Right: "Deafening silence" is an oxymoron.
 Wrong: "Deafening silence" is hyperbole.
@@ -65,9 +67,12 @@ The answer is *cruel* and *kindness*. Joining opposing words makes an oxymoron.
 
 “Silver snakes silently slid across the sand.” Which sound device is used most clearly?
 
-A) Alliteration  
-B) Onomatopoeia  
-C) Metaphor  
+A) Alliteration
+
+B) Onomatopoeia
+
+C) Metaphor
+
 D) Oxymoron
 
 **Solution:**
@@ -75,31 +80,33 @@ D) Oxymoron
 1. Several nearby words begin with the same *s* sound.
 2. Repeating a starting consonant sound is alliteration. Answer: **A**.
 
-**Check:** *Silver snakes silently slid* all start with *s*.
-
 ### #2: The Firecracker
 
 “The firecracker went **bang** beside the gate.” Which device is shown by the word in bold?
 
-A) Onomatopoeia  
-B) Simile  
-C) Metaphor  
+A) Onomatopoeia
+
+B) Simile
+
+C) Metaphor
+
 D) Oxymoron
 
 **Solution:**
 
-1. **Bang** imitates the sudden noise it names.
-2. A word that imitates a sound is onomatopoeia. Answer: **A**.
-
-**Check:** Say *bang* aloud. It sounds like the noise.
+1. Say **bang** aloud. It imitates the sudden noise it names.
+2. A word that imitates a sound is onomatopoeia, so "The firecracker went bang beside the gate" uses it. Answer: **A**.
 
 ### #3: The Meeting
 
 “The meeting ended in **organized chaos**.” Which literary device is created by the phrase in bold?
 
-A) Personification  
-B) Simile  
-C) Oxymoron  
+A) Personification
+
+B) Simile
+
+C) Oxymoron
+
 D) Onomatopoeia
 
 **Solution:**
@@ -111,7 +118,7 @@ Finish the last step: compare the two meanings and choose the device.
 :::answer
 *Organized* means arranged in order, and *chaos* means complete disorder. These meanings oppose each other, so “organized chaos” is an oxymoron. The answer is **C**.
 
-**Check:** “The meeting ended in organized chaos” says the meeting was both in order and in disorder. That clash marks an oxymoron.
+**Check:** *Organized* and *chaos* pull in opposite directions within one phrase. That clash marks an oxymoron.
 :::
 
 ## Speed Tricks & Shortcuts
