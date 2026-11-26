@@ -4128,6 +4128,230 @@
           "mistakeNote": "Delays reporting known facts and available messages to CHR until every possible record is gathered."
         }
       ]
+    },
+    "lesson-peace-and-human-rights-hrl-and-ihl-scope": {
+      "hrl-continues-in-war": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0003",
+          "wrongChoice": "HRL ends when war begins; IHL ends when fighting begins.",
+          "mistakeNote": "Treats human rights law as terminating automatically when armed conflict starts instead of remaining active."
+        }
+      ],
+      "ihl-binds-non-state-parties": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0002",
+          "wrongChoice": "Only state forces, excluding every non-state armed group",
+          "mistakeNote": "Restricts IHL duties to state forces and excludes organized non-state armed groups fighting in the conflict."
+        },
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0005",
+          "wrongChoice": "It is right whenever the group lacks an official government title.",
+          "mistakeNote": "Treats missing government status as exempting a non-state conflict party from Common Article 3 IHL rules."
+        }
+      ],
+      "bound-party-versus-protected-civilian": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0020",
+          "wrongChoice": "Non-state status makes every armed group a civilian exempt from conflict obligations.",
+          "mistakeNote": "Confuses an armed group's non-state status with a non-fighting civilian's protected status."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-armed-conflict-types": {
+      "declaration-not-needed-for-iac": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0022",
+          "wrongChoice": "A declaration of war is required before occupation can trigger IHL.",
+          "mistakeNote": "Requires a formal war declaration before Common Article 2 IAC rules apply to interstate force or occupation."
+        }
+      ],
+      "unresisted-occupation-is-still-iac": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0022",
+          "wrongChoice": "Armed resistance is required before occupation can fall under IHL.",
+          "mistakeNote": "Requires armed resistance before foreign occupation of another state's territory triggers IAC rules."
+        }
+      ],
+      "tension-or-riots-not-niac": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0019",
+          "wrongChoice": "Every political campaign automatically falls under armed-conflict rules.",
+          "mistakeNote": "Treats political tension without organization and intense fighting as automatically triggering armed-conflict rules."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-hrl-and-ihl-together": {
+      "ihl-never-replaces-hrl": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0014",
+          "wrongChoice": "IHL automatically replaces all human-rights law for every state action.",
+          "mistakeNote": "Treats IHL and HRL as mutually exclusive during war instead of complementary frameworks."
+        },
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0023",
+          "wrongChoice": "Disregard the right to life because armed conflict suspends all HRL duties.",
+          "mistakeNote": "Assumes armed conflict suspends the human right to life and all state HRL duties."
+        }
+      ],
+      "battlefield-deaths-follow-ihl-rules": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0023",
+          "wrongChoice": "Treat every battlefield death as a violation regardless of target status.",
+          "mistakeNote": "Ignores target status and IHL attack rules by labeling every combat killing a right-to-life violation."
+        }
+      ],
+      "domestic-approval-never-suffices": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0023",
+          "wrongChoice": "Accept national authorization as sufficient without checking the attack rules.",
+          "mistakeNote": "Treats domestic authorization alone as making force non-arbitrary without checking target status and IHL rules."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-iccpr-emergency-conditions": {
+      "proclamation-always-required": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0024",
+          "wrongChoice": "The danger alone removes the need for any official proclamation.",
+          "mistakeNote": "Skips ICCPR Article 4(1)'s official proclamation requirement whenever a severe crisis exists."
+        }
+      ],
+      "proclamation-cannot-cover-protests": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0024",
+          "wrongChoice": "An official proclamation would allow derogation during any ordinary protest.",
+          "mistakeNote": "Treats an official announcement alone as permitting Article 4 derogation during an ordinary protest."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-iccpr-protected-rights": {
+      "non-derogable-never-suspended": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0009",
+          "wrongChoice": "Every obligation disappears automatically until the emergency ends.",
+          "mistakeNote": "Turns limited emergency derogation into automatic suspension of every HRL obligation."
+        },
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0016",
+          "wrongChoice": "The obligation may be suspended merely because an emergency is declared.",
+          "mistakeNote": "Assumes an official emergency declaration permits suspending non-derogable Article 4(2) duties."
+        }
+      ],
+      "outward-limits-not-forced-belief": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0026",
+          "wrongChoice": "Non-derogation means outward practice can never face a treaty limit.",
+          "mistakeNote": "Confuses Article 4(2) immunity from suspension with exemption from Article 18(3) limits on outward practice."
+        }
+      ],
+      "belief-cannot-be-forced": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0026",
+          "wrongChoice": "A permitted limit on outward practice allows forced changes of belief.",
+          "mistakeNote": "Treats Article 18(3) regulation of outward practice as permitting coercion of inner belief."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-people-protected-from-attack": {
+      "direct-participation-is-temporary": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0027",
+          "wrongChoice": "It is permanently lost for all later periods after participation has ended.",
+          "mistakeNote": "Turns temporary loss during direct participation into permanent loss of civilian protection."
+        }
+      ],
+      "hors-de-combat-excludes-active-attack": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0010",
+          "wrongChoice": "A fighter currently directing an ongoing attack while remaining uninjured",
+          "mistakeNote": "Counts an uninjured fighter actively directing an attack as no longer participating in hostilities."
+        }
+      ],
+      "enemy-side-still-gets-care": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0028",
+          "wrongChoice": "Permission to withhold care from anyone captured from the opposing side",
+          "mistakeNote": "Uses opposing-side status to justify withholding needed medical care from a wounded prisoner."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-weapons-limits": {
+      "intent-never-cures-indiscriminate-weapon": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0029",
+          "wrongChoice": "The commander's intended target removes the weapon's indiscriminate character.",
+          "mistakeNote": "Relies on a commander's good target intention to excuse a weapon that cannot be directed or confined."
+        }
+      ],
+      "accuracy-never-excuses-cruel-weapons": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0030",
+          "wrongChoice": "A rule allowing any injury whenever a weapon can be aimed precisely",
+          "mistakeNote": "Assumes aiming precision alone overrides the ban on superfluous injury or unnecessary suffering."
+        }
+      ],
+      "military-gain-never-waives-gas-ban": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0031",
+          "wrongChoice": "Definite military gain creates an exception to the poison-gas ban.",
+          "mistakeNote": "Treats expected military advantage as creating an exception to the Geneva Gas Protocol ban."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-military-targets": {
+      "distinction-forbids-pressure-attacks": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0032",
+          "wrongChoice": "Enemy pressure, allowing civilian targeting if it might weaken the opposing side",
+          "mistakeNote": "Allows directly attacking civilians and homes whenever doing so pressures the opponent."
+        }
+      ],
+      "both-objective-conditions-required": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0033",
+          "wrongChoice": "Effective contribution alone satisfies both conditions for a military objective.",
+          "mistakeNote": "Drops the second Article 52(2) condition requiring definite military advantage in the circumstances."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-attack-rules": {
+      "target-status-not-enough": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0034",
+          "wrongChoice": "A verified military target removes the need to compare harm with advantage.",
+          "mistakeNote": "Treats military-target verification as replacing the separate proportionality comparison."
+        }
+      ],
+      "unintended-harm-still-counts": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0034",
+          "wrongChoice": "Unintended civilian harm cannot make an attack unlawful under proportionality.",
+          "mistakeNote": "Excludes incidental civilian harm from proportionality simply because civilians were not intended targets."
+        }
+      ],
+      "warning-never-cures-unlawful-attack": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0035",
+          "wrongChoice": "Proceed because the warning satisfies every precaution requirement.",
+          "mistakeNote": "Treats an advance warning as excusing an attack even after new facts show excessive civilian harm."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-ihl-preparation-and-peace": {
+      "peacetime-duties-require-preparation": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0012",
+          "wrongChoice": "Because no IHL obligations can require any action before hostilities start",
+          "mistakeNote": "Denies Third Geneva Convention peacetime duties for dissemination, military training, and grave-breach laws."
+        }
+      ],
+      "clear-terms-and-rights-in-peace-talks": [
+        {
+          "questionId": "q-peace-and-human-rights-humanitarian-law-and-human-rights-law-0036",
+          "wrongChoice": "Leave the terms unclear so each group can follow its own understanding.",
+          "mistakeNote": "Skips setting clear agreed steps and compliance checks in favor of vague understandings."
+        }
+      ]
     }
   }
 }
