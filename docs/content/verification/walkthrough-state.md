@@ -22,6 +22,17 @@
 
 **Current state (Nov 26, 8:40 PM Manila): see `docs/superpowers/handoffs/2026-11-26-claude-lesson-lead-cse-walkthrough-s2.md` (session 2), after the session 1 note `2026-11-26-claude-lesson-lead-cse-walkthrough.md`. The table above is the previous lead's and is out of date for Batches 1 to 4b.** Short form: Grammar round 5 Codex FAIL (42 Blockers, 52 Majors, `walkthrough-work/codex-grammar-r5.md`); Vocabulary fixed and verified, not audited; Math and Reasoning fresh-instance sweeps done and independently re-solved; fresh-instance check on the checks branch (`d68e902fc`); Language Application partly fixed, citations not merged; Reading Comprehension not started.
 
+## Session 3 (Nov 26, from 8:33 PM Manila, E-198)
+
+Policy read: `origin/main` `68c2a5d5e` (then `5810f9bd6`, this session's velocity row). Manager rulings on the session 2 handoff (rule 4):
+1. Grammar: fix all 52 against the five patterns as a sweep (`walkthrough-work/pattern-checklist.md`), Fable 5.2 high read-only audits with the Codex brief until PASS; Codex b's last room for one final Grammar confirmation, then Vocabulary only if room remains. Same five patterns on Vocabulary before any audit.
+2. `discounted-prices` sample reusing the core's numbers: fix to a fresh instance (his approval was the layout; the text follows the rule), on the samples branch and in the lesson.
+3. The 12 spatial tries that need hand-made figures: no figures invented in text. Leave those tries out; record each in the figure worklist with what the figure must show.
+4. Quiz stem `parts-of-speech.yaml:485`: fix through the question process (blind solve, approve.dart) in its own commit; tell the manager if it is wrong on the live app.
+5. Filipino spelling: only a form citable to KWF. Result: *kuwerdas* is a headword in the KWF Diksiyonaryo (kwfdiksiyonaryo.ph/index.php?query=kuwerdas, "ku•wér•das", from Espanyol *cuerdas*; *kuwenta* likewise), and the rule is the Gabay sa Ortograpiyang Pambansa, "Kaso ng Kambal-Patinig", Unang Kataliwasan (kwfdiksiyonaryo.ph/gabay.php: "Huwag alisin ang unang patinig kapag ang kambal-patinig ay sumusunod sa katinig sa unang pantig ng salita", example cuento ==> kuwento). `baybay-ng-hiram-na-salita` keeps its check unchanged.
+6. E-198 velocity row added on main (`5810f9bd6`).
+Order: Language Application (13 partly done first), Grammar sweep and Fable audits, Vocabulary, Reading Comprehension.
+
 ## Claude lesson lead takeover (Nov 26, 15:31 Manila, E-198)
 
 - Lead: Claude Opus 5.5 lesson lead (Gemini lead out of quota). Policy read: `origin/main` `650eda378`.
