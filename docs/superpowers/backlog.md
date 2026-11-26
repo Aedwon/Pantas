@@ -23,6 +23,7 @@ Status words: LIVE (on prod and verified), BUILDING, BOARD (waiting on his look)
 
 | Asked (Manila) | His request, short | Status | Owner |
 |---|---|---|---|
+| Nov 26 2:30 PM | Walk-through lesson board round 2: "layout approved. for the lesson board" | APPROVED; renderer and importer next (UX lead, after the Friday homepage hand-off), then lessons ship batch by batch | UX lead, walk-through Gemini lead |
 | Nov 26 2:07 PM | Website Free and Pro section: round 4 card with his own list wording, "No ads" on the Free card; "update the Pro texts in other places as well" | APPROVED; building for the Saturday opening (website: UX lead; in-app Pro wording: release lead r9, capture sheet to him) | UX lead, release lead r9 |
 | Nov 26 1:30 PM | Wide Performance page: clipped rows, missing percent, Overall column; "(X)" instead of "X answered" | Sheet PASSED 2:07 PM ("okay with the performance page"); rides the Saturday opening | release lead r9 |
 | Nov 26 1:50 PM | BIR badge on the website: "okay take it off", then "yes delete" the stored image | DONE (removed from board and opening; image deleted) | UX lead |
