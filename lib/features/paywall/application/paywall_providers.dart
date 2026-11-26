@@ -34,9 +34,14 @@ final revenueCatConfigProvider = Provider<RevenueCatConfig>(
   (ref) => RevenueCatConfig.fromEnvironment(),
 );
 
+// The payment helpers read the preferences once and never watch them. The
+// object only holds the one database the app opens at startup, which is never
+// replaced (sign-out and account changes wipe rows in it). Watching it rebuilt
+// the gateway on every exam switch, and the new gateway showed Free for a
+// moment before its first read (backlog C15, Nov 26).
 final entitlementSnapshotStoreProvider =
     Provider<EntitlementSnapshotStore>((ref) {
-  final preferences = ref.watch(appPreferencesRepositoryProvider);
+  final preferences = ref.read(appPreferencesRepositoryProvider);
   return EntitlementSnapshotStore(
     readValue: preferences.deviceValue,
     writeValue: preferences.setDeviceValue,
@@ -49,7 +54,7 @@ final paymentEntitlementStateProvider =
 });
 
 final pendingPurchaseStoreProvider = Provider<PendingPurchaseStore>((ref) {
-  final preferences = ref.watch(appPreferencesRepositoryProvider);
+  final preferences = ref.read(appPreferencesRepositoryProvider);
   final store = PendingPurchaseStore(
     readValue: preferences.deviceValue,
     writeValue: preferences.setDeviceValue,
@@ -77,7 +82,7 @@ final pendingPurchaseProvider = Provider<AsyncValue<PendingPurchase?>>((ref) {
 });
 
 final trustedClockProvider = Provider<TrustedClock>((ref) {
-  final preferences = ref.watch(appPreferencesRepositoryProvider);
+  final preferences = ref.read(appPreferencesRepositoryProvider);
   return TrustedClock(
     readValue: preferences.deviceValue,
     writeValue: preferences.setDeviceValue,
