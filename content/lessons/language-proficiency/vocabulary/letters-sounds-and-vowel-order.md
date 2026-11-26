@@ -20,7 +20,7 @@ Spelling has patterns, but some words must be learned one by one. Use a pattern 
 
 The letters **a, e, i, o, u** are the main **vowel** letters in English. Vowel sounds are made without blocking the flow of air. Sometimes *y* also works as a vowel, as in *my*.
 
-Most other letters usually stand for **consonant** sounds. Consonant sounds usually involve blocking or narrowing the flow of air with the lips, tongue, or teeth.
+Most other letters usually stand for **consonant** sounds.
 
 A **syllable** is a beat in a word. It usually has one main vowel sound. **Stress** is the extra force used to say one syllable.
 
@@ -42,8 +42,10 @@ The answer is one. The letters *ie* together make one vowel sound, so *field* ha
 
 The rhyme “i before e except after c” helps with words such as *believe*, *receive*, and *deceive*. It does not work for every English word.
 
-- *Believe*: no c before the pair, so write *ie*.
-- *Receive*: c before the pair, so write *ei*.
+We check the vowel order in both words.
+
+- *Believe*: no c before the pair, so *ie* gives *believe*.
+- *Receive*: c before the pair, so *ei* gives *receive*.
 
 :::pair #belief-order
 Right: The thief held a belief.
@@ -62,7 +64,7 @@ Wrong: The goalkeeper tried to sieze the ball.
 :::check
 Which spelling is correct: *cieling* or *ceiling*?
 :::answer
-The answer is *ceiling*. A *c* comes before the vowel pair, so write *ei*.
+The answer is *ceiling*. It has the long-*e* sound, and a *c* comes before the pair, so the rhyme hints at *ei*. This is also its standard spelling.
 :::
 
 ## Examples
@@ -71,10 +73,13 @@ The answer is *ceiling*. A *c* comes before the vowel pair, so write *ei*.
 
 We find the misspelled word in a list of four.
 
-A) achieve  
-B) percieve  
-C) sleigh  
-D) weird
+A) achieve
+
+B) percieve
+
+C) sleigh
+
+D) niece
 
 **Solution:**
 
@@ -83,7 +88,7 @@ D) weird
 :::try
 Finish the checking: check the other three words and name the misspelled one.
 :::answer
-The answer is **B**, *percieve*, which is misspelled. A *c* comes before the pair, so the standard spelling is *perceive*, with *ei*. *Sleigh* uses *ei* because the pair makes the long-*a* sound, and *weird* is a known exception, so both are correct.
+The answer is **B**, *percieve*, which is misspelled. A *c* comes before the pair, so the standard spelling is *perceive*, with *ei*. *Sleigh* uses *ei* because the pair makes the long-*a* sound, and *niece* has no c before the pair, so both are correct.
 
 **Check:** Spell B as *perceive*. It now matches *receive*.
 :::

@@ -21,13 +21,12 @@ A **figure of speech** uses words to create a comparison, image, sound, or stron
 - **Simile:** compares different things, often with *like* or *as*: “Her voice was like velvet.”
 - **Metaphor:** presents one thing as another to make a comparison: “Time is a thief.”
 
-A simile needs a comparison. *Like* or *as* alone is not enough. “She works as a teacher” states her job without comparing different things.
+A simile needs a comparison. *Like* or *as* alone is not enough.
 
 We test this on a line that has no *like* or *as*.
 
 - “The classroom was a zoo.”
-- The classroom is called a zoo directly.
-- There is no *like* or *as*.
+- The classroom is called a zoo directly, with no *like* or *as*.
 - So it is a metaphor.
 
 :::pair #metaphor-or-simile
@@ -39,7 +38,7 @@ A simile compares with a marker such as *like* or *as*. This line calls the clas
 :::check
 “The sky was a blue blanket” and “Her hands were like ice.” Which one is a simile?
 :::answer
-The answer is “Her hands were like ice.” It compares two different things with *like*. “The sky was a blue blanket” has no *like* or *as*, so it is a metaphor.
+The answer is “Her hands were like ice.” It compares two different things with *like*. “The sky was a blue blanket” calls the sky a blanket directly, so it is a metaphor.
 :::
 
 ### Personification and Hyperbole
@@ -50,14 +49,13 @@ The answer is “Her hands were like ice.” It compares two different things wi
 Now we test a line that has a human action.
 
 - “The floorboards groaned, as if complaining.”
-- Complaining is a human action.
-- The boards are given that action.
+- The boards are given a human action, complaining.
 - So it is personification.
 
 :::pair #as-if-personification
-Right: “The boards groaned, as if complaining” is personification, because the boards act like a person.
-Wrong: “The boards groaned, as if complaining” is an explicit comparison.
-The words *as if* do not decide it. Ask what the boards are made to do.
+Right: “The boards groaned, as if complaining” gives the boards the ability to complain, so it is personification.
+Wrong: “The boards groaned, as if complaining” gives the boards the ability to complain through an explicit comparison.
+Ask what the boards are made to do.
 :::
 
 :::check
@@ -72,39 +70,50 @@ The answer is hyperbole. Eating a horse greatly overstates how hungry the speake
 
 “The wind whispered through the dark forest.” Which literary device is used most clearly?
 
-A) Metaphor  
-B) Hyperbole  
-C) Personification  
+A) Metaphor
+
+B) Hyperbole
+
+C) Personification
+
 D) Simile
 
 **Solution:**
 
-1. Whispering means speaking very softly. The wind cannot speak.
-2. Giving this human action to the wind creates personification. Answer: **C**.
+1. Whispering is a human action, and the wind cannot speak.
+2. Giving it to the wind creates personification. Answer: **C**: “The wind whispered through the dark forest.”
 
+**Check:** The human action named in the sentence is whispering.
 
 ### #2: Metaphor
 
 “Hope is a bird that carries us beyond our fear.” Which literary device is used most clearly?
 
-A) Metaphor  
-B) Simile  
-C) Alliteration  
+A) Metaphor
+
+B) Simile
+
+C) Alliteration
+
 D) Onomatopoeia
 
 **Solution:**
 
-1. The line presents hope as a bird. It compares two different things directly.
-2. This comparison is a metaphor. Answer: **A**.
+1. The line presents hope as a bird, directly.
+2. So it is a metaphor. Answer: **A**: “Hope is a bird that carries us beyond our fear.”
 
+**Check:** The line says hope *is* a bird, so it names one thing as another.
 
 ### #3: The Moonlit Lake
 
 “The calm lake shone like a mirror under the moon.” Which literary device is used most clearly?
 
-A) Simile  
-B) Hyperbole  
-C) Oxymoron  
+A) Simile
+
+B) Hyperbole
+
+C) Oxymoron
+
 D) Personification
 
 **Solution:**
@@ -112,7 +121,7 @@ D) Personification
 1. The sentence compares two different things, a calm lake and a mirror.
 
 :::try
-Finish the last step: look at the words that join the two things and choose the device.
+Finish the last step: choose the device.
 :::answer
 The answer is **Simile**, choice **A**. The marker *like* joins the lake and the mirror.
 

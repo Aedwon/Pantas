@@ -16,12 +16,12 @@ keyPoints:
 
 ### Meaning in Context
 
-A word can have more than one meaning. Read the whole sentence before choosing its synonym or antonym.
+A word can have more than one meaning.
 
-Here are two words, *fast* and *bank*, with two meanings each.
+We compare *fast* and *bank* in context.
 
-- *Fast* can mean quick. In *to fast*, it means to go without food for a time.
-- *Bank* can mean a business that handles money. It can also mean the land beside a river.
+- *Fast* can mean quick: “a fast train.” In *to fast*, it means to go without food: “They fast on Fridays.”
+- *Bank* can mean a business that handles money: “She paid the bill at the bank.” It can also mean land beside a river: “Reeds grew on the bank.”
 
 :::pair #fast-meaning
 Right: The monks decided to fast for three days, taking no food. Here *fast* means to avoid eating.
@@ -42,8 +42,6 @@ Grammar matters too. A replacement must fit how the word is used.
 - *Decide* names an action.
 - *Decision* names a choice.
 
-So they cannot simply replace each other.
-
 :::pair #decide-grammar
 Right: The panel must decide before releasing its report.
 Wrong: The panel must decision before releasing its report.
@@ -62,9 +60,12 @@ The answer is *announce*. After *will*, the sentence needs a verb, and *announce
 
 They rested on the **bank** of the river after crossing the bridge. Which word is closest in meaning to the word in bold?
 
-A) lender  
-B) shore  
-C) account  
+A) lender
+
+B) shore
+
+C) account
+
 D) vault
 
 **Solution:**
@@ -72,50 +73,55 @@ D) vault
 1. The words *of the river* show that **bank** refers to land beside water.
 2. **Shore** has the closest meaning here. The answer is **B**.
 
-**Check:** Read it back: "They rested on the shore of the river." It makes sense.
+**Check:** Read it back: "They rested on the shore of the river after crossing the bridge." It makes sense.
 
 ### #2: Meaning from Behavior
 
 The manager's **sycophantic** assistant praised every idea, even bad ones, in hopes of gaining favor. Which meaning best fits the word in bold?
 
-A) resisting orders to show independence  
-B) giving too much praise to win approval  
-C) offering sound advice to solve problems  
+A) resisting orders to show independence
+
+B) giving too much praise to win approval
+
+C) offering sound advice to solve problems
+
 D) avoiding tasks to reduce effort
 
 **Solution:**
 
-1. The assistant praises every idea, even bad ones.
-2. He does this to gain favor.
-3. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
+1. The assistant praises every idea, even bad ones, to gain favor.
+2. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
 
-**Check:** Swap in *flattering*: "The manager's flattering assistant praised every idea."
+**Check:** Swap in *flattering*: "The manager's flattering assistant praised every idea, even bad ones, in hopes of gaining favor."
 
-### #3: The Committee
+### #3: The Project
 
-The committee will **decide** tomorrow. Which word can replace the word in bold without changing the sentence's meaning or grammar?
+The class will **begin** the project on Monday. Which word can replace the word in bold without changing the sentence's meaning or grammar?
 
-A) decision  
-B) postpone  
-C) choose  
-D) decisive
+A) beginning
+
+B) start
+
+C) finish
+
+D) beginner
 
 **Solution:**
 
 1. After *will*, the sentence needs a verb.
-2. *Decide* names an action, so the replacement must keep that action and its job.
+2. *Begin* names an action, so the replacement must keep that action and its job.
 
 :::try
 Finish the last step: which choice fits both the grammar and the meaning?
 :::answer
-The answer is **C**, **choose**. *Choose* is a verb that means making a choice. *Postpone* is also a verb, but it means to delay. *Decision* is a noun and *decisive* is an adjective.
+The answer is **B**, **start**. *Start* is a verb that means the same as *begin*. *Finish* is also a verb, but it means to end. *Beginning* and *beginner* are nouns here.
 
-**Check:** Read it back: "The committee will choose tomorrow." The meaning and grammar stay the same.
+**Check:** Read it back: "The class will start the project on Monday." The meaning and grammar stay the same.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Check nearby words. They can show which meaning fits and which word pairing sounds natural.
+Check nearby words for the meaning that fits.
 
 ## Traps to Watch For
 

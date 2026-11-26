@@ -16,16 +16,16 @@ keyPoints:
 
 ### Definitions and Examples
 
-A **context clue** is information near an unfamiliar word that helps you work out its likely meaning. Context may give the exact meaning, or it may only narrow the choices.
+A **context clue** is information near an unfamiliar word that helps you work out its likely meaning. Context may only narrow the choices.
 
 - **Definition or restatement:** the text explains the word in another way.
-- **Example:** the text gives examples that show what the word includes.
+- **Example:** the text gives examples of what the word includes.
 
-We find the meaning from a restatement.
+We find the meaning of *candid* from a restatement.
 
 - Sentence: “Her **candid** remarks, or honest opinions, offended some people.”
-- The words *or honest opinions* explain *candid remarks*.
-- So *candid* means honest.
+- *or honest opinions* explains *candid remarks*.
+- So *candid* means honest: “Her honest remarks offended some people.”
 
 :::pair #restatement-not-reaction
 Right: *Candid* means honest.
@@ -43,11 +43,10 @@ The answer is tools. The examples are all tools for preparing food.
 
 - **Synonym or near-synonym:** a nearby word has the same or almost the same meaning.
 
-We read the meaning from the sentence.
+We read the meaning of *sanction* from the sentence.
 
 - Sentence: “The committee's **sanction** allowed the policy to proceed, since it had full official approval.”
-- The policy proceeded because of full official approval.
-- So *sanction* means approval here.
+- So *sanction* means approval here: “The committee's approval allowed the policy to proceed.”
 
 :::pair #sentence-meaning
 Right: *Sanction* means approval here.
@@ -67,15 +66,18 @@ The answer is brief and clear. The nearby words *brief, clear* explain *concise*
 
 The king's **edict**, or official command, required all citizens to pay the tax. What does the word in bold most likely mean?
 
-A) request  
-B) suggestion  
-C) official order  
+A) request
+
+B) suggestion
+
+C) official order
+
 D) secret
 
 **Solution:**
 
 1. The words *or official command* explain **edict**.
-2. An official order matches that meaning. Answer: **C**.
+2. So it means official order. Answer: **C**.
 
 **Check:** “The king's official order required all citizens to pay the tax.” It still makes sense.
 
@@ -83,22 +85,31 @@ D) secret
 
 The forest contains many **nocturnal** animals, such as owls, bats, and flying foxes, that are active after dark. What does the word in bold most likely mean?
 
-A) dangerous  
-B) flying  
-C) active at night  
+A) dangerous
+
+B) flying
+
+C) active at night
+
 D) noisy
 
 **Solution:**
 
-1. The sentence gives animal examples and says they are active after dark.
-2. These details show that **nocturnal** means active at night. Answer: **C**.
+1. The examples are animals active after dark.
+2. So **nocturnal** means active at night. Answer: **C**: “The forest contains many animals active at night, such as owls, bats, and flying foxes.”
+
+**Check:** Each example, owls, bats, and flying foxes, fits active at night.
+
 ### #3: The Clerk's Interview
 
 The clerk was **courteous** throughout the interview. She remained polite even when an applicant spoke rudely. What does the word in bold most likely mean?
 
-A) hurried  
-B) respectful  
-C) uncertain  
+A) hurried
+
+B) respectful
+
+C) uncertain
+
 D) talkative
 
 **Solution:**
@@ -115,7 +126,7 @@ The word is *polite*, so the answer is **B**, *respectful*. Both describe the sa
 
 ## Speed Tricks & Shortcuts
 
-**Hide the unfamiliar word.** Ask what meaning the sentence needs before looking at the choices.
+**Hide the unfamiliar word.** Ask what meaning the sentence needs.
 
 ## Traps to Watch For
 

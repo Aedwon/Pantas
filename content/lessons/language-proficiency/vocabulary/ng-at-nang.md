@@ -16,14 +16,14 @@ keyPoints:
 
 ### Mga Gamit ng Ng
 
-Magkaiba ang gamit ng **ng** at **nang**. Tingnan ang papel ng kasunod na salita sa buong pangungusap bago pumili.
+Magkaiba ang gamit ng **ng** at **nang**.
 
-Ilang karaniwang gamit ng **ng**:
+Basahin natin ang kasunod na salita sa bawat pangungusap upang makita kung bakit **ng** ang gamit:
 
-1. **Bagay na tinutukoy ng kilos**: "Kumain **ng** mangga si Ana." *Mangga* ang kinain.
+1. **Bagay na tinutukoy ng kilos**: "Kumain **ng** mangga si Ana."
 2. **Pagmamay-ari o ugnayan**: "Malinis ang bahay **ng** guro." Kanino ang bahay?
 3. **Dami o sukat ng bagay**: "Bumili siya **ng** tatlong kilo **ng** bigas."
-4. **Bahagi ng araw sa oras**: "Magsisimula tayo sa alas-singko **ng** hapon." Sinasabi ng *hapon* ang bahagi ng araw.
+4. **Bahagi ng araw sa oras**: "Magsisimula tayo sa alas-singko **ng** hapon."
 
 :::pair #pagmamay-ari
 Right: Ang bahay ng aking lola ay malapit sa simbahan.
@@ -45,9 +45,9 @@ Ang sagot ay **pagmamay-ari**. Sa paaralan ang bakod, at walang bilang o sukat s
 
 ### Mga Gamit ng Nang
 
-Ginagamit ang **nang** sa tatlong karaniwang ayos:
+Basahin natin ang kasunod na salita upang makita kung bakit **nang** ang gamit sa tatlong karaniwang ayos:
 
-1. **Paraan o tindi ng kilos**: "Tumakbo **nang** mabilis ang aso." Inilalarawan ng *mabilis* kung paano tumakbo ang aso.
+1. **Paraan o tindi ng kilos**: "Tumakbo **nang** mabilis ang aso."
 2. **Katumbas ng "noong"**: "**Nang** dumating siya, nagsimula ang pulong."
 3. **Kilos na inuulit**: "Takbo **nang** takbo ang bata sa bakuran."
 
@@ -71,9 +71,12 @@ Ang sagot ay **ng**, **nang**. Ang *liham* ang sinulat, kaya *ng*. Sinasabi ng *
 
 Punan ang patlang: "Tumakbo ______ mabilis ang aso nang makita nito ang pusa."
 
-A) ng  
-B) nang  
-C) na  
+A) ng
+
+B) nang
+
+C) na
+
 D) may
 
 **Solution:**
@@ -87,9 +90,12 @@ D) may
 
 Piliin ang tamang pares: "Bumili ______ mangga si Ana para sa anak ______ guro."
 
-A) ng; ng  
-B) nang; ng  
-C) ng; nang  
+A) ng; ng
+
+B) nang; ng
+
+C) ng; nang
+
 D) nang; nang
 
 **Solution:**
@@ -97,14 +103,18 @@ D) nang; nang
 1. Mangga ang binili, kaya *ng* ang unang sagot.
 2. Ipinakikita ng *anak ng guro* ang ugnayan ng anak at guro, kaya **ng** din ang ikalawa: "Bumili ng mangga si Ana para sa anak ng guro." Sagot: **A**.
 
+**Check:** Ang guro ang may anak, kaya ugnayan ang ipinakikita ng *ng*.
 
 ### #3: Dami o Sukat
 
 Punan ang patlang: "Bumili si Liza ng tatlong kilo ______ bigas."
 
-A) nang  
-B) ng  
-C) na  
+A) nang
+
+B) ng
+
+C) na
+
 D) may
 
 **Solution:**
@@ -112,30 +122,34 @@ D) may
 1. Ang *tatlong kilo* ay nagsasabi ng dami o sukat.
 2. Gamitin ang **ng**: "Bumili si Liza ng tatlong kilo ng bigas." Sagot: **B**.
 
-**Check:** Bigas ang binili, at tatlong kilo ang sukat nito.
-
 ### #4: Pahayag ng Oras
 
 Punan ang patlang: "Nagsimula ang programa sa alas-tres ______ hapon."
 
-A) nang  
-B) ng  
-C) na  
+A) nang
+
+B) ng
+
+C) na
+
 D) may
 
 **Solution:**
 
-1. Ang *hapon* ay bahagi ng araw.
-2. Gamitin ang **ng**: "Nagsimula ang programa sa alas-tres ng hapon." Sagot: **B**.
+1. Gamitin ang **ng**: "Nagsimula ang programa sa alas-tres ng hapon." Sagot: **B**.
 
+**Check:** Ang *hapon* ay bahagi ng araw, kaya *ng* ang ginagamit sa oras.
 
 ### #5: Oras at Paulit-ulit na Kilos
 
 Piliin ang tamang pares: "______ dumating ang bus, tawag ______ tawag si Mila sa kapatid niya."
 
-A) Ng; ng  
-B) Nang; ng  
-C) Ng; nang  
+A) Ng; ng
+
+B) Nang; ng
+
+C) Ng; nang
+
 D) Nang; nang
 
 **Solution:**
@@ -149,9 +163,12 @@ D) Nang; nang
 
 Piliin ang tamang hanay: "Bumili ______ saging si Rosa, at ______ dumating ang guro, nagsalita siya ______ malumanay."
 
-A) ng; nang; nang  
-B) nang; ng; nang  
-C) ng; ng; nang  
+A) ng; nang; nang
+
+B) nang; ng; nang
+
+C) ng; ng; nang
+
 D) ng; nang; ng
 
 **Solution:**
@@ -169,7 +186,7 @@ Ang sagot ay **A**. Sinasabi ng *malumanay* kung paano nagsalita si Rosa, kaya *
 
 ## Speed Tricks & Shortcuts
 
-Tingnan ang buong parirala. Alamin kung bagay, ugnayan, dami, oras, paraan ng kilos, *noong*, o kilos na inuulit ang tinutukoy.
+Sa mga gamit na sinanay sa araling ito, tingnan ang buong parirala. Alamin kung bagay, ugnayan, dami, oras, paraan ng kilos, *noong*, o kilos na inuulit ang tinutukoy.
 
 ## Traps to Watch For
 

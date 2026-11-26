@@ -20,7 +20,7 @@ keyPoints:
 
 - The office changed its hours.
 
-**It's** is a short form of *it is* or *it has*.
+**It's** is a short form of *it is* or *it has*. We expand *open* and *been approved* to see which:
 
 - It's open. (It is open.)
 - It's been approved. (It has been approved.)
@@ -67,14 +67,17 @@ The answer is "It's rained all week." It expands to "It has rained all week." "I
 
 The university updated ______ guidelines regarding artificial intelligence.
 
-A) it's  
-B) its  
-C) its'  
+A) it's
+
+B) its
+
+C) its'
+
 D) they're
 
 **Solution:**
 
-1. Try *it is guidelines*. It does not fit. Try *it has guidelines*. It does not fit.
+1. Neither *it is guidelines* nor *it has guidelines* fits.
 2. The guidelines belong to the university. This calls for *its*.
 3. *Its'* is not a standard form, and *they're* means *they are*. Answer: **B**.
 
@@ -86,9 +89,12 @@ The sentence reads: "The university updated its guidelines regarding artificial 
 
 Choose the pair that completes the sentence correctly: "______ clear that ______ been a difficult week."
 
-A) Its; its  
-B) It's; its  
-C) Its; it's  
+A) Its; its
+
+B) It's; its
+
+C) Its; it's
+
 D) It's; it's
 
 **Solution:**
@@ -105,7 +111,7 @@ The answer is **D**, *It's; it's*. The second blank expands to *it has*: "It has
 
 ## Speed Tricks & Shortcuts
 
-Expand *it's* to *it is* or *it has*. Read the whole sentence after each replacement.
+Expand *it's* to *it is* or *it has*.
 
 ## Traps to Watch For
 

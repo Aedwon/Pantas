@@ -16,27 +16,24 @@ keyPoints:
 
 ### Useful English Word Elements
 
-Some word parts carry meaning even when they cannot stand alone as English words.
-
 - **mal-** suggests bad, badly, or faulty: *malfunction*, *malpractice*.
 - **bene-/ben-** suggests good or well: *benevolent*, *benefit*.
-- **omni-** means all: *omnivorous* describes eating both plant and animal food.
-- **chron-/chrono-** relates to time: *chronology* is the order of events in time.
+- **omni-** means all: *omnivorous*, eating all kinds of food.
+- **chron-/chrono-** relates to time: *chronology*.
 - **pseudo-** means false or imitation: *pseudoscience*.
-- **circum-** means around, and **locut-** relates to speaking: *circumlocution* is an indirect, wordy way of speaking.
+- **circum-** means around, and **locut-** relates to speaking: *circumlocution*.
 
 These parts give clues, not the whole meaning of every word. Do not force a split in a word such as *bench* because it begins with *ben*.
 
-We split *malicious* and read the first part.
+We split *malicious* and read the first part in “Her malicious rumor was meant to hurt him.”
 
-- *Malicious* starts with *mal-*.
-- *Mal-* suggests bad or harmful.
-- So *malicious* means spiteful, or meant to hurt.
+- *Malicious* starts with *mal-*, which suggests bad or harmful.
+- So *malicious* means spiteful: “Her spiteful rumor was meant to hurt him.”
 
 :::pair #mal-versus-bene
 Right: *Malicious* means spiteful.
 Wrong: *Malicious* means benevolent.
-*Mal-* is bad. *Bene-* is good. Do not swap them.
+*Mal-* is bad. *Bene-* is good.
 :::
 
 We split *omniscient* and read the first part.
@@ -63,51 +60,61 @@ The answer is lasting a long time. *Chron-* relates to time, and a cough that go
 
 What does the prefix add to the meaning of the word in bold, **pseudoscientific**?
 
-A) ancient  
-B) false or imitation  
-C) complete  
+A) ancient
+
+B) false or imitation
+
+C) complete
+
 D) fast
 
 **Solution:**
 
 1. *Pseudo-* means false or imitation.
-2. **Pseudoscientific** describes something presented as science that is not genuine science. Answer: **B**.
+2. **Pseudoscientific** describes science that is not genuine. Answer: **B**.
 
+**Check:** *False* + *scientific* fits the whole word.
 
 ### #2: Parts and Context Together
 
-The official's reply was criticized for its **circumlocution**. Which meaning best fits the word in bold?
+The official took many words to dodge a direct answer, and the reply was criticized for its **circumlocution**. Which meaning best fits the word in bold?
 
-A) direct statement  
-B) indirect, wordy expression  
-C) complete silence  
+A) direct statement
+
+B) indirect, wordy expression
+
+C) complete silence
+
 D) angry shouting
 
 **Solution:**
 
-1. *Circum-* suggests around, and *locut-* relates to speaking.
-2. **Circumlocution** means an indirect, wordy way of speaking. Answer: **B**.
+1. *Circum-* means around and *locut-* relates to speaking, so **circumlocution** is an indirect, wordy way of speaking. Answer: **B**.
 
+**Check:** An indirect, wordy reply fits an official who dodges.
 
 ### #3: Contrasting Elements
 
-Which pair gives the meanings of the words in bold, in order: **malnutrition**, **benefactor**?
+A doctor treated the child for **malnutrition**. The school thanked its **benefactor**, who paid for the new library. Which pair gives the meanings of the words in bold, in order?
 
-A) poor nourishment; one who does good  
-B) slow growth; one who works slowly  
-C) too much food; one who is old  
-D) loud eating; one who speaks loudly
+A) poor nourishment; someone who gives help or money
+
+B) poor nourishment; someone who takes help or money
+
+C) good nourishment; someone who gives help or money
+
+D) good nourishment; someone who takes help or money
 
 **Solution:**
 
-1. Split the first letters of each word: *mal-* in **malnutrition** and *bene-* in **benefactor**.
+1. Read each bold word with its sentence.
 
 :::try
-Finish the last step: match *mal-* and *bene-* to their meanings and choose the right pair.
+Finish the last step: use the word parts and the sentences to choose the right pair.
 :::answer
-The answer is **A**, *poor nourishment; one who does good*. *Mal-* suggests bad or faulty, while *bene-* suggests good or well.
+The answer is **A**, *poor nourishment; someone who gives help or money*. *Mal-* suggests bad or faulty, while *bene-* suggests good or well, and the library gift shows giving.
 
-**Check:** Put each meaning back into the word: poor nourishment fits *malnutrition*, and one who does good fits *benefactor*.
+**Check:** Put each meaning back: "treated the child for poor nourishment" fits *malnutrition*, and "thanked its someone who gives help or money" fits *benefactor* as a giver.
 :::
 
 ## Traps to Watch For

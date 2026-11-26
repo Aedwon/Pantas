@@ -17,7 +17,7 @@ keyPoints:
 
 Ang **hiram na salita** ay mula sa ibang wika. Sinusunod sa pagbaybay nito ang Ortograpiyang Pambansa ng Komisyon sa Wikang Filipino (KWF).
 
-Sa *cuento*, magkasunod ang *u* at *e* sa unang pantig, at may katinig (*c*) bago ang mga ito. Tinatawag itong **kambal-patinig** (vowel pair).
+Sa *cuento*, magkasunod ang *u* at *e*. Tinatawag itong **kambal-patinig** (vowel pair).
 
 Baybayin natin ang *cuento* sa Filipino:
 
@@ -25,7 +25,7 @@ Baybayin natin ang *cuento* sa Filipino:
 2. Palitan ng *k* ang *c*: *kuento*
 3. Isingit ang *w* bago ang *e*: **kuwento**
 
-Hindi ito tuntunin para sa lahat ng salitang hiram. Ito ang gamit kapag *ue* ang kambal-patinig pagkatapos ng *c*.
+Hindi ito tuntunin para sa lahat ng salitang hiram. Karaniwang gamit ito kapag *ue* ang kambal-patinig sa unang pantig, pagkatapos ng katinig na *c*, gaya sa *cuento*.
 
 :::pair #huwag-alisin-ang-u
 Right: Ang baybay sa Filipino ng *cuento* ay *kuwento*.
@@ -51,9 +51,12 @@ Ang *k* ang ipinapalit sa *c*: *kuerdas*. Isinisingit ang *w* bago ang *e*: *kuw
 
 Punan ang patlang ng baybay sa Filipino ng *cuento*: "Binasa niya ang maikling ______ bago matulog."
 
-A) kwento  
-B) kuwento  
-C) kuwentu  
+A) kwento
+
+B) kuwento
+
+C) kuwentu
+
 D) kwentu
 
 **Solution:**
@@ -68,19 +71,22 @@ D) kwentu
 
 Piliin ang baybay sa Filipino ng *cuenta*.
 
-A) kwenta  
-B) kuwenta  
-C) kuenta  
+A) kwenta
+
+B) kuwenta
+
+C) kuenta
+
 D) kuwentu
 
 **Solution:**
 
-1. Nasa unang pantig ng *cuenta* ang *ue* pagkatapos ng *c*. Palitan ng *k* ang *c*: *kuenta*.
+1. Nasa unang pantig ng *cuenta* ang *ue* pagkatapos ng *c*.
 
 :::try
-Tapusin ang huling hakbang: ano ang idaragdag sa *kuenta*, at alin ang sagot?
+Isulat ang baybay sa Filipino ng *cuenta* mula sa simula, at piliin ang sagot.
 :::answer
-Ang sagot ay **B**. Isingit ang *w* bago ang *e*: **kuwenta**.
+Ang sagot ay **B**. Palitan ng *k* ang *c*: *kuenta*. Isingit ang *w* bago ang *e*: **kuwenta**.
 
 **Check:** Nanatili ang *u* at ang huling *a*, kaya hindi *kwenta* o *kuenta*.
 :::

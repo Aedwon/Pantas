@@ -17,15 +17,15 @@ keyPoints:
 
 ### Connotation
 
-**Connotation** is the feeling a word carries beyond its basic meaning. *Slim* and *skinny* both describe thinness, but *slim* often sounds more positive. The nearby words help show which feeling fits.
+**Connotation** is the feeling a word carries beyond its basic meaning. *Slim* and *skinny* both describe thinness, but *slim* often sounds more positive.
 
 We choose between two words for careful spending.
 
 - Sentence: “Her careful spending left enough money for essentials and for helping neighbors.”
-- The sentence approves of her spending.
+- Helping neighbors is good, so the sentence approves.
 - *Frugal* means careful with money, and it sounds approving.
 - *Stingy* means unwilling to spend or give, and it sounds critical.
-- So *frugal* keeps the tone.
+- So *frugal* keeps the tone: “Her frugal spending left enough money for essentials and for helping neighbors.”
 
 :::pair #approving-tone
 Right: She was frugal.
@@ -41,7 +41,7 @@ The answer is *determined*. *Admired* shows approval, *determined* sounds positi
 
 ### Intensity
 
-**Intensity** is the strength of a meaning. *Annoyed* means bothered or a little angry. *Furious* means very angry, so it would make a mild complaint sound much stronger.
+**Intensity** is the strength of a meaning. *Annoyed* means bothered or a little angry. *Furious* means very angry.
 
 We replace *annoyed* in this sentence: “The clerk was annoyed by a minor interruption but resumed work calmly.”
 
@@ -52,7 +52,7 @@ We replace *annoyed* in this sentence: “The clerk was annoyed by a minor inter
 :::pair #mild-intensity
 Right: The clerk was bothered by a minor interruption.
 Wrong: The clerk was enraged by a minor interruption.
-The clerk stayed calm, so the anger is mild. *Enraged* is far too strong.
+The clerk *resumed work calmly*, so the anger is mild. *Enraged* is far too strong.
 :::
 
 :::check
@@ -65,7 +65,7 @@ The answer is *chilly*. It matches a mild feeling, while *freezing* means extrem
 
 **Register** is the level of formality that fits a situation. *Commence* is formal, *start* is neutral, and *kick off* is casual.
 
-First ask who will read the sentence and why it was written. Then choose the word whose meaning and setting both fit.
+Ask who will read the sentence. Then choose the word whose meaning and setting both fit.
 
 We replace *kick off* in a public notice: “Processing will kick off after the briefing.”
 
@@ -80,9 +80,9 @@ A public notice calls for formal wording. *Get going* is too casual.
 :::
 
 :::check
-Which fits a formal notice: *purchase* or *grab*?
+“Staff may ___ supplies.” Both words mean buy. Which fits a formal notice: *purchase* or *snap up*?
 :::answer
-The answer is *purchase*. It is formal. *Grab* is casual.
+The answer is *purchase*. “Staff may purchase supplies” is formal. *Snap up* is casual.
 :::
 
 ## Examples
@@ -93,51 +93,62 @@ Which word or phrase best completes this formal notice?
 
 “The examination will _____ at 8:00 a.m.”
 
-A) commence  
-B) kick off  
-C) get going  
+A) commence
+
+B) kick off
+
+C) get going
+
 D) fire up
 
 **Solution:**
 
-1. The notice tells people when an examination begins. It needs wording that fits an official message.
-2. **Commence** means begin and is formal. The answer is **A**.
+1. A formal notice needs official wording.
+2. **Commence** means begin and is formal. The answer is **A**: “The examination will commence at 8:00 a.m.”
 
+**Check:** *Commence* is formal, like the notice.
 
 ### #2: Keeping a Positive Tone
 
 The article praised the athlete's **slim** build. Which replacement best keeps the positive tone of the word in bold?
 
-A) skinny  
-B) slender  
-C) frail  
+A) skinny
+
+B) slender
+
+C) frail
+
 D) bony
 
 **Solution:**
 
-1. The word *praised* shows that the description is positive.
-2. **Slender** describes a thin build with a positive tone. The answer is **B**.
+1. *Praised* shows a positive tone.
+2. **Slender** describes a thin build with a positive tone. The answer is **B**: “The article praised the athlete's slender build.”
 
+**Check:** *Slender* is positive, unlike *skinny* and *bony*.
 
-### #3: A Brief Delay
+### #3: Before the Quiz
 
-Rina was **annoyed** by the brief delay, but she soon forgot about it. Which replacement best keeps the strength of the word in bold?
+Marco was **nervous** before the quiz, but he felt calm once it began. Which replacement best keeps the strength of the word in bold?
 
-A) enraged  
-B) delighted  
-C) irritated  
-D) furious
+A) terrified
+
+B) uneasy
+
+C) cheerful
+
+D) alarmed
 
 **Solution:**
 
-1. Rina soon forgot the delay, so the sentence describes mild anger.
+1. Read the whole sentence, not only the bold word.
 
 :::try
-Finish the last step: which choice matches that mild strength?
+Finish the last step: choose the replacement that keeps the strength of **nervous**.
 :::answer
-The answer is **C**, **irritated**. *Irritated* means mild anger, while *enraged* and *furious* mean extreme anger and *delighted* is not anger.
+The answer is **B**, **uneasy**. Marco felt calm once the quiz began, so the fear was mild. *Uneasy* is mild, *terrified* and *alarmed* are stronger, and *cheerful* is not fear.
 
-**Check:** Put *irritated* back: “Rina was irritated by the brief delay, but she soon forgot about it.” Mild anger fits forgetting it soon.
+**Check:** Put *uneasy* back: “Marco was uneasy before the quiz, but he felt calm once it began.” Mild fear fits feeling calm soon after.
 :::
 
 ## Speed Tricks & Shortcuts

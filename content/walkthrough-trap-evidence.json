@@ -3650,7 +3650,7 @@
         {
           "questionId": "q-vocabulary-confusing-words-0001",
           "wrongChoice": "Effect",
-          "mistakeNote": "Uses the noun effect where the verb affect (influence) is needed."
+          "mistakeNote": "Uses effect (bring about) where influence is meant."
         }
       ],
       "base-form": [
@@ -3718,11 +3718,6 @@
           "questionId": "q-vocabulary-idioms-and-figures-of-speech-0003",
           "wrongChoice": "An explicit comparison",
           "mistakeNote": "Reads 'as if complaining' as a comparison instead of personification."
-        },
-        {
-          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0003",
-          "wrongChoice": "A direct comparison",
-          "mistakeNote": "Same slip, second wording."
         }
       ]
     },

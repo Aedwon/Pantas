@@ -19,11 +19,11 @@ In many one-syllable words, double the last consonant before *-ing* or *-ed*. Th
 
 This ending is called the **consonant-vowel-consonant** pattern. Check the letters at the end, not the sound.
 
-Take *run*.
+Add *-ing* to *run*.
 
 1. *R* is a consonant, *u* is a vowel, and *n* is a consonant.
 2. The pattern fits, so double the *n*.
-3. Add *-ing*.
+3. Add *-ing* after it.
 
 *Run* becomes *running*.
 
@@ -83,16 +83,18 @@ The answer is *opened*. *Open* has stress on its first syllable, not its last, s
 
 We choose the spelling of *run* plus *-ing*.
 
-A) runing  
-B) running  
-C) runeing  
+A) runing
+
+B) running
+
+C) runeing
+
 D) runnning
 
 **Solution:**
 
-1. *Run* has one syllable.
-2. It ends in one vowel letter, *u*, then one consonant letter, *n*.
-3. Double the final *n* before *-ing*.
+1. *Run* ends in one vowel letter, *u*, then one consonant letter, *n*.
+2. Double the final *n* before *-ing*.
 
 The spelling is **running**. Answer: **B**.
 
@@ -102,9 +104,12 @@ The spelling is **running**. Answer: **B**.
 
 We choose the spelling of *begin* plus *-ing*.
 
-A) beginning  
-B) begining  
-C) beggining  
+A) beginning
+
+B) begining
+
+C) beggining
+
 D) begininning
 
 **Solution:**
@@ -116,14 +121,18 @@ D) begininning
 
 The spelling is **beginning**. Answer: **A**.
 
+**Check:** *Begin* + *n* + *-ing* puts *nn* in the middle.
 
 ### #3: An Unstressed Final Syllable
 
 We choose the spelling of *visit* plus *-ing*.
 
-A) visitting  
-B) visiteing  
-C) visiting  
+A) visitting
+
+B) visiteing
+
+C) visiting
+
 D) vissiting
 
 **Solution:**
@@ -134,23 +143,26 @@ D) vissiting
 
 The spelling is **visiting**. Answer: **C**.
 
+**Check:** *Visit* + *-ing* has a single *t*: *vis-it-ing*.
 
 ### #4: Limits of Doubling
 
 We choose the pair in which *fix* plus *-ing* and *play* plus *-ing* are both spelled correctly.
 
-A) fixxing; playing  
-B) fixing; playying  
-C) fixxing; playying  
+A) fixxing; playing
+
+B) fixing; playying
+
+C) fixxing; playying
+
 D) fixing; playing
 
 **Solution:**
 
-1. Check the final letter of *fix*. It is *x*.
-2. Check the final letter of *play*. It is *y*.
+1. Look at the last letter of *fix* and of *play*.
 
 :::try
-Finish the last step: apply the *w*, *x*, and *y* rule to both words and choose the right pair.
+Finish the last step: spell both words with *-ing* and choose the right pair.
 :::answer
 The answer is **D**, **fixing; playing**. Final *w*, *x*, and *y* do not double before *-ing*.
 
@@ -162,5 +174,5 @@ The answer is **D**, **fixing; playing**. Final *w*, *x*, and *y* do not double 
 :::checklist
 - Longer word ending in one vowel and one consonant: check the stress first, as in *beginning*. {#begin-stress}
 - Stressed last syllable ending in one vowel and one consonant: usually double the final letter before *-ed*, as in *referred*. {#refer-stress}
-- Stress on an earlier syllable: keep one letter, as in *visiting*. {#visit-stress}
+- Stress on an earlier syllable: usually keep one letter, as in *visiting*. {#visit-stress}
 :::

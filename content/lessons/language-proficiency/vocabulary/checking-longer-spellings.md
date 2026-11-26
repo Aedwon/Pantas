@@ -15,18 +15,18 @@ keyPoints:
 
 ### Checking Longer Words by Syllable
 
-Say the word slowly and listen for its beats. Check the sounds and letters in each part. Then check the base, ending, and doubled letters.
+Say the word slowly and listen for its beats. Then check the base, ending, and doubled letters.
 
 We split *beginning* into its beats.
 
 - Say it: *be-gin-ning*.
-- The first vowel sounds weak, so sound alone does not prove its letters.
+- The first vowel sounds weak, so sound alone does not prove it.
 - The known base *begin* gives the letters *b-e-g-i-n*.
 
 Now we check the ending of *beginning*.
 
-- *Begin* ends in a stressed vowel plus one consonant.
-- So the final *n* doubles before *-ing*.
+- *Begin* ends in a stressed vowel plus one consonant. Before *-ing* or *-ed*, that consonant usually doubles, but not *w*, *x*, or *y*.
+- So the final *n* doubles before *-ing*: *begin* + *n* + *-ing* gives *beginning*.
 
 :::pair #known-base
 Right: The definite answer is in the report.
@@ -44,7 +44,7 @@ Use this process for a long word:
 
 Now we apply the process to *occurrence*.
 
-- Split it: *occur* + *-ence*.
+- Say it: *oc-cur-rence*. Split it: *occur* + *-ence*.
 - *Occur* ends in a stressed vowel plus one consonant, so its *r* doubles.
 - *occur* + *r* + *-ence* gives *occurrence*.
 
@@ -66,19 +66,21 @@ The answer is *regretting*. The base *regret* ends in a stressed vowel plus one 
 
 Choose the correctly spelled word to complete the sentence: “Yesterday, Ana ______ the window seat.”
 
-A) prefered  
-B) preferred  
-C) prefferred  
+A) prefered
+
+B) preferred
+
+C) prefferred
+
 D) preferrd
 
 **Solution:**
 
 1. Say the word in beats: *pri-furd*. The beats do not give every letter.
 2. Recall the base *prefer*.
-3. *Prefer* ends in a stressed vowel plus one consonant.
 
 :::try
-Finish the last step: apply the doubling rule to *prefer* with *-ed* and choose the correct option.
+Finish the spelling of *prefer* with *-ed* and choose the correct option.
 :::answer
 The answer is **B**, *preferred*. The base ends in a stressed vowel plus one consonant, so its final *r* doubles before *-ed*.
 

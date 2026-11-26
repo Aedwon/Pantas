@@ -18,15 +18,14 @@ keyPoints:
 
 - **Contrast or antonym:** the text shows an opposite idea. Words such as *but*, *unlike*, and *however* can signal this link.
 
-A sentence can use more than one clue. A signal word helps, but it does not prove the answer by itself.
+A signal word helps, but it does not prove the answer by itself.
 
-We find the meaning in a contrast sentence.
+We find the meaning of *taciturn* from the contrast.
 
 - Sentence: “Unlike her **taciturn** brother, who rarely spoke, Elena chatted with every stranger.”
-- *Unlike* sets two people against each other.
-- Elena chatted. The brother is the opposite.
-- The bold word describes the brother, who rarely spoke.
-- So *taciturn* means quiet.
+- *Unlike* sets the brother against Elena, who chatted.
+- The brother is the opposite: he rarely spoke.
+- So *taciturn* means quiet: “Unlike her quiet brother, who rarely spoke, Elena chatted with every stranger.”
 
 :::pair #contrast-target
 Right: *Taciturn* means quiet.
@@ -34,12 +33,11 @@ Wrong: *Taciturn* means talkative.
 Talkative describes Elena. The bold word describes her brother.
 :::
 
-We try the same steps on a second sentence.
+We try the same steps on *frugal*.
 
 - Sentence: “In contrast to the **frugal** shopkeeper who saved every peso, his son spent money recklessly.”
-- The son spends recklessly. The shopkeeper is the opposite.
-- The shopkeeper saves every peso.
-- So *frugal* means thrifty.
+- The son spends recklessly, so the shopkeeper is the opposite: he saves every peso.
+- So *frugal* means thrifty: “In contrast to the thrifty shopkeeper who saved every peso, his son spent money recklessly.”
 
 :::pair #contrast-other-side
 Right: *Frugal* means thrifty.
@@ -55,13 +53,13 @@ The answer is wordy. Ana used few words, and the speaker is her opposite.
 
 ### Inference Clues
 
-- **Inference:** you work out a meaning from the situation, actions, or results. To infer means to use given details to reach an idea that is not stated directly.
+- **Inference:** you work out a meaning from the situation, actions, or results.
 
-We work out the meaning from actions in a sentence.
+We work out the meaning of *wary* from actions.
 
 - Sentence: “Lina was **wary** of the offer: she checked its terms twice and refused to sign until her questions were answered.”
 - Checking the terms twice and delaying signing show caution.
-- So *wary* means cautious.
+- So *wary* means cautious: Lina was cautious of the offer.
 
 :::check
 “The old house was **dilapidated**; the roof had caved in and the windows were shattered.” What does *dilapidated* mean?
@@ -75,46 +73,55 @@ The answer is run-down or falling apart. A caved-in roof and shattered windows s
 
 Unlike his **gregarious** sister, who loved meeting people and attending parties, Simon preferred quiet isolation. What does the word in bold most likely mean?
 
-A) sociable  
-B) intelligent  
-C) shy  
+A) sociable
+
+B) intelligent
+
+C) shy
+
 D) angry
 
 **Solution:**
 
-1. *Unlike* shows a contrast between the sister and Simon.
-2. Her love of meeting people shows that **gregarious** means sociable. Answer: **A**.
+1. *Unlike* sets Simon against his sister, who loved meeting people.
+2. So **gregarious** means sociable. Answer: **A**.
 
-**Check:** Simon is the opposite of his sister. He prefers quiet isolation.
+**Check:** Put *sociable* in place of the bold word: “Unlike his sociable sister, who loved meeting people and attending parties, Simon preferred quiet isolation.” The contrast holds.
 
 ### #2: Meaning from Details
 
 The politician's speech was full of **platitudes**; the audience yawned at the repetitive, familiar phrases they had heard many times before. What does the word in bold most likely mean?
 
-A) original ideas  
-B) angry insults  
-C) clichéd statements  
+A) original ideas
+
+B) angry insults
+
+C) clichéd statements
+
 D) false promises
 
 **Solution:**
 
 1. The phrases are familiar and have been repeated many times.
-2. Clichéd statements are worn-out sayings that lack fresh thought. That meaning fits **platitudes**. Answer: **C**.
+2. Clichéd statements are worn-out sayings. Answer: **C**.
 
-**Check:** Put *clichéd statements* in place of the bold word. The sentence still makes sense.
+**Check:** Put *clichéd statements* in place of the bold word: “The politician's speech was full of clichéd statements; the audience yawned at the repetitive, familiar phrases they had heard many times before.” It fits.
 
 ### #3: Filipino Context
 
 Pilit na **ikinubli** ni Maria ang kaniyang mga luha sa pamamagitan ng pagtalikod sa kaniyang mga kaibigan. Ano ang malamang na ibig sabihin ng salitang binigyang-diin?
 
-A) ipinakita  
-B) itinago  
-C) ipinagmalaki  
+A) ipinakita
+
+B) itinago
+
+C) ipinagmalaki
+
 D) iniyak
 
 **Solution:**
 
-1. Tumalikod si Maria upang hindi makita ng mga kaibigan ang kaniyang luha.
+1. Tumalikod si Maria sa kaniyang mga kaibigan.
 
 :::try
 Tapusin ang huling hakbang: ano ang kahulugan ng **ikinubli** batay sa kilos ni Maria?
@@ -126,7 +133,7 @@ Ang sagot ay **B**, *itinago*. Tumalikod siya upang hindi makita ang luha, kaya 
 
 ## Speed Tricks & Shortcuts
 
-**Use several clues together.** A contrast, an example, and the result of an action may support the same meaning.
+**Use several clues together.**
 
 ## Traps to Watch For
 

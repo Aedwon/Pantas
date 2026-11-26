@@ -63,9 +63,12 @@ Ang sagot ay **mapanlinlang**. Nagsasabi ng totoo ang matapat, samantalang nanlo
 
 Ang kaniyang mga pangarap ay **gumuho** matapos siyang mabigo sa pagsusulit. Alin ang pinakamalapit na kahulugan ng salitang may makapal na titik?
 
-A) natupad  
-B) nasira  
-C) lumakas  
+A) natupad
+
+B) nasira
+
+C) lumakas
+
 D) nagsimula
 
 **Solution:**
@@ -73,15 +76,18 @@ D) nagsimula
 1. Hindi gusali ang gumuho sa pangungusap. Nasira ang kaniyang mga pangarap dahil sa pagkabigo.
 2. Ang pinakamalapit na kahulugan ay **nasira**. Ang sagot ay **B**.
 
-**Check:** Basahin: "Ang kaniyang mga pangarap ay nasira." Pareho ang kahulugan.
+**Check:** Basahin: "Ang kaniyang mga pangarap ay nasira matapos siyang mabigo sa pagsusulit."
 
 ### #2: Kasalungat na Kahulugan
 
 Alin ang kasalungat ng salitang may makapal na titik na **maralita**?
 
-A) mahirap  
-B) mayaman  
-C) masipag  
+A) mahirap
+
+B) mayaman
+
+C) masipag
+
 D) tamad
 
 **Solution:**
@@ -95,9 +101,12 @@ D) tamad
 
 Alin ang kasalungat ng salitang may makapal na titik na **masaya**?
 
-A) nasisiyahan  
-B) nasasabik  
-C) malungkot  
+A) nasisiyahan
+
+B) nasasabik
+
+C) malungkot
+
 D) nababahala
 
 **Solution:**
@@ -109,7 +118,7 @@ Tapusin ang huling hakbang: aling pagpipilian ang may kabaligtarang damdamin ng 
 :::answer
 Ang sagot ay **C**, **malungkot**. Kabaligtaran ng *masaya* ang *malungkot*, samantalang kasingkahulugan nito ang *nasisiyahan*.
 
-**Check:** Kapag masaya ang isang tao, puno siya ng tuwa. Kapag malungkot siya, wala ang tuwang iyon.
+**Check:** Masaya ang nanalo, malungkot ang natalo.
 :::
 
 ## Traps to Watch For

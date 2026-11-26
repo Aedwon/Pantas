@@ -14,19 +14,15 @@ keyPoints:
 ---
 ## Core Concept
 
-Similar words can have different jobs. Check both the meaning and the job needed in the sentence.
+Check both the meaning and the job needed in the sentence.
 
 ### Affect vs. Effect
 
 A **verb** tells an action or state, such as *change* or *seem*. A **noun** names a person, place, thing, or idea, such as *teacher* or *result*.
 
-**Affect** usually means "to influence." It is a verb.
-
-- Rain can affect travel.
+**Affect** usually means "to influence." It is a verb, as in "Rain can affect travel."
 
 **Effect** usually means "a result." It is a noun.
-
-- The delay had a serious effect.
 
 :::pair #influence-verb
 Right: The drought will affect the crop yield.
@@ -74,60 +70,72 @@ The answer is *affect*. In psychology, the noun *affect* names outward signs of 
 
 The prolonged drought will severely ______ crop yield.
 
-A) affect  
-B) effect  
-C) affects  
+A) affect
+
+B) effect
+
+C) affects
+
 D) effects
 
 **Solution:**
 
 1. The sentence has *will*, so the gap needs a base-form verb. This removes C and D.
-2. The drought influences the crop yield. The meaning is "influence."
-3. *Affect* means influence. Answer: **A**.
+2. The drought influences the crop yield.
+3. *Affect* means influence. Answer: **A**: "The prolonged drought will severely affect crop yield."
 
-**Check:** Read it back: "The drought will affect crop yield."
+**Check:** Put *influence* in the gap: "will severely influence crop yield" keeps the meaning.
 
 ### #2: A Result
 
 The new schedule had a positive ______ on attendance.
 
-A) affect  
-B) effect  
-C) affected  
+A) affect
+
+B) effect
+
+C) affected
+
 D) effected
 
 **Solution:**
 
 1. The words *a positive* come before the gap. A noun must follow.
-2. C and D are verbs. A, *affect*, is usually a verb too, and *effect on* is the noun pattern. This leaves B.
-3. The noun *effect* means a result. Answer: **B**.
+2. C and D are verbs, and A, *affect*, is usually a verb. This leaves B.
+3. The noun *effect* means a result. Answer: **B**: "The new schedule had a positive effect on attendance."
 
-**Check:** "The new schedule had a positive effect on attendance."
+**Check:** Put *result* in the same spot: "a positive result" fits, so the gap needs a noun.
 
 ### #3: Bringing About Change
 
 Which sentence uses the word in bold correctly?
 
-A) The rain will **effect** our travel plans.  
-B) The new law **effected** major changes in procedure.  
-C) The medicine had no **affect**.  
+A) The rain will **effect** our travel plans.
+
+B) The new law **effected** major changes in procedure.
+
+C) The medicine had no **affect**.
+
 D) The delay had a serious **affect** on service.
 
 **Solution:**
 
 1. In A, the rain influences plans. It needs *affect*, so A is wrong.
-2. In C and D, a noun is needed after *no* and *serious*. It names a result, so *effect* is right. C and D are wrong.
-3. In B, the law made changes happen. As a verb, *effect* means bring about, so *effected* fits. Answer: **B**.
+2. In C and D, a noun is needed after *no* and *serious*. It names a result, so *effect* is right and C and D are wrong.
+3. In B, the law made changes happen. As a verb, *effect* means bring about, so *effected* fits. Answer: **B**: "The new law effected major changes in procedure."
 
-**Check:** Replace the bold word in B with "brought about." "The new law brought about major changes" keeps the meaning.
+**Check:** Replace *effected* with "brought about." "The new law brought about major changes in procedure" keeps the meaning.
 
 ### #4: The Nurse's Notes
 
 The nurse recorded the patient's anxious ______ during the visit.
 
-A) affect  
-B) effect  
-C) affected  
+A) affect
+
+B) effect
+
+C) affected
+
 D) effected
 
 **Solution:**
@@ -145,7 +153,7 @@ The answer is *affect*, choice **A**. In psychology, *affect* is a noun for outw
 
 ## Speed Tricks & Shortcuts
 
-Start with meaning for *affect* and *effect*. Ask whether the sentence means influence, result, bring about, or an outward sign of emotion.
+Ask whether the sentence means influence, result, bring about, or outward emotion.
 
 ## Traps to Watch For
 
