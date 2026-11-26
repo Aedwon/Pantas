@@ -238,6 +238,17 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   List<Map<String, dynamic>> _rows = const [];
   Timer? _boundary;
   int _boundaryGeneration = 0;
+
+  /// Retries a failed sign-in read, so a paid account whose first read failed
+  /// (offline at start) still turns Pro without a reload. Bounded; cancelled
+  /// when the account changes.
+  Timer? _retry;
+  static const _retryWaits = [
+    Duration(seconds: 5),
+    Duration(seconds: 30),
+    Duration(minutes: 2),
+    Duration(minutes: 10),
+  ];
   bool _googlePlayPlanRenews = false;
 
   /// True only after an owner-bound server reply confirms Play renewal.
@@ -266,11 +277,28 @@ class WebPaymentGateway implements RevenueCatPassGateway {
     if ((_uid ?? await _state.readOwner()) != uid) await _state.clear();
     _uid = uid;
     await _state.writeOwner(uid);
+    _retry?.cancel();
+    _retry = null;
     try {
       await _readEntitlement(uid, _identityRevision);
     } catch (_) {
-      // A failed read is no news. Keep what was confirmed before.
+      // A failed read is no news. Keep what was confirmed, and try again.
+      _retryRead(uid, _identityRevision, 0);
     }
+  }
+
+  void _retryRead(String uid, int revision, int attempt) {
+    _retry?.cancel();
+    _retry = null;
+    if (!_followClock || attempt >= _retryWaits.length) return;
+    _retry = Timer(_retryWaits[attempt], () async {
+      if (_uid != uid || _identityRevision != revision) return;
+      try {
+        await _readEntitlement(uid, revision);
+      } catch (_) {
+        _retryRead(uid, revision, attempt + 1);
+      }
+    });
   }
 
   @override
@@ -288,6 +316,8 @@ class WebPaymentGateway implements RevenueCatPassGateway {
   void _forgetReads() {
     _boundary?.cancel();
     _boundary = null;
+    _retry?.cancel();
+    _retry = null;
     _publishedRequest = 0;
     _rows = const [];
   }
