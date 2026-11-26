@@ -69,24 +69,24 @@ Binago ng mga maling anyo ang kalagayan ng kilos. Panatilihing tapos na ang *sin
 :::
 
 :::check
-Gawing paksa ang *kape* habang pinananatiling tapos na ang kilos: "Nagtimpla si Lito ng kape."
+Gawing paksa ang *kape* habang pinananatiling tapos na ang kilos ng "Nagtimpla si Lito ng kape." Alin ang angkop sa "___ ni Lito ang kape": *(Tinimpla / Tinitimpla / Titimplahin)*?
 :::answer
-Ang sagot ay **"Tinimpla ni Lito ang kape."** Naging *ang kape* ang paksa, nanatiling si Lito ang gumawa (*ni Lito*), at tapos na pa rin ang kilos (*tinimpla*).
+Ang sagot ay **Tinimpla**: "Tinimpla ni Lito ang kape." Naging *ang kape* ang paksa, nanatiling si Lito ang gumawa (*ni Lito*), at tapos na pa rin ang kilos.
 :::
 
 ## Examples
 
 ### #1: Pagtukoy sa Tamang Pananda ng Paksa
 
-Piliin ang tamang pananda sa patlang: "Kumain ______ bata ng tinapay."
+Piliin ang tamang pananda sa patlang: "Umawit ______ estudyante ng kundiman."
 
 **Solution:**
 
-1. Suriin ang pandiwa: ang *kumain* ay may *-um-*, kaya nakapokus sa tagaganap ito.
-2. Itanong kung sino ang kumain: ang bata.
-3. Gamitin ang panandang paksa: "Kumain **ang** bata ng tinapay."
+1. Suriin ang pandiwa: ang *umawit* ay may *-um-*, kaya nakapokus sa tagaganap ito.
+2. Itanong kung sino ang umawit: ang estudyante.
+3. Gamitin ang panandang paksa: "Umawit **ang** estudyante ng kundiman."
 
-**Check:** *Ang bata* ang paksa (gumawa) at *ng tinapay* ang kinain.
+**Check:** *Ang estudyante* ang paksa (gumawa) at *ng kundiman* ang inawit.
 
 ### #2: Tagaganap Laban sa Layon
 
@@ -94,8 +94,10 @@ Tukuyin ang paksa at pokus ng pandiwa sa bawat pangungusap: "Nagbasa ang guro ng
 
 **Solution:**
 
-1. Hanapin ang gumawa: "Nagbasa **ang guro** ng tula." Siya ang paksa, kaya nakapokus sa **tagaganap** ang *nagbasa*.
-2. Hanapin ang binasa: "Binasa ng guro **ang tula**." Ito ang paksa, kaya nakapokus sa **layon** ang *binasa*.
+1. Hanapin ang gumawa. Siya ang paksa, kaya nakapokus sa **tagaganap** ang *nagbasa*: "Nagbasa **ang guro** ng tula."
+2. Hanapin ang binasa. Ito ang paksa, kaya nakapokus sa **layon** ang *binasa*: "Binasa ng guro **ang tula**."
+
+**Check:** Hanapin ang pangkat na may *ang* sa bawat pangungusap: *ang guro* sa una, *ang tula* sa ikalawa.
 
 ### #3: Paglipat ng Paksa Nang Walang Bawas sa Kilos
 
@@ -107,11 +109,11 @@ Sa "Bumili si Marco ng aklat," si Marco ang paksa. Aling pangungusap ang ginagaw
 2. Panatilihin si Marco bilang gumawa gamit ang panandang *ni*: *ni Marco*.
 
 :::try
-Tapusin ang huling hakbang: anong anyo ng pandiwa ang katumbas ng *bumili* na tapos na at nakapokus sa layon, at ano ang buong pangungusap?
+Tapusin ang huling hakbang: alin ang angkop sa "___ ni Marco ang aklat": *binili*, *binibili*, o *bibilhin*?
 :::answer
-Ang sagot ay **"Binili ni Marco ang aklat."** Ang *binili* ay nakapokus sa layon (*ang aklat*) at tapos na ang kilos, hindi ginaganap (*binibili*) o gagawin pa (*bibilhin*).
+Ang sagot ay **Binili**: "Binili ni Marco ang aklat." Nakapokus ito sa layon at tapos na ang kilos; ginaganap ang *binibili* at gagawin pa ang *bibilhin*.
 
-**Check:** Ihambing ang "Bumili si Marco ng aklat": iisa ang gumawa at parehong tapos na ang kilos.
+**Check:** Nasa *ang aklat* na ang *ang*, at *ni Marco* na ang gumawa.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -121,6 +123,6 @@ Sa mga pangngalan, hanapin muna ang *ang*, *si*, *ang mga*, o *sina* upang makuh
 ## Traps to Watch For
 
 :::checklist
-- Pandiwang nakapokus sa tagaganap gaya ng *kumain*: gamitin ang *ang* o *si* para sa gumagawang pangngalan sa halip na *ng*; panghalip na *siya* ang walang pananda. {#paksa-may-ang-o-si}
+- Pandiwang nakapokus sa tagaganap gaya ng *kumain*: gamitin ang *ang*, *si*, *ang mga*, o *sina* para sa gumagawang pangngalan sa halip na *ng*; panghalip na *siya* ang walang pananda. {#paksa-may-ang-o-si}
 - Paglipat ng paksa sa layon: panatilihin ang tapos na kilos (*sinulat*) at huwag palitan ng *sinusulat* o *susulatin*. {#panatilihin-ang-aspekto}
 :::

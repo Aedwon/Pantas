@@ -85,40 +85,42 @@ Ang sagot ay **Pokus sa sanhi**. *Ang ingay sa labas* ang paksa at dahilan ng ga
 
 ### #1: Paglipat ng Pokus Nang Walang Bawas sa Kilos
 
-Baguhin ang "Nagluto ng sopas si Dina" upang maging paksa ang *sopas* at manatiling tapos na ang pagluluto.
+Baguhin ang "Bumili si Lito ng gulay" upang maging paksa ang *gulay* at manatiling tapos na ang pagbili.
 
 **Solution:**
 
-1. Gawing *ang sopas* ang *ng sopas*, at *ni Dina* ang *si Dina*.
-2. Palitan ang *nagluto* ng katumbas na tapos na at nakapokus sa layon: **niluto**.
+1. Gawing *ang gulay* ang *ng gulay*, at *ni Lito* ang *si Lito*.
+2. Palitan ang *bumili* ng katumbas na tapos na at nakapokus sa layon: **binili**.
 
-Sagot: **"Niluto ni Dina ang sopas."**
+Sagot: **"Binili ni Lito ang gulay."**
+
+**Check:** Si Lito ang bumili bago at pagkatapos ng pagbabago: *si Lito* sa una, *ni Lito* sa ikalawa.
 
 ### #2: Iisang Lugar, Dalawang Papel
 
-Paghambingin ang pokus sa "Pinagtaniman ng mga kawani ng gulay ang bakuran" at "Pinuntahan ng mga kawani ang bakuran."
+Paghambingin ang pokus sa "Pinaglaruan ng mga bata ng taguan ang parke" at "Pinuntahan ng mga bata ang parke."
 
 **Solution:**
 
-1. Hanapin kung ano ang ginawa roon: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**." Doon nagtanim, kaya **ganapan**.
-2. Hanapin kung ano ang bakuran sa ikalawa: "*Pinuntahan* ng mga kawani **ang bakuran**." Iyon ang tinungo, kaya **direksiyon**.
+1. Doon naglaro, kaya **ganapan**: "*Pinaglaruan* ng mga bata ng taguan **ang parke**."
+2. Iyon ang tinungo, kaya **direksiyon**: "*Pinuntahan* ng mga bata **ang parke**."
 
-**Check:** Itanong sa ikalawa: "Saan pumunta ang mga kawani?" Ang sagot ay *sa bakuran*.
+**Check:** Ihambing ang tanong: sa una, "Saan naglaro ang mga bata?"; sa ikalawa, "Saan pumunta ang mga bata?"
 
 ### #3: Dalawang Pandiwa ni Carlo
 
-Suriin ang "Ipinaghanda ni Carlo ng meryenda ang mga panauhin" at "Ipinampunas ni Carlo sa mesa ang basahan." Ano ang pokus ng bawat pandiwa?
+Suriin ang "Ipinanghiwa ni Carlo ng gulay ang kutsilyo" at "Ikinatuwa ni Carlo ang regalo." Ano ang pokus ng bawat pandiwa?
 
 **Solution:**
 
-1. Si Carlo ang gumawa sa dalawa, at ang mga paksa ay ang may *ang*: *ang mga panauhin* at *ang basahan*.
+1. Hanapin ang paksa sa bawat pangungusap.
 
 :::try
-Tapusin: ano ang papel ng *ang mga panauhin* at *ang basahan*, at ano ang pokus ng bawat pandiwa?
+Tapusin: ano ang papel ng paksa sa bawat pangungusap, at ano ang pokus ng bawat pandiwa?
 :::answer
-Tagatanggap: "Ipinaghanda ni Carlo ng meryenda **ang mga panauhin**," dahil nakinabang sila sa paghahanda. Kagamitan: "Ipinampunas ni Carlo sa mesa **ang basahan**," dahil ginamit ito sa pagpunas.
+Kagamitan: "Ipinanghiwa ni Carlo ng gulay **ang kutsilyo**," dahil ginamit ito sa paghiwa. Sanhi: "Ikinatuwa ni Carlo **ang regalo**," dahil iyon ang dahilan ng tuwa.
 
-**Check:** Itanong: "Ano ang ginamit sa pagpunas?" Ang sagot ay *ang basahan*.
+**Check:** Itanong: "Bakit natuwa si Carlo?" Ang sagot ay *ang regalo*.
 :::
 
 ## Speed Tricks & Shortcuts

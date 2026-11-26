@@ -54,7 +54,7 @@ Kausap ni Liza si Ben at pareho silang pupunta sa palengke. Ano ang sasabihin ni
 Ang sagot ay **Tayo**. Kasama sa pupunta ang kausap na si Ben.
 :::
 
-### Walang Kasarian ang Panghalip sa Filipino
+### Walang Kasarian ang Siya, Niya, at Kaniya
 
 Hindi tulad ng Ingles na may *he*, *she*, at *it*, ang *siya*, *niya*, at *kaniya* sa Filipino ay **hindi nagsasaad ng kasarian**. Pareho ang anyo para sa babae o lalaki, at ginagamit ito para sa tao at kung minsan sa alagang hayop. Para sa bagay na malapit o tinutukoy ngayon, maaaring gamitin ang *ito*, gaya ng *it* sa Ingles: "Mabigat ang bag. Dala ko ito."
 
@@ -69,34 +69,36 @@ Tumutukoy ang *siya* sa sinumang iisang taong pinag-uusapan, babae man o lalaki.
 :::
 
 :::check
-Si Marco ay lalaki. Piliin ang tama: "Si Marco ang bagong kawani. *(Siya / Niya / Kaniya)* ang tutulong sa atin."
+Si Marco ay lalaki at si Rosa ay babae. Alin ang pamalit na paksa sa bawat isa sa "Si Marco ang bagong kawani" at "Si Rosa ang bagong kawani": *(siya / sila / niya)*?
 :::answer
-Ang sagot ay **Siya**. Itinatampok si Marco bilang paksa, at walang pinipiling kasarian ang *siya*.
+Ang sagot ay **Siya** para sa dalawa. Paksa ang bawat isa, at walang pinipiling kasarian ang *siya*.
 :::
 
 ## Examples
 
 ### #1: Ayos ng Pagmamay-ari
 
-Si Elena ang may-ari ng aklat. Piliin ang tamang panghalip sa sasabihin niya: "______ ang aklat na nasa mesa."
+Si Omar ang may-ari ng payong. Piliin ang tamang panghalip sa sasabihin niya: "______ ang payong na nasa upuan."
 
 **Solution:**
 
-1. Tingnan ang ayos: nasa unahan ang patlang para sa may-ari, bago ang *ang aklat na nasa mesa*.
-2. Si Elena mismo ang nagsasalita at nagmamay-ari, kaya hindi tama ang *kanila* (ibang mga tao).
-3. Hindi rin maaaring gamitin ang *ako* o *ko* sa puwestong ito, kaya piliin ang **Akin**: "**Akin** ang aklat na nasa mesa."
+1. Tingnan ang ayos: nasa unahan ang patlang para sa may-ari, bago ang *ang payong na nasa upuan*.
+2. Si Omar mismo ang nagsasalita at nagmamay-ari, kaya hindi tama ang *kanila* (ibang mga tao).
+3. Hindi rin maaaring gamitin ang *ako* o *ko* sa puwestong ito, kaya piliin ang **Akin**: "**Akin** ang payong na nasa upuan."
 
-**Check:** Ang "*Ako* ang aklat na nasa mesa" ay nagsasabing ang nagsasalita ang aklat.
+**Check:** Ang "*Ako* ang payong na nasa upuan" ay nagsasabing ang nagsasalita ang payong.
 
 ### #2: Tayo o Kami
 
-Kausap ni Ruben si Mila. Dadalo si Ruben at ang kaniyang mga kasama, ngunit hindi dadalo si Mila. Aling panghalip ang angkop sa sasabihin ni Ruben: "______ ang dadalo sa pagpupulong"?
+Kausap ni Dina si Omar. Magbabakasyon si Dina at ang kaniyang pamilya sa Bohol, ngunit hindi sasama si Omar. Aling panghalip ang angkop sa sasabihin ni Dina: "______ ang magbabakasyon sa Bohol"?
 
 **Solution:**
 
-1. Alamin kung kasama ang nagsasalita (Ruben): oo, dadalo siya, kaya alisin ang *sila*.
-2. Alamin kung kasama ang kausap (Mila): hindi siya dadalo, kaya alisin ang *tayo*.
-3. Gamitin ang panghalip na kasama ang nagsasalita ngunit hindi kasama ang kausap: **Kami**. "**Kami** ang dadalo sa pagpupulong."
+1. Alamin kung kasama ang nagsasalita (Dina): oo, kasama siya, kaya alisin ang *sila*.
+2. Alamin kung kasama ang kausap (Omar): hindi siya sasama, kaya alisin ang *tayo*.
+3. Gamitin ang panghalip na kasama ang nagsasalita ngunit hindi kasama ang kausap: **Kami**. "**Kami** ang magbabakasyon sa Bohol."
+
+**Check:** Kung *tayo* ang ginamit, kasama na si Omar sa magbabakasyon, na hindi totoo.
 
 ### #3: Linya ni Lea
 
@@ -107,7 +109,7 @@ Sinabi ni Lea sa kaibigan niya, "Salamat sa tulong mo." Paano niya ito sasabihin
 1. Hanapin ang panghalip sa linya para sa kaibigan: *mo*.
 
 :::try
-Tapusin ang huling hakbang: punan ang patlang para sa guro: "Salamat po sa tulong ___."
+Tapusin ang huling hakbang: punan ang patlang para sa guro ng buong magalang na anyong *ng* (hindi pinaikli): "Salamat po sa tulong ___."
 :::answer
 Ang sagot ay **ninyo**: "Salamat po sa tulong ninyo." Magalang na anyo ito para sa iisang kausap.
 

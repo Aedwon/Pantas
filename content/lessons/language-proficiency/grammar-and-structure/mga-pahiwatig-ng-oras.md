@@ -74,34 +74,36 @@ Hindi tapos ang pagsusulat kahit may *kahapon*. Hindi rin ito kontemplatibo, dah
 :::
 
 :::check
-Ano ang aspekto ng *naglalakad* sa "Naglalakad si Ana sa plaza nang umulan kahapon"?
+Sa "Nagbasa si Ana ng aklat bago umulan kahapon; nagbibisikleta si Ben sa plaza nang umulan," kaninong kilos ang nagpapatuloy pa nang umulan?
 :::answer
-Ang sagot ay **Imperpektibo**. Hindi pa tapos ang paglalakad ni Ana nang umulan kahapon, kaya hindi ito perpektibo.
+Ang sagot ay **kay Ben**. Imperpektibo ang *nagbibisikleta*, at hindi pa tapos ang pagbibisikleta nang umulan. Tapos na bago umulan ang *nagbasa*.
 :::
 
 ## Examples
 
 ### #1: Paglipat ng Pahiwatig ng Oras
 
-Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite si Elena ng ulat." Alin ang nagpapanatili sa oras at aspekto ng kilos?
+Ilipat sa hulihan ang pahiwatig ng oras sa "Ngayon ay nagsasanay ang koro." Alin ang nagpapanatili sa oras at aspekto ng kilos?
 
 **Solution:**
 
-1. Hanapin ang pahiwatig ng oras sa unahan: *Bukas*.
-2. Tanggalin ang *ay* at ilagay ang *bukas* sa hulihan nang hindi binabago ang *magsusumite*.
-3. Buuin ang pangungusap: "**Magsusumite si Elena ng ulat bukas.**"
+1. Hanapin ang pahiwatig ng oras sa unahan: *Ngayon*.
+2. Tanggalin ang *ay* at ilagay ang *ngayon* sa hulihan nang hindi binabago ang *nagsasanay*.
+3. Buuin ang pangungusap: "**Nagsasanay ang koro ngayon.**"
 
-**Check:** Gagawin pa ang *magsusumite*, at nasa hinaharap pa rin ang *bukas*.
+**Check:** Nagaganap pa ang *nagsasanay*, at kasalukuyan pa rin ang *ngayon*.
 
 ### #2: Paulit-ulit na Gawain
 
-"Naglilinis ng bulwagan ang mga kawani tuwing Sabado." Bakit imperpektibo ang *naglilinis* sa pangungusap?
+"Naglalaro ng basketbol ang mga bata tuwing Linggo." Bakit imperpektibo ang *naglalaro* sa pangungusap?
 
 **Solution:**
 
-1. Hanapin ang pahiwatig ng oras: *tuwing Sabado*.
-2. Dalas ang ipinakikita ng *tuwing*; umiiral na gawain ang ipinakikita ng *naglilinis*.
-3. Kaya imperpektibo ito **sapagkat nagpapahayag ito ng paulit-ulit na gawain**.
+1. Hanapin ang pahiwatig ng oras: *tuwing Linggo*.
+2. Dalas ang ipinakikita ng *tuwing*; umiiral na gawain ang ipinakikita ng *naglalaro*.
+3. Imperpektibo ito **sapagkat nagpapahayag ito ng paulit-ulit na gawain**: "**Naglalaro** ng basketbol ang mga bata tuwing Linggo."
+
+**Check:** Hindi kailangang naglalaro sila sa mismong sandali ng pagsasalita; sapat na umiiral ang gawain tuwing Linggo.
 
 ### #3: Dalawang Pangyayari Kahapon
 
@@ -114,7 +116,7 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite si Elena ng ula
 :::try
 Tapusin ang huling hakbang: ano ang aspekto ng *naglalaba*, at bakit?
 :::answer
-Ang sagot ay **Imperpektibo**: nagpapatuloy ang paglalaba ni Rita nang tumawag ang kaibigan niya kahapon.
+Ang sagot ay **Imperpektibo**: "**Naglalaba** pa si Rita nang tumawag ang kaibigan niya kahapon," dahil nagpapatuloy ang paglalaba.
 
 **Check:** Sa pangungusap na ito, ang *pa* ang pahiwatig na hindi pa tapos ang paglalaba.
 :::

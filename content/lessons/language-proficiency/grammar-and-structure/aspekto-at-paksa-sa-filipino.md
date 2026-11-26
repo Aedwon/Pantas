@@ -16,7 +16,7 @@ keyPoints:
 
 ### Pagpili ng Aspekto Ayon sa Kalagayan ng Kilos
 
-Ang **pandiwa** (verb) ay nagsasaad ng kilos. Ang **aspekto** (stage of an action) ay nagsasabi kung tapos na, nagaganap pa, o gagawin pa ang kilos. Ihambing ang apat na anyo ng *kain* ayon sa kalagayan ng kilos:
+Maraming **pandiwa** (verb) ang nagsasaad ng kilos. Ang **aspekto** (stage of an action) ay nagsasabi kung tapos na, nagaganap pa, o gagawin pa ang kilos. Ihambing ang apat na anyo ng *kain* ayon sa kalagayan ng kilos:
 
 1. **Perpektibo** (completed): tapos na, *kumain* ("Kumain na si Nena kanina.")
 2. **Perpektibong katatapos** (recently completed): katatapos lamang, *kakakain lamang* o *katatapos lamang kumain* ("Kakakain lamang ni Nena bago siya umalis.")
@@ -81,35 +81,39 @@ Kasalukuyang nasa hapag si Nena at hindi pa tapos sa pagkain. Aling anyo ang ang
 1. Ang pahiwatig ay "hindi pa tapos": nagpapatuloy pa ang pagkain.
 2. Imperpektibo ang anyo: "**Kumakain** pa si Nena habang hinihintay ang kaniyang kasama."
 
+**Check:** Ang *habang hinihintay* ay sabay sa pagkain, kaya hindi ito tapos o hindi pa nagsisimula.
+
 ### #2: Pagbabago ng Bilang ng Paksa
 
-Gawing maramihan ang paksa ng "Kumakain ng tanghalian ang kawani." Panatilihin ang kalagayan ng kilos. Alin ang wastong pagbabago?
+Gawing maramihan ang paksa ng "Nagbabasa ng aklat ang guro." Panatilihin ang kalagayan ng kilos. Alin ang wastong pagbabago?
 
 **Solution:**
 
-1. Hanapin ang paksa at gawing maramihan: *ang kawani* -> *ang mga kawani*.
-2. Iwan ang pandiwa: "**Kumakain ng tanghalian ang mga kawani.**"
+1. Hanapin ang paksa at gawing maramihan: *ang guro* -> *ang mga guro*.
+2. Iwan ang pandiwa: "**Nagbabasa ng aklat ang mga guro.**"
+
+**Check:** Ihambing ang dalawang pangungusap: *mga* lamang ang bagong salita.
 
 ### #3: Tatlong Kalagayan sa Iisang Salitang-Ugat
 
-Punan ng angkop na anyo ng *handa* ang bawat patlang: "___ si Lea ng ulat kagabi. ___ pa siya ng talumpati ngayon. ___ si Ben ng meryenda bukas ng umaga."
+Punan ng angkop na anyo ng *linis* ang bawat patlang: "___ si Lea ng silid kagabi. ___ pa siya ng bintana ngayon. ___ si Ben ng bakuran bukas ng umaga."
 
 **Solution:**
 
-1. Tapos na kagabi ang unang kilos: "**Naghanda** si Lea ng ulat kagabi."
-2. Nagaganap pa ngayon ang ikalawa: "**Naghahanda** pa siya ng talumpati ngayon."
+1. Tapos na kagabi ang unang kilos: "**Naglinis** si Lea ng silid kagabi."
+2. Nagaganap pa ngayon ang ikalawa: "**Naglilinis** pa siya ng bintana ngayon."
 
 :::try
-Tapusin ang huling hakbang: aling anyo ng *handa* ang akma kay Ben, at ano ang buong pangungusap?
+Hindi pa nagsisimula si Ben. Alin ang akma: *naglinis* o *maglilinis*? Ano ang buong pangungusap?
 :::answer
-Ang sagot ay **Maghahanda**: "Maghahanda si Ben ng meryenda bukas ng umaga."
+Ang sagot ay **Maglilinis**: "Maglilinis si Ben ng bakuran bukas ng umaga."
 
-**Check:** *Bukas* ang oras, kaya hindi na *naghanda* o *naghahanda*.
+**Check:** Hindi pa nagsisimula si Ben, kaya hindi ito *naglinis* (tapos na).
 :::
 
 ## Speed Tricks & Shortcuts
 
-Itanong muna kung tapos na, nagaganap pa, o gagawin pa ang kilos. Kapag bilang lamang ng paksa ang binago (*ang bata* -> *ang mga bata*), panatilihin ang pandiwa.
+Itanong muna kung tapos na, nagaganap pa, o gagawin pa ang kilos. Kapag bilang lamang ng paksa ang binago, panatilihin ang pandiwa.
 
 ## Traps to Watch For
 

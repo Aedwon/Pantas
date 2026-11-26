@@ -73,7 +73,7 @@ Ang mga boluntaryo ang maramihang tatanggap, kaya kailangan ang *sa kanila*, hin
 :::
 
 :::check
-Kausap mo si Lito. Palitan ng panghalip ang "kay Lito" sa "Iniabot ko ang susi kay Lito."
+Kausap mo si Lito. Isulat ang buong anyo (hindi pinaikli) na ipapalit sa "kay Lito" sa "Iniabot ko ang susi kay Lito."
 :::answer
 Ang sagot ay **Sa iyo**: "Iniabot ko ang susi sa iyo." Si Lito ang kausap na tumanggap ng susi, kaya anyong *sa* (*sa iyo*) ang kapalit ng *kay Lito*.
 :::
@@ -82,15 +82,15 @@ Ang sagot ay **Sa iyo**: "Iniabot ko ang susi sa iyo." Si Lito ang kausap na tum
 
 ### #1: Pagtukoy sa Anyong Ang
 
-Palitan ang *si Ana* sa "Si Ana ang dumating." Alin sa *siya*, *niya*, *kaniya*, at *nila* ang kabilang sa pangkat ng *ang*?
+Palitan ang *si Ben* sa "Si Ben ang umalis." Alin sa *siya*, *niya*, *kaniya*, at *nila* ang kabilang sa pangkat ng *ang*?
 
 **Solution:**
 
-1. Hanapin ang panghalip na maaaring pumalit sa *si Ana* bilang paksa.
+1. Hanapin ang panghalip na maaaring pumalit sa *si Ben* bilang paksa.
 2. *Niya* at *nila* ay nasa pangkat ng *ng*, habang *kaniya* ay nasa pangkat ng *sa*.
-3. Piliin ang **siya**: "**Siya** ang dumating."
+3. Piliin ang **siya**: "**Siya** ang umalis."
 
-**Check:** Wasto ang "**Siya** ay dumating"; hindi maaaring pumalit ang *niya* o *kaniya*.
+**Check:** Paksa ang *si Ben* sa orihinal, kaya paksa rin ang kapalit nito.
 
 ### #2: Pagpili ng Tamang Panauhan at Bilang sa Anyong Ng
 
@@ -98,25 +98,27 @@ Piliin ang tamang panghalip: "Isang kawani lamang ang naglinis ng silid; iniwan 
 
 **Solution:**
 
-1. Suriin ang papel ng patlang: *ang walis* ang paksa, kaya kailangan ng tagaganap ang anyong *ng*.
+1. Suriin ang papel ng patlang: *ang walis* ang paksa, kaya kailangan ng gumawa ang anyong *ng*.
 2. Tukuyin kung sino at ilan: isang kawaning pinag-uusapan.
 3. Piliin ang isahang anyong *ng* para sa pinag-uusapan: **niya**. "Isang kawani lamang ang naglinis ng silid. Iniwan **niya** ang walis sa sulok."
 
+**Check:** Iisang kawani pa rin ang tinutukoy ng *niya*, hindi marami.
+
 ### #3: Paanyaya ng Guro
 
-Palitan ng panghalip ang "sa mga magulang" sa "Ipinadala ng guro sa mga magulang ang paanyaya."
+Sabi ni Lea: "Ipinadala ng guro ang paanyaya kay Lea." Palitan ng panghalip ang "kay Lea."
 
 **Solution:**
 
-1. Tatanggap ng paanyaya ang "sa mga magulang," kaya anyong **sa** ang kailangan.
-2. Suriin ang bilang at panauhan: marami ang *mga magulang* at pinag-uusapan sila.
+1. Tatanggap ng paanyaya si Lea, kaya anyong **sa** ang kailangan.
+2. Suriin ang bilang at panauhan ng tatanggap.
 
 :::try
-Tapusin ang huling hakbang: anong anyong *sa* ang ipapalit sa "sa mga magulang"?
+Tapusin ang huling hakbang: anong anyong *sa* ang ipapalit sa "kay Lea"?
 :::answer
-Ang sagot ay **Sa kanila**: "Ipinadala ng guro sa kanila ang paanyaya."
+Ang sagot ay **Sa akin**: "Ipinadala ng guro ang paanyaya sa akin."
 
-**Check:** Ang *kanila* ay tumutukoy sa mga magulang.
+**Check:** Si Lea mismo ang nagsasalita, kaya ang *akin* ay tumutukoy sa kaniya.
 :::
 
 ## Speed Tricks & Shortcuts

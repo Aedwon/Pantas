@@ -65,36 +65,42 @@ Tapos na ang pagdating at katatapos pa lamang, kaya hindi ito nagpapatuloy.
 :::
 
 :::check
-Ano ang aspekto ng pandiwang nakadiin: "**Kahuhugas** lang ni Ana ng kamay"?
+Alin ang nagsasabing kailan lang natapos ang pagluluto?
+
+(A) Nagluto si Ana ng sopas noong Linggo.
+
+(B) Kaluluto lang ni Ana ng sopas.
 :::answer
-Ang sagot ay **Perpektibong katatapos**. Ipinapakita ng *ka-* kasama ng inulit na *hu* at *lang* na kailan lang natapos ang paghuhugas.
+Ang sagot ay **B**. Ipinapakita ng *ka-* kasama ng inulit na *lu* at *lang* na kailan lang natapos ang pagluluto. Ang A ay perpektibo lamang.
 :::
 
 ## Examples
 
-### #1: Pagtukoy sa Aspekto ng Ugat na Kain
+### #1: Pagtukoy sa Aspekto ng Ugat na Basa
 
-Alin ang anyong kontemplatibo (magaganap pa) ng pandiwang ugat na *kain*: (A) *Kumain*, (B) *Kumakain*, (C) *Kakain*, o (D) *Kainin*?
+Alin ang anyong kontemplatibo ng pandiwang ugat na *basa*: (A) *Bumasa*, (B) *Bumabasa*, (C) *Babasa*, o (D) *Basahin*?
 
 **Solution:**
 
-1. Suriin ang (A) *kumain*: tapos na ang kilos (perpektibo).
-2. Suriin ang (B) *kumakain*: nagpapatuloy ang kilos (imperpektibo).
-3. Suriin ang (D) *kainin*: ibang **pokus** na nakatuon sa bagay, hindi anyong *-um-* ng **tagaganap** (actor).
-4. Piliin ang **(C) Kakain**: "Kakain kami bukas ng tanghali."
+1. Suriin ang (A) *bumasa*: tapos na ang kilos (perpektibo).
+2. Suriin ang (B) *bumabasa*: nagpapatuloy ang kilos (imperpektibo).
+3. Suriin ang (D) *basahin*: ibang **pokus** na nakatuon sa bagay, hindi anyong *-um-* ng **tagaganap** (actor).
+4. Piliin ang **(C) Babasa**: "Babasa kami ng aklat mamaya."
 
-**Check:** Mali ang "Kumain kami bukas ng tanghali," dahil hindi pa nangyayari ang kilos bukas.
+**Check:** Mali ang "Bumasa kami ng aklat mamaya," dahil hindi pa nangyayari ang kilos mamaya.
 
 ### #2: Pagpili ng Pandiwa Ayon sa Kuwento
 
-Natapos na ang paglilinis ng tanggapan kahapon. Alin ang angkop na pandiwa sa pangungusap na "___ ng tanggapan si Mila kahapon": *Maglilinis*, *Naglinis*, *Naglilinis*, o *Kalilinis lang*?
+Natapos na ang paglalaba ng damit kahapon. Alin ang angkop na pandiwa sa pangungusap na "___ ng damit si Rita kahapon": *Maglalaba*, *Naglaba*, *Naglalaba*, o *Kalalaba lang*?
 
 **Solution:**
 
-1. Basahin ang kalagayan: *natapos na kahapon* ang paglilinis, kaya kailangan ang **perpektibo**.
-2. Alisin ang *maglilinis* (gagawin pa) at *naglilinis* (nagpapatuloy).
-3. Suriin ang *kalilinis lang*: hindi tugma sa *si Mila* ang anyong ito, dahil kailangan nito ang *ni Mila*.
-4. Piliin ang **Naglinis**: "Naglinis ng tanggapan si Mila kahapon."
+1. Basahin ang kalagayan: *natapos na kahapon* ang paglalaba, kaya kailangan ang **perpektibo**.
+2. Alisin ang *maglalaba* (gagawin pa) at *naglalaba* (nagpapatuloy).
+3. Suriin ang *kalalaba lang*: hindi tugma sa *si Rita* ang anyong ito, dahil kailangan nito ang *ni Rita*.
+4. Piliin ang **Naglaba**: "Naglaba ng damit si Rita kahapon."
+
+**Check:** Kung *Kalalaba lang ni Rita ng damit*, kailan lang natapos ang paglalaba, hindi kahapon pa.
 
 ### #3: Dalawang Anyo ng *Sulat*
 

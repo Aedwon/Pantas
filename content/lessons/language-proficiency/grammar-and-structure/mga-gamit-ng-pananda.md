@@ -31,7 +31,7 @@ Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi ang *ng* 
 :::pair #ng-para-sa-gumagawa
 Right: Kinain ng bata ang tinapay.
 Wrong: Kinain ang bata ang tinapay, o Kinain sa bata ang tinapay.
-Nakapokus sa layon ang *kinain*, at *ang tinapay* na ang paksa. Kailangan ng gumagawa (*bata*) ang panandang *ng*, hindi *ang* o *sa*.
+Ang bagay na tinapay ang binibigyang-diin ng *kinain*, kaya *ang tinapay* ang paksa. Kailangan ng gumagawa (*bata*) ang panandang *ng*, hindi *ang* o *sa*.
 :::
 
 :::check
@@ -66,26 +66,26 @@ Ang sagot ay **Direksiyon o patutunguhan**. Papunta sa Davao ang paglipat ng pam
 
 ### #1: Pagbasa ng Tatlong Gamit ng Ng
 
-Tukuyin ang papel ng pariralang may *ng* sa bawat pangungusap: (a) "Kumain ang bata **ng mangga**." (b) "Kinain **ng bata** ang tinapay." (c) "Malinis ang bahay **ng guro**."
+Tukuyin ang papel ng pariralang may *ng* sa bawat pangungusap: (a) "Nagdala ang kawani **ng papel**." (b) "Dinala **ng kawani** ang papel." (c) "Mataas ang bakod **ng paaralan**."
 
 **Solution:**
 
-1. Sa (a), *ang bata* ang paksa at kumakain, kaya *ng mangga* ang **bagay na kinain** (layon na hindi paksa).
-2. Sa (b), *ang tinapay* ang paksa at kinakain, kaya *ng bata* ang **gumagawa ng kilos**.
-3. Sa (c), nakakabit ang *ng guro* sa pangngalang *bahay*, kaya nagpapakita ito ng **pagmamay-ari**.
+1. Sa (a), *ang kawani* ang paksa at nagdadala, kaya **bagay na dinala** (layon na hindi paksa) ang *ng papel*: "Nagdala ang kawani **ng papel**."
+2. Sa (b), *ang papel* ang paksa at dinadala, kaya **gumagawa ng kilos** ang *ng kawani*: "Dinala **ng kawani** ang papel."
+3. Sa (c), nakakabit ang *ng paaralan* sa pangngalang *bakod*, kaya **pagmamay-ari** ito: "Mataas ang bakod **ng paaralan**."
 
-**Check:** Itanong sa bawat isa: "Ano ang kinain?" (*ng mangga*), "Sino ang kumain?" (*ng bata*), at "Kaninong bahay?" (*ng guro*).
+**Check:** Itanong sa bawat isa: "Ano ang dinala?" (*ng papel*), "Sino ang nagdala?" (*ng kawani*), at "Kaninong bakod?" (*ng paaralan*).
 
 ### #2: Paglalagay ng Tamang Pananda
 
-Piliin ang tamang pananda sa patlang: "Kinain ______ bata ang tinapay."
+Piliin ang tamang pananda sa patlang: "Isinulat ______ guro ang ulat."
 
 **Solution:**
 
-1. Tingnan ang pandiwa: ang anyo ng *kinain* ay nakatuon sa bagay na kinain, at ang paksa ay *ang tinapay*.
-2. Piliin ang **ng**: "Kinain **ng** bata ang tinapay."
+1. Tingnan ang pandiwa: ang anyo ng *isinulat* ay nakatuon sa bagay na isinulat, at ang paksa ay *ang ulat*.
+2. Piliin ang **ng**: "Isinulat **ng** guro ang ulat."
 
-**Check:** Tiyaking isa lamang ang may *ang* (*ang tinapay*), at *ng* ang nasa gumagawa (*ng bata*) upang tumugma sa *kinain*.
+**Check:** Kapag *ang* ang inilagay, dalawa ang paksang may *ang* ("Isinulat ang guro ang ulat"), kaya mali.
 
 ### #3: Gantimpala ng Guro
 
@@ -99,15 +99,17 @@ Sa "Ibinigay ng guro ang gantimpala sa nanalo," ano ang papel ng *sa nanalo*?
 Tapusin ang huling hakbang: anong tanong ang sinasagot ng *sa nanalo*, at ano ang papel nito sa pangungusap?
 :::answer
 Ang sagot ay **Tagatanggap ng gantimpala**: "Ibinigay ng guro ang gantimpala **sa nanalo**." Sinasagot nito ang tanong na "Kanino?", hindi "Saan?"
+
+**Check:** Kung *sa kaibigan* ang ipalit sa *sa nanalo*, tagatanggap pa rin ng gantimpala ang parirala.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Basahin ang buong pangungusap bago tukuyin ang pananda. Sa *ng*, suriin ang pandiwa upang makita kung layon o gumagawa ito; para sa pagmamay-ari o ugnayan, tingnan kung aling pangngalan ang kinakabitan ng pariralang may *ng*. Sa *sa*, itanong kung *saan* (lugar/direksiyon) o *kanino* (tagatanggap).
+Basahin ang buong pangungusap bago tukuyin ang pananda. Sa *ng*, suriin ang pandiwa upang makita kung layon o gumagawa ito; para sa pagmamay-ari o ugnayan, tingnan kung aling pangngalan ang kinakabitan ng pariralang may *ng*. Sa tatlong gamit ng *sa* dito, itanong kung *saan* (lugar/direksiyon) o *kanino* (tagatanggap).
 
 ## Traps to Watch For
 
 :::checklist
-- Pandiwang nakapokus sa layon gaya ng *kinain*: markahan ng *ng* ang gumagawa, hindi ng *ang* o *sa*. {#ng-para-sa-gumagawa}
+- Pandiwang nakatuon sa bagay gaya ng *kinain*: markahan ng *ng* ang gumagawa, hindi ng *ang* o *sa*. {#ng-para-sa-gumagawa}
 - Taong may panandang *sa* gaya ng *sa aplikante*: itanong kung *kanino* ibinigay upang makita ang tagatanggap. {#sa-para-sa-tagatanggap}
 :::

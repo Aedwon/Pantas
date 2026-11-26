@@ -26,7 +26,7 @@ Pagdugtungin ang isang buong diwa at ang dahilan nito gamit ang *dahil* o *sapag
 :::pair #hugnayan-laban-sa-tambalan
 Right: Ang "Umuwi ang bata dahil umuulan na" ay **Hugnayan**.
 Wrong: Tawaging **Tambalan** o **Payak** ang "Umuwi ang bata dahil umuulan na."
-Ginagawang di-makapag-iisa ng *dahil* ang *dahil umuulan na*. Kaya hindi ito tambalan o payak.
+Ikinakabit ng *dahil* ang dahilan sa pangunahing sugnay. Kaya hindi ito tambalan o payak.
 :::
 
 :::check
@@ -61,7 +61,7 @@ Ang sagot ay dalawang makapag-iisa (*Umalis si Ana* at *nagpaiwan si Ben*) at da
 
 ### Ayos ng Salaysay at mga Pananda
 
-Sa pagsasalaysay, pumili ng **pananda** (sequence marker) na tugma sa pagkakasunod ng oras. Sa pagtatanim ni Mia:
+Sa pagsasalaysay, pumili ng **pananda ng pagkakasunod** (sequence marker) na tugma sa oras. Sa pagtatanim ni Mia:
 
 1. Simula (*una*, *sa simula*): "**Una**, naghukay si Mia ng butas."
 2. Kasunod (*pagkatapos*, *kasunod*, *saka*): "**Pagkatapos**, itinanim niya ang buto."
@@ -74,13 +74,13 @@ Ang *sa huli* ay para lamang sa pangwakas na pangyayari. Kapag inilagay ito sa u
 :::
 
 :::check
-Lagyan ng pananda ang mga hakbang ni Ben sa pagluluto, ayon sa pagkakasunod: naghugas siya ng gulay; naglagay siya ng gulay sa kaldero; inihain niya ang sinigang. Alin ang tamang ayos ng mga pananda?
+Mga ginawa ni Ben sa pagluluto: inihain niya ang sinigang; naghugas siya ng gulay; naglagay siya ng gulay sa kaldero. Alin ang tamang salaysay?
 
-(A) Sa simula, kasunod, panghuli
+(A) Sa simula, naghugas siya ng gulay. Kasunod, naglagay siya ng gulay sa kaldero. Panghuli, inihain niya ang sinigang.
 
-(B) Panghuli, sa simula, kasunod
+(B) Sa simula, inihain niya ang sinigang. Kasunod, naghugas siya ng gulay. Panghuli, naglagay siya ng gulay sa kaldero.
 
-(C) Kasunod, panghuli, sa simula
+(C) Sa simula, naglagay siya ng gulay sa kaldero. Kasunod, inihain niya ang sinigang. Panghuli, naghugas siya ng gulay.
 :::answer
 Ang sagot ay **A**: "Sa simula, naghugas si Ben ng gulay. Kasunod, naglagay siya ng gulay sa kaldero. Panghuli, inihain niya ang sinigang."
 
@@ -91,13 +91,15 @@ Ang sagot ay **A**: "Sa simula, naghugas si Ben ng gulay. Kasunod, naglagay siya
 
 ### #1: Pagkilala sa Uri ng Pangungusap
 
-Tukuyin ang uri ng pangungusap: "Umuwi ang bata dahil umuulan na."
+Tukuyin ang uri ng pangungusap: "Natuwa ang guro dahil nanalo ang koponan."
 
 **Solution:**
 
-1. Hanapin ang sugnay na makapag-iisa: "Umuwi ang bata."
-2. Suriin ang "dahil umuulan na": may *dahil* sa unahan, kaya sugnay na di-makapag-iisa ito.
-3. May isang makapag-iisa at isang di-makapag-iisa, kaya **Hugnayan** ang pangungusap.
+1. Hanapin ang sugnay na makapag-iisa: "Natuwa ang guro."
+2. Suriin ang "dahil nanalo ang koponan": may *dahil* sa unahan, kaya di-makapag-iisa ito.
+3. Isang makapag-iisa at isang di-makapag-iisa: **Hugnayan** ang "[Natuwa ang guro] [**dahil nanalo ang koponan**]."
+
+**Check:** Basahin nang mag-isa ang bawat sugnay: buo ang *Natuwa ang guro*, hindi buo ang *dahil nanalo ang koponan*.
 
 ### #2: Pagbuo ng Langkapan
 
@@ -106,12 +108,14 @@ Pagsamahin sa isang langkapan ang mga diwa, at gamitin ang *dahil* sa dahilan: n
 **Solution:**
 
 1. Iugnay ang dahilan gamit ang *dahil*: "Nag-aral si Liza dahil may pagsusulit siya."
-2. Idagdag ang ikalawang buong diwa gamit ang *at*: "Nag-aral si Liza dahil may pagsusulit siya, at naghanda si Ben para sa ulat."
-3. Bilangin ang mga sugnay: dalawang makapag-iisa at isang di-makapag-iisa, kaya **Langkapan** ito.
+2. Idagdag ang ikalawang buong diwa gamit ang *at*, at bilangin ang mga sugnay: dalawang makapag-iisa at isang di-makapag-iisa.
+3. **Langkapan** ang "[Nag-aral si Liza] [**dahil may pagsusulit siya**], at [naghanda si Ben para sa ulat]."
+
+**Check:** Buo ang *Nag-aral si Liza* at ang *naghanda si Ben para sa ulat* kapag binasa nang mag-isa.
 
 ### #3: Ayos ng mga Pananda sa Salaysay
 
-Lagyan ng pananda ang tatlong pangyayari sa salaysay ng aplikante, ayon sa pagkakasunod: nagrehistro siya; ipinasa niya ang mga papel; kinuha niya ang resibo.
+Lagyan ng pananda ang tatlong pangyayari sa salaysay ng aplikante: kinuha niya ang resibo; nagrehistro siya; ipinasa niya ang mga papel.
 
 **Solution:**
 

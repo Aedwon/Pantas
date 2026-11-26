@@ -81,25 +81,25 @@ Ang sagot ay **Sa kusina**. Sinasagot nito ang tanong na "Saan kami kumain?"
 
 ### #1: Pagtukoy sa Pang-uri
 
-Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "Ang **matapang** na sundalo ay nagtanggol sa kaniyang bayan."
+Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "Nagbasa ang **tahimik** na estudyante ng aklat."
 
 **Solution:**
 
-1. Hanapin ang salitang binibigyang-turing ng *matapang*: ang *sundalo*, isang pangngalan.
-2. Pangngalan ang inilalarawan, kaya **pang-uri** ang *matapang*: "Ang **matapang** na sundalo ay nagtanggol sa kaniyang bayan."
+1. Hanapin ang salitang binibigyang-turing ng *tahimik*: ang *estudyante*, isang pangngalan.
+2. Pangngalan ang inilalarawan, kaya **pang-uri** ang *tahimik*: "Nagbasa ang **tahimik** na estudyante ng aklat."
 
-**Check:** Itanong: "Sino ang matapang?" Ang sagot ay *sundalo* (pangngalan), hindi *nagtanggol* (pandiwa).
+**Check:** Itanong: "Sino ang tahimik?" Ang sagot ay *estudyante* (pangngalan), hindi *nagbasa* (pandiwa).
 
 ### #2: Pagtukoy sa Pang-abay
 
-Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Mabilis** na tumakbo ang atleta patungo sa linya ng tapusan."
+Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Maingat** na nagbuhat ang kawani ng kahon."
 
 **Solution:**
 
-1. Hanapin ang salitang binibigyang-linaw ng *mabilis*: ang *tumakbo*, isang pandiwa.
-2. Kilos ang nililinaw, kaya **pang-abay** ang *mabilis*: "**Mabilis** na tumakbo ang atleta patungo sa linya ng tapusan."
+1. Hanapin ang salitang binibigyang-linaw ng *maingat*: ang *nagbuhat*, isang pandiwa.
+2. Kilos ang nililinaw, kaya **pang-abay** ang *maingat*: "**Maingat** na nagbuhat ang kawani ng kahon."
 
-**Check:** Sinasagot ng *mabilis* ang tanong na "Paano tumakbo ang atleta?", na tanda ng pang-abay.
+**Check:** Sinasagot ng *maingat* ang tanong na "Paano nagbuhat ang kawani?", na tanda ng pang-abay.
 
 ### #3: Pangungusap Tungkol sa Paglalaro
 

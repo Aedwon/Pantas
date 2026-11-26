@@ -74,14 +74,14 @@ Ang sagot ay **Hala**. Nagpapahayag ito ng pagkagulat o reaksiyon. Pang-ukol ang
 
 ### #1: Ugnayang Ipinakikita ng Pang-ukol
 
-Sa "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita," anong bahagi ng pananalita ang mga salitang nakadiin batay sa ugnayang ipinakikita nito?
+Sa "Nagdala si Ben ng regalo **para kay** Lea," anong bahagi ng pananalita ang mga salitang nakadiin batay sa ugnayang ipinakikita nito?
 
 **Solution:**
 
-1. Tingnan ang kasunod ng *para sa*: ang pangkat ng pangngalang *mga bisita*.
-2. Iniuugnay ng *para sa* ang pangkat ng pangngalan sa ibang bahagi, kaya **pang-ukol** ito: "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita."
+1. Tingnan ang kasunod ng *para kay*: ang pangalan ng taong si *Lea*.
+2. Iniuugnay ng *para kay* ang pangngalan sa ibang bahagi, kaya **pang-ukol** ito: "Nagdala si Ben ng regalo **para kay** Lea."
 
-**Check:** Kapag pinalitan ng *at*, nagdurugtong na lamang ito ng dalawang pangngalan: "mga upuan at mga bisita."
+**Check:** Kapag pinalitan ng *at*, nagdurugtong na lamang ito ng dalawang pangngalan: "regalo at Lea."
 
 ### #2: Pagkilala sa Pangatnig
 
@@ -92,22 +92,22 @@ Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pan
 1. Tingnan ang nasa magkabilang panig ng *ngunit*: "Malamig ang hangin" at "mainit ang sikat ng araw."
 2. Pinagdurugtong ng *ngunit* ang dalawang sugnay na magkasalungat, kaya **pangatnig** ito: "Malamig ang hangin **ngunit** mainit ang sikat ng araw."
 
-**Check:** Kapag inalis ang *ngunit*, dalawang magkahiwalay na pangungusap ang natira.
+**Check:** Maglagay ng tuldok sa pagitan ng dalawang grupo at basahin ang dalawa bilang pangungusap: "Malamig ang hangin. Mainit ang sikat ng araw."
 
 ### #3: Salita sa Simula ng Pangungusap
 
-Sa "**Hay!** Naubos na ang tinapay," paano gumagana ang *Hay*?
+Sa "**Salamat!** Naayos na ang gripo," paano gumagana ang *Salamat*?
 
 **Solution:**
 
-1. Basahin ang *Hay!* nang hiwalay sa pangungusap.
+1. Tingnan kung may bagay o taong pinapangalanan ang *Salamat* sa pangungusap.
 
 :::try
-Tapusin ang huling hakbang: anong bahagi ng pananalita ang *Hay* batay sa gamit nito?
+Tapusin ang huling hakbang: anong bahagi ng pananalita ang *Salamat* batay sa gamit nito?
 :::answer
-Ang sagot ay **Pandamdam**: "**Hay!** Naubos na ang tinapay." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita.
+Ang sagot ay **Pandamdam**: "**Salamat!** Naayos na ang gripo." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita, at walang pinapangalanan.
 
-**Check:** Kapag inalis ang *Hay*, buo pa rin ang "Naubos na ang tinapay."
+**Check:** Basahin nang mag-isa ang *Salamat!*, at kapag inalis ito, buo pa rin ang "Naayos na ang gripo."
 :::
 
 ## Speed Tricks & Shortcuts

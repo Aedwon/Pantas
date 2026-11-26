@@ -68,7 +68,7 @@ Sa tambalang pangungusap, ang **pangatnig na magkatimbang** (coordinating conjun
 :::pair #pangatnig-sa-pagpipilian
 Right: Para sa pagpipilian: "Maaari kang magpasa sa tanggapan, **o** maaari kang magpadala sa koreo."
 Wrong: Gamitin ang **at**, **ngunit**, o **dahil** sa pangungusap na humihingi ng pagpipilian.
-Nagdaragdag ang *at*, nagsasalungat ang *ngunit*, at nagbibigay ng dahilan ang *dahil*. Pipili sa dalawa ang *o*.
+Nagdaragdag ang *at*, nagsasalungat ang *ngunit*, at nagbibigay ng dahilan ang *dahil*. Sa pangungusap na ito, ipinakikita ng *o* ang mga pagpipilian.
 :::
 
 :::check
@@ -81,27 +81,31 @@ Ang sagot ay **Ngunit**. Salungat sa pagnanais niyang sumama ang masamang pakira
 
 ### #1: Payak na Pangungusap
 
-Tukuyin ang uri ng pangungusap: "Naglilinis at nag-aayos ng silid sina Ana at Ben."
+Tukuyin ang uri ng pangungusap: "Kumakanta at sumasayaw sina Lea at Omar sa entablado."
 
 **Solution:**
 
-1. Hanapin ang simuno: *sina Ana at Ben*.
-2. Hanapin ang panaguri: *naglilinis at nag-aayos ng silid*.
-3. Iisa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Payak** ang "Naglilinis at nag-aayos ng silid sina Ana at Ben."
+1. Hanapin ang simuno: *sina Lea at Omar*.
+2. Hanapin ang panaguri: *kumakanta at sumasayaw sa entablado*.
+3. Iisa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Payak** ang "[Kumakanta at sumasayaw sina Lea at Omar sa entablado]."
+
+**Check:** Iisa ang simuno ng dalawang kilos, kaya iisang sugnay lamang ito.
 
 ### #2: Tambalang Pangungusap
 
-Tukuyin ang uri ng pangungusap: "Umuwi ang bata ngunit naiwan ang bag niya."
+Tukuyin ang uri ng pangungusap: "Maaga kaming dumating ngunit sarado ang tindahan."
 
 **Solution:**
 
-1. Hatiin sa pangatnig na *ngunit*: unang bahagi ay "Umuwi ang bata," ikalawa ay "naiwan ang bag niya."
+1. Hatiin sa pangatnig na *ngunit*: unang bahagi ay "Maaga kaming dumating," ikalawa ay "sarado ang tindahan."
 2. Basahin nang hiwalay ang bawat panig: parehong may simuno, panaguri, at buong diwa.
-3. Dalawa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Tambalan** ang "Umuwi ang bata ngunit naiwan ang bag niya."
+3. Dalawa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Tambalan** ang "[Maaga kaming dumating] **ngunit** [sarado ang tindahan]."
+
+**Check:** Lagyan ng tuldok sa halip ng *ngunit*: "Maaga kaming dumating. Sarado ang tindahan." Parehong buo.
 
 ### #3: Pagtutugma ng Pangatnig
 
-Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
+Idinadagdag lamang ng manunulat ang ginawa ni Ben, walang dahilan, salungatan, o pagpipilian. Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
 
 **Solution:**
 
@@ -124,5 +128,5 @@ Hatiin ang pangungusap sa gitnang pangatnig at basahin nang mag-isa ang bawat pa
 :::checklist
 - Sugnay na may *dahil*, *kapag*, o *habang*: bitin ang diwa kahit may simuno at panaguri, kaya hindi ito makapag-iisa. {#sugnay-na-makapag-iisa}
 - Pangungusap na may *ngunit* sa pagitan ng dalawang buong diwa na walang sugnay na di-makapag-iisa: tambalan ito, hindi payak at hindi hugnayan. {#payak-laban-sa-tambalan}
-- Pangungusap na may dalawang mapagpipilian: piliin ang *o*, hindi *at*, *ngunit*, o *dahil*. {#pangatnig-sa-pagpipilian}
+- Pangungusap na humihingi ng pagpipilian: piliin ang *o*, hindi *at*, *ngunit*, o *dahil*. {#pangatnig-sa-pagpipilian}
 :::

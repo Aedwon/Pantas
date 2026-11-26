@@ -26,7 +26,7 @@ Nagbabago ang tungkulin ng isang salita ayon sa gamit nito sa pangungusap.
 :::pair #bata-pangngalan-hindi-pang-uri
 Right: Sa "Ang bata ay naglaro sa parke kahapon," ang *bata* ay pangngalan dahil ngalan ito ng taong pinag-uusapan pagkatapos ng *ang*.
 Wrong: Tawaging pang-uri o panghalip ang *bata* sa "Ang bata ay naglaro sa parke kahapon."
-Maaaring maging pang-uri (adjective) ang *bata* kung naglalarawan ng edad (*batang guro*), ngunit dito ay kasunod ito ng *ang* at ngalan mismo ng tao, hindi pamalit sa ibang pangalan.
+Maaaring maglarawan ng edad ang *bata* (*batang guro*), ngunit dito ay kasunod ito ng *ang* at ngalan mismo ng tao, hindi pamalit sa ibang pangalan.
 :::
 
 :::check
@@ -56,7 +56,7 @@ Ang sagot ay **nagluto**. Ito ang kilos na ginawa ni Aling Rosa. Ngalan ng tao a
 
 ### Pandiwari sa Tradisyonal na Pag-uuri
 
-Ang **pandiwari** (participle) ay anyong mula sa pandiwa na sa tradisyonal na balarila ay ginagamit na pang-uri (*ang nahimatay na lalaki*) o, kapag walang pangngalang kasunod, na pangngalan (*ang nahimatay*). Sundin ang dalawang hakbang:
+Ang **pandiwari** (participle) ay anyong mula sa pandiwa na sa tradisyonal na balarila ay ginagamit na **pang-uri** (adjective; *ang nahimatay na lalaki*) o, kapag walang pangngalang kasunod at ngalan ng tao o bagay ang buong parirala, na pangngalan (*ang nahimatay*). Sundin ang dalawang hakbang:
 
 1. Hanapin muna ang pangunahing kilos ng pangungusap.
 2. Tingnan ang anyong mula sa pandiwa: kung inilalarawan nito ang pangngalang kasunod sa iisang parirala (*ang nahimatay na lalaki*), pang-uri ito; kung wala, itanong kung tao o bagay ang tinutukoy ng buong parirala (phrase).
@@ -91,15 +91,19 @@ Sa "**Ang** masipag na **guro** ay ngumiti at umupo **siya**," tukuyin ang bahag
 2. Ang *guro* ay ngalan ng tao, kaya **pangngalan** ito.
 3. Ang *siya* ay pumapalit sa ngalan ng guro, kaya **panghalip** ito.
 
+Pantukoy ang *Ang*, pangngalan ang *guro*, at panghalip ang *siya*: "**Ang** masipag na **guro** ay ngumiti at umupo **siya**."
+
+**Check:** Palitan ang *siya* ng *ang guro*: buo pa rin ang "umupo ang guro," kaya *guro* ang tinutukoy ng *siya*.
+
 ### #2: Pagkilala sa Pandiwa
 
-Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Kumain** ang mga bata ng masarap na hapunan."
+Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Sumulat** ang mga mag-aaral ng liham."
 
 **Solution:**
 
-1. Ang *kumain* ang ginawa ng **paksa** (subject) na *ang mga bata*, kaya **pandiwa** ito: "**Kumain** ang mga bata ng masarap na hapunan."
+1. Itanong ang ginawa ng **paksa** (subject) na *ang mga mag-aaral*: *sumulat*, kaya **pandiwa** ito: "**Sumulat** ang mga mag-aaral ng liham."
 
-**Check:** "Ano ang ginawa ng mga bata?" *Kumain.*
+**Check:** Ngalan ng bagay ang *liham*, kaya hindi ito ang kilos.
 
 ### #3: Pangungusap Tungkol sa Guro
 
@@ -110,7 +114,7 @@ Sa tradisyonal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitan
 1. Hanapin ang *ang nagtanong* sa dulo ng pangungusap, kasunod ng *sa harap ng klase*.
 
 :::try
-Tapusin ang huling hakbang: ano ang ginagawa ng *ang nahuli* sa pangungusap, at ano ang gamit nito sa itinakdang pag-uuri?
+Tapusin ang huling hakbang: ano ang ginagawa ng *ang nagtanong* sa pangungusap, at ano ang gamit nito sa itinakdang pag-uuri?
 :::answer
 Ang sagot ay **Pandiwaring gamit na pangngalan**: "Sinagot ng guro sa harap ng klase ang **nagtanong**." Mula sa pandiwa ang *nagtanong*. Hindi ito ang kilos ng guro (*sinagot*) at hindi ang lugar (*sa harap ng klase*); tumutukoy ito sa taong sinagot.
 

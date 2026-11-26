@@ -27,10 +27,10 @@ Sa pangkat ng *maglinis*, sumusunod ang tatlong **aspekto** (stage of an action)
 2. **Imperpektibo** (ongoing): nagpapatuloy, gamitin ang *nag-* at idagdag ang inuulit na bahagi -> *naglilinis*.
 3. **Kontemplatibo** (not yet begun): gagawin pa, panatilihin ang *mag-* at idagdag ang inuulit na bahagi -> *maglilinis*.
 
-Para sa **katatapos** (recently completed) na kilos, gamitin ang *ka-* at ang inuulit na bahagi: *kalilinis lang* (o *kadarating lang* mula sa *dating*, kung saan nagiging *r* ang *d* sa gitna ng mga patinig).
+Para sa **katatapos** (recently completed) na kilos, halimbawa sa ugat na *linis*, gamitin ang *ka-* at ang inuulit na bahagi: *kalilinis lang* (o *kadarating lang* mula sa *dating*, kung saan nagiging *r* ang *d* sa gitna ng mga patinig).
 
 :::check
-Ano ang anyong imperpektibo (nagpapatuloy) ng pandiwang *maglaba*?
+Ano ang anyong imperpektibo ng pandiwang *maglaba*?
 :::answer
 Ang sagot ay **Naglalaba**. Ginagamit ang *nag-* at inuulit ang *la*, ang unang katinig at patinig ng ugat na *laba*.
 :::
@@ -56,7 +56,7 @@ Kasama ng pag-uulit ang *mag-* sa pangkat ng *maglinis* (*maglilinis*), ngunit h
 :::pair #kumain-kontemplatibo-walang-um
 Right: Para sa kilos na hindi pa nasisimulan sa pangkat ng *kumain*, gamitin ang *kakain*.
 Wrong: Palitan ang *magkakain* ng *kumakain* o *kumain*.
-Nagpapatuloy ang kilos sa *kumakain* at tapos na sa *kumain*. Alisin ang *-um-* at ulitin ang *ka* upang mabuo ang kontemplatibong *kakain*.
+Nagpapatuloy ang kilos sa *kumakain* at tapos na sa *kumain*. Sa *magkakain*, alisin lamang ang *mag-* upang mabuo ang kontemplatibong *kakain*.
 :::
 
 :::pair #basahin-ang-buong-pandiwa
@@ -75,31 +75,29 @@ Ang sagot ay **Susulat**. Inaalis ang *-um-* at inilalagay ang inuulit na bahagi
 
 ### #1: Pagbuo ng Anyo sa Dalawang Magkaibang Pangkat
 
-Punan ang mga patlang gamit ang anyong kontemplatibo ng *maglinis* at *kumain*: "Bukas ay ___ kami ng silid. Pagkatapos ay ___ kami."
+Punan ang mga patlang gamit ang anyong kontemplatibo ng *magluto* at *sumayaw*: "Bukas ay ___ kami ng sopas. Pagkatapos ay ___ kami."
 
 **Solution:**
 
 1. Tukuyin ang kalagayan: *bukas*, kaya plano pa ang dalawa (kontemplatibo).
-2. Sa *maglinis*, panatilihin ang *mag-* at ulitin ang *li*: **maglilinis**.
-3. Sa *kumain*, alisin ang *-um-* at ulitin ang *ka*: **kakain**.
+2. Sa *magluto*, panatilihin ang *mag-* at ulitin ang *lu*: **magluluto**.
+3. Sa *sumayaw*, alisin ang *-um-* at ilagay ang *sa* bago ang *sayaw*: **sasayaw**.
 
-Sagot: "Bukas ay maglilinis kami ng silid. Pagkatapos ay kakain kami."
+Sagot: "Bukas ay magluluto kami ng sopas. Pagkatapos ay sasayaw kami."
 
-**Check:** Kung ngayon ginagawa, *naglilinis* at *kumakain* ang anyo; para sa bukas, *maglilinis* at *kakain*.
+**Check:** Kung ngayon ginagawa, *nagluluto* at *sumasayaw* ang anyo; para sa bukas, *magluluto* at *sasayaw*.
 
-### #2: Pagwawasto ng Maling Unlapi sa Pangungusap
+### #2: Pagwawasto ng Maling Panlapi sa Pangungusap
 
-Isinulat ng kawani, "Bukas ay magkakain kami matapos maglinis." Kung ang pandiwa ay nasa pangkat na *kumain*, anong pagbabago ang kailangan upang maipahayag ang kilos na hindi pa nasisimulan?
+Isinulat ng kawani, "Bukas ay magtatakbo kami matapos magluto." Kung ang pandiwa ay nasa pangkat na *tumakbo*, anong pagbabago ang kailangan upang maipahayag ang kilos na hindi pa nasisimulan?
 
 **Solution:**
 
-1. Hanapin ang ugat at pangkat: ugat na *kain* sa pangkat na *-um-* (*kumain*).
+1. Hanapin ang ugat at pangkat: ugat na *takbo* sa pangkat na *-um-* (*tumakbo*).
 2. Tingnan ang hinihinging kalagayan: plano para sa *bukas*, kaya angkop ang kontemplatibo sa pangungusap na ito.
-3. Alisin ang maling *mag-* at ulitin ang *ka* nang walang *-um-*: "Bukas ay **kakain** kami matapos maglinis."
+3. Alisin lamang ang maling *mag-*; nasa *magtatakbo* na ang inuulit na *ta*: "Bukas ay **tatakbo** kami matapos magluto."
 
-Sagot: Palitan ang *magkakain* ng **kakain**.
-
-**Check:** Kung may *-um-* pa, *kumakain* na iyon, hindi *kakain*.
+**Check:** Kung may *-um-* pa, *tumatakbo* na iyon, hindi *tatakbo*.
 
 ### #3: Dalawang Pandiwa sa Tala
 
@@ -108,14 +106,14 @@ Sa tala ay nakasulat, "Kasasara lang nila ng tanggapan. Magbabasa sila ng ulat b
 **Solution:**
 
 1. Suriin ang *kasasara lang*: ang *ka-*, inulit na *sa*, at *lang* ay nagpapakitang katatapos lamang ang pagsara, kaya **perpektibong katatapos** ito.
-2. Suriin ang *magbabasa*: tingnan ang **unlapi** (prefix) at ang oras (*bukas*).
+2. Suriin ang *magbabasa* sa "Magbabasa sila ng ulat bukas."
 
 :::try
-Tapusin ang huling hakbang: anong aspekto ang *magbabasa*, at bakit?
+Tapusin ang huling hakbang: anong bahagi ng *magbabasa* ang inuulit, at anong aspekto ito?
 :::answer
-Ang sagot ay **Kontemplatibo**: "Magbabasa sila ng ulat bukas." Gumagamit ang *magbabasa* ng unlaping *mag-* (hindi *nag-*) kasama ng inulit na *ba* at pahiwatig na *bukas*, kaya gagawin pa ito.
+Inuulit ang *ba*, at **Kontemplatibo** ang *magbabasa*: "Magbabasa sila ng ulat bukas." Gumagamit ito ng panlaping *mag-* (hindi *nag-*) kasama ng inulit na *ba*, kaya gagawin pa ito.
 
-**Check:** Ihambing ang dalawang unlapi: ang nagpapatuloy na anyo ay *nagbabasa* (*nag-* + *ba*), habang ang *magbabasa* (*mag-* + *ba*) ay nakatuon sa kilos na gagawin pa.
+**Check:** Ihambing ang dalawang panlapi: ang nagpapatuloy na anyo ay *nagbabasa* (*nag-* + *ba*), habang ang *magbabasa* (*mag-* + *ba*) ay nakatuon sa kilos na gagawin pa.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -126,6 +124,6 @@ Tukuyin muna kung nasa pangkat ng *mag-* o *-um-* ang pandiwa. Sa mga ugat na it
 
 :::checklist
 - Pandiwang nasa pangkat ng *-um-* sa kontemplatibo: huwag lagyan ng *mag-* (*kakain*, hindi *magkakain*). {#huwag-ilipat-ang-mag}
-- Pagpili ng gagawin pa sa pangkat ng *kumain*: alisin ang *-um-* upang hindi maging *kumain* o *kumakain*. {#kumain-kontemplatibo-walang-um}
-- Pandiwang may pag-uulit: basahin ang buong unlapi (*ka-*, *nag-*, o *mag-*) upang maihiwalay ang katatapos, imperpektibo, at kontemplatibo. {#basahin-ang-buong-pandiwa}
+- Pagpili ng gagawin pa sa pangkat ng *kumain*: mula sa *kumain*, alisin ang *-um-* at ilagay ang *ka* bago ang *kain*, upang hindi maging *kumain* o *kumakain*. {#kumain-kontemplatibo-walang-um}
+- Pandiwang may pag-uulit: basahin ang buong panlapi (*ka-*, *nag-*, o *mag-*) upang maihiwalay ang katatapos, imperpektibo, at kontemplatibo. {#basahin-ang-buong-pandiwa}
 :::
