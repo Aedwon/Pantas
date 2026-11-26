@@ -482,7 +482,7 @@ questions:
     type: parts-of-speech-identification
     difficulty: exam
     stem: |
-      Sa "Naku! Naiwan ko sa bahay ang aking pagkakakilanlan," paano gumagana ang "Naku"?
+      Sa "Naku! Naiwan ko sa bahay ang aking pitaka," paano gumagana ang "Naku"?
     choices:
       - text: "Pandamdam"
         correct: true
