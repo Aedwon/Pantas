@@ -16,7 +16,8 @@ keyPoints:
 
 ### Prepositions, Conjunctions, and Interjections
 
-- **Preposition**: introduces a noun or pronoun phrase to show a relation such as place, time, or direction (*under the table, before dinner, toward home*).- **Conjunction**: joins words, phrases, or clauses (*and, but, or, because, before*). A **coordinating conjunction** (*for, and, nor, but, or, yet, so*) joins equal parts, such as two full clauses.
+- **Preposition**: introduces a noun or pronoun phrase to show a relation such as place, time, or direction (*under the table, before dinner, toward home*).
+- **Conjunction**: joins words, phrases, or clauses (*and, but, or, because, before*). A **coordinating conjunction** (*for, and, nor, but, or, yet, so*) joins equal parts, such as two full clauses.
 - **Interjection**: expresses a sudden feeling or reaction and stands apart from the sentence grammar (*Ouch!, Wow!, Hey!*).
 :::pair #location-phrase-adverb
 Right: In "The cat hid under the table," *under* is a preposition.
