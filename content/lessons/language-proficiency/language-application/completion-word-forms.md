@@ -69,7 +69,7 @@ Choose the verb: "My cousins ______ in Davao." *(live / lives)*
 
 Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. Verbs such as *hope* and *decide* work the same way. The **base form** is the plain form, such as *go*, *leave*, or *talk*.
 
-Use *enjoy reading*, with an *-ing* form, as with *avoid*. Learn these patterns with the first verb. A pattern that fits *want* may not fit *enjoy*.
+Use *enjoy reading*, with an *-ing* form, as with *avoid*. Learn each verb together with its pattern. A pattern that fits *want* may not fit *enjoy*.
 
 Let's fill the blanks in "Mina wants ______ early, but she enjoys ______ with her coworkers." *(leave, talk)*
 

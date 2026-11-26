@@ -77,11 +77,12 @@ In "The witness was **untruthful** when the officer asked about the missing key,
 3. Add the prefix *un-*, which means *not*.
 4. Put all parts together: **not telling the truth**.
 
-**Check:** Test the meaning in the sentence: "The witness was not telling the truth when the officer asked about the missing key." It fits naturally.
+**Check:** Test the meaning in the sentence: "The witness was not telling the truth when the officer asked about the missing key."
 
 ### #2: Opposite in Context
 
 Choose the word opposite in meaning to the word in bold: "The speaker's tone was **calm**, and nobody in the hall felt worried."
+
 (A) peaceful
 
 (B) quiet
@@ -123,5 +124,5 @@ Circle *closest* or *opposite* in the question first, then break long words into
 :::checklist
 - A prompt asking for the **opposite** meaning: pick the antonym, not a synonym that fits the sentence. {#check-opposite-direction}
 - A word that starts with *un-*: check it is a real prefix, then read it together with the root and suffix. {#read-every-word-part}
-- Homophones like *their*, *there*, and *they're*: test ownership, place, or *they are* in the sentence. {#synonyms-antonyms-and-direction}
+- Words that sound alike, like *their*, *there*, and *they're*: test ownership, place, or *they are* in the sentence. {#synonyms-antonyms-and-direction}
 :::

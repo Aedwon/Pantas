@@ -35,16 +35,16 @@ Here *might* shows only possibility. A rule or policy calls for *must*.
 :::
 
 :::check
-Choose the modal that fits: After months of practice, Ben *(can / must)* play the whole song without the notes.
+Choose the modal that fits: After months of practice, Ben *(can / must)* now play the whole song easily.
 :::answer
-*Can*: "After months of practice, Ben can play the whole song without the notes." Practice builds ability. *Must* would state a requirement or a firm conclusion.
+*Can*: "After months of practice, Ben can now play the whole song easily." Practice builds ability. *Must* would state a requirement or a firm conclusion.
 
 **Check:** Swap in *is able to*: "Ben is able to play the whole song." The meaning stays the same.
 :::
 
 ### After a Modal
 
-A **base verb** is the plain verb with no *to* and no endings like *-s*, *-ed*, or *-ing* (*register, arrive, leave*). Core modals (*can, may, must, might, could, should*) take the bare base verb directly, even when the subject is singular (*She **must register***, not *must registers*).
+A **base verb** is the plain verb with no *to* and no endings like *-s*, *-ed*, or *-ing* (*register, arrive, leave*). Core modals such as *can, may, must, might, could, should* take the bare base verb directly, even when the subject is singular (*She **must register***, not *must registers*).
 
 :::pair #modal-plus-to
 Right: "The delayed shipment might arrive tomorrow."
@@ -102,7 +102,7 @@ Choose the correct form: "Residents *(may park / may to park / may parking / mus
 :::try
 Finish the last step: which form is correct, and what is the finished sentence?
 :::answer
-*May park*: "Residents may park here after six." *May* gives permission, while *must* states a requirement. *Park* is the plain base verb with no *to* or *-ing*.
+*May park*: "Residents may park here after six if they wish." *May* gives permission, while *must* states a requirement. *Park* is the plain base verb with no *to* or *-ing*.
 
 **Check:** Swap in *are allowed to*: "Residents are allowed to park here after six." The meaning stays the same.
 :::

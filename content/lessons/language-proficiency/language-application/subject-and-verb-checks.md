@@ -121,7 +121,7 @@ Choose the correct verb: "Some of the equipment inside those locked rooms *(need
 :::try
 Finish the last step: should the second verb be *knows* or *know*?
 :::answer
-*Knows*: "Either the managers or the guard knows the code." The guard sits closer to the verb than the managers, and *guard* is singular.
+*Knows*: "Some of the equipment inside those locked rooms needs repair, and either the managers or the guard knows the code." The guard sits closer to the verb than the managers, and *guard* is singular.
 
 **Check:** Pair each head directly with its verb: "Some equipment needs repair" and "the guard knows the code."
 :::

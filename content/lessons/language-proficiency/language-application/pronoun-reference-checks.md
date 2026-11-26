@@ -31,7 +31,7 @@ Wrong: "The lead scientist, whom had conducted fieldwork, presented her findings
 *Whom* is an object form, yet the pronoun acts as the subject of *had conducted*. Use *who*.
 :::
 
-To test a pair after a preposition, drop the first word and test the pronoun alone. "Between *I*" fails, while "Between *me*" works.
+To test a pair after a preposition, leave out *you and*, then test the pronoun alone. "Between *I*" fails, while "Between *me*" works.
 
 :::pair #object-after-preposition
 Right: "Between you and me, the plan will need board approval."
@@ -71,7 +71,7 @@ Choose the sentence in standard modern English: (A) "Each nurse have signed thei
 
 ### #1: Checking Pronoun Case After Prepositions and Inside Clauses
 
-Identify the error: "The auditor whom reviewed the report shared the summary with Carlos and I."
+Find the two errors: "The auditor whom reviewed the report shared the summary with Carlos and I."
 
 **Solution:**
 
@@ -86,6 +86,7 @@ Correct: "The auditor who reviewed the report shared the summary with Carlos and
 ### #2: Singular They in a Sentence
 
 Choose the correct sentence:
+
 (A) Each driver have parked their van.
 
 (B) Each driver has parked their van.

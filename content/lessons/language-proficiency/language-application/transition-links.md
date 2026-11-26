@@ -43,7 +43,7 @@ Put in order:
 
 1. (A) says "However," so it goes against something.
 2. (B) is what it goes against: the team trained.
-3. The order is B, then A.
+The team trained for months. However, it lost the first game.
 
 :::pair #contrast-before-claim
 Right: "The old map showed a short road. However, that road had been closed for years."
@@ -99,12 +99,13 @@ Arrange the sentences in the best order.
 
 **Solution:**
 
-1. (C) gives the general idea: "Offices can offer documents in forms that meet different readers' needs."
+1. (C) gives the general idea.
 2. (A) is a specific example of that idea.
 3. *This larger copy* in (B) points to the large-print copy in (A).
-4. The order is C, A, B.
 
-**Check:** Read it in order. The idea comes first, then the example, then a sentence about that example.
+Offices can offer documents in forms that meet different readers' needs. For example, a large-print copy can help a reader who struggles with small text. This larger copy presents the same information in an easier-to-read form.
+
+**Check:** Idea, example, then a sentence about it.
 
 ### #2: A Staff Policy
 
@@ -141,10 +142,6 @@ The answer is B, A, C. *For example* in (A) introduces a case, so it follows the
 
 **Check:** Read the order aloud. Idea, example, then the result of that example.
 :::
-
-## Speed Tricks & Shortcuts
-
-Find the sentence that states the general idea or claim. Then place each transition sentence after the idea it goes against or gives a case of.
 
 ## Traps to Watch For
 

@@ -30,8 +30,8 @@ Punan natin ang "Kahapon, ______ ni Ela ang sulat sa guro.":
 - Buong pangungusap: "Kahapon, ipinadala ni Ela ang sulat sa guro."
 
 :::pair #anyo-ayon-sa-panahon
-Right: Kahapon, ipinadala ni Ela ang sulat sa guro.
-Wrong: Kahapon, ipapadala ni Ela ang sulat sa guro.
+Right: Kahapon, ipinadala ni Mina ang litrato sa kaibigan.
+Wrong: Kahapon, ipapadala ni Mina ang litrato sa kaibigan.
 Ang *ipapadala* ay para sa kilos na gagawin pa. Itugma ang anyo sa *kahapon*, na lumipas na.
 :::
 
@@ -58,9 +58,9 @@ Punan natin ang "Pagod si Dino, ______ nagpatuloy siya sa trabaho.":
 - Buong pangungusap: "Pagod si Dino, ngunit nagpatuloy siya sa trabaho."
 
 :::pair #pang-ugnay-ng-pagsalungat
-Right: Pagod si Dino, ngunit nagpatuloy siya sa trabaho.
-Wrong: Pagod si Dino, kaya nagpatuloy siya sa trabaho.
-Ang *kaya* ay nagpapakita ng bunga. Hindi bunga ng pagod ang pagpapatuloy, kaya hindi ito akma.
+Right: Tahimik ang silid, ngunit hindi makatulog si Rey.
+Wrong: Tahimik ang silid, kaya hindi makatulog si Rey.
+Ang *kaya* ay nagpapakita ng bunga. Hindi bunga ng katahimikan ang hindi pagtulog, kaya hindi ito akma.
 :::
 
 :::check
@@ -73,7 +73,7 @@ Piliin ang pang-ugnay: Nagkasakit si Pia, ______ hindi siya pumasok. *(kaya / ng
 
 May mga salitang karaniwang magkasama, tulad ng *malaking tulong* at *matinding ulan*. Ang **parirala** (phrase) ay pangkat ng mga salitang magkakaugnay. Hindi sapat na likas ang tunog nito. Dapat ding akma ito sa sinasabi ng pangungusap.
 
-Punan natin ang "Hindi madaanan ang kalsada dahil sa ______.", mga pagpipilian: *malalim na baha* o *malalim na tulong*.
+Punan natin ang "Hindi madaanan ang kalsada dahil sa ______." Pagpipilian: *malalim na baha* o *malalim na tulong*.
 
 - Itanong kung ano ang pumipigil sa daan. Baha ang makatwiran.
 - *Malalim na baha*: karaniwan at may katuturan.

@@ -19,7 +19,7 @@ keyPoints:
 
 A **modifier** is a word or phrase that describes another word. Place it right beside the word it describes so the meaning stays clear.
 
-When a sentence opens with an *-ing* or *after*-action phrase, the noun right after the comma should be the person or thing doing that action. Put limiting words like *only* right beside the word they limit (*sells fruit only*, not *only sells fruit*, when only fruit is limited). Place a *that*-clause right after the noun it describes.
+When a sentence opens with an *-ing* or *after*-action phrase, the noun right after the comma should be the person or thing doing that action. Put limiting words like *only* right beside the word they limit (*sells fruit only*, not *only sells fruit*, when only fruit is limited).
 
 :::pair #dangling-opening
 Right: "After inspecting the roof, the engineer approved repairs."
@@ -117,7 +117,7 @@ Revise this sentence: "The cost of the new printer is lower than the old printer
 :::try
 Finish the last step: what else must change, and what is the full revised sentence?
 :::answer
-*Again* repeats what *repeat* already says, so a correct version says "a second time" only once. Model: "The cost of the new printer is lower than that of the old printer, so the office will repeat the order."
+*Again* repeats what *repeat* already says, so drop one of them. Model: "The cost of the new printer is lower than that of the old printer, so the office will repeat the order."
 
 **Check:** Read the revised sentence: cost compares with cost, and *repeat the order* still means ordering a second time.
 :::

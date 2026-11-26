@@ -49,7 +49,7 @@ Sentence (b): "The bus arrived late; the meeting started on time." Both halves c
 
 ### Other Linking Words and Clauses
 
-Words like *however*, *therefore*, *meanwhile*, and *instead* are transition adverbs, not coordinating conjunctions like *and* or *but*. A comma before *however* cannot join two independent clauses.
+Words like *however*, *therefore*, *meanwhile*, and *instead* are transition words, not joining words like *and* or *but*. A comma before *however* cannot join two independent clauses.
 
 Put a **semicolon** (or period) before *however* and a comma after it: "The road was flooded; **however,** the bus still left."
 
@@ -84,6 +84,7 @@ Part (a). Both sides are complete clauses, and *consequently* is a transition wo
 ### #1: Two Faulty Sentences
 
 Fix the punctuation in each sentence:
+
 (a) The office closed early, the storm became stronger.
 
 (b) The office closed early. the storm became stronger.

@@ -15,8 +15,7 @@ keyPoints:
 
 ### Choosing the Opening Sentence
 
-**Paragraph organization** means putting sentences in an order that makes the ideas easy to follow. Read every sentence before choosing an order.
-
+**Paragraph organization** means putting sentences in an order that makes the ideas easy to follow.
 An **opening sentence** often names the topic or situation. It should make sense before the reader sees the other sentences. A sentence with *this*, *that* or *these* points back to an earlier sentence, so it rarely opens a scrambled set.
 
 Which sentence opens?
@@ -34,7 +33,7 @@ A story or a set of steps can still open with an event or action, not a broad st
 :::pair #reference-before-source
 Right: "The shop's water bill doubled. After that increase, the owner checked the pipes."
 Wrong: "After that increase, the owner checked the pipes. The shop's water bill doubled."
-*That increase* points back to the bill. If the pointing sentence comes first, nothing is there to point to.
+*That increase* points back to the bill.
 :::
 
 :::check
@@ -58,12 +57,12 @@ Put in order:
 1. (B) names the rain, the roof and the pipe. It needs no earlier sentence.
 2. *This water* in (A) points to the rain water in (B).
 3. *The tank* in (C) points to the village tank in (A).
-4. The order is B, A, C.
+Rain collects on the school roof and runs into a pipe. This water then flows into the village tank. The tank holds enough for the dry months.
 
 :::pair #the-noun-link
 Right: "A student began a study of park birds. The study counted forty kinds."
 Wrong: "The study counted forty kinds. A student began a study of park birds."
-*The study* is a link even without *this* or *it*. The sentence that first names the study comes first.
+*The study* is a link even without *this* or *it*.
 :::
 
 :::check
@@ -82,19 +81,19 @@ Arrange the sentences into a coherent paragraph.
 
 (B) As the settlements grew, competition for these resources increased.
 
-(C) The groups settled near a river for water and fertile soil.
+(C) Several groups settled near a river for water and fertile soil.
 
 (D) Some of these conflicts later became wars.
 
 **Solution:**
 
-1. (C) "The groups settled near a river for water and fertile soil." names the groups and resources. It needs no earlier sentence.
+1. (C) names the groups and resources. It needs no earlier sentence.
 2. *These resources* in (B) point to the water and soil in (C).
 3. *This competition* in (A) points to the competition in (B).
 4. *These conflicts* in (D) point to the conflicts in (A).
-5. The order is C, B, A, D.
+Several groups settled near a river for water and fertile soil. As the settlements grew, competition for these resources increased. This competition led to conflicts between the groups. Some of these conflicts later became wars.
 
-**Check:** Read the paragraph in that order. Each pointing phrase now follows the sentence it points to.
+**Check:** Each pointing phrase follows its source.
 
 ### #2: A Short Story
 
@@ -111,9 +110,9 @@ Arrange the sentences in the best order.
 1. (A) says "Her heart." Whose? It needs an earlier sentence.
 2. (B) names Rosa and the book, so it opens.
 3. (C) explains the empty shelf in (A), so it follows (A).
-4. The order is B, A, C.
+Rosa had saved all week to buy the last copy of a book. Her heart sank when she saw the empty shelf. The clerk said the last copy on that shelf had sold an hour earlier.
 
-**Check:** Read it aloud: Rosa saves, finds the shelf empty, and hears why. The story flows.
+**Check:** Rosa saves, finds the shelf empty, hears why.
 
 ### #3: A Set of Three
 
@@ -136,10 +135,6 @@ The answer is B, A, C. (B) names "science grants" and makes sense alone. *The eq
 
 **Check:** Each pointing phrase (*These grants*, *the equipment*) now comes after the sentence that names it.
 :::
-
-## Speed Tricks & Shortcuts
-
-Find the sentence that needs no other sentence. Then follow each pointing phrase back to the sentence that names it.
 
 ## Traps to Watch For
 

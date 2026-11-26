@@ -56,7 +56,7 @@ Several trains left late. The reason for this was a power failure at the station
 :::pair #cause-first-forced
 Right: The match ended early. The reason for this was a flooded field.
 Wrong: The reason for this was a flooded field. The match ended early.
-*The reason for this* points back to the effect, so the effect must come first. Cause does not always come first.
+*The reason for this* points back to the effect, so the effect must come first.
 :::
 
 :::check
@@ -107,7 +107,7 @@ Which order makes the link clear?
 
 (A) As a result, the warehouse threw away most of its stock.
 
-(B) The temperature inside the warehouse rose above the safe level.
+(B) Without it, the temperature inside the warehouse rose above the safe level.
 
 (C) A refrigeration unit stopped working overnight.
 
@@ -118,7 +118,7 @@ Which order makes the link clear?
 :::try
 Put all three sentences in order.
 :::answer
-The answer is **C → B → A**. The unit stopped (C), so the temperature rose (B), so the stock was thrown away (A): "A refrigeration unit stopped working overnight. The temperature inside the warehouse rose above the safe level. As a result, the warehouse threw away most of its stock."
+The answer is **C → B → A**. The unit stopped (C), so the temperature rose (B), so the stock was thrown away (A): "A refrigeration unit stopped working overnight. Without it, the temperature inside the warehouse rose above the safe level. As a result, the warehouse threw away most of its stock."
 
 **Check:** Read C, B, A aloud. Each sentence is the reason for the next.
 :::

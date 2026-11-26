@@ -33,7 +33,7 @@ Wrong: Count *after the lengthy staff meeting* as a dependent clause.
 :::pair #standalone-clause
 Right: *The clerk resigned yesterday* is an independent clause.
 Wrong: Count *the clerk resigned yesterday* as a dependent clause.
-*The clerk resigned yesterday* has a subject, a verb, and no subordinating word, so it stands on its own.
+*The clerk resigned yesterday* has a subject, a verb, and no joining word, so it stands on its own.
 :::
 
 :::check
@@ -78,6 +78,7 @@ Classify this sentence: "The clerk waited because the printer jammed."
 ### #1: Phrase, Independent Clause, or Dependent Clause
 
 Classify each word group as a phrase, an independent clause, or a dependent clause:
+
 (a) during the annual review
 
 (b) while the clerk checked the files
@@ -95,6 +96,7 @@ Classify each word group as a phrase, an independent clause, or a dependent clau
 ### #2: Simple, Compound, or Complex
 
 Classify each sentence:
+
 (a) The manager reviewed the forms and signed the log.
 
 (b) The manager reviewed the forms, and the clerk filed them.

@@ -16,7 +16,7 @@ keyPoints:
 
 ### Word Combinations
 
-**Collocations** are words commonly used together, such as *strong evidence* and *make a decision*. Grammar alone may not decide between choices. The usual word partner also matters.
+**Collocations** are words commonly used together, such as *strong evidence*, *make a decision*, *pay attention*, and *reach an agreement*. Grammar alone may not decide between choices. The usual word partner also matters.
 
 Let's fill the blank in "The storm brought ______ rain."
 
@@ -45,7 +45,7 @@ Let's read "The speaker told a joke to break the ice."
 
 1. *Break the ice* is an idiom.
 2. Its whole meaning is to help people relax at the start of a meeting.
-3. No ice is broken. *Break*, *the* and *ice* do not give the meaning one by one.
+3. No ice is broken.
 
 The speaker told a joke to help the audience relax.
 

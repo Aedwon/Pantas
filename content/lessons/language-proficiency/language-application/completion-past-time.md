@@ -15,7 +15,7 @@ keyPoints:
 
 ### Time Clues
 
-Check time as well as meaning. Simple past describes a finished past action: *She sent it yesterday*. A time clue such as *yesterday* or *last week* places the action in the past.
+Check time as well as meaning. Simple past describes a finished past action: *She sent it yesterday*.
 
 Let's fill the blank in "Yesterday, Ana ______ (walk) to the bank."
 
@@ -52,7 +52,7 @@ When the bell rang, the students were taking a test.
 :::pair #had-for-unfinished
 Right: When the manager walked in, the clerk was counting the cash. (still counting)
 Wrong: When the manager walked in, the clerk had counted the cash. (still counting)
-*Had counted* says the counting was already finished. The clerk was still in the middle of it.
+*Had counted* says the counting was already finished.
 :::
 
 :::check
@@ -148,12 +148,12 @@ The answer is **(A) was mopping**: "When the guard arrived at six, the cleaner w
 
 ## Speed Tricks & Shortcuts
 
-Use the strongest clue first.
+Find the time clue first, then ask: finished or still going on?
 
 ## Traps to Watch For
 
 :::checklist
 - A time word such as *Last Friday*: use a past form, not a present one (*paid*). {#present-for-past}
 - An action still in progress when another one happened: use *was* or *were* plus *-ing*, not *had* plus a participle (*was counting*). {#had-for-unfinished}
-- One time word: read the whole timeline (finished, ongoing, earlier) before choosing a form. {#two-events-in-the-past}
+- A sentence with two past events: read the whole timeline (finished, ongoing, earlier) before choosing a form. {#two-events-in-the-past}
 :::

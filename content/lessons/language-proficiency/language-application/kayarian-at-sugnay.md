@@ -74,15 +74,15 @@ Suriin ang "Habang nagluluto si Lina, naglinis si Ramon at nag-igib si Tito.":
 - Ang bilang ay 2 at 1, kaya **langkapan**.
 
 :::pair #bilangin-ang-lahat-ng-sugnay
-Right: Langkapan ang "Habang nagluluto si Lina, naglinis si Ramon at nag-igib si Tito."
+Right: Langkapan ang "Habang nag-aaral si Mara, nagwalis si Ben at nagsaing si Ana."
 Wrong: Tambalan ito dahil walang sugnay na di-makapag-iisa.
-Bitin ang *habang nagluluto si Lina*, kaya may di-makapag-iisa. Bilangin ang lahat ng sugnay.
+Bitin ang *habang nag-aaral si Mara*, kaya may di-makapag-iisa. Bilangin ang lahat ng sugnay.
 :::
 
 :::check
-Ano ang kayarian: "Nagbasa si Ruth at nagsulat si Paolo kapag tahimik ang silid."
+Ano ang kayarian: "Nagbasa at nagsulat si Ruth kapag tahimik ang silid."
 :::answer
-**Langkapan.** Dalawa ang makapag-iisa (*nagbasa si Ruth* at *nagsulat si Paolo*) at isa ang di-makapag-iisa (*kapag tahimik ang silid*).
+**Hugnayan.** Iisa ang makapag-iisa (*Nagbasa at nagsulat si Ruth*, may dalawang kilos pero iisang sugnay) at isa ang di-makapag-iisa (*kapag tahimik ang silid*).
 :::
 
 ## Examples

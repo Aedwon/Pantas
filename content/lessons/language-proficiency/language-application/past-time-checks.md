@@ -17,7 +17,7 @@ keyPoints:
 
 **Tense** places an action in time. Use the **simple past** for a finished past event marked by clues like *yesterday* or *last week*, or for events told in order: "She finished yesterday."
 
-Check who does the action. When the subject receives the action instead of doing it, use passive *was* or *were* plus a past participle: "The parcels **were collected** by the driver last week." Parcels cannot collect themselves, and *last week* keeps the verb in the past.
+Check who does the action. When the subject receives the action instead of doing it, use passive *was* or *were* plus the *-ed* form: "The parcels **were collected** by the driver last week." Parcels cannot collect themselves, and *last week* keeps the verb in the past.
 
 :::pair #past-time-clue
 Right: "The documents were delivered by the courier yesterday."

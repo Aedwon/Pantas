@@ -37,8 +37,7 @@ Ang larawan. Ito ang bagay na nabanggit na sa unang pangungusap.
 
 ### Pagkakasunod-sunod ng mga Pangungusap
 
-Ang *una*, *pagkatapos*, *sumunod*, at *sa wakas* ay tumutulong sa ayos. Tingnan kung aling pangyayari ang kailangang mauna.
-
+Ang *una*, *pagkatapos*, *sumunod*, at *sa wakas* ay tumutulong sa ayos.
 1. Hanapin ang simula: ang pangungusap na may *una* o walang tinutukoy na hindi pa nabanggit.
 2. Ilagay sa kasunod ang pangungusap na tumutukoy sa nabanggit na pangyayari.
 3. Ilagay sa dulo ang may *sa wakas* o ang bunga ng lahat.
@@ -55,7 +54,7 @@ Ayusin natin ang mga pangungusap na ito:
 - **(A)**: ang *nito* ay ang paghuhugas ng bigas, kaya sumusunod ito sa (B).
 - **(C)**: may *sa wakas*, kaya huli ito.
 
-Ang ayos ay **B, A, C**.
+Una, hinugasan ni Aling Rosa ang bigas. Pagkatapos nito, isinalang niya ang kaldero. Sa wakas, inihain niya ang kanin.
 
 :::pair #ito-ay-may-naunang-binanggit
 Right: Nagreklamo ang mga residente tungkol sa sirang ilaw. Dahil sa reklamong ito, nagtakda ng pulong ang kapitan.
@@ -71,7 +70,7 @@ Ang ayos ay **2, 3, 1**: "Nagtanim si Liza ng buto sa paso. Pagkatapos nito, din
 
 ### Sanhi at Bunga
 
-Ang **sanhi** (cause) ay ang dahilan ng pangyayari. Ang **bunga** (effect) ay ang resulta nito. Karaniwang ipinakikilala ng *dahil* at *sapagkat* ang sanhi, at maaaring ipakilala ng *kaya* ang bunga. Kung walang pang-ugnay, itanong ang "Bakit?" Gamitin lamang ang dahilang nasa talata.
+Ang **sanhi** (cause) ay ang dahilan ng pangyayari. Ang **bunga** (effect) ay ang resulta nito. Karaniwang ipinakikilala ng *dahil* at *sapagkat* ang sanhi, at maaaring ipakilala ng *kaya* ang bunga. Kung walang **pang-ugnay** (connector), itanong ang "Bakit?" Gamitin lamang ang dahilang nasa talata.
 
 Suriin natin ang "Naubos ang gasolina ng traysikel, kaya huminto si Mang Lito sa daan.":
 
@@ -80,9 +79,9 @@ Suriin natin ang "Naubos ang gasolina ng traysikel, kaya huminto si Mang Lito sa
 - Pagsamahin gamit ang *dahil*: "Huminto si Mang Lito sa daan dahil naubos ang gasolina ng traysikel."
 
 :::pair #bunga-hindi-sanhi
-Right: Ang sanhi ay *naubos ang gasolina ng traysikel*.
-Wrong: Ang sanhi ay *huminto si Mang Lito sa daan*.
-Ang paghinto ay ang bunga. Itanong ang "Bakit?" upang makuha ang sanhi.
+Right: Sa "Nawala ang susi ni Ben, kaya nahuli siya," ang sanhi ay *nawala ang susi*.
+Wrong: Ang sanhi ay *nahuli siya*.
+Ang pagkahuli ay ang bunga. Itanong ang "Bakit?"
 :::
 
 :::check
@@ -107,14 +106,14 @@ Ayusin ang mga pangungusap.
 
 **Solution:**
 
-1. **(B)**: may *una*. Isinulat muna ni Lea ang liham, at ito ang tinutukoy ng *ito* sa (C).
-2. **(C)**: binasa at itinama ang liham bago lagdaan, kaya kasunod ng (B).
-3. **(D)**: tapos na ang pagwawasto, kaya maaari nang lumagda.
-4. **(A)**: may *sa wakas*, at nilagdaan na ang liham.
+1. **(B)**: may *una*, at ito ang tinutukoy ng *ito* sa (C).
+2. **(C)**: kasunod ng (B), bago lagdaan.
+3. **(D)**: tapos na ang pagwawasto.
+4. **(A)**: may *sa wakas*.
 
-Ang ayos ay **B, C, D, A**.
+Una, isinulat ni Lea ang liham. Binasa niya itong muli upang itama ang mali bago niya ito lagdaan. Nang matapos ang pagwawasto, nilagdaan niya ang liham. Sa wakas, inilagay niya ang nilagdaang liham sa sobre.
 
-**Check:** Basahin ayon sa ayos. Bawat *ito* at *niya* ay may nauna nang pinagmulan.
+**Check:** Bawat *ito* ay may nauna nang pinagmulan.
 
 ### #2: Pagpapakita ng Ugnayan
 
@@ -131,7 +130,7 @@ Ayusin ang mga pangungusap. Pagkatapos, pagsamahin ang mga ito gamit ang *dahil*
 3. Ang ayos ay **B, A**.
 4. Ilagay ang *dahil* sa sanhi: "Hindi natuloy ang palaro dahil malakas ang ulan buong umaga."
 
-**Check:** Palitan ng *kaya* ang *dahil* at baligtarin ang ayos: "Malakas ang ulan buong umaga, kaya hindi natuloy ang palaro." Pareho ang diwa.
+**Check:** "Malakas ang ulan buong umaga, kaya hindi natuloy ang palaro." Pareho ang diwa.
 
 ### #3: Pagsasama ng Dalawang Ugnayan
 

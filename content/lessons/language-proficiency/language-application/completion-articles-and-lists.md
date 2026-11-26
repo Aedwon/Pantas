@@ -22,7 +22,7 @@ A **countable noun** names something you can count as separate items, such as on
 - *hour* starts with a vowel sound, so *an hour*.
 - *university* starts with a consonant sound, so *a university*.
 
-Use **the** when the context identifies which thing is meant. Let's fill the blanks in "I received a form. ______ form was blank."
+Use **the** when the context identifies which thing is meant. Let's fill the blank in "I received a form. ______ form was blank."
 
 1. The first sentence introduces the form with *a*.
 2. The second sentence points to that same form.
@@ -33,7 +33,7 @@ I received a form. The form was blank.
 :::pair #article-by-spelling
 Right: an unopened box
 Wrong: a unopened box
-*Unopened* begins with a vowel sound, so it takes *an*. Say the word aloud before choosing.
+*Unopened* begins with a vowel sound, so it takes *an*.
 :::
 
 :::check
@@ -44,7 +44,7 @@ Choose the pair: "Mia gave ___ honest answer. Everyone trusted ___ answer." *(an
 
 ### Prepositions in Fixed Phrases
 
-**Prepositions**, such as *in, on, at, to,* and *for*, show links between words. Many go with one word in a fixed phrase: *interested in*, *responsible for*, *good at*. Check the word before the blank, then recall its usual partner.
+**Prepositions**, such as *in, on, at, to,* and *for*, show links between words. Many go with one word in a fixed phrase, such as *interested in*, *responsible for*, *good at*, and *proud of*. Check the word before the blank, then recall its usual partner.
 
 Let's fill the blank in "The nurse is good ______ calming patients."
 

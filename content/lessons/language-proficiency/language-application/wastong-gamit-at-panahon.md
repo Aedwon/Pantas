@@ -31,7 +31,7 @@ Suriin natin ang "Marahil ay dadalaw si Tita sa bahay bukas.":
 - *sa bahay*: nagsasaad ng lugar.
 
 :::pair #posibilidad-hindi-panahon
-Right: Sa "Marahil ay dadalaw si Tita sa bahay bukas," ang *marahil* ang nagpapahayag ng posibilidad.
+Right: Sa "Baka umalis si Ben bukas," ang *baka* ang nagpapahayag ng posibilidad.
 Wrong: Ang *bukas* ang nagpapahayag ng posibilidad.
 Ang *bukas* ay panahon. Nasa hinaharap ang kilos, ngunit hindi lahat ng kilos sa hinaharap ay posibilidad lamang.
 :::
@@ -81,7 +81,7 @@ Piliin ang anyong akma sa panahon:
 
 Basahin ang buong pangungusap. Ang paulit-ulit na gawain, gaya ng may *tuwing*, ay karaniwang gumagamit ng anyong nagaganap.
 
-Punan natin ang "Mamaya ay ______ si Gil sa kaibigan niya.", mga pagpipilian: *tumawag*, *tumatawag*, *tatawag*.
+Punan natin ang "Mamaya ay ______ si Gil sa kaibigan niya." Pagpipilian: *tumawag*, *tumatawag*, *tatawag*.
 
 - *Mamaya*: hindi pa nagaganap ang kilos.
 - Ang magaganap pa ay *tatawag*.
