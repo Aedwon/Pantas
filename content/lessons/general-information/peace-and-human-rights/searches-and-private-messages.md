@@ -14,41 +14,121 @@ keyPoints:
 ---
 ## Core Concept
 
-### The Bill of Rights
+### Section $2$: Search Warrants and Exceptions
 
-Section $2$ protects against unreasonable searches and seizures. A **search warrant** is a judge's order allowing a search. It needs **probable cause**, facts giving a sound reason to believe evidence of a crime is in the place to be searched.
+Article III, Section $2$ bars unreasonable searches and seizures. A **search warrant** is a judge's order allowing a search. It requires **probable cause**, facts showing sound reason to believe crime evidence sits in that place.
 
-The judge must personally find probable cause after questioning the complainant and witnesses under oath. The warrant must name the specific place and things covered. Permission to search any home for anything suspicious is not enough.
+A valid search warrant needs three things together:
 
-Some searches are lawful without a warrant under recognized exceptions. A missing warrant alone does not settle every case. A search without a valid warrant or a lawful exception violates this protection.
+1. The judge personally examines the complainant and witnesses under oath or affirmation.
+2. The warrant names the specific place to search.
+3. The warrant names the specific items to seize.
 
-Section $3$ protects private messages. An exception needs a lawful court order or a public safety or order basis allowed by law. Evidence obtained by violating Section $2$ or $3$ cannot be used in any proceeding.
+General orders to search any house for anything suspicious fail, even with a judge's signature. Some warrantless searches are lawful under recognized exceptions, so check whether a valid exception applies.
+
+Test an order letting police search every shop on Pine Street for anything illegal, with no witness examined:
+
+1. Check personal exam: no witness was questioned under oath.
+2. Check descriptions: "every shop" and "anything illegal" are general, not specific.
+
+Result: The order fails Section $2$, and any search without a lawful exception is unconstitutional.
+
+:::why
+Why must a judge question witnesses under oath instead of trusting an officer's summary? Direct questioning lets an independent judge test facts before police enter private spaces.
+:::
+
+:::pair #probable-cause-needs-personal-exam
+Right: Require the judge's personal exam under oath plus specific place and item descriptions.
+Wrong: Letting specific place and item descriptions cure a missing personal oath examination.
+Descriptions cannot cure a missing personal finding of probable cause by the judge.
+:::
+
+:::pair #defective-warrant-no-automatic-exception
+Right: Check separately whether a recognized exception applies when a warrant is missing or defective.
+Wrong: Treating every warrantless search as lawful whenever a warrant is defective.
+A defective warrant never creates an exception; an independent lawful exception must exist.
+:::
+
+:::check
+Police search a locked shed without a warrant after the owner refuses entry and no emergency exists. Does missing a warrant settle this if no exception applies?
+:::answer
+The answer is **Yes**. Without a valid warrant or recognized exception, the search violates Section $2$.
+:::
+
+### Section $3$: Private Messages and Exclusion
+
+Article III, Section $3$ protects private communications and correspondence. An exception requires a lawful court order or a public safety or order basis allowed by law.
+
+Under Section $3(2)$, evidence taken by breaking Section $2$ or Section $3$ is inadmissible in **any proceeding**. That bar covers criminal trials, civil suits, and administrative hearings alike.
+
+Test an inspector who secretly copies a clerk's texts without a court order or legal safety ground:
+
+1. Check privacy: no court order or legal exception exists, violating Section $3$.
+2. Check use: the texts cannot enter a city dismissal hearing.
+
+Result: The secret texts are inadmissible in administrative hearings and courts.
+
+:::pair #exclusion-applies-in-any-proceeding
+Right: Exclude evidence taken in violation of Section $2$ or Section $3$ in every proceeding.
+Wrong: Limiting exclusion to criminal trials while letting agencies use illegally taken messages.
+Section $3(2)$ bars tainted evidence in any proceeding, civil, administrative, or criminal.
+:::
+
+:::check
+Without a court order or legal safety ground, agents tap a private call for a tax board hearing. May the board admit it?
+:::answer
+The answer is **No**. Section $3(2)$ bars unlawfully obtained messages in any proceeding, including tax boards.
+:::
 
 ## Examples
 
 ### #1: A General Search Order
 
-A judge allows police to search any house in a town for anything suspicious. No lawful warrantless-search exception applies. Does the order meet the Bill of Rights requirements?
+A judge signs a warrant letting police search any apartment in District $3$ for anything suspicious. No warrantless exception applies. Is the warrant valid?
 
 **Solution:**
 
-1. A warrant needs probable cause and specific descriptions of the place and things covered.
-2. This order gives neither a specific place nor specific items. It cannot justify these searches.
-3. Evidence from the unconstitutional search cannot be used in any proceeding under Section $3$.
+1. Check descriptions: the warrant fails to name one specific apartment or specific items.
+2. Check signature: a judge's signature never validates a general search order.
 
-### #2: Private Messages
+Answer: No, the order violates Section $2$ and cannot justify the search.
 
-Government officers secretly record private calls without a lawful court order. No public safety or order exception allowed by law applies. May the recording be used as evidence?
+**Check:** Confirm both specific place and specific items are named; general orders always fail.
+
+### #2: Checking an Unwarranted Search
+
+Police seize office papers without a warrant. Defense counsel says a missing warrant ends the matter without checking exceptions. Is counsel complete?
 
 **Solution:**
 
-1. Section $3$ protects private communications. Neither stated legal basis for an exception applies.
-2. The recording violates this protection. It cannot be used as evidence in a proceeding.
+1. Check the baseline: searches normally require a valid warrant.
+2. Check exceptions: some searches are lawful without a warrant under recognized exceptions.
+
+Answer: No, check whether a recognized warrantless-search exception applies first.
+
+**Check:** A search violates Section $2$ only when both a valid warrant and a lawful exception are missing.
+
+### #3: Unexamined Warrant and Civil Suit
+
+A judge signs a warrant naming Room $4$ and two laptops using only an officer's written conclusion, with no witness examined under oath. Police seize a notebook, and a landlord seeks to use it in a civil eviction trial. Rule on both points.
+
+**Solution:**
+
+1. Check probable cause: test the written conclusion against the oath-examination rule despite named items.
+2. Check eviction use: test whether Section $3(2)$ exclusion applies in a civil trial.
+
+:::try
+Finish the last step: rule on warrant validity and whether the civil court may admit the notebook.
+:::answer
+The answer is **The warrant is defective, and the notebook is inadmissible**. Naming room and laptops cannot cure missing oath examination, and Section $3(2)$ bars the notebook in any proceeding.
+
+**Check:** Require personal examination under oath for warrants, and exclude tainted evidence in civil and criminal cases.
+:::
 
 ## Traps to Watch For
 
-### #1: A Warrant Is Not Unlimited Permission
-
-> A judge's signature does not make a general search order valid.
-
-Probable cause and specific descriptions are required. For a warrantless search, check for a recognized exception before deciding.
+:::checklist
+- Warrant lists place and items: confirm the judge personally examined witnesses under oath. {#probable-cause-needs-personal-exam}
+- Warrant fails in court: check separately for a recognized exception instead of assuming one. {#defective-warrant-no-automatic-exception}
+- Hearing is civil or administrative: bar evidence taken by breaking Section $2$ or Section $3$. {#exclusion-applies-in-any-proceeding}
+:::

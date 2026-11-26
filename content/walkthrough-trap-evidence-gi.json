@@ -3844,6 +3844,290 @@
           "mistakeNote": "Counts hauling waste to another town's landfill as waste diversion without reducing total final disposal."
         }
       ]
+    },
+    "lesson-peace-and-human-rights-universal-rights-and-history": {
+      "inherent-means-human-worth": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0005",
+          "wrongChoice": "Granted only after a person receives special government recognition",
+          "mistakeNote": "Treats inherent human rights as privileges created by government recognition instead of belonging to people by being human."
+        },
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0008",
+          "wrongChoice": "It is correct whenever the town issues a written ordinance about renewal.",
+          "mistakeNote": "Treats a municipal ordinance as turning inherent human rights into locally renewed permits."
+        }
+      ],
+      "duties-continue-in-conflict": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0007",
+          "wrongChoice": "Only during peace, ending automatically when armed conflict starts",
+          "mistakeNote": "Assumes human rights law stops automatically during armed conflict instead of remaining active alongside conflict rules."
+        }
+      ],
+      "duties-respect-equal-worth": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0021",
+          "wrongChoice": "Community duties allow the majority to decide whose rights exist.",
+          "mistakeNote": "Uses community duties to let majority preference strip basic human rights from an unpopular minority."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-bill-of-rights-fairness-and-freedoms": {
+      "article-three-sections-not-articles": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0013",
+          "wrongChoice": "They are clauses within a single section of Article III.",
+          "mistakeNote": "Confuses the 22 numbered sections of Article III with smaller clauses inside one section."
+        }
+      ],
+      "due-process-versus-equal-protection": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0022",
+          "wrongChoice": "Equal protection against unjustified differences in treatment",
+          "mistakeNote": "Mistakes a lack of fair procedures before taking property for an equal protection grouping defect."
+        }
+      ],
+      "religious-test-barred-by-section-five": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0023",
+          "wrongChoice": "Article III, Section 4, on expression and peaceful assembly",
+          "mistakeNote": "Assigns the constitutional ban on religious tests for political rights to Section 4 instead of Section 5."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-searches-and-private-messages": {
+      "probable-cause-needs-personal-exam": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0024",
+          "wrongChoice": "The specific descriptions cure the missing personal examination.",
+          "mistakeNote": "Assumes listing the place and items cures a judge's failure to examine witnesses personally under oath."
+        }
+      ],
+      "defective-warrant-no-automatic-exception": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0024",
+          "wrongChoice": "Every warrantless search is lawful whenever a warrant is defective.",
+          "mistakeNote": "Assumes a defective warrant automatically creates a valid warrantless-search exception."
+        }
+      ],
+      "exclusion-applies-in-any-proceeding": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0025",
+          "wrongChoice": "Yes, because exclusion applies only during a criminal trial.",
+          "mistakeNote": "Limits Section 3(2) exclusion to criminal trials while admitting illegally taken messages in administrative proceedings."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-home-travel-and-public-records": {
+      "travel-needs-law-and-ground": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0026",
+          "wrongChoice": "A travel restriction needs only an official’s claim of public safety.",
+          "mistakeNote": "Treats an official's bare public-safety claim as enough without a statute authorizing the travel restriction."
+        }
+      ],
+      "travel-limits-can-be-lawful": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0026",
+          "wrongChoice": "Every travel restriction is forbidden even when authorized by law.",
+          "mistakeNote": "Treats the right to travel as absolute even when a valid law restricts travel for security, safety, or health."
+        }
+      ],
+      "criticism-is-no-lawful-limit": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0027",
+          "wrongChoice": "The office may withhold all records whenever disclosure draws criticism.",
+          "mistakeNote": "Treats official embarrassment or fear of criticism as a lawful Section 7 restriction on public records."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-groups-property-and-contracts": {
+      "separate-association-from-property": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0028",
+          "wrongChoice": "The right to compensation for property taken for public use",
+          "mistakeNote": "Confuses a ban on forming a lawful workers' association (Section 8) with just compensation for taken property (Section 9)."
+        }
+      ],
+      "poverty-never-bars-court-access": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0029",
+          "wrongChoice": "A contract must exist before the right to court access can apply.",
+          "mistakeNote": "Imports an imaginary contract prerequisite into Section 11's guarantee of court access regardless of poverty."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-custodial-investigation-and-bail": {
+      "waiver-needs-writing-and-counsel": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0030",
+          "wrongChoice": "The written signature alone completes every waiver requirement.",
+          "mistakeNote": "Treats a suspect's written signature alone as a valid Section 12 waiver without counsel present."
+        }
+      ],
+      "bail-exception-needs-both-parts": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0031",
+          "wrongChoice": "The penalty alone is sufficient even if evidence of guilt is weak.",
+          "mistakeNote": "Drops the strong-evidence requirement from Section 13's two-part bail exception."
+        }
+      ],
+      "bail-has-constitutional-exception": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0031",
+          "wrongChoice": "Bail must be granted because no exception can apply before conviction.",
+          "mistakeNote": "Overlooks Section 13's express pre-conviction bail exception when penalty and strong evidence both meet."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-criminal-trial-protections": {
+      "match-trial-rights-to-section-fourteen": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0032",
+          "wrongChoice": "Rights to silence only during police custodial questioning",
+          "mistakeNote": "Confuses Section 14 courtroom rights to present evidence and confront witnesses with custodial questioning under Section 12."
+        }
+      ],
+      "absence-needs-arraignment-and-notice": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0033",
+          "wrongChoice": "Trial must stop whenever the accused chooses not to attend.",
+          "mistakeNote": "Assumes an accused's unjustified absence stops trial even after arraignment and proper notice."
+        }
+      ],
+      "absence-does-not-prove-guilt": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0033",
+          "wrongChoice": "Absence alone proves guilt and removes the need for a trial.",
+          "mistakeNote": "Confuses Section 14's rule allowing trial in absence with automatic proof of guilt."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-detention-review-and-compelled-testimony": {
+      "suspension-needs-rebellion-and-safety": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0034",
+          "wrongChoice": "Yes, rebellion removes the need for a public-safety requirement.",
+          "mistakeNote": "Treats rebellion alone as sufficient to suspend habeas corpus without showing public safety requires it."
+        }
+      ],
+      "suspension-keeps-bill-of-rights": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0034",
+          "wrongChoice": "Yes, because suspension automatically removes the entire Bill of Rights.",
+          "mistakeNote": "Treats suspension of the privilege of habeas corpus as erasing the whole Bill of Rights."
+        }
+      ],
+      "self-incrimination-needs-criminal-risk": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0035",
+          "wrongChoice": "A general right to refuse all questions on any subject",
+          "mistakeNote": "Stretches Section 17 self-incrimination protection into a blanket right to refuse non-incriminating questions."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-detention-punishment-and-debt": {
+      "prisoners-keep-abuse-protection": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0036",
+          "wrongChoice": "A lawful conviction permits every punishment chosen by prison staff.",
+          "mistakeNote": "Assumes a lawful prison sentence removes Section 19's ban on cruel, degrading, or abusive treatment."
+        }
+      ],
+      "separate-crime-differs-from-debt": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0037",
+          "wrongChoice": "Any crime involving money becomes constitutionally protected debt.",
+          "mistakeNote": "Treats a separately proved criminal fraud involving money as protected unpaid debt under Section 20."
+        }
+      ],
+      "ex-post-facto-vs-attainder": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0038",
+          "wrongChoice": "An ex post facto law solely because a legislature passed it",
+          "mistakeNote": "Confuses a bill of attainder (punishment by law without trial) with an ex post facto law."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-double-jeopardy-protections": {
+      "acquittal-bars-retrial-like-conviction": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0039",
+          "wrongChoice": "No protection, because only a conviction can bar a second prosecution",
+          "mistakeNote": "Excludes valid acquittals from double jeopardy protection by treating only convictions as a bar."
+        }
+      ],
+      "pre-plea-dismissal-no-bar": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0040",
+          "wrongChoice": "No, because every dismissal before any valid plea also bars prosecution.",
+          "mistakeNote": "Applies double jeopardy to dismissals entered before a valid plea when jeopardy has not yet attached."
+        }
+      ],
+      "insufficient-evidence-dismissal-bars-retrial": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0040",
+          "wrongChoice": "Yes, every dismissal requested by the accused permits another prosecution.",
+          "mistakeNote": "Applies the accused-consent dismissal rule without its exception for acquittal on insufficient evidence."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-rights-during-emergencies": {
+      "ordinary-limit-keeps-other-rights": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0041",
+          "wrongChoice": "Every lawful travel limit automatically removes every other protection.",
+          "mistakeNote": "Treats one lawful public-health travel limit as suspending the entire Bill of Rights."
+        }
+      ],
+      "notify-immediately-via-un-chief": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0042",
+          "wrongChoice": "Wait until the emergency ends before sending any notice to treaty states.",
+          "mistakeNote": "Delays ICCPR Article 4(3) notification until after the emergency ends instead of notifying immediately."
+        }
+      ],
+      "torture-ban-never-suspended": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0043",
+          "wrongChoice": "The ban may be suspended if the emergency is officially announced.",
+          "mistakeNote": "Assumes an official emergency proclamation allows suspending ICCPR Article 7's non-derogable torture ban."
+        }
+      ]
+    },
+    "lesson-peace-and-human-rights-commission-on-human-rights": {
+      "chr-belongs-to-article-thirteen": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0001",
+          "wrongChoice": "Article IX",
+          "mistakeNote": "Places CHR in Article IX among the three constitutional commissions instead of Article XIII."
+        },
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0017",
+          "wrongChoice": "Every institution called a commission must be created in Article IX.",
+          "mistakeNote": "Uses the word commission in CHR's title to override its actual Article XIII constitutional source."
+        }
+      ],
+      "chr-investigates-never-sentences": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0044",
+          "wrongChoice": "Impose a prison sentence based on its investigation alone.",
+          "mistakeNote": "Gives CHR a criminal court's power to imprison instead of referring cases for prosecution."
+        },
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0044",
+          "wrongChoice": "Treat its findings as a final criminal conviction of the respondent.",
+          "mistakeNote": "Treats CHR investigation findings as a final criminal conviction rather than a referral to prosecutors."
+        }
+      ],
+      "report-known-facts-without-delay": [
+        {
+          "questionId": "q-peace-and-human-rights-human-rights-fundamentals-0045",
+          "wrongChoice": "Wait until every possible record is collected before asking for help.",
+          "mistakeNote": "Delays reporting known facts and available messages to CHR until every possible record is gathered."
+        }
+      ]
     }
   }
 }
