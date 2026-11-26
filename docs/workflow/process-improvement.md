@@ -126,6 +126,17 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Claude 5-hour limit hit again: worker cap broken and Fable audits from two lanes (Nov 26)
+
+- His words (about 1:35 AM Manila Nov 27): "did you run out of limits", then "why was usage so high last 5-hour session".
+- Wrong: the limit stopped the manager and the Claude lesson lead at 9:47 PM Manila (reset 1:20 AM). Measured from the T3 thread list (Claude worker threads created after 8:20 PM): about 25 Claude workers ran in about 75 minutes. Peak was 5 Claude workers at once (9:04 PM). The Claude lesson lead ran 3 at once against the 2-worker cap, cycling sweep, verify and fix workers for Grammar and Language Application plus 2 Fable audits. The Gemini GI lead ran 4 Fable 5.2 audits (2 at once), so a Gemini lane spent his Claude usage. The manager takeover read the full policy files and 16 schedules in the same window. Token counts per thread are not measured; the worker counts and overlaps are.
+- Why it got through: the 2-worker cap is per lead and counted by the lead itself; nothing counted all Claude workers across lanes. The evening handoff made Fable the audit fallback for both lesson lanes when Codex ran low, and no rule counted a Gemini lane's Fable audits as Claude work. The heartbeat checked leads' last messages, not their running workers.
+- Fix (required steps, manager and leads):
+  1. Across all lanes: at most 4 Claude workers at once, and at most 1 Fable audit at a time. A Fable audit started by any lane, Gemini lanes included, counts as Claude work.
+  2. Audits go to Codex through codex-pick first whenever `codex-pick --status` shows room; Fable only when Codex has none.
+  3. Each heartbeat counts running Claude worker threads per lead (`t3_thread_list` with subagents) and tells any lead over its cap to stop starting workers until it is back under.
+  No check can stop a lead from starting a worker; the heartbeat count is the catch.
+
 ### Manager stated a guess about users as fact (Nov 26)
 
 - His words (about 7:30 PM Manila): ""who use Pantas the most" and you know this because", on the manager's claim that the update problems "land on the students who use Pantas the most, the ones with weak signal".
