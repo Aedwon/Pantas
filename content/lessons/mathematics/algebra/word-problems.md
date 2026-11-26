@@ -113,7 +113,7 @@ $$3b+6=2b+12$$
 
 4. Subtract $2b$ and then subtract $6$.
 
-$$b+6=12\quad\Rightarrow\quad b=6$$
+$$b=6$$
 
 5. Find Ana's age.
 
@@ -159,7 +159,7 @@ $$270=90t$$
 
 3. Divide by $90$.
 
-$$t=\dfrac{270}{90}=3$$
+$$t=3$$
 
 4. They meet after $3$ hours.
 
@@ -179,7 +179,7 @@ $$40=20t$$
 
 3. Divide by $20$.
 
-$$t=\dfrac{40}{20}=2$$
+$$t=2$$
 
 4. The car catches the motorcycle after $2$ hours.
 
@@ -201,7 +201,7 @@ $$r_{\text{together}}=\dfrac{1}{6}+\dfrac{1}{3}$$
 
 $$r_{\text{together}}=\dfrac{1}{6}+\dfrac{2}{6}$$
 
-$$r_{\text{together}}=\dfrac{3}{6}=\dfrac{1}{2}$$
+$$r_{\text{together}}=\dfrac{1}{2}$$
 
 3. Divide $1$ job by the combined rate to find the time in hours.
 
@@ -266,7 +266,7 @@ $$x+5y=52$$
 
 4. Subtract the count equation from the value equation.
 
-$$4y=52-20=32$$
+$$4y=32$$
 
 5. Divide by $4$.
 
@@ -301,7 +301,7 @@ $$u-t=3$$
 
 6. Add this equation to $t+u=9$.
 
-$$2u=9+3=12$$
+$$2u=12$$
 
 $$u=6$$
 
@@ -323,9 +323,9 @@ For two workers on the same job, the product-over-sum formula can save time. Bot
 
 $$t=\dfrac{ab}{a+b}$$
 
-With $a=6$ and $b=3$:
+For the work example:
 
-$$t=\dfrac{6(3)}{6+3}=\dfrac{18}{9}=2$$
+$$t=\dfrac{6(3)}{6+3}=2$$
 
 For motion at steady speeds along the same straight path, use relative speed. Add speeds for opposite-direction separation or for moving toward each other. In a same-direction chase, subtract the slower speed from the faster speed.
 

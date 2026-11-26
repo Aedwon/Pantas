@@ -29,7 +29,7 @@ What is the remainder when $P(x)=x^4-3x^3+2x-5$ is divided by $x-2$?
 1. The divisor is $x-2$, so the remainder is $P(2)$.
 2. Replace $x$ with $2$ and compute.
 
-$$P(2)=2^4-3(2)^3+2(2)-5=16-24+4-5=-9$$
+$$P(2)=16-24+4-5=-9$$
 
 3. The remainder is $-9$.
 
@@ -41,7 +41,7 @@ If $x-3$ is a factor of $x^3-kx^2+4x-12$, find $k$.
 
 1. Since $x-3$ is a factor, set $P(3)=0$.
 
-$$P(3)=3^3-k(3)^2+4(3)-12=27-9k+12-12=0$$
+$$27-9k+12-12=0$$
 
 2. Combine the constants.
 

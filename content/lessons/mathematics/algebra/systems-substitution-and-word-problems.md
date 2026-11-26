@@ -37,7 +37,7 @@ $$x + (x + 1) = 7$$
 
 2. Combine the like terms.
 
-$$x + (x + 1) = 2x + 1 = 7$$
+$$2x + 1 = 7$$
 
 3. Subtract $1$ from both sides, then divide by $2$.
 
@@ -76,7 +76,7 @@ $$100a + 60(50 - a) = 4200$$
 
 4. Distribute the $60$.
 
-$$100a + 60(50 - a) = 100a + 3000 - 60a = 4200$$
+$$100a + 3000 - 60a = 4200$$
 
 5. Combine like terms and solve.
 

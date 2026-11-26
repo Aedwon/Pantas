@@ -38,13 +38,13 @@ Let $f(x)=\sqrt{x-1}$ and $g(x)=x-5$. Find $(f-g)(2)$ and $(f\cdot g)(10)$. Then
 
 1. Evaluate $(f-g)(2)$.
 
-$$f(2)=\sqrt{2-1}=1\qquad g(2)=2-5=-3$$
+$$f(2)=1\qquad g(2)=-3$$
 
 $$(f-g)(2)=1-(-3)=4$$
 
 2. Evaluate $(f\cdot g)(10)$.
 
-$$f(10)=\sqrt{10-1}=3\qquad g(10)=10-5=5$$
+$$f(10)=3\qquad g(10)=5$$
 
 $$(f\cdot g)(10)=3\cdot5=15$$
 

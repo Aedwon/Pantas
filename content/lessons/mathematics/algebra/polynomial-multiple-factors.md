@@ -39,7 +39,7 @@ $$x^2-x-2=(x-2)(x+1)$$
 
 2. Each linear factor divides $P(x)$ with no remainder. Use $P(2)=0$.
 
-$$P(2)=2(2)^3+a(2)^2+b(2)-6=16+4a+2b-6=0$$
+$$16+4a+2b-6=0$$
 
 3. Combine constants and divide by $2$.
 
@@ -47,7 +47,7 @@ $$2a+b=-5$$
 
 4. Use $P(-1)=0$.
 
-$$P(-1)=2(-1)^3+a(-1)^2+b(-1)-6=-2+a-b-6=0$$
+$$-2+a-b-6=0$$
 
 $$a-b=8$$
 

@@ -47,7 +47,7 @@ $$0 = -4$$
 
 3. For (b), multiply the first equation by $2$. Every term changes.
 
-$$2(2x + y) = 2(5) \quad\Rightarrow\quad 4x + 2y = 10$$
+$$4x + 2y = 10$$
 
 4. This is the second equation exactly. Subtracting the equations gives $0 = 0$, which is always true. So (b) has infinitely many solutions: every point on the line.
 

@@ -38,7 +38,7 @@ Solve $2x^2-5x-3\le0$.
 
 1. Factor and find the roots.
 
-$$2x^2-5x-3=(2x+1)(x-3)=0$$
+$$(2x+1)(x-3)=0$$
 
 $$x=-\dfrac12\quad\text{or}\quad x=3$$
 
@@ -59,7 +59,7 @@ Solve $-x^2+x+6\ge0$.
 
 1. Factor and find the roots.
 
-$$-x^2+x+6=-(x-3)(x+2)=0$$
+$$-(x-3)(x+2)=0$$
 
 $$x=3\quad\text{or}\quad x=-2$$
 

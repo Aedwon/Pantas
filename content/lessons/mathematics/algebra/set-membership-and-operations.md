@@ -54,8 +54,6 @@ Let $U=\{1,2,3,4,5,6\}$, $A=\{1,2,3\}$, and $B=\{3,4,5\}$. Find $(A\cup B)'$ rel
 
 **Solution:**
 
-Find the union first:
-
 $$A\cup B=\{1,2,3,4,5\}$$
 
 The only element of $U$ outside that union is $6$.

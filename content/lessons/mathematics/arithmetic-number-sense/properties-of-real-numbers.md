@@ -130,7 +130,7 @@ $$25\times(4\times17)=(25\times4)\times17$$
 
 2. Multiply the easy pair, then the remaining factor.
 
-$$(25\times4)\times17=100\times17=1,700$$
+$$100\times17=1,700$$
 
 ### #4: Two Kinds of Inverse
 
@@ -190,7 +190,9 @@ $$-2(x+5y)=-2x-10y$$
 
 2. Combine like terms by adding their signed coefficients.
 
-$$8x-12y-2x-10y=(8-2)x+(-12-10)y=6x-22y$$
+$$(8-2)x+(-12-10)y$$
+
+$$=6x-22y$$
 
 3. The answer is A.
 
@@ -207,7 +209,7 @@ Evaluate $847\times63+847\times37$.
 
 1. Both products have the common factor $847$. Factor it out.
 
-$$847\times63+847\times37=847(63+37)$$
+$$847(63+37)$$
 
 2. Add inside the parentheses.
 

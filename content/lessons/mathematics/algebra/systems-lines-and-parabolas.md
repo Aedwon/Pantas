@@ -38,7 +38,7 @@ $$x^2 - 3x + 2 = 0$$
 
 3. Factor the quadratic.
 
-$$x^2 - 3x + 2 = (x - 1)(x - 2) = 0$$
+$$(x - 1)(x - 2) = 0$$
 
 4. So $x = 1$ or $x = 2$. Find $y$ for each using $y = 3x - 6$.
 

@@ -9,7 +9,7 @@
 
 | Batch | Topic(s) | Lessons | Written | Verified | Connection Rule | Audited | Next Step |
 |---|---|---:|---|---|---|---|---|
-| 1 | Mathematics (Algebra, Arithmetic, Data Interp.) | 55 active | 55/55 | 55/55 (pre-rule) | Applied on Algebra & Arithmetic (`133aaae64`..`b9bf77f3b`, samples synced `434a1c9c9`); Data Interp. read & left alone | Pre-rule PASS (`25842f38e`); post-rule NOT yet verified/audited | Verify all post-rule math diffs & unedited math files with new connection check, then Codex re-audit |
+| 1 | Mathematics (Algebra, Arithmetic, Data Interp.) | 55 active | 55/55 | 55/55 (pre-rule) | Applied on 25 CSE Algebra & Arithmetic files (`133aaae64`..`b9bf77f3b`, samples synced `434a1c9c9`); 41 non-CSE CET + 20 retired parents reverted to `25842f38e` per Manager ruling | Pre-rule PASS (`25842f38e`); post-rule NOT yet verified/audited | Verify all post-rule CSE math diffs & unedited math files, then Codex re-audit |
 | 2 | Reasoning (Clerical, Logical-Verbal, Spatial, Verbal Logic) | 47 active | 47/47 | 47/47 + 23 fixes + 37 audit fixes (pre-rule) | Complete (`5a332de91`, `38a4335c7`); 0 violations on new connection check | Pre-rule R2 PASS; post-rule Codex re-audit running | Close Batch 2 Codex post-rule PASS (`Batch 2 audited: PASS`) |
 | 3 | Language Proficiency: Grammar & Structure | 52 active | 52/52 | 52/52 verified + all 18 fixes applied | Complete (Chunk A `2c39b5ea1` + Chunk B: 19 edited, 33 already connected) | NOT yet audited | Merge Batch 3 trap evidence & figure worklist, run Flash sweep + locked Dart gates + Codex audit |
 | 4a | Language Proficiency: Vocabulary | 29 active (22 EN, 7 FIL) | 29/29 (`bc4ee889a`, `b659c421a`) | 29/29 independently verified (`11b8c0b7`: 19 Blockers, 61 Majors, 25 Minors); `spelling-rules-0012` fixed & approved (`15e8f6c0c`) | Partial (needs fixes on detached pairs & missing walk-through blocks) | NOT yet audited | Repair all 19 Blockers + 61 Majors + 25 Minors (incl. 7 FIL KWF wording), merge trap evidence into `walkthrough-trap-evidence.json`, re-verify, Codex audit |
@@ -24,6 +24,6 @@
 
 1. Run Codex GPT 6.2 Sol High post-connection re-audit on Batch 2 Reasoning (`codex-audit-batch2-r3.brief.md`), then commit `Batch 2 audited: PASS`.
 2. Merge Batch 3 Grammar trap evidence (52 lessons, 142 pairs, 279 citations) into `content/walkthrough-trap-evidence.json`, append Batch 3 figure worklist, write `walkthrough-batch-3-grammar.md`, run Flash mechanical sweep + locked Dart gates + Codex checkpoint audit (`Batch 3 audited: PASS`).
-3. Apply Manager ruling on the non-CSE CET Algebra/Arithmetic files modified by stopgap commits (`133aaae64`..`b9bf77f3b`), verify post-rule CSE Math diffs + unedited Math files, and run Codex Batch 1 post-rule re-audit (`Batch 1 audited: PASS`).
+3. Verify post-rule CSE Math diffs (`25842f38e..HEAD`) + unedited CSE Math files with independent Hydrogen verifier, then run Codex Batch 1 post-rule re-audit (`Batch 1 audited: PASS`).
 4. Repair all 19 Blockers, 61 Majors, and 25 Minors on Batch 4a Vocabulary (29 lessons, incl. 7 FIL KWF wording), merge Vocabulary trap evidence into `content/walkthrough-trap-evidence.json`, re-verify, and run Codex audit (`Batch 4a audited: PASS`).
 5. Finish Batches 4b through 8 saving and pushing every chunk under the Nov 26 connection rule.

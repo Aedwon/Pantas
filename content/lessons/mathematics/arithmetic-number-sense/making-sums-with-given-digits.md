@@ -25,15 +25,15 @@ Use $0$, $2$, $5$, and $9$ exactly once to form two two-digit numbers. What are 
 
 **Solution:**
 
-1. The tens digits cannot be $0$. For the smallest sum, use the smallest available nonzero digits in tens: $2$ and $5$. Let's add those two tens first:
+1. The tens digits cannot be $0$. For the smallest sum, use the smallest available nonzero digits in tens: $2$ and $5$.
 
 $20+50=70$
 
-2. Put the remaining digits, $0$ and $9$, in units. Their contribution is $9$ whichever number gets each digit. Let's add the finished numbers $20$ and $59$:
+2. Put the remaining digits, $0$ and $9$, in units. Their contribution is $9$ whichever number gets each digit.
 
 $20+59=79$
 
-3. For the largest sum, use the largest digits, $9$ and $5$, in tens. Use $0$ and $2$ in units. Let's add $90$ and $52$:
+3. For the largest sum, use the largest digits, $9$ and $5$, in tens. Use $0$ and $2$ in units.
 
 $90+52=142$
 

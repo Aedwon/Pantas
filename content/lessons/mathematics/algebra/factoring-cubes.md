@@ -47,7 +47,7 @@ $$(2x+3)((2x)^2-(2x)(3)+3^2)$$
 
 3. Work out each term in the second factor.
 
-$$8x^3+27=(2x+3)(4x^2-6x+9)$$
+$$(2x+3)(4x^2-6x+9)$$
 
 ### #2: Difference of Cubes
 
@@ -61,4 +61,4 @@ $$x^3-64=x^3-4^3$$
 
 2. Use the difference-of-cubes pattern with $a=x$ and $b=4$.
 
-$$x^3-4^3=(x-4)(x^2+4x+16)$$
+$$(x-4)(x^2+4x+16)$$

@@ -44,11 +44,11 @@ $$8\div(-2)=-4$$
 
 2. Substitute those results into the expression.
 
-$$18-6\times(-3)+8\div(-2)=18-(-18)+(-4)$$
+$$18-(-18)+(-4)$$
 
 3. Subtracting $-18$ means adding $18$.
 
-$$18-(-18)+(-4)=18+18-4=32$$
+$$18+18-4=32$$
 
 ### #2: Algebraic Evaluation
 
@@ -58,15 +58,15 @@ If $x=-2$ and $y=3$, evaluate $x^2-3xy+\dfrac{12}{x}$.
 
 1. Substitute the values, using parentheses around the negative value of $x$.
 
-$$x^2-3xy+\dfrac{12}{x}=(-2)^2-3(-2)(3)+\dfrac{12}{-2}$$
+$$(-2)^2-3(-2)(3)+\dfrac{12}{-2}$$
 
 2. Evaluate powers, multiplication, and division.
 
-$$(-2)^2-3(-2)(3)+\dfrac{12}{-2}=4-(-18)-6$$
+$$4-(-18)-6$$
 
 3. Finish the addition and subtraction.
 
-$$4-(-18)-6=4+18-6=16$$
+$$4+18-6=16$$
 
 ## Traps to Watch For
 

@@ -97,9 +97,9 @@ If $f(x)=2x^2-3x+1$, find $f(-2)$.
 
 **Solution:**
 
-Substitute $x=-2$ into $f(x)$:
+$$f(-2)=2(-2)^2-3(-2)+1$$
 
-$$f(-2)=2(-2)^2-3(-2)+1=2(4)+6+1=15$$
+$$=2(4)+6+1=15$$
 
 ### #4: Composition of Functions
 

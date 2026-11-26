@@ -50,7 +50,7 @@ $$x=-\dfrac{-4}{2(1)}=2$$
 
 2. Find the matching output.
 
-$$f(2)=2^2-4(2)+3=4-8+3=-1$$
+$$f(2)=4-8+3=-1$$
 
 3. The vertex is $(2,-1)$. Since $a=1>0$, the graph opens upward. Its minimum value is $-1$.
 

@@ -51,9 +51,9 @@ Find two points for each line, plot them, and draw each line.
 
 3. Draw both lines. They cross at $(2, 3)$.
 
-4. Substitute $x = 2$ and $y = 3$ into both equations.
+4. Check in both equations.
 
-$$x + y = 2 + 3 = 5 \qquad 2x - 1 = 2(2) - 1 = 3$$
+$$2 + 3 = 5 \qquad 3 = 2(2) - 1$$
 
 Both are true, so the solution is $(2, 3)$.
 

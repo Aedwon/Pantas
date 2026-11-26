@@ -33,7 +33,7 @@ A survey of $100$ college applicants found that $45$ preferred Engineering, $40$
 
 **Solution:**
 
-1. Subtract the $5$ who chose all three from each pairwise count:
+1. Pairwise-only regions are:
 
 $$15-5=10$$
 

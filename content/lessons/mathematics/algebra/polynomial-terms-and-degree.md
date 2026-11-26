@@ -27,7 +27,9 @@ The **degree** of a nonzero polynomial is its highest exponent after like terms 
 
 When you subtract a polynomial, change the sign of every term in the second group. For example:
 
-$$(x^3+4x)-(x^3+x)=x^3+4x-x^3-x=3x$$
+$$(x^3+4x)-(x^3+x)$$
+
+$$=x^3+4x-x^3-x=3x$$
 
 The cubic terms cancel. The highest power left is $x^1$, so the degree is $1$.
 

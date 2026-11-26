@@ -205,13 +205,13 @@ Find the slope of $3x=12$ and the slope of $2y=6$. State whether the two lines a
 
 1. Divide the first equation by $3$.
 
-$$x=\dfrac{12}{3}=4$$
+$$x=4$$
 
 This line is vertical, so its slope is undefined.
 
 2. Divide the second equation by $2$.
 
-$$y=\dfrac{6}{2}=3$$
+$$y=3$$
 
 This line is horizontal, so its slope is $0$.
 

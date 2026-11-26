@@ -26,7 +26,7 @@ Solve $x^2+4x+5>0$.
 
 1. Find the discriminant.
 
-$$D=4^2-4(1)(5)=16-20=-4$$
+$$D=4^2-4(1)(5)=-4$$
 
 2. Since $D<0$, the parabola never touches the $x$-axis. Since $a=1>0$, it opens up, so it stays above the axis.
 3. The inequality is true for every real number $x$.

@@ -71,7 +71,7 @@ For what values of $k$ does $x^2+kx+9=0$ have exactly one real root?
 
 A repeated real root requires $D=0$.
 
-$$D=k^2-4(1)(9)=k^2-36=0$$
+$$k^2-4(1)(9)=0$$
 
 $$k^2=36$$
 
@@ -87,7 +87,7 @@ If $r_1$ and $r_2$ are the roots of $3x^2-12x+7=0$, find $\dfrac1{r_1}+\dfrac1{r
 
 By Vieta's formulas:
 
-$$r_1+r_2=-\dfrac{b}{a}=-\dfrac{-12}{3}=4$$
+$$r_1+r_2=-\dfrac{b}{a}=4$$
 
 and
 

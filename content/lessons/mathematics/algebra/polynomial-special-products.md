@@ -52,11 +52,11 @@ Factor $3x^2+12x+12$ completely.
 
 1. Take out the greatest common factor, $3$.
 
-$$3x^2+12x+12=3(x^2+4x+4)$$
+$$3(x^2+4x+4)$$
 
 2. The expression inside is a perfect square because $4x=2(x)(2)$ and $4=2^2$.
 
-$$3x^2+12x+12=3(x+2)^2$$
+$$3(x+2)^2$$
 
 ## Traps to Watch For
 

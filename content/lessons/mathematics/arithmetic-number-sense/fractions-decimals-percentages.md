@@ -189,7 +189,7 @@ $$\dfrac{1}{6}=\dfrac{2}{12}$$
 
 2. Add and subtract the numerators.
 
-$$\dfrac{3}{4}+\dfrac{2}{3}-\dfrac{1}{6}=\dfrac{9+8-2}{12}=\dfrac{15}{12}$$
+$$\dfrac{9+8-2}{12}=\dfrac{15}{12}$$
 
 3. Divide both numbers by $3$.
 
