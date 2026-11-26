@@ -30,7 +30,8 @@ To switch back, if the passive names the doer, make the doer the subject and reb
 :::pair #swap-roles-correctly
 Right: Changing "The novel was written by a famous author" to active gives "A famous author wrote the novel."
 Wrong: Keep the nouns in place ("The novel wrote a famous author") or reverse them into "The committee was approved by the new budget during the meeting."
-Match the verb to the real doer and real receiver.:::
+Match the verb to the real doer and real receiver.
+:::
 
 :::check
 Change to active voice: "The meal was cooked by the chef."

@@ -15,8 +15,7 @@ keyPoints:
 
 ### Sila at Sina
 
-Ang **sila** ay **panghalip** (pronoun) na tumutukoy sa dalawa o higit pang tao nang hindi sila pinapangalanan: "Umalis **sila** nang maaga." Karaniwang walang kasunod na pangalan ng tao ang *sila*.
-
+Ang **sila** ay **panghalip** (pronoun) na tumutukoy sa dalawa o higit pang tao nang hindi sila pinapangalanan: "Umalis **sila** nang maaga."
 Ang **sina** ay **pananda** (marker) na ginagamit bago ang pangalan ng mga tao: "**Sina** Ana at Lito ay dumating." Maaari ring isang pangalan lamang ang kasunod, para sa taong iyon at sa mga kasama niya: "Dumating na **sina** Mara."
 
 Para mapili ang *sila* sa "Umalis sila nang maaga" at ang *sina* sa "Sina Ana at Lito ay dumating," sundin ang dalawang hakbang:
@@ -27,13 +26,13 @@ Para mapili ang *sila* sa "Umalis sila nang maaga" at ang *sina* sa "Sina Ana at
 :::pair #bago-ang-pangalan
 Right: Sina Pedro, Ana, at Miguel ang mga kasapi ng grupong ito.
 Wrong: Sila Pedro, Ana, at Miguel ang mga kasapi ng grupong ito.
-Mga pangalan ang kasunod. Kaya *sina* ang gamit.
+Mga pangalan ang kasunod, kaya *sina*.
 :::
 
 :::pair #pamalit
 Right: Nagtapos sina Elena at Ricardo kahapon. Sila ay naghahanap na ng trabaho.
 Wrong: Nagtapos sina Elena at Ricardo kahapon. Sina ay naghahanap na ng trabaho.
-Walang pangalang kasunod. Ang tinutukoy ay ang dalawang taong nabanggit na, kaya *sila*.
+Ang tinutukoy ay ang dalawang taong nabanggit na, kaya *sila*.
 :::
 
 :::check
@@ -77,7 +76,7 @@ D) Ang
 
 **Solution:**
 
-1. Tumutukoy ang patlang kina *Ana at Lito*, at walang pangalang kasunod.
+1. Tumutukoy ang patlang kina *Ana at Lito*.
 2. Gamitin ang panghalip na **sila**: "Maagang dumating sina Ana at Lito. Sila ang unang pumasok sa silid." Sagot: **A**.
 
 **Check:** Basahin gamit ang *sina*: "Sina ang unang pumasok" ay kulang dahil walang pangalan.
@@ -108,7 +107,7 @@ Ang sagot ay **A**. May kasunod na pangalan ang unang patlang, kaya **sina**. Wa
 
 ## Speed Tricks & Shortcuts
 
-Tingnan kung pangalan ang kasunod agad.
+Pangalan ba ang kasunod?
 
 ## Traps to Watch For
 

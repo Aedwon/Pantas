@@ -33,7 +33,7 @@ A **collocation** is a group of words that people commonly use together. English
 :::pair #heavy-rain
 Right: The road closed during heavy rain.
 Wrong: The road closed during powerful rain.
-*Powerful* is close in meaning to *heavy*. English still pairs *heavy* with *rain*.
+English still pairs *heavy* with *rain*.
 :::
 
 :::check

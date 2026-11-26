@@ -17,13 +17,14 @@ keyPoints:
 
 ### Alliteration
 
-**Alliteration** repeats the same starting sound, usually a consonant, in nearby words, as in *busy bees buzzed*. Sound matters in alliteration, not just spelling.
+**Alliteration** repeats the same starting sound, usually a consonant, in nearby words. Sound matters in alliteration, not just spelling.
 
 Let's mark the repeated starting sound: **P**eter **P**iper **p**icked a **p**eck of **p**ickled **p**eppers.
+
 :::pair #repeated-sound
 Right: "Peter Piper picked a peck of pickled peppers" is alliteration.
 Wrong: "Peter Piper picked a peck of pickled peppers" is onomatopoeia.
-No word here imitates a noise. A repeated starting sound is alliteration.
+A repeated starting sound is alliteration.
 :::
 
 :::check
@@ -51,7 +52,7 @@ Which device comes from adjacent words that contradict each other in "deafening 
 :::pair #opposing-words
 Right: "Deafening silence" is an oxymoron.
 Wrong: "Deafening silence" is hyperbole.
-The phrase joins two opposing words. It does not simply stretch the truth.
+The phrase joins two opposing words.
 :::
 
 :::check
@@ -126,7 +127,7 @@ Finish the last step: compare the two meanings and choose the device.
 
 ## Speed Tricks & Shortcuts
 
-**Check the effect.** Ask whether the words compare things, give a human quality, stretch the truth, repeat a sound, or join opposing meanings.
+Ask whether the words compare things, give a human quality, stretch the truth, repeat a sound, or join opposing meanings.
 
 ## Traps to Watch For
 

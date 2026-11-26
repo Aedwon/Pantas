@@ -28,7 +28,7 @@ Suriin natin ang *kabataan*:
 :::pair #kabilaan-ka-an
 Right: Ang panlapi sa *kabataan* ay *ka-* at *-an*.
 Wrong: Ang panlapi sa *kabataan* ay *pag-* at *-an*.
-Tingnan ang mga letra sa unahan ng *bata*. Ang nandoon ay *ka-*.
+Ang nasa unahan ng *bata* ay *ka-*.
 :::
 
 :::check

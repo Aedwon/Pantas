@@ -62,7 +62,8 @@ To fix a dependent-clause fragment, add a **main clause** that can stand alone, 
 :::pair #fragment-is-not-sentence
 Right: In formal prose, *"Although the teacher explained the lesson twice"* is **a dependent-clause fragment**.
 Wrong: Call *"Although the teacher explained the lesson twice"* **a complete independent sentence** or **a run-on with two main clauses**.
-*The teacher explained* has a subject and verb, yet *Although* turns the single clause into a fragment waiting for a main clause.:::
+*The teacher explained* has a subject and verb, yet *Although* turns the single clause into a fragment waiting for a main clause.
+:::
 
 :::pair #two-dependent-clauses
 Right: *"Because the store was closed, we went home."*
