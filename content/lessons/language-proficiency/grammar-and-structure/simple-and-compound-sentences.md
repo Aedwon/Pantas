@@ -49,6 +49,7 @@ Ways to join them:
 2. A **semicolon** (;) alone between two linked independent clauses: *"The clinic reopened; appointments resumed."*
 
 Do not count infinitives such as *to travel abroad* or *to play*, because they are not finite clauses.
+
 :::why
 Why does a semicolon make a compound sentence without *and* or *but*? A semicolon joins two independent clauses of equal rank. Both *"The clinic reopened"* and *"appointments resumed"* stand alone with a period, giving two independent clauses and zero dependent clauses.
 :::

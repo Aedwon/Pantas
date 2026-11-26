@@ -1,7 +1,7 @@
 ---
 _id: "lesson-grammar-and-structure-recognizing-active-and-passive-voice"
 title: "Recognizing Active and Passive Voice"
-summary: "Check whether the subject acts or receives the action, and spot linking be-clauses."
+summary: "Find the passive verb group, be plus a past participle, and spot linking be-clauses."
 subject: "subject-language-proficiency"
 topic: "topic-grammar-and-structure"
 isActive: true
@@ -9,7 +9,7 @@ part: 5
 partCount: 8
 ordering: 20
 keyPoints:
-  - "Identify whether the subject does or receives an action."
+  - "Tell active from passive by the whole verb group, not by the subject alone."
   - "Recognize be and a past participle without confusing states with passive actions."
   - "Choose passive voice when the agent is unknown or less important."
 ---
