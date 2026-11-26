@@ -13,42 +13,115 @@ keyPoints:
 ---
 ## Core Concept
 
-### Disaster Risk: RA $10121$
+### Disaster Risk Act and NDRRMC
 
-RA $10121$ is the **Philippine Disaster Risk Reduction and Management Act of $2010$**. It covers prevention and mitigation, preparedness, response, and rehabilitation and recovery.
+**RA $10121$** is the **Philippine Disaster Risk Reduction and Management Act of $2010$**. Under Section $2$, it shifted national policy toward proactive risk reduction before disasters strike instead of reacting only afterward.
 
-Prevention and mitigation avoid risk or lessen harm from hazards. Preparedness builds readiness through plans and practice. Response meets urgent needs, while rehabilitation and recovery restore and improve community life.
+Under Section $5$, RA $10121$ renamed the existing National Disaster Coordinating Council (NDCC) as the **National Disaster Risk Reduction and Management Council (NDRRMC)**. It reorganized and strengthened an existing council rather than creating one from nothing.
 
-The law renamed the National Disaster Coordinating Council as the **National Disaster Risk Reduction and Management Council (NDRRMC)**. Its work includes earthquake risk as well as climate-related hazards. Disaster mitigation therefore has a wider meaning than cutting greenhouse gases.
+Keep environmental bodies separate. Link the Climate Change Commission to RA $9729$, the NDRRMC to RA $10121$, and ECP, ECA, and ECC to PD $1586$.
+
+Compare $2$ national councils on a flood-planning call:
+
+1. One council coordinates earthquake drills, typhoon evacuation plans, and disaster response across agencies.
+2. Another commission coordinates long-term climate policy and national greenhouse-gas strategies.
+
+Result: The NDRRMC leads disaster risk reduction under RA $10121$, while the Climate Change Commission leads climate policy under RA $9729$.
+
+:::pair #disaster-law-not-climate-law
+Right: Match the disaster-risk framework and the renamed NDRRMC to RA $10121$.
+Wrong: Assigning the NDRRMC and disaster-risk framework to RA $9729$.
+RA $10121$ governs disaster risk reduction and NDRRMC, while RA $9729$ governs climate policy.
+:::
+
+:::pair #keep-ccc-and-ndrrmc-separate
+Right: Link RA $9729$ to the Climate Change Commission and RA $10121$ to the NDRRMC.
+Wrong: Reversing the two laws so RA $9729$ created NDRRMC and RA $10121$ created the Climate Change Commission.
+Check each body's purpose: climate policy goes with RA $9729$, and disaster management goes with RA $10121$.
+:::
+
+:::check
+A briefing slide says RA $10121$ created a brand-new council that had never existed before $2010$. What correction is needed?
+:::answer
+The answer is **RA $10121$ renamed and strengthened the existing NDCC**. Section $5$ turned the National Disaster Coordinating Council into the NDRRMC.
+:::
+
+### Four Disaster Management Areas
+
+Under Section $3$, RA $10121$ organizes disaster work into $4$ areas:
+
+- **Prevention and mitigation:** avoiding risk or lessening harm from hazards, such as building floodwalls or enforcing safe zoning.
+- **Preparedness:** building readiness before an event through plans, warning systems, and drills.
+- **Response:** meeting urgent life-saving needs during or right after a disaster.
+- **Rehabilitation and recovery:** restoring and improving community services and livelihoods afterward.
+
+RA $10121$ covers earthquakes, landslides, and storms alike. Disaster mitigation therefore covers far more than cutting greenhouse gases.
+
+:::why
+Why does RA $10121$ cover both non-climate and climate hazards? Communities face earthquakes and volcanic risks as well as typhoons, so $1$ framework coordinates readiness for all hazards.
+:::
+
+Sort $2$ city activities into DRRM areas:
+
+1. Engineers brace an old hospital roof against earthquakes before any tremor occurs.
+2. Relief teams deliver clean drinking water to families stranded by rising floodwaters.
+
+Result: Bracing the hospital roof is prevention and mitigation, while delivering urgent water is response.
+
+:::check
+After an earthquake damages power lines and bridges, crews rebuild stronger utility poles so future quakes cause less outage. Which DRRM area fits best?
+:::answer
+The answer is **Rehabilitation and recovery**. Restoring damaged community infrastructure with safer designs belongs to recovery under RA $10121$.
+:::
 
 ## Examples
 
-### #1: Identifying the Council's Law
+### #1: Identifying the Disaster Council Law
 
-Which law renamed the National Disaster Coordinating Council as the NDRRMC?
-
-**Solution:**
-
-RA $10121$ renamed the council and strengthened the disaster-risk framework.
-
-### #2: Comparing Disaster Actions
-
-A town practices evacuation before typhoon season and later rescues residents during a flood. Which DRRM area does each action show?
+A provincial report cites the $2010$ law that reorganized the old NDCC into the NDRRMC and shifted focus toward disaster risk reduction. Name the law.
 
 **Solution:**
 
-1. Practice builds readiness, so it shows preparedness.
-2. Rescue meets urgent needs, so it shows response.
-3. Both belong to the framework under RA $10121$.
+1. Renaming NDCC to NDRRMC occurred under Section $5$ of the $2010$ disaster-risk statute.
+2. Separate this council from the Climate Change Commission created in $2009$ under RA $9729$.
 
-## Speed Tricks & Shortcuts
+Answer: RA $10121$, the Philippine Disaster Risk Reduction and Management Act of $2010$.
 
-Keep the bodies separate: the Climate Change Commission belongs with RA $9729$, and the NDRRMC with RA $10121$. ECP, ECA, and ECC belong with project review under PD $1586$.
+**Check:** Link NDCC renaming and NDRRMC directly to RA $10121$ Section $5$.
+
+### #2: Matching Actions to DRRM Areas
+
+A coastal barangay buys life vests, maps evacuation routes, and runs tsunami drills in May. In October, rescuers pull stranded fishers from storm surge waters. Classify both sets of actions.
+
+**Solution:**
+
+1. Buying gear, mapping routes, and running drills build readiness before danger arrives, which is preparedness.
+2. Pulling stranded people from floodwater meets urgent life-saving needs, which is response.
+
+Answer: The May readiness work is preparedness, and the October rescues are response.
+
+**Check:** Place advance readiness in preparedness and active emergency rescues in response.
+
+### #3: Earthquake Plan and Council Mix-Up
+
+A city's draft plan assigns seismic building retrofits to the Climate Change Commission under RA $9729$, claiming disaster mitigation only means cutting factory greenhouse gases. Identify the statutory errors and classify seismic retrofits under RA $10121$.
+
+**Solution:**
+
+1. Check which law and council govern disaster risk reduction for hazards such as earthquakes.
+2. Check whether disaster mitigation under RA $10121$ is limited to cutting greenhouse gases or includes physical harm reduction.
+
+:::try
+Finish the last step: name the correct law and council for the plan and classify seismic retrofits.
+:::answer
+The answer is **RA $10121$ and the NDRRMC govern disaster risk reduction, and seismic retrofits are prevention and mitigation**. Disaster mitigation under RA $10121$ covers earthquakes and physical risk reduction instead of greenhouse gases alone.
+
+**Check:** Match NDRRMC to RA $10121$ and verify that structural retrofits reduce hazard harm.
+:::
 
 ## Traps to Watch For
 
-### #1: Saying the Council Was Created From Nothing
-
-> RA $10121$ renamed an existing council.
-
-The NDCC became known as the NDRRMC. The law also made wider changes to disaster-risk management.
+:::checklist
+- Disaster law vs. climate law: match the disaster framework and NDRRMC to RA $10121$, not RA $9729$. {#disaster-law-not-climate-law}
+- Separate councils: keep the Climate Change Commission with RA $9729$ and NDRRMC with RA $10121$ instead of swapping them. {#keep-ccc-and-ndrrmc-separate}
+:::

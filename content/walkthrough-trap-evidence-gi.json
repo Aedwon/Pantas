@@ -3572,6 +3572,278 @@
           "mistakeNote": "Treats a natural marketing label as proof of wildlife safety without test evidence or legal review."
         }
       ]
+    },
+    "lesson-environment-management-solid-waste-law": {
+      "waste-law-not-water-or-climate": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0012",
+          "wrongChoice": "RA 9275 alone because all dumped material must be wastewater",
+          "mistakeNote": "Treats an open solid-waste dump as exclusively a wastewater problem under RA 9275 instead of RA 9003."
+        }
+      ],
+      "match-subject-to-statute": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0020",
+          "wrongChoice": "Every environmental statute has exactly the same legal scope despite its different title.",
+          "mistakeNote": "Assumes all environmental statutes share one identical scope instead of governing distinct duties."
+        }
+      ],
+      "sorting-never-proves-diversion": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0023",
+          "wrongChoice": "Separate collection establishes diversion even when all waste reaches final disposal.",
+          "mistakeNote": "Counts source-separated collection as waste diversion even when every stream still ends in final disposal."
+        }
+      ]
+    },
+    "lesson-environment-management-clean-air-law": {
+      "incineration-ban-has-conditions": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0016",
+          "wrongChoice": "The Act bans every use of heat for any material regardless of emissions or exceptions.",
+          "mistakeNote": "Drops the poisonous-and-toxic-fumes condition and stated Section 20 exceptions from the RA 8749 incineration rule."
+        }
+      ],
+      "burning-rules-air-not-water": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0016",
+          "wrongChoice": "The Act regulates only water discharges and has no provision about waste-burning fumes.",
+          "mistakeNote": "Confuses RA 8749 air-emission rules on waste burning with water-discharge regulation."
+        },
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0011",
+          "wrongChoice": "RA 9275",
+          "mistakeNote": "Substitutes the Clean Water Act (RA 9275) for RA 8749 on toxic-fume waste incineration."
+        }
+      ],
+      "cost-never-waives-burning-ban": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0016",
+          "wrongChoice": "The Act allows any waste burning once the operator claims the fuel is inexpensive.",
+          "mistakeNote": "Replaces statutory emission limits and exceptions with an operator's claim that burning waste saves fuel cost."
+        }
+      ]
+    },
+    "lesson-environment-management-clean-water-law": {
+      "water-law-versus-solid-waste": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0003",
+          "wrongChoice": "RA 9003",
+          "mistakeNote": "Substitutes the solid-waste law (RA 9003) for RA 9275 on water-quality management and wastewater permits."
+        }
+      ],
+      "separate-air-and-water-laws": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0015",
+          "wrongChoice": "RA 9729 and RA 10121, for climate and disaster management",
+          "mistakeNote": "Pairs factory air emissions and wastewater permits with climate and disaster statutes instead of RA 8749 and RA 9275."
+        }
+      ]
+    },
+    "lesson-environment-management-climate-policy-law": {
+      "climate-act-vs-disaster-act": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0004",
+          "wrongChoice": "Philippine Disaster Risk Reduction and Management Act",
+          "mistakeNote": "Substitutes the disaster risk reduction act (RA 10121) for the Climate Change Act (RA 9729) that created the CCC."
+        }
+      ],
+      "ccc-leads-climate-policy": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0010",
+          "wrongChoice": "Department of Environment and Natural Resources",
+          "mistakeNote": "Assigns RA 9729 climate-policy coordination to DENR instead of the Climate Change Commission."
+        }
+      ],
+      "national-framework-not-local-permit": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0018",
+          "wrongChoice": "A municipal building license serving as the country's entire climate-change strategy",
+          "mistakeNote": "Substitutes a local municipal building permit for the National Strategic Framework on Climate Change."
+        }
+      ]
+    },
+    "lesson-environment-management-disaster-risk-law": {
+      "disaster-law-not-climate-law": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0005",
+          "wrongChoice": "RA 9729",
+          "mistakeNote": "Assigns the disaster-risk framework and renamed NDRRMC to the climate-policy law (RA 9729) instead of RA 10121."
+        }
+      ],
+      "keep-ccc-and-ndrrmc-separate": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0014",
+          "wrongChoice": "RA 9729 created NDRRMC, while RA 10121 created the Climate Change Commission.",
+          "mistakeNote": "Reverses the two councils between RA 9729 (Climate Change Commission) and RA 10121 (NDRRMC)."
+        }
+      ]
+    },
+    "lesson-environment-management-project-review-and-clearance": {
+      "review-and-ecc-before-start": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0014",
+          "wrongChoice": "Implementation first, then ECC only if complaints arise",
+          "mistakeNote": "Delays environmental review and ECC issuance until after project work starts instead of securing clearance first."
+        }
+      ],
+      "ecc-not-for-every-project": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0015",
+          "wrongChoice": "It is required for every activity solely because people call it a project.",
+          "mistakeNote": "Ignores EIS coverage criteria by assuming every small activity needs an ECC just for being called a project."
+        }
+      ],
+      "ecc-never-replaces-other-permits": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0015",
+          "wrongChoice": "It is a universal replacement for every other project permit.",
+          "mistakeNote": "Treats an ECC decision document as replacing all business, building, and pollution-control permits."
+        }
+      ]
+    },
+    "lesson-environment-management-critical-area-review": {
+      "water-bodies-need-listed-conditions": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0022",
+          "wrongChoice": "Every water body has the same classification as an aquifer recharge area.",
+          "mistakeNote": "Gives every water body the same ECA status instead of checking Proclamation 2146 Section B conditions."
+        }
+      ],
+      "non-ecp-still-needs-site-check": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0021",
+          "wrongChoice": "Only the project type matters once the facility is found not to be an ECP.",
+          "mistakeNote": "Skips location-based ECA screening simply because the facility is not an ECP."
+        }
+      ],
+      "ecp-and-eca-are-independent": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0021",
+          "wrongChoice": "A site must be both an ECP and an ECA before any coverage check is needed.",
+          "mistakeNote": "Requires both ECP and ECA status together instead of treating project type and site location as independent coverage tests."
+        }
+      ]
+    },
+    "lesson-environment-management-wildlife-and-protected-area-laws": {
+      "protection-continues-outside-nipas": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0019",
+          "wrongChoice": "NIPAS laws prohibit all wildlife protection outside the designated protected-area network.",
+          "mistakeNote": "Assumes NIPAS boundaries bar RA 9147 wildlife and critical-habitat protection outside protected areas."
+        }
+      ],
+      "ra-eleven-oh-thirty-eight-expanded-nipas": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0013",
+          "wrongChoice": "RA 7586",
+          "mistakeNote": "Mistakes the original NIPAS statute (RA 7586) for the later Expanded NIPAS amendment (RA 11038)."
+        }
+      ],
+      "wildlife-law-distinct-from-nipas": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0019",
+          "wrongChoice": "RA 9147 and NIPAS laws mean the same thing and require no separate subject analysis.",
+          "mistakeNote": "Collapses RA 9147 wildlife conservation and NIPAS protected-area management into one identical law."
+        }
+      ]
+    },
+    "lesson-environment-management-environmental-agencies": {
+      "emb-belongs-to-denr": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0009",
+          "wrongChoice": "Department of Science and Technology",
+          "mistakeNote": "Confuses supporting scientific expertise with EMB's administrative parent department (DENR)."
+        }
+      ],
+      "emb-handles-pollution-and-eis": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0017",
+          "wrongChoice": "It handles only wildlife sanctuaries and never pollution-control or project-review laws.",
+          "mistakeNote": "Limits EMB to wildlife sanctuaries while omitting its core pollution-control and EIS project-review work."
+        }
+      ],
+      "emb-shares-duties-with-lgus": [
+        {
+          "questionId": "q-environment-management-the-environmental-laws-0017",
+          "wrongChoice": "It replaces every local government's role in solid-waste management nationwide.",
+          "mistakeNote": "Treats EMB's national environmental role as wiping out local governments' solid-waste responsibilities."
+        }
+      ]
+    },
+    "lesson-environment-management-source-segregation-and-waste-types": {
+      "sort-at-origin-before-collection": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0001",
+          "wrongChoice": "Sorting mixed waste only after arrival at a municipal landfill",
+          "mistakeNote": "Moves waste sorting away from the point of origin to a landfill after mixed collection."
+        }
+      ],
+      "keep-separated-streams-apart": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0021",
+          "wrongChoice": "Empty every stream into one mixed pile because households already sorted it.",
+          "mistakeNote": "Remixes already-sorted household waste streams during collection instead of keeping them separate."
+        }
+      ],
+      "special-waste-stays-separate": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0029",
+          "wrongChoice": "Any item containing metal belongs with ordinary recyclables, regardless of its waste category.",
+          "mistakeNote": "Sends discarded electronics or batteries into ordinary metal recyclables just because they contain metal."
+        }
+      ]
+    },
+    "lesson-environment-management-reuse-and-recycling": {
+      "mixing-contaminates-recyclables": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0025",
+          "wrongChoice": "Contact with food scraps automatically turns paper into special waste.",
+          "mistakeNote": "Confuses food contamination that hinders paper recovery with automatic classification as special waste."
+        }
+      ],
+      "reuse-keeps-form-intact": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0010",
+          "wrongChoice": "Recycling into a different material",
+          "mistakeNote": "Labels cleaning and reusing an intact container in its original form as recycling into a different material."
+        },
+        {
+          "questionId": "q-environment-management-environmental-concepts-0026",
+          "wrongChoice": "Recycling and reuse",
+          "mistakeNote": "Swaps direct reuse of unused paper sides with reprocessing old sheets into new paper."
+        }
+      ],
+      "processing-makes-new-products": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0011",
+          "wrongChoice": "Reusing each old sheet without processing",
+          "mistakeNote": "Labels industrial processing of waste paper into new products as direct reuse without processing."
+        }
+      ]
+    },
+    "lesson-environment-management-reduction-composting-and-diversion": {
+      "reduction-prevents-before-use": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0027",
+          "wrongChoice": "Recycling is source reduction, while choosing less packaging is reuse.",
+          "mistakeNote": "Confuses preventing packaging waste upfront (source reduction) with recycling used material or reusing items."
+        }
+      ],
+      "composting-needs-breakdown": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0024",
+          "wrongChoice": "Workers separate organic matter from other waste, completing composting as soon as sorting ends.",
+          "mistakeNote": "Stops composting at organic waste sorting while omitting controlled microbial breakdown into compost."
+        }
+      ],
+      "diversion-cuts-final-disposal": [
+        {
+          "questionId": "q-environment-management-environmental-concepts-0019",
+          "wrongChoice": "The waste is carried to a different town's disposal site.",
+          "mistakeNote": "Counts hauling waste to another town's landfill as waste diversion without reducing total final disposal."
+        }
+      ]
     }
   }
 }
