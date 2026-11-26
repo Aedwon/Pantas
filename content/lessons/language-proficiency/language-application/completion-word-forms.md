@@ -19,8 +19,7 @@ keyPoints:
 
 A **subject** is the person or thing the sentence says something about. A **verb** expresses an action or a state. In *The clerk works* and *The clerk is helpful*, *the clerk* is the subject. *Works* and *is* are the verbs. A verb may have several words, as in *was working* or *had finished*.
 
-**Word form** means the kind of word and the shape it takes. A **noun** names a person, place, thing, or idea. An **adjective** describes a noun. An **adverb** often describes a verb or adjective. Use *a clear answer* but *answer clearly*. The blank's job helps you choose the form.
-
+**Word form** means the kind of word and the shape it takes. A **noun** names a person, place, thing, or idea. An **adjective** describes a noun. An **adverb** often describes a verb or adjective. Use *a clear answer* but *answer clearly*.
 Let's fill the blank in "The nurse spoke ______ to the patient." *(gentle / gently)*
 
 1. *Spoke* is the verb. It is an action.
@@ -39,7 +38,7 @@ Wrong: The mayor spoke calm.
 :::check
 Choose the form: "The report gave a ______ summary." *(brief / briefly / brevity)*
 :::answer
-*brief*. The blank describes the noun *summary*, so use an adjective.
+*brief*. The blank describes the noun *summary*, so use an adjective: "The report gave a brief summary."
 :::
 
 ### Matching the Verb to Its Subject
@@ -62,7 +61,7 @@ Wrong: The cooks tastes the soup.
 :::check
 Choose the verb: "My cousins ______ in Davao." *(live / lives)*
 :::answer
-*live*. *Cousins* is plural, so the verb takes no *-s*.
+*live*. *Cousins* is plural, so the verb takes no *-s*: "My cousins live in Davao."
 :::
 
 ### Choosing the Form After a Verb
@@ -87,7 +86,7 @@ Wrong: The interns want joining the team.
 :::check
 Choose the form: "The manager decided ______ the meeting." *(to cancel / canceling)*
 :::answer
-*to cancel*. *Decided* takes *to* plus the base verb.
+*to cancel*. *Decided* takes *to* plus the base verb: "The manager decided to cancel the meeting."
 :::
 
 ## Examples
@@ -121,9 +120,9 @@ Choose the best completion: "Each evening, the nurses ______ the supply cabinet.
 
 (B) check
 
-(C) checking
+(C) to check
 
-(D) is checking
+(D) has checked
 
 **Solution:**
 
@@ -138,13 +137,13 @@ Choose **(B)**: "Each evening, the nurses check the supply cabinet."
 
 Choose the correct pair: "The campers hope ______ the lake, and they avoid ______ in the dark."
 
-(A) to reach, walking
+(A) reaching, to walk
 
-(B) reaching, to walk
+(B) to reach, to walk
 
-(C) to reach, to walk
+(C) reach, walk
 
-(D) reach, walk
+(D) to reach, walking
 
 **Solution:**
 
@@ -154,7 +153,7 @@ Choose the correct pair: "The campers hope ______ the lake, and they avoid _____
 :::try
 Finish the last step: which choice gives the form that follows *avoid*?
 :::answer
-The answer is **(A) to reach, walking**: "The campers hope to reach the lake, and they avoid walking in the dark." *Avoid* takes an *-ing* form, *walking*.
+The answer is **(D) to reach, walking**: "The campers hope to reach the lake, and they avoid walking in the dark." *Avoid* takes an *-ing* form, *walking*.
 
 **Check:** Read it back. "Avoid walking in the dark" sounds right. "Avoid to walk in the dark" does not.
 :::

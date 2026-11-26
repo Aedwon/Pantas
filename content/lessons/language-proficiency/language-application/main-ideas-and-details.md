@@ -72,9 +72,9 @@ Read: "Many offices use digital forms. These forms reduce repeated handwriting a
 
 What is the main idea?
 
-(A) Handwriting is always slow.
-(B) Digital forms can make office work easier.
-(C) Every department uses the same form.
+(A) Handwriting is always slow.  
+(B) Digital forms can make office work easier.  
+(C) Every department uses the same form.  
 (D) Paper records should never be used.
 
 **Solution:**
@@ -106,9 +106,9 @@ Read: "Many people think night markets only sell food. In fact, one market near 
 
 What is the main idea?
 
-(A) The pier market sells handmade goods at low prices.
-(B) One pier market sells many kinds of goods and lets visitors see the makers.
-(C) All night markets sell handmade goods.
+(A) The pier market sells handmade goods at low prices.  
+(B) One pier market sells many kinds of goods and lets visitors see the makers.  
+(C) All night markets sell handmade goods.  
 (D) The pier market is the oldest in town.
 
 **Solution:**

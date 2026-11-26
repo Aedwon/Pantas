@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-### Cause Then Effect
+### Words That Point Back
 
 A **cause** explains why something happens. An **effect** is the result. A word such as *as a result*, *therefore* or *consequently* points back to a cause, so it comes after the cause.
 
@@ -36,10 +36,10 @@ Wrong: The resulting leak soaked the floor. The pipe froze overnight.
 :::check
 Put these in order: (A) Therefore, the class moved to the library. (B) The classroom ceiling began to leak.
 :::answer
-The answer is **B → A**. *Therefore* in (A) points back to the leak, so (B) comes first.
+The answer is **B → A**. *Therefore* in (A) points back to the leak, so (B) comes first: "The classroom ceiling began to leak. Therefore, the class moved to the library."
 :::
 
-### Effect Then Cause
+### Phrases That Point Back
 
 A writer can state the effect first and explain it after. A phrase such as *the reason for this* or *this was due to* points back to an effect. The effect comes first.
 
@@ -62,7 +62,7 @@ Wrong: The reason for this was a flooded field. The match ended early.
 :::check
 Put these in order: (A) This delay was caused by a late delivery of supplies. (B) Work on the new library began two weeks late.
 :::answer
-The answer is **B → A**. *This delay* points back to the late start in (B), so (B) comes first.
+The answer is **B → A**. *This delay* points back to the late start in (B), so (B) comes first: "Work on the new library began two weeks late. This delay was caused by a late delivery of supplies."
 :::
 
 ## Examples
@@ -82,8 +82,7 @@ Which order makes the link clear?
 
 Use **B → A**: "Heavy rain fell for hours without stopping. As a result, several streets were flooded."
 
-**Check:** Read (A) first. *As a result* has nothing to point back to. Read (B) first and it does.
-
+**Check:** Read (A) first. *As a result* has nothing to point back to.
 ### #2: Canceled Classes
 
 Which order makes the link clear?
@@ -118,7 +117,7 @@ Which order makes the link clear?
 :::try
 Put all three sentences in order.
 :::answer
-The answer is **C → B → A**. The unit stopped (C), so the temperature rose (B), so the stock was thrown away (A).
+The answer is **C → B → A**. The unit stopped (C), so the temperature rose (B), so the stock was thrown away (A): "A refrigeration unit stopped working overnight. The temperature inside the warehouse rose above the safe level. As a result, the warehouse threw away most of its stock."
 
 **Check:** Read C, B, A aloud. Each sentence is the reason for the next.
 :::

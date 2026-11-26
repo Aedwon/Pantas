@@ -48,10 +48,10 @@ Why is Mia going to the pool?
 
 1. The first clue is "a towel, goggles and a swim cap." People use these for swimming.
 2. The second clue is "her coach was waiting." A coach fits a lesson or practice.
-3. The clues support one idea: Mia is going to swim practice.
+3. The clues support one idea: Mia is going to swim.
 
 :::why
-Two clues that point the same way support an idea. One clue that fits many ideas supports none of them.
+Two clues that point the same way usually support an idea. One clue that fits many ideas supports none of them well.
 :::
 
 :::pair #adding-a-guess
@@ -102,9 +102,9 @@ Read: "Because the east entrance was blocked, the post office put up a sign that
 
 Which statement is best supported?
 
-(A) Many people used the side door that morning.
-(B) The side door is wider than the east entrance.
-(C) The post office will close early today.
+(A) Many people used the side door that morning.  
+(B) The side door is wider than the east entrance.  
+(C) The post office will close early today.  
 (D) The east entrance will reopen at noon.
 
 **Solution:**

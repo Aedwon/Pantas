@@ -37,7 +37,7 @@ Ang larawan. Ito ang bagay na nabanggit na sa unang pangungusap.
 
 ### Pagkakasunod-sunod ng mga Pangungusap
 
-Ang *una*, *pagkatapos*, *sumunod*, at *sa wakas* ay tumutulong sa ayos. Ngunit hindi sapat ang *pagkatapos* upang malaman ang eksaktong puwesto. Tingnan kung aling pangyayari ang kailangang mauna.
+Ang *una*, *pagkatapos*, *sumunod*, at *sa wakas* ay tumutulong sa ayos. Tingnan kung aling pangyayari ang kailangang mauna.
 
 1. Hanapin ang simula: ang pangungusap na may *una* o walang tinutukoy na hindi pa nabanggit.
 2. Ilagay sa kasunod ang pangungusap na tumutukoy sa nabanggit na pangyayari.
@@ -45,8 +45,8 @@ Ang *una*, *pagkatapos*, *sumunod*, at *sa wakas* ay tumutulong sa ayos. Ngunit 
 
 Ayusin natin ang mga pangungusap na ito:
 
-(A) Pagkatapos nito, isinalang niya ang kaldero.
-(B) Una, hinugasan ni Aling Rosa ang bigas.
+(A) Pagkatapos nito, isinalang niya ang kaldero.  
+(B) Una, hinugasan ni Aling Rosa ang bigas.  
 (C) Sa wakas, inihain niya ang kanin.
 
 - **(B)**: may *una* at walang tinutukoy na hindi pa nabanggit. Simula ito.
@@ -64,7 +64,7 @@ Ang *reklamong ito* ay tumutukoy sa reklamong hindi pa nabanggit.
 :::check
 Ayusin: (1) Sa wakas, tumubo ang buto. (2) Nagtanim si Liza ng buto sa paso. (3) Pagkatapos nito, dinilig niya ang lupa araw-araw.
 :::answer
-Ang ayos ay **2, 3, 1**. Walang tinutukoy na hindi pa nabanggit ang (2), kaya simula ito. Ang *nito* sa (3) ay ang pagtatanim, kaya kasunod ito. May *sa wakas* ang (1), kaya huli ito.
+Ang ayos ay **2, 3, 1**: "Nagtanim si Liza ng buto sa paso. Pagkatapos nito, dinilig niya ang lupa araw-araw. Sa wakas, tumubo ang buto." Walang tinutukoy na hindi pa nabanggit ang (2), kaya simula ito. Ang *nito* sa (3) ay ang pagtatanim, kaya kasunod ito. May *sa wakas* ang (1), kaya huli ito.
 :::
 
 ### Sanhi at Bunga
@@ -95,9 +95,9 @@ Pagsamahin gamit ang *dahil*: "Nabasag ang baso kaya nagwalis si Ana."
 
 Ayusin ang mga pangungusap.
 
-(A) Sa wakas, inilagay niya ang nilagdaang liham sa sobre.
-(B) Una, isinulat ni Lea ang liham.
-(C) Binasa niya itong muli upang itama ang mali bago niya ito lagdaan.
+(A) Sa wakas, inilagay niya ang nilagdaang liham sa sobre.  
+(B) Una, isinulat ni Lea ang liham.  
+(C) Binasa niya itong muli upang itama ang mali bago niya ito lagdaan.  
 (D) Nang matapos ang pagwawasto, nilagdaan niya ang liham.
 
 **Solution:**
@@ -115,7 +115,7 @@ Ang ayos ay **B, C, D, A**.
 
 Ayusin ang mga pangungusap. Pagkatapos, pagsamahin ang mga ito gamit ang *dahil*.
 
-(A) Kaya hindi natuloy ang palaro.
+(A) Kaya hindi natuloy ang palaro.  
 (B) Malakas ang ulan buong umaga.
 
 **Solution:**
@@ -131,9 +131,9 @@ Ayusin ang mga pangungusap. Pagkatapos, pagsamahin ang mga ito gamit ang *dahil*
 
 Ayusin ang mga pangungusap.
 
-(A) Dahil dito, nagpaskil ang barangay ng abiso.
-(B) Nagbaha sa kalsada matapos ang malakas na ulan.
-(C) Kinabukasan, nakadaan na ulit ang mga traysikel.
+(A) Dahil dito, nagpaskil ang barangay ng abiso.  
+(B) Nagbaha sa kalsada matapos ang malakas na ulan.  
+(C) Kinabukasan, nabasa ng mga drayber ang abiso at nakadaan na ulit ang mga traysikel.
 
 **Solution:**
 
@@ -142,7 +142,7 @@ Ayusin ang mga pangungusap.
 :::try
 Tapusin: aling pangungusap ang pinagmulan ng *dahil dito*, at ano ang buong ayos?
 :::answer
-Ang ayos ay **B, A, C**. Ang baha sa (B) ang tinutukoy ng *dahil dito*. May *kinabukasan* ang (C), kaya sumunod ito sa pagpapaskil.
+Ang ayos ay **B, A, C**. Ang baha sa (B) ang tinutukoy ng *dahil dito*. Nabasa ng mga drayber ang abiso sa (C), kaya sumunod ito sa (A). Ayos: "Nagbaha sa kalsada matapos ang malakas na ulan. Dahil dito, nagpaskil ang barangay ng abiso. Kinabukasan, nabasa ng mga drayber ang abiso at nakadaan na ulit ang mga traysikel."
 
 **Check:** Basahin ayon sa ayos: baha, abiso, pagdaan ng mga traysikel. Bawat pangungusap ay may nauna nang pinagmulan.
 :::

@@ -37,9 +37,9 @@ Ang *bukas* ay panahon. Nasa hinaharap ang kilos, ngunit hindi lahat ng kilos sa
 :::
 
 :::check
-Alin ang hindi tiyak na mangyayari: *(Bumalik ang inspektor noong Huwebes. / Maaaring bumalik ang inspektor sa Huwebes.)*
+Alin ang hindi tiyak na mangyayari: *(Darating ang inspektor sa Huwebes. / Siguro ay darating ang inspektor sa Huwebes.)*
 :::answer
-*Maaaring bumalik ang inspektor sa Huwebes.* Ang *maaaring* ay nagpapakita ng posibilidad, kaya hindi tiyak na babalik siya. Nangyari na ang isa pa.
+*Siguro ay darating ang inspektor sa Huwebes.* Ang *siguro* ay nagpapakita ng posibilidad, kaya hindi tiyak na darating siya. Tiyak ang isa pang pahayag.
 :::
 
 ### Salitang Magkasingkahulugan
@@ -54,7 +54,7 @@ Suriin natin ang "Mabilis ang takbo ng bus.":
 :::check
 Alin ang kasingkahulugan ng *matapang* sa "Matapang ang bumbero"? *(duwag / magiting)*
 :::answer
-*Magiting.* Halos pareho ang kahulugan nito sa *matapang*. Ang *duwag* ay kabaligtaran.
+*Magiting.* Halos pareho ang kahulugan nito sa *matapang*. Ang *duwag* ay kabaligtaran. Buong pangungusap: "Magiting ang bumbero."
 :::
 
 ### Kilos, Pangyayari, at Karanasan
@@ -68,7 +68,7 @@ Ang pandiwa ay maaaring magpahayag ng kilos, pangyayari, o karanasan. Itanong an
 :::check
 Alin ang karanasan: *(Nagluto si Ben ng sopas. / Bumagyo kagabi. / Natakot si Ben sa kulog.)*
 :::answer
-*Natakot si Ben sa kulog.* Damdamin ang naranasan ni Ben. Ang *nagluto* ay kilos, at ang *bumagyo* ay pangyayari.
+Damdamin ang naranasan ni Ben. Ang *nagluto* ay kilos, at ang *bumagyo* ay pangyayari. Ang karanasan: "Natakot si Ben sa kulog."
 :::
 
 ### Panahon ng Pandiwa
@@ -96,7 +96,7 @@ Ang *matutuwa* ay para sa karanasang hindi pa nangyayari. Naganap na ang tuwa ka
 :::check
 Piliin ang anyo: Kanina ay ______ ang bata sa bakod. *(tumalon / tumatalon / tatalon)*
 :::answer
-*Tumalon.* Ang *kanina* ay lumipas na, kaya naganap na ang kilos.
+*Tumalon.* Ang *kanina* ay lumipas na, kaya naganap na ang kilos. Buong pangungusap: "Kanina ay tumalon ang bata sa bakod."
 :::
 
 ## Examples
@@ -122,6 +122,7 @@ Piliin ang wastong pangungusap.
 Piliin ang **(B)**.
 
 **Check:** Basahin ang **(B)** nang buo: "Bukas ay pupunta ako sa opisina."
+
 ### #2: Pagpili ng Anyo ng Pandiwa
 
 Piliin ang angkop na anyo: "Kagabi ay (lumindol / lilindol) sa bayan. (Natuwa / Matutuwa) si Nena nang malaman niyang ligtas ang pamilya niya."
@@ -131,7 +132,7 @@ Piliin ang angkop na anyo: "Kagabi ay (lumindol / lilindol) sa bayan. (Natuwa / 
 1. *Kagabi ay lumindol / lilindol*: naganap na ang lindol kagabi, kaya **lumindol**.
 2. *Natuwa / Matutuwa si Nena*: naranasan na niya ang tuwa nang malaman ang balita, kaya **natuwa**.
 
-**Check:** Basahin ang buo: "Kagabi ay lumindol sa bayan. Natuwa si Nena nang malaman niyang ligtas ang pamilya niya." Parehong naganap na.
+**Check:** Basahin ang buo: "Kagabi ay lumindol sa bayan. Natuwa si Nena nang malaman niyang ligtas ang pamilya niya."
 
 ### #3: Posibilidad, Panahon, at Lugar
 
@@ -153,7 +154,7 @@ Aling salita ang nagpapahayag ng posibilidad sa patlang? "______ umulan mamaya r
 
 **Check:** Basahin: "Baka umulan mamaya rito." Maaaring umulan, at ang *mamaya* at *rito* ay panahon at lugar.
 
-### #4: Salitang Magkapareho ang Diwa
+### #4: Pagpili ng Salita
 
 Alin ang kasingkahulugan ng salitang nakadiin sa pangungusap: "**Maligaya** ang mga empleyado sa magandang balita"?
 
@@ -172,9 +173,9 @@ Alin ang kasingkahulugan ng salitang nakadiin sa pangungusap: "**Maligaya** ang 
 :::try
 Tapusin: alin ang hindi nagbago ang diwa?
 :::answer
-Ang sagot ay **(A) masaya**.
+Ang sagot ay **(A) masaya**: "Masaya ang mga empleyado sa magandang balita." Hindi nagbago ang diwa.
 
-**Check:** Palitan ang salita: "Masaya ang mga empleyado sa magandang balita." Hindi nagbago ang diwa.
+**Check:** Subukan ang **(B)**: "Malungkot ang mga empleyado sa magandang balita." Nagbago ang diwa.
 :::
 
 ## Traps to Watch For

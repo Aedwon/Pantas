@@ -16,7 +16,7 @@ keyPoints:
 
 ### Paksa at Pangunahing Ideya
 
-Ang **paksa** (topic) ang pinag-uusapan. Ang pangunahing ideya ang mahalagang sinasabi tungkol dito. Ang mga salitang susi ay ang mahahalagang salita sa talata, kadalasang inuulit o tinutukoy ng *dito* at *ito*. Basahin ang mga ito sa buong pangungusap, hindi nag-iisa.
+Ang **paksa** (topic) ang pinag-uusapan. Ang **pangunahing ideya** (main idea) ang mahalagang sinasabi tungkol dito. Ang mga **salitang susi** (key words) ay mahahalagang salita sa talata, kadalasang inuulit o tinutukoy ng *dito* at *ito*. Basahin ang mga ito sa buong pangungusap, hindi nag-iisa.
 
 Basahin ang talata: "Mahalaga ang palengke sa komunidad. Dito namimili ang mga tao ng pagkain. Dito rin ibinebenta ng mga magsasaka ang kanilang ani. Dito rin nagkikita ang magkakapitbahay."
 
@@ -57,12 +57,12 @@ Walang sinabi ang talata tungkol sa tindahan. Sabihin lamang ang laman ng binasa
 :::check
 Sabihin sa sariling salita: "Ang ilog ay pinagkukunan ng tubig at isda ng mga taga-nayon."
 :::answer
-Halimbawa: **"Kumukuha ng tubig at isda ang mga taga-nayon sa ilog."** Pareho ang diwa, at walang idinagdag.
+Anumang pangungusap na pareho ang diwa at walang idinagdag ay tama. Halimbawa: **"Kumukuha ng tubig at isda ang mga taga-nayon sa ilog."**
 :::
 
 ### Paggawa ng Balangkas
 
-Ang **balangkas** (outline) ay may pangunahing ideya sa itaas at mga detalyeng sumusuporta sa ilalim. Bawat detalye ay galing sa binasa.
+Ang **balangkas** (outline) ay may pangunahing ideya sa itaas at mga detalyeng sumusuporta sa ilalim.
 
 Mula sa talata tungkol sa palengke:
 
@@ -80,7 +80,7 @@ Walang binanggit na presyo o upa ang talata. Isama lamang ang detalyeng nasa bin
 :::check
 Gumawa ng balangkas: "Mabuti sa kalusugan ang sapat na tulog. Nagbibigay ito ng lakas sa katawan. Pinatatalas nito ang isip sa klase."
 :::answer
-Pangunahing ideya: Silbi ng sapat na tulog sa kalusugan. Detalye: Lakas sa katawan. Detalye: Matalas na isip sa klase.
+Anumang balangkas na galing lamang sa talata ay tama. Halimbawa: Pangunahing ideya: Silbi ng sapat na tulog sa kalusugan. Detalye: Lakas sa katawan. Detalye: Matalas na isip sa klase.
 :::
 
 ## Examples
@@ -95,7 +95,7 @@ Ano ang paksa? Ano ang ibig sabihin ng salitang nakadiin sa talata? Ipaliwanag a
 
 1. Ang *dito* ay tumutukoy sa *silid-aklatan*. Ito ang paksa. Ang pangunahing ideya ay ang tulong nito sa pag-aaral.
 2. Sa "Maaari rin silang magsaliksik gamit ang mga **sanggunian**": ang *sanggunian* ay materyal na pinagkukunan ng impormasyon, kaugnay ng pagsasaliksik.
-3. Sa sariling salita: **"Nakakatulong ang silid-aklatan dahil may mga aklat, mapagkukunan ng impormasyon, at lugar para sa tahimik na pagbabasa."**
+3. Sa sariling salita: **"Tumutulong ang silid-aklatan sa pag-aaral dahil may mga aklat, mapagkukunan ng impormasyon, at lugar para sa tahimik na pagbabasa."**
 4. Ang balangkas:
 
 - Pangunahing ideya: Tulong ng silid-aklatan sa pag-aaral.

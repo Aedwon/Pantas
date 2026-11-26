@@ -34,13 +34,13 @@ Although the clinic was crowded, the nurse stayed calm with every patient.
 :::pair #synonym-after-far-from
 Right: Far from being anxious, the cashier stayed calm and polite.
 Wrong: Far from being relaxed, the cashier stayed calm and polite.
-*Far from being* denies the blank. The blank needs the opposite of *calm*, and *relaxed* only repeats it.
+*Far from being* says the cashier was not like that. The blank needs the opposite of *calm*, and *relaxed* only repeats it.
 :::
 
 :::check
 Choose the best word: "Because the road was slick with ice, drivers moved ______." *(quickly / carefully)*
 :::answer
-*carefully*. *Because* gives the reason: ice makes a road dangerous, so drivers take care.
+*carefully*. *Because* gives the reason: ice makes a road dangerous, so drivers take care: "Because the road was slick with ice, drivers moved carefully."
 :::
 
 ### Check Every Blank
@@ -65,7 +65,7 @@ Wrong: The manager's ordinary plan to scrap every old rule met widespread opposi
 :::check
 Choose the best pair: "Although the new clerk felt ______ on the first day, weeks of practice left her ______ by the end." *(uneasy, comfortable / comfortable, uneasy / uneasy, hesitant)*
 :::answer
-*uneasy, comfortable*. *Although* sets a contrast, and practice brings comfort. A clerk who starts uneasy becomes comfortable.
+*uneasy, comfortable*. *Although* sets a contrast, and practice brings comfort. A clerk who starts uneasy becomes comfortable: "Although the new clerk felt uneasy on the first day, weeks of practice left her comfortable by the end."
 :::
 
 ## Examples
@@ -159,7 +159,7 @@ The answer is **(B) thorough, nervous**: "Despite her thorough preparation, she 
 
 ## Speed Tricks & Shortcuts
 
-Predict the meaning and word form before reading the choices. This helps you set aside a word that sounds good but does not fit.
+Predict the meaning and word form before reading the choices.
 
 ## Traps to Watch For
 

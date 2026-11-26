@@ -21,7 +21,7 @@ An **opening sentence** often names the topic or situation. It should make sense
 
 Which sentence opens?
 
-(A) "Their boots were covered in mud by the time they reached the camp."
+(A) "Their boots were covered in mud by the time they reached the camp."  
 (B) "A group of hikers set out before sunrise to climb the ridge."
 
 1. (A) says "Their boots." Whose boots? No earlier sentence says.
@@ -48,8 +48,8 @@ The answer is (B). It names the boxes. *Those boxes* in (A) needs an earlier sen
 
 Put in order:
 
-(A) "This water then flows into the village tank."
-(B) "Rain collects on the school roof and runs into a pipe."
+(A) "This water then flows into the village tank."  
+(B) "Rain collects on the school roof and runs into a pipe."  
 (C) "The tank holds enough for the dry months."
 
 1. (B) names the rain, the roof and the pipe. It needs no earlier sentence.
@@ -75,17 +75,17 @@ The answer is B, then A. *That change* in (A) points to the switch to solar pane
 
 Arrange the sentences into a coherent paragraph.
 
-(A) This competition led to conflicts between the groups.
-(B) As the settlements grew, competition for these resources increased.
-(C) The groups settled near a river for water and fertile soil.
+(A) This competition led to conflicts between the groups.  
+(B) As the settlements grew, competition for these resources increased.  
+(C) The groups settled near a river for water and fertile soil.  
 (D) Some of these conflicts later became wars.
 
 **Solution:**
 
 1. (C) "The groups settled near a river for water and fertile soil." names the groups and resources. It needs no earlier sentence.
-2. *These resources* in (B) points to the water and soil in (C).
+2. *These resources* in (B) point to the water and soil in (C).
 3. *This competition* in (A) points to the competition in (B).
-4. *These conflicts* in (D) points to the conflicts in (A).
+4. *These conflicts* in (D) point to the conflicts in (A).
 5. The order is C, B, A, D.
 
 **Check:** Read the paragraph in that order. Each pointing phrase now follows the sentence it points to.
@@ -94,9 +94,9 @@ Arrange the sentences into a coherent paragraph.
 
 Arrange the sentences in the best order.
 
-(A) Her heart sank when she saw the empty shelf.
-(B) Rosa had saved all week to buy the last copy of a book.
-(C) The clerk said it had sold an hour earlier.
+(A) Her heart sank when she saw the empty shelf.  
+(B) Rosa had saved all week to buy the last copy of a book.  
+(C) The clerk said the last copy on that shelf had sold an hour earlier.
 
 **Solution:**
 
@@ -111,8 +111,8 @@ Arrange the sentences in the best order.
 
 Arrange the sentences in the best order.
 
-(A) These grants let schools buy new lab equipment.
-(B) Last year the district set aside money for science grants.
+(A) These grants let schools buy new lab equipment.  
+(B) Last year the district set aside money for science grants.  
 (C) Teachers said the equipment made experiments safer.
 
 **Solution:**
@@ -128,12 +128,11 @@ The answer is B, A, C. (B) names "science grants" and makes sense alone. *The eq
 
 ## Speed Tricks & Shortcuts
 
-Find the sentence that needs no other sentence. Then follow each pointing phrase back to the sentence that names it. Read the whole order once more.
-
+Find the sentence that needs no other sentence. Then follow each pointing phrase back to the sentence that names it.
 ## Traps to Watch For
 
 :::checklist
-- A sentence that starts with *this*, *that* or *these*: put the sentence that names the thing first (name, then pointer). {#reference-before-source}
+- A sentence that starts with *this*, *that* or *these*: usually put the sentence that names the thing first (name, then pointer). {#reference-before-source}
 - A phrase such as *the study* or *those replies* that names a noun introduced elsewhere in the set: put the first mention before it (first mention, then phrase). {#the-noun-link}
 - No pointing word and no broad statement: a story or steps may open with an event (follow the links the text gives). {#choosing-the-opening-sentence}
 :::

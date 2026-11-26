@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-### A Finished Past Action
+### Time Clues
 
 Check time as well as meaning. Simple past describes a finished past action: *She sent it yesterday*. A time clue such as *yesterday* or *last week* places the action in the past.
 
@@ -32,12 +32,12 @@ Wrong: Last Friday, the cashier pays the supplier.
 :::
 
 :::check
-Choose the form: "On Monday, the driver ______ the package to the office." *(delivers / delivered)*
+Choose the form: "Last Monday, the driver ______ the package to the office." *(delivers / delivered)*
 :::answer
-*delivered*. *On Monday* is a finished time in the past, so use the simple past.
+*delivered*. *Last Monday* is a finished time in the past, so use the simple past: "Last Monday, the driver delivered the package to the office."
 :::
 
-### An Ongoing Past Action
+### Actions Around Another Event
 
 Past progressive uses *was* or *were* plus an *-ing* form for an ongoing past action: *She was writing when I called*. The action was in progress when something else happened.
 
@@ -56,12 +56,12 @@ Wrong: When the manager walked in, the clerk had counted the cash. (still counti
 :::
 
 :::check
-Choose the form: "While the technician ______ the printer, the lights went out." *(repaired / was repairing)*
+Choose the form: "While the technician ______ the printer, the lights went out and he had to stop halfway." *(repaired / was repairing)*
 :::answer
-*was repairing*. The repair was still going on when the lights went out.
+*was repairing*. The repair was still going on when the lights went out: "While the technician was repairing the printer, the lights went out and he had to stop halfway."
 :::
 
-### An Earlier Past Action
+### Two Events in the Past
 
 Past perfect uses *had* plus a **past participle** to make an earlier past action clear. A past participle is the form used after *have, has,* or *had*. Regular examples end in *-ed*, as in *had finished*; irregular examples include *had written* and *had gone*.
 
@@ -78,7 +78,7 @@ Do not add *had* to every past verb. If you only report a finished event, simple
 :::check
 Choose the form: "By the time the meeting began, Rico ______ his slides." *(had printed / prints / will print)*
 :::answer
-*had printed*. Printing happened before the meeting began, so use *had* plus the participle.
+*had printed*. Printing happened before the meeting began, so use *had* plus the participle: "By the time the meeting began, Rico had printed his slides."
 :::
 
 ## Examples
@@ -148,12 +148,11 @@ The answer is **(A) was mopping**: "When the guard arrived at six, the cleaner w
 
 ## Speed Tricks & Shortcuts
 
-Use the strongest clue first. A verb pattern or a clear time clue can narrow the choices.
-
+Use the strongest clue first.
 ## Traps to Watch For
 
 :::checklist
 - A time word such as *Last Friday*: use a past form, not a present one (*paid*). {#present-for-past}
 - An action still in progress when another one happened: use *was* or *were* plus *-ing*, not *had* plus a participle (*was counting*). {#had-for-unfinished}
-- One time word: read the whole timeline (finished, ongoing, earlier) before choosing a form. {#an-earlier-past-action}
+- One time word: read the whole timeline (finished, ongoing, earlier) before choosing a form. {#two-events-in-the-past}
 :::

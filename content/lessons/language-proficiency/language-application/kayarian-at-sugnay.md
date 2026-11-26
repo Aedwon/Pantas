@@ -76,7 +76,7 @@ Suriin ang "Habang nagluluto si Lina, naglinis si Ramon at nag-igib si Tito.":
 :::pair #bilangin-ang-lahat-ng-sugnay
 Right: Langkapan ang "Habang nagluluto si Lina, naglinis si Ramon at nag-igib si Tito."
 Wrong: Tambalan ito dahil walang sugnay na di-makapag-iisa.
-Bitin ang *habang nagluluto si Lina*, kaya may di-makapag-iisa. Kung isang buong diwa lamang ang bibilangin, hugnayan ang lalabas. Bilangin ang lahat ng sugnay.
+Bitin ang *habang nagluluto si Lina*, kaya may di-makapag-iisa. Bilangin ang lahat ng sugnay.
 :::
 
 :::check
@@ -122,9 +122,9 @@ Ano ang kayarian ng pangungusap na ito? "Nang matapos ang pulong, umuwi si Mara 
 
 Langkapan ang pangungusap.
 
-**Check:** Alisin ang *nang matapos ang pulong*. Buo pa rin ang dalawang natirang sugnay, kaya bitin ang inalis.
+**Check:** Basahin nang mag-isa ang "Nang matapos ang pulong." Bitin ito, kailangan pa ng karugtong.
 
-### #3: Pangungusap na May Pang-ugnay
+### #3: Pagsusuri ng Maikling Pangungusap
 
 Ano ang kayarian ng pangungusap na ito? "Magbabayad ako ng upa kapag may sahod na."
 
@@ -144,5 +144,5 @@ Buo ang diwa ng *Magbabayad ako ng upa*, kaya makapag-iisa ito. Isang makapag-ii
 
 :::checklist
 - Pangkat ng salitang walang panaguri, gaya ng *sa loob ng bagong tanggapan*: parirala ito, hindi sugnay. {#parirala-hindi-sugnay}
-- Dalawang buong diwa na may bitin na sugnay ring may *habang*, *kapag*, o *dahil*: bilangin ang lahat, langkapan ito (hindi tambalan). {#bilangin-ang-lahat-ng-sugnay}
+- Dalawang buong diwa at isang sugnay na may *habang*, *kapag*, o *dahil*: bilangin ang lahat. Langkapan ito, hindi tambalan. {#bilangin-ang-lahat-ng-sugnay}
 :::

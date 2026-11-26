@@ -21,7 +21,7 @@ Basahin muna ang buong pangungusap bago pumili.
 
 Hanapin ang salitang nagsasabi ng oras, gaya ng *kahapon*, *ngayon*, o *bukas*. Itanong kung tapos na, ginagawa pa, o gagawin pa ang kilos. May anyo ang **pandiwa** (verb) para sa bawat isa: *ipinadala* (tapos na), *ipinapadala* (ginagawa pa), at *ipapadala* (gagawin pa).
 
-Basahin pa rin ang buong pangungusap. Ang *habang* o *pa* ay maaaring magpakitang nagpapatuloy ang kilos kahit sa nakaraan, at ang *tuwing* ay tanda ng paulit-ulit na gawain.
+Ang *habang* o *pa* ay maaaring magpakitang nagpapatuloy ang kilos kahit sa nakaraan, at ang *tuwing* ay tanda ng paulit-ulit na gawain.
 
 Punan natin ang "Kahapon, ______ ni Ela ang sulat sa guro.":
 
@@ -38,7 +38,7 @@ Ang *ipapadala* ay para sa kilos na gagawin pa. Itugma ang anyo sa *kahapon*, na
 :::check
 Piliin ang tamang anyo: Bukas, ______ ni Ben ang kuwaderno. *(ibinalik / ibinabalik / ibabalik)*
 :::answer
-*Ibabalik.* Ang *bukas* ay hindi pa dumarating, kaya gagawin pa ang kilos.
+*Ibabalik.* Ang *bukas* ay hindi pa dumarating, kaya gagawin pa ang kilos. Buong pangungusap: "Bukas, ibabalik ni Ben ang kuwaderno."
 :::
 
 ### Pang-ugnay na Akma sa Ugnayan ng Ideya
@@ -66,7 +66,7 @@ Ang *kaya* ay nagpapakita ng bunga. Hindi bunga ng pagod ang pagpapatuloy, kaya 
 :::check
 Piliin ang pang-ugnay: Nagkasakit si Pia, ______ hindi siya pumasok. *(kaya / ngunit)*
 :::answer
-*Kaya.* Ang hindi pagpasok ay bunga ng pagkakasakit.
+*Kaya.* Ang hindi pagpasok ay bunga ng pagkakasakit. Buong pangungusap: "Nagkasakit si Pia, kaya hindi siya pumasok."
 :::
 
 ### Likas at Akmang Parirala
@@ -83,13 +83,13 @@ Punan natin ang "Hindi madaanan ang kalsada dahil sa ______.", mga pagpipilian: 
 :::pair #likas-at-akma-sa-kahulugan
 Right: Dahil sa matinding ulan, nabasa ang naiwang papel.
 Wrong: Dahil sa matinding tulong, nabasa ang naiwang papel.
-Likas sa ilang salita ang *matinding*, ngunit hindi nakababasa ng papel ang tulong. Basahin ang buong parirala kasama ang kahulugan ng pangungusap.
+Likas sa ilang salita ang *matinding*, ngunit hindi dahilan ng pagkabasa ng papel ang tulong. Basahin ang buong parirala kasama ang kahulugan ng pangungusap.
 :::
 
 :::check
 Piliin ang parirala: Nanalo ang koponan dahil sa kanilang ______. *(mahusay na pagsasanay / mahusay na pagkatalo)*
 :::answer
-*Mahusay na pagsasanay.* Likas na magkasama ang *mahusay* at *pagsasanay*, at maaari itong maging dahilan ng panalo. Hindi dahilan ng panalo ang pagkatalo.
+*Mahusay na pagsasanay.* Likas na magkasama ang *mahusay* at *pagsasanay*, at maaari itong maging dahilan ng panalo. Hindi dahilan ng panalo ang pagkatalo. Buong pangungusap: "Nanalo ang koponan dahil sa kanilang mahusay na pagsasanay."
 :::
 
 ## Examples
@@ -114,8 +114,7 @@ Piliin ang wastong sagot: "Kahapon, ______ ni Lino ang kanyang aplikasyon sa tan
 
 Piliin ang **(B)**.
 
-**Check:** Basahin ang buong pangungusap: "Kahapon, ipinasa ni Lino ang kanyang aplikasyon sa tanggapan." Tugma ang *ipinasa* sa *kahapon*.
-
+**Check:** Basahin ang buong pangungusap: "Kahapon, ipinasa ni Lino ang kanyang aplikasyon sa tanggapan."
 ### #2: Ugnayan ng Ideya
 
 Piliin ang angkop na salita: "Malakas ang ulan, ______ ipinagpaliban ang programa."
@@ -132,13 +131,13 @@ Piliin ang angkop na salita: "Malakas ang ulan, ______ ipinagpaliban ang program
 
 1. Ang *malakas ang ulan* ay ang dahilan.
 2. Ang *ipinagpaliban ang programa* ay ang bunga.
-3. **(B)** *kaya* ay ang pang-ugnay ng bunga.
+3. **(B)** *kaya* ang pang-ugnay ng bunga: "Malakas ang ulan, kaya ipinagpaliban ang programa."
 
 Piliin ang **(B)**.
 
 **Check:** Isulat sa ibang ayos: "Ipinagpaliban ang programa dahil malakas ang ulan." Pareho ang diwa.
 
-### #3: Pariralang Bagay sa Pangungusap
+### #3: Pagpuno sa Pangungusap
 
 Piliin ang pariralang likas at akma: "Nawalan ng kuryente ang barangay dahil sa ______."
 

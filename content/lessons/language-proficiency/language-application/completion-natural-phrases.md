@@ -34,7 +34,7 @@ Wrong: The committee must do a decision.
 :::check
 Choose the best word: "The pilot asked everyone to ___ attention to the safety video." *(pay / do / say)*
 :::answer
-*pay*. The usual word combination is *pay attention*.
+*pay*. The usual word combination is *pay attention*: "The pilot asked everyone to pay attention to the safety video."
 :::
 
 ### Idioms

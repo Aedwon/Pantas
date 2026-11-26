@@ -39,7 +39,7 @@ Wrong: a unopened box
 :::check
 Choose the pair: "Mia gave ___ honest answer. Everyone trusted ___ answer." *(an, the / a, the / the, an)*
 :::answer
-*an, the*. *Honest* begins with a vowel sound (the *h* is silent), so the first blank takes *an*. The second mention points to the same answer, so it takes *the*.
+*an, the*. *Honest* begins with a vowel sound (the *h* is silent), so the first blank takes *an*. The second mention points to the same answer, so it takes *the*. Full sentences: "Mia gave an honest answer. Everyone trusted the answer."
 :::
 
 ### Prepositions in Fixed Phrases
@@ -62,7 +62,7 @@ Many words keep one usual preposition. *On* fits other phrases, such as *focused
 :::check
 Choose the preposition: "The coach is proud ___ the team." *(of / at / for)*
 :::answer
-*of*. The fixed phrase is *proud of*.
+*of*. The fixed phrase is *proud of*: "The coach is proud of the team."
 :::
 
 ### Matching Forms in Lists and Comparisons
@@ -86,7 +86,7 @@ The third item changed form. Every item in the list uses *-ing*.
 :::check
 Choose the form: "The course teaches planning, budgeting, and ___." *(negotiate / negotiating / to negotiate)*
 :::answer
-*negotiating*. *Planning* and *budgeting* end in *-ing*, so the third item does too.
+*negotiating*. *Planning* and *budgeting* end in *-ing*, so the third item does too: "The course teaches planning, budgeting, and negotiating."
 :::
 
 ## Examples
@@ -110,7 +110,7 @@ Choose the best completion: "The assistant is responsible ______ updating the vi
 
 Choose **(B)**: "The assistant is responsible for updating the visitor log."
 
-**Check:** Say the phrase alone: "responsible for." The other choices do not sound right.
+**Check:** Try one swap: "responsible of updating the visitor log" is not a standard phrase.
 
 ### #2: Articles and Context
 
@@ -131,7 +131,7 @@ Choose the correct pair: "A teacher gave Ben a worksheet. He finished ______ wor
 
 Choose **(D)**: "He finished the worksheet before a unit test."
 
-**Check:** The worksheet appeared in the first sentence, so *the* fits. The test appears for the first time, so it cannot take *the*.
+**Check:** The worksheet appeared earlier, so *the* fits. The test appears for the first time, so it takes *a* here.
 
 ### #3: A Comparison of Habits
 
