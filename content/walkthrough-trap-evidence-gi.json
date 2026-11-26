@@ -687,6 +687,364 @@
           "mistakeNote": "Overstates Section 17 as a blanket refusal right covering non-testimonial physical evidence."
         }
       ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-political-beliefs-and-forced-service": {
+      "political-belief-sole-ground": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0001",
+          "wrongChoice": "Any unpopular belief permits detention, while any official may impose labor without conviction.",
+          "mistakeNote": "Removes Section 18's safeguard against detention solely for unpopular political beliefs."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0001",
+          "wrongChoice": "All detention is forbidden in every case, and all punishment after conviction is automatically unlawful.",
+          "mistakeNote": "Turns Section 18(1)'s bar on belief-only detention into an absolute ban on all lawful detention."
+        }
+      ],
+      "servitude-conviction-exception": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0016",
+          "wrongChoice": "Any forced work is prohibited even when imposed as lawful punishment after conviction.",
+          "mistakeNote": "Omits Section 18(2)'s express exception for punishment after due conviction for a crime."
+        }
+      ],
+      "charge-not-conviction": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0016",
+          "wrongChoice": "An accusation alone would have been enough to permit the same punishment.",
+          "mistakeNote": "Treats a mere accusation as satisfying Section 18(2)'s due-conviction requirement."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-fines-and-prison-punishment": {
+      "cruel-not-all-punishment": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0013",
+          "wrongChoice": "Any punishment imposed after due conviction regardless of its lawful form",
+          "mistakeNote": "Treats Section 19(1) as prohibiting all lawful punishment rather than excessive, cruel, degrading, or inhuman penalties."
+        }
+      ],
+      "degrading-beyond-physical-injury": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0013",
+          "wrongChoice": "Only punishment that causes lasting physical injury to the prisoner",
+          "mistakeNote": "Limits Section 19 to lasting physical injury and ignores degrading or psychological abuse and subhuman conditions."
+        }
+      ],
+      "constitution-permission-vs-ra9346": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0017",
+          "wrongChoice": "The Constitution requires death for every heinous crime.",
+          "mistakeNote": "Turns Section 19(1)'s conditional permission for Congress into a mandatory death penalty."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0017",
+          "wrongChoice": "The Constitution leaves courts free to disregard the Act's prohibition.",
+          "mistakeNote": "Treats Section 19(1)'s conditional wording as allowing courts to ignore Republic Act No. 9346, Section 1."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-replacement-penalties-and-parole": {
+      "nomenclature-picks-replacement": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0004",
+          "wrongChoice": "Life imprisonment and reclusion perpetua",
+          "mistakeNote": "Reverses Republic Act No. 9346, Section 2 by swapping reclusion perpetua and life imprisonment."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0004",
+          "wrongChoice": "Reclusion perpetua for both laws",
+          "mistakeNote": "Uses reclusion perpetua even when the violated law does not use Revised Penal Code penalty names."
+        }
+      ],
+      "no-parole-after-reduction": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0005",
+          "wrongChoice": "The reduction makes parole automatic after part of the sentence is served.",
+          "mistakeNote": "Assumes reducing a death sentence to reclusion perpetua creates parole eligibility despite Section 3's bar."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0005",
+          "wrongChoice": "The parole restriction applies only while the sentence still prescribes death.",
+          "mistakeNote": "Ignores that Section 3 expressly covers death sentences reduced to reclusion perpetua under the Act."
+        }
+      ],
+      "no-prisoner-penalty-choice": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0005",
+          "wrongChoice": "The prisoner may choose life imprisonment to remove the parole restriction.",
+          "mistakeNote": "Assumes a prisoner can choose the replacement penalty instead of following the violated law's naming style."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-debt-and-poll-tax": {
+      "debt-and-poll-tax-both-covered": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0006",
+          "wrongChoice": "The lender may obtain imprisonment by showing that the loan was in writing.",
+          "mistakeNote": "Assumes putting a civil loan in writing removes Section 20's ban on imprisonment for debt."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0006",
+          "wrongChoice": "The protection applies only to unpaid poll taxes, so this loan can lead to jail.",
+          "mistakeNote": "Drops debt from Section 20 and limits the protection to unpaid poll taxes."
+        }
+      ],
+      "debt-still-payable": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0006",
+          "wrongChoice": "The loan is canceled as soon as the borrower cannot pay.",
+          "mistakeNote": "Confuses Section 20's ban on imprisonment with canceling a valid obligation to pay."
+        }
+      ],
+      "separate-crime-still-punishable": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0011",
+          "wrongChoice": "Any offense involving a financial transaction even when a separate crime is proven",
+          "mistakeNote": "Turns Section 20's debt protection into immunity for separate proven financial crimes."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0011",
+          "wrongChoice": "Any conviction that requires the court to examine a written contract",
+          "mistakeNote": "Treats the presence of a written contract in a criminal case as barring imprisonment."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-double-jeopardy-conditions": {
+      "jeopardy-vs-retroactive-laws": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0008",
+          "wrongChoice": "Protection against ex post facto laws",
+          "mistakeNote": "Confuses repeated prosecution for the same offense under Section 21 with retroactive penal laws under Section 22."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0008",
+          "wrongChoice": "Protection against bills of attainder",
+          "mistakeNote": "Confuses repeated criminal prosecution under Section 21 with legislative punishment without trial under Section 22."
+        }
+      ],
+      "plea-required-for-jeopardy": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0007",
+          "wrongChoice": "Filing the complaint alone is enough to establish double jeopardy.",
+          "mistakeNote": "Skips Rule 117, Section 7's arraignment and valid-plea requirements."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0007",
+          "wrongChoice": "Withdrawal of a complaint is always equivalent to an acquittal after trial.",
+          "mistakeNote": "Treats pre-arraignment withdrawal of a complaint as an acquittal after trial."
+        }
+      ],
+      "acquittal-without-sentence": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0007",
+          "wrongChoice": "Double jeopardy arises only after an accused has served a prison sentence.",
+          "mistakeNote": "Requires a served prison sentence when a valid acquittal triggers double jeopardy without jail time."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-double-jeopardy-covered-offenses": {
+      "attempt-vs-frustrated": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0018",
+          "wrongChoice": "Frustrated and attempted",
+          "mistakeNote": "Reverses attempted and frustrated stages by failing to check whether all execution acts were performed."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0018",
+          "wrongChoice": "Attempted in both cases",
+          "mistakeNote": "Overlooks that the second person completed all acts of execution before an outside cause stopped the result."
+        }
+      ],
+      "included-offense-same-elements": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0008",
+          "wrongChoice": "The homicide trial may proceed because the second charge has a different name.",
+          "mistakeNote": "Relies on charge titles instead of checking whether the first charge included every element of the second."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0008",
+          "wrongChoice": "The homicide trial may proceed because the second charge requires fewer elements.",
+          "mistakeNote": "Ignores that Rule 117, Section 7 bars a later trial for a lesser offense necessarily included in the first charge."
+        }
+      ],
+      "acquittal-also-bars-included": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0008",
+          "wrongChoice": "The homicide trial may proceed because only a prior conviction can bar it.",
+          "mistakeNote": "Assumes only a prior conviction bars trying an included offense when a valid acquittal bars it too."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-later-offenses-and-local-ordinances": {
+      "supervening-graver-offense": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0010",
+          "wrongChoice": "Any conviction permanently bars prosecution for every later result of the act.",
+          "mistakeNote": "Ignores Rule 117, Section 7(a)'s exception for a graver offense developing from supervening facts after conviction."
+        }
+      ],
+      "ordinance-and-national-same-act": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0009",
+          "wrongChoice": "A national prosecution is allowed because national laws outrank local ordinances.",
+          "mistakeNote": "Assumes national rank overrides Section 21's same-act bar between a law and a local ordinance."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0009",
+          "wrongChoice": "A second prosecution is allowed if it seeks a different penalty for the same act.",
+          "mistakeNote": "Assumes a different penalty defeats Section 21's bar on prosecuting the same act twice."
+        }
+      ],
+      "conviction-and-acquittal-both-bar": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0009",
+          "wrongChoice": "Only an acquittal under the ordinance could bar the national prosecution.",
+          "mistakeNote": "Limits Section 21's law-and-ordinance rule to acquittals when conviction or acquittal under either bars retrial."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-requested-dismissals-and-acquittals": {
+      "requested-dismissal-reason-matters": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0012",
+          "wrongChoice": "Every dismissal after a plea is an acquittal that bars another prosecution.",
+          "mistakeNote": "Ignores that a dismissal requested by the accused for a procedural defect generally permits reprosecution."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0014",
+          "wrongChoice": "The request permits a new prosecution regardless of the court's reason for dismissal.",
+          "mistakeNote": "Applies the general requested-dismissal rule blindly without checking the court's ground for dismissal."
+        }
+      ],
+      "granted-demurrer-is-acquittal": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0013",
+          "wrongChoice": "Another trial is allowed because every requested dismissal waives double jeopardy.",
+          "mistakeNote": "Misses that granting a demurrer for insufficient evidence is an acquittal that bars retrial despite the request."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0013",
+          "wrongChoice": "Another trial is allowed because only a jury can acquit an accused.",
+          "mistakeNote": "Invents a jury requirement instead of treating a court's granted demurrer for insufficient proof as an acquittal."
+        }
+      ],
+      "speedy-trial-exception": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0014",
+          "wrongChoice": "Only a grant of a demurrer can ever protect an accused who requested dismissal.",
+          "mistakeNote": "Leaves out dismissal for a constitutional speedy-trial violation as a second exception barring retrial."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-backward-penal-laws-and-legislative-punishment": {
+      "lower-proof-still-ex-post-facto": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0011",
+          "wrongChoice": "The law is allowed because it does not increase the prison penalty.",
+          "mistakeNote": "Limits ex post facto laws to penalty increases and misses retroactive reductions in required proof."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0011",
+          "wrongChoice": "The law is allowed because a court will still conduct a trial.",
+          "mistakeNote": "Assumes holding a judicial trial cures a retroactive lowering of the proof required to convict."
+        }
+      ],
+      "ex-post-facto-vs-attainder": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0009",
+          "wrongChoice": "Legislative bill of attainder",
+          "mistakeNote": "Confuses retroactive criminalization of an act with legislative punishment without judicial trial."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0010",
+          "wrongChoice": "Ex post facto law",
+          "mistakeNote": "Confuses legislative punishment without a judicial trial with a backward-looking penal change."
+        }
+      ],
+      "prospective-general-crime-valid": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0015",
+          "wrongChoice": "It is ex post facto because every new penal law changes criminal consequences.",
+          "mistakeNote": "Calls a prospective penal law ex post facto even though it applies only to future conduct."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0015",
+          "wrongChoice": "It is a bill of attainder because Congress defined a punishable offense.",
+          "mistakeNote": "Confuses defining a general offense tried in court with inflicting legislative punishment without trial."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-rights-claims-evidence-and-effects": {
+      "label-is-not-proof": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0019",
+          "wrongChoice": "Accept the label as proof because it names a constitutional right.",
+          "mistakeNote": "Treats an allegation or rights label as established proof without checking evidence."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0019",
+          "wrongChoice": "Decide from the alleged harm alone without identifying who acted or what happened.",
+          "mistakeNote": "Skips checking who acted, what happened, and how the facts fit the constitutional rule."
+        }
+      ],
+      "detainees-keep-protections": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0019",
+          "wrongChoice": "Reject the report because detention removes protection from punishment.",
+          "mistakeNote": "Assumes detainees lose Section 19 protection against cruel or degrading punishment."
+        }
+      ],
+      "only-record-supported-effects": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0020",
+          "wrongChoice": "A proven physical injury and difficulty meeting daily expenses",
+          "mistakeNote": "Assumes a physical injury that has no medical or factual support in the record."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0020",
+          "wrongChoice": "Loss of liberty and cancellation of all the family's debts",
+          "mistakeNote": "Invents cancellation of family debts instead of stating only the lost income and daily-expense effects in the record."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-court-remedies-and-rights-investigations": {
+      "habeas-corpus-vs-parole": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0002",
+          "wrongChoice": "A request for parole",
+          "mistakeNote": "Confuses conditional early release after partial sentence service with a habeas corpus petition testing unlawful detention."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0002",
+          "wrongChoice": "A request that Congress declare the relative innocent",
+          "mistakeNote": "Asks Congress to adjudicate individual custody or innocence instead of petitioning a court."
+        }
+      ],
+      "chr-investigates-not-convicts": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0002",
+          "wrongChoice": "A request that the Commission on Human Rights acquit the relative",
+          "mistakeNote": "Assigns a trial court's acquittal power to the Commission on Human Rights."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0003",
+          "wrongChoice": "Impose a prison sentence on the officers after its investigation",
+          "mistakeNote": "Confuses CHR investigative authority under Article XIII, Section 18 with a court's criminal sentencing power."
+        }
+      ],
+      "complaint-not-conviction": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0003",
+          "wrongChoice": "Treat the complaint as a criminal conviction without hearing evidence",
+          "mistakeNote": "Treats an unexamined abuse complaint as proof of guilt and conviction."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-punishment-detention-and-limits-on-laws-0003",
+          "wrongChoice": "Replace the trial court in deciding every criminal charge against the officers",
+          "mistakeNote": "Substitutes the CHR's investigative mandate for a trial court's authority over criminal charges."
+        }
+      ]
     }
   }
 }

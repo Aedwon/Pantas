@@ -16,11 +16,61 @@ keyPoints:
 
 ## Core Concept
 
-### Political Beliefs and Forced Service
+### Section $18(1)$: Protection of Political Beliefs
 
-Article III, Section $18$ bars detention solely because of political beliefs or aspirations. A person cannot be jailed just for supporting an unpopular political idea. This does not excuse a separate crime.
+Article III, Section $18(1)$ bars detention solely because of political beliefs and aspirations. No person may be jailed simply for holding or supporting an unpopular political view.
 
-The section also bans **involuntary servitude**, forced work or service against a person's will. It allows an exception when the service is punishment for a crime after due conviction. An accusation alone is not a conviction.
+The word **solely** sets the limit. Political beliefs never excuse a separate crime or block detention backed by another lawful ground.
+
+Test Section $18(1)$ when police jail a peaceful speaker for handing out flyers opposing a town ordinance:
+
+1. Check the ground: the speaker committed no separate offense, and police acted only against his views.
+2. Apply Section $18(1)$: detention resting on political beliefs alone violates the Constitution.
+
+:::pair #political-belief-sole-ground
+Right: Section $18(1)$ bars detention solely for unpopular political beliefs, while separate crimes remain punishable.
+Wrong: Allowing detention for unpopular beliefs, or treating beliefs as a shield from all lawful detention.
+Check whether the custody rests on beliefs alone or on a separate crime.
+:::
+
+:::check
+A rally speaker criticizes local leaders online and later steals laptops from a town office. Does Section $18(1)$ block her arrest for theft?
+:::answer
+The answer is **No**. Section $18(1)$ bars detention solely for political beliefs, not arrest for a separate crime like theft.
+:::
+
+### Section $18(2)$: Forced Service and the Conviction Exception
+
+Article III, Section $18(2)$ bans **involuntary servitude**, meaning forced work or service against a person's will.
+
+One exception applies: forced service is allowed only as punishment for a crime after **due conviction** by a court. A charge or accusation alone never counts as a conviction.
+
+Test Section $18(2)$ when a prison warden assigns mandatory workshop labor to a person serving a final robbery sentence:
+
+1. Check conviction status: a court duly convicted the prisoner of a crime.
+2. Apply Section $18(2)$: work required as lawful punishment after due conviction fits the stated exception.
+
+:::why
+Why require due conviction before forced work? Allowing forced labor on a bare accusation would let officials punish people before a court proves guilt.
+:::
+
+:::pair #servitude-conviction-exception
+Right: Section $18(2)$ permits forced work only as punishment after due conviction for a crime.
+Wrong: Claiming forced work is prohibited even when imposed as lawful punishment after due conviction.
+Read both halves of Section $18(2)$ together before ruling out prison labor after conviction.
+:::
+
+:::pair #charge-not-conviction
+Right: Only due conviction triggers the Section $18(2)$ work exception, never an accusation alone.
+Wrong: Treating an arrest or pending accusation as enough to require forced labor.
+Check whether a court has duly convicted the person, not merely charged them.
+:::
+
+:::check
+Police detain an unconvicted suspect awaiting trial and order him to pave the station driveway without pay. Does Section $18(2)$ allow that order?
+:::answer
+The answer is **No**. An unconvicted detainee has not been duly convicted, so forced work violates Section $18(2)$.
+:::
 
 ## Examples
 
@@ -30,9 +80,12 @@ A person is detained solely for supporting an unpopular political belief. No oth
 
 **Solution:**
 
-1. Section $18$ bars detention solely because of political beliefs or aspirations.
-2. The stated detention rests on that reason alone.
-3. It conflicts with the protection.
+1. Check the rule: Article III, Section $18(1)$ bars detention solely for political beliefs or aspirations.
+2. Check the facts: no separate offense or lawful ground exists.
+
+Answer: Freedom from detention solely for political beliefs under Article III, Section $18(1)$.
+
+**Check:** Because the detention rests on political views alone, it directly violates Section $18(1)$.
 
 ### #2: Work After Conviction
 
@@ -40,14 +93,34 @@ A person must perform work as part of lawful punishment after due conviction for
 
 **Solution:**
 
-1. The general rule bans involuntary servitude.
-2. The section allows service as punishment for a crime after due conviction.
-3. The stated facts fit that exception.
+1. State the general rule: Article III, Section $18(2)$ bans involuntary servitude.
+2. Check the exception: Section $18(2)$ permits servitude as punishment for a crime after due conviction.
+
+Answer: Yes, the due-conviction punishment exception under Article III, Section $18(2)$ applies.
+
+**Check:** Both conditions of the exception hold because a due conviction came before the lawful work punishment.
+
+### #3: Unpopular Views and a Pending Charge
+
+A resident leads peaceful rallies against a city project. Later, police arrest him on a valid vandalism warrant and hold him for trial. Before any trial or conviction occurs, a jail guard forces him to repair municipal fences without pay. How does Section $18$ apply to the arrest and to the fence work?
+
+**Solution:**
+
+1. Check the arrest: the warrant rests on a separate vandalism charge, not political beliefs alone.
+2. Check the fence work: the detainee faces an accusation and has not been duly convicted.
+
+:::try
+Finish the last step: rule on both the arrest and the forced fence work under Section $18$.
+:::answer
+The answer is **The vandalism arrest is not barred by Section $18(1)$, while the forced fence work violates Section $18(2)$.** Section $18(1)$ stops jail solely for political beliefs, not separate crimes. Section $18(2)$ forbids forced work before due conviction.
+
+**Check:** Separate lawful grounds allow custody pending trial, yet an unconvicted detainee cannot be forced to work.
+:::
 
 ## Traps to Watch For
 
-### #1: Political Belief Does Not Excuse a Crime
-
-> The protection concerns detention for political beliefs alone.
-
-An unrelated lawful ground for detention must be examined separately.
+:::checklist
+- Political views appear with a crime: check if detention rests on beliefs alone or a separate offense. {#political-belief-sole-ground}
+- Convicted prisoner is assigned lawful labor: apply Section $18(2)$'s due-conviction exception. {#servitude-conviction-exception}
+- Suspect is only accused before trial: block forced labor because accusation is not conviction. {#charge-not-conviction}
+:::

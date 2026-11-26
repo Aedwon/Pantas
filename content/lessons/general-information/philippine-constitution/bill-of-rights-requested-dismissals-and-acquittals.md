@@ -15,11 +15,62 @@ keyPoints:
 
 ## Core Concept
 
-### Double Jeopardy
+### Section $21$ and Rule $117$: Requested Dismissals
 
-A dismissal requested by the accused generally does not bar another case. Exceptions include an acquittal for insufficient evidence and a dismissal for violation of the constitutional right to a speedy trial. Do not decide from the word "dismissed" alone.
+Under Article III, Section $21$ and **Rule $117$, Section $7$**, a dismissal **requested by the accused** generally allows retrial.
 
-After the prosecution presents its evidence, the accused may ask for dismissal because that evidence is insufficient. This request is called a **demurrer to evidence**. A court's grant of that request is an acquittal, even though the accused requested it.
+Never decide double jeopardy from the word "dismissed" alone. A dismissal requested for a procedural defect leaves guilt undecided, so prosecutors may usually refile.
+
+Test Rule $117$, Section $7$ when a defendant wins dismissal because a clerk omitted a verification signature:
+
+1. Check consent and ground: the accused sought dismissal for a procedural defect, not weak proof or speedy trial.
+2. Apply Rule $117$, Section $7$: double jeopardy does not bar refiling a proper charge.
+
+:::pair #requested-dismissal-reason-matters
+Right: A requested procedural dismissal allows retrial unless based on insufficient evidence or speedy-trial denial.
+Wrong: Treating every dismissal after a plea as an acquittal, or letting any request allow retrial regardless of ground.
+Always inspect why the court dismissed the case before deciding double jeopardy.
+:::
+
+:::check
+After pleading not guilty, an accused wins dismissal because the charge listed the wrong street number. Is retrial barred?
+:::answer
+The answer is **No**. A requested procedural dismissal generally leaves double jeopardy open to a new valid charge.
+:::
+
+### Rule $119$, Section $23$ and Section $14(2)$: Exceptions That Bar Retrial
+
+Two key exceptions bar retrial even when the accused requested dismissal:
+
+1. **Granted demurrer to evidence**: Under **Rule $119$, Section $23$**, after the prosecution rests, the accused may request dismissal for insufficient proof. This **demurrer to evidence** counts as an **acquittal** by the judge (Philippine trials have no juries), barring retrial.
+2. **Speedy-trial dismissal**: A requested dismissal granted because the **Section $14(2)$** right to a speedy trial was violated also bars retrial. No prior conviction is needed.
+
+Test Rule $119$, Section $23$ when a judge grants a demurrer because no witness linked the accused to the robbery:
+
+1. Check the ruling: the court weighed the prosecution's evidence and found it insufficient to convict.
+2. Apply Section $21$: a granted demurrer is an acquittal that bars a second trial.
+
+:::why
+Why bar retrial after a granted demurrer or speedy-trial dismissal? In both cases, the state failed either to prove guilt or to try the case promptly.
+:::
+
+:::pair #granted-demurrer-is-acquittal
+Right: A granted demurrer to evidence finds proof insufficient and operates as a binding acquittal.
+Wrong: Claiming a demurrer waives double jeopardy as a requested dismissal, or that only a jury can acquit.
+In Philippine courts, the judge decides guilt, and granting a demurrer for weak proof is an acquittal.
+:::
+
+:::pair #speedy-trial-exception
+Right: A requested dismissal for violating the Section $14(2)$ right to a speedy trial bars retrial.
+Wrong: Claiming only a granted demurrer can protect an accused who asked for dismissal.
+Both insufficient-evidence demurrers and constitutional speedy-trial dismissals bar reprosecution.
+:::
+
+:::check
+After years of unexcused prosecution delays, the accused wins dismissal for a Section $14(2)$ speedy-trial violation. May prosecutors refile?
+:::answer
+The answer is **No**. A dismissal grounded on a constitutional speedy-trial violation bars retrial despite the accused's request.
+:::
 
 ## Examples
 
@@ -29,9 +80,12 @@ After a valid charge, arraignment, and plea in a proper court, the accused reque
 
 **Solution:**
 
-1. The accused expressly requested the dismissal.
-2. The court did not acquit for insufficient evidence or dismiss for a speedy-trial violation.
-3. The stated dismissal does not by itself bar another prosecution under the general double-jeopardy rule.
+1. Check who asked: the accused expressly requested the dismissal.
+2. Check the ground: the court ruled on a procedural defect, with no weak-proof acquittal or speedy-trial violation.
+
+Answer: No, the requested procedural dismissal does not itself bar another prosecution.
+
+**Check:** Under Rule $117$, Section $7$, express defense consent blocks double jeopardy unless an exception applies.
 
 ### #2: Dismissal for Insufficient Evidence
 
@@ -39,9 +93,12 @@ After a valid charge, arraignment, and plea in a proper court, the prosecution f
 
 **Solution:**
 
-1. The court granted dismissal because the prosecution's evidence was insufficient.
-2. This ruling is an acquittal, even though the accused asked for it.
-3. Double jeopardy bars a second prosecution for the same offense under these facts.
+1. Check the court's act: the judge evaluated the proof and found it insufficient to convict.
+2. Apply Rule $119$, Section $23$ and Section $21$: granting a demurrer for weak proof is an acquittal.
+
+Answer: No, double jeopardy bars a second prosecution for the same offense.
+
+**Check:** Even though the accused filed the demurrer, a ruling on insufficient evidence operates as an acquittal.
 
 ### #3: Dismissal for a Speedy-Trial Violation
 
@@ -49,14 +106,21 @@ A valid charge proceeds through arraignment and plea in a proper court. The accu
 
 **Solution:**
 
-1. A requested dismissal usually does not bar another prosecution.
-2. A dismissal for a constitutional speedy-trial violation is an exception.
-3. Under the stated facts, the accused's request does not remove the double-jeopardy protection.
+1. Check the general rule: a requested dismissal usually leaves retrial open.
+2. Check the exception: the court dismissed for a constitutional speedy-trial violation under Section $14(2)$.
+
+:::try
+Finish the last step: rule on whether another prosecution is allowed and explain why this dismissal differs from a procedural dismissal.
+:::answer
+The answer is **No, another prosecution is barred despite the accused's request.** Dismissal for violating Section $14(2)$'s speedy-trial right is an exception alongside a granted demurrer. It differs from an ordinary procedural dismissal.
+
+**Check:** Checking the dismissal ground separates an ordinary consent dismissal from a speedy-trial bar.
+:::
 
 ## Traps to Watch For
 
-### #1: The Reason for Dismissal Matters
-
-> A requested dismissal is not always permission to prosecute again.
-
-Check for an acquittal based on insufficient evidence or a dismissal for violation of the constitutional right to a speedy trial. The word "dismissed" alone does not decide the issue.
+:::checklist
+- Case ended on defense request: check the dismissal reason before deciding double jeopardy. {#requested-dismissal-reason-matters}
+- Judge granted a demurrer for weak proof: treat the ruling as an acquittal barring retrial. {#granted-demurrer-is-acquittal}
+- Court dismissed for speedy-trial denial: block retrial even though the accused requested it. {#speedy-trial-exception}
+:::

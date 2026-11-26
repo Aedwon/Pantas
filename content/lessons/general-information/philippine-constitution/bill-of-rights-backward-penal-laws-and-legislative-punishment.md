@@ -15,17 +15,68 @@ keyPoints:
 
 ## Core Concept
 
-### Ex Post Facto Laws
+### Section $22$: Ex Post Facto Laws
 
-**Penal** means relating to crimes and punishment. An **ex post facto law** applies a harmful criminal-law change backward. It may make an earlier lawful act a crime or increase punishment after an offense was committed.
+Article III, Section $22$ states that no **ex post facto law** or **bill of attainder** shall be enacted. **Penal** means relating to crimes and punishment.
 
-It may also lower the proof needed for conviction or take away a legal protection already available to the accused. A later rule is not ex post facto just because it concerns an earlier event. Check for a harmful backward change in criminal consequences or protections.
+An **ex post facto law** applies a harmful criminal-law change backward to acts committed before the law took effect. Under Philippine case law, it includes laws that:
 
-### Bills of Attainder
+1. Make an earlier lawful act criminal.
+2. Increase punishment after the act happened.
+3. Lower the proof needed to convict for an earlier act.
+4. Remove a legal defense already available when the act occurred.
 
-A **bill of attainder** is a law that punishes a named or clearly identified person or group without a judicial trial. The legislature imposes punishment itself. It does not leave guilt and punishment to a court.
+Holding a court trial never saves a law that lowers required proof backward. Yet a law touching a past event is not *ex post facto* unless it harms penal rights backward.
 
-Section $22$ bans both bills of attainder and ex post facto laws. A general law defining an offense and requiring a court trial is not automatically a bill of attainder.
+Test Section $22$ when a law lowers the proof needed to convict for tax acts committed last year:
+
+1. Check timing and effect: the law applies backward and weakens what prosecutors must prove.
+2. Apply Section $22$: lowering proof retroactively violates the *ex post facto* ban even with no higher prison term.
+
+:::why
+Why ban backward proof reductions alongside harsher penalties? Changing the evidence rules after the act makes conviction easier in a way the accused could not foresee.
+:::
+
+:::pair #lower-proof-still-ex-post-facto
+Right: Lowering the proof needed to convict for an earlier act is an *ex post facto* law even with a trial.
+Wrong: Allowing a backward proof reduction because prison time stays unchanged or a court holds trial.
+Check every harmful backward penal change, including lighter proof standards alongside heavier penalties.
+:::
+
+:::check
+A statute enacted today raises prison terms from $2$ years to $8$ years for smuggling acts done last year. Is it valid?
+:::answer
+The answer is **No**. Retroactively increasing the penalty for an earlier act violates Article III, Section $22$'s *ex post facto* ban.
+:::
+
+### Section $22$: Bills of Attainder
+
+A **bill of attainder** is a legislative act that inflicts punishment on a named or clearly identified person or group without a judicial trial. Here Congress punishes directly instead of leaving guilt to a court.
+
+Keep both Section $22$ bans clear of valid new crimes. A **prospective** general law applies only to future conduct and requires a court trial before punishment. Such a law is neither an *ex post facto* law nor a bill of attainder.
+
+Test Section $22$ when Congress passes a general drone-safety crime taking effect next month with a full court trial:
+
+1. Check timing: it applies only to future conduct, so it is not *ex post facto*.
+2. Check trial process: courts decide guilt under a general rule, so it is not a bill of attainder.
+
+:::pair #ex-post-facto-vs-attainder
+Right: *Ex post facto* laws apply harmful penal changes backward; bills of attainder impose legislative punishment without trial.
+Wrong: Confusing backward penal changes with legislative punishment without trial.
+Check whether the defect is harmful retroactivity or Congress punishing directly without a court trial.
+:::
+
+:::pair #prospective-general-crime-valid
+Right: A prospective general penal law requiring a court trial violates neither Section $22$ ban.
+Wrong: Calling every new crime *ex post facto*, or calling a general crime definition a bill of attainder.
+Defining a future offense for courts to try is ordinary lawmaking, not a Section $22$ violation.
+:::
+
+:::check
+Congress passes a law naming three former officials and ordering them jailed for five years without any court hearing. Which ban applies?
+:::answer
+The answer is **Bill of attainder**. A legislative act directly punishing named individuals without a judicial trial violates Article III, Section $22$.
+:::
 
 ## Examples
 
@@ -35,9 +86,12 @@ After an offense is committed, a new penal law increases its punishment. Officia
 
 **Solution:**
 
-1. The new law applies a harsher punishment backward.
-2. That change harms the accused for an earlier act.
-3. It is prohibited as an ex post facto law.
+1. Check timing: the harsher penalty applies backward to an offense committed before the law existed.
+2. Apply Section $22$: increasing punishment retroactively is a harmful backward penal change.
+
+Answer: The prohibition against *ex post facto* laws under Article III, Section $22$.
+
+**Check:** Retroactively increasing punishment harms the accused for an earlier act, fitting a classic *ex post facto* law.
 
 ### #2: An Earlier Lawful Act
 
@@ -45,9 +99,12 @@ A law makes certain conduct criminal and orders punishment of people who did it 
 
 **Solution:**
 
-1. The law turns an earlier lawful act into a crime after it happened.
-2. That is a harmful backward penal change.
-3. The ex post facto prohibition applies.
+1. Check prior legality: the conduct was lawful when performed.
+2. Apply Section $22$: turning an earlier lawful act into a crime backward is barred.
+
+Answer: The *ex post facto* prohibition under Article III, Section $22$.
+
+**Check:** Punishing conduct that was innocent when done is a core harmful backward penal change.
 
 ### #3: Legislative Punishment
 
@@ -55,14 +112,21 @@ Congress passes a law identifying a group and directly imposing punishment on it
 
 **Solution:**
 
-1. The law targets an identified group.
-2. It imposes punishment without a judicial trial.
-3. It fits the meaning of a bill of attainder, which Section $22$ bans.
+1. Check the target: Congress singled out an identified group.
+2. Check the process: the law inflicts punishment directly without leaving guilt to a judicial trial.
+
+:::try
+Finish the last step: name the prohibited act under Article III, Section $22$ and contrast it with a general prospective law tried in court.
+:::answer
+The answer is **A bill of attainder, unlike a general prospective law tried in court.** Section $22$ bars legislative punishment of an identified group without trial. A general law punishing future acts after court proof violates neither ban.
+
+**Check:** Legislative punishment without a court trial is the exact mark of a bill of attainder.
+:::
 
 ## Traps to Watch For
 
-### #1: Retroactive Does Not Always Mean Ex Post Facto
-
-> Look for a harmful backward penal change.
-
-A law concerning an earlier event is not automatically prohibited. Check the change in criminal consequences or protections.
+:::checklist
+- New law cuts required proof for past acts: flag it as *ex post facto* even with a trial. {#lower-proof-still-ex-post-facto}
+- Law punishes backward vs. punishes without trial: separate *ex post facto* laws from bills of attainder. {#ex-post-facto-vs-attainder}
+- General law covers future acts with a court trial: reject both Section $22$ labels. {#prospective-general-crime-valid}
+:::

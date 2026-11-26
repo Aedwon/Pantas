@@ -14,13 +14,66 @@ keyPoints:
 
 ## Core Concept
 
-### Double Jeopardy
+### Section $21$: What Double Jeopardy Protects
 
-Section $21$ protects against **double jeopardy**, being put at risk of punishment again for the same offense after a protected end to the first criminal case. An earlier accusation does not always block a later case. Check how the first case began and ended.
+Article III, Section $21$ guarantees protection against **double jeopardy**. No person may be put at risk of punishment twice for the same offense after a valid first case ends properly.
 
-The first case must have a valid formal charge before a court with legal authority to hear it. The accused must have been arraigned and entered a valid plea. **Arraignment** is the formal reading of the charge, when the accused answers with a plea, such as guilty or not guilty.
+Keep Section $21$ separate from Section $22$, which bans backward penal laws and legislative punishment without trial, and Section $17$ on compelled testimony.
 
-The case must then end in conviction, acquittal, or dismissal or termination without the accused's express consent. **Acquittal** means a judgment that the accused is not guilty. Filing a complaint alone does not meet these conditions.
+Test Section $21$ when prosecutors refile the same theft charge after a court already acquitted the accused:
+
+1. Check the issue: prosecutors seek a second trial for the same criminal offense.
+2. Apply Section $21$: double jeopardy bars putting the accused at risk of punishment again.
+
+:::pair #jeopardy-vs-retroactive-laws
+Right: Section $21$ double jeopardy blocks a second criminal trial for the same offense after a proper ending.
+Wrong: Labeling a second prosecution for the same offense an *ex post facto* law or bill of attainder.
+Check whether the facts describe a repeated prosecution rather than a backward penal law or trial-free legislative punishment.
+:::
+
+:::check
+After a valid trial ends in conviction for arson, prosecutors file the exact same arson charge again. Which Article III protection applies?
+:::answer
+The answer is **Protection against double jeopardy**. Article III, Section $21$ forbids putting a person twice in jeopardy for the same offense.
+:::
+
+### Rule $117$, Section $7$: Conditions for First Jeopardy
+
+Under Section $21$ and **Rule $117$, Section $7$**, the general rule blocks a second trial when four steps hold. Later lessons cover narrow exceptions for certain requested dismissals and ordinance cases:
+
+1. There was a **valid formal charge**.
+2. A **court with legal authority** heard the case.
+3. The accused underwent **arraignment** (formal reading of the charge) and entered a **valid plea** (such as guilty or not guilty).
+4. The case ended in **conviction**, **acquittal** (a not-guilty judgment), or **dismissal without the accused's express consent**.
+
+Filing or withdrawing a complaint before arraignment never triggers double jeopardy. Serving a prison sentence is unnecessary too, because a valid acquittal protects the accused without any jail time.
+
+Test Rule $117$, Section $7$ when a prosecutor withdraws a complaint before arraignment:
+
+1. Check the stage: the accused never underwent arraignment or entered a valid plea.
+2. Apply Rule $117$, Section $7$: first jeopardy never attached, so refiling is not barred.
+
+:::why
+Why require arraignment and a plea before jeopardy attaches? Before a valid plea in a proper court, the accused has not yet been placed on trial at risk of conviction.
+:::
+
+:::pair #plea-required-for-jeopardy
+Right: Double jeopardy attaches only after a valid charge, competent court, arraignment, and a valid plea.
+Wrong: Treating a filed or withdrawn complaint before arraignment as enough to bar a later case.
+Check that arraignment and a plea actually occurred, not merely filing of a complaint.
+:::
+
+:::pair #acquittal-without-sentence
+Right: A valid acquittal after a plea bars a second trial even though no sentence was served.
+Wrong: Claiming double jeopardy arises only after an accused has served a prison sentence.
+Acquittal, conviction, or unconsented termination each satisfy the ending condition in Rule $117$, Section $7$.
+:::
+
+:::check
+After arraignment and a not-guilty plea in a proper court, a trial ends in acquittal with zero days in prison. Did jeopardy attach?
+:::answer
+The answer is **Yes**. All four conditions under Rule $117$, Section $7$ are met, and an acquittal needs no served prison sentence.
+:::
 
 ## Examples
 
@@ -30,9 +83,12 @@ An accused faced a valid charge in a court with authority to hear it. After arra
 
 **Solution:**
 
-1. The first case had a valid charge, proper court, arraignment, and valid plea.
-2. It ended in acquittal.
-3. Double jeopardy bars the second prosecution under these facts.
+1. Check the four conditions: valid charge, proper court, arraignment, and valid plea all occurred.
+2. Check the ending: the case ended in an acquittal.
+
+Answer: Double jeopardy under Article III, Section $21$ bars the second prosecution.
+
+**Check:** All conditions of Rule $117$, Section $7$ hold, and an acquittal bars retrial even with no sentence served.
 
 ### #2: A Complaint Without a Plea
 
@@ -40,14 +96,34 @@ A complaint was filed, but the accused was never arraigned and entered no plea. 
 
 **Solution:**
 
-1. The general rule requires more than a filed complaint.
-2. Arraignment and a valid plea are among its conditions.
-3. Filing alone does not establish the protection.
+1. Check the conditions: Rule $117$, Section $7$ requires arraignment and a valid plea before jeopardy attaches.
+2. Check the facts: only a complaint was filed, with no arraignment or plea.
+
+Answer: No, filing a complaint alone does not establish double jeopardy.
+
+**Check:** Without arraignment and a valid plea, the accused was never placed in first jeopardy.
+
+### #3: Dismissal for Lack of Jurisdiction
+
+An accused is arraigned and enters a not-guilty plea on a valid robbery charge in a court that lacks legal authority over the crime. The court dismisses the case for lack of jurisdiction. Prosecutors then file the robbery charge in the proper court. Does double jeopardy bar the new case?
+
+**Solution:**
+
+1. Check the four conditions: valid charge, arraignment, plea, and court with legal authority must all hold.
+2. Check the first court: the court lacked legal authority over the robbery case.
+
+:::try
+Finish the last step: rule on whether double jeopardy bars the new case and explain which Rule $117$ condition failed.
+:::answer
+The answer is **No, double jeopardy does not bar the new case because the first court lacked legal authority.** Rule $117$, Section $7$ requires a court with legal authority alongside a valid charge, arraignment, and plea. Without that authority, first jeopardy never attached.
+
+**Check:** Even after a plea, a trial before a court without legal authority never triggers double jeopardy.
+:::
 
 ## Traps to Watch For
 
-### #1: An Earlier Complaint Is Not Enough
-
-> Check how far the first criminal case went and how it ended.
-
-Double jeopardy has conditions. A filed complaint without arraignment and a valid plea does not meet them.
+:::checklist
+- Second trial for the same crime: match it to Section $21$ double jeopardy, not Section $22$ laws. {#jeopardy-vs-retroactive-laws}
+- Complaint filed or dropped early: require arraignment and a valid plea before jeopardy attaches. {#plea-required-for-jeopardy}
+- Case ended in acquittal with no jail time: treat acquittal as triggering double jeopardy. {#acquittal-without-sentence}
+:::
