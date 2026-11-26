@@ -105,19 +105,19 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Mabilis** na tumakbo a
 
 ### #3: Pangkat ng mga Salitang Panlunan
 
-Sa "Sinuri ng mga kawani ang mga kahon sa bodega," aling pangkat ang nagsasabi ng lugar ng pagsusuri at gumaganap na pang-abay na panlunan?
+Sa "Naglaro ang mga bata ng taguan sa bakuran," aling pangkat ang nagsasabi ng lugar ng paglalaro at gumaganap na pang-abay na panlunan?
 
 **Solution:**
 
-1. Kilalanin ang kilos: *sinuri*.
-2. Ihiwalay ang "ng mga kawani" (gumawa) at "ang mga kahon" (bagay na sinuri).
+1. Kilalanin ang kilos: *naglaro*.
+2. Ihiwalay ang "ang mga bata" (gumawa) at "ng taguan" (nilaro).
 
 :::try
-Tapusin ang huling hakbang: itanong kung saan sinuri ang mga kahon, at tukuyin ang buong pangkat na pang-abay na panlunan.
+Tapusin ang huling hakbang: itanong kung saan naglaro ang mga bata, at tukuyin ang buong pangkat na pang-abay na panlunan.
 :::answer
-Ang sagot ay **Sa bodega**. Ito ang buong pangkat na nagsasabi ng lugar kung saan ginanap ang pagsusuri.
+Ang sagot ay **Sa bakuran**. Ito ang buong pangkat na nagsasabi ng lugar kung saan ginanap ang paglalaro.
 
-**Check:** Ihiwalay ang sagot sa "saan": *sa bodega* (lugar), samantalang ang *ng mga kawani* ay gumawa at ang *ang mga kahon* ay ang bagay na sinuri.
+**Check:** Ihiwalay ang sagot sa "saan": *sa bakuran* (lugar), samantalang ang *ang mga bata* ay gumawa at ang *ng taguan* ay ang nilaro.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -29,7 +29,7 @@ Hindi ginagamit ang anyong *ang* (*ako*) o *ng* (*ko*) bago ang *ang aklat* upan
 :::
 
 :::check
-Si Liza at ang kapatid niya ang may-ari ng bahay. Piliin ang tama: "*(Namin / Amin / Kami)* ang bahay sa kanto."
+Kausap ni Liza ang kaibigan niya. Siya at ang kapatid niya ang may-ari ng bahay. Piliin ang tama sa sasabihin ni Liza: "*(Namin / Amin / Kami)* ang bahay sa kanto."
 :::answer
 Ang sagot ay **Amin**. Nauuna ang may-ari bago ang *ang bahay*, at hindi kasama ang kausap sa may-ari.
 :::
@@ -100,21 +100,20 @@ Kausap ni Ruben si Mila. Dadalo si Ruben at ang kaniyang mga kasama, ngunit hind
 
 **Check:** Basahin nang buo: "Kami ang dadalo sa pagpupulong" ay nangangahulugang si Ruben at ang mga kasama niya lamang ang dadalo, hindi si Mila.
 
-### #3: Kasarian at Papel ng Siya
+### #3: Magalang na Kayo
 
-Ano ang tamang paliwanag tungkol sa salitang *siya* sa Filipino?
+Si Lea ay nagsasalita sa kaniyang guro lamang. Sa "Salamat po sa tulong ninyo," ano ang ipinahihiwatig ng *ninyo*?
 
 **Solution:**
 
-1. Ang *siya* ay panghalip panao, kaya para ito sa tao, hindi para sa mga bagay.
-2. Ihambing ang *siya* sa *he* at *she* sa Ingles.
+1. Hanapin ang kausap ni Lea: ang guro.
 
 :::try
-Tapusin ang huling hakbang: ano ang ipinahihiwatig ng *siya* tungkol sa kasarian at bilang ng taong tinutukoy?
+Tapusin ang huling hakbang: kung iisa ang kausap, bakit *ninyo* ang gamit at hindi *mo*?
 :::answer
-Ang sagot ay **Hindi nagsasaad ng kasarian** (at tumutukoy sa iisang taong pinag-uusapan). Babae man o lalaki, *siya* pa rin ang ginagamit kung siya ang itinatampok.
+Ang sagot ay **Magalang na anyo para sa iisang kausap**. Ginagamit din ang *kayo, ninyo,* at *inyo* bilang paggalang.
 
-**Check:** Subukan sa dalawang pangungusap: "Si Ana ang nagsulat -> *Siya* ang nagsulat" at "Si Marco ang nagsulat -> *Siya* ang nagsulat." Pareho ang anyo.
+**Check:** Sa kaibigan, "Salamat sa tulong *mo*." Sa guro, "Salamat po sa tulong *ninyo*." Iisa ang kausap sa dalawa, at paggalang ang pagkakaiba.
 :::
 
 ## Speed Tricks & Shortcuts

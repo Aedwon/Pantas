@@ -41,7 +41,7 @@ Ang sagot ay **Sina Liza at Omar; pokus sa tagaganap**. May panandang *sina* ang
 Huwag ibatay ang sagot sa salitang lugar lamang. Tingnan kung saan ginanap ang kilos o ano ang pinuntahan:
 
 1. **Ganapan** (location): ang paksa ang lugar kung saan ginawa ang kilos: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**."
-2. **Direksiyon** (direction): ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
+2. **Direksiyon**: ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
 
 <!-- ILLUSTRATION: dalawang nakapatong na pangungusap na parehong may "ang bakuran": sa itaas "Pinagtaniman ng mga kawani ng gulay ang bakuran." na may tatak na "lugar ng pagtatanim -> ganapan"; sa ibaba "Pinuntahan ng mga kawani ang bakuran." na may tatak na "patutunguhan ng kilos -> direksiyon" -->
 
@@ -66,7 +66,7 @@ Gamitin ang tanong na tugma sa papel ng paksa:
 3. **Sanhi** (cause): ano ang dahilan ng damdamin? "*Ikinatuwa* ng mga kawani **ang balita**."
 
 :::why
-Bakit kailangang suriin ang papel ng paksa sa *ipinagluto* at *ipinangsulat*? Pareho itong may *ip-* o *ipina-*, kaya alamin kung nakinabang ang paksa (*ang mga bata*) o ginamit ito (*ang lapis*).
+Bakit kailangang suriin ang papel ng paksa sa *ipinagluto* at *ipinangsulat*? Magkahawig ang *ipinag-* at *ipinang-*, kaya alamin kung nakinabang ang paksa (*ang mga bata*) o ginamit ito (*ang lapis*).
 :::
 
 :::pair #tagatanggap-kagamitan-at-sanhi
@@ -134,5 +134,5 @@ Bilugan muna ang may *ang, ang mga, si,* o *sina*, saka itanong ang papel nito: 
 :::checklist
 - Gumagawang may *ng* o *ni* ("Kinain ng bata ang mangga"): ang may *ang* o *si* ang paksa. {#hanapin-ang-may-ang-o-si}
 - Paksang lugar (*ang bakuran*): ginanapan ng kilos (ganapan) o pinuntahan (direksiyon)? {#ganapan-laban-sa-direksiyon}
-- Unlaping *ipina-* o *ipang-*: nakinabang (tagatanggap) o ginamit (kagamitan)? {#tagatanggap-kagamitan-at-sanhi}
+- Unlaping *ipinag-* o *ipinang-*: nakinabang (tagatanggap) o ginamit (kagamitan)? {#tagatanggap-kagamitan-at-sanhi}
 :::

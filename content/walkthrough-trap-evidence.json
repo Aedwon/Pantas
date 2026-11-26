@@ -3653,11 +3653,531 @@
         }
       ]
     },
+    "lesson-vocabulary-affect-and-effect": {
+      "influence-verb": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0001",
+          "wrongChoice": "Effect",
+          "mistakeNote": "Uses the noun effect where the verb affect (influence) is needed."
+        }
+      ],
+      "base-form": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0001",
+          "wrongChoice": "Affects",
+          "mistakeNote": "Adds -s after the modal will."
+        }
+      ],
+      "bring-about": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0013",
+          "wrongChoice": "Affected",
+          "mistakeNote": "Uses affect (influence) where effect (bring about) is meant."
+        }
+      ]
+    },
     "lesson-vocabulary-baybay-ng-hiram-na-salita": {
+      "huwag-alisin-ang-u": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0012",
+          "wrongChoice": "kwento",
+          "mistakeNote": "Drops the u from the first syllable."
+        }
+      ],
       "isingit-ang-w": [
         {
           "questionId": "q-vocabulary-spelling-rules-0012",
-          "wrongChoice": "kuento"
+          "wrongChoice": "kuento",
+          "mistakeNote": "Omits the w before the e."
+        }
+      ]
+    },
+    "lesson-vocabulary-checking-longer-spellings": {
+      "known-base": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0009",
+          "wrongChoice": "Definate",
+          "mistakeNote": "Writes -ate for the -ite ending of definite."
+        }
+      ],
+      "doubled-pairs": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0007",
+          "wrongChoice": "Comittee",
+          "mistakeNote": "Drops one t from the double t in committee."
+        },
+        {
+          "questionId": "q-vocabulary-spelling-rules-0005",
+          "wrongChoice": "Acommodate",
+          "mistakeNote": "Drops the double c in accommodate."
+        }
+      ]
+    },
+    "lesson-vocabulary-comparisons-and-human-actions": {
+      "metaphor-or-simile": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0005",
+          "wrongChoice": "Simile",
+          "mistakeNote": "Calls 'The classroom was a zoo' a simile though it has no like or as."
+        }
+      ],
+      "as-if-personification": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0003",
+          "wrongChoice": "An explicit comparison",
+          "mistakeNote": "Reads 'as if complaining' as a comparison instead of personification."
+        },
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0003",
+          "wrongChoice": "A direct comparison",
+          "mistakeNote": "Same slip, second wording."
+        }
+      ]
+    },
+    "lesson-vocabulary-contrast-and-inference-clues": {
+      "contrast-target": [
+        {
+          "questionId": "q-vocabulary-context-clues-0004",
+          "wrongChoice": "Talkative",
+          "mistakeNote": "Picks the contrast word (chatted endlessly) as the meaning of taciturn."
+        }
+      ],
+      "contrast-other-side": [
+        {
+          "questionId": "q-vocabulary-context-clues-0014",
+          "wrongChoice": "Wasteful",
+          "mistakeNote": "Picks the word describing the son, not the frugal shopkeeper."
+        }
+      ]
+    },
+    "lesson-vocabulary-definitions-examples-and-synonyms": {
+      "restatement-not-reaction": [
+        {
+          "questionId": "q-vocabulary-context-clues-0011",
+          "wrongChoice": "Rude",
+          "mistakeNote": "Takes the listeners' reaction as the meaning of candid."
+        }
+      ],
+      "sentence-meaning": [
+        {
+          "questionId": "q-vocabulary-context-clues-0008",
+          "wrongChoice": "Punishment",
+          "mistakeNote": "Uses the common meaning of sanction instead of the one the sentence supports."
+        }
+      ]
+    },
+    "lesson-vocabulary-doubling-final-consonants": {
+      "begin-stress": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0003",
+          "wrongChoice": "Begining",
+          "mistakeNote": "Fails to double n in a word stressed on the last syllable."
+        }
+      ],
+      "refer-stress": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0015",
+          "wrongChoice": "Refered",
+          "mistakeNote": "Fails to double r before -ed."
+        }
+      ],
+      "visit-stress": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0020",
+          "wrongChoice": "Visitting, beginning",
+          "mistakeNote": "Doubles the t in visit, which is stressed on the first syllable."
+        }
+      ]
+    },
+    "lesson-vocabulary-english-word-elements": {
+      "mal-versus-bene": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0002",
+          "wrongChoice": "Benevolent",
+          "mistakeNote": "Reverses mal- (bad) into bene- (good)."
+        }
+      ],
+      "omni-all-what": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0007",
+          "wrongChoice": "All-powerful",
+          "mistakeNote": "Reads omniscient as all-powerful instead of all-knowing."
+        }
+      ]
+    },
+    "lesson-vocabulary-feeling-strength-and-formality": {
+      "approving-tone": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0019",
+          "wrongChoice": "Stingy",
+          "mistakeNote": "Uses a disapproving word where the tone is approving."
+        }
+      ],
+      "mild-intensity": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0021",
+          "wrongChoice": "enraged",
+          "mistakeNote": "Raises mild annoyance to extreme anger."
+        }
+      ],
+      "formal-register": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0022",
+          "wrongChoice": "get going",
+          "mistakeNote": "Keeps casual wording in a formal notice."
+        }
+      ]
+    },
+    "lesson-vocabulary-idioms-and-literal-meanings": {
+      "start-over": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0001",
+          "wrongChoice": "To abandon the attempt",
+          "mistakeNote": "Reads back to square one as giving up."
+        }
+      ],
+      "naghigpit-ng-sinturon": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0019",
+          "wrongChoice": "Naghanda sa paglalakbay",
+          "mistakeNote": "Reads the idiom literally as preparing for a trip."
+        }
+      ]
+    },
+    "lesson-vocabulary-its-and-it-is-or-it-has": {
+      "owner-apostrophe": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0002",
+          "wrongChoice": "It's",
+          "mistakeNote": "Uses it's (it is/has) for possession."
+        }
+      ],
+      "extra-apostrophe": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0002",
+          "wrongChoice": "Its'",
+          "mistakeNote": "Adds a trailing apostrophe to its."
+        }
+      ],
+      "has-not-owner": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0015",
+          "wrongChoice": "Its, its",
+          "mistakeNote": "Writes Its for it has."
+        }
+      ]
+    },
+    "lesson-vocabulary-kasingkahulugan-at-kasalungat": {
+      "kasingkahulugan": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0003",
+          "wrongChoice": "Natupad",
+          "mistakeNote": "Reads gumuho literally as the opposite of its figurative meaning."
+        }
+      ],
+      "kasalungat": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0004",
+          "wrongChoice": "Mahirap",
+          "mistakeNote": "Picks the synonym of maralita instead of the antonym."
+        }
+      ]
+    },
+    "lesson-vocabulary-letters-sounds-and-vowel-order": {
+      "belief-order": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0001",
+          "wrongChoice": "Beleif",
+          "mistakeNote": "Swaps ie to ei in belief."
+        }
+      ],
+      "seize-exception": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0017",
+          "wrongChoice": "Sieze",
+          "mistakeNote": "Applies i before e to the exception seize."
+        }
+      ]
+    },
+    "lesson-vocabulary-meaning-and-grammar-in-context": {
+      "fast-meaning": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0012",
+          "wrongChoice": "To finish a task quickly",
+          "mistakeNote": "Uses the common meaning of fast against the context clue."
+        }
+      ],
+      "decide-grammar": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0023",
+          "wrongChoice": "decision",
+          "mistakeNote": "Puts a noun where a verb is needed."
+        }
+      ]
+    },
+    "lesson-vocabulary-ng-at-nang": {
+      "pagmamay-ari": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0014",
+          "wrongChoice": "Nang",
+          "mistakeNote": "Uses nang for ownership."
+        }
+      ],
+      "dami": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0016",
+          "wrongChoice": "Nang",
+          "mistakeNote": "Uses nang before a quantity."
+        }
+      ],
+      "noong": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0012",
+          "wrongChoice": "Ng",
+          "mistakeNote": "Uses ng where nang means noong."
+        }
+      ]
+    },
+    "lesson-vocabulary-opposite-roles": {
+      "same-exchange": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0024",
+          "wrongChoice": "The supplier bought the printer.",
+          "mistakeNote": "Gives the supplier the buyer's role."
+        }
+      ],
+      "borrow-lend": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0020",
+          "wrongChoice": "Return",
+          "mistakeNote": "Gives a later step of the borrower instead of the lender's role."
+        }
+      ]
+    },
+    "lesson-vocabulary-opposites-with-levels-and-two-states": {
+      "not-hot": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0026",
+          "wrongChoice": "It must be cold.",
+          "mistakeNote": "Treats not hot as the opposite extreme."
+        }
+      ],
+      "two-labels": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0025",
+          "wrongChoice": "partially available",
+          "mistakeNote": "Invents a middle label in a two-label system."
+        }
+      ]
+    },
+    "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis": {
+      "tulad-hindi-wangis": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0012",
+          "wrongChoice": "Pagwawangis",
+          "mistakeNote": "Calls a kasing- comparison a metaphor."
+        },
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0013",
+          "wrongChoice": "Pagtutulad",
+          "mistakeNote": "Calls a direct equation with no marker a simile."
+        }
+      ],
+      "labis-hindi-tulad": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0011",
+          "wrongChoice": "Pagtutulad",
+          "mistakeNote": "Sees parang and ignores the deliberate exaggeration."
+        }
+      ],
+      "katauhan-hindi-hambing": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0014",
+          "wrongChoice": "Tahasang paghahambing",
+          "mistakeNote": "Calls human action given to the sun a comparison."
+        }
+      ]
+    },
+    "lesson-vocabulary-panlaping-kabilaan-at-laguhan": {
+      "kabilaan-ka-an": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0011",
+          "wrongChoice": "Pag- at -an",
+          "mistakeNote": "Names the wrong prefix for kabataan."
+        }
+      ],
+      "laguhan-hindi-kabilaan": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0004",
+          "wrongChoice": "Kabilaan",
+          "mistakeNote": "Ignores the infix inside the root."
+        }
+      ]
+    },
+    "lesson-vocabulary-prefix-clues-in-context": {
+      "prefix-meaning": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0027",
+          "wrongChoice": "not finished",
+          "mistakeNote": "Mixes up unfair with a different base meaning."
+        }
+      ],
+      "real-prefix": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0028",
+          "wrongChoice": "Every initial un means not.",
+          "mistakeNote": "Treats every initial un as a prefix, so uncle becomes not cle."
+        }
+      ]
+    },
+    "lesson-vocabulary-roots-bases-and-valid-splits": {
+      "stem-before-suffix": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0021",
+          "wrongChoice": "-ness",
+          "mistakeNote": "Names the suffix as its own stem."
+        }
+      ],
+      "inflammable": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0014",
+          "wrongChoice": "Protected from fire",
+          "mistakeNote": "Reads in- as not in inflammable."
+        }
+      ]
+    },
+    "lesson-vocabulary-sila-at-sina": {
+      "bago-ang-pangalan": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0004",
+          "wrongChoice": "Sila",
+          "mistakeNote": "Uses the pronoun before names."
+        }
+      ],
+      "pamalit": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0009",
+          "wrongChoice": "Sina",
+          "mistakeNote": "Uses the name marker as a pronoun."
+        }
+      ]
+    },
+    "lesson-vocabulary-silent-e-with-suffixes": {
+      "truly": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0019",
+          "wrongChoice": "Truely",
+          "mistakeNote": "Keeps the silent e before -ly in truly."
+        }
+      ]
+    },
+    "lesson-vocabulary-similar-and-opposite-meanings": {
+      "heavy-rain": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0029",
+          "wrongChoice": "powerful rain",
+          "mistakeNote": "Uses a synonym of heavy in the wrong word partnership."
+        }
+      ],
+      "mitigate-opposite": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0002",
+          "wrongChoice": "Alleviate",
+          "mistakeNote": "Picks a synonym of mitigate as its opposite."
+        }
+      ]
+    },
+    "lesson-vocabulary-sound-and-opposing-words": {
+      "repeated-sound": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0007",
+          "wrongChoice": "Onomatopoeia",
+          "mistakeNote": "Calls repeated initial sounds onomatopoeia."
+        }
+      ],
+      "opposing-words": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0009",
+          "wrongChoice": "Hyperbole",
+          "mistakeNote": "Calls the contradictory pair deafening silence hyperbole."
+        }
+      ]
+    },
+    "lesson-vocabulary-suffixes-and-word-jobs": {
+      "ly-adverb": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0022",
+          "wrongChoice": "Which officer was present",
+          "mistakeNote": "Reads the -ly adverb as describing a noun."
+        }
+      ],
+      "friendly-adjective": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0023",
+          "wrongChoice": "Adverb of manner",
+          "mistakeNote": "Treats friendly as an adverb because it ends in -ly."
+        }
+      ]
+    },
+    "lesson-vocabulary-suffixes-for-qualities-and-absence": {
+      "ful-less": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0024",
+          "wrongChoice": "without; full of",
+          "mistakeNote": "Swaps the meanings of -ful and -less."
+        }
+      ],
+      "ness-noun": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0025",
+          "wrongChoice": "Describes a kind person",
+          "mistakeNote": "Treats -ness as making an adjective for a person."
+        }
+      ]
+    },
+    "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi": {
+      "ugat-hindi-panlapi": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0003",
+          "wrongChoice": "Pinag",
+          "mistakeNote": "Takes the prefix as the root."
+        }
+      ],
+      "ugat-hindi-buo": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0010",
+          "wrongChoice": "Ginawa",
+          "mistakeNote": "Leaves the infix on the root."
+        }
+      ],
+      "puwesto-ng-um": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0016",
+          "wrongChoice": "Dahil palaging unlapi ang um-.",
+          "mistakeNote": "Names the affix by its letters, not its position."
+        }
+      ]
+    },
+    "lesson-vocabulary-word-partners-feeling-and-grammar": {
+      "charged-partner": [
+        {
+          "questionId": "q-vocabulary-context-clues-0016",
+          "wrongChoice": "Accused",
+          "mistakeNote": "Ignores the hotel and invoice partners."
+        }
+      ],
+      "furnish-grammar": [
+        {
+          "questionId": "q-vocabulary-context-clues-0021",
+          "wrongChoice": "furniture",
+          "mistakeNote": "Puts a noun where a verb is needed."
+        }
+      ],
+      "qualified-meaning": [
+        {
+          "questionId": "q-vocabulary-context-clues-0019",
+          "wrongChoice": "Certified",
+          "mistakeNote": "Uses the common meaning of qualified, not the one the context supports."
         }
       ]
     }

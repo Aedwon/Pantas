@@ -25,7 +25,7 @@ Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod n
 Tandaan na iba ang panandang *ng* sa *nang*: ginagamit ang *nang* sa paraan, oras, o pag-uulit ng kilos, samantalang ang *ng* ang nagmamarka ng pangngalang layon, tagaganap, o may-ari.
 
 :::why
-Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi kasi ang *ng* ang nagmamarka ng paksa. Ang anyo ng **pandiwa** (verb) ang nagsasabi kung alin ang paksa (*ang*) at alin ang katulong na bahagi (*ng*).
+Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi ang *ng* ang nagmamarka ng paksa. Ang anyo ng **pandiwa** (verb) ang nagsasabi kung alin ang paksa (*ang*) at alin ang katulong na bahagi (*ng*).
 :::
 
 :::pair #ng-para-sa-gumagawa
@@ -45,7 +45,7 @@ Ang sagot ay **Tagaganap o gumagawa ng kilos**. *Ang sopas* ang paksa, kaya ipin
 Ang panandang *sa* (at *kay* o *kina* para sa tiyak na ngalan ng tao) ay may tatlo ring karaniwang gamit:
 
 1. **Lugar** kung saan ginawa ang kilos: "Nagbasa si Ana **sa silid**." (Tanong: Saan nagbasa?)
-2. **Direksiyon** (direction) o patutunguhan ng kilos: "Pumunta si Ana **sa tanggapan**." (Tanong: Saan patungo?)
+2. **Direksiyon** o patutunguhan ng kilos: "Pumunta si Ana **sa tanggapan**." (Tanong: Saan patungo?)
 3. **Tagatanggap** (recipient) o pinaglaanan: "Inihatid ng kawani ang katibayan **sa aplikante**." (Tanong: Kanino inihatid?)
 
 Huwag ibatay sa salitang *sa* lamang ang sagot. Itanong kung *saan* o *kanino* nakatuon ang kilos sa buong pangungusap.
@@ -90,19 +90,18 @@ Piliin ang tamang pananda sa patlang: "Kinain ______ bata ang tinapay."
 
 ### #3: Lugar, Direksiyon, o Tagatanggap ng Sa
 
-Sa "Inihatid ng kawani ang katibayan sa aplikante," ano ang papel ng *sa aplikante*?
+Sa "Ibinigay ng guro ang gantimpala sa nanalo," ano ang papel ng *sa nanalo*?
 
 **Solution:**
 
-1. Hanapin ang gumawa at ang bagay na inihatid: *ng kawani* ang naghatid, at *ang katibayan* ang inihatid.
-2. Tingnan ang *aplikante*: tao ito, hindi lugar.
+1. Hanapin ang gumawa at ang bagay na ibinigay: *ng guro* ang nagbigay, at *ang gantimpala* ang ibinigay.
 
 :::try
-Tapusin ang huling hakbang: anong tanong ang sinasagot ng *sa aplikante*, at ano ang papel nito sa pangungusap?
+Tapusin ang huling hakbang: anong tanong ang sinasagot ng *sa nanalo*, at ano ang papel nito sa pangungusap?
 :::answer
-Ang sagot ay **Tagatanggap ng katibayan**. Sinasagot nito ang tanong na "Kanino inihatid ang katibayan?", hindi kung saan ginanap ang paghahatid.
+Ang sagot ay **Tagatanggap ng gantimpala**. Sinasagot nito ang tanong na "Kanino ibinigay ang gantimpala?", hindi "Saan ibinigay?"
 
-**Check:** Suriin ang tatlong papel: *ng kawani* ang naghatid, *ang katibayan* ang inihatid, at tao ang *sa aplikante* na sumasagot sa "Kanino ibinigay o inihatid?" (*tagatanggap*), hindi lugar o gumagawa.
+**Check:** Suriin ang tatlong papel: *ng guro* ang nagbigay, *ang gantimpala* ang ibinigay, at *sa nanalo* ang sumasagot sa "Kanino?" (*tagatanggap*), hindi lugar o gumagawa.
 :::
 
 ## Speed Tricks & Shortcuts

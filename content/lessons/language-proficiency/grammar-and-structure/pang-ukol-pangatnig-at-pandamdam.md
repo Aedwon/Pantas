@@ -98,19 +98,18 @@ Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pan
 
 ### #3: Pahayag ng Damdamin o Reaksiyon
 
-Sa "**Naku!** Naiwan ko sa bahay ang aking pagkakakilanlan," paano gumagana ang *Naku*?
+Sa "**Hay!** Naubos na ang tinapay," paano gumagana ang *Hay*?
 
 **Solution:**
 
-1. Basahin ang *Naku!* nang hiwalay sa pangungusap.
-2. Suriin kung pinapangalanan nito ang bagay, nagdurugtong ng mga diwa, o nagsasaad ng kilos: hindi.
+1. Basahin ang *Hay!* nang hiwalay sa pangungusap.
 
 :::try
-Tapusin ang huling hakbang: anong bahagi ng pananalita ang *Naku* batay sa gamit nito?
+Tapusin ang huling hakbang: anong bahagi ng pananalita ang *Hay* batay sa gamit nito?
 :::answer
-Ang sagot ay **Pandamdam**. Tuwiran nitong ipinahahayag ang biglaang damdamin ng nagsasalita.
+Ang sagot ay **Pandamdam**. Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita.
 
-**Check:** Basahin ang *Naku!* bilang biglaang bulalas ng gulat o pag-aalala: tuwiran nitong ipinahahayag ang biglaang matinding damdamin (*pandamdam*), at hindi ito kilos tulad ng *naiwan* o pang-ugnay ng dalawang diwa.
+**Check:** Hindi pinapangalanan ng *Hay* ang bagay, hindi ito kilos tulad ng *naubos*, at hindi ito nag-uugnay ng dalawang diwa. Tuwirang damdamin lamang ito (*pandamdam*).
 :::
 
 ## Speed Tricks & Shortcuts

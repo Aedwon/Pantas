@@ -18,10 +18,10 @@ keyPoints:
 
 Ang **pandiwa** (verb) ay nagsasaad ng kilos. Ang **aspekto** (aspect) ay nagsasabi kung tapos na, nagaganap pa, o gagawin pa ang kilos. May apat na anyo ang aspekto gamit ang salitang-ugat na *kain*:
 
-1. **Perpektibo** (tapos na): *kumain* ("Kumain na si Nena kanina.")
-2. **Perpektibong katatapos** (katatapos lamang): *kakakain lamang* o *katatapos lamang kumain* ("Kakakain lamang ni Nena bago siya umalis.")
-3. **Imperpektibo** (nagaganap pa o paulit-ulit): *kumakain* ("Kumakain pa si Nena habang naghihintay.")
-4. **Kontemplatibo** (hindi pa nasisimulan): *kakain* ("Kakain pa lamang siya mamaya.")
+1. **Perpektibo** (completed): tapos na, *kumain* ("Kumain na si Nena kanina.")
+2. **Perpektibong katatapos** (recently completed): katatapos lamang, *kakakain lamang* o *katatapos lamang kumain* ("Kakakain lamang ni Nena bago siya umalis.")
+3. **Imperpektibo** (ongoing): nagaganap pa o paulit-ulit, *kumakain* ("Kumakain pa si Nena habang naghihintay.")
+4. **Kontemplatibo** (contemplated): hindi pa nasisimulan, *kakain* ("Kakain pa lamang siya mamaya.")
 
 <!-- ILLUSTRATION: guhit ng oras para sa kilos na "kain": sa kaliwa "kumain (perpektibo: tapos na)", kasunod ang maikling tuldok na "kakakain lamang (katatapos lang)", sa gitna "kumakain (imperpektibo: nagaganap pa)", at sa kanan "kakain (kontemplatibo: hindi pa nasisimulan)" -->
 
@@ -49,7 +49,7 @@ Sa ibang wika tulad ng Ingles, nagbabago ang pandiwa kapag naging maramihan ang 
 - Maramihan: "**Kumakain** ng tanghalian **ang mga kawani**."
 
 :::why
-Bakit nananatili ang *kumakain* kahit marami na ang kawani? Ipinakikita ng anyo ng pandiwa sa Filipino ang aspekto at pokus, hindi ang bilang kung isa o marami ang paksa. Ang *mga* sa paksa lamang ang nagpapakita ng maramihan.
+Bakit nananatili ang *kumakain* kahit marami na ang kawani? Ipinakikita ng anyo ng pandiwa sa Filipino ang aspekto at **pokus** (focus), hindi ang bilang kung isa o marami ang paksa. Ang *mga* sa paksa lamang ang nagpapakita ng maramihan.
 :::
 
 :::pair #bilang-ng-paksa-at-pandiwa

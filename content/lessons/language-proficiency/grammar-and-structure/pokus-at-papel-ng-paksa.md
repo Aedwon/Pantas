@@ -34,7 +34,7 @@ Ang sagot ay **Ang liham**. Ito ang may panandang *ang*, habang *ni Mara* ay may
 Ang **pokus** (focus) ay ang ugnayan ng anyo ng **pandiwa** (verb) at ng papel ng paksa sa kilos. Paghambingin ang **tagaganap** (actor) at **layon** (object) sa iisang kilos (*sulat*, si Mara, liham):
 
 1. Pokus sa **tagaganap**: ang paksa ang gumagawa (*-um-*, *mag-*, *ma-*, *mang-*): "Sumulat **si Mara** ng liham."
-2. Pokus sa **layon**: ang paksa ang bagay na ginawan (*-in-*, *-in*, *i-*, *-an*): "Sinulat ni Mara **ang liham**."
+2. Pokus sa **layon**: ang paksa ang bagay na ginawan (*-in-*, *-in*, *i-*): "Sinulat ni Mara **ang liham**."
 
 <!-- ILLUSTRATION: dalawang nakapatong na pangungusap: sa itaas "Sumulat si Mara ng liham." na may palaso mula "Sumulat" patungong "si Mara" na may tatak na "paksa: tagaganap"; sa ibaba "Sinulat ni Mara ang liham." na may palaso mula "Sinulat" patungong "ang liham" na may tatak na "paksa: layon" -->
 

@@ -23,9 +23,9 @@ Kapag nagsisimula sa katinig ang ugat, inuulit ang unang katinig at patinig nito
 
 Sa pangkat ng *maglinis*, sumusunod ang tatlong **aspekto** (aspect) sa iisang hulma:
 
-1. **Perpektibo** (completed, tapos na): palitan ang *mag-* ng *nag-* -> *naglinis*.
-2. **Imperpektibo** (ongoing, nagpapatuloy): gamitin ang *nag-* at ulitin ang unang pantig -> *naglilinis*.
-3. **Kontemplatibo** (contemplated, gagawin pa): panatilihin ang *mag-* at ulitin ang unang pantig -> *maglilinis*.
+1. **Perpektibo** (completed): tapos na, palitan ang *mag-* ng *nag-* -> *naglinis*.
+2. **Imperpektibo** (ongoing): nagpapatuloy, gamitin ang *nag-* at ulitin ang unang pantig -> *naglilinis*.
+3. **Kontemplatibo** (contemplated): gagawin pa, panatilihin ang *mag-* at ulitin ang unang pantig -> *maglilinis*.
 
 Para sa katatapos na kilos, gamitin ang *ka-* at pag-uulit ng unang pantig: *kalilinis lang* (o *kadarating lang* mula sa *dating*, kung saan nagiging *r* ang *d* sa gitna ng mga patinig).
 
@@ -61,8 +61,8 @@ Nagpapatuloy ang kilos sa *kumakain* at tapos na sa *kumain*. Alisin ang *-um-* 
 
 :::pair #basahin-ang-buong-pandiwa
 Right: Sa "Kakakain lang ng mga kawani. Maglilinis sila bukas," perpektibong katatapos ang *kakakain* at kontemplatibo ang *maglilinis*.
-Wrong: Tawaging imperpektibo ang *kakakain* o *maglilinis* dahil lamang may inuulit na pantig.
-May pag-uulit din ang katatapos (*ka-* + *ka* -> *kakakain*) at ang kontemplatibo (*mag-* + *li* -> *maglilinis*). Tingnan ang **unlapi** (prefix) kasama ng pag-uulit upang makita ang tamang aspekto.
+Wrong: Sabihing imperpektibo ang *kakakain*, at kontemplatibo ang *maglilinis*.
+Hindi sapat ang pag-uulit upang sabihing nagpapatuloy ang kilos. May pag-uulit din ang katatapos (*ka-* + *ka* -> *kakakain*) at ang kontemplatibo (*mag-* + *li* -> *maglilinis*). Tingnan ang panlapi kasama ng pag-uulit upang makita ang tamang aspekto.
 :::
 
 :::check
@@ -103,19 +103,19 @@ Sagot: **Palitan ang *magkakain* ng *kakain*.**
 
 ### #3: Pagsusuri ng Dalawang Pandiwang May Pag-uulit
 
-Sa tala ay nakasulat, "Kakakain lang ng mga kawani nang tumawag ang pinuno kahapon. Maglilinis sila ng tanggapan bukas." Suriin ang aspekto ng *kakakain* at *maglilinis*.
+Sa tala ay nakasulat, "Kasasara lang ng mga kawani ng tanggapan. Magbabasa sila ng ulat bukas." Suriin ang aspekto ng *kasasara* at *magbabasa*.
 
 **Solution:**
 
-1. Suriin ang *kakakain lang*: ang *ka-* kasama ng inulit na *ka* at *lang* ay nagpapakitang katatapos lamang ang pagkain nang dumating ang tawag (kahit kahapon iyon nangyari), kaya **perpektibong katatapos** (recently completed) ito.
-2. Suriin ang *maglilinis*: tingnan ang unlapi at ang oras (*bukas*).
+1. Suriin ang *kasasara lang*: ang *ka-* kasama ng inulit na *sa* at *lang* ay nagpapakitang katatapos lamang ang pagsara, kaya **perpektibong katatapos** (recently completed) ito.
+2. Suriin ang *magbabasa*: tingnan ang **unlapi** (prefix) at ang oras (*bukas*).
 
 :::try
-Tapusin ang huling hakbang: anong aspekto ang *maglilinis*, at bakit hindi ito imperpektibo kahit inuulit ang *li*?
+Tapusin ang huling hakbang: anong aspekto ang *magbabasa*, at bakit hindi ito imperpektibo kahit inuulit ang *ba*?
 :::answer
-Ang sagot ay **Perpektibong katatapos ang una; kontemplatibo ang ikalawa.** Gumagamit ang *maglilinis* ng unlaping *mag-* (hindi *nag-*) kasama ng inulit na *li* at pahiwatig na *bukas*, kaya gagawin pa ito at hindi nagpapatuloy.
+Ang sagot ay **Perpektibong katatapos ang una; kontemplatibo ang ikalawa.** Gumagamit ang *magbabasa* ng unlaping *mag-* (hindi *nag-*) kasama ng inulit na *ba* at pahiwatig na *bukas*, kaya gagawin pa ito at hindi nagpapatuloy.
 
-**Check:** Ihambing ang dalawang unlapi: ang nagpapatuloy na anyo ay *naglilinis* (*nag-* + *li*), habang ang *maglilinis* (*mag-* + *li*) ay palaging nakatuon sa kilos na gagawin pa.
+**Check:** Ihambing ang dalawang unlapi: ang nagpapatuloy na anyo ay *nagbabasa* (*nag-* + *ba*), habang ang *magbabasa* (*mag-* + *ba*) ay palaging nakatuon sa kilos na gagawin pa.
 :::
 
 ## Speed Tricks & Shortcuts

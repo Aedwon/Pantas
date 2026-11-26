@@ -17,7 +17,7 @@ keyPoints:
 
 ### Hugnayang Pangungusap
 
-Ang **hugnayan** (complex sentence) ay binubuo ng isang **sugnay** (clause) na makapag-iisa (independent) at isa o higit pang sugnay na di-makapag-iisa (dependent).
+Ang **hugnayan** (complex sentence) ay binubuo ng isang **sugnay** (clause) na makapag-iisa (independent) at isa o higit pang sugnay na di-makapag-iisa (dependent). Hindi ito **tambalan** (compound) o **payak** (simple).
 
 Gamitin ang *dahil* o *sapagkat* upang ipakilala ang dahilan:
 
@@ -26,7 +26,7 @@ Gamitin ang *dahil* o *sapagkat* upang ipakilala ang dahilan:
 :::pair #hugnayan-laban-sa-tambalan
 Right: Ang "Umuwi ang bata dahil umuulan na" ay **Hugnayan**.
 Wrong: Tawaging **Tambalan** o **Payak** ang "Umuwi ang bata dahil umuulan na."
-Ginagawang di-makapag-iisa ng *dahil* ang *dahil umuulan na*. Hindi ito buong diwa kung mag-isa, kaya hindi **tambalan** (compound) ang pangungusap at hindi rin **payak** (simple).
+Ginagawang di-makapag-iisa ng *dahil* ang *dahil umuulan na*. Kaya hindi ito tambalan o payak.
 :::
 
 :::check

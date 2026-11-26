@@ -89,7 +89,7 @@ Tukuyin ang uri ng pangungusap: "Naglilinis at nag-aayos ng silid sina Ana at Be
 2. Hanapin ang panaguri: *naglilinis at nag-aayos ng silid*.
 3. Iisa lamang ang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa, kaya **Payak** ito.
 
-**Check:** Hindi maaaring ihiwalay ang "nag-aayos ng silid" bilang buong pangungusap na may sariling hiwalay na paksa sa unahan; parehong para kina Ana at Ben ang kilos sa iisang sugnay.
+**Check:** Hindi maaaring ihiwalay ang "nag-aayos ng silid" bilang buong pangungusap na may sariling hiwalay na simuno sa unahan; parehong para kina Ana at Ben ang kilos sa iisang sugnay.
 
 ### #2: Tambalang Pangungusap
 
@@ -105,19 +105,18 @@ Tukuyin ang uri ng pangungusap: "Umuwi ang bata ngunit naiwan ang bag niya."
 
 ### #3: Pagtutugma ng Pangatnig
 
-Aling pangatnig ang angkop upang magbigay ng pagpipilian: "Maaari kang magpasa sa tanggapan, ___ maaari kang magpadala sa koreo"?
+Aling pangatnig ang angkop upang magdagdag ng diwa: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
 
 **Solution:**
 
-1. Suriin ang dalawang sugnay: parehong paraan ito ng pagpapasa ng papel.
-2. Suriin ang ugnayang hinihingi ng tanong: pagpipilian sa dalawang paraan.
+1. Suriin ang dalawang sugnay: parehong gawaing natapos ang mga ito.
 
 :::try
 Tapusin ang huling hakbang: aling pangatnig (*at, ngunit, o,* o *dahil*) ang akma sa patlang?
 :::answer
-Ang sagot ay **O**: "Maaari kang magpasa sa tanggapan, **o** maaari kang magpadala sa koreo."
+Ang sagot ay **At**: "Nagdilig si Ana ng halaman, **at** nagwalis si Ben ng bakuran."
 
-**Check:** Ipinakikita ng *maaari* sa dalawang sugnay na isa lamang sa dalawang paraan ang pipiliin, na siyang tungkulin ng *o*.
+**Check:** Dagdag na gawain ang ikalawang sugnay. Walang salungatan, pagpipilian, o dahilan, kaya *at* ang tungkulin.
 :::
 
 ## Speed Tricks & Shortcuts

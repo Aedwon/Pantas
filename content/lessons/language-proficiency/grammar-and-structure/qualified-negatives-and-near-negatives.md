@@ -109,15 +109,11 @@ In standard formal English, revise *"I can't hardly hear you from over here"* wh
 
 Correct sentence: **"I can hardly hear you from over here."**
 
-**Check:** Replace *hardly* with *"almost not"*: *"I can almost not hear you from over here."* That matches very little hearing without changing it to clear hearing or zero hearing.
+**Check:** Replace *hardly* with *"barely"*: *"I can barely hear you from over here."* That matches very little hearing without changing it to clear hearing or zero hearing.
 
 ### #3: Reading Scarcely and Seldom Accurately
 
 The clerk did finish the audit. Her memo says she *"could scarcely finish the audit."* Another memo says *"The branch seldom cancels briefings."* What does each convey?
-
-**Solution:**
-
-1. Read *scarcely* and *seldom* against what the memos say happened.
 
 :::try
 Finish the last step: state what *"could scarcely finish the audit"* conveys here, and define *"seldom cancels."*

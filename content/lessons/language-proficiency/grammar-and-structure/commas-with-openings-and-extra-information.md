@@ -44,7 +44,7 @@ Relative clauses work in two ways (use *who* or *which* for extra detail, never 
 <!-- ILLUSTRATION: two stacked sentences comparing comma pairs: top "My brother, who lives in Cebu, is visiting." with "who lives in Cebu" shaded between two teal commas and labeled "only one brother -> extra info"; bottom "The students who missed the test must report." with no commas and a tight bracket from "who missed the test" to "The students" labeled "picks out some students -> identifying" -->
 
 :::why
-Why do commas change who is meant? Paired commas work like lift-out handles: you can remove the middle clause and still know who is meant. Without commas, the clause stays locked to the noun to narrow the group.
+Why do commas change who is meant? With paired commas, you can remove the middle clause and still know who is meant. Without commas, the clause stays locked to the noun to narrow the group.
 :::
 
 :::pair #missing-commas-on-extra-info

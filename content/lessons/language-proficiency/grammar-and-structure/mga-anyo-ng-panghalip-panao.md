@@ -47,7 +47,7 @@ Tiyakin muna kung sino ang gumawa at kung isa o marami siya.
 :::pair #bilang-at-gumawa-sa-ng
 Right: "Isang estudyante lamang ang nagdala ng proyekto; ipinakita niya ito sa buong klase."
 Wrong: Gamitin ang *nila*, *namin*, o *ninyo* para sa iisang estudyante.
-Iisang estudyante ang nagpakita kaya mali ang maramihang *nila*. Binabago rin ng *namin* (unang **panauhan** (person), nagsasalita) at *ninyo* (ikalawang panauhan, kausap) ang panauhan; kailangan ang isahang ikatlong panauhang *niya*.
+Iisang estudyante ang nagpakita kaya mali ang maramihang *nila*. Binabago rin ng *namin* (nagsasalita) at *ninyo* (kausap) ang **panauhan** (person); kailangan ang isahang ikatlong panauhang *niya*.
 :::
 
 :::check
@@ -71,7 +71,7 @@ Bakit may tatlong anyo para sa iisang tao (*siya, niya, kaniya*)? Sa Filipino, i
 :::pair #anyong-sa-para-sa-tatanggap
 Right: Sa "Ibinigay ng tagapangasiwa sa mga boluntaryo," palitan ang "sa mga boluntaryo" ng *sa kanila*.
 Wrong: Piliin ang *sila*, *nila*, o *para sa kaniya* para sa maraming tatanggap.
-Ang mga boluntaryo ang maramihang tatanggap, kaya kailangan ang *sa kanila*, hindi paksang *sila*, tagaganap na *nila*, o isahang *kaniya*.
+Ang mga boluntaryo ang maramihang tatanggap, kaya kailangan ang *sa kanila*, hindi paksang *sila*, **tagaganap** (actor) na *nila*, o isahang *kaniya*.
 :::
 
 :::check
@@ -100,7 +100,7 @@ Piliin ang tamang panghalip: "Isang estudyante lamang ang nagdala ng proyekto; i
 
 **Solution:**
 
-1. Suriin ang papel ng patlang: *ito* (ang proyekto) ang paksa, kaya kailangan ng **tagaganap** (actor) ang anyong *ng*.
+1. Suriin ang papel ng patlang: *ito* (ang proyekto) ang paksa, kaya kailangan ng tagaganap ang anyong *ng*.
 2. Tukuyin kung sino at ilan ang nagpakita: isang estudyanteng pinag-uusapan (hindi ang nagsasalita at hindi ang kausap).
 3. Piliin ang isahang anyong *ng* para sa pinag-uusapan: **niya**.
 

@@ -37,7 +37,7 @@ Ang sagot ay **"Nag-aral si Mia kahapon."** Nanatili ang *kahapon* at ang tapos 
 
 ### Paulit-ulit na Kilos at Pahiwatig na Tuwing
 
-Ginagamit ang **imperpektibo** (imperfective) hindi lamang sa kilos na nangyayari sa mismong sandali ng pagsasalita. Ginagamit din ito para sa paulit-ulit o nakatakdang gawain na may pahiwatig na *tuwing*:
+Ginagamit ang **imperpektibo** (ongoing) hindi lamang sa kilos na nangyayari sa mismong sandali ng pagsasalita. Ginagamit din ito para sa paulit-ulit o nakatakdang gawain na may pahiwatig na *tuwing*:
 
 - "Naglilinis ng bulwagan ang mga kawani **tuwing Sabado**." (Lingguhang iskedyul ito, kaya *naglilinis* ang tamang anyo kahit hindi Sabado ngayon.)
 
@@ -70,7 +70,7 @@ Bakit imperpektibo ang *nagsusulat* kahit may *kahapon* sa pangungusap? Nang dum
 :::pair #nagpapatuloy-sa-nakaraan
 Right: Sa "Nagsusulat pa ng ulat si Luis nang dumating ang pinuno kahapon," ang *nagsusulat* ay **imperpektibo, dahil nagpapatuloy ang pagsulat nang dumating ang pinuno**.
 Wrong: "**Perpektibo, dahil kahapon naganap ang pangyayari.**" o "**Kontemplatibo, dahil hindi pa tapos ang ulat.**"
-Hindi porke may *kahapon* ay tapos na ang pagsusulat, at ang hindi pa tapos ay hindi nangangahulugang hindi pa nagsisimula. Nagsusulat na si Luis nang dumating ang pinuno.
+Hindi tapos ang pagsusulat dahil lamang may *kahapon*, at ang hindi pa tapos ay hindi nangangahulugang hindi pa nagsisimula. Nagsusulat na si Luis nang dumating ang pinuno.
 :::
 
 :::check
@@ -107,19 +107,18 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite si Elena ng ula
 
 ### #3: Nagpapatuloy na Kilos sa Nakaraan
 
-"Nagsusulat pa ng ulat si Luis nang dumating ang pinuno kahapon." Ano ang aspekto ng *nagsusulat*, at bakit?
+"Naglalaba pa si Rita nang tumawag ang kaibigan niya kahapon." Ano ang aspekto ng *naglalaba*, at bakit?
 
 **Solution:**
 
-1. Tukuyin ang dalawang pangyayari kahapon: ang pagsusulat ni Luis at ang pagdating ng pinuno.
-2. Pansinin ang salitang *pa* sa "nagsusulat pa": hindi pa tapos ang pagsusulat nang dumating ang pinuno.
+1. Tukuyin ang dalawang pangyayari kahapon: ang paglalaba ni Rita at ang pagtawag ng kaibigan niya.
 
 :::try
-Tapusin ang huling hakbang: ano ang aspekto ng *nagsusulat*, at bakit hindi ito perpektibo o kontemplatibo?
+Tapusin ang huling hakbang: ano ang aspekto ng *naglalaba*, at bakit hindi ito perpektibo o kontemplatibo?
 :::answer
-Ang sagot ay **Imperpektibo, dahil nagpapatuloy ang pagsulat nang dumating ang pinuno**.
+Ang sagot ay **Imperpektibo, dahil nagpapatuloy ang paglalaba nang tumawag ang kaibigan**.
 
-**Check:** Nagsimula na si Luis (kaya hindi kontemplatibo) at hindi pa siya tapos sa sandaling iyon (kaya hindi perpektibo kahit may *kahapon*).
+**Check:** Nagsimula na si Rita (kaya hindi **kontemplatibo** (contemplated)) at hindi pa siya tapos sa sandaling iyon (kaya hindi perpektibo kahit may *kahapon*). Salitang *pa* ang pahiwatig.
 :::
 
 ## Speed Tricks & Shortcuts

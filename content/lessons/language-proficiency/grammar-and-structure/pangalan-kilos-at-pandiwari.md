@@ -107,20 +107,19 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Kumain** ang mga bata 
 
 ### #3: Tradisyonal na Pandiwari
 
-Sa tradisyonal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitang nakadiin sa "Inihatid ng kawani sa klinika ang **nahimatay**"?
+Sa tradisyonal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitang nakadiin sa "Hinatid ng pulis sa istasyon ang **nahuli**"?
 
 **Solution:**
 
-1. Tukuyin ang kilos na ginawa ng kawani: *inihatid*.
-2. Tukuyin ang lugar ng paghahatid: *sa klinika*.
-3. Tingnan ang *ang nahimatay*: mula sa pandiwa ang *nahimatay* at pinapangunahan ng pantukoy na *ang*.
+1. Tukuyin ang kilos na ginawa ng pulis: *hinatid*.
+2. Tukuyin ang lugar ng paghahatid: *sa istasyon*.
 
 :::try
-Tapusin ang huling hakbang: sino ang tinutukoy ng *ang nahimatay*, at ano ang gamit nito sa itinakdang pag-uuri?
+Tapusin ang huling hakbang: sino ang tinutukoy ng *ang nahuli*, at ano ang gamit nito sa itinakdang pag-uuri?
 :::answer
-Ang sagot ay **Pandiwaring gamit na pangngalan**. Tumutukoy ito sa taong inihatid sa klinika, hindi sa kilos ng kawani at hindi sa lugar.
+Ang sagot ay **Pandiwaring gamit na pangngalan**. Mula sa pandiwa ang *nahuli*, at tumutukoy ito sa taong hinatid sa istasyon, hindi sa kilos ng pulis at hindi sa lugar.
 
-**Check:** Ihiwalay ang tatlong bahagi: *inihatid* (kilos), *sa klinika* (lugar), at *ang nahimatay* (taong tinulungan).
+**Check:** Ihiwalay ang tatlong bahagi: *hinatid* (kilos), *sa istasyon* (lugar), at *ang nahuli* (taong hinatid).
 :::
 
 ## Speed Tricks & Shortcuts

@@ -100,19 +100,18 @@ Natapos na ang paglilinis ng tanggapan kahapon. Alin ang angkop na pandiwa sa pa
 
 ### #3: Paghahambing ng Perpektibo at Perpektibong Katatapos
 
-Paghambingin ang "Naglinis ng silid si Noel noong nakaraang linggo" at "Kalilinis lang ni Noel ng silid." Aling pagsusuri ang tama?
+Paghambingin ang "Sumulat si Lea ng ulat noong Lunes" at "Kasusulat lang ni Lea ng ulat." Aling pagsusuri ang tama?
 
 **Solution:**
 
-1. Suriin ang unang pangungusap: ang *naglinis* ay may pahiwatig na *noong nakaraang linggo*, kaya tapos na ito at **perpektibo** (hindi katatapos lang, at hindi nagpapatuloy).
-2. Suriin ang ikalawang pangungusap: may *ka-* + *li* at *lang* ang *kalilinis lang*.
+1. Suriin ang unang pangungusap: may pahiwatig na *noong Lunes* ang *sumulat*, kaya **perpektibo** ito.
 
 :::try
-Tapusin ang huling hakbang: ano ang aspekto ng *kalilinis lang*, at ano ang buong paghahambing ng dalawang pangungusap?
+Tapusin ang huling hakbang: ano ang aspekto ng *kasusulat lang*, at ano ang buong paghahambing ng dalawang pangungusap?
 :::answer
-Ang sagot ay **Perpektibo ang una; perpektibong katatapos ang ikalawa.** Hindi lahat ng tapos na kilos ay katatapos lamang, at ang *lang* sa *kalilinis lang* ay nagdidiin na katatapos lang ang paglilinis, hindi plano sa hinaharap.
+Ang sagot ay **Perpektibo ang una; perpektibong katatapos ang ikalawa.** Ipinapakita ng *ka-* + *su* at *lang* sa *kasusulat lang* na kailan lang natapos ang pagsulat.
 
-**Check:** Suriin ang bawat oras: *noong nakaraang linggo* = tapos nang matagal (perpektibo); *kalilinis lang* = katatapos pa lamang (perpektibong katatapos).
+**Check:** Suriin ang bawat oras: *noong Lunes* = tapos nang matagal (perpektibo); *kasusulat lang* = katatapos pa lamang (perpektibong katatapos).
 :::
 
 ## Speed Tricks & Shortcuts

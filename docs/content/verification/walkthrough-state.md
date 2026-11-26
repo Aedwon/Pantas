@@ -20,7 +20,19 @@
 | 7 | General Information: Code of Conduct RA 6713 | 47 active | 0/47 | 0/47 | Quiz packets ready | NOT yet audited | Rewrite under connection rule + primary-text check, verify, Codex audit |
 | 8 | General Information: Environment & Peace/Human Rights | 47 active | 0/47 | 0/47 | Quiz packets ready | NOT yet audited | Rewrite under connection rule + primary-text check, verify, Codex audit |
 
-## Current Immediate Queue (Nov 26, 13:50 Manila)
+## Claude lesson lead takeover (Nov 26, 15:31 Manila, E-198)
+
+- Lead: Claude Opus 5.5 lesson lead (Gemini lead out of quota). Policy read: `origin/main` `650eda378`.
+- Corrections to the hand-over state, found in the branch and the previous lead's files:
+  - Batch 1 Math: the PASS is pre-rule (`25842f38e`). The post-rule independent verifier's result was lost with its task thread, and no post-rule re-audit ran. Math needs re-verification and a re-audit.
+  - Batch 3 Grammar: the round 2 Codex audit of `a5dea5097` ran and FAILED (0 Blockers, 9 Majors, 6 Minors). Report copied to the lead's scratchpad (`gemini/batch3/codex-audit-batch3-r2.md`).
+  - Filipino glosses: the round 1 audit asked for every English gloss to be removed and the previous lead stripped them in all Filipino Grammar lessons. That contradicts Aedwon's Oct 4 decision (option 1: short English gloss for a hard grammar term on first use; `docs/content/lesson-style-guide.md`, Filipino section; checklist L09). The glosses are being restored. Audit briefs must state this rule.
+  - Trap evidence: `content/walkthrough-trap-evidence.json` holds 155 lessons (Math, Reasoning, Grammar, plus one Vocabulary lesson). The other 28 Vocabulary lessons' citations are not merged yet.
+  - The UX lead's 4 Vocabulary import errors were already fixed in the previous lead's uncommitted edits (checkpoint `80465ebd8`). The renderer branch's parser now passes all 191 walk-through lessons.
+- New check run per chunk: the renderer branch's `planWalkthrough` parser (copied from `ux/walkthrough-renderer-r1` `222010878`) over each lesson, plus the locked `lesson_checks.dart` from `tools/walkthrough-checks-r1`.
+- Commits so far: `80465ebd8` (checkpoint of the previous lead's Filipino Vocabulary edits), `97fda158a` (Grammar round 2 fixes and gloss restore; independent verifier FAIL with 2 Blocker groups, fix round running), `366a3e175` (Vocabulary Filipino review).
+
+## Previous lead's queue (Nov 26, 13:50 Manila, superseded by the takeover notes above)
 
 1. Run Codex GPT 6.2 Sol High post-connection re-audit on Batch 2 Reasoning (`codex-audit-batch2-r3.brief.md`), then commit `Batch 2 audited: PASS`.
 2. Merge Batch 3 Grammar trap evidence (52 lessons, 142 pairs, 279 citations) into `content/walkthrough-trap-evidence.json`, append Batch 3 figure worklist, write `walkthrough-batch-3-grammar.md`, run Flash mechanical sweep + locked Dart gates + Codex checkpoint audit (`Batch 3 audited: PASS`).

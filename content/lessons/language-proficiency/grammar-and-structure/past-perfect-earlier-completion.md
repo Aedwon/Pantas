@@ -83,7 +83,7 @@ Why is "He locked the gate before the guard arrived" grammatical in standard Eng
 **Solution:**
 
 1. Identify the two past actions: *locked* (Action 1) and *arrived* (Action 2).
-2. Check the connector between them: *before*.
+2. Check the word that joins them.
 
 :::try
 Finish the last step: why does simple past *locked* work here without needing *had locked*?
