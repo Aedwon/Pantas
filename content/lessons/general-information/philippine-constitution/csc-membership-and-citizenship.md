@@ -12,57 +12,132 @@ keyPoints:
   - "Name the Chairman and two Commissioners."
   - "Recognize natural-born citizenship and its stated exception."
 ---
+
 ## Core Concept
 
-### Composition and Qualifications
+### Composition of the CSC
 
-The CSC has one Chairman and two Commissioners. Each member must meet all of these requirements:
+Article IX-B, Section $1(1)$, sets the size and leadership of the Civil Service Commission.
 
-- Be a natural-born Philippine citizen.
+The CSC has **$1$ Chairman** and **$2$ Commissioners**. Together they form a $3$-member body.
 
-A **natural-born citizen** is a Philippine citizen from birth who needs no act to acquire or complete that citizenship. For example, a child born to a Filipino parent can be a citizen from birth. Becoming a citizen later through naturalization does not by itself make someone natural-born.
-
-Article IV also gives a specific exception. People born before January $17$, $1973$, to Filipino mothers who elect Philippine citizenship upon reaching the age of majority are deemed natural-born. Here, **elect** means formally choose Philippine citizenship, and **age of majority** means the legal age of adulthood.
-
-## Examples
-
-### #1: Commission Membership
-
-How many members make up the CSC, and what positions do they hold?
-
-**Solution:**
-
-1. The CSC has one Chairman and two Commissioners.
-2. Add the positions:
+Count the total seats when checking a Commission slate:
 
 $$
 1 + 2 = 3
 $$
 
-3. There are $3$ members in total.
+Compare the three Article IX Commissions so you never mix up their sizes:
 
-### #2: Citizenship from Birth
+1. CSC has $3$ members ($1$ Chairman and $2$ Commissioners).
+2. COA has $3$ members ($1$ Chairman and $2$ Commissioners).
+3. COMELEC has $7$ members ($1$ Chairman and $6$ Commissioners).
 
-Lina was a Philippine citizen from birth through her Filipino father. She needed no later act to acquire or complete her citizenship. Does she meet the CSC's citizenship requirement?
+:::pair #csc-chair-plus-two
+Right: Include the Chairman with the $2$ Commissioners to get $3$ CSC members in total.
+Wrong: Counting only the $2$ Commissioners and leaving out the Chairman.
+The word two names only the associate Commissioners, so adding the Chairman gives $3$ total seats.
+:::
+
+:::pair #csc-not-seven-members
+Right: Give the CSC $1$ Chairman and $2$ Commissioners, for $3$ total members.
+Wrong: Assigning COMELEC's $7$-member size ($1$ Chairman and $6$ Commissioners) to the CSC.
+COMELEC has $7$ seats under Article IX-C, while the CSC has $3$ seats under Article IX-B.
+:::
+
+:::check
+A proposed law expands the Civil Service Commission to a Chairman and four Commissioners without changing the Constitution. How many total members does Article IX-B actually fix?
+:::answer
+The answer is **$3$ members**. Article IX-B, Section $1(1)$, sets the CSC at $1$ Chairman and $2$ Commissioners.
+:::
+
+### Natural-Born Citizenship and Its Exception
+
+Under Article IX-B, Section $1(1)$, every CSC member must be a **natural-born citizen** of the Philippines.
+
+Under Article IV, Section $2$, a **natural-born citizen** is a Philippine citizen from birth who needs no act to acquire or complete citizenship.
+
+1. A child born to at least one Filipino parent at birth is natural-born.
+2. Becoming a citizen later through naturalization never makes someone natural-born.
+3. Permanent residency or voter registration without natural-born status never meets this rule.
+
+Article IV also gives one narrow exception. People born before January $17$, $1973$, to Filipino mothers who **elect** Philippine citizenship upon reaching the **age of majority** are deemed natural-born. Here, **elect** means formally choose Philippine citizenship, and **age of majority** means legal adulthood.
+
+:::why
+Why require natural-born citizenship for CSC leaders? Top constitutional posts require lifelong, undivided ties to the Philippines from birth.
+:::
+
+Test two nominees for the CSC citizenship rule:
+
+1. Nominee A was born abroad in $1980$ to a Filipino father and never needed naturalization, so A is natural-born.
+2. Nominee B came to the Philippines at age $10$ and naturalized at age $25$, so B fails the natural-born rule.
+
+:::pair #natural-born-required
+Right: Require natural-born status, or the Article IV, Section $1(3)$ pre-$1973$ election route, for every CSC seat.
+Wrong: Treating citizenship gained through naturalization as meeting the CSC natural-born requirement.
+Naturalized citizens are Philippine citizens, yet they do not hold natural-born status under Article IV, Section $2$.
+:::
+
+:::check
+Clara was born in $1971$ to a Filipino mother and a foreign father. She formally elected Philippine citizenship at majority under Article IV, Section $1(3)$. Does she meet the CSC citizenship rule?
+:::answer
+The answer is **Yes**. Article IV, Section $2$, expressly deems valid Section $1(3)$ electors to be natural-born citizens.
+:::
+
+## Examples
+
+### #1: Counting a Full CSC Slate
+
+A chart lists the CSC as having $2$ Commissioners and asks for total membership. How many seats are on the Commission, and what are their titles?
 
 **Solution:**
 
-Lina meets it because she is a natural-born Philippine citizen. She must still meet the other appointment requirements.
+1. Article IX-B, Section $1(1)$, names $1$ Chairman and $2$ Commissioners.
+2. Add the Chairman and the Commissioners:
 
-### #3: Deemed Natural-Born
+$$
+1 + 2 = 3
+$$
 
-Rosa was born before January $17$, $1973$, to a Filipino mother. She elected Philippine citizenship upon reaching the age of majority under Article IV, Section $1(3)$. Does the act of electing citizenship keep her from meeting the natural-born requirement?
+Answer: The CSC has $3$ members in total: $1$ Chairman and $2$ Commissioners.
+
+**Check:** Contrast $3$ seats for the CSC with $7$ seats for COMELEC.
+
+### #2: Residency and Naturalization
+
+Tomas lived in Quezon City for $30$ years as a permanent resident and later gained Philippine citizenship by naturalization. Can he qualify for a CSC Commissioner seat?
 
 **Solution:**
 
-1. Article IV expressly deems people covered by this election-of-citizenship rule natural-born.
-2. Rosa's facts meet that rule.
-3. She meets the natural-born requirement despite having performed that act.
+1. Article IX-B, Section $1(1)$, requires every CSC member to be a natural-born citizen.
+2. Permanent residency without natural-born status does not qualify.
+3. Naturalization grants citizenship after birth, so Tomas is not natural-born under Article IV, Section $2$.
+
+Answer: No, because neither permanent residency nor naturalization makes a person natural-born.
+
+**Check:** Natural-born status requires citizenship from birth with no completing act, unless Article IV's pre-$1973$ exception applies.
+
+### #3: Comparing Two Citizenship Paths
+
+Nominee X became a Philippine citizen by naturalization after $15$ years of residency. Nominee Y was born in $1970$ to a Filipino mother and a foreign father. Upon reaching majority, Nominee Y elected Philippine citizenship under Article IV, Section $1(3)$. Which nominee meets the CSC citizenship rule?
+
+**Solution:**
+
+1. Check Nominee X: naturalization grants citizenship after birth, not natural-born status.
+2. Check Nominee Y: birth before January $17$, $1973$, to a Filipino mother with proper election at majority falls under Article IV, Section $1(3)$.
+
+:::try
+Finish the last step: name which nominee meets the CSC citizenship rule and explain why.
+:::answer
+The answer is **Nominee Y meets the rule, while Nominee X does not.** Article IV, Section $2$, expressly deems Section $1(3)$ electors natural-born, while naturalized citizens do not qualify.
+
+**Check:** Do not reject every person who elected citizenship; check the pre-$1973$ birth date, Filipino mother, and election at majority.
+:::
 
 ## Traps to Watch For
 
-### #1: Natural-Born Has an Express Exception
-
-> Do not reject every person who elected Philippine citizenship.
-
-Article IV deems people covered by Section $1(3)$ natural-born. Check the birth date, Filipino mother, and election of citizenship at the age of majority.
+:::checklist
+- Counting CSC seats: add $1$ Chairman plus $2$ Commissioners to get $3$ members, never $2$. {#csc-chair-plus-two}
+- Commission size mix-up: keep CSC at $3$ members, and never import COMELEC's $7$-member size. {#csc-not-seven-members}
+- Citizenship status: require natural-born status (or the pre-$1973$ Article IV election exception), never naturalization. {#natural-born-required}
+:::

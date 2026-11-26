@@ -1643,6 +1643,290 @@
           "mistakeNote": "Starts the 60-to-90-day initiative plebiscite period at the first signature instead of COMELEC certification."
         }
       ]
+    },
+    "lesson-philippine-constitution-csc-personnel-and-career-service": {
+      "csc-article-ix-b": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0007",
+          "wrongChoice": "Article IX-A, the common provisions for the commissions",
+          "mistakeNote": "Assigns the CSC specifically to Article IX-A instead of its dedicated part in Article IX-B."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0007",
+          "wrongChoice": "Article IX-C, the Commission on Elections provisions",
+          "mistakeNote": "Confuses the CSC's Article IX-B subdivision with COMELEC's Article IX-C subdivision."
+        }
+      ],
+      "personnel-role-scope": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0010",
+          "wrongChoice": "The central judicial tribunal for all criminal cases",
+          "mistakeNote": "Substitutes criminal judicial authority for the CSC's role as central personnel agency."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0020",
+          "wrongChoice": "The claim is correct because central means all other government functions are included.",
+          "mistakeNote": "Treats the word central as granting legislative, monetary, and criminal judicial powers beyond personnel management."
+        }
+      ],
+      "accountability-not-criminal-trial": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0020",
+          "wrongChoice": "The claim is correct because promoting accountability includes trying employees for criminal offenses.",
+          "mistakeNote": "Confuses promoting an administrative climate of public accountability with conducting criminal trials in court."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-csc-membership-and-citizenship": {
+      "csc-chair-plus-two": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0016",
+          "wrongChoice": "2",
+          "mistakeNote": "Counts only the two associate Commissioners and leaves out the Chairman."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0001",
+          "wrongChoice": "A chairman and only one other commissioner",
+          "mistakeNote": "Reduces the two associate Commissioners to one, giving two total seats instead of three."
+        }
+      ],
+      "csc-not-seven-members": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0001",
+          "wrongChoice": "A chairman and six other commissioners",
+          "mistakeNote": "Imports COMELEC's seven-member composition under Article IX-C into the three-member CSC."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0016",
+          "wrongChoice": "7",
+          "mistakeNote": "Applies COMELEC's seven-seat total instead of the CSC's three-seat total."
+        }
+      ],
+      "natural-born-required": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0002",
+          "wrongChoice": "Naturalized citizenship without any additional condition",
+          "mistakeNote": "Treats naturalized Philippine citizenship as satisfying the natural-born qualification under Article IX-B, Section 1(1)."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0002",
+          "wrongChoice": "Permanent residency even without Philippine citizenship",
+          "mistakeNote": "Treats permanent residency alone as meeting the constitutional natural-born citizenship requirement."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-csc-age-capacity-and-candidacy": {
+      "age-at-appointment": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0018",
+          "wrongChoice": "The later birthday retroactively makes the earlier appointment satisfy the minimum.",
+          "mistakeNote": "Allows a birthday after appointment to cure being 34 on the date of appointment."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0003",
+          "wrongChoice": "40 years",
+          "mistakeNote": "Imports the Ombudsman's 40-year minimum instead of the CSC's 35-year minimum."
+        }
+      ],
+      "proven-public-administration": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0019",
+          "wrongChoice": "A promise to learn public administration only after taking the commission position",
+          "mistakeNote": "Substitutes a future promise for the proven public-administration capacity required before appointment."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0019",
+          "wrongChoice": "A private business title with no evidence of administration-related ability",
+          "mistakeNote": "Accepts a private corporate title alone without demonstrated capacity for public administration."
+        }
+      ],
+      "immediately-preceding-candidacy": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0006",
+          "wrongChoice": "Only losing candidates in the immediately prior election are disqualified.",
+          "mistakeNote": "Restricts the CSC candidacy bar to election losers instead of covering all candidates, winners and losers alike."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0006",
+          "wrongChoice": "Only candidates for national office are disqualified, while local candidates are always eligible.",
+          "mistakeNote": "Exempts local candidates despite Article IX-B, Section 1(1) barring candidates for any elective position."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-csc-appointments-and-terms": {
+      "president-with-ca-consent": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0004",
+          "wrongChoice": "The Judicial and Bar Council directly appointing all commission members",
+          "mistakeNote": "Substitutes the Judicial and Bar Council for presidential appointment with Commission on Appointments consent."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0013",
+          "wrongChoice": "Obtain only the Judicial and Bar Council's nomination and treat that as final consent.",
+          "mistakeNote": "Replaces required Commission on Appointments consent with a JBC nomination."
+        }
+      ],
+      "seven-years-no-reappointment": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0005",
+          "wrongChoice": "Five years with one additional appointment automatically allowed",
+          "mistakeNote": "Mistakes an initial staggered five-year length for the regular term and allows prohibited reappointment."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0008",
+          "wrongChoice": "Yes, if the President remains satisfied with the member's performance.",
+          "mistakeNote": "Lets satisfactory job performance override the absolute constitutional ban on reappointment."
+        }
+      ],
+      "staggered-and-unexpired-terms": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0011",
+          "wrongChoice": "Synchronized terms",
+          "mistakeNote": "Assumes initial seven-, five-, and three-year terms end together instead of creating staggered expirations."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0011",
+          "wrongChoice": "Annual rotation",
+          "mistakeNote": "Confuses staggered seven-, five-, and three-year terms with yearly turnover."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-csc-civil-service-coverage": {
+      "all-branches-and-subdivisions": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0022",
+          "wrongChoice": "It covers executive agencies but excludes offices of the other branches.",
+          "mistakeNote": "Limits civil service coverage to executive agencies instead of all three branches of government."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0022",
+          "wrongChoice": "It covers national agencies but excludes cities and provinces entirely.",
+          "mistakeNote": "Excludes local government subdivisions despite Article IX-B, Section 2(1) covering subdivisions."
+        }
+      ],
+      "original-charter-test": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0021",
+          "wrongChoice": "Whether it has registered under the general corporation law",
+          "mistakeNote": "Confuses incorporation under the general corporation law with creation by a special original charter."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0022",
+          "wrongChoice": "It covers corporations formed under general law whenever government owns shares.",
+          "mistakeNote": "Extends civil service coverage to general-law corporations based solely on government shareholding."
+        }
+      ],
+      "ownership-not-charter": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0021",
+          "wrongChoice": "Whether the government owns the corporation’s entire business",
+          "mistakeNote": "Treats 100% public ownership as proving an original charter under Article IX-B, Section 2(1)."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0021",
+          "wrongChoice": "Whether it performs work that government agencies also perform",
+          "mistakeNote": "Substitutes public-style corporate functions for creation by a special original charter."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-csc-merit-and-examination-exceptions": {
+      "merit-and-fitness-fit": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0024",
+          "wrongChoice": "Appointment based solely on a passing examination result",
+          "mistakeNote": "Treats passing a competitive exam as guaranteeing hiring without checking suitability for the job's duties."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0024",
+          "wrongChoice": "Exemption from all qualifications after passing an examination",
+          "mistakeNote": "Assumes an exam pass removes every other merit and fitness requirement for the post."
+        }
+      ],
+      "policy-determining-category": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0025",
+          "wrongChoice": "Primarily confidential because all policy work involves personal trust",
+          "mistakeNote": "Misclassifies a policy-setting post as primarily confidential instead of policy-determining."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0025",
+          "wrongChoice": "Highly technical because every policy decision requires special expertise",
+          "mistakeNote": "Misclassifies a policy-setting post as highly technical instead of policy-determining."
+        }
+      ],
+      "competitive-exam-exceptions-exist": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0025",
+          "wrongChoice": "No exception because all positions must use competitive examinations",
+          "mistakeNote": "Ignores the three express competitive-examination exceptions in Article IX-B, Section 2(2)."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-csc-worker-protection-and-politics": {
+      "tenure-covers-lawful-discipline": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0026",
+          "wrongChoice": "Permanent status prevents suspension regardless of the legal cause.",
+          "mistakeNote": "Treats security of tenure as blocking lawful suspension even when a cause provided by law exists."
+        }
+      ],
+      "tenure-requires-legal-cause": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0026",
+          "wrongChoice": "A supervisor’s personal dislike is enough cause to suspend an employee.",
+          "mistakeNote": "Treats a supervisor's personal dislike as a valid cause provided by law under Article IX-B, Section 2(3)."
+        }
+      ],
+      "voting-vs-campaigning": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0027",
+          "wrongChoice": "Voting and working to help a political party win are the same activity.",
+          "mistakeNote": "Conflates casting a ballot under Article V with banned partisan campaigning under Article IX-B, Section 2(4)."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0027",
+          "wrongChoice": "Civil service employees may campaign if they do so only indirectly.",
+          "mistakeNote": "Overlooks that Article IX-B, Section 2(4) expressly bars both direct and indirect partisan campaigning."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-csc-independence-and-conflicts": {
+      "only-three-commissions": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0015",
+          "wrongChoice": "Securities and Exchange Commission",
+          "mistakeNote": "Assumes any agency with Commission in its name is one of the three Article IX Constitutional Commissions."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0015",
+          "wrongChoice": "National Economic and Development Authority",
+          "mistakeNote": "Misclassifies a national planning authority as an Article IX Constitutional Commission."
+        }
+      ],
+      "fiscal-autonomy-automatic-release": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0012",
+          "wrongChoice": "No, funding may be delayed until the CSC changes its decision.",
+          "mistakeNote": "Allows budget delays to pressure CSC rulings despite Article IX-A, Section 5's automatic release mandate."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0012",
+          "wrongChoice": "No, fiscal autonomy protects only the salaries of Commission members.",
+          "mistakeNote": "Reduces fiscal autonomy to member salaries instead of protecting the CSC's approved annual budget."
+        }
+      ],
+      "separate-tenure-conflict-bans": [
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0023",
+          "wrongChoice": "The work is allowed whenever the clients have no contract with the CSC.",
+          "mistakeNote": "Applies only the government-contract restriction while ignoring the separate ban on practicing any profession."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-civil-service-commission-0023",
+          "wrongChoice": "The work is allowed whenever all legal fees come from private clients.",
+          "mistakeNote": "Assumes private client fees create an exception to Article IX-A, Section 2's ban on practicing any profession."
+        }
+      ]
     }
   }
 }
