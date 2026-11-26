@@ -21,8 +21,7 @@ Standard to audit against (all of these):
 5. Filipino lessons: simple Filipino, no Taglish, a short English meaning gloss for a hard grammar term at its first use in teaching prose only (Aedwon's Oct 4 decision; not in headings, stems, example sentences, Right/Wrong lines or checklists; no cognate-only glosses such as aspekto (aspect)).
 6. Grade 5 English in lesson prose, American spelling, no em or en dashes.
 
-Format: `Severity | file:line | problem | fix`, Blocker (false rule or answer, answer given away, broken structure), Major (missing connection, citation mismatch, misleading wording, wordiness, reused instance), Minor (style). First list each round 5 finding that is still open in one line each (skip closed ones).
-
+Format: `Severity | file:line | problem | fix`, Blocker (false rule or answer, answer given away, broken structure), Major (missing connection, citation mismatch, misleading wording, wordiness, reused instance), Minor (style).
 First list each round 6 or round 7 finding that is still open, one line each (skip closed ones).
 
 End `g-r8.md` with `GRAMMAR VERDICT: PASS` or `GRAMMAR VERDICT: FAIL (N Blockers, M Majors, K Minors)`, then `STAGE-DONE`. PASS means zero Blockers and zero Majors.
