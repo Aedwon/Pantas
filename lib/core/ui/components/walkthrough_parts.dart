@@ -45,10 +45,9 @@ const Duration _tintFade = Duration(milliseconds: 1200);
 // ds-board: LB_SignedB script, scrollIntoView smooth
 const Duration _scrollDuration = PantasDurations.medium3;
 
-// The check inside the filled disc (`--accon`). Light is `onAccent`; dark has
-// no token (`onAccent` is white and the disc is the light teal there).
-// ds-board: walk.css
-const Color _darkCheckInk = Color(0xFF10201C);
+// The check inside the filled disc (`--accon`). Light is `onAccent`; dark uses
+// the page color, the nearest role to the board's near-black #10201C (white
+// `onAccent` would sit on the light teal disc there). Lead decision, E-196.
 
 /// The first sentence of [runs] marked bold, for a revealed answer.
 ///
@@ -226,7 +225,7 @@ Widget _content(
 
 Color _checkInk(BuildContext context) =>
     Theme.of(context).brightness == Brightness.dark
-        ? _darkCheckInk
+        ? context.colors.bgPage
         : context.colors.onAccent;
 
 /// A design-system button for a part: tonal (`.wbtn`) or the teal tertiary
@@ -691,8 +690,11 @@ class _WalkTargetState extends State<WalkTarget>
     final lit = _controller?.highlight.value;
     final mine = lit != null && lit.slug == widget.slug;
     final inset = widget.heading
-        ? const EdgeInsets.symmetric(horizontal: 12, vertical: 8)
-        : const EdgeInsets.all(12);
+        ? const EdgeInsets.symmetric(
+            horizontal: PantasSpace.s12,
+            vertical: PantasSpace.s8,
+          )
+        : const EdgeInsets.all(PantasSpace.s12);
     final radius = BorderRadius.circular(
       widget.heading ? PantasRadius.md : _tintRadius,
     );
@@ -1097,8 +1099,7 @@ class WalkPair extends StatelessWidget {
                   context,
                   [_paragraph(wrong)],
                   // One size under Right: 16 wide, 15 on a phone.
-                  style: (wide ? PantasType.webReaderBlock : PantasType.webSub)
-                      .copyWith(height: 1.55),
+                  style: wide ? PantasType.webReaderBlock : PantasType.webSub,
                   body: c.secondaryLabel,
                   strong: c.secondaryLabel,
                 ),
@@ -1232,8 +1233,10 @@ class _ChecklistRowState extends State<_ChecklistRow> {
         child: FocusableActionDetector(
           onShowFocusHighlight: (v) => setState(() => _focused = v),
           shortcuts: const {
-            SingleActivator(LogicalKeyboardKey.enter): ActivateIntent(),
-            SingleActivator(LogicalKeyboardKey.space): ActivateIntent(),
+            SingleActivator(LogicalKeyboardKey.enter, includeRepeats: false):
+                ActivateIntent(),
+            SingleActivator(LogicalKeyboardKey.space, includeRepeats: false):
+                ActivateIntent(),
           },
           actions: {
             ActivateIntent: CallbackAction<ActivateIntent>(
