@@ -25,7 +25,7 @@ Sa dalawang ayos na ito, nagbabago ang **panghalip** (pronoun) na **paari** (pos
 :::pair #ayos-ng-pagmamay-ari
 Right: "Akin ang aklat na nasa mesa."
 Wrong: "Ako ang aklat na nasa mesa," o "Ko ang aklat na nasa mesa."
-Hindi ginagamit ang anyong *ang* (*ako*) o *ng* (*ko*) bago ang *ang aklat* upang ipakita ang pagmamay-ari. Kapag nauuna ang may-ari, gamitin ang *akin*.
+Hindi ginagamit ang anyong *ang* (*ako*) o *ng* (*ko*) bago ang *ang aklat* upang ipakita ang pagmamay-ari. Kung ang nagsasalita ang may-ari, gamitin ang *akin*.
 :::
 
 :::check
@@ -84,9 +84,9 @@ Si Elena ang may-ari ng aklat. Piliin ang tamang panghalip sa sasabihin niya: "_
 
 1. Tingnan ang ayos: nasa unahan ang patlang para sa may-ari, bago ang *ang aklat na nasa mesa*.
 2. Si Elena mismo ang nagsasalita at nagmamay-ari, kaya hindi tama ang *kanila* (ibang mga tao).
-3. Hindi rin maaaring gamitin ang *ako* o *ko* sa puwestong ito, kaya piliin ang **Akin**.
+3. Hindi rin maaaring gamitin ang *ako* o *ko* sa puwestong ito, kaya piliin ang **Akin**: "**Akin** ang aklat na nasa mesa."
 
-**Check:** Ihambing sa karaniwang ayos: "Ito ang aklat *ko*" ay katumbas ng "*Akin* ang aklat."
+**Check:** Ang "*Ako* ang aklat na nasa mesa" ay nagsasabing ang nagsasalita ang aklat.
 
 ### #2: Tayo o Kami
 
@@ -96,9 +96,9 @@ Kausap ni Ruben si Mila. Dadalo si Ruben at ang kaniyang mga kasama, ngunit hind
 
 1. Alamin kung kasama ang nagsasalita (Ruben): oo, dadalo siya, kaya alisin ang *sila*.
 2. Alamin kung kasama ang kausap (Mila): hindi siya dadalo, kaya alisin ang *tayo*.
-3. Gamitin ang panghalip na kasama ang nagsasalita ngunit hindi kasama ang kausap: **Kami**.
+3. Gamitin ang panghalip na kasama ang nagsasalita ngunit hindi kasama ang kausap: **Kami**. "**Kami** ang dadalo sa pagpupulong."
 
-**Check:** Si Ruben at ang mga kasama niya lamang ang dadalo sa "Kami ang dadalo sa pagpupulong."
+**Check:** Kapag *tayo* ang ginamit, kasama na rin si Mila.
 
 ### #3: Linya ni Lea
 
@@ -109,11 +109,11 @@ Sinabi ni Lea sa kaibigan niya, "Salamat sa tulong mo." Paano niya ito sasabihin
 1. Hanapin ang panghalip sa linya para sa kaibigan: *mo*.
 
 :::try
-Tapusin ang huling hakbang: aling panghalip ang pamalit sa *mo* para sa guro, at bakit?
+Tapusin ang huling hakbang: punan ang patlang para sa guro: "Salamat po sa tulong ___."
 :::answer
-Ang sagot ay **ninyo**, o *inyong* bago ang *tulong*: "Salamat po sa tulong ninyo" o "Salamat po sa inyong tulong." Magalang na anyo para sa iisang kausap ang dalawa.
+Ang sagot ay **ninyo**: "Salamat po sa tulong ninyo." Magalang na anyo ito para sa iisang kausap.
 
-**Check:** Iisa ang kausap sa dalawang linya: "Salamat sa tulong *mo*" sa kaibigan, at "Salamat po sa tulong *ninyo*" sa guro. Paggalang ang pagkakaiba.
+**Check:** Parehong anyong *ng* para sa kausap ang *mo* at *ninyo*, kaya pareho silang kasunod ng *tulong*.
 :::
 
 ## Speed Tricks & Shortcuts

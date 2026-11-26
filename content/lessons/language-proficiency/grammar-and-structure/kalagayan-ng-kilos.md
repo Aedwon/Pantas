@@ -33,9 +33,9 @@ Nagpapakita ang *naglilinis* ng nagpapatuloy na gawain at ang *maglilinis* ay pa
 :::
 
 :::check
-Alin ang imperpektibo (nagaganap) na aspekto ng ugat na *basa*: *bumasa*, *bumabasa*, o *babasa*?
+Ano ang aspekto ng *tumatakbo*: "Tumatakbo ang mga bata sa plaza ngayon"?
 :::answer
-Ang sagot ay **Bumabasa**. Ipinapakita ng *-um-* kasama ng inulit na *ba* na nasimulan na at nagpapatuloy pa ang pagbasa.
+Ang sagot ay **Imperpektibo**. Nagaganap ngayon ang pagtakbo, kaya nasimulan na at nagpapatuloy pa ito.
 :::
 
 ### Perpektibo Laban sa Perpektibong Katatapos
@@ -46,7 +46,7 @@ Bukod sa tatlong pangunahing aspekto, may **perpektibong katatapos** (recently c
 - Perpektibong katatapos: "*Kalilinis lang* ni Noel ng silid."
 - Perpektibong katatapos: "*Kadarating lang* ng mga dokumento."
 
-Pansinin din ang **pananda** (marker): sa perpektibong katatapos, ginagamit ang *ni* o *ng* para sa gumawa (*Kalilinis lang ni Mila*), hindi *si* o *ang* (*si Mila*).
+Pansinin din ang **pananda** (marker): sa mga halimbawang ito, ginagamit ang *ni* o *ng* para sa gumawa (*Kalilinis lang ni Mila*), hindi *si* o *ang* (*si Mila*).
 
 :::why
 Bakit hiwalay ang perpektibong katatapos sa karaniwang perpektibo? Parehong natapos ang dalawa, ngunit idinidiin ng anyong *ka-* + pag-uulit na ilang sandali pa lamang ang lumilipas mula nang matapos ang kilos.
@@ -81,9 +81,9 @@ Alin ang anyong kontemplatibo (magaganap pa) ng pandiwang ugat na *kain*: (A) *K
 1. Suriin ang (A) *kumain*: tapos na ang kilos (perpektibo).
 2. Suriin ang (B) *kumakain*: nagpapatuloy ang kilos (imperpektibo).
 3. Suriin ang (D) *kainin*: ibang **pokus** na nakatuon sa bagay, hindi anyong *-um-* ng **tagaganap** (actor).
-4. Piliin ang **(C) *Kakain*** dahil walang *-um-* at inuulit ang *ka* para sa gagawin pa.
+4. Piliin ang **(C) *Kakain***: "Kakain kami bukas ng tanghali."
 
-**Check:** Ilagay sa pangungusap na may pahiwatig ng hinaharap: "Kakain kami bukas ng tanghali" ay tama, samantalang mali ang "Kumain kami bukas."
+**Check:** Mali ang "Kumain kami bukas ng tanghali," dahil hindi pa tapos ang kilos bukas.
 
 ### #2: Pagpili ng Pandiwa Ayon sa Kuwento
 
@@ -109,9 +109,9 @@ Paghambingin ang "Sumulat si Lea ng ulat noong Lunes" at "Kasusulat lang ni Lea 
 :::try
 Tapusin ang huling hakbang: ano ang aspekto ng *kasusulat lang*, at ano ang buong paghahambing ng dalawang pangungusap?
 :::answer
-Ang sagot ay **Perpektibo ang una; perpektibong katatapos ang ikalawa.** Ipinapakita ng *ka-* + *su* at *lang* sa *kasusulat lang* na kailan lang natapos ang pagsulat.
+Perpektibo: "Sumulat si Lea ng ulat noong Lunes." Perpektibong katatapos: "Kasusulat lang ni Lea ng ulat."
 
-**Check:** Suriin ang bawat anyo: *sumulat* (*-um-*, tapos na noong Lunes) = perpektibo; *kasusulat lang* (*ka-* + *su* + *lang*) = perpektibong katatapos.
+**Check:** May tiyak na araw ang una (*noong Lunes*). Ipinapakita ng *lang* na kailan lang natapos ang ikalawa.
 :::
 
 ## Speed Tricks & Shortcuts

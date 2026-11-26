@@ -30,9 +30,9 @@ Iisang tao ang maaaring tukuyin ng tatlong anyo (*siya, niya, kaniya*), ngunit *
 :::
 
 :::check
-Palitan ng panghalip ang *sina Lito at Mila*: "Sina Lito at Mila ang nagluto ng pagkain." *(sila / nila / kanila)*
+Palitan ng panghalip ang *sina Lito at Mila*: "Sina Lito at Mila ang nagluto ng pagkain." *(siya / sila / kanila)*
 :::answer
-Ang sagot ay **Sila**: "Sila ang nagluto ng pagkain." Paksa ang *sina Lito at Mila*, kaya anyong *ang* ang kapalit.
+Ang sagot ay **Sila**: "Sila ang nagluto ng pagkain." Paksa ang *sina Lito at Mila*, kaya anyong *ang*. Dalawa sila, kaya hindi *siya*.
 :::
 
 ### Anyong Ng: Para sa May-ari o Gumawa
@@ -49,7 +49,7 @@ Iisang estudyante ang nagpakita kaya mali ang maramihang *nila*. Binabago rin ng
 :::
 
 :::check
-Piliin ang tamang panghalip: Sina Ana at Ben ang gumawa ng ulat. Ipinasa *(sila / nila / kanila)* ang ulat kahapon.
+Piliin ang tamang panghalip: Sina Ana at Ben ang sumulat ng ulat. Ipinasa *(sila / nila / kanila)* ang ulat kahapon.
 :::answer
 Ang sagot ay **Nila**. *Ang ulat* ang paksa, kaya anyong *ng* para sa maraming gumawa (*nila*) ang kailangan.
 :::
@@ -118,7 +118,7 @@ Tapusin ang huling hakbang: anong anyong *sa* ang ipapalit sa "sa mga magulang"?
 :::answer
 Ang sagot ay **Sa kanila**: "Ipinadala ng guro sa kanila ang paanyaya."
 
-**Check:** Tugma ang *sa kanila* sa bahaging pinalitan: anyong *sa* (tatanggap), maramihan (*mga magulang*), at ikatlong panauhan.
+**Check:** Ang *kanila* ay tumutukoy sa mga magulang.
 :::
 
 ## Speed Tricks & Shortcuts

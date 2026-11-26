@@ -20,8 +20,8 @@ Ang **paksa** (subject) ang sentrong pinag-uusapan sa pangungusap. Karaniwan ito
 
 Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya sa pariralang may pangngalan, hanapin muna ang **parirala** (phrase) na may *ang*, *si*, *ang mga*, o *sina*. Walang pananda ang paksang **panghalip** (pronoun), gaya ng *siya* sa "Kumain siya ng tinapay." Hanapin ang paksa:
 
-- "Kumain **ang bata** ng tinapay." (*Ang bata* ang paksa, hindi ang tinapay.)
-- "Sumulat **si Mara** ng liham." (*Si Mara* ang paksa, hindi ang liham.)
+- Hanapin ang may *ang*: "Kumain **ang bata** ng tinapay."
+- Hanapin ang may *si*: "Sumulat **si Mara** ng liham."
 
 :::check
 Alin ang paksa sa pangungusap na "Binasa ni Rey ang kuwento"?
@@ -69,9 +69,9 @@ Binago ng mga maling anyo ang kalagayan ng kilos. Panatilihing tapos na ang *sin
 :::
 
 :::check
-Gawing paksa ang *kape* habang pinananatiling tapos na ang kilos: "Nagtimpla si Mara ng kape."
+Gawing paksa ang *kape* habang pinananatiling tapos na ang kilos: "Nagtimpla si Lito ng kape."
 :::answer
-Ang sagot ay **"Tinimpla ni Mara ang kape."** Naging *ang kape* ang paksa, nanatiling si Mara ang gumawa (*ni Mara*), at tapos na pa rin ang kilos (*tinimpla*).
+Ang sagot ay **"Tinimpla ni Lito ang kape."** Naging *ang kape* ang paksa, nanatiling si Lito ang gumawa (*ni Lito*), at tapos na pa rin ang kilos (*tinimpla*).
 :::
 
 ## Examples
@@ -94,10 +94,10 @@ Tukuyin ang paksa at pokus ng pandiwa sa bawat pangungusap: "Nagluto ang kusiner
 
 **Solution:**
 
-1. Sa unang pangungusap, *ang kusinero* ang may panandang *ang*. Siya ang gumawa ng pagluluto, kaya nakapokus sa **tagaganap** ang *nagluto*.
-2. Sa ikalawang pangungusap, *ang sopas* ang may panandang *ang*. Ito ang bagay na niluto, kaya nakapokus sa **layon** ang *niluto*.
+1. Hanapin ang gumawa: "Nagluto **ang kusinero** ng sopas." Siya ang paksa, kaya nakapokus sa **tagaganap** ang *nagluto*.
+2. Hanapin ang niluto: "Niluto ng kusinero **ang sopas**." Ito ang paksa, kaya nakapokus sa **layon** ang *niluto*.
 
-**Check:** Sino ang nagluto? *Ang kusinero.* Ano ang niluto? *Ang sopas.*
+**Check:** Isa lamang ang may *ang* sa bawat pangungusap.
 
 ### #3: Paglipat ng Paksa Nang Walang Bawas sa Kilos
 
@@ -113,7 +113,7 @@ Tapusin ang huling hakbang: anong anyo ng pandiwa ang katumbas ng *bumili* na ta
 :::answer
 Ang sagot ay **"Binili ni Marco ang aklat."** Ang *binili* ay nakapokus sa layon (*ang aklat*) at tapos na ang kilos, hindi ginaganap (*binibili*) o gagawin pa (*bibilhin*).
 
-**Check:** Suriin ang tatlong bahagi: *ang aklat* ang paksa, *ni Marco* pa rin ang gumawa, at tapos na ang *binili* tulad ng *bumili*.
+**Check:** Ihambing ang "Bumili si Marco ng aklat": iisa ang gumawa at parehong tapos na ang kilos.
 :::
 
 ## Speed Tricks & Shortcuts

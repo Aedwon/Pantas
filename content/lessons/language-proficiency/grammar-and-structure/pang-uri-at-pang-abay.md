@@ -60,10 +60,10 @@ Ang sagot ay **mabagal**. Sinasabi nito kung paano lumakad ang lalaki, kaya pand
 
 ### Pang-abay na Panlunan: Salita o Buong Pangkat
 
-Ang **pang-abay na panlunan** (place adverb) ay nagsasabi kung saan ginanap ang kilos. Maaari itong isang salita lamang o isang buong pangkat ng mga salita:
+Ang **pang-abay na panlunan** (place adverb) ay nagsasabi kung saan ginanap ang kilos. Maaari itong isang salita lamang o isang buong pangkat ng mga salita. Itanong ang *saan* sa dalawang pangungusap:
 
-- Isang salita: "**Doon** naghintay si Mara." (Tanong: Saan naghintay si Mara? *Doon*.)
-- Buong pangkat: "Nag-aral siya **sa silid-aklatan**." (Tanong: Saan nag-aral? *Sa silid-aklatan*.)
+- Isang salita: "**Doon** naghintay si Mara."
+- Buong pangkat: "Nag-aral siya **sa silid-aklatan**."
 
 :::pair #pangkat-na-panlunan
 Right: Sa "Sinuri ng mga kawani ang mga kahon sa bodega," sa bodega ginawa ang pagsusuri, kaya ang *sa bodega* ang pang-abay na panlunan.
@@ -85,9 +85,8 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "Ang **matapang** na sund
 
 **Solution:**
 
-1. Hanapin ang salitang binibigyang-turing ng *matapang*: ang *sundalo*.
-2. Suriin ang uri ng *sundalo*: ngalan ito ng tao, kaya pangngalan ito.
-3. Dahil pangngalan ang inilalarawan, **pang-uri** ang *matapang*.
+1. Hanapin ang salitang binibigyang-turing ng *matapang*: ang *sundalo*, isang pangngalan.
+2. Pangngalan ang inilalarawan, kaya **pang-uri** ang *matapang*: "Ang **matapang** na sundalo ay nagtanggol sa kaniyang bayan."
 
 **Check:** Itanong: "Ano ang matapang?" Ang sagot ay *sundalo* (pangngalan), hindi *nagtanggol* (pandiwa).
 
@@ -97,9 +96,8 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Mabilis** na tumakbo a
 
 **Solution:**
 
-1. Hanapin ang salitang binibigyang-linaw ng *mabilis*: ang *tumakbo*.
-2. Suriin ang uri ng *tumakbo*: kilos ito, kaya pandiwa ito.
-3. Dahil kilos ang nililinaw nito, **pang-abay** ang *mabilis*.
+1. Hanapin ang salitang binibigyang-linaw ng *mabilis*: ang *tumakbo*, isang pandiwa.
+2. Kilos ang nililinaw, kaya **pang-abay** ang *mabilis*: "**Mabilis** na tumakbo ang atleta patungo sa linya ng tapusan."
 
 **Check:** Sinasagot ng *mabilis* ang tanong na "Paano tumakbo ang atleta?", na tanda ng pang-abay.
 
@@ -112,11 +110,11 @@ Sa "Naglaro ang mga bata ng taguan sa bakuran," aling pangkat ang nagsasabi ng l
 1. Kilalanin ang kilos: *naglaro*.
 
 :::try
-Tapusin ang huling hakbang: itanong kung saan naglaro ang mga bata, at tukuyin ang buong pangkat na pang-abay na panlunan.
+Tapusin ang huling hakbang: itanong kung saan naglaro ang mga bata.
 :::answer
-Ang sagot ay **Sa bakuran**. Ito ang buong pangkat na nagsasabi ng lugar kung saan ginanap ang paglalaro.
+Ang sagot ay **Sa bakuran**: "Naglaro ang mga bata ng taguan **sa bakuran**."
 
-**Check:** Ihiwalay ang sagot sa "saan": *sa bakuran* (lugar), samantalang ang *ang mga bata* ay gumawa at ang *ng taguan* ay ang nilaro.
+**Check:** Kapag inalis ang *sa bakuran*, buo pa rin ang pangungusap, ngunit hindi na malaman ang lugar.
 :::
 
 ## Speed Tricks & Shortcuts

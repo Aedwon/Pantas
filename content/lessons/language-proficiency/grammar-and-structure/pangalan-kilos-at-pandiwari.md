@@ -59,7 +59,7 @@ Ang sagot ay **nagluto**. Ito ang kilos na ginawa ni Aling Rosa. Ngalan ng tao a
 Ang **pandiwari** (participle) ay anyong mula sa pandiwa na sa tradisyonal na balarila ay ginagamit na pang-uri (*ang nahimatay na lalaki*) o, kapag walang pangngalang kasunod, na pangngalan (*ang nahimatay*). Sundin ang dalawang hakbang:
 
 1. Hanapin muna ang pangunahing kilos ng pangungusap.
-2. Tingnan ang anyong mula sa pandiwa: kung may pangngalang kasunod, pang-uri ito; kung wala, itanong kung tao o bagay ang tinutukoy ng buong parirala (phrase).
+2. Tingnan ang anyong mula sa pandiwa: kung inilalarawan nito ang pangngalang kasunod sa iisang parirala (*ang nahimatay na lalaki*), pang-uri ito; kung wala, itanong kung tao o bagay ang tinutukoy ng buong parirala (phrase).
 
 <!-- ILLUSTRATION: ang pangungusap na "Inihatid ng kawani sa klinika ang nahimatay." na may tatak sa ilalim ng "Inihatid" (pandiwa ng kawani), "sa klinika" (lugar), at "ang nahimatay" (taong tinulungan, pandiwaring gamit na pangngalan) -->
 
@@ -91,7 +91,7 @@ Sa "**Ang** masipag na **guro** ay ngumiti at umupo **siya**," tukuyin ang bahag
 2. Ang *guro* ay ngalan ng tao, kaya **pangngalan** ito.
 3. Ang *siya* ay pumapalit sa ngalan ng guro, kaya **panghalip** ito.
 
-**Check:** Basahin ang bawat papel: pantukoy (*Ang*) ang nasa unahan ng ngalan (*guro*), at humahalili ang *siya* sa guro sa kasunod na bahagi.
+**Check:** Palitan ng *ang guro* ang *siya*: tama pa rin ang pangungusap, kaya panghalip ito.
 
 ### #2: Pagkilala sa Pandiwa
 
@@ -99,10 +99,9 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Kumain** ang mga bata 
 
 **Solution:**
 
-1. Ang *kumain* ang kilos na ginawa ng **paksa** (subject) na *ang mga bata*.
-2. Kaya **pandiwa** ito.
+1. Ang *kumain* ang ginawa ng **paksa** (subject) na *ang mga bata*, kaya **pandiwa** ito: "**Kumain** ang mga bata ng masarap na hapunan."
 
-**Check:** Hindi ngalan ng bagay ang *kumain* tulad ng *hapunan*, at hindi ito naglalarawan ng isa pang kilos.
+**Check:** Itanong: "Ano ang ginawa ng mga bata?" Ang sagot ay *kumain*.
 
 ### #3: Pangungusap Tungkol sa Pulis
 
@@ -115,9 +114,9 @@ Sa tradisyonal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitan
 :::try
 Tapusin ang huling hakbang: ano ang ginagawa ng *ang nahuli* sa pangungusap, at ano ang gamit nito sa itinakdang pag-uuri?
 :::answer
-Ang sagot ay **Pandiwaring gamit na pangngalan**. Mula sa pandiwa ang *nahuli*. Hindi ito ang kilos ng pulis (*hinatid*) at hindi ang lugar (*sa istasyon*); tumutukoy ito sa taong hinatid.
+Ang sagot ay **Pandiwaring gamit na pangngalan**: "Hinatid ng pulis sa istasyon ang **nahuli**." Mula sa pandiwa ang *nahuli*. Hindi ito ang kilos ng pulis (*hinatid*) at hindi ang lugar (*sa istasyon*); tumutukoy ito sa taong hinatid.
 
-**Check:** Ihiwalay ang tatlong bahagi: *hinatid* (kilos), *sa istasyon* (lugar), at *ang nahuli* (taong hinatid).
+**Check:** Palitan ng *tao* ang *nahuli*: tama pa rin ang pangungusap, kaya pangngalan ang gamit nito.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -129,5 +128,5 @@ Suriin ang salita ayon sa papel nito sa pangungusap. Itanong ang kilos para sa p
 :::checklist
 - Salitang kasunod ng pantukoy gaya ng *ang bata*: unang palatandaan ito ng pangngalan, kaya tiyaking ngalan ng pinag-uusapan ito. {#bata-pangngalan-hindi-pang-uri}
 - Salitang nagsasabi ng nangyari gaya ng *kumain*: ito ang kilos mismo, kaya pandiwa ito. {#pandiwa-kilos-hindi-pangngalan}
-- Anyong mula sa pandiwa pagkatapos ng *ang* gaya ng *ang nahimatay*: kung tao ang tinutukoy, pandiwaring gamit na pangngalan ito, hindi kilos ng gumagawa o lugar. {#pandiwari-bilang-pangngalan}
+- Anyong mula sa pandiwa pagkatapos ng *ang* na walang pangngalang kasunod, gaya ng *ang nahimatay*: kung tao ang tinutukoy, pandiwaring gamit na pangngalan ito, hindi kilos ng gumagawa o lugar. {#pandiwari-bilang-pangngalan}
 :::

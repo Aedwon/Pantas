@@ -83,11 +83,10 @@ Gawing maramihan ang paksa ng "Kumakain ng tanghalian ang kawani." Panatilihin a
 
 **Solution:**
 
-1. Hanapin ang paksang gagawing maramihan: *ang kawani* -> *ang mga kawani*.
-2. Tingnan ang kalagayan ng kilos: nagaganap pa ang *kumakain*, at hinihinging panatilihin ito.
-3. Huwag palitan ang pandiwa: "**Kumakain ng tanghalian ang mga kawani.**"
+1. Hanapin ang paksa at gawing maramihan: *ang kawani* -> *ang mga kawani*.
+2. Iwan ang pandiwa: "**Kumakain ng tanghalian ang mga kawani.**"
 
-**Check:** Parehong nagpapatuloy ang pagkain sa isahan (*ang kawani*) at sa maramihan (*ang mga kawani*), at *mga* lamang ang idinagdag.
+**Check:** Ihambing ang dalawang pangungusap: *mga* lamang ang idinagdag.
 
 ### #3: Tatlong Kalagayan sa Iisang Salitang-Ugat
 

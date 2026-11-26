@@ -14,9 +14,9 @@ keyPoints:
 ---
 ## Core Concept
 
-### Tatlong Gamit ng Panandang Ng
+### Mga Gamit ng Panandang Ng
 
-Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod na salita o **parirala** (phrase). May tatlong karaniwang gamit ang panandang *ng* (at *ni* para sa tiyak na ngalan ng tao). Hanapin ang pariralang may *ng* sa bawat pangungusap at tukuyin ang papel nito:
+Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod na salita o **parirala** (phrase). May tatlong gamit ang panandang *ng* sa araling ito (at *ni* para sa tiyak na ngalan ng tao). Hanapin ang pariralang may *ng* sa bawat pangungusap at tukuyin ang papel nito:
 
 1. **Layon** (object) na hindi **paksa** (subject): "Kumain ang bata **ng mangga**."
 2. **Tagaganap** (actor) kapag iba ang paksa: "Kinain **ng bata** ang tinapay."
@@ -25,13 +25,13 @@ Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod n
 Tandaan na iba ang panandang *ng* sa *nang*. Halimbawa, ginagamit ang *nang* sa paraan, oras, o pag-uulit ng kilos, samantalang ang *ng* ang nagmamarka ng **pangngalan** (noun) na layon, tagaganap, o may-ari.
 
 :::why
-Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi ang *ng* ang nagmamarka ng paksa. Ang paksa ay minamarkahan ng *ang*, at ang anyo ng **pandiwa** (verb) ang nagsasabi kung ano ang papel nito, gumawa man o bagay na ginawa.
+Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi ang *ng* ang nagmamarka ng paksa. Sa halimbawang ito, *ang* ang pananda ng paksa, at ang anyo ng **pandiwa** (verb) ang nagsasabi kung ano ang papel nito, gumawa man o bagay na ginawa.
 :::
 
 :::pair #ng-para-sa-gumagawa
 Right: Kinain ng bata ang tinapay.
 Wrong: Kinain ang bata ang tinapay, o Kinain sa bata ang tinapay.
-Nasa layon ang pandiwang *kinain*, at *ang tinapay* na ang paksa. Kailangan ng gumagawa (*bata*) ang panandang *ng*, hindi *ang* o *sa*.
+Nakapokus sa layon ang *kinain*, at *ang tinapay* na ang paksa. Kailangan ng gumagawa (*bata*) ang panandang *ng*, hindi *ang* o *sa*.
 :::
 
 :::check
@@ -40,9 +40,9 @@ Ano ang gamit ng *ng* sa "Niluto ng kusinero ang sopas"?
 Ang sagot ay **Tagaganap o gumagawa ng kilos**. *Ang sopas* ang paksa, kaya ipinakikita ng *ng kusinero* kung sino ang nagluto.
 :::
 
-### Tatlong Gamit ng Panandang Sa
+### Mga Gamit ng Panandang Sa
 
-Ang panandang *sa* (at *kay* o *kina* para sa tiyak na ngalan ng tao) ay may tatlo ring karaniwang gamit. Itanong kung *saan* o *kanino* nakatuon ang kilos sa bawat pangungusap:
+Ang panandang *sa* (at *kay* o *kina* para sa tiyak na ngalan ng tao) ay may tatlong gamit sa araling ito. Itanong kung *saan* o *kanino* nakatuon ang kilos sa bawat pangungusap:
 
 1. **Lugar** kung saan ginawa ang kilos: "Nagbasa si Ana **sa silid**."
 2. **Direksiyon** o patutunguhan ng kilos: "Pumunta si Ana **sa tanggapan**."
@@ -59,7 +59,7 @@ Ang *ng kawani* ang naghatid, at tao ang *aplikante* na binigyan ng katibayan. S
 :::check
 Ano ang papel ng *sa Davao* sa "Lumipat ang pamilya sa Davao"?
 :::answer
-Ang sagot ay **Direksiyon o patutunguhan**. Sinasagot nito ang tanong na "Saan lumipat ang pamilya?" kasama ng pandiwang *lumipat*.
+Ang sagot ay **Direksiyon o patutunguhan**. Papunta sa Davao ang paglipat ng pamilya.
 :::
 
 ## Examples
@@ -99,9 +99,9 @@ Sa "Ibinigay ng guro ang gantimpala sa nanalo," ano ang papel ng *sa nanalo*?
 :::try
 Tapusin ang huling hakbang: anong tanong ang sinasagot ng *sa nanalo*, at ano ang papel nito sa pangungusap?
 :::answer
-Ang sagot ay **Tagatanggap ng gantimpala**. Sinasagot nito ang tanong na "Kanino ibinigay ang gantimpala?", hindi "Saan ibinigay?"
+Ang sagot ay **Tagatanggap ng gantimpala**: "Ibinigay ng guro ang gantimpala **sa nanalo**." Sinasagot nito ang tanong na "Kanino?", hindi "Saan?"
 
-**Check:** Suriin ang tatlong papel: *ng guro* ang nagbigay, *ang gantimpala* ang ibinigay, at *sa nanalo* ang sumasagot sa "Kanino?" (*tagatanggap*), hindi lugar o gumagawa.
+**Check:** Ang *sa nanalo* ang sagot sa "Kanino ibinigay ang gantimpala?"
 :::
 
 ## Speed Tricks & Shortcuts
@@ -111,6 +111,6 @@ Basahin ang buong pangungusap bago tukuyin ang pananda. Sa *ng*, suriin ang pand
 ## Traps to Watch For
 
 :::checklist
-- Pandiwang nasa layon gaya ng *kinain*: markahan ng *ng* ang gumagawa, hindi ng *ang* o *sa*. {#ng-para-sa-gumagawa}
+- Pandiwang nakapokus sa layon gaya ng *kinain*: markahan ng *ng* ang gumagawa, hindi ng *ang* o *sa*. {#ng-para-sa-gumagawa}
 - Taong may panandang *sa* gaya ng *sa aplikante*: itanong kung *kanino* ibinigay upang makita ang tagatanggap. {#sa-para-sa-tagatanggap}
 :::

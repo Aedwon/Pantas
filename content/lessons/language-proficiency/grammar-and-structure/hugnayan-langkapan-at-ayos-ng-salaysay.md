@@ -30,9 +30,9 @@ Ginagawang di-makapag-iisa ng *dahil* ang *dahil umuulan na*. Kaya hindi ito tam
 :::
 
 :::check
-Bilangin ang mga sugnay sa "Isinara ang tanggapan sapagkat bumaha sa loob nito." Ano ang uri ng pangungusap?
+Ilang sugnay na makapag-iisa at ilang di-makapag-iisa ang nasa "Isinara ang tanggapan sapagkat bumaha sa loob nito"?
 :::answer
-Ang sagot ay **Hugnayan**. May isang buong diwa (*Isinara ang tanggapan*) at isang sugnay na di-makapag-iisa na may *sapagkat* (*sapagkat bumaha sa loob nito*).
+Ang sagot ay isang makapag-iisa (*Isinara ang tanggapan*) at isang di-makapag-iisa (*sapagkat bumaha sa loob nito*). **Hugnayan** ang pangungusap.
 :::
 
 ### Langkapang Pangungusap
@@ -54,9 +54,9 @@ Kung *tambalan*, nalalaktawan ang "dahil malakas na ang ulan." Kung *hugnayan*, 
 :::
 
 :::check
-Bilangin ang mga sugnay sa "Nag-aral si Liza dahil may pagsusulit siya, at naghanda si Ben para sa ulat." Ano ang uri ng pangungusap?
+Ilang sugnay na makapag-iisa at ilang di-makapag-iisa ang nasa "Nagtanim si Lito dahil tag-ulan na, at nagdilig si Ana ng halaman"?
 :::answer
-Ang sagot ay **Langkapan**. Dalawa ang sugnay na makapag-iisa (*Nag-aral si Liza* at *naghanda si Ben para sa ulat*) at isa ang di-makapag-iisa (*dahil may pagsusulit siya*).
+Ang sagot ay dalawang makapag-iisa (*Nagtanim si Lito* at *nagdilig si Ana ng halaman*) at isang di-makapag-iisa (*dahil tag-ulan na*). **Langkapan** ang pangungusap.
 :::
 
 ### Ayos ng Salaysay at mga Pananda
@@ -74,14 +74,22 @@ Ang *sa huli* ay para lamang sa pangwakas na pangyayari. Kapag inilagay ito sa u
 :::
 
 :::check
-Alin ang bagay sa patlang: "Una, naghugas si Ben ng gulay. ___, naglagay siya ng gulay sa kaldero. Sa huli, inihain niya ang sinigang." *(Kasunod / Panghuli / Sa simula)*
+Lagyan ng pananda ang mga hakbang ni Ben sa pagluluto, ayon sa pagkakasunod: naghugas siya ng gulay; naglagay siya ng gulay sa kaldero; inihain niya ang sinigang. Alin ang tamang ayos ng mga pananda?
+
+(A) Sa simula, kasunod, panghuli
+
+(B) Panghuli, sa simula, kasunod
+
+(C) Kasunod, panghuli, sa simula
 :::answer
-Ang sagot ay **Kasunod**. Gitnang hakbang ang paglalagay sa kaldero, kaya pananda ng kasunod na pangyayari ang bagay. Para sa wakas ang *panghuli* at para sa simula ang *sa simula*.
+Ang sagot ay **A**: "Sa simula, naghugas si Ben ng gulay. Kasunod, naglagay siya ng gulay sa kaldero. Panghuli, inihain niya ang sinigang."
+
+**Check:** Unang hakbang ang paghuhugas at huling hakbang ang paghahain, kaya sa simula at panghuli ang mga pananda nila.
 :::
 
 ## Examples
 
-### #1: Pagkilala sa Hugnayan
+### #1: Pagkilala sa Uri ng Pangungusap
 
 Tukuyin ang uri ng pangungusap: "Umuwi ang bata dahil umuulan na."
 
@@ -107,19 +115,24 @@ Pagsamahin sa isang langkapan ang mga diwa, at gamitin ang *dahil* sa dahilan: n
 
 ### #3: Ayos ng mga Pananda sa Salaysay
 
-Lagyan ng pananda ang tatlong pangyayari sa salaysay ng aplikante: nagrehistro siya; ipinasa niya ang mga papel; kinuha niya ang resibo.
+Lagyan ng pananda ang tatlong pangyayari sa salaysay ng aplikante, ayon sa pagkakasunod: nagrehistro siya; ipinasa niya ang mga papel; kinuha niya ang resibo.
 
 **Solution:**
 
 1. Unang pangyayari: "**Sa simula**, nagrehistro siya."
-2. Kasunod na pangyayari: "**Kasunod**, ipinasa niya ang mga papel."
 
 :::try
-Tapusin ang huling hakbang: anong pananda at pangungusap ang tugma sa pagkuha ng resibo?
-:::answer
-Ang sagot ay **"Panghuli, kinuha niya ang resibo."** Tama rin ang *sa huli*, dahil parehong pangwakas ang dalawa.
+Tapusin ang salaysay. Alin ang tamang kasunod na dalawang pangungusap?
 
-**Check:** Basahin ang tatlo nang sunod: "Sa simula, nagrehistro siya. Kasunod, ipinasa niya ang mga papel. Panghuli, kinuha niya ang resibo."
+(A) "Panghuli, ipinasa niya ang mga papel. Kasunod, kinuha niya ang resibo."
+
+(B) "Kasunod, ipinasa niya ang mga papel. Panghuli, kinuha niya ang resibo."
+
+(C) "Kasunod, kinuha niya ang resibo. Panghuli, ipinasa niya ang mga papel."
+:::answer
+Ang sagot ay **B**: "Sa simula, nagrehistro siya. Kasunod, ipinasa niya ang mga papel. Panghuli, kinuha niya ang resibo."
+
+**Check:** Nauna ang pagpasa ng papel sa pagkuha ng resibo, kaya *kasunod* ang una at *panghuli* ang ikalawa.
 :::
 
 ## Speed Tricks & Shortcuts

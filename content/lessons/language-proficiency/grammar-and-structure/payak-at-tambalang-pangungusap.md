@@ -52,9 +52,9 @@ Parehong buo ang diwa ng "Umuwi ang bata" at "naiwan ang bag niya," kaya dalawan
 :::
 
 :::check
-Payak ba o tambalan ang "Tumunog ang kampana, at pumasok ang mga mag-aaral"?
+Ilang sugnay na makapag-iisa ang nasa "Tumunog ang kampana, at pumasok ang mga mag-aaral"?
 :::answer
-Ang sagot ay **Tambalan**. Dalawang buong sugnay na makapag-iisa (*Tumunog ang kampana* at *pumasok ang mga mag-aaral*) ang pinag-uugnay ng *at*.
+Ang sagot ay dalawa: *Tumunog ang kampana* at *pumasok ang mga mag-aaral*, pinag-uugnay ng *at*. **Tambalan** ang pangungusap.
 :::
 
 ### Pagpili ng At, Ngunit, o O
@@ -72,7 +72,7 @@ Nagdaragdag ang *at*, nagsasalungat ang *ngunit*, at nagbibigay ng dahilan ang *
 :::
 
 :::check
-Piliin ang tamang pangatnig: Gusto niyang sumama, *(at / ngunit / o)* masama ang pakiramdam niya.
+Piliin ang pangatnig para sa salungat na diwa: Gusto niyang sumama, *(at / ngunit / o)* masama ang pakiramdam niya.
 :::answer
 Ang sagot ay **Ngunit**. Salungat sa pagnanais niyang sumama ang masamang pakiramdam.
 :::
@@ -87,9 +87,9 @@ Tukuyin ang uri ng pangungusap: "Naglilinis at nag-aayos ng silid sina Ana at Be
 
 1. Hanapin ang simuno: *sina Ana at Ben*.
 2. Hanapin ang panaguri: *naglilinis at nag-aayos ng silid*.
-3. Iisa lamang ang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa, kaya **Payak** ito.
+3. Iisa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Payak** ang "Naglilinis at nag-aayos ng silid sina Ana at Ben."
 
-**Check:** Kapwa ginagawa nina Ana at Ben ang dalawang kilos, at walang ikalawang sugnay na makapag-iisa.
+**Check:** Kapag inalis ang *at nag-aayos*, buo pa rin ang pangungusap at isa pa rin ang sugnay.
 
 ### #2: Tambalang Pangungusap
 
@@ -99,24 +99,24 @@ Tukuyin ang uri ng pangungusap: "Umuwi ang bata ngunit naiwan ang bag niya."
 
 1. Hatiin sa pangatnig na *ngunit*: unang bahagi ay "Umuwi ang bata," ikalawa ay "naiwan ang bag niya."
 2. Basahin nang hiwalay ang bawat panig: parehong may simuno, panaguri, at buong diwa.
-3. Dalawa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Tambalan** ito.
+3. Dalawa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Tambalan** ang "Umuwi ang bata ngunit naiwan ang bag niya."
 
 **Check:** Kapag inalis ang *ngunit*, dalawang buong pangungusap ang natitira.
 
 ### #3: Pagtutugma ng Pangatnig
 
-Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
+Pagsamahin ang dalawang gawaing naganap. Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
 
 **Solution:**
 
-1. Basahin ang ginawa ni Ana at ni Ben.
+1. Basahin ang ginawa ni Ana at ni Ben: dalawang gawain, parehong naganap.
 
 :::try
 Tapusin ang huling hakbang: aling pangatnig (*at, ngunit, o,* o *dahil*) ang angkop?
 :::answer
 Ang sagot ay **At**: "Nagdilig si Ana ng halaman, **at** nagwalis si Ben ng bakuran."
 
-**Check:** Dagdag na gawain ang ikalawang sugnay. Walang salungatan, pagpipilian, o dahilan, kaya *at* ang angkop.
+**Check:** Kapag *ngunit* ang ginamit, may salungatang wala naman sa dalawang gawain.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -127,6 +127,6 @@ Hatiin ang pangungusap sa gitnang pangatnig at basahin nang mag-isa ang bawat pa
 
 :::checklist
 - Sugnay na may *dahil*, *kapag*, o *habang*: bitin ang diwa kahit may simuno at panaguri, kaya hindi ito makapag-iisa. {#sugnay-na-makapag-iisa}
-- Pangungusap na may *ngunit* sa pagitan ng dalawang buong diwa: tambalan ito, hindi payak at hindi hugnayan. {#payak-laban-sa-tambalan}
+- Pangungusap na may *ngunit* sa pagitan ng dalawang buong diwa na walang sugnay na di-makapag-iisa: tambalan ito, hindi payak at hindi hugnayan. {#payak-laban-sa-tambalan}
 - Pangungusap na may dalawang mapagpipilian: piliin ang *o*, hindi *at*, *ngunit*, o *dahil*. {#pangatnig-sa-pagpipilian}
 :::

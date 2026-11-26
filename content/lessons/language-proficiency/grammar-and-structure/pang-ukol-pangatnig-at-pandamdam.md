@@ -28,7 +28,7 @@ Iniuugnay ng pang-ukol ang pangkat ng pangngalan (*mga bisita*); hindi ito kilos
 :::
 
 :::check
-Hanapin ang pang-ukol sa "Dumating ang sulat mula sa Cebu."
+Alin sa *dumating*, *sulat*, at *mula sa* ang pang-ukol sa "Dumating ang sulat mula sa Cebu"?
 :::answer
 Ang sagot ay **mula sa**. Ipinakikilala nito ang pangngalang *Cebu* at iniuugnay ito sa pagdating.
 :::
@@ -54,7 +54,7 @@ Ang sagot ay **kaya**. Pinagdurugtong nito ang dalawang sugnay (*naglinis kami p
 
 ### Pandamdam: Tuwirang Pahayag ng Damdamin
 
-Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*. Halimbawa:
+Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*. Hanapin ang salitang nagpapakita ng sakit:
 
 - "**Aray!** Masakit ang sugat ko."
 
@@ -79,10 +79,9 @@ Sa "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita," anong bahagi ng
 **Solution:**
 
 1. Tingnan ang kasunod ng *para sa*: ang pangkat ng pangngalang *mga bisita*.
-2. Suriin ang ugnayan: ipinakikita nitong para sa mga bisita ang inihandang mga upuan.
-3. Dahil iniuugnay nito ang pangkat ng pangngalan sa ibang bahagi ng pangungusap, **pang-ukol** ito.
+2. Iniuugnay ng *para sa* ang pangkat ng pangngalan sa ibang bahagi, kaya **pang-ukol** ito: "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita."
 
-**Check:** Subukan ang *at*: ang "mga upuan at mga bisita" ay nagdurugtong ng dalawang pangngalan. Iba ang *para sa*: ipinakikita nitong para kanino ang mga upuan.
+**Check:** Kapag pinalitan ng *at*, nagdurugtong na lamang ito ng dalawang pangngalan: "mga upuan at mga bisita."
 
 ### #2: Pagkilala sa Pangatnig
 
@@ -91,10 +90,9 @@ Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pan
 **Solution:**
 
 1. Tingnan ang nasa magkabilang panig ng *ngunit*: "Malamig ang hangin" at "mainit ang sikat ng araw."
-2. Parehong sugnay ang mga ito na nagpapakita ng magkasalungat na diwa.
-3. Dahil pinagdurugtong nito ang dalawang sugnay, **pangatnig** ito.
+2. Pinagdurugtong ng *ngunit* ang dalawang sugnay na magkasalungat, kaya **pangatnig** ito: "Malamig ang hangin **ngunit** mainit ang sikat ng araw."
 
-**Check:** Ipinagdurugtong ng *ngunit* ang dalawang sugnay.
+**Check:** Kapag inalis ang *ngunit*, dalawang magkahiwalay na pangungusap ang natira.
 
 ### #3: Salita sa Simula ng Pangungusap
 
@@ -107,9 +105,9 @@ Sa "**Hay!** Naubos na ang tinapay," paano gumagana ang *Hay*?
 :::try
 Tapusin ang huling hakbang: anong bahagi ng pananalita ang *Hay* batay sa gamit nito?
 :::answer
-Ang sagot ay **Pandamdam**. Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita.
+Ang sagot ay **Pandamdam**: "**Hay!** Naubos na ang tinapay." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita.
 
-**Check:** Hindi pinapangalanan ng *Hay* ang bagay, hindi ito kilos tulad ng *naubos*, at hindi ito nag-uugnay ng dalawang diwa. Tuwirang damdamin lamang ito (*pandamdam*).
+**Check:** Kapag inalis ang *Hay*, buo pa rin ang "Naubos na ang tinapay."
 :::
 
 ## Speed Tricks & Shortcuts

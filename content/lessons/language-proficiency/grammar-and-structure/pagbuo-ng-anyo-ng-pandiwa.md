@@ -17,7 +17,7 @@ keyPoints:
 
 Ang **ugat** (root) ay ang batayang salita na walang dagdag, gaya ng *linis* at *kain*. Ang **panlapi** (affix) ay ikinakabit sa ugat, gaya ng *mag-*, *nag-*, *ka-*, at *-um-*.
 
-Kapag nagsisimula sa katinig ang ugat, inuulit ang unang katinig at patinig nito (*li-* sa *linis*, *ka-* sa *kain*, *ta-* sa *takbo*). Kung nagsisimula sa patinig ang ugat tulad ng *alis*, inuulit ang unang patinig (*aalis*, *umaalis*). Tatawagin natin itong **inuulit na bahagi** sa mga ugat na ito. Sa *trabaho*, *ta* lamang ang inuulit (*nagtatrabaho*).
+Sa mga ugat na ipinakikita rito, inuulit ang unang katinig at patinig kapag katinig ang simula (*li-* sa *linis*, *ka-* sa *kain*, *ta-* sa *takbo*). Kung patinig ang simula, tulad ng *alis*, inuulit ang unang patinig (*aalis*, *umaalis*). Tatawagin natin itong **inuulit na bahagi**. Sa *trabaho*, *ta* lamang ang inuulit (*nagtatrabaho*).
 
 ### Pangkat na Mag- (Maglinis)
 
@@ -41,10 +41,10 @@ Iba ang hulma ng pangkat na *kumain*. Ipinapasok ang *-um-* pagkatapos ng unang 
 
 1. **Perpektibo**: ugat + *-um-* -> *kumain*.
 2. **Imperpektibo**: *-um-* + inuulit na bahagi -> *kumakain*.
-3. **Kontemplatibo**: inuulit na bahagi lamang, walang *-um-* -> *kakain*.
+3. **Kontemplatibo**: inuulit na bahagi bago ang ugat, walang *-um-* -> *kakain*.
 
 :::why
-Bakit nawawala ang *-um-* sa *kakain*? Sa pangkat ng *-um-*, sapat na ang pag-uulit ng unang katinig at patinig upang ipakitang magaganap pa ang kilos. Hindi nito hinihiram ang *mag-* mula sa ibang pangkat ng **pandiwa** (verb).
+Bakit nawawala ang *-um-* sa *kakain*? Sa pangkat ng *-um-*, sapat na ang inuulit na bahagi upang ipakitang magaganap pa ang kilos. Hindi nito hinihiram ang *mag-* mula sa ibang pangkat ng **pandiwa** (verb).
 :::
 
 :::pair #huwag-ilipat-ang-mag
@@ -66,9 +66,9 @@ Hindi sapat ang pag-uulit upang sabihing nagpapatuloy ang kilos. May pag-uulit d
 :::
 
 :::check
-Ano ang anyong kontemplatibo ng pandiwang nasa pangkat ng *sumulat*?
+Ano ang anyong kontemplatibo ng *sumulat*?
 :::answer
-Ang sagot ay **Susulat**. Inaalis ang *-um-* at inuulit ang *su*, ang unang katinig at patinig ng ugat na *sulat*.
+Ang sagot ay **Susulat**. Inaalis ang *-um-* at inilalagay ang inuulit na bahagi *su* bago ang ugat na *sulat*.
 :::
 
 ## Examples
@@ -113,14 +113,14 @@ Sa tala ay nakasulat, "Kasasara lang nila ng tanggapan. Magbabasa sila ng ulat b
 :::try
 Tapusin ang huling hakbang: anong aspekto ang *magbabasa*, at bakit?
 :::answer
-Ang sagot ay **Kontemplatibo**. Gumagamit ang *magbabasa* ng unlaping *mag-* (hindi *nag-*) kasama ng inulit na *ba* at pahiwatig na *bukas*, kaya gagawin pa ito at hindi nagpapatuloy.
+Ang sagot ay **Kontemplatibo**: "Magbabasa sila ng ulat bukas." Gumagamit ang *magbabasa* ng unlaping *mag-* (hindi *nag-*) kasama ng inulit na *ba* at pahiwatig na *bukas*, kaya gagawin pa ito.
 
 **Check:** Ihambing ang dalawang unlapi: ang nagpapatuloy na anyo ay *nagbabasa* (*nag-* + *ba*), habang ang *magbabasa* (*mag-* + *ba*) ay nakatuon sa kilos na gagawin pa.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Tukuyin muna kung nasa pangkat ng *mag-* o *-um-* ang pandiwa. Sa mga ugat na ito, nananatili ang *mag-* sa kontemplatibo at idinadagdag ang inuulit na bahagi (*maglilinis*); sa *-um-*, inaalis ang *-um-* at inuulit na bahagi lamang ang natitira (*kakain*).
+Tukuyin muna kung nasa pangkat ng *mag-* o *-um-* ang pandiwa. Sa mga ugat na ito, nananatili ang *mag-* sa kontemplatibo at idinadagdag ang inuulit na bahagi (*maglilinis*); sa *-um-*, inaalis ang *-um-* at inilalagay ang inuulit na bahagi bago ang buong ugat (*kakain*).
 
 ## Traps to Watch For
 

@@ -44,7 +44,7 @@ Ginagamit ang **imperpektibo** (ongoing) hindi lamang sa kilos na nangyayari sa 
 :::pair #tuwing-paulit-ulit-na-kilos
 Right: Sa "Naglilinis ng bulwagan ang mga kawani tuwing Sabado," imperpektibo ang *naglilinis* **sapagkat nagpapahayag ito ng paulit-ulit na gawain**.
 Wrong: Sabihing imperpektibo ito **sapagkat natapos na ang lahat ng paglilinis** o **sapagkat katatapos lamang nilang maglinis**.
-Ang *tuwing Sabado* ay gawaing inuulit linggo-linggo, hindi tapos o katatapos lamang.
+Ang *tuwing Sabado* ang dalas ng paglilinis, at ipinapakita ng *naglilinis* na umiiral na itong gawain, hindi tapos o katatapos lamang.
 :::
 
 :::check
@@ -74,9 +74,9 @@ Hindi tapos ang pagsusulat kahit may *kahapon*. Hindi rin ito kontemplatibo, dah
 :::
 
 :::check
-Sa "Nagluluto si Ana nang pumasok ako kahapon," ano ang aspekto ng *nagluluto*?
+Sa "Nagluluto si Ana nang pumasok ako kahapon," alin ang kilos na hindi pa tapos nang mangyari ang isa pa?
 :::answer
-Ang sagot ay **Imperpektibo**. Nagpapatuloy ang pagluluto ni Ana noong sandaling pumasok ang nagsasalita kahapon.
+Ang sagot ay ang pagluluto ni Ana. **Imperpektibo** ang *nagluluto*, dahil nagpapatuloy ito noong pumasok ang nagsasalita kahapon.
 :::
 
 ## Examples
@@ -100,7 +100,7 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite si Elena ng ula
 **Solution:**
 
 1. Hanapin ang pahiwatig ng oras: *tuwing Sabado*.
-2. Dalas ang ipinakikita ng *tuwing*, at umiiral na ang iskedyul.
+2. Dalas ang ipinakikita ng *tuwing*; umiiral na gawain ang ipinakikita ng *naglilinis*.
 3. Kaya imperpektibo ito **sapagkat nagpapahayag ito ng paulit-ulit na gawain**.
 
 **Check:** Umuulit linggo-linggo ang paglilinis; hindi ito tapos o katatapos lamang.
@@ -116,9 +116,9 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite si Elena ng ula
 :::try
 Tapusin ang huling hakbang: ano ang aspekto ng *naglalaba*, at bakit?
 :::answer
-Ang sagot ay **Imperpektibo, dahil nagpapatuloy ang paglalaba nang tumawag ang kaibigan**.
+Ang sagot ay **Imperpektibo**: nagpapatuloy ang paglalaba ni Rita nang tumawag ang kaibigan niya kahapon.
 
-**Check:** Nagsimula na si Rita (kaya hindi kontemplatibo) at hindi pa siya tapos sa sandaling iyon (kaya hindi perpektibo kahit may *kahapon*). Sa pangungusap na ito, ang *pa* ang pahiwatig.
+**Check:** Sa pangungusap na ito, ang *pa* ang pahiwatig na hindi pa tapos ang paglalaba.
 :::
 
 ## Speed Tricks & Shortcuts
