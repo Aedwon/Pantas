@@ -1,0 +1,43 @@
+# Language Application, 11 English lessons: independent verifier findings (commit 30e0f8882)
+
+Verdict FAIL (0 Blockers). All 25 pair citations in `la-evidence-en11.json` verified exact. All lessons under 900 pre-tap words. Paths under content/lessons/language-proficiency/language-application/. Cross-cutting Minor: every 3-item ordering try leaves one item forced by elimination.
+
+- Minor | cause-and-effect-order.md:18 | "so" listed as pointing back to a cause; rarely opens a sentence | Drop "so".
+- Major | completion-articles-and-lists.md:115 | Example 2 copies quiz 0023's frame | Different nouns, vowel-sound word and frame.
+- Major | completion-articles-and-lists.md:136 | Example 3 copies quiz 0024 ("-ing, -ing, and ___" with "to file") | Different list and distractors.
+- Minor | completion-articles-and-lists.md:59 | "Each word keeps its own preposition" overbroad (good at / good for) | "Many words".
+- Minor | completion-articles-and-lists.md:40 | Check intro is padding | Cut it.
+- Major | completion-meaning-clues.md:66 | Check is ambiguous (both directions work; only "new" implies one) | Add a clue.
+- Major | completion-meaning-clues.md:136 | Heading "Preparation and Nerves" names the answer | Neutral heading.
+- Minor | completion-meaning-clues.md:54 | Step says "relief", sentence uses "relieved" | Match.
+- Minor | completion-meaning-clues.md:150 | Step 2 nearly solves the try | Cut to "Despite calls for contrast."
+- Major | completion-natural-phrases.md:87 | Example 2 near-copies quiz 0025 with the same answer idiom | Different idiom or frame.
+- Minor | completion-natural-phrases.md:140 | "not a general action word" overbroad (do homework) | Reword.
+- Minor | completion-natural-phrases.md:130 | Try Check does not rule out "hold" | Add it.
+- Major | completion-past-time.md:124 | Example 3 mirrors quiz 0026; step and try wording give the answer | New instance; remove the step sentence; ask "choose the form".
+- Major | completion-past-time.md:54 | Wrong line "had counted the cash" is fine on its own; nothing shows the action was unfinished | Add "(still counting)" context to Right and Wrong.
+- Major | completion-past-time.md:86 | Heading names the forms the blanks ask for | Neutral heading.
+- Minor | completion-past-time.md:101 | Lost teaching: simple past can show an earlier action when order is clear | Restore in the Check.
+- Minor | completion-past-time.md:79 | "had sent" echoes line 18 | Change the verb.
+- Major | completion-word-forms.md:137 | Example 3 mirrors quiz 0022; the try tests avoid/hope, never taught | Teach the verbs ("such as") or use taught ones; new nouns.
+- Minor | completion-word-forms.md:88 | "decided" pattern untaught | Same fix.
+- Minor | completion-word-forms.md:166 | "plain verb, no -s" ignores be (are) | Add "(be: are)".
+- Minor | completion-word-forms.md:20 | Dropped linking-verb line ("The clerk is helpful") | Restore.
+- Minor | details-and-supported-inferences.md:73 | Example 1 resembles quiz 0023 | Change the setting.
+- Minor | details-and-supported-inferences.md:130 | "(the day in that line)" unclear | Cut.
+- Minor | main-ideas-and-details.md:133 | all/every/replace as red flags; a text can say "all" | "unless the text says so".
+- Minor | main-ideas-and-details.md:90 | Example 2 shares quiz 0021's shape | Change shape.
+- Minor | main-ideas-and-details.md:121 | Try reachable by elimination ((A) visibly contradicts) | Subtler distractor.
+- Major | openings-and-reference-links.md:47, :139 | "The sentence that names it comes earlier" is absolute and contradicts the lesson's own openers | Restore "usually"; scope "the + noun" to a noun introduced before.
+- Major | openings-and-reference-links.md:76 | "Arrange means..." narration | Cut.
+- Minor | openings-and-reference-links.md:37 | Pronoun sentence misplaced and vague | Move or tie to the "no outside context" caveat.
+- Minor | openings-and-reference-links.md:124 | Try question points at (C)'s link | Ask only for the full order.
+- Minor | time-and-step-order.md:73 | "Arrange ... means" narration | Cut.
+- Minor | time-and-step-order.md:102 | "By noon completes the account" gives no time reasoning | "By noon is the latest time".
+- Minor | time-and-step-order.md:130 | Tautology about signed forms | Cut.
+- Major | transition-links.md:104 | Heading "Reading a Contrast" names the answer | Neutral heading.
+- Minor | transition-links.md:87 | Heading names the order | Neutral heading.
+- Minor | transition-links.md:48 | Pair repeats core example 40-45 | New instance.
+- Minor | transition-links.md:36 | "A transition sentence answers an idea before it" overbroad; conflicts with a later section | Scope to however / for example.
+- Minor | transition-links.md:67 | Off-topic pronoun sentence | Cut.
+- Minor | transition-links.md:75 | Chain stops at "third sentence", never shows the finished paragraph | End with the A, B, C text.

@@ -1,0 +1,48 @@
+{
+  "lesson-language-application-cause-and-effect-order": {
+    "resulting-before-cause": [{"questionId": "q-language-application-paragraph-organization-0011", "wrongChoice": "1, 3, 2, 4", "mistakeNote": "Puts 'The resulting reactions' before the reactions it points back to."}],
+    "cause-first-forced": [{"questionId": "q-language-application-paragraph-organization-0018", "wrongChoice": "2, 4, 3, 1", "mistakeNote": "Forces cause-first order on a narrative that signals result first."}]
+  },
+  "lesson-language-application-completion-articles-and-lists": {
+    "article-by-spelling": [{"questionId": "q-language-application-sentence-completion-0023", "wrongChoice": "the, a", "mistakeNote": "Picks 'a' for 'unused' by spelling instead of its vowel sound."}],
+    "preposition-pattern": [{"questionId": "q-language-application-sentence-completion-0016", "wrongChoice": "on", "mistakeNote": "Borrows 'on' from 'focused on' instead of the partner 'interested in'."}],
+    "mixed-list-form": [{"questionId": "q-language-application-sentence-completion-0024", "wrongChoice": "to notify", "mistakeNote": "Breaks an -ing list with a to-plus-verb item."}]
+  },
+  "lesson-language-application-completion-meaning-clues": {
+    "synonym-after-far-from": [{"questionId": "q-language-application-sentence-completion-0014", "wrongChoice": "poised", "mistakeNote": "Repeats the calm quality after 'Far from being' instead of its opposite."}],
+    "one-blank-only": [{"questionId": "q-language-application-sentence-completion-0003", "wrongChoice": "orthodox ... hostility", "mistakeNote": "Second blank fits but the first blank contradicts 'replace the entire structure'."}]
+  },
+  "lesson-language-application-completion-natural-phrases": {
+    "wrong-partner": [{"questionId": "q-language-application-sentence-completion-0017", "wrongChoice": "do", "mistakeNote": "Uses a general action verb instead of the usual partner 'make a decision'."}],
+    "idiom-by-parts": [{"questionId": "q-language-application-sentence-completion-0025", "wrongChoice": "turn a blind eye to", "mistakeNote": "Picks an eye idiom that means ignore when the sentence needs watch."}]
+  },
+  "lesson-language-application-completion-past-time": {
+    "present-for-past": [{"questionId": "q-language-application-sentence-completion-0018", "wrongChoice": "finds", "mistakeNote": "Uses a present form after the past clue 'Last Tuesday'."}],
+    "had-for-unfinished": [{"questionId": "q-language-application-sentence-completion-0026", "wrongChoice": "had checked", "mistakeNote": "Treats an interrupted, half-done action as finished."}]
+  },
+  "lesson-language-application-completion-word-forms": {
+    "wrong-job": [{"questionId": "q-language-application-sentence-completion-0010", "wrongChoice": "eloquent", "mistakeNote": "Puts an adjective after an action verb where an adverb is needed."}],
+    "plural-subject-s": [{"questionId": "q-language-application-sentence-completion-0021", "wrongChoice": "sorts", "mistakeNote": "Gives a singular verb to the plural subject 'assistants'."}],
+    "verb-pattern": [{"questionId": "q-language-application-sentence-completion-0022", "wrongChoice": "learning ... organizing", "mistakeNote": "Uses an -ing form after 'want', which takes 'to' plus the base verb."}]
+  },
+  "lesson-language-application-details-and-supported-inferences": {
+    "wrong-day": [{"questionId": "q-language-application-paragraph-organization-0023", "wrongChoice": "Before the counter closes on Monday", "mistakeNote": "Takes the day from the closure line instead of the line that names the collection day."}],
+    "adding-a-guess": [{"questionId": "q-language-application-paragraph-organization-0024", "wrongChoice": "She found that the dispatch log contained an error.", "mistakeNote": "Treats checking as finding an error that the text never reports."}]
+  },
+  "lesson-language-application-main-ideas-and-details": {
+    "widening-the-claim": [{"questionId": "q-language-application-paragraph-organization-0021", "wrongChoice": "Replace all online services with telephone calls.", "mistakeNote": "Turns an added option into a full replacement."}],
+    "claim-not-in-text": [{"questionId": "q-language-application-paragraph-organization-0022", "wrongChoice": "The branch has ended all waiting at the counter.", "mistakeNote": "Picks a claim that sounds like the point but is not stated in the text."}]
+  },
+  "lesson-language-application-openings-and-reference-links": {
+    "reference-before-source": [{"questionId": "q-language-application-paragraph-organization-0001", "wrongChoice": "1, 2, 4, 3", "mistakeNote": "Opens with a sentence that says 'that audit' before the audit is introduced."}, {"questionId": "q-language-application-paragraph-organization-0004", "wrongChoice": "1, 2, 3, 4", "mistakeNote": "Puts 'these structural innovations' before the sentence that introduces them."}],
+    "the-noun-link": [{"questionId": "q-language-application-paragraph-organization-0012", "wrongChoice": "2, 4, 3, 1", "mistakeNote": "Places the findings with 'The study' before the sentence that introduces the study."}]
+  },
+  "lesson-language-application-time-and-step-order": {
+    "first-before-next": [{"questionId": "q-language-application-paragraph-organization-0002", "wrongChoice": "1, 2, 4, 3", "mistakeNote": "Puts the step marked 'Next' before the step marked 'First'."}],
+    "prerequisite-step": [{"questionId": "q-language-application-paragraph-organization-0016", "wrongChoice": "1, 2, 4, 3", "mistakeNote": "Removes the cover before the power is isolated."}]
+  },
+  "lesson-language-application-transition-links": {
+    "contrast-before-claim": [{"questionId": "q-language-application-paragraph-organization-0007", "wrongChoice": "1, 2, 4, 3", "mistakeNote": "Opens with 'However' before the methods it contrasts are introduced."}],
+    "example-before-idea": [{"questionId": "q-language-application-paragraph-organization-0003", "wrongChoice": "1, 2, 3, 4", "mistakeNote": "Opens with 'For example' before the general statement it illustrates."}]
+  }
+}

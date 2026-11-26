@@ -1,0 +1,24 @@
+{
+  "lesson-language-application-kayarian-at-sugnay": {
+    "parirala-hindi-sugnay": [{"questionId": "q-language-application-error-identification-0025", "wrongChoice": "sa loob ng bagong tanggapan", "mistakeNote": "A phrase with no predicate is called a dependent clause."}],
+    "bilangin-ang-lahat-ng-sugnay": [{"questionId": "q-language-application-error-identification-0026", "wrongChoice": "Tambalan dahil walang sugnay na di-makapag-iisa.", "mistakeNote": "Skips the dependent clause that starts with habang."}, {"questionId": "q-language-application-error-identification-0026", "wrongChoice": "Hugnayan dahil iisa ang sugnay na makapag-iisa.", "mistakeNote": "Counts only one independent clause."}]
+  },
+  "lesson-language-application-pagkakasunod-at-sanhi": {
+    "ito-ay-may-naunang-binanggit": [{"questionId": "q-language-application-paragraph-organization-0017", "wrongChoice": "1, 2, 4, 3", "mistakeNote": "Places 'reklamong ito' before the complaint is introduced."}, {"questionId": "q-language-application-paragraph-organization-0017", "wrongChoice": "2, 3, 1, 4", "mistakeNote": "Places 'pulong na iyon' before the meeting is named."}],
+    "bunga-hindi-sanhi": [{"questionId": "q-language-application-paragraph-organization-0025", "wrongChoice": "Humingi siya ng bagong kopya ng listahan.", "mistakeNote": "Names the effect as the cause."}]
+  },
+  "lesson-language-application-pagkumpleto-ng-pangungusap": {
+    "anyo-ayon-sa-panahon": [{"questionId": "q-language-application-sentence-completion-0027", "wrongChoice": "ipapadala", "mistakeNote": "Uses a future form with kahapon."}],
+    "pang-ugnay-ng-pagsalungat": [{"questionId": "q-language-application-sentence-completion-0028", "wrongChoice": "kaya", "mistakeNote": "Uses a result connector where the two ideas contrast."}],
+    "likas-at-akma-sa-kahulugan": [{"questionId": "q-language-application-sentence-completion-0029", "wrongChoice": "matinding tulong", "mistakeNote": "Picks a natural-sounding pair that does not fit the meaning."}]
+  },
+  "lesson-language-application-paksa-at-balangkas": {
+    "sobra-ang-ideya": [{"questionId": "q-language-application-paragraph-organization-0026", "wrongChoice": "Karatula lamang ang kailangan sa bawat tanggapan.", "mistakeNote": "Overstates the main idea with 'lamang'."}],
+    "dagdag-sa-paliwanag": [{"questionId": "q-language-application-paragraph-organization-0026", "wrongChoice": "Hindi na kailangan ang mga kawani sa tamang pila.", "mistakeNote": "Adds a claim the passage never makes."}],
+    "detalye-mula-sa-talata": [{"questionId": "q-language-application-paragraph-organization-0027", "wrongChoice": "Silbi ng talaan: halaga ng gamit at gastos sa pagkukumpuni.", "mistakeNote": "Puts in a detail that is not in the passage."}]
+  },
+  "lesson-language-application-wastong-gamit-at-panahon": {
+    "posibilidad-hindi-panahon": [{"questionId": "q-language-application-error-identification-0027", "wrongChoice": "bukas", "mistakeNote": "Picks a time word as the possibility word."}],
+    "panahon-ng-karanasan": [{"questionId": "q-language-application-error-identification-0028", "wrongChoice": "matutuwa", "mistakeNote": "Uses a future form for an experience that already happened."}]
+  }
+}
