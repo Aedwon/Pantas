@@ -28,12 +28,14 @@ import 'question_id_limits.dart';
 import 'session_stored_order.dart';
 import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
+import 'walkthrough_trap_pair_check.dart';
 
 const allChecks = <Check>[
   ContentApprovalCheck(),
   LessonSizeCheck(),
   LessonSplitCoverageCheck(),
   LessonPoolCheck(),
+  WalkthroughTrapPairCheck(),
   ShellRoutePushCheck(),
   SyncMutationsTypedReadCheck(),
   MockBlueprintTopicsCheck(),
