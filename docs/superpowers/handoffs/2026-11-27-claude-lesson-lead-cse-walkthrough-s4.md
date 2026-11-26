@@ -31,8 +31,16 @@ Fixes, manager-approved with four conditions (Nov 27, about 2 AM):
 - Reading Comprehension (40): not started.
 - Codex b at 2:29 AM: 5-hour window 55% used (resets 6:42 AM), weekly 9% (resets Dec 4). Planned runs told to the manager: Grammar delta, Vocabulary delta, then after 6:42 AM a full Grammar read and a full Vocabulary read.
 
+## Update, 3:10 AM
+
+- Grammar round 7 delta (`codex-grammar-r7-delta.md`): 164 of 180 round 6 rows closed, 16 open, 4 new Blockers, 22 new Majors. All fixed, trimmed and diff-verified (`grammar-r7-diff-verifier-findings.md`); the verifier's last Blocker and 3 Majors fixed by the lead (`47da5e6fa`). Ready for its full read.
+- Vocabulary round 3 delta (`codex-vocab-r3-delta.md`): 80 of 97 round 2 rows closed, 17 open, 2 new Blockers, 11 new Majors. All fixed, trimmed and diff-verified (`vocab-r3-diff-verifier-findings.md`); its 4 Majors fixed by the lead (`362f6b969`). Ready for its full read.
+- Full-read briefs committed: `codex-grammar-r8-full.brief.md` (run 3, target `47da5e6fa`, workdir `scratchpad/codex/g-r8`) and `codex-vocab-r4-full.brief.md` (run 4, target `362f6b969`, workdir `scratchpad/codex/v-r4`). Launch command (closed input, from the workdir): `~/.local/bin/codex-pick exec --skip-git-repo-check -s workspace-write "Read the audit brief in ./brief.md and carry it out exactly. Write findings to ./<g-r8|v-r4>.md." < /dev/null > run.log 2>&1`. Do not put a `grep -c` guard before it with `&&` (a zero count exits 1 and the run never starts; it happened once).
+- Manager ruling (about 2:50 AM): after run 2 I told the GI lead b is free (done, 2:53 AM). Runs 3 and 4 start only after the GI lead posts in this thread that its run has ended. b at 2:53 AM: 5-hour 86% (resets 6:42 AM), weekly 13%. A full read used about 23% of the window in round 6, so runs 3 and 4 need the 6:42 AM reset anyway.
+- Reading Comprehension: not started. `content/lessons/reading-comprehension/` has 84 files, 13 retired, 71 active, none in walk-through form; the state file says 40 are CSE (32 EN, 8 FIL). Which 40 is not recorded in the lesson front matter; find the CSE mapping (the previous lead's quiz packets or the CSE blueprint) before writing.
+
 ## Next actions
 
-1. Grammar delta result: fix any open row or new Blocker or Major (rows only), verify the diff, then the full Grammar read.
-2. Vocabulary delta, fix, then the full read.
-3. Language Application Codex confirmation; Math and Reasoning post-rule Codex audits; Reading Comprehension writing.
+1. When the GI lead posts that its run ended and b has room: run 3 (Grammar full read), then run 4 (Vocabulary full read), one at a time; tell the manager before each.
+2. Fix any full-read findings rows only; a batch passes only on a full read with 0 Blockers and 0 Majors.
+3. Language Application Codex confirmation; Math and Reasoning post-rule Codex audits; Reading Comprehension scoping, then writing.
