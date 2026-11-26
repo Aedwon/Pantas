@@ -28,9 +28,9 @@ Iniuugnay ng pang-ukol ang pangkat ng pangngalan (*mga bisita*); hindi ito kilos
 :::
 
 :::check
-Sa "Sumulat siya **tungkol sa** kalikasan," anong bahagi ng pananalita ang mga salitang nakadiin?
+Sa "Dumating ang sulat **mula sa** Cebu," anong bahagi ng pananalita ang mga salitang nakadiin?
 :::answer
-Ang sagot ay **Pang-ukol**. Ipinakikilala ng *tungkol sa* ang pangngalang *kalikasan* at iniuugnay ito sa pagsulat.
+Ang sagot ay **Pang-ukol**. Ipinakikilala ng *mula sa* ang pangngalang *Cebu* at iniuugnay ito sa pagdating.
 :::
 
 ### Pangatnig: Nagdurugtong ng mga Salita o Sugnay
@@ -47,9 +47,9 @@ Paano agad paghiwalayin ang pang-ukol at pangatnig? Itanong kung ano ang ginagaw
 :::
 
 :::check
-Sa "Pumunta siya sa palengke **upang** bumili ng gulay," anong bahagi ng pananalita ang salitang nakadiin?
+Sa "Umulan nang malakas, **kaya** hindi natuloy ang laro," anong bahagi ng pananalita ang salitang nakadiin?
 :::answer
-Ang sagot ay **Pangatnig**. Pinagdurugtong ng *upang* ang dalawang bahaging may kilos (*pumunta* at *bumili*).
+Ang sagot ay **Pangatnig**. Pinagdurugtong ng *kaya* ang dalawang sugnay (*umulan nang malakas* at *hindi natuloy ang laro*).
 :::
 
 ### Pandamdam: Tuwirang Pahayag ng Damdamin
@@ -114,7 +114,7 @@ Ang sagot ay **Pandamdam**. Tuwiran nitong ipinahahayag ang damdamin ng nagsasal
 
 ## Speed Tricks & Shortcuts
 
-Itanong kung ano ang ginagawa ng salita. Kung iniuugnay nito ang pangngalan o **panghalip** (pronoun) sa ibang bahagi (*para sa mga bisita*), pang-ukol ito; kung dalawang bahagi ang pinagdurugtong (*at*, *ngunit*, *dahil*), pangatnig ito; kung biglaang reaksiyon lamang (*Naku!*, *Aray!*), pandamdam ito.
+Itanong kung ano ang ginagawa ng salita. Kung iniuugnay nito ang pangngalan o **panghalip** (pronoun) sa ibang bahagi (*para sa mga bisita*), pang-ukol ito; kung dalawang bahagi ang pinagdurugtong (*at*, *ngunit*, *dahil*), pangatnig ito; kung reaksiyon lamang (*Naku!*, *Aray!*), pandamdam ito.
 
 ## Traps to Watch For
 

@@ -72,7 +72,7 @@ Katabi ng pandiwa ang *ng mga kawani*, ngunit ito ang gumawa ng kilos at ang *an
 :::
 
 :::check
-Sa "Kumain kami **sa kusina** kahapon," aling pangkat ng salita ang gumaganap na pang-abay na panlunan?
+Sa "Kumain kami sa kusina kahapon," aling pangkat ng salita ang gumaganap na pang-abay na panlunan?
 :::answer
 Ang sagot ay **Sa kusina**. Sinasagot nito ang tanong na "Saan kami kumain?"
 :::

@@ -17,22 +17,21 @@ keyPoints:
 
 ### Sentence Openings and Proper Names
 
-Capitalize the **first word** of every sentence and every **proper noun** (a specific person, city, country, or organization).
+Capitalize the **first word** of every sentence and every **proper noun** (such as a specific person, city, country, organization, month, or day).
 
 In *"We visited Manila last summer,"* *We* begins the sentence and *Manila* is a specific city, so both take capitals. Ordinary verbs and nouns inside a sentence (*visited*, *summer*) stay lowercase.
 
 :::check
-Choose the correctly capitalized sentence: *"We Visited manila last summer."* or *"We visited Manila last summer."*
+Choose the correctly capitalized sentence: *"They Flew to cebu in March."* or *"They flew to Cebu in March."*
 :::answer
-The answer is **"We visited Manila last summer."** *We* begins the sentence, *Manila* is a city name, and *visited* stays lowercase.
+The answer is **"They flew to Cebu in March."** *They* begins the sentence, *Cebu* is a city name, *March* is a month, and *flew* stays lowercase.
 :::
 
 ### Titles Before Names vs. Generic Roles
 
-Under the standard convention, capitalize a formal title **directly before a person's name**: *"President Reyes"* or *"President Cruz."*
+Under the standard convention, capitalize a formal title such as *President* **directly before a person's name**: *"President Reyes"* or *"President Cruz."*
 
-Use lowercase for a **generic job role** without a name after it: *"the president"* or *"the doctor."* Follow a special rule only if the question states one.
-
+Use lowercase for a **generic job role** without a name after it: *"the president"* or *"the doctor."*
 <!-- ILLUSTRATION: two stacked sentences: top "We met President Reyes yesterday." with a teal bracket linking capital "President" directly to "Reyes" labeled "title before a name"; bottom "We met the president yesterday." with lowercase "president" after "the" labeled "generic job role, no name" -->
 
 :::pair #title-before-name-vs-role
@@ -42,17 +41,16 @@ Before *Reyes*, *President* sits right in front of a name and takes a capital *P
 :::
 
 :::check
-Using the before-name rule, fix: *"The note needed president Cruz's signature, and the President signed it."*
+Using the before-name rule, fix: *"The note needed president Santos's signature, and the President signed it."*
 :::answer
-The answer is **"The note needed President Cruz's signature, and the president signed it."** Capitalize *President* right before *Cruz*, and lowercase *president* after *the*.
+The answer is **"The note needed President Santos's signature, and the president signed it."** Capitalize *President* right before *Santos*, and lowercase *president* after *the*.
 :::
 
 ### Quoted Sentences vs. Quoted Words
 
-Capitalize the first word of a **quoted complete sentence**: *She said, "Please close the door."*
+Capitalize the first word of a **quoted complete sentence**: *She said, "Please close the door."* The second half of a quote split by *she said* stays lowercase.
 
-Keep a **quoted word or short fragment** inside a sentence lowercase (unless it is a proper name or *I*): *The word "meeting" appears twice.* Never put title-style capitals on every word of ordinary speech.
-
+Keep a **quoted word or short fragment** inside a sentence lowercase (unless it is a proper name or *I*): *The word "meeting" appears twice.*
 :::pair #quoted-word-capitalized
 Right: "The word \"meeting\" appears twice."
 Wrong: "The word \"Meeting\" appears twice in the short announcement."
@@ -89,7 +87,7 @@ Follow the common convention that capitalizes a formal title directly before a n
 
 The correct answer is **(C)**.
 
-**Check:** Check all three slots in (C): *We* (sentence start), *President* (before a name), and *Reyes* (surname). All three follow the rule.
+**Check:** In (C), *We* starts the sentence, *President* is before a name, and *Reyes* is a surname.
 
 ### #2: Quoted Sentence vs. Quoted Word
 
@@ -106,7 +104,7 @@ Corrected text: **She said, "Please close the door." The word "meeting" appears 
 
 ### #3: Fixing Multiple Errors Together
 
-Use the before-name title rule to fix every error in: *"the report was ready, it's final section needed president Cruz's approval."*
+Use the before-name title rule to fix every error in: *"the report was ready, it's final section needed president Lim's approval."*
 
 **Solution:**
 
@@ -115,11 +113,11 @@ Use the before-name title rule to fix every error in: *"the report was ready, it
 3. Use possessive *its* (not contraction *it's*).
 
 :::try
-Finish the last step: fix the title before *Cruz's* and write the full corrected sentence.
+Finish the last step: fix the title before *Lim's* and write the full corrected sentence.
 :::answer
-The answer is **"The report was ready; its final section needed President Cruz's approval."** *President* sits directly before *Cruz*, so it takes a capital *P*.
+The answer is **"The report was ready; its final section needed President Lim's approval."** *President* sits directly before *Lim*, so it takes a capital *P*.
 
-**Check:** Verify four fixes: (1) *The* opens the sentence, (2) the semicolon joins two complete clauses, (3) *its* shows ownership without an apostrophe, and (4) *President Cruz's* capitalizes both title and name.
+**Check:** Verify four fixes: (1) *The* opens the sentence, (2) the semicolon joins two complete clauses, (3) *its* shows ownership without an apostrophe, and (4) *President Lim's* capitalizes both title and name.
 :::
 
 ## Speed Tricks & Shortcuts

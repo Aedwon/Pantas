@@ -45,7 +45,7 @@ A group built on an *-ing* word without a finite helper verb, such as *"running 
 Compare *"Running quickly through the park"* (incomplete nonfinite group) with *"Ana is running quickly through the park"* (*Ana* is the subject and *is* supplies the finite tense form).
 
 :::why
-Why do standalone *-ing* groups look like full sentences? An action word like *running* plus a place phrase like *through the park* makes a clear mental picture. Formal sentence grammar still requires a stated subject and a finite verb carrying tense.
+Why do standalone *-ing* groups look like full sentences? An action word like *running* plus a place phrase like *through the park* makes a clear mental picture. Most formal sentences still need a stated subject and a finite verb carrying tense (a command like *Close the door* leaves its subject understood).
 :::
 
 :::pair #ing-group-not-clause
@@ -86,7 +86,7 @@ In *"The assistant is preparing the documents to submit before closing,"* identi
 
 The word that supplies the finite verb form is **is**.
 
-**Check:** Change *"today"* to *"yesterday"*: only *is* changes (*"The assistant was preparing the documents to submit before closing"*).
+**Check:** Shift the sentence to past time: only *is* changes (*"The assistant was preparing the documents to submit before closing"*).
 
 ### #3: Completing an -ing Fragment
 
@@ -95,7 +95,7 @@ Revise *"Preparing the final report for the committee"* into a complete formal s
 **Solution:**
 
 1. *Preparing* alone is nonfinite, so the group has no subject and no tense.
-2. Choose a subject such as *The coordinator* and pair it with a tense-carrying helper (*is* or *was*) or a simple finite verb (*prepared*).
+2. Add a subject and a tense-carrying verb.
 
 :::try
 Finish the last step: write the complete sentence using a finite helper with *preparing*, then test it by shifting the tense.
@@ -107,7 +107,7 @@ Finish the last step: write the complete sentence using a finite helper with *pr
 
 ## Speed Tricks & Shortcuts
 
-Run the **Today / Yesterday test** on any verb-shaped word. Shift the sentence between present (*today*) and past (*yesterday*). A finite verb changes form (*is*/*was*, *prepares*/*prepared*), while *-ing* words and *to + verb* infinitives stay identical.
+Run the **Today / Yesterday test** on any verb-shaped word. Shift the sentence between present (*today*) and past (*yesterday*). A finite verb usually changes form (*is*/*was*, *prepares*/*prepared*), though a few look the same in both (*put*). *-ing* words and *to + verb* infinitives never change.
 
 ## Traps to Watch For
 

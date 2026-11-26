@@ -19,7 +19,7 @@ keyPoints:
 
 Nagbabago ang tungkulin ng isang salita ayon sa gamit nito sa pangungusap.
 
-- Ang **pantukoy** (determiner) ay nagpapakilala sa kasunod na pangalan: *ang*, *ang mga*, *si*, at *sina* sa "ang guro" at "si Liza."
+- Ang **pantukoy** (determiner) ay nagpapakilala sa kasunod na pangalan, gaya ng *ang*, *ang mga*, *si*, at *sina* sa "ang guro" at "si Liza."
 - Ang **pangngalan** (noun) ay ngalan ng tao, bagay, hayop, lugar, o ideya. Itanong kung ano o sino ang pinapangalanan: sa "Masipag ang guro," ang *guro* ay ngalan ng tao.
 - Ang **panghalip** (pronoun) ay pamalit sa pangngalan upang hindi ito ulit-ulitin. Sa "Pumunta siya sa palengke," ang *siya* ay humahalili sa pangalan ng tao.
 
@@ -59,7 +59,7 @@ Ang sagot ay **Pandiwa**. Sinasabi ng *sumulat* ang kilos na ginawa ni Ben.
 Ang **pandiwari** (participle) ay anyong mula sa pandiwa na gumaganap bilang pangngalan o pang-uri sa tradisyonal na balarila. Sundin ang dalawang hakbang sa pagsusuri:
 
 1. Hanapin muna ang pangunahing kilos na ginawa sa pangungusap.
-2. Tingnan ang anyong mula sa pandiwa: kung kasunod ito ng pantukoy, itanong kung tao o bagay ang tinutukoy ng buong parirala.
+2. Tingnan ang anyong mula sa pandiwa: kung kasunod ito ng pantukoy, itanong kung tao o bagay ang tinutukoy ng buong parirala (phrase).
 
 <!-- ILLUSTRATION: ang pangungusap na "Inihatid ng kawani sa klinika ang nahimatay." na may tatak sa ilalim ng "Inihatid" (pandiwa ng kawani), "sa klinika" (lugar), at "ang nahimatay" (taong tinulungan, pandiwaring gamit na pangngalan) -->
 
@@ -124,7 +124,7 @@ Ang sagot ay **Pandiwaring gamit na pangngalan**. Mula sa pandiwa ang *nahuli*, 
 
 ## Speed Tricks & Shortcuts
 
-Suriin ang salita ayon sa papel nito sa pangungusap, hindi sa hitsura lamang. Ang pantukoy (*ang*, *si*) ay unang palatandaan ng pangngalan; tiyakin ang gamit nito. Itanong ang kilos para sa pandiwa, at kung tao o bagay ang tinutukoy ng anyong mula sa pandiwa.
+Suriin ang salita ayon sa papel nito sa pangungusap, hindi sa hitsura lamang. Ang pantukoy (*ang*, *si*) ay unang palatandaan ng pangngalan. Itanong ang kilos para sa pandiwa, at kung tao o bagay ang tinutukoy ng anyong mula sa pandiwa.
 
 ## Traps to Watch For
 

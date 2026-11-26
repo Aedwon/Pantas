@@ -36,9 +36,9 @@ Although *the applicant* is understood to act, *to obtain* carries no tense. Wit
 :::
 
 :::check
-Using basic school grammar, how is **to finish the audit** classified in *"The team plans **to finish the audit** by Friday"*?
+Using basic school grammar, how is **to submit the report** classified in *"The team plans **to submit the report** by Friday"*?
 :::answer
-The answer is **Infinitive phrase**. *To finish* carries no tense, and basic school grammar calls an infinitive plus its object a phrase.
+The answer is **Infinitive phrase**. *To submit* carries no tense, and basic school grammar calls an infinitive plus its object a phrase.
 :::
 
 ### Complete Sentences Need a Finite Main Verb
@@ -50,7 +50,7 @@ Compare *"To revise the policy and to notify all employees."* (fragment, zero fi
 :::pair #long-infinitive-still-fragment
 Right: *"The unit plans to revise the policy."* is a complete formal sentence.
 Wrong: Pick *"To revise the policy before the next inspection."*, *"To have the policy revised before the inspection."*, or *"To revise the policy and to notify all employees."* as a complete formal sentence.
-Extra words or paired infinitives can make a goal sound finished. Look for a stated subject paired with a tense-carrying finite verb like *plans*; if every action starts with *to*, the group is a fragment.
+Extra words or paired infinitives can make a goal sound finished. Look for a stated subject paired with a tense-carrying finite verb like *plans*; if every verb in the group starts with *to* and no finite verb appears, the group is a fragment.
 :::
 
 :::check
@@ -71,7 +71,7 @@ In *"Ana hopes to finish the project,"* can *"to finish the project"* stand alon
 2. *To finish* is an infinitive with no tense, so *"to finish the project"* cannot stand alone as a formal sentence.
 3. Basic school grammar calls it an **infinitive phrase**; a system using nonfinite clauses calls it a **nonfinite clause** with *Ana* as the understood doer.
 
-**Check:** Drop *Ana hopes* and read *"To finish the project."* With no subject or finite verb, it cannot stand alone under either label.
+**Check:** Drop *Ana hopes* and read *"To finish the project."* With no finite verb, it cannot stand alone.
 
 ### #2: Spotting an Infinitive Fragment
 
@@ -87,19 +87,19 @@ Which entry is a complete formal sentence: *"To have the policy revised before t
 
 ### #3: Checking Tense and Label Together
 
-Using basic school grammar, classify the bold words in *"The applicant hopes **to obtain a certified copy** before the office closes,"* and find which verb supplies the main tense.
+Using basic school grammar, classify the bold words in *"The manager wants **to review the budget** before Monday,"* and find which verb supplies the main tense.
 
 **Solution:**
 
-1. *To obtain a certified copy* starts with the infinitive *to obtain* and has no tense form.
+1. *To review the budget* starts with the infinitive *to review* and has no tense form.
 2. Basic school grammar calls it an **infinitive phrase**.
 
 :::try
 Finish the last step: find the finite main verb outside the bold group and test it by shifting time.
 :::answer
-The finite main verb is **hopes**. *Hopes* matches *The applicant* in present tense.
+The finite main verb is **wants**. *Wants* matches *The manager* in present tense.
 
-**Check:** Shift to past time: *"The applicant hoped to obtain a certified copy before the office closed."* *Hopes* shifts to *hoped*, while *to obtain* stays unchanged.
+**Check:** Shift to past time: *"The manager wanted to review the budget before Monday."* *Wants* shifts to *wanted*, while *to review* stays unchanged.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -37,9 +37,9 @@ Making an activity (*packing*, *pitching*) the main subject leaves the phrase da
 :::
 
 :::check
-Does *"Working toward the deadline, the editors requested more time"* have a dangling modifier?
+Does *"Waiting at the station, the train arrived late"* have a dangling modifier?
 :::answer
-The answer is **No**. *The editors* is the main subject, and editors can work toward a deadline.
+The answer is **Yes**. *The train* is the main subject, and a train cannot wait at a station.
 :::
 
 ### Two Ways to Fix a Dangling Modifier
@@ -49,7 +49,7 @@ Fix a dangling opening phrase in two ways:
 1. **Change the main subject:** *"Rushing to catch the bus, my coffee spilled"* -> *"Rushing to catch the bus, **I** spilled my coffee."*
 2. **Turn the phrase into a full clause:** *"While approaching the gate, the barking of a dog startled Liza"* -> *"As **Liza approached** the gate, the barking of a dog startled her."*
 
-*While* or *after* before an *-ing* word still opens a subjectless phrase. It dangles unless the main subject is the doer: *"While walking home, Ben found a wallet."*
+*While* or *after* before an *-ing* word dangles unless the main subject is the doer: *"While walking home, Ben found a wallet."*
 
 :::why
 Why can *"As Liza approached the gate, the barking of a dog startled her"* have a different main subject? *"As Liza approached the gate"* is a full clause with its own subject *Liza* and verb *approached*, so *the barking* does not take over Liza's action.
@@ -62,9 +62,9 @@ Wrong: Write *"While approaching the gate, the barking of a dog startled Liza."*
 :::
 
 :::check
-Which avoids a dangling modifier: *"Having arrived at the house, dinner was served"* or *"After the guests arrived, dinner was served"*?
+Which avoids a dangling modifier: *"While walking to class, a bird landed on Ana's shoulder"* or *"While Ana walked to class, a bird landed on her shoulder"*?
 :::answer
-The answer is **"After the guests arrived, dinner was served."** Naming *the guests* inside the opening clause leaves *dinner* free to be the main subject.
+The answer is **"While Ana walked to class, a bird landed on her shoulder."** Naming *Ana* inside the opening clause leaves *a bird* free to be the main subject.
 :::
 
 ## Examples

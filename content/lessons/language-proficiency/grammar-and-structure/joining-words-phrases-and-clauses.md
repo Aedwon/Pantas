@@ -18,7 +18,7 @@ keyPoints:
 
 The remaining three classes in traditional school grammar connect words or express reactions.
 
-- **Preposition**: introduces a noun or pronoun phrase to show place, time, or direction (*under the table, before dinner, toward home*). In "The cat hid **under** the table," *under* links *the table* to *hid*.
+- **Preposition**: introduces a noun or pronoun phrase to show a relation such as place, time, or direction (*under the table, before dinner, toward home*). In "The cat hid **under** the table," *under* links *the table* to *hid*.
 - **Conjunction**: joins words, phrases, or clauses (*and, but, or, because, before*). A **coordinating conjunction** (*for, and, nor, but, or, yet, so*) joins equal parts, such as two full clauses.
 - **Interjection**: expresses a sudden feeling or reaction and stands apart from the sentence grammar (*Ouch!, Wow!, Hey!*). In "**Ouch!** That really hurt," *Ouch* shows pain on its own.
 
@@ -35,18 +35,18 @@ Look at the two groups around *but*. Both groups have a subject and verb, so *bu
 :::
 
 :::check
-What part of speech is **Ouch** in "**Ouch!** That really hurt when I stubbed my toe"?
+What part of speech is **Oops** in "**Oops!** I dropped my pen on the floor"?
 :::answer
-The answer is **Interjection**. *Ouch* expresses sudden pain and stands independent of the clause that follows.
+The answer is **Interjection**. *Oops* expresses a sudden reaction and stands independent of the clause that follows.
 :::
 
 ### A Phrase or a Clause After a Joining Word
 
 A **subject** tells who or what a clause is about. A **clause** has a subject and a verb (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
 
-A **subordinate clause** has a subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting to learn what happened. A **subordinating conjunction** (*before, after, because, when, until*) introduces a subordinate clause.
+A **subordinate clause** has a subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting to learn what happened. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
 
-*Before*, *after*, and *until* do two jobs. Check what follows *before*:
+*Before*, *after*, and *until* can do two jobs. Check what follows *before*:
 
 1. Noun phrase only: "We met **before** dinner." (*dinner* has no verb) -> **preposition**.
 2. Subject and verb: "We left **before** we finished dinner." (*we* = subject, *finished* = verb) -> **subordinating conjunction**.
@@ -81,7 +81,7 @@ Identify the parts of speech of **Wow** and **but**: "**Wow!** Ana solved the pu
 2. *She wanted to attend* and *she had homework* are both complete clauses.
 3. *But* joins two equal clauses, so it is a **conjunction**.
 
-**Check:** Drop *Wow!* and "Ana solved the puzzle" still works; drop *but* and the two clauses split apart.
+**Check:** Drop *Wow!* and the sentence still works.
 
 ### #2: Preposition or Subordinating Conjunction
 
@@ -90,10 +90,10 @@ In traditional school grammar, identify **before** in each sentence: "We met **b
 **Solution:**
 
 1. First, *dinner* follows *before* with no verb, so *before* is a **preposition**.
-2. Second, *it* (subject) and *rained* (verb) follow *before*, forming a dependent clause.
+2. Second, *it* (subject) and *rained* (verb) follow *before*, forming a subordinate clause.
 3. So *before* is a **subordinating conjunction**.
 
-**Check:** Test the group after *before*: "it rained" has a subject and verb, while "dinner" does not.
+**Check:** Only "it rained" has a subject and verb.
 
 ### #3: Four Words in One Sentence
 
@@ -108,14 +108,14 @@ In school grammar, identify **(1) extremely**, **(2) diligent**, **(3) quietly**
 :::try
 Finish the last step: look at "the bell rang" after *before* to decide whether **(4) before** is a preposition or a conjunction.
 :::answer
-The answer is **Conjunction** (a subordinating conjunction). *The bell* is a subject and *rang* is a verb, so *before* introduces the dependent clause *the bell rang*.
+The answer is **Conjunction** (a subordinating conjunction). *The bell* is a subject and *rang* is a verb, so *before* introduces the subordinate clause *the bell rang*.
 
 **Check:** Stopping at *the bell* would miss the verb *rang*; reading the full group "the bell rang" confirms a subject-verb clause.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Look past *before*, *after*, *since*, and *until*. A noun phrase alone signals a preposition; a subject and verb signal a subordinating conjunction.
+Look past *before*, *after*, *since*, and *until*. A noun phrase alone signals a preposition; a subject and verb signal a subordinating conjunction. Alone (*seen it before*), *before* is an adverb.
 
 ## Traps to Watch For
 

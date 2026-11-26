@@ -59,7 +59,7 @@ Ang sagot ay **Tambalan**. Dalawang buong sugnay na makapag-iisa (*Tumunog ang k
 
 ### Pagpili ng At, Ngunit, o O
 
-Sa tambalang pangungusap, ang **pangatnig na magkatimbang** (coordinating conjunction) ay nag-uugnay ng magkapantay na sugnay:
+Sa tambalang pangungusap, ang **pangatnig na magkatimbang** (coordinating conjunction) ay nag-uugnay ng magkapantay na sugnay. Halimbawa:
 
 - **at**: dagdag na diwa ("Nag-aral si Ana, at naghanda si Ben.")
 - **ngunit**: salungat na diwa ("Maaga siyang umalis, ngunit nahuli siya sa pulong.")
@@ -89,7 +89,7 @@ Tukuyin ang uri ng pangungusap: "Naglilinis at nag-aayos ng silid sina Ana at Be
 2. Hanapin ang panaguri: *naglilinis at nag-aayos ng silid*.
 3. Iisa lamang ang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa, kaya **Payak** ito.
 
-**Check:** Iisa ang simuno ng *naglilinis* at *nag-aayos ng silid*: *sina Ana at Ben*. Kaya iisang sugnay ito.
+**Check:** Isang beses lamang binanggit ang simuno, *sina Ana at Ben*, kaya iisang sugnay ito.
 
 ### #2: Tambalang Pangungusap
 
@@ -112,7 +112,7 @@ Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis
 1. Basahin ang ginawa ni Ana at ni Ben.
 
 :::try
-Tapusin ang huling hakbang: aling pangatnig (*at, ngunit, o,* o *dahil*) ang nagdaragdag ng ginawa ni Ben?
+Tapusin ang huling hakbang: aling pangatnig (*at, ngunit, o,* o *dahil*) ang angkop?
 :::answer
 Ang sagot ay **At**: "Nagdilig si Ana ng halaman, **at** nagwalis si Ben ng bakuran."
 
@@ -121,7 +121,7 @@ Ang sagot ay **At**: "Nagdilig si Ana ng halaman, **at** nagwalis si Ben ng baku
 
 ## Speed Tricks & Shortcuts
 
-Hatiin ang pangungusap sa gitnang pangatnig at basahin nang mag-isa ang bawat panig. Kung parehong nakatatayo nang buo ang dalawang panig at pinagdurugtong ng *at*, *ngunit*, o *o*, tambalan ito.
+Hatiin ang pangungusap sa gitnang pangatnig at basahin nang mag-isa ang bawat panig. Kung parehong nakatatayo nang buo ang dalawang panig at pinagdurugtong ng pangatnig na tulad ng *at*, *ngunit*, o *o*, tambalan ito.
 
 ## Traps to Watch For
 

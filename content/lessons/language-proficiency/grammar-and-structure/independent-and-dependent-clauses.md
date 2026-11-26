@@ -27,14 +27,14 @@ Length does not decide clause type. *The cat* is the subject and *slept* is the 
 :::
 
 :::check
-Is *"She finished her homework"* an independent clause or a dependent clause?
+Is *"Our neighbor waved to us"* an independent clause or a dependent clause?
 :::answer
-The answer is **Independent clause**. *She* is the subject, *finished* is the finite verb, and the group stands complete.
+The answer is **Independent clause**. *Our neighbor* is the subject, *waved* is the finite verb, and the group stands complete.
 :::
 
 ### Dependent Clauses and Subordinating Words
 
-A **dependent clause** (subordinate clause) has a subject and finite verb, yet cannot stand alone. A **subordinating conjunction** (*although, because, since, when, while, if, after, before*) introduces it and makes it lean on a main clause.
+A **dependent clause** (subordinate clause) has a subject and finite verb, yet cannot stand alone. A **subordinating conjunction** (such as *although, because, since, when, while, if, until, after, before*) introduces it and makes it lean on a main clause.
 
 In *"Although she was tired,"* *she* is the subject and *was* is the finite verb, yet *although* leaves you waiting for what happened next. Pair it with a main clause: *"Although she was tired, she finished her homework."*
 
@@ -95,31 +95,30 @@ The group is an **independent clause**.
 
 ### #2: Finding the Signal Word
 
-In *"Since the concert ended late, everyone was tired,"* which word signals that the first clause is dependent?
+In *"Because the road flooded, the bus was late,"* which word signals that the first clause is dependent?
 
 **Solution:**
 
-1. Isolate the first clause: *"Since the concert ended late."*
-2. Remove *Since*: *"the concert ended late"* has subject *the concert* and verb *ended*, and stands alone.
-3. So **Since** is the signal word making the clause dependent.
+1. Isolate the first clause: *"Because the road flooded."*
+2. Remove *Because*: *"the road flooded"* has subject *the road* and verb *flooded*, and stands alone.
+3. So **Because** is the signal word making the clause dependent.
 
-**Check:** Drop *Since* and *"The concert ended late"* stands on its own, confirming *Since* caused the dependence.
+**Check:** Drop *Because* and *"The road flooded"* stands on its own, confirming *Because* caused the dependence.
 
 ### #3: Phrase or Clause After a Time Word
 
-Which group contains a finite clause: *"During the bus journey"* or *"After the bus arrived"*?
+Which group contains a finite clause: *"Until the doors opened"* or *"Until the opening ceremony"*?
 
 **Solution:**
 
-1. In *"During the bus journey,"* *during* introduces the noun group *the bus journey*; *journey* is a noun, with no finite verb.
-2. Check *"After the bus arrived"* for a subject and finite verb.
+1. Look in each group for a subject paired with a finite verb.
 
 :::try
-Finish the last step: name the subject, the finite verb, and the role of *After* in *"After the bus arrived."*
+Finish the last step: test both groups, and name the one with a finite clause.
 :::answer
-**After the bus arrived** contains the finite clause. *The bus* is the subject, *arrived* is the finite verb, and *After* makes the clause dependent.
+**Until the doors opened** contains the finite clause. *The doors* is the subject, *opened* is the finite verb, and *Until* makes the clause dependent. In *"Until the opening ceremony,"* *ceremony* is a noun, so the group is a prepositional phrase.
 
-**Check:** Ask what the bus did: *"During the bus journey"* does not say, while *"After the bus arrived"* states the action *arrived*.
+**Check:** Ask what the doors did: *"Until the opening ceremony"* does not say, while *"Until the doors opened"* states the action *opened*.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -46,7 +46,7 @@ An **indefinite pronoun** refers to people or things without naming them. Singul
 Set aside any added phrase between the pronoun and the verb, such as *in the auditorium* or *about the missing files*. Modern English often uses singular *they* or *their* to refer back to *everybody*, yet the verb paired with *everybody* itself stays singular: "Everybody **has** their own opinion."
 
 :::why
-Why does *everybody* take a singular verb when it refers to many people? In English grammar, words built with *-body*, *-one*, or *-thing* point to members one at a time, so their verb stays singular even when singular *they* refers back later.
+Why does *everybody* take a singular verb when it refers to many people? English grammar treats words built with *-body*, *-one*, or *-thing* as singular, so their verb stays singular even when singular *they* refers back later.
 :::
 
 :::pair #indefinite-singular-verb
@@ -109,14 +109,13 @@ Correct: "Everybody **has** their own opinion."
 
 **Check:** Test the subject and verb alone: "Everybody has" fits singular agreement, while "Everybody have" does not.
 
-### #3: Amount Versus Countable Items
+### #3: Choosing Two Verbs
 
 Choose the correct verbs: Most of the rice in the sacks *(has / have)* been packed, and some of the apples in the crate *(is / are)* bruised.
 
 **Solution:**
 
 1. In the first clause, set aside *in the sacks*. *Most* refers to mass noun *rice*, so choose singular **has**.
-2. In the second clause, set aside *in the crate*.
 
 :::try
 Finish the last step: what noun does *some* refer to in the second clause, and which verb matches it?

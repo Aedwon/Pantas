@@ -76,7 +76,7 @@ Correct: "By the time the guests arrived, she had cooked the entire meal."
 
 **Check:** *The guests arrived* sets the past reference point, and *had cooked* directly marks cooking as finished before that arrival.
 
-### #2: Checking Order Words with Simple Past
+### #2: Two Past Actions in One Sentence
 
 Why is "He locked the gate before the guard arrived" grammatical in standard English?
 

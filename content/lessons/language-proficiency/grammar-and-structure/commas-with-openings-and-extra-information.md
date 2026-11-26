@@ -18,9 +18,9 @@ keyPoints:
 
 A **dependent clause** cannot stand alone. Put a comma right after an opening one that has its own subject and verb: *"Because she was tired, she rested."*
 
-An **opening phrase** usually takes a comma after the whole phrase: *"After the meeting, we went home."* A short, clear opening (*"Yesterday we met"*) may skip it. An opening dependent clause cannot.
+An **opening phrase** usually takes a comma after the whole phrase: *"After the meeting, we went home."* A short, clear opening (*"Yesterday we met"*) may skip it. An opening clause with its own subject and verb cannot.
 
-Put the comma at the **end** of the opening group, never inside it (*"After, the meeting"*) or between subject and verb (*"we, went home"*).
+Put the opening comma at the **end** of the opening group, never inside it (*"After, the meeting"*) or between subject and verb (*"we, went home"*).
 
 :::pair #splitting-opening-or-subject
 Right: "After the meeting, we went home."
@@ -93,7 +93,7 @@ Correct sentence: **"After the meeting, my brother, who lives in Cebu, drove me 
 
 **Check:** Lift out *"who lives in Cebu"*: *"After the meeting, my brother drove me home."* The single brother is still clear.
 
-### #3: Picking Out Part of a Group
+### #3: Applicants and Folders
 
 Only some applicants submitted incomplete folders, and only they must return on Monday. Choose the right sentence:
 
@@ -120,7 +120,7 @@ Put one comma after an opening dependent clause, and after an opening phrase unl
 ## Traps to Watch For
 
 :::checklist
-- Opening dependent clause or phrase: place one comma after the whole opening (a short, clear phrase may skip it), never inside it or after the main subject. {#splitting-opening-or-subject}
+- Opening dependent clause or phrase: place the opening comma after the whole opening, never inside it or between the main subject and verb. {#splitting-opening-or-subject}
 - Extra detail about a person or thing already identified: set it off with commas (both sides mid-sentence). {#missing-commas-on-extra-info}
 - Identifying clause narrowing a group: omit commas so it does not claim all members. {#commas-on-identifying-clause}
 :::

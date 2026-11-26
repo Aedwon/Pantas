@@ -19,8 +19,8 @@ keyPoints:
 
 - **-ing gerunds:** *"Her hobbies include painting, dancing, and singing."* *"The recipe requires chopping onions, mincing garlic, and boiling water."*
 - **Infinitives (*to + verb*):** *"The coach told the team to run faster, to jump higher, and to try harder."*
-- **Nouns or noun phrases:** *"The committee values accuracy, fairness, and transparency."* Two *-ing* nouns and a plain noun phrase also match when all three act as topic names: *"The workshop covers budgeting, marketing, and sales strategy."*
-- **Matching verb tenses in a compound predicate:** *"She opened the folder, checked the total, and signed the form."* All finite verbs sharing a subject keep the same tense.
+- **Nouns or noun phrases:** *"The committee values accuracy, fairness, and transparency."* Topic names are an exception: *-ing* nouns and a plain noun phrase can sit together, as in *"The workshop covers budgeting, marketing, and sales strategy."*
+- **Matching verb tenses in a compound predicate:** *"She opened the folder, checked the total, and signed the form."* Finite verbs sharing a subject keep the same tense when they describe the same time.
 
 Never mix a list item with a full clause (*"tools will be bought"*), a *how-to* clause (*"how to plan sales"*), or a new verb predicate that changes the meaning.
 
@@ -45,9 +45,9 @@ Two items (*the company's history* and *its plans for the future*) are noun phra
 :::
 
 :::check
-Which completes *"The committee values accuracy, fairness, and ___"*: *"acting transparently"*, *"to be transparent"*, or *"transparency"*?
+Which completes *"The camp teaches swimming, climbing, and ___"*: *"to paddle"*, *"how to paddle"*, or *"paddling"*?
 :::answer
-The answer is **transparency**. *Accuracy* and *fairness* are nouns naming qualities, so *transparency* matches their noun form.
+The answer is **paddling**. *Swimming* and *climbing* are *-ing* forms, so *paddling* matches them.
 :::
 
 ## Examples
@@ -60,9 +60,9 @@ Find and fix the error: *"The coach told the team to run faster, jumping higher,
 
 1. List the three actions after *"told the team"*: *to run faster*, *jumping higher*, *to try harder*.
 2. Two items use *to + verb*, while *jumping* uses *-ing*.
-3. Change *jumping* to *to jump*: **"Use *to jump* for *jumping*."**
+3. Change *jumping* to *to jump*: **"The coach told the team to run faster, to jump higher, and to try harder."**
 
-**Check:** Read the lead-in before each item: *"told the team to run faster,"* *"to jump higher,"* *"to try harder."* All three match.
+**Check:** Read each item after *told the team*: all three match.
 
 ### #2: Matching Two Choices After Between
 
@@ -77,24 +77,24 @@ Revise *"We must choose between repairing the roof and a new roof will be instal
 
 ### #3: Catching a Hidden Mismatch in a Long List
 
-Find the hidden error in *"The report covers the company's history, analyzing its financial growth, and its plans for the future,"* and explain why changing *"the company's history"* to *"tracing the company's history"* is wrong.
+Find the hidden error in *"The brochure lists the hotel's rooms, offering free breakfast, and its prices,"* and explain why changing *"the hotel's rooms"* to *"touring the hotel's rooms"* is wrong.
 
 **Solution:**
 
-1. Separate the three items after *"The report covers"*: (1) *the company's history*, (2) *analyzing its financial growth*, (3) *its plans for the future*.
-2. Items (1) and (3) are noun phrases, while item (2) starts with *analyzing*.
+1. Separate the three items after *"The brochure lists"*: (1) *the hotel's rooms*, (2) *offering free breakfast*, (3) *its prices*.
+2. Check the form of each item.
 
 :::try
-Finish the last step: explain why changing item (1) fails, and give the one-word fix.
+Finish the last step: name the item that does not match, explain why changing item (1) fails, and give the fix.
 :::answer
-**Delete *analyzing*.** Changing item (1) to *"tracing the company's history"* leaves item (3) (*its plans for the future*) unmatched. Deleting *analyzing* gives three noun phrases: *"the company's history,"* *"its financial growth,"* and *"its plans for the future."*
+**Delete *offering*.** Items (1) and (3) are noun phrases, and item (2) is the outlier. Changing item (1) to *"touring the hotel's rooms"* leaves item (3) (*its prices*) unmatched. Deleting *offering* gives three noun phrases: *"the hotel's rooms,"* *"free breakfast,"* and *"its prices."*
 
-**Check:** Read *"The report covers"* before each repaired item: *"the company's history,"* *"its financial growth,"* *"its plans for the future."* All three share the noun-phrase form.
+**Check:** Read *"The brochure lists"* before each repaired item: *"the hotel's rooms,"* *"free breakfast,"* *"its prices."* All three share the noun-phrase form.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Stack list items under their shared lead-in words (*"The grant funds..."*, *"We must choose between..."*). Read each item after the lead-in to confirm every item uses the same form and keeps the sentence's meaning.
+Stack list items under their shared lead-in words (*"The report covers..."*, *"We must choose between..."*). Read each item after the lead-in to confirm every item uses the same form and keeps the sentence's meaning.
 
 ## Traps to Watch For
 

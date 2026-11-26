@@ -32,6 +32,19 @@
 - New check run per chunk: the renderer branch's `planWalkthrough` parser (copied from `ux/walkthrough-renderer-r1` `222010878`) over each lesson, plus the locked `lesson_checks.dart` from `tools/walkthrough-checks-r1`.
 - Commits so far: `80465ebd8` (checkpoint of the previous lead's Filipino Vocabulary edits), `97fda158a` (Grammar round 2 fixes and gloss restore; independent verifier FAIL with 2 Blocker groups, fix round running), `366a3e175` (Vocabulary Filipino review).
 
+### Audit ruling (manager, Nov 26, about 5:10 PM Manila)
+
+- Codex accounts a and c have no subscription (Aedwon: "those accounts don't have subscriptions anymore"). Only account b exists until its weekly reset, Monday Nov 30, 6:06 AM.
+- A full batch audit costs about 2% of b's weekly room (b was 86% after Grammar round 3). Spend b on Grammar and Vocabulary; start no Codex run once b reaches 90% weekly.
+- After that, Math, Language Application and Reading Comprehension get a Claude Fable 5.2 high read-only audit with the same brief, committed as "Batch N audited: PASS (Fable)".
+- After Monday's reset, Codex re-audits every Fable-passed batch before it goes live. Nothing goes live before the renderer lands.
+
+Fable-passed batches waiting for a Codex re-audit: (none yet)
+
+### Fresh-instance rule (lead, Nov 26)
+
+The approved sample teaches "The dog barks" and checks "My sister (teach / teaches) in Cebu". Verifiers found many Quick Checks and tries that reuse the exact sentence or word Core Concept just taught (11 in Vocabulary, 15 of 16 unaudited Grammar lessons). The worker rules now require a fresh instance of a taught rule in every check and try (rule 5a), neutral example headings (5b), and rules scoped to what holds (7). Math and Reasoning passed their audits before this was checked; the manager was asked whether to sweep them.
+
 ## Previous lead's queue (Nov 26, 13:50 Manila, superseded by the takeover notes above)
 
 1. Run Codex GPT 6.2 Sol High post-connection re-audit on Batch 2 Reasoning (`codex-audit-batch2-r3.brief.md`), then commit `Batch 2 audited: PASS`.

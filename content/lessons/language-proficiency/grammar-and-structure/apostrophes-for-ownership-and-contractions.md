@@ -22,7 +22,7 @@ An **apostrophe (')** shows ownership. Always name the **owner** first, check wh
 2. Plural noun ending in *s*: add only *'* after the *s*: *teachers* -> *"the teachers' room."*
 3. Plural noun not ending in *s*: add *'s*: *children* -> *"the children's books."*
 
-For a singular name ending in *s* (such as *James*), most style rules add *'s* (*"James's bag"*), while some allow *"James' bag"*. Follow the rule stated in the question.
+For a singular name ending in *s* (such as *James*), many style guides add *'s* (*"James's bag"*), while some allow *"James' bag"*. Follow the rule stated in the question.
 
 :::pair #singular-name-possessive
 Right: "Maria's book was left on the table."
@@ -53,9 +53,9 @@ Wrong: "I dont want to go outside today." or "I do'nt want to go outside today."
 :::
 
 :::check
-In *"It's been raining since dawn,"* does *it's* mean *it is* or *it has*?
+In *"It's too cold outside,"* does *it's* mean *it is* or *it has*?
 :::answer
-The answer is **It has**. *"It has been raining since dawn"* fits *been*.
+The answer is **It is**. *"It is too cold outside"* fits, while *"It has too cold outside"* does not.
 :::
 
 ### Its vs. It's
@@ -63,7 +63,7 @@ The answer is **It has**. *"It has been raining since dawn"* fits *been*.
 **Its** (no apostrophe) shows ownership: *"The company announced its new product line yesterday."* **It's** (with an apostrophe) always stands for *it is* or *it has*. Never write *its'*.
 
 :::why
-Why does possessive *its* have no apostrophe? Possessive pronouns such as *his*, *hers*, *ours*, *yours*, *theirs*, and *its* never take apostrophes. Saving the apostrophe for *it's* keeps the contraction distinct.
+Why does possessive *its* have no apostrophe? Possessive pronouns such as *his*, *hers*, *ours*, *yours*, *theirs*, and *its* never take apostrophes.
 :::
 
 :::pair #its-vs-its-contraction
@@ -107,7 +107,7 @@ Correct answer: **It has**.
 
 ### #3: Choosing Between Its and It's
 
-Treat the company as one organization. Choose the possessive form: *"The company announced ___ new product line yesterday."*
+Treat the school as one organization. Choose the possessive form: *"The school painted ___ front gate last week."*
 
 (A) Its
 (B) It's
@@ -116,15 +116,14 @@ Treat the company as one organization. Choose the possessive form: *"The company
 
 **Solution:**
 
-1. *The company* is one organization (singular *it*), ruling out plural *Their* (D).
-2. The blank shows ownership of the product line, not *it is* or *it has*.
+1. *The school* is one organization (singular *it*), ruling out plural *Their* (D).
 
 :::try
 Finish the last step: rule out (B) and (C), and name the correct choice.
 :::answer
-The answer is **(A) Its**. (B) expands to *"it is new product line"* (wrong), and (C) *Its'* is invalid; *its* with no apostrophe shows ownership.
+The answer is **(A) Its**. (B) expands to *"it is front gate"* (wrong), and (C) *Its'* is invalid; *its* with no apostrophe shows ownership.
 
-**Check:** Test with a possessive noun: *"the company's new product line."* Since singular ownership is needed, **Its** is right.
+**Check:** Test with a possessive noun: *"the school's front gate."* Since singular ownership is needed, **Its** is right.
 :::
 
 ## Speed Tricks & Shortcuts

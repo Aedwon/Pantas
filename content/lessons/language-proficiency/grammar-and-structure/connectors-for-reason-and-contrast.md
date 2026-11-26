@@ -19,8 +19,8 @@ keyPoints:
 
 A **connector** joins clauses and shows how their ideas relate:
 
-- **Reason** (*because, since*): explains why something happened. *"We stayed inside because it was raining."*
-- **Contrast** (*although, even though, though*): introduces a fact that goes against the expected result. *"Although she was tired, she finished her homework."*
+- **Reason** (such as *because, since*): explains why something happened. *"We stayed inside because it was raining."*
+- **Contrast** (such as *although, even though, though*): introduces a fact that goes against the expected result. *"Although she was tired, she finished her homework."*
 
 **Never double-connect.** A subordinating connector (*although, because*) already joins one dependent clause to one main clause. A coordinating connector (*but, so*) joins two independent clauses. Never use both together, as in *"Although it rained, but we walked"* or *"Because the store was closed, so we went home."* Pick one connector and keep one main clause.
 
@@ -48,9 +48,9 @@ Comma use depends on clause order. Put a comma after an opening dependent clause
 :::
 
 :::check
-Where does a comma belong in *"Because it was raining we stayed inside"*?
+Where does a comma belong in *"Although the shop was open we left without buying anything"*?
 :::answer
-The answer is **After *raining***. *"Because it was raining, we stayed inside."* An opening dependent clause takes a comma before the main clause.
+The answer is **After *open***. *"Although the shop was open, we left without buying anything."* An opening dependent clause takes a comma before the main clause.
 :::
 
 ### Completing a Dependent-Clause Fragment
@@ -87,9 +87,9 @@ Revise *"Although the manager reviewed the proposal carefully. She still had que
 
 1. *Although* makes the first group a dependent fragment.
 2. *"She still had questions"* is an independent clause.
-3. Join them with a comma: *"Although she reviewed it carefully, the manager still had questions."*
+3. Join them with a comma: *"Although the manager reviewed the proposal carefully, she still had questions."*
 
-**Check:** Cover *"Although she reviewed it carefully,"* and read *"the manager still had questions."* The main clause stands alone.
+**Check:** Cover *"Although the manager reviewed the proposal carefully,"* and read *"she still had questions."* The main clause stands alone.
 
 ### #2: Checking Comma Order
 
@@ -102,21 +102,20 @@ Decide whether the comma placement is right in (a) *"Because it was raining, we 
 
 **Check:** Move the *because* clause in (b) to the front; a comma appears after *raining*, matching (a).
 
-### #3: Adding a Contrasting Main Clause
+### #3: Completing an Opening Clause
 
-Complete *"Even though the team had practiced for weeks, ___"* with one option: (a) *"because it lost the match"*, (b) *"after losing the match"*, or (c) *"it lost."*
+Complete *"Even though the bus was late, ___"* with one option: (a) *"after waiting an hour"*, (b) *"because the driver was lost"*, or (c) *"the students arrived on time."*
 
 **Solution:**
 
-1. Choice (a) starts with *because*, adding a second dependent clause.
-2. Choice (b) is a prepositional phrase with no subject-verb clause.
+1. Choice (a) is a prepositional phrase with no subject-verb clause.
 
 :::try
-Finish the last step: check choice (c) *"it lost"* and write the full sentence.
+Finish the last step: test (b) and (c), then write the full sentence.
 :::answer
-**Even though the team had practiced for weeks, it lost.** *It* is the subject and *lost* is the finite verb with no subordinating word, giving the contrasting main clause.
+**Even though the bus was late, the students arrived on time.** (b) starts with *because*, adding a second dependent clause. In (c), *students* is the subject and *arrived* is the finite verb with no subordinating word.
 
-**Check:** Drop *"Even though the team had practiced for weeks,"* and read *"It lost."* It stands alone as a main clause.
+**Check:** Drop *"Even though the bus was late,"* and read *"The students arrived on time."* It stands alone as a main clause.
 :::
 
 ## Speed Tricks & Shortcuts

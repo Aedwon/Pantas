@@ -61,7 +61,7 @@ Ang sagot ay **Langkapan**. Dalawa ang sugnay na makapag-iisa (*Nag-aral si Liza
 
 ### Ayos ng Salaysay at mga Pananda
 
-Sa pagsasalaysay ng mga hakbang o pangyayari, pumili ng **pananda** (marker) na tugma sa pagkakasunod ng oras:
+Sa pagsasalaysay ng mga hakbang o pangyayari, pumili ng **pananda** (marker) na tugma sa pagkakasunod ng oras. Halimbawa:
 
 1. Simula: *una*, *sa simula*
 2. Kasunod: *pagkatapos*, *kasunod*, *saka*
@@ -124,12 +124,12 @@ Ang sagot ay **"Panghuli, kinuha niya ang resibo."** Maaari ding *sa huli* ang p
 
 ## Speed Tricks & Shortcuts
 
-Bilangin muna ang sugnay na makapag-iisa, saka hanapin ang mga sugnay na may *dahil*, *sapagkat*, o *kung*. Isang makapag-iisa na may isa o higit pang di-makapag-iisa ay hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa ay langkapan.
+Bilangin ang sugnay na makapag-iisa, saka hanapin ang sugnay na may *dahil*, *sapagkat*, *kapag*, o iba pang pang-ugnay. Isang makapag-iisa na may di-makapag-iisa ay hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa ay langkapan.
 
 ## Traps to Watch For
 
 :::checklist
 - Sugnay na may *dahil* kasama ng isang buong diwa: hugnayan ito, hindi tambalan at hindi payak. {#hugnayan-laban-sa-tambalan}
-- Dalawang buong diwa na may kasamang *dahil* o *kapag*: bilangin lahat ng sugnay upang makitang langkapan ito. {#langkapan-bilangin-ang-bawat-sugnay}
-- Mga panandang *una*, *pagkatapos*, at *sa huli*: laging ilagay ang *una* sa simula at *sa huli* sa wakas. {#ayos-ng-pananda-sa-salaysay}
+- Dalawang buong diwa na may kasamang pang-ugnay gaya ng *dahil* o *kapag*: bilangin lahat ng sugnay para sa langkapan. {#langkapan-bilangin-ang-bawat-sugnay}
+- Mga panandang *una*, *pagkatapos*, at *sa huli*: ilagay ang *una* sa simula at *sa huli* sa wakas. {#ayos-ng-pananda-sa-salaysay}
 :::

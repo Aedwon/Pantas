@@ -50,7 +50,7 @@ Bakit nawawala ang *-um-* sa *kakain*? Sa pangkat ng *-um-*, sapat na ang pag-uu
 :::pair #huwag-ilipat-ang-mag
 Right: Sa pangkat ng *kumain*, palitan ang *magkakain* ng *kakain* para sa kilos na gagawin pa.
 Wrong: Panatilihin ang *magkakain* dahil lahat ng kontemplatibo ay may *mag-*.
-Ang pangkat ng *maglinis* lamang ang gumagamit ng *mag-* kasama ng pag-uulit (*maglilinis*). Hindi ginagamitan ng *mag-* ang *kakain*.
+Kasama ng pag-uulit ang *mag-* sa pangkat ng *maglinis* (*maglilinis*), ngunit hindi ginagamitan ng *mag-* ang *kakain*.
 :::
 
 :::pair #kumain-kontemplatibo-walang-um
@@ -111,7 +111,7 @@ Sa tala ay nakasulat, "Kasasara lang nila ng tanggapan. Magbabasa sila ng ulat b
 2. Suriin ang *magbabasa*: tingnan ang **unlapi** (prefix) at ang oras (*bukas*).
 
 :::try
-Tapusin ang huling hakbang: anong aspekto ang *magbabasa*, at bakit hindi ito imperpektibo kahit inuulit ang *ba*?
+Tapusin ang huling hakbang: anong aspekto ang *magbabasa*, at bakit?
 :::answer
 Ang sagot ay **Perpektibong katatapos ang una; kontemplatibo ang ikalawa.** Gumagamit ang *magbabasa* ng unlaping *mag-* (hindi *nag-*) kasama ng inulit na *ba* at pahiwatig na *bukas*, kaya gagawin pa ito at hindi nagpapatuloy.
 

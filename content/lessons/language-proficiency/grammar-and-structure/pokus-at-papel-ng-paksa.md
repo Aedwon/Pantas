@@ -24,9 +24,9 @@ Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi
 - "Sumulat **si Mara** ng liham." (*Si Mara* ang paksa, hindi ang liham.)
 
 :::check
-Alin ang paksa sa pangungusap na "Sinulat ni Mara ang liham"?
+Alin ang paksa sa pangungusap na "Binasa ni Rey ang kuwento"?
 :::answer
-Ang sagot ay **Ang liham**. Ito ang may panandang *ang*, habang *ni Mara* ay may panandang *ni* na hindi nagmamarka ng paksa.
+Ang sagot ay **Ang kuwento**. Ito ang may panandang *ang*, habang *ni Rey* ay may panandang *ni* na hindi nagmamarka ng paksa.
 :::
 
 ### Pokus sa Tagaganap at Pokus sa Layon
@@ -34,7 +34,7 @@ Ang sagot ay **Ang liham**. Ito ang may panandang *ang*, habang *ni Mara* ay may
 Ang **pokus** ay ang ugnayan ng anyo ng **pandiwa** (verb) at ng papel ng paksa sa kilos. Paghambingin ang **tagaganap** (actor) at **layon** (object) sa iisang kilos (*sulat*, si Mara, liham):
 
 1. Pokus sa **tagaganap**: ang paksa ang gumagawa (halimbawa, *-um-*): "Sumulat **si Mara** ng liham."
-2. Pokus sa **layon**: ang paksa ang bagay na ginawan (halimbawa, *-in-*): "Sinulat ni Mara **ang liham**."
+2. Pokus sa **layon**: ang paksa ang bagay na ginawan ng kilos (halimbawa, *-in-*): "Sinulat ni Mara **ang liham**."
 
 <!-- ILLUSTRATION: dalawang nakapatong na pangungusap: sa itaas "Sumulat si Mara ng liham." na may palaso mula "Sumulat" patungong "si Mara" na may tatak na "paksa: tagaganap"; sa ibaba "Sinulat ni Mara ang liham." na may palaso mula "Sinulat" patungong "ang liham" na may tatak na "paksa: layon" -->
 
@@ -118,7 +118,7 @@ Ang sagot ay **"Binili ni Marco ang aklat."** Ang *binili* ay nakapokus sa layon
 
 ## Speed Tricks & Shortcuts
 
-Hanapin muna ang *ang*, *si*, *ang mga*, o *sina* upang makuha ang paksa. Itanong kung ito ang gumagawa o ang bagay na ginawan, at tiyaking pareho pa rin ang kalagayan ng kilos kapag nagpalit ng pokus.
+Hanapin muna ang *ang*, *si*, *ang mga*, o *sina* upang makuha ang paksa. Itanong kung ito ang gumagawa o ang bagay na ginawan ng kilos, at tiyaking pareho pa rin ang kalagayan ng kilos.
 
 ## Traps to Watch For
 

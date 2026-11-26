@@ -17,6 +17,8 @@ keyPoints:
 
 ### Complex Sentences: One Main Clause Plus Dependent Clauses
 
+A **simple** sentence has one independent clause and no dependent clause. A **compound** sentence has two or more independent clauses and no dependent clause.
+
 A **complex sentence** has **one independent clause** and **one or more dependent clauses**.
 
 A dependent clause can sit at the front (*"Although the storm was severe, the town suffered minimal damage."*), at the end, or inside the main clause (*"The nurse, while she checked the records, called the patient."*).
@@ -32,9 +34,9 @@ Count independent and dependent clauses separately. Two dependent clauses never 
 :::
 
 :::check
-Classify *"The nurse, while she checked the records, called the patient."*
+Classify *"The driver, because the road was closed, took another route."*
 :::answer
-The answer is **Complex**. *While she checked the records* is one dependent clause tucked inside one independent clause (*The nurse called the patient*).
+The answer is **Complex**. *Because the road was closed* is one dependent clause tucked inside one independent clause (*The driver took another route*).
 :::
 
 ### Compound-Complex Sentences: Two or More Main Clauses Plus Dependent Clauses
@@ -43,7 +45,7 @@ A **compound-complex sentence** has **two or more independent clauses** and **at
 
 Split *"When the bell rang, the students grabbed their bags, and they rushed out the door"* into clauses:
 
-1. *When the bell rang* -> dependent clause (starts with *when*).
+1. *When the bell rang* -> dependent clause.
 2. *The students grabbed their bags* -> independent clause 1.
 3. *They rushed out the door* -> independent clause 2 (own subject *they* and verb *rushed*, joined by *and*).
 
@@ -61,7 +63,7 @@ Classify *"The students lit candles, and they continued studying because the pow
 The answer is **Compound-complex**. *The students lit candles* and *they continued studying* are two independent clauses, plus the dependent clause *because the power went out*.
 :::
 
-### Clue Words That Start Phrases, Not Clauses
+### Clue Words That Can Start Phrases or Clauses
 
 *After, before,* and *since* start phrases or clauses. Check what follows *after*:
 
@@ -92,7 +94,7 @@ Which clause inventory explains why *"Because the meeting ran late, the team mis
 2. *"The team missed lunch"* has no subordinating word and stands alone.
 3. So it has **one independent clause and one dependent clause**.
 
-**Check:** Drop *Because* and *"The meeting ran late"* stands alone, proving *Because* made it dependent.
+**Check:** Drop *Because* and *"The meeting ran late"* stands alone.
 
 ### #2: Simple vs. Complex Beginning With After
 
@@ -103,7 +105,7 @@ Which sentence is simple: *"After rehearsal, the musicians left."* or *"After th
 1. *"After rehearsal"* has no verb, leaving only *"the musicians left"* (**Simple**).
 2. *"After the musicians left"* has subject *the musicians* and verb *left*, making it dependent (**Complex**).
 
-**Check:** Count subject-verb pairs in sentence 1: only *musicians + left* appears.
+**Check:** Sentence 1 has only one subject-verb pair.
 
 ### #3: Counting Clauses in a Long Sentence
 
@@ -121,13 +123,12 @@ Finish the last step: combine both counts to name the sentence type.
 :::answer
 The sentence is **Compound-complex**. It has three independent clauses and one dependent clause (*Since the flight was delayed*).
 
-**Check:** Remove *"Since the flight was delayed,"* and three full statements joined by *and* and *but* remain; keeping *Since...* adds the dependent clause.
+**Check:** Remove *"Since the flight was delayed,"* and three full statements remain.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Keep two counts: independent clauses and dependent clauses. *Simple* and *complex* have **one** independent clause; *compound* and *compound-complex* have **two or more**.
-
+Keep two counts: independent clauses and dependent clauses.
 ## Traps to Watch For
 
 :::checklist

@@ -19,7 +19,7 @@ keyPoints:
 
 Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa papel at bilang ng tao.
 
-Gamitin ang anyong **ang** para sa **paksa** (subject): *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila* (*ikaw* sa unahan, gaya ng "Ikaw ang sumulat"; *ka* sa loob, gaya ng "Sumulat ka"). Palitan ang *si Ana*:
+Gamitin ang anyong **ang** para sa **paksa** (subject), halimbawa *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila* (*ikaw* sa unahan, gaya ng "Ikaw ang sumulat"; *ka* sa loob, gaya ng "Sumulat ka"). Palitan ang *si Ana*:
 
 - "Si Ana ang dumating." -> "**Siya** ang dumating."
 
@@ -37,7 +37,7 @@ Ang sagot ay **Sila**. Ito ang pamalit sa paksang may *ang mga* o *sina* ("Sila 
 
 ### Anyong Ng: Para sa May-ari o Gumawa
 
-Gamitin ang anyong **ng** (*ko, mo, niya, namin, natin, ninyo, nila*) para sa dalawang papel:
+Gamitin ang anyong **ng** (halimbawa, *ko, mo, niya, namin, natin, ninyo, nila*) para sa dalawang papel:
 
 1. **May-ari** pagkatapos ng **pangngalan** (noun): "aklat **ko**," "proyekto **nila**."
 2. **Gumagawa** ng kilos kapag iba ang paksa: "Sinulat **niya** ang ulat." "Ipinakita **niya** ito."
@@ -123,7 +123,7 @@ Ang sagot ay **Sa kanila**: "Ipinadala ng guro sa kanila ang paanyaya."
 
 ## Speed Tricks & Shortcuts
 
-Tiyakin muna ang papel bago ang bilang: *ang* kung siya ang paksa (*siya, sila*), *ng* kung gumawa o may-ari (*niya, nila*), at *sa* kung tumanggap (*sa kaniya, sa kanila*).
+Tiyakin muna ang papel: *ang* kung siya ang paksa (*siya, sila*), *ng* kung gumawa o may-ari (*niya, nila*), at *sa* kung tumanggap (*sa kaniya, sa kanila*).
 
 ## Traps to Watch For
 

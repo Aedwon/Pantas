@@ -17,13 +17,13 @@ keyPoints:
 
 Words that look redundant on paper can carry real meaning depending on what happened earlier. Look at **repeat again** in two situations:
 
-1. **No earlier repeat happened:** A speaker says something once, and a listener misses it. In *"Could you please repeat again what you just said?"*, *repeat* already means say once more, so *again* adds nothing. Cut it: *"Could you please repeat what you just said?"*
-2. **An earlier repeat already happened:** An officer gave an instruction, then repeated it when asked. A late arrival missed both readings. In *"Please repeat the instruction again for the late arrival,"* *again* marks **one more repeat** after the repeat already given.
+1. **No earlier repeat happened:** A speaker says something once, and a listener misses it. In *"Could you please repeat again what you just said?"*, *repeat* already means say once more, so *again* usually adds nothing. Cut it: *"Could you please repeat what you just said?"*
+2. **An earlier repeat already happened:** An officer gave an instruction, then repeated it when asked. A late arrival missed both readings. In *"Please repeat the instruction again for the late arrival,"* *again* can mark **one more repeat** after the repeat already given. Some style guides call *repeat again* redundant in both cases, so follow the timeline the question gives.
 
 <!-- ILLUSTRATION: three-step timeline left to right: Step 1 "First reading" -> Step 2 "First repeat (already repeated)" -> Step 3 "Late arrival arrives: 'repeat again' = a further repeat" -->
 
 :::why
-Why can *repeat again* be wrong in one case and right in another? *Repeat* means say one more time. On a first repeat, *repeat* alone does the job; after an earlier repeat, *again* marks a further repeat beyond the first one.
+Why can *repeat again* be wrong in one case and right in another? *Repeat* means say one more time. On a first repeat, *repeat* alone does the job; after an earlier repeat, *again* can mark a further repeat beyond the first one.
 :::
 
 :::pair #cutting-or-changing-first-repeat
@@ -40,7 +40,7 @@ The answer is **"Please repeat the number."** No earlier repeat happened yet, so
 
 ### Reading the Context Before Editing
 
-Always check the timeline of events before you cut *again*, *back*, or *still*:
+Check the timeline of events before you cut *again*:
 
 1. Count whether the action happened once or was already repeated.
 2. Keep *again* when it marks a further repeat beyond an earlier repeat; cut it when it adds no new step.
@@ -52,9 +52,9 @@ Wrong: Claim *again* means *"It says the instruction has never been repeated."* 
 :::
 
 :::check
-Mara read the rule aloud, then repeated it for Ben. Now Ana walks in late. Should *again* stay in *"Please repeat the rule again for Ana"*?
+A pilot announced a gate change, then repeated it. Now a late passenger asks. Should *again* stay in *"Please repeat the gate change again for the late passenger"*?
 :::answer
-The answer is **Yes**. Mara already repeated the rule once, so *again* points to a further repeat for Ana.
+The answer is **Yes**. The pilot already repeated the announcement once, so *again* points to a further repeat.
 :::
 
 ## Examples
@@ -83,26 +83,25 @@ Mara read a notice aloud. At Ben's request, she repeated it. Ben still could not
 
 **Check:** Replace *repeat it again* with *"say it one more time after already repeating it."* That matches the timeline directly.
 
-### #3: Explaining What "Again" Adds in Context
+### #3: Reading a Longer Timeline
 
-An officer gave an instruction, then repeated it when asked. A late arrival missed both readings. In *"Please repeat the instruction again for the late arrival,"* what does *again* add?
+A teacher read a problem aloud, then repeated it when asked. A late student missed both readings. Should *again* stay in *"Could you repeat the problem again for Leo?"*
 
 **Solution:**
 
-1. Track the timeline: first reading -> first repeat -> late arrival missed both.
-2. Identify the action requested: reading the same instruction one more time, not changing the words.
+1. Track the timeline: first reading -> first repeat -> Leo missed both.
 
 :::try
-Finish the last step: state what *again* adds here, and explain why claiming *"the instruction has never been repeated"* is wrong.
+Finish the last step: decide whether to keep or cut *again*, and say why.
 :::answer
-The answer is **It requests a further repeat.** Claiming it was never repeated ignores the first repeat already given, and *again* adds one more repeat without changing the wording.
+The answer is **Keep it.** The teacher already repeated the problem once, so *again* asks for one more repeat without changing the words.
 
-**Check:** Count the readings in order: (1) original instruction, (2) first repeat, (3) *"repeat...again"* for the late arrival.
+**Check:** Count the readings in order: (1) original problem, (2) first repeat, (3) *"repeat...again"* for Leo.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Before cutting *again* after *repeat*, count how many times the words were already spoken. Zero prior repeats means cut *again*; one or more prior repeats means keep *again*.
+Before cutting *again* after *repeat*, count how many times the words were already spoken. Zero prior repeats usually means cut *again*; one or more prior repeats means *again* can stay.
 
 ## Traps to Watch For
 

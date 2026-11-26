@@ -32,9 +32,9 @@ Keeping *doesn't* and *no* fails the formal rule, while *wants some help* flips 
 :::
 
 :::check
-Revise for standard formal English: *"There isn't nobody at the office right now."*
+Revise for standard formal English: *"The shop doesn't sell no snacks."*
 :::answer
-The answer is **"There isn't anybody at the office right now."** (Or *"There is nobody at the office right now."*) One negative pattern (*isn't...anybody*) states that no person is there.
+The answer is **"The shop doesn't sell any snacks."** (Or *"The shop sells no snacks."*) One negative pattern (*doesn't...any*) states that no snacks are sold.
 :::
 
 ### How Dialectal Negative Concord Works
@@ -60,9 +60,9 @@ Wrong: Revise it to *"There is somebody at the office right now, waiting inside.
 :::
 
 :::check
-A speaker says, *"I don't have no time."* For an exam testing standard formal English, does this mean the speaker has time, or does it use dialectal negative concord?
+A speaker says, *"She won't go nowhere tonight."* For an exam testing standard formal English, does this mean she will go somewhere, or does it use dialectal negative concord?
 :::answer
-The answer is **It uses dialectal negative concord.** *Don't* and *no* express one negative (*no time*), edited in formal English to *"I don't have any time"* or *"I have no time."*
+The answer is **It uses dialectal negative concord.** *Won't* and *nowhere* express one negative (she stays home), edited in formal English to *"She won't go anywhere tonight"* or *"She will go nowhere tonight."*
 :::
 
 ## Examples
@@ -93,30 +93,28 @@ In a dialect that uses negative concord, what does *"I didn't see nothing unusua
 
 ### #3: Preserving Scope and Register
 
-In standard formal English, choose the best revision of *"There isn't nobody at the office right now."*
+In standard formal English, choose the best revision of *"He didn't bring nothing to the party."*
 
-(A) "There isn't nobody at the office right now."
-(B) "There is somebody at the office right now, waiting inside."
-(C) "There isn't somebody specific at the office right now."
-(D) "There isn't anybody at the office right now."
+(A) "He didn't bring nothing to the party."
+(B) "He brought a gift to the party after all."
+(C) "He didn't bring something special to the party."
+(D) "He didn't bring anything to the party."
 
 **Solution:**
 
-1. Rule out (A): keeps *isn't* with *nobody*.
-2. Rule out (B): flips an empty office into an occupied one.
-3. Compare (C) and (D).
+1. Rule out (A): keeps *didn't* with *nothing*.
 
 :::try
-Finish the last step: explain why (C) narrows the meaning wrongly, and pick the right choice.
+Finish the last step: compare (B), (C) and (D), and pick the right choice.
 :::answer
-The answer is **(D) "There isn't anybody at the office right now."** Choice (C) (*isn't somebody specific*) denies only one person's presence, whereas *isn't anybody* says no person at all is there.
+The answer is **(D) "He didn't bring anything to the party."** Choice (B) turns the refusal into a gift. Choice (C) (*didn't bring something special*) denies only one kind of item, whereas *didn't bring anything* says he brought nothing at all.
 
-**Check:** Swap *isn't anybody* for *is nobody*: *"There is nobody at the office right now."* Both match the empty-office meaning.
+**Check:** Swap *didn't bring anything* for *brought nothing*: *"He brought nothing to the party."* Both match the same meaning.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Keep the speaker's single negative meaning intact, then edit for formal English using one negative (*didn't...any* or *did...no*) in the same tense.
+Keep the speaker's single negative meaning intact, then edit for formal English using one negative (*didn't see anything* or *saw nothing*) in the same tense.
 
 ## Traps to Watch For
 

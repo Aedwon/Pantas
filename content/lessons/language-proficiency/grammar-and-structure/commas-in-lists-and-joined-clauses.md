@@ -16,11 +16,11 @@ keyPoints:
 
 ### Commas in a List
 
-**Punctuation** uses marks such as commas (,) and periods (.) to show sentence boundaries clearly. Use commas to separate three or more items in a list: *"I bought apples, bananas, and oranges."*
+Use commas to separate three or more items in a list: *"I bought apples, bananas, and oranges."*
 
 The comma right before *and* or *or* is the **serial comma** (Oxford comma). Some style rules require it and some leave it out, so follow the rule given in the question. Always keep it if leaving it out makes the items run together.
 
-Never place a comma between a verb and its object (*"I bought, apples..."*), and never place the serial comma after *and* (*"bananas and, oranges"*).
+Never place a comma between a verb and its object or after *and*.
 
 :::pair #comma-between-verb-and-list
 Right: "I bought apples, bananas, and oranges."
@@ -29,16 +29,16 @@ A comma after *bought* splits the verb from what was bought. A comma after *and*
 :::
 
 :::check
-Choose the correctly punctuated list: *"Bring a pencil, an eraser and, a ruler."* or *"Bring a pencil, an eraser, and a ruler."*
+Choose the correctly punctuated list: *"Bring a pencil an eraser, and a ruler."* or *"Bring a pencil, an eraser, and a ruler."*
 :::answer
-The answer is **"Bring a pencil, an eraser, and a ruler."** The serial comma belongs right before *and*, not after it.
+The answer is **"Bring a pencil, an eraser, and a ruler."** Commas must separate every item, and the first sentence has none between *pencil* and *eraser*.
 :::
 
 ### Joining Two Independent Clauses
 
 An **independent clause** has a subject and finite verb and stands alone. The seven **coordinating conjunctions** are *for, and, nor, but, or, yet,* and *so*.
 
-Put a comma **before** the joining word between two independent clauses, such as *"She studied hard"* and *"she passed the exam"* with *and*:
+Usually put a comma **before** the joining word between two independent clauses (a very short pair may skip it), such as *"She studied hard"* and *"she passed the exam"* with *and*:
 
 1. First independent clause: *"She studied hard."*
 2. Comma plus joining word: *", and"*
@@ -99,27 +99,27 @@ Correct sentence: **"The clerk checked the form, and the applicant signed it."**
 
 Choose the correctly punctuated sentence:
 
-(A) "The clerk checked and filed the form."
-(B) "The clerk checked, and filed the form."
-(C) "The clerk checked the form, and he filed it."
+(A) "The cook chopped and fried the onions."
+(B) "The cook chopped, and fried the onions."
+(C) "The cook chopped the onions, and he fried them."
 (D) Both (A) and (C).
 
 **Solution:**
 
-1. Look at (A) and (B): *checked* and *filed* share one subject (*the clerk*), so no comma belongs before *and*. That makes (A) right and (B) wrong.
+1. Look at (A) and (B): *chopped* and *fried* share one subject (*the cook*), so no comma belongs before *and*. That makes (A) right and (B) wrong.
 2. Now test (C) by splitting at *and*.
 
 :::try
 Finish the last step: check both halves of (C) around *and*, and name the correct choice.
 :::answer
-The answer is **(D) Both (A) and (C).** In (C), *"The clerk checked the form"* and *"he filed it"* are two independent clauses, so the comma before *and* is right; in (A), one subject shares two verbs with no comma.
+The answer is **(D) Both (A) and (C).** In (C), *"The cook chopped the onions"* and *"he fried them"* are two independent clauses, so the comma before *and* is right; in (A), one subject shares two verbs with no comma.
 
-**Check:** Check for a subject after *and*: (A) has no subject after *and* (no comma), while (C) has *he* after *and* (comma before *and*).
+**Check:** (A) has no subject after *and*; (C) has *he*.
 :::
 
 ## Speed Tricks & Shortcuts
 
-When you see *for, and, nor, but, or, yet,* or *so*, cover the joining word and read the right side alone. If it has its own subject and verb, put a comma before the joining word. If it is only a second verb for the first subject, leave the comma out.
+When you see *for, and, nor, but, or, yet,* or *so*, cover the joining word and read the right side alone. If it has its own subject and verb, put a comma before the joining word. If it is only a second verb for the first subject, leave the comma out. After *nor*, the verb may come first (*nor did she write*) and still counts.
 
 ## Traps to Watch For
 

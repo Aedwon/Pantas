@@ -15,7 +15,7 @@ keyPoints:
 ---
 ## Core Concept
 
-### Dalawang Ayos ng Pagmamay-ari
+### Dalawang Karaniwang Ayos ng Pagmamay-ari
 
 Nagbabago ang **panghalip** (pronoun) na **paari** (possessive) depende sa puwesto nito sa pangungusap:
 
@@ -69,7 +69,7 @@ Tumutukoy ang *siya* sa sinumang iisang taong pinag-uusapan, babae man o lalaki.
 :::
 
 :::check
-Si Marco ay lalaki, at siya ang itinatampok. Piliin ang tama: "Si Marco ang bagong kawani. *(Siya / Niya / Kaniya)* ang tutulong sa atin."
+Si Marco ay lalaki. Piliin ang tama: "Si Marco ang bagong kawani. *(Siya / Niya / Kaniya)* ang tutulong sa atin."
 :::answer
 Ang sagot ay **Siya**. Itinatampok si Marco bilang paksa, at walang pinipiling kasarian ang *siya*.
 :::

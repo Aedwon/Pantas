@@ -32,9 +32,9 @@ Ask which word it points to. *Diligent* describes the noun *student*, while *qui
 :::
 
 :::check
-What part of speech is **laughed** in "The children **laughed** loudly at the jokes"?
+What part of speech is **sang** in "The choir **sang** softly at the ceremony"?
 :::answer
-The answer is **Verb**. *Laughed* states the action the children did, while *loudly* tells how they laughed.
+The answer is **Verb**. *Sang* states the action the choir did, while *softly* tells how they sang.
 :::
 
 ### Same Word, Different Jobs
@@ -54,9 +54,9 @@ Look at *a run* after *for*. *Went* states the action, and *run* names the exerc
 :::
 
 :::check
-What part of speech is **light** in "Turn on the **light** so we can see better"?
+What part of speech is **water** in "Please **water** the plants after school"?
 :::answer
-The answer is **Noun**. *Light* follows *the* and names the lamp or its glow, while *turn on* is the verb.
+The answer is **Verb**. *Water* gives an action command, and *the plants* receive it.
 :::
 
 ### Checking the Job, Not the Ending
@@ -70,13 +70,13 @@ Why can an *-ly* word be an adjective? English adds *-ly* to nouns like *friend*
 :::pair #ly-ending-trap
 Right: In "The friendly neighbor waved at us," *friendly* is an adjective.
 Wrong: Label *friendly* an adverb because it ends in *-ly*.
-*Friendly* describes the noun *neighbor*, not the action *waved*. Any word that describes a noun is an adjective.
+*Friendly* describes the noun *neighbor*, not the action *waved*. A word that describes a noun is usually an adjective.
 :::
 
 :::check
-What part of speech is **very** in "The **very** tall tree blocked the sign"?
+What part of speech is **costly** in "The **costly** repair surprised us"?
 :::answer
-The answer is **Adverb**. *Very* has no *-ly*, yet it modifies the adjective *tall* by telling how tall the tree is.
+The answer is **Adjective**. *Costly* ends in *-ly*, yet it describes the noun *repair*.
 :::
 
 ## Examples
@@ -105,9 +105,9 @@ Identify the part of speech of **light** in each sentence: "Turn on the **light*
 
 **Check:** Swap words with one job: "Turn on the *lamp*" (noun), "Please *ignite* the candle" (verb), and "The bag felt *heavy*" (adjective).
 
-### #3: Sentence Adverb and -ly Adjective
+### #3: Two Words to Classify
 
-Identify the parts of speech of **remarkably** and **friendly**: "**Remarkably**, the library reopened." "The **friendly** neighbor waved at us."
+Identify the parts of speech of **remarkably** and **lovely**: "**Remarkably**, the library reopened." "The **lovely** garden attracted visitors."
 
 **Solution:**
 
@@ -115,11 +115,11 @@ Identify the parts of speech of **remarkably** and **friendly**: "**Remarkably**
 2. A word modifying a whole statement in school grammar is an **adverb**.
 
 :::try
-Finish the last step: what part of speech is **friendly**, and which word does it describe?
+Finish the last step: what part of speech is **lovely**, and which word does it describe?
 :::answer
-The answer is **Adjective**. *Friendly* describes the noun *neighbor*, telling what kind of person waved.
+The answer is **Adjective**. *Lovely* describes the noun *garden*, telling what kind of garden it was.
 
-**Check:** Replace *remarkably* with *surprisingly* and *friendly* with *kind* ("The kind neighbor"); each keeps the same job.
+**Check:** Replace *remarkably* with *surprisingly* and *lovely* with *pretty* ("The pretty garden"); each keeps the same job.
 :::
 
 ## Speed Tricks & Shortcuts

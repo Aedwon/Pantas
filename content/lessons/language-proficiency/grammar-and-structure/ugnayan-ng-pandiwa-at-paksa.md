@@ -17,7 +17,7 @@ keyPoints:
 
 ### Tagaganap at Layon
 
-Ang **pokus** ay ang ugnayan ng **pandiwa** (verb) sa **paksa** (subject) ng pangungusap. Kapag pangngalan ang paksa, hanapin ang **parirala** (phrase) na may *ang, ang mga, si,* o *sina* (ang may *ng* o *ni* ay hindi paksa), saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
+Ang **pokus** ay ang ugnayan ng **pandiwa** (verb) sa **paksa** (subject) ng pangungusap. Kapag pangngalan (noun) ang paksa, hanapin ang **parirala** (phrase) na may *ang, ang mga, si,* o *sina* (ang may *ng* o *ni* ay hindi paksa), saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
 
 1. **Tagaganap** (actor): ang paksa ang gumagawa: "*Nagluto* ng pagkain **si Rosa**."
 2. **Layon** (object): ang paksa ang bagay na ginawan ng kilos: "*Kinain* ng bata **ang mangga**."
@@ -27,7 +27,7 @@ Kapag inilipat ang paksa sa layon, panatilihin ang **aspekto**: "Nagluto ng sopa
 :::pair #hanapin-ang-may-ang-o-si
 Right: Sa "Nagluto ng pagkain si Rosa," *si Rosa* ang paksa (pokus sa tagaganap); sa "Kinain ng bata ang mangga," *ang mangga* ang paksa (pokus sa layon).
 Wrong: Sa "Nagluto ng pagkain si Rosa," gawing paksa ang *ng pagkain*. Sa "Kinain ng bata ang mangga," gawing paksa ang *ng bata*, kaya tagaganap ang pokus.
-Ang pariralang may *ang*, *ang mga*, *si*, o *sina* ang paksa. Kahit tao ang gumawa, kung *ng* o *ni* ang pananda nito (*ng bata*, *ni Mara*), hindi ito ang paksa.
+Ang pariralang may *ang*, *ang mga*, *si*, o *sina* ang paksa. Kapag *ng* o *ni* ang pananda (*ng bata*, *ni Mara*), hindi ito ang paksa.
 :::
 
 :::check
@@ -127,7 +127,7 @@ Ang sagot ay **Tagatanggap ang una; kagamitan ang ikalawa.** Nakinabang ang mga 
 
 ## Speed Tricks & Shortcuts
 
-Bilugan muna ang paksa (ang may *ang, ang mga, si,* o *sina*, o panghalip na *siya*), saka itanong ang papel nito: gumawa (*tagaganap*), bagay (*layon*), lugar ng gawain (*ganapan*), pinuntahan (*direksiyon*), nakinabang (*tagatanggap*), ginamit (*kagamitan*), o dahilan (*sanhi*).
+Bilugan muna ang paksa (ang may *ang, ang mga, si,* o *sina*, o panghalip na tulad ng *siya*), saka itanong ang papel nito: gumawa (*tagaganap*), bagay (*layon*), lugar ng gawain (*ganapan*), pinuntahan (*direksiyon*), nakinabang (*tagatanggap*), ginamit (*kagamitan*), o dahilan (*sanhi*).
 
 ## Traps to Watch For
 

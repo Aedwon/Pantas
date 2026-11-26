@@ -23,9 +23,9 @@ A **pronoun** replaces a noun or noun phrase, like *she*, *it*, or *they*. The *
 Match number and kind: use *her*, *his*, or *its* for one (or singular *their* when gender is unknown or unspecified, explained next), and *their* for more than one ("The girls lost **their** books"). Before a noun, use *her* or *their* (*her book*). Alone without a noun after it, use *hers* or *theirs* ("That book is **hers**").
 
 :::check
-The girl uses she/her pronouns. Choose the right form: "The girl lost *(her / hers)* book on the way home."
+Maya uses she/her pronouns. Choose the right form: "Maya left *(her / hers)* jacket at school."
 :::answer
-The answer is **Her**. A noun (*book*) follows the blank, so use *her* instead of standalone *hers*.
+The answer is **Her**. A noun (*jacket*) follows the blank, so use *her* instead of standalone *hers*.
 :::
 
 ### Singular They
@@ -62,14 +62,14 @@ Check each subject-verb pair separately. *Everybody* takes *has*, and *they* tak
 :::
 
 :::check
-Choose the verbs: "Everyone in the hall *(has / have)* confirmed they *(is / are)* ready."
+Choose the verbs: "If somebody *(is / are)* late, they *(has / have)* to sign in."
 :::answer
-The answer is **Has, are**. *Everyone* is singular (*has*), and *they* takes *are*.
+The answer is **Is, have**. *Somebody* is singular (*is*), and *they* takes *have*.
 :::
 
 ### Repeating a Name for Clear Reference
 
-A pronoun is unclear when two names in the sentence could fit it. Neither the first name nor the nearest name wins by default. Repeat the intended name to make the meaning clear.
+A pronoun is often unclear when two names in the sentence could fit it. Neither the first name nor the nearest name wins by default. Repeat the intended name to make the meaning clear.
 
 :::pair #ambiguous-antecedent
 Right: In "Sarah told Michelle that her painting won," *her* is unclear, so name the owner.

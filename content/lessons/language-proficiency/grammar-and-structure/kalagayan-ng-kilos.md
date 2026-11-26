@@ -24,7 +24,7 @@ May tatlong pangunahing aspekto para sa ugat na *linis* at *kain*:
 2. **Imperpektibo** (ongoing): nasimulan na at nagpapatuloy o paulit-ulit ang kilos: *Naglilinis si Carlo tuwing Sabado.* *Kumakain siya ngayon.*
 3. **Kontemplatibo**: hindi pa nasisimulan at gagawin pa lamang ang kilos: *Maglilinis si Carlo bukas.* *Kakain siya mamaya.*
 
-Tandaan na ang anyong tulad ng *kainin* ay nakatuon sa bagay o pag-uutos sa iba, hindi sa aspekto ng *kumain*.
+Ang anyong tulad ng *kainin* ay ibang pokus (nakatuon sa bagay) na may sarili ring aspekto. Hindi ito kasama sa araling ito.
 
 :::pair #piliin-ayon-sa-kalagayan
 Right: Natapos na kahapon ang paglilinis, kaya *Naglinis* ng tanggapan si Mila kahapon.
@@ -80,7 +80,7 @@ Alin ang anyong kontemplatibo (magaganap pa) ng pandiwang ugat na *kain*: (A) *K
 
 1. Suriin ang (A) *kumain*: tapos na ang kilos (perpektibo).
 2. Suriin ang (B) *kumakain*: nagpapatuloy ang kilos (imperpektibo).
-3. Suriin ang (D) *kainin*: ibang **pokus** na nakatuon sa bagay, hindi sa magaganap pang kilos ng **tagaganap** (actor).
+3. Suriin ang (D) *kainin*: ibang **pokus** na nakatuon sa bagay, hindi anyong *-um-* ng **tagaganap** (actor).
 4. Piliin ang **(C) *Kakain*** dahil walang *-um-* at inuulit ang *ka* para sa gagawin pa.
 
 **Check:** Ilagay sa pangungusap na may pahiwatig ng hinaharap: "Kakain kami bukas ng tanghali" ay tama, samantalang mali ang "Kumain kami bukas."

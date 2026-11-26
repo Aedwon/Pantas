@@ -48,7 +48,7 @@ Ang *tuwing Sabado* ay tanda ng nakatakdang gawaing inuulit linggo-linggo, hindi
 :::
 
 :::check
-Aling anyo ang tugma sa pangungusap: "Nagpupulong ang grupo ___ buwan"? *(nakaraang / tuwing / bukas)*
+Aling pahiwatig ang tanda ng paulit-ulit na gawain: "Nagpupulong ang grupo ___ Lunes"? *(kahapon / tuwing / bukas)*
 :::answer
 Ang sagot ay **Tuwing**. Tanda ang *tuwing* ng paulit-ulit na gawain na katugma ng imperpektibong *nagpupulong*.
 :::
@@ -114,7 +114,7 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite si Elena ng ula
 1. Tukuyin ang dalawang pangyayari kahapon: ang paglalaba ni Rita at ang pagtawag ng kaibigan niya.
 
 :::try
-Tapusin ang huling hakbang: ano ang aspekto ng *naglalaba*, at bakit hindi ito perpektibo o kontemplatibo?
+Tapusin ang huling hakbang: ano ang aspekto ng *naglalaba*, at bakit?
 :::answer
 Ang sagot ay **Imperpektibo, dahil nagpapatuloy ang paglalaba nang tumawag ang kaibigan**.
 

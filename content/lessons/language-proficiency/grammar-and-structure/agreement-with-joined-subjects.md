@@ -27,7 +27,7 @@ Waiting together does not make two people singular. Two people joined by *and* t
 :::
 
 :::check
-The owner is also the manager. Choose the verb: The owner and manager *(is / are)* meeting the staff.
+The cook is also the driver. Choose the verb: The cook and driver *(is / are)* ready to leave.
 :::answer
 The answer is **Is**. One person holds both roles, so singular *is* agrees.
 :::
@@ -62,9 +62,9 @@ Do not repeat *were* in the second clause. Plural *students* takes *were*, and s
 :::
 
 :::check
-Under the formal proximity convention, choose the verb: Neither the students nor the teacher *(was / were)* late.
+Under the formal proximity convention, choose the verb: Neither the drivers nor the passenger *(was / were)* ready.
 :::answer
-The answer is **Was**. Singular *teacher* is closer to the verb, so choose *was*.
+The answer is **Was**. Singular *passenger* is closer to the verb, so choose *was*.
 :::
 
 ## Examples
@@ -92,22 +92,22 @@ Revise "Neither the students nor the teacher arrived late" into two negative cla
 
 **Check:** Check each pair: *students were* (plural) and *teacher was* (singular); both keep the negative meaning.
 
-### #3: Proximity with Added Details and a Group Subject
+### #3: Two Sentences with Or and Nor
 
-Using American English and formal proximity, choose the verbs: Neither the coach nor the players on the visiting team *(was / were)* satisfied, even though most of the crowd *(was / were)* supportive as a single group.
+Using formal proximity, choose the verbs: Neither the nurses nor the doctor on the night shift *(was / were)* ready, and either the guard or the visitors *(was / were)* waiting outside.
 
 **Solution:**
 
-1. In the first clause, look after *nor*: *the players on the visiting team*.
-2. Cover *on the visiting team*. Nearer head *players* is plural, so choose **were**.
-3. In the second clause, *most* refers to *the crowd* treated as one single group.
+1. In the first clause, look after *nor*: *the doctor on the night shift*.
+2. Cover *on the night shift*. Nearer head *doctor* is singular, so choose **was**.
+3. In the second clause, look after *or*.
 
 :::try
-Finish the last step: is the second verb *was* or *were* for *the crowd* as a single group?
+Finish the last step: is the second verb *was* or *were*?
 :::answer
-The answer is **Was**. Under the American-English single-group reading, *crowd* is singular, so choose *was*.
+The answer is **Were**. The nearer head, *visitors*, is plural, so choose *were*.
 
-**Check:** Pair each head with its verb: "The players were satisfied" and "The crowd was supportive."
+**Check:** Pair each head with its verb: "The doctor was ready" and "The visitors were waiting."
 :::
 
 ## Speed Tricks & Shortcuts
