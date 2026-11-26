@@ -20,7 +20,7 @@
 | 7 | General Information: Code of Conduct RA 6713 | 47 active | 0/47 | 0/47 | Quiz packets ready | NOT yet audited | Rewrite under connection rule + primary-text check, verify, Codex audit |
 | 8 | General Information: Environment & Peace/Human Rights | 47 active | 0/47 | 0/47 | Quiz packets ready | NOT yet audited | Rewrite under connection rule + primary-text check, verify, Codex audit |
 
-**Current state (Nov 26, 5:30 PM Manila): see `docs/superpowers/handoffs/2026-11-26-claude-lesson-lead-cse-walkthrough.md`. The table above is the previous lead's and is out of date for Batches 1, 3, 4a and 4b.**
+**Current state (Nov 26, 8:40 PM Manila): see `docs/superpowers/handoffs/2026-11-26-claude-lesson-lead-cse-walkthrough-s2.md` (session 2), after the session 1 note `2026-11-26-claude-lesson-lead-cse-walkthrough.md`. The table above is the previous lead's and is out of date for Batches 1 to 4b.** Short form: Grammar round 5 Codex FAIL (42 Blockers, 52 Majors, `walkthrough-work/codex-grammar-r5.md`); Vocabulary fixed and verified, not audited; Math and Reasoning fresh-instance sweeps done and independently re-solved; fresh-instance check on the checks branch (`d68e902fc`); Language Application partly fixed, citations not merged; Reading Comprehension not started.
 
 ## Claude lesson lead takeover (Nov 26, 15:31 Manila, E-198)
 
