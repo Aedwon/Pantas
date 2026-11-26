@@ -336,8 +336,8 @@ class ReportNotice extends StatelessWidget {
             size: PantasSize.icon,
             color: c.textSecondary,
           );
-    return Semantics(
-      liveRegion: true,
+    return AnnounceOnce(
+      message: reportDeliveryText(delivery),
       child: ConstrainedBox(
         constraints: const BoxConstraints(minHeight: PantasSize.bar),
         child: Padding(

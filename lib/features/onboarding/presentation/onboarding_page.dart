@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/first_run/application/first_run_providers.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/data/study_api.dart';
@@ -93,7 +94,18 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       ref
         ..invalidate(appPreferencesRepositoryProvider)
         ..invalidate(onboardingProgressProvider);
-      GoRouter.maybeOf(context)?.go('/home');
+      // A learner with a fixed lesson and no assessment tries Pantas first
+      // (E-179). Any failure here means Home, as before.
+      var tryFirst = false;
+      try {
+        tryFirst = await ref
+            .read(firstRunOpenerProvider)()
+            .timeout(_settingsWait, onTimeout: () => false);
+      } on Object catch (error, stack) {
+        unawaited(telemetry.recordError(error, stack));
+      }
+      if (!mounted) return;
+      GoRouter.maybeOf(context)?.go(tryFirst ? '/try' : '/home');
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _finishFailed = true);

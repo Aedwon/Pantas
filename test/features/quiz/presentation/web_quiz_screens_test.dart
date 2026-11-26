@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_progress.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
@@ -71,10 +72,24 @@ void main() {
         ),
       ),
       const SessionPanelNeedsAssessment(30),
+      SessionPanelNeedsAssessment(
+        30,
+        progress: AssessmentProgress(
+          examId: 'e',
+          attemptId: 'a',
+          startedAt: DateTime.utc(2026, 11, 26),
+          questionIds: [for (var i = 0; i < 30; i++) 'q$i'],
+          picks: {for (var i = 0; i < 8; i++) 'q$i': 'c'},
+        ),
+      ),
       const SessionPanelInProgress(position: 6, total: 10),
       const SessionPanelCaughtUp(answeredToday: 25, correctToday: 20),
     ]) {
-      testWidgets('wide tab ${state.runtimeType} dark=$dark', (tester) async {
+      final continuing =
+          state is SessionPanelNeedsAssessment && state.progress != null;
+      testWidgets(
+          'wide tab ${state.runtimeType} ${continuing ? 'continue ' : ''}'
+          'dark=$dark', (tester) async {
         await pump(
           tester,
           const Padding(
@@ -121,7 +136,16 @@ void main() {
           expect(find.text('Continue Reviews'), findsOneWidget);
         }
         if (state is SessionPanelNeedsAssessment) {
-          expect(find.text('First, a short assessment'), findsOneWidget);
+          if (state.progress == null) {
+            expect(find.text('First, a short assessment'), findsOneWidget);
+            expect(find.text('Start Assessment'), findsOneWidget);
+          } else {
+            expect(find.text('Continue the assessment'), findsOneWidget);
+            expect(find.text('8 of 30 answered.'), findsOneWidget);
+            expect(find.text('Continue'), findsOneWidget);
+            expect(find.text('Enter'), findsOneWidget);
+            expect(find.text('First, a short assessment'), findsNothing);
+          }
         }
         if (state is SessionPanelInProgress) {
           // Board A (W_Quiz, his pick Nov 25): no sentence; Discard then

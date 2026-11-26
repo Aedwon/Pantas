@@ -56,6 +56,7 @@ class ContentRenderer extends StatelessWidget {
     this.figureBuilder,
     this.readerFigures = false,
     this.questionStem = false,
+    this.openSolutions = false,
     super.key,
   }) : assert(blocks != null || text != null, 'Provide blocks or text.');
   final List<Map<String, Object?>>? blocks;
@@ -64,6 +65,9 @@ class ContentRenderer extends StatelessWidget {
   final int? maxLines;
   final Widget Function(BuildContext, Map<String, Object?>)? figureBuilder;
   final bool readerFigures;
+
+  /// Shows each example's solution open from the start (the first run).
+  final bool openSolutions;
 
   /// Keeps authored bold words distinct from the rest of a question stem.
   final bool questionStem;
@@ -1206,6 +1210,7 @@ class ContentRenderer extends StatelessWidget {
       stemTail: stem.tail,
       solution: solution,
       open: held?.open,
+      startOpen: openSolutions,
     );
   }
 
@@ -1321,8 +1326,12 @@ class _ExampleCard extends StatefulWidget {
     required this.stemTail,
     required this.solution,
     this.open,
+    this.startOpen = false,
     super.key,
   });
+
+  /// The solution is open when the card first shows.
+  final bool startOpen;
 
   /// Told when the solution opens, so a figure beside the card can follow.
   final ValueNotifier<bool>? open;
@@ -1341,7 +1350,7 @@ class _ExampleCard extends StatefulWidget {
 class _ExampleCardState extends State<_ExampleCard> {
   final _button = FocusNode(debugLabel: 'Show solution');
   final _panel = FocusNode(debugLabel: 'Solution', skipTraversal: true);
-  bool _open = false;
+  late bool _open = widget.startOpen;
 
   @override
   void dispose() {

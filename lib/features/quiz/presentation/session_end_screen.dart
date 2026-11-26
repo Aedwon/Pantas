@@ -15,6 +15,7 @@ import 'package:pantas/core/ui/components/pantas_tooltip.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/session_entry_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -23,7 +24,6 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
-import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 import 'package:pantas/features/quiz/presentation/web_session_results.dart';
 
 class SessionEndBody extends StatefulWidget {

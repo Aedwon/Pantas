@@ -126,6 +126,61 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Walk-through examples still show math without saying where it comes from (Nov 26, repeat)
+
+- His words (about 12:05 PM Manila, screenshot of the board round 2 sample "Put a Negative Value in Parentheses"): "i read this in the boards, this is the exact thing i'm concerned and as to why i wanted the walk-through type lessons. notice what's missing here? there was not enough context given here. where's the expression from? if those were examples they should at least say $3x$ becomes $3(-2)=6$ etc. do you get what i mean? the lessons should be clearly assisting the user to understand logic".
+- Wrong: the sample lists "If x = -2:" then three bare equation chains (3x = 3(-2) = -6; x^2 = (-2)^2; 12/x = 12/(-2) = -6). No sentence says what is being found or where each expression comes from, no step says what changed or why, and the x^2 chain stops before its value.
+- Why it got through: this is the second time (Nov 25 entry "Walk-through lesson rewrite still too compressed"). That fix asked for every move on its own line and a reason, but the samples, the board review and the Codex audits checked numbers, trap citations and formatting, not whether each example is introduced and narrated. The samples were the reference, so the Gemini lane copied the same shape into 55 math lessons that passed audit.
+- Fix (moves up from a required step to a check plus a required step):
+  1. Check (walk-through lane, non-UI): a lesson check fails a worked example whose first display line has no lead-in sentence naming what is being found, and fails a display chain that does not end in a final value. Shown failing on this sample first.
+  2. Required step (every rewrite, every reviewer and every Codex audit brief): each worked example says in words what we are finding and where the expression comes from ("Find 3x when x = -2"), shows the substitution as its own step ("3x becomes 3(-2)"), says why each move works, and ends at the value. Reviewers read each example as a student who has never seen it.
+  3. The samples, board round 2 text and every lesson already rewritten (Batch 1 math first) are redone to this before anything ships.
+
+### Staging pass found a broken consent line and misaligned tab titles (Nov 26)
+
+- His words (about 3:35 AM Manila, phone screenshots of staging): "done checking, looks good / some refinements: / - premature newline after privaxy policy link / - Study and Quiz headers have the same spacing from the topmost, but they are both wrong. please align them to look equal to Settings".
+- Wrong: on Terms and Privacy, ", and to Pantas keeping my study records ..." starts on a new line right after the "Privacy Policy" link. The Study and Quiz page titles sit lower from the top than the Settings title.
+- Why it got through: (1) Consent: since Jul 30 the sentence was separate widgets in a wrap, harmless while the text after the link was only "."; the Nov 11 merge made it a long clause, which then started its own line. Only an image golden covered the step, and on Nov 25 the phone golden was re-accepted with the break visible. A golden re-accept checks that an image changed on purpose, not that the text reads right. (2) Titles: Nov 24 set Study and Quiz to their boards' title top (50) with a test comparing Study to Quiz only; Settings was set to 20 on Nov 2 from another board. The boards disagreed, and no test or review compared the three tabs with each other.
+- Fix (checks, release lead r8, PR #146, both shown failing first): one test holds the Study, Quiz and Settings titles at one top position at phone and wide (Home has a different masthead layout and is unchanged); the consent sentence is one rich text with inline links, and its test fails if the text after a link is a separate widget. His call from using the app makes Settings the reference; the reference canvas should match it.
+- Required step added: before re-accepting a golden that changes text layout, the reviewer reads the new image for line breaks and alignment against its siblings, not only against its board.
+
+### A Codex audit waited on input and ran nothing, again (Nov 26)
+
+- Words: none from Aedwon. The CSE release lead r8's report (about 1:40 AM Manila): "Its first Codex Sol High audit lost 1 hour: codex waited on input and ran nothing. It is rerunning now with input closed."
+- Wrong: the service worker fix's first Codex Sol High audit started in the background through `codex-pick exec` with its input left open. Codex waited to read a prompt from that input, did no work, and the lane lost about 1 hour on the path to the opening ship.
+- Why it got through: this already happened on Nov 7 (launch log: "the first Astra runs stalled waiting on stdin and produced nothing"). The fix then lived only in one audit brief ("Run with no stdin"), not in any rule, brief template or in `codex-pick`, so later briefs and leads did not carry it.
+- Fix (required step, every lead and the manager, until a tool fix lands): every non-interactive `codex-pick exec` run closes its input (`< /dev/null`), and every Codex brief or command shape says so. A repeat moves this up the order: the tool fix is to make `codex-pick` close input itself for `exec` runs started without a terminal (a few lines in `~/.local/bin/codex-pick`), which needs Aedwon's yes because it changes shared tooling.
+- Done (Nov 26, about 3:15 AM Manila; his words: "go with your reco"): `codex-pick` now gives `exec` runs closed input unless the arguments include `-` (a piped prompt) or `CODEX_PICK_KEEP_STDIN=1`. Tested with a held-open input: the run no longer waits. The `< /dev/null` step stays harmless and is no longer required.
+
+### Wide stacked sign-in buttons did not match in size (Nov 25)
+
+- His words (about 9:36 PM Manila): "also i think there's a regression with the buttons? like that google one, if they're paired with each other, i think it would be more visually pleasing if they're similar in proportions/size or something idk how to best express it", then "sorry i meant that when they're vertically stacked".
+- Wrong: on wide sign-in, Continue (52 high) sat above "Use Google Instead" (44 high), and each took its own natural width, so the stacked pair had two sizes.
+- Why it got through: the placement sweeps (E-158, E-162) and their reviews checked position, order, gap and full width. They never checked that two buttons in one group match each other in size. No rule in patterns.md asked for it, and the sign-in buttons were outside the check (raw TextButtons).
+- Fix (check): patterns.md, Button placement, "Paired buttons stacked one above the other share width and height". The placement check fails a stacked pair whose widths or heights differ by more than 1 px, and the sign-in page runs that check. It was shown failing on the old sign-in. E-175, branch `ux/google-button-padding-r1`.
+
+### Wide "Use Google Instead" hover box hugged its content (Nov 25)
+
+- His words (about 9:10 PM Manila, wide dark sign-in screenshot, the button hovered): "also i saw this, tell me if you can see the problem".
+- Wrong: on wide web the sign-in text buttons ("Use Google Instead", "Use a Different Email") had no inside padding. The hover tint started at the Google mark's left edge and ended at the last letter. Centering was correct.
+- Why it got through: (1) the Nov 22 fix for U46 made these buttons natural width but kept the zero padding that only worked while they filled the 420 column; its test checked only that the width was under 400. (2) The buttons are raw TextButtons (ds-raw, brand logo content), so they skip PantasButton's built-in padding and the wide placement check, which finds only WebButton and PantasButton and checks order, gap, width and place, never inside padding. (3) At rest the button is transparent, so a resting golden or a side-by-side review shows nothing wrong; the defect shows only on hover. (4) The sign-in board draws the button full width, so comparing with the board could not give the padding; it comes from the design system's wide text button (14 beside the label).
+- Fix (check): a sign-in test that fails on the old code (0 px inside, 14 expected), and an inside-padding rule in `test/helpers/button_placement.dart`: a wide button that paints a hover box and is not stretched must keep at least 8 px between its edges and its content. The rule covers raw TextButtons too, and the sign-in page now runs the placement check. E-170, branch `ux/google-button-padding-r1`.
+
+### An internal term reached a board he reviews ("taste finished") (Nov 25)
+
+- His words (about 9:36 PM Manila, on the guided first-run board): "don't call it taste finished. why even call it that - that's an internal term", and on the same board "also please improve text copy - remove redundancies, remove unnecessary text/info".
+- Wrong: the manager's brief called the guided first run "the taste", and the board carried that word into on-screen text ("Taste finished"). The intro screen also repeated what its own button and steps already said.
+- Why it got through: briefs used an internal shorthand, and the board review checked styling and placement but not whether every on-screen word is user language. This is the same kind as the Nov 24 entry on internal codes in chat, now in product copy.
+- Fix (required step, boards and builds): before a board reaches him or a build ships, a reviewer scans every user-visible string for internal terms (lane words such as taste, trial, starter check, T-numbers, U-numbers, ruling codes) and for sentences that repeat the screen. Briefs name the user-facing wording separately from the internal name. A check on the app's own strings for a deny list of internal terms is possible; the UX lead adds it if it can be shown failing on a real string first.
+- Check added (Nov 26, E-179): `internal-terms` in `tool/checks/` fails a presentation string literal with a lane word (taste, tutorial, guided, starter, first run) or a decision code (E-, D, U, T-, R-O); shown failing on "Taste finished". On branch `ux/first-run-r1` until it merges.
+
+### Release lead ended its turn after a part report with the next part queued (Nov 25)
+
+- Words: none from Aedwon. The manager's note: "you reported part 1 at 2:44 PM and then stopped, with nothing running. Start part 2 now".
+- Wrong: the CSE release lead r7 shipped part 1 of a four-part brief, reported, and ended its turn with no worker, watcher or wait running, though the brief said "Do these in critical-path order" and parts 2 and 3 needed nothing from him. About 1 h 19 min passed idle.
+- Why it got through: "report to me after each part" was read as a stop point. The Nov 25 idle entry (UX lead) covered a missing watcher, not a turn ended by choice with work queued.
+- Fix (required step, every lead): a part report is not a stop. In the same turn as the report, start the next part (log its estimate, start its timer or worker) unless the brief or the manager says to wait, and say in the report what is now running. End a turn only when something is running under a registered watcher, or the next step needs Aedwon or the manager.
+
 ### Manager ruled on the Home footer without finding his Oct 31 decision (Nov 25)
 
 - His words: "didn't we remove 2" (about the manager's list item "Home footer: About 45 min today becomes real counts").

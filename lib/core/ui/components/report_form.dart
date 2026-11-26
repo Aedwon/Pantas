@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/semantics.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
@@ -60,6 +61,40 @@ String reportDeliveryText(ReportDelivery delivery) => switch (delivery) {
       ReportDelivery.saved => "Saved. It sends when you're back online.",
     };
 
+/// Announces [message] to screen readers once, when this widget first shows.
+///
+/// A confirmation appears already worded. A live region only speaks when its
+/// label changes, so on Flutter web a node created with its label set stays
+/// silent. This sends the announcement itself, once, and adds no semantics.
+class AnnounceOnce extends StatefulWidget {
+  const AnnounceOnce({required this.message, required this.child, super.key});
+  final String message;
+  final Widget child;
+
+  @override
+  State<AnnounceOnce> createState() => _AnnounceOnceState();
+}
+
+class _AnnounceOnceState extends State<AnnounceOnce> {
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!mounted) return;
+      unawaited(
+        SemanticsService.sendAnnouncement(
+          View.of(context),
+          widget.message,
+          Directionality.of(context),
+        ),
+      );
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) => widget.child;
+}
+
 /// The wide confirmation: a soft line beside the report button that fades in
 /// over 300 ms (QN_ReportSent, QN_ReportOffline; 150 ms under reduced motion).
 class ReportSoftLine extends StatelessWidget {
@@ -79,8 +114,8 @@ class ReportSoftLine extends StatelessWidget {
             : PantasDurations.flip,
         builder: (context, opacity, child) =>
             Opacity(opacity: opacity, child: child),
-        child: Semantics(
-          liveRegion: true,
+        child: AnnounceOnce(
+          message: reportDeliveryText(delivery),
           child: Text(reportDeliveryText(delivery), style: style),
         ),
       );

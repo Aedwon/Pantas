@@ -95,6 +95,20 @@ void main() {
     );
   });
 
+  test('wipeAll ends an open first run', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await AppPreferencesRepository(db)
+        .setDeviceValue('first_run_open_v1', '{"uid":"u1"}');
+
+    await SyncLocalStateWiper(db).wipeAll();
+
+    expect(
+      (await db.select(db.devicePrefs).get()).map((row) => row.key),
+      isNot(contains('first_run_open_v1')),
+    );
+  });
+
   test('wipeAll removes the study-days preference', () async {
     final db = inMemoryDatabase();
     addTearDown(db.close);

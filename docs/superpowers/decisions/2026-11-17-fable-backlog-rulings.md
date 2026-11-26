@@ -1784,3 +1784,56 @@ Open for him on the board: (a) which lesson the taste uses (a fixed starter less
 Problem found in code (main at the time of this entry): the assessment holds answers in memory and saves only after the last question. Leaving through the dialog ("Your answers so far won't be kept. You can start again from Home."), browser Back, a reload or closing the app loses every answer. With the assessment as the one gate to the score, this is put to him as a choice: keep, or save answers on the device and resume from Home's card (recommended).
 
 Board (E-165): https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN (private until he shares it). Refinement of ruling 4 after review: the intro screen's Skip is the ghost button under Start (phone) or before Start (wide); the header Skip is on the lesson and question screens only, so no screen shows two Skips. The wide Home frames and the wide leave dialog follow patterns.md and the live app (assessment button at the right end; Keep Going, then red Leave), not the pre-Nov 7 board order.
+
+## Nov 25, link-preview image without the beta mark (UX design lead, E-169)
+
+Manager brief: replace the link-preview image's beta mark; the manager ruled Nov 25 that a replacement is a new look and needs his pick.
+
+Searched before the rulings below: Pantas Web and Pantas Redesign (all board titles; SP_Splash, SP_WebBStill, SP_PhoneBFade, QA_Splash, QA_SplashBLight, O_Launch, WR_Share), Splash Hand-off, Home Screen Icon, Pantas beta sign-in, Pantas Website, the handoff exports, the launch log, this file and the CSE release checklist (G4 row 18). No board draws a link preview or a 1200 x 630 frame; SP_Splash draws the approved brand lockup, which fits.
+
+Lead rulings (rule 4): the image is the SP_Splash lockup at twice its wide size (mark 240, gap 40, wordmark 84) centered on #F5F5F7; no tagline; alt text "The Pantas logo". Single design, for his pick.
+
+Board: https://claude.ai/artifact/8emGUsKPxKrkpqd1rHi2sw (private until he shares it). Handoff: docs/superpowers/handoffs/2026-11-25-link-preview-image-board.md.
+
+
+## Nov 25, UX design lead: wide "Use Google Instead" inside padding (E-170)
+
+His words (about 9:10 PM Manila, wide dark sign-in screenshot): "also i saw this, tell me if you can see the problem".
+
+Search done before the ruling: the "Pantas beta sign-in" canvas (https://claude.ai/artifact/EDnTTuSJPmCFPcDR3acEeJ, boards Laptop and LaptopCode, the only laptop sign-in boards; BDesktop is a superseded option), the handoff export `web-design/pantas-handoff/` (OB_SignIn, ST_AccountOut, ST_AccountOutPart, ST_AccountOffline; none draws "Use Google Instead"), the "Beta results email review" canvas (no sign-in boards now), patterns.md and the Button README, this rulings file, `docs/ui-audit.md`, the launch log and the Nov 22 QA findings, for: Use Google Instead, Use a Different Email, SignInTextButton, U46, natural width, .btn3, text button padding.
+
+What the boards draw: Laptop and LaptopCode draw both text buttons 44 high, full column width (420), transparent, teal 16/600, content centered with a 10 gap after the 18 px Google mark, radius 12, a light tint on hover. U46 (Nov 22) moved them to natural width under P2 ("never a full-width button on a wide screen"), but kept the zero padding the full-width version had.
+
+Ruling (rule 4, a state the board no longer draws): natural width stays (P2); the button keeps the design system's wide text button padding, 14 on each side (Button README, `.btn3`), and stays centered under Continue. Height 44, gap 10 and the hover tint are unchanged. Phone unchanged (full width, content centered). Every use of the shared sign-in text button gets it: "Use Google Instead" (email step), "Use a Different Email" (code step and expired code). No other button in the app had the same zero padding with a hover box (searched every zero-padding TextButton in lib/; the rest are inline links with no fill, fixed-size picker rows, calendar cells or icon buttons).
+
+## Nov 25, UX design lead: first-run board revision (E-176)
+
+His words (about 9:36 PM Manila): "don't call it taste finished. why even call it that - that's an internal term", "so much space unutilized" (phone "Try Pantas first"), "also please improve text copy - remove redundancies, remove unnecessary text/info", "for the choices, go with your recommendations".
+
+His picks (from the recommendations): lesson A, one fixed lesson per exam; assessment progress B, answers saved on the device as you go, Continue on Home's card.
+
+Lead rulings (rule 4; search: this rulings file's E-165 entry, the E-165 handoff, patterns.md Button placement, the canvas's own approved-board frames RD_Real, QN_Correct, QV_End and QS_End):
+- No user-visible "taste", "trial", "starter", "tutorial" or "guided"; the canvas is renamed "First Run". The overline "Try Pantas" next to Skip stays on the lesson and question screens.
+- "Try Pantas first": the eyebrow and the description line are removed (the title and the steps say it). Three numbered steps fill the screen: "Read a short lesson" (a static crop of the reader: overline, title, first Core Concept sentence), "Answer 3 questions" / "Each answer is explained." (a static crop of the question: stem and two choices, one marked right), "Get your score from the assessment on Home". No illustrations, no durations. Start and Skip stay stacked at the same width and 52 height (the Nov 25 stacked-pair rule).
+- End screen: "You finished the lesson", "2/3 correct", "Take the assessment on Home for your score and study plan."; "in 2 minutes" removed; on wide, Done top right level with the title.
+- Lesson end button: "Answer 3 Questions".
+- Home's Continue card reads "8 of 30 answered." (the leave dialog already says answers are saved on this device).
+
+Board: https://claude.ai/artifact/D3JLTrRGiN8vjnfLrbhoMN, version 1795614653-2f1d. Fresh Sonnet reviewer: one headless render, no unstyled or clipped frame, no internal term outside one exact quote of his in a note. Reviewer findings not taken: "Skip should be a filled secondary button" (patterns.md allows a ghost secondary under the main one, and it already shares width and height); differences inside his unchanged approved frames (math spacing, sample dates) stay as the boards draw them.
+
+## Nov 25, UX design lead: first-run build, states no board draws (E-179)
+
+Board approved Nov 25 about 10:50 PM Manila ("okay lgtm!", revision E-176). The 19 lead rulings for undrawn states (where the run starts, who sees it, the fixed lesson and questions 0001, 0003, 0002, the shown lesson sections, Check before the explanation, Back, Skip and Esc, resume after reload, offline, Pro, the wide lesson link, the wide mistake row, nothing recorded, assessment progress saved on each pick, the Continue card on every surface, the teal non-destructive Leave, stacked pairs, Reduce Motion, screen names) and the searches behind them are in `docs/superpowers/plans/2026-11-25-first-run-build.md`, "Lead rulings for states no board draws". Board wording kept where the manager's brief paraphrased it: the end count reads "2/3 correct" as drawn, not "2 of 3 right".
+
+## Nov 25, UX design lead: support email row in Settings (E-179, manager request)
+
+His "ok" (relayed by the manager) to support@pantas.study shown in Settings as the support channel; the in-app Feedback row was removed Nov 25 (5ee53ce56).
+
+Searched: every Settings board in `docs/design/boards/` (ST_*, 74 files) for "support", "contact", "help", "mailto" and "pantas.study"; hits only ST_About ("Get in touch": Send feedback, Facebook group; "Contact our data protection officer", which opens the mail app) and ST_Privacy (points to that officer row). No board draws a support row.
+
+Ruling (rule 4): About, first row of the board's "Get in touch" group, above Send feedback: "Email support", value "support@pantas.study", the same value row as Send feedback, opening the mail app with an empty message like the officer row (external icon on the phone, none on wide, as both rows do). Why: the plainest existing row style, in the group the board already uses for contact, with no new component. The address comes from the seller facts constant, so it stays the one address the app shows elsewhere.
+
+
+### Nov 26, UX design lead: side-by-side review rulings (E-179)
+
+A fresh Sonnet reviewer rendered every board frame headless at 390 and 1440 and compared it with the CI goldens: 18 must-fix and 9 minor. All must-fix and minor M1, M2, M5 and the focus move were fixed. Kept by lead ruling: the explanation label "Correct answer" (the design system's Explanation README governs over the board's lowercase, which copied an older board); the Home Continue button keeps the live card's size (same component as the live "Start Assessment" card); the leave dialog keeps the shared dialog's width; the intro previews stay static crops as drawn, with a test that ties them to the content source. Phone bar right arrow in dark uses the dim text color, since the board's #1D1D1F on the dark page fails contrast.

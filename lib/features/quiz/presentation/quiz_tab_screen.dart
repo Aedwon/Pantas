@@ -165,9 +165,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
         : PantasPage(
             title: 'Quiz',
             bottomInset: PantasLayout.reserveTabbar,
-            // Board QZ_Tab: the title box starts at y 50 (the same number as
-            // Study) and the Today label 14 px below it. The page scroll adds
-            // 2 px above the title.
+            // The title top is the one Settings and Study share
+            // (PantasPage.tabTitleTop). The page scroll adds 2 px above the
+            // title, and the Today label sits 14 px below it.
             titlePadding: const EdgeInsets.fromLTRB(
               PantasSpace.s4,
               PantasPage.tabTitleTop - PantasSpace.s2,
@@ -490,6 +490,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
     final t = context.webTokens;
     if (state is SessionPanelNeedsAssessment) {
       if (state.questionCount == 0) return assessmentNotReady();
+      final saved = state.progress;
       void start() => unawaited(_open('/assessment/$examId'));
       return Focus(
         onKeyEvent: enterKeyHandler(start),
@@ -515,11 +516,18 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Text('First, a short assessment', style: t.h3),
+                Text(
+                  saved == null
+                      ? 'First, a short assessment'
+                      : 'Continue the assessment',
+                  style: t.h3,
+                ),
                 const SizedBox(height: PantasSpace.s10),
                 Text(
-                  'We check your strengths and weak spots first, '
-                  'so your plan is built around you.',
+                  saved == null
+                      ? 'We check your strengths and weak spots first, '
+                          'so your plan is built around you.'
+                      : '${saved.answered} of ${saved.total} answered.',
                   style: PantasType.webBody
                       .copyWith(color: t.colors.textSecondary),
                 ),
@@ -527,7 +535,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                 Align(
                   alignment: Alignment.centerRight,
                   child: WebButton(
-                    label: 'Start Assessment',
+                    label: saved == null ? 'Start Assessment' : 'Continue',
                     keyHint: 'Enter',
                     onPressed: start,
                   ),
@@ -1061,6 +1069,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
   Widget _today(String examId, SessionPanelState state) {
     if (state is SessionPanelNeedsAssessment) {
       if (state.questionCount == 0) return assessmentNotReady();
+      final saved = state.progress;
       return DecoratedBox(
         decoration: BoxDecoration(
           color: context.colors.surfaceCard,
@@ -1077,7 +1086,9 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
-                'First, a short assessment',
+                saved == null
+                    ? 'First, a short assessment'
+                    : 'Continue the assessment',
                 style: PantasType.phoneTitle2.copyWith(
                   color: context.colors.textPrimary,
                   fontWeight: FontWeight.w700,
@@ -1085,8 +1096,10 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
               ),
               const SizedBox(height: PantasSpace.s8),
               Text(
-                'We check your strengths and weak spots first, '
-                'so your plan is built around you.',
+                saved == null
+                    ? 'We check your strengths and weak spots first, '
+                        'so your plan is built around you.'
+                    : '${saved.answered} of ${saved.total} answered.',
                 style: PantasType.phoneExplanation
                     .copyWith(color: context.colors.textPrimary)
                     .copyWith(
@@ -1097,7 +1110,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
               // Board (QZ_First): 20 px from the line to the button.
               const SizedBox(height: PantasSpace.s16),
               PantasButton(
-                label: 'Start Assessment',
+                label: saved == null ? 'Start Assessment' : 'Continue',
                 onPressed: () => unawaited(_open('/assessment/$examId')),
               ),
             ],

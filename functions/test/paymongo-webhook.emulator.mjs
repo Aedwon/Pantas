@@ -628,12 +628,27 @@ for (const scenario of ['won', 'lost', 'partial-before', 'partial-after', 'full-
     if (scenario === 'wrong-dispute') resolution.data.attributes.data.id = 'dp_unrelated';
     assert.equal(await send(resolution, deps), 200);
     const restored = (await grants(uid))[0];
+    // A won dispute keeps the payment. A grant with both the dispute and a refund is never restored:
+    // it stays as it was, and one follow-up goes to the owner.
+    const partial = scenario.startsWith('partial');
     const shouldRestore = scenario === 'won' || scenario === 'expired';
     assert.equal(restored.state, shouldRestore ? 'active' : 'revoked');
     assert.ok(restored.endsAt <= original.endsAt);
     if (shouldRestore) {
       assert.equal(restored.endsAt, original.endsAt);
       assert.equal(auth.current().pro, scenario !== 'expired');
+    }
+    const followUp = await db.doc(`paymongoFollowUps/${paymentId}__dispute`).get();
+    // Every lost dispute gets its own owner follow-up (lead ruling, Nov 25).
+    const lostRows = await db.collection('paymongoFollowUps').where('paymentId', '==', paymentId)
+      .where('reason', '==', 'disputeLost').get();
+    assert.equal(lostRows.size, scenario === 'lost' ? 1 : 0);
+    const withRefund = partial || scenario === 'full-after';
+    assert.equal(followUp.exists, withRefund);
+    if (withRefund) {
+      assert.equal(followUp.get('reason'), 'disputeWithRefund');
+      assert.equal(followUp.get('refundedTotal'), scenario === 'full-after' ? 14900 : 7450);
+      assert.equal(restored.disputeResolved, true);
     }
     const beforeRetry = await entitlement(uid);
     assert.equal(await send(resolution, deps), 200);

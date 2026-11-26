@@ -23,8 +23,12 @@ class ChoiceRow extends StatelessWidget {
     required this.text,
     this.state = ChoiceRowState.plain,
     this.onTap,
+    this.markInBadge = false,
     super.key,
   });
+
+  /// Wide: the result mark sits in the badge, with no mark at the right end.
+  final bool markInBadge;
   final String letter;
   final String text;
   final ChoiceRowState state;
@@ -43,6 +47,7 @@ class ChoiceRow extends StatelessWidget {
         letter: letter,
         onPressed: onTap,
         state: optionState,
+        markInBadge: markInBadge,
         child: MathText(
           text,
           style: WebAnswerOption.textStyle(context, optionState),
