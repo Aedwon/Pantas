@@ -67,9 +67,9 @@ Both insufficient-evidence demurrers and constitutional speedy-trial dismissals 
 :::
 
 :::check
-After the prosecution rests in a fraud bench trial, the judge grants a demurrer to evidence for weak proof. Prosecutors argue only a jury verdict bars retrial. Are they right?
+After the prosecution rests, the judge denies the defense's demurrer to evidence because the proof is strong enough to continue trial. Does filing a demurrer alone acquit the accused?
 :::answer
-The answer is **No**. Philippine trials have no juries, and a judge's granted demurrer for insufficient proof under Rule $119$, Section $23$ is an acquittal barring retrial.
+The answer is **No**. Under Rule $119$, Section $23$, only a **granted** demurrer for insufficient evidence operates as an acquittal barring retrial.
 :::
 
 ## Examples

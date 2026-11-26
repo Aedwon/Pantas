@@ -74,13 +74,6 @@ Waiving these rights requires **both**:
 1. A waiver **in writing**, and
 2. The **presence of counsel**.
 
-Section $12(2)$ bans torture, force, threats, and secret detention. Section $12(3)$ bars statements taken against Section $12$ or $17$.
-
-Test an invited fraud suspect whose confession is forced through threats during precinct questioning:
-
-1. Check custody: a suspect invitation triggers Section $12$ under Republic Act No. $7438$.
-2. Check Sections $12(2)$ and $12(3)$: threats are banned, making the forced statement inadmissible.
-
 :::why
 Why require a lawyer during a written waiver? A suspect alone under police questioning faces heavy pressure, so counsel ensures the choice is truly free and informed.
 :::
@@ -90,6 +83,13 @@ Right: A custodial waiver needs both writing and counsel's presence, with free c
 Wrong: Treating a written signature alone as replacing counsel's presence.
 Both writing and counsel's presence are mandatory under Section $12(1)$.
 :::
+
+Section $12(2)$ bans torture, force, threats, and secret detention. Section $12(3)$ bars statements taken against Section $12$ or $17$.
+
+Test an invited fraud suspect whose confession is forced through threats during precinct questioning:
+
+1. Check custody: a suspect invitation triggers Section $12$ under Republic Act No. $7438$.
+2. Check Sections $12(2)$ and $12(3)$: threats are banned, making the forced statement inadmissible.
 
 :::check
 A suspect tells police aloud, with a lawyer listening, that she waives her right to silence without signing anything. Is it valid?

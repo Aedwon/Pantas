@@ -51,7 +51,7 @@ Article III, Section $14(2)$ gives the accused the right to know the **nature an
 
 Section $14(2)$ also guarantees the right to **be heard by himself and counsel**. This protects answering the charge personally and through a lawyer. These differ from public observation, witness confrontation, witness orders, or trial speed.
 
-Test an arraignment where the prosecutor reads "unlawful conduct in May" without naming the specific crime or alleged act:
+Test an arraignment where the charge read in court says only "unlawful conduct in May" without naming the specific crime or alleged act:
 
 1. Check notice: hiding the crime and specific act fails notice of nature and cause.
 2. Result: the accused cannot prepare a proper defense until the charge names the offense and alleged acts.
@@ -69,9 +69,9 @@ Each Section $14(2)$ guarantee stands on its own, so silencing the accused and c
 :::
 
 :::check
-A charge sheet says only "Violation last Tuesday" without naming the crime or alleged acts. Which right is missing?
+The court reads the full crime and alleged acts at arraignment, then bars the public from watching the trial. Did the court break the notice right?
 :::answer
-The answer is **Notice of the nature and cause of the accusation**. An accused cannot prepare a defense to a hidden charge.
+The answer is **No**. Reading the crime and alleged acts gave notice of nature and cause, while closing the courtroom raises a separate public-trial issue.
 :::
 
 ## Examples

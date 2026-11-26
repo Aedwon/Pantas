@@ -31,13 +31,13 @@ Test a city rule requiring food-stall applicants to show a baptism certificate f
 :::pair #religious-test-political-rights
 Right: Conditioning voting or civil rights on religion breaks Section $5$'s ban on religious tests.
 Wrong: Confusing a religious membership requirement for voting with involuntary servitude.
-Requiring church membership to vote restricts political rights, not forced labor.
+Like civil permits, voting is a political right, so requiring church membership breaks Section $5$, not forced labor.
 :::
 
 :::check
-A town requires applicants for a civil license to swear loyalty to one church. Which Section $5$ rule is broken?
+A town charter bars residents from running for barangay captain unless they belong to one faith. Which Section $5$ rule is broken?
 :::answer
-The answer is **No religious test for civil or political rights**. Section $5$ bars faith requirements for civil or political rights.
+The answer is **No religious test for civil or political rights**. Running for public office is a political right protected from religious tests under Section $5$.
 :::
 
 ### Section $6$: Liberty of Abode and Right to Travel
@@ -59,7 +59,7 @@ Why does abode require a court order? Moving someone's home uproots their daily 
 :::pair #abode-needs-court-order
 Right: Restricting abode needs a lawful court order within legal limits; restricting travel needs national security, public safety, or public health by law.
 Wrong: Relocating a person's home on national security grounds without a court order, or treating abode and travel rules as identical.
-Check whether the order controls where a person lives (abode) or moves (travel) first.
+Whether officials cite public health or national security, always check if the order controls residence or travel first.
 :::
 
 :::pair #abode-restriction-not-absolute

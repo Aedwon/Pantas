@@ -44,10 +44,10 @@ The answer is **Yes**. Section $17$ protects any person from forced answers show
 
 Section $17$ is not a blanket bar against all evidence. Compulsion alone does not make neutral **physical evidence**, like fingerprints or photos, testimonial. Neutral written records containing no incriminating statement against the author are not automatically barred either.
 
-Test an investigator forcing a bank teller to record a spoken account of how he altered ledger entries:
+Test an investigator forcing a bank teller to give a recorded spoken account and sign a written confession of how he altered ledger entries:
 
-1. Check the demand: a recorded spoken account reveals the teller's mental knowledge of guilt.
-2. Apply Section $17$: forcing a spoken confession is testimonial evidence, so Section $17$ bars compelling it.
+1. Check both demands: spoken answers and written confessions alike reveal the teller's mental knowledge of guilt.
+2. Apply Section $17$: both forced accounts are testimonial evidence, so Section $17$ bars compelling either one.
 
 :::why
 Why cover forced written accounts too? Writing down what you remember uses your mind to testify against yourself just like speaking aloud.

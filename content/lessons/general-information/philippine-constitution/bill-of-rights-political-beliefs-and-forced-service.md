@@ -100,21 +100,21 @@ Answer: Yes, the due-conviction punishment exception under Article III, Section 
 
 **Check:** Both conditions of the exception hold because a due conviction came before the lawful work punishment.
 
-### #3: Peaceful Protest Custody and Post-Conviction Duty
+### #3: A Convicted Activist's Two Claims
 
-Police detain a town teacher overnight solely for leading a peaceful march criticizing road budgets, with no crime charged. Elsewhere, a warden assigns mandatory laundry duty to a prisoner serving a final court sentence for fraud. How does Section $18$ apply to each case?
+A court duly convicts a vocal political activist of burning a municipal warehouse during a protest. Serving his final sentence, he claims Section $18$ bars both his imprisonment and his mandatory prison bakery duty. How does Section $18$ apply to each claim?
 
 **Solution:**
 
-1. Check the teacher's custody: no separate offense exists, so detention rests solely on political beliefs.
-2. Check the prisoner's laundry duty: the work is imposed as lawful punishment after due conviction for fraud.
+1. Check his imprisonment claim: identify whether custody rests solely on political beliefs or on the separate crime of arson.
+2. Check his bakery-duty claim: note that a court has already duly convicted him of a crime.
 
 :::try
-Finish the last step: state the Section $18$ ruling for both the teacher and the convicted prisoner.
+Finish the last step: state the Section $18$ ruling on both his imprisonment and his mandatory prison work.
 :::answer
-The answer is **The teacher's detention breaks Section $18(1)$, while the prisoner's laundry duty fits Section $18(2)$'s conviction exception.** Detention for peaceful political views alone is barred. Mandatory work imposed as punishment after due conviction is expressly permitted.
+The answer is **Section $18$ bars neither his imprisonment nor his mandatory prison work.** Under Section $18(1)$, political beliefs never excuse a separate crime like arson. Under Section $18(2)$, forced work imposed as lawful punishment after due conviction fits the stated exception.
 
-**Check:** Test Section $18(1)$ for any separate crime and Section $18(2)$ for a prior court conviction.
+**Check:** Check Section $18(1)$ for a separate crime and Section $18(2)$ for a court's due conviction.
 :::
 
 ## Traps to Watch For

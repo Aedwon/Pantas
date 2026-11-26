@@ -15,7 +15,7 @@ keyPoints:
 
 ### Section $15$: Purpose of Habeas Corpus
 
-The **writ of *habeas corpus*** is a court order used to check whether a person is being held lawfully. The person holding the detainee must bring the detainee before the court and explain the legal basis for the custody.
+The **writ of habeas corpus** is a court order used to check whether a person is being held lawfully. The person holding the detainee must bring the detainee before the court and explain the legal basis for the custody.
 
 Article III, Section $15$ protects the privilege of this writ to guard **personal liberty against unlawful detention**. It does not govern property tax assessments, municipal land disputes, or civil employment access.
 

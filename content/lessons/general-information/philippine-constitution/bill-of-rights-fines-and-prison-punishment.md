@@ -50,10 +50,10 @@ Article III, Section $19(1)$ states that the death penalty shall not be imposed 
 
 Keep that constitutional wording separate from current statutory law. **Republic Act No. $9346$**, Section $1$, prohibits courts from imposing the death penalty. Section $2$ supplies replacement penalties, covered in Part $3$.
 
-Test how Section $19(1)$ and Republic Act No. $9346$ govern a legislative bill versus a current sentence:
+Test Section $19(1)$ and Republic Act No. $9346$ on a pending bill restoring death for large-scale drug syndicates as a heinous crime:
 
-1. Check Congress's role: Section $19(1)$ allows Congress to enact a future law for compelling reasons involving heinous crimes.
-2. Check current law: until Congress acts, Republic Act No. $9346$, Section $1$ bars imposing death.
+1. Check Congress's role: Section $19(1)$ permits Congress to enact a future law for compelling reasons involving heinous crimes.
+2. Check current courts: until Congress passes that bill, Republic Act No. $9346$, Section $1$ bars courts from imposing death.
 
 :::why
 Why distinguish the Constitution from Republic Act No. $9346$? The Constitution permits future laws for heinous crimes, while the statute currently in force bans imposing death.
@@ -66,9 +66,9 @@ The constitutional clause is conditional permission for Congress, while Republic
 :::
 
 :::check
-A senator argues the Constitution forbids Congress from ever passing a future law restoring the death penalty for heinous crimes. Is the senator right?
+Congress drafts a bill restoring the death penalty for minor shoplifting with no compelling heinous-crime reason. Does Article III, Section $19(1)$ allow that bill?
 :::answer
-The answer is **No**. Article III, Section $19(1)$ allows Congress to provide for the death penalty for compelling reasons involving heinous crimes, though Republic Act No. $9346$ currently bars it.
+The answer is **No**. Article III, Section $19(1)$ lets Congress provide for death only for compelling reasons involving heinous crimes. Minor shoplifting fails that constitutional condition.
 :::
 
 ## Examples

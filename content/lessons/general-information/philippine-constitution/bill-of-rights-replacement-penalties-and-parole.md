@@ -47,10 +47,10 @@ The answer is **Reclusion perpetua**. Republic Act No. $9346$, Section $2$ assig
 
 Republic Act No. $9346$, Section $3$ bars parole for offenses punished with *reclusion perpetua* by reason of the Act. It also bars parole when death sentences are reduced to *reclusion perpetua* by reason of the Act. Never treat a reduced sentence as a promise of parole, and the prisoner cannot pick another penalty.
 
-Test Sections $2$ and $3$ when a prisoner convicted of a Revised Penal Code crime under the Act requests life imprisonment instead:
+Test Section $2$ when a prisoner convicted of a Revised Penal Code crime under the Act asks the court for life imprisonment instead:
 
-1. Check Section $2$: Revised Penal Code naming fixes *reclusion perpetua*, leaving no prisoner option.
-2. Check Section $3$: parole is barred for sentences imposed by reason of the Act.
+1. Check the statute's penalty names: Revised Penal Code terms trigger *reclusion perpetua*, leaving no prisoner option.
+2. Result: the sentence stays *reclusion perpetua*.
 
 :::why
 Why bar parole for reduced death sentences? Congress replaced execution with severe prison terms without parole under Section $3$ for crimes that formerly carried death.
@@ -102,21 +102,21 @@ Answer: Life imprisonment under Republic Act No. $9346$, Section $2$.
 
 **Check:** Because the special law lacks Revised Penal Code penalty terms, *reclusion perpetua* cannot replace death here.
 
-### #3: Parole After a Reduced Sentence
+### #3: Good Conduct After a Reduced Sentence
 
-A person's death sentence is reduced to *reclusion perpetua* by reason of Republic Act No. $9346$. Does the Act make that person eligible for parole?
+A prisoner's death sentence was reduced to *reclusion perpetua* by reason of Republic Act No. $9346$. After $12$ years of spotless prison behavior, he claims good conduct earns him parole under Act No. $4103$. Does Section $3$ allow parole?
 
 **Solution:**
 
-1. Check the source of the sentence: it was reduced to *reclusion perpetua* by reason of Republic Act No. $9346$.
-2. Apply Section $3$: the Act expressly removes parole eligibility for persons in this category.
+1. Check why the prisoner holds this sentence: the death sentence was reduced to *reclusion perpetua* by reason of Republic Act No. $9346$.
+2. Check whether Section $3$ lists a good-conduct exception for reduced death sentences.
 
 :::try
-Finish the last step: state whether the person qualifies for parole and whether switching to life imprisonment is allowed.
+Finish the last step: state whether spotless prison behavior earns parole under Republic Act No. $9346$, Section $3$.
 :::answer
-The answer is **No, the person is ineligible for parole and cannot switch to life imprisonment.** Republic Act No. $9346$, Section $3$ bars parole for reduced *reclusion perpetua* sentences. Section $2$ fixes the penalty from the violated law's naming style, not prisoner choice.
+The answer is **No, the prisoner remains ineligible for parole.** Republic Act No. $9346$, Section $3$ bars parole for death sentences reduced to *reclusion perpetua* by reason of the Act. Good conduct does not create an exception to Section $3$.
 
-**Check:** Section $3$ closes off parole for reduced sentences, and Section $2$ leaves no option to choose another penalty.
+**Check:** Section $3$ expressly covers reduced death sentences, closing off Act No. $4103$ parole.
 :::
 
 ## Traps to Watch For

@@ -73,9 +73,9 @@ Defining a future offense for courts to try is ordinary lawmaking, not an *ex po
 :::
 
 :::check
-Congress passes a general cyber-fraud law taking effect next year and leaves all prosecutions to regular courts. Does it violate Section $22$?
+Congress passes a general law removing a legal defense for future tax offenses tried in regular courts. Does it violate Section $22$?
 :::answer
-The answer is **No**. A prospective general law tried in court is neither an *ex post facto* law nor a bill of attainder.
+The answer is **No**. Removing a defense only for future acts is prospective, and leaving guilt to regular courts avoids a bill of attainder.
 :::
 
 ## Examples

@@ -15,7 +15,7 @@ keyPoints:
 
 ## Core Concept
 
-### Section $15$ and Rule $102$: Court Writs for Liberty and Protection
+### Section $15$ and Rule $102$: A Court Writ for Liberty
 
 Article III, Section $15$ and **Rule $102$, Sections $1$ and $2$** govern the **writ of habeas corpus**. This writ orders a custodian to bring a detainee before a court to check whether detention is lawful.
 

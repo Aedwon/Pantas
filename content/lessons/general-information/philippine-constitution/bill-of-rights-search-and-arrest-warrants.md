@@ -67,8 +67,8 @@ Supreme Court case law interpreting Section $2$ allows a different step for arre
 
 Test an arrest warrant where the prosecutor's report leaves factual gaps, so the judge calls a witness before signing:
 
-1. Check records: when written files leave doubts, the judge may still question witnesses to verify probable cause.
-2. Check independence: personally evaluating the added facts before signing meets Section $2$'s judicial-review duty.
+1. Check records: had the written report and affidavits already shown probable cause, records alone would have been enough.
+2. Check independence: when gaps appear, calling a witness to verify probable cause meets Section $2$'s judicial-review duty.
 
 :::pair #arrest-warrant-records
 Right: For an arrest warrant, personal review of the prosecutor's report and sufficient supporting evidence meets the judge's duty.

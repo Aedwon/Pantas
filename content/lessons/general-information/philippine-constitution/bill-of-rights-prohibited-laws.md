@@ -65,7 +65,7 @@ Punishing an identified group without trial breaks the bill-of-attainder ban, an
 :::check
 A new statute raises prison terms for last year's illegal fishing while still requiring a full court trial. Which Section $22$ ban applies?
 :::answer
-The answer is **Only the *ex post facto* ban**. The law increases past penalties retroactively, yet courts still conduct the trial.
+The answer is **Only the ex post facto ban**. The law increases past penalties retroactively, yet courts still conduct the trial.
 :::
 
 ## Examples
@@ -108,7 +108,7 @@ Congress passes a law naming a civic group's officers and forfeiting their prope
 :::try
 Finish the last step: state which Section $22$ bans the statute breaks and explain why targeting a named group does not avoid Section $22$.
 :::answer
-The answer is **The statute violates both bans in Section $22$: the ban on bills of attainder and the ban on *ex post facto* laws.** Naming a specific group triggers the bill-of-attainder ban rather than excusing the law, and punishing earlier legal rallies adds the *ex post facto* violation.
+The answer is **The statute violates both bans in Section $22$: the ban on bills of attainder and the ban on ex post facto laws.** Naming a specific group triggers the bill-of-attainder ban rather than excusing the law, and punishing earlier legal rallies adds the *ex post facto* violation.
 
 **Check:** Test both Section $22$ bans separately whenever a law punishes without trial and reaches back to earlier lawful conduct.
 :::

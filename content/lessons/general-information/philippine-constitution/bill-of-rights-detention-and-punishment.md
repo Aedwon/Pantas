@@ -52,10 +52,11 @@ Test Section $19(1)$ on a town ordinance setting a $500,000$-peso fine and publi
 
 Article III, Section $20$ states: **No person shall be imprisoned for debt or non-payment of a poll tax.** A **poll tax** is a fixed tax charged per person. Section $20$ bars jail for debt alone, yet leaves a separate proven crime, such as fraud, punishable.
 
-Apply Section $20$ to two cases:
+Apply Section $20$ to three cases:
 
 1. Unpaid private loan with no fraud: creditors may collect in civil court, yet cannot jail the borrower.
 2. Unpaid loan tied to proved fraud: Section $20$ still allows criminal punishment for the separate proven crime.
+3. Unpaid community poll tax: officials may collect the tax lawfully, yet Section $20$ bars jailing the taxpayer.
 
 :::pair #debt-and-poll-tax
 Right: Section $20$ bars imprisonment for both debt and nonpayment of a poll tax.
