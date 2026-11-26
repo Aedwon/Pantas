@@ -49,8 +49,15 @@ Checks: the renderer branch's parser (`walkthrough-work/importer/run.dart`, copi
 
 The briefs in `walkthrough-work/` name scratchpad paths from this session for the rules file and the importer; point them at the `walkthrough-work/` copies.
 
+## Manager rulings after the handoff (Nov 26, about 5:40 PM Manila; rule 4, searched the spec's Quick Check section and the four samples)
+
+1. Audits: as above. Codex b is this lane's first (the GI Gemini lead runs none); b is already past 90%, so Fable 5.2 high audits from here, Codex re-audits after Monday's reset before anything goes live.
+2. Fresh-instance sweep approved: sweep all this lane's batches (Math, Reasoning, Grammar, Vocabulary, and the new ones) and fix every Quick Check or try that repeats the exact item just taught, as the approved samples do. If a check can catch it (a Quick Check stem or answer matching an example sentence in the same lesson), add it to `tools/walkthrough-checks-r1` with a failing case first, wired into `lesson_checks.dart`. The GI lead was told the rule in one line (done Nov 26).
+
+Updated next actions: add the fresh-instance check first (it also finds the remaining Math and Reasoning cases), then the order above, with Math and Reasoning sweeps added before their Fable audits.
+
 ## Risks and open questions for the manager
 
-- The fresh-instance and scoping problems were found in nearly every Grammar and Vocabulary lesson. Math and Reasoning passed audits before anyone checked for them, so they likely have the same reused Quick Checks. Asked the manager whether to sweep them; no answer yet.
+- The fresh-instance and scoping problems were found in nearly every Grammar and Vocabulary lesson. Math and Reasoning passed audits before anyone checked for them, so they likely have the same reused Quick Checks. Sweep approved (above).
 - Each Codex round on Grammar found a new layer of rule-precision problems. Fable audits may find the same; expect two or three rounds per batch.
 - Velocity: E-198 timer paused at handoff (reason other). Its estimate row has not been written on main yet; the manager or the next session should add it (estimate given to the manager: about 22 h, before General Information moved out of the lane; now about 12 h for this scope).
