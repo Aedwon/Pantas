@@ -69,8 +69,13 @@ List<Map<String, Object?>> boldFirstQuestion(
 ) =>
     _boldFirst(runs, onlyQuestion: true);
 
-// The end of a sentence: the mark, then any closing quotes or brackets.
-final _sentenceEnd = RegExp('([.!?])["\'\u201D\u2019)\\]]*(?=\\s|\$)');
+// The end of a sentence: the mark, then any closing quotes or brackets. The
+// curly closing quotes are matched by code point, so no student-facing curly
+// apostrophe appears in this source (the straight-apostrophe check).
+final _sentenceEnd = RegExp(
+  '([.!?])["\')\\]${String.fromCharCodes(const [0x201D, 0x2019])}]*'
+  r'(?=\s|$)',
+);
 
 List<Map<String, Object?>> _boldFirst(
   List<Map<String, Object?>> runs, {
@@ -1110,8 +1115,13 @@ class WalkPair extends StatelessWidget {
           ),
           Padding(
             key: const ValueKey('walk-pair-wrong'),
-            // ds-board: walk.css .pwr padding 12 17 0
-            padding: const EdgeInsets.fromLTRB(17, PantasSpace.s12, 17, 0),
+            // ds-board: walk.css .pwr padding 12 17 0 (17 has no token: 16)
+            padding: const EdgeInsets.fromLTRB(
+              PantasSpace.s16,
+              PantasSpace.s12,
+              PantasSpace.s16,
+              PantasSpace.s0,
+            ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1294,7 +1304,14 @@ class _ChecklistRowState extends State<_ChecklistRow> {
                           vertical: PantasSpace.s14,
                         )
                       // ds-board: walk.css .ph .clr padding 13 14 13 16
-                      : const EdgeInsets.fromLTRB(16, 13, 14, 13),
+                      // (13 has no token: 14, which also brings the row
+                      // heights closer to the board's)
+                      : const EdgeInsets.fromLTRB(
+                          PantasSpace.s16,
+                          PantasSpace.s14,
+                          PantasSpace.s14,
+                          PantasSpace.s14,
+                        ),
                   decoration: BoxDecoration(
                     color: fill,
                     border: widget.index == 0
@@ -1425,7 +1442,9 @@ class _WalkStepsState extends State<WalkSteps> {
             skipTraversal: true,
             child: Padding(
               // ds-board: walk.css .sg padding-bottom 24, none on the last
-              padding: EdgeInsets.only(bottom: i < last ? PantasSpace.s24 : 0),
+              padding: EdgeInsets.only(
+                bottom: i < last ? PantasSpace.s24 : PantasSpace.s0,
+              ),
               child: widget.groups[i],
             ),
           ),
