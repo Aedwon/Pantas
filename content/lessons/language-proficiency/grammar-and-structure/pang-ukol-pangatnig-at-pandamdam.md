@@ -54,7 +54,7 @@ Ang sagot ay **kaya**. Pinagdurugtong nito ang dalawang sugnay (*nag-ayos kami a
 
 ### Pandamdam: Tuwirang Pahayag ng Damdamin
 
-Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*. Hanapin ang salitang nagpapakita ng sakit:
+Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!,* at *Hoy!*. Hanapin ang salitang nagpapakita ng sakit:
 
 - "**Aray!** Masakit ang sugat ko."
 
@@ -96,16 +96,16 @@ Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pan
 
 ### #3: Salita sa Simula ng Pangungusap
 
-Sa "**Sayang!** Nabasag ang baso" at "**Sayang** ang pagkain kung itatapon," alin ang gumagamit ng *Sayang* bilang pandamdam?
+Sa "**Sayang**, nabasag ang baso" at "**Sayang** ang pagkain kung itatapon," alin ang gumagamit ng *Sayang* bilang pandamdam?
 
 **Solution:**
 
-1. Tingnan ang kasunod: *Nabasag ang baso* sa una, *ang pagkain kung itatapon* sa ikalawa.
+1. Tingnan ang kasunod: *nabasag ang baso* sa una, *ang pagkain kung itatapon* sa ikalawa.
 
 :::try
 Tapusin ang huling hakbang: aling pangungusap ang gumagamit ng *Sayang* bilang pandamdam?
 :::answer
-Ang sagot ay **ang una**: "**Sayang!** Nabasag ang baso." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita. Sa ikalawa, inilalarawan ng *sayang* ang pagkain.
+Ang sagot ay **ang una**: "**Sayang**, nabasag ang baso." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita. Sa ikalawa, inilalarawan ng *sayang* ang pagkain.
 
 **Check:** Alisin ang *Sayang* sa una: buo pa rin ang "Nabasag ang baso." Alisin ito sa ikalawa: bitin ang "ang pagkain kung itatapon."
 :::
