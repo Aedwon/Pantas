@@ -207,15 +207,15 @@ For $x>0$, $y>0$, and $z>0$, express $2\log(x)+\log(y)-3\log(z)$ as a single com
 
 1. Use the power rule.
 
-$$\log(x^2)+\log(y)-\log(z^3)$$
+$$2\log(x)+\log(y)-3\log(z)=\log(x^2)+\log(y)-\log(z^3)$$
 
 2. Use the product rule.
 
-$$\log(x^2y)-\log(z^3)$$
+$$\log(x^2)+\log(y)-\log(z^3)=\log(x^2y)-\log(z^3)$$
 
 3. Use the quotient rule.
 
-$$\log\left(\dfrac{x^2y}{z^3}\right)$$
+$$\log(x^2y)-\log(z^3)=\log\left(\dfrac{x^2y}{z^3}\right)$$
 
 ### #7: Equation with an Unknown Exponent
 

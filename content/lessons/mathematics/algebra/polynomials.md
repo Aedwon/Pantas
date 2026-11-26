@@ -177,7 +177,7 @@ $$-3(x^2+x+4)=-3x^2-3x-12$$
 
 3. Add the products and combine like terms.
 
-$$2x^3-x^2+5x-12$$
+$$(2x-3)(x^2+x+4)=2x^3+2x^2+8x-3x^2-3x-12=2x^3-x^2+5x-12$$
 
 ### #4: Repeated Difference of Squares
 
@@ -201,11 +201,11 @@ Factor $3x^2+12x+12$ completely.
 
 1. Take out the greatest common factor, $3$.
 
-$$3(x^2+4x+4)$$
+$$3x^2+12x+12=3(x^2+4x+4)$$
 
 2. The expression inside is a perfect square because $4x=2(x)(2)$ and $4=2^2$.
 
-$$3(x+2)^2$$
+$$3x^2+12x+12=3(x+2)^2$$
 
 ### #6: Factoring a Monic Quadratic
 
@@ -231,7 +231,7 @@ $$6(-3)=-18$$
 2. Find two numbers with product $-18$ and sum $-7$. They are $-9$ and $2$.
 3. Split the middle term.
 
-$$6x^2-9x+2x-3$$
+$$6x^2-7x-3=6x^2-9x+2x-3$$
 
 4. Take a shared factor from each pair.
 
@@ -239,7 +239,7 @@ $$3x(2x-3)+1(2x-3)$$
 
 5. Take out the shared binomial.
 
-$$(3x+1)(2x-3)$$
+$$6x^2-7x-3=(3x+1)(2x-3)$$
 
 ### #8: Sum of Cubes
 
@@ -257,7 +257,7 @@ $$(2x+3)((2x)^2-(2x)(3)+3^2)$$
 
 3. Work out each term in the second factor.
 
-$$(2x+3)(4x^2-6x+9)$$
+$$8x^3+27=(2x+3)(4x^2-6x+9)$$
 
 ### #9: Difference of Cubes
 
@@ -271,7 +271,7 @@ $$x^3-64=x^3-4^3$$
 
 2. Use the difference-of-cubes pattern with $a=x$ and $b=4$.
 
-$$(x-4)(x^2+4x+16)$$
+$$x^3-4^3=(x-4)(x^2+4x+16)$$
 
 ### #10: Polynomial Long Division
 
