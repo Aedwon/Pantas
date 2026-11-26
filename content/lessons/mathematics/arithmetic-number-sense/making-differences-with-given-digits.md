@@ -35,13 +35,13 @@ Use the digits $1$, $3$, $6$, $7$, and $8$ exactly once to form a three-digit nu
 
 2. Put the largest remaining digit, $8$, in the subtracted tens place. Put the next largest, $7$, in the subtracted units place. The number being subtracted is $87$.
 
-3. Put $3$ in the added tens place and $6$ in the added units place. This makes the three-digit number $136$.
+3. Put $3$ in the added tens place and $6$ in the added units place. This makes the three-digit number $136$. Let's subtract $87$ from $136$:
 
 $136-87=49$
 
 4. For the largest difference, put $8$ in hundreds and $7$ in the added tens place. Put the smallest digit, $1$, in the subtracted tens place.
 
-5. The remaining digits are $3$ and $6$. Adding $6$ and subtracting $3$ gives the larger result. The numbers are $876$ and $13$.
+5. The remaining digits are $3$ and $6$. Adding $6$ and subtracting $3$ gives the larger result. The numbers are $876$ and $13$. Let's subtract $13$ from $876$:
 
 $876-13=863$
 

@@ -35,7 +35,7 @@ $$x^2-2x-8>0$$
 
 2. Factor and find the roots.
 
-$$(x-4)(x+2)=0$$
+$$x^2-2x-8=(x-4)(x+2)=0$$
 
 $$x=4\quad\text{or}\quad x=-2$$
 

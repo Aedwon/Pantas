@@ -104,11 +104,11 @@ $$0.125=\dfrac{125}{1,000}$$
 
 2. Divide both top and bottom by $25$.
 
-$$\dfrac{125\div 25}{1,000\div 25}=\dfrac{5}{40}$$
+$$\dfrac{125}{1,000}=\dfrac{125\div 25}{1,000\div 25}=\dfrac{5}{40}$$
 
 3. Divide both top and bottom by $5$.
 
-$$\dfrac{5\div 5}{40\div 5}=\dfrac{1}{8}$$
+$$\dfrac{5}{40}=\dfrac{5\div 5}{40\div 5}=\dfrac{1}{8}$$
 
 The answer is $\dfrac{1}{8}$.
 

@@ -27,7 +27,7 @@ A **complex number** has standard form $a+bi$, where $a$ and $b$ are real number
 
 If $b=0$, the number is real, so every real number has form $a+0i$. If $a=0$ and $b\ne 0$, it is **purely imaginary**.
 
-To add or subtract complex numbers, combine real parts with real parts and $i$ terms with $i$ terms. When subtracting, change both signs inside the second group:
+To add or subtract complex numbers, combine real parts with real parts and $i$ terms with $i$ terms. When subtracting, change both signs inside the second group. Let's subtract $6-3i$ from $10+2i$:
 
 $$(10+2i)-(6-3i)=10+2i-6+3i=4+5i$$
 
@@ -83,9 +83,7 @@ Try $\sqrt{-4}\cdot\sqrt{-9}$:
 
 $$\sqrt{-4}=2i,\qquad\sqrt{-9}=3i$$
 
-$$(2i)(3i)=6i^2$$
-
-$$6(-1)=-6$$
+$$\sqrt{-4}\cdot\sqrt{-9}=(2i)(3i)=6i^2=6(-1)=-6$$
 
 :::pair #negative-root-product
 Right: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{(6i)(2i)}{4i}=\dfrac{-12}{4i}=\dfrac{-3}{i}=3i$
@@ -127,7 +125,7 @@ $$i^{2024}=i^4=1$$
 
 3. Add the two results and write in $a+bi$ form.
 
-$$-i+1=1-i$$
+$$i^{143}+i^{2024}=-i+1=1-i$$
 
 The answer is $1-i$.
 

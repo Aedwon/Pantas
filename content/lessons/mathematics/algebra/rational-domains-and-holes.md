@@ -43,11 +43,11 @@ $$x^2-1=(x-1)(x+1)$$
 
 2. Cancel to see the graph shape. Keep the original excluded input.
 
-$$f(x)=x+1,\qquad x\ne1$$
+$$f(x)=\dfrac{(x-1)(x+1)}{x-1}=x+1,\qquad x\ne1$$
 
 3. Use the simpler line to find the missing height.
 
-$$y=1+1=2$$
+$$y=x+1=1+1=2$$
 
 4. The graph has a hole at $(1,2)$. The denominator factor canceled completely, so there is no vertical asymptote there.
 

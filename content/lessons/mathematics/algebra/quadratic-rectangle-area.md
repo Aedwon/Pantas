@@ -39,9 +39,7 @@ $$w(w+3)=40$$
 
 2. Write it in standard form and factor.
 
-$$w^2+3w-40=0$$
-
-$$(w+8)(w-5)=0$$
+$$w^2+3w-40=(w+8)(w-5)=0$$
 
 3. The roots are $w=-8$ and $w=5$. A width cannot be negative, so reject $-8$.
 

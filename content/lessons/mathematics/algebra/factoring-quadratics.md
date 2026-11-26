@@ -50,7 +50,7 @@ $$6(-3)=-18$$
 2. Find two numbers with product $-18$ and sum $-7$. They are $-9$ and $2$.
 3. Split the middle term.
 
-$$6x^2-9x+2x-3$$
+$$6x^2-7x-3=6x^2-9x+2x-3$$
 
 4. Take a shared factor from each pair.
 
@@ -58,4 +58,4 @@ $$3x(2x-3)+1(2x-3)$$
 
 5. Take out the shared binomial.
 
-$$(3x+1)(2x-3)$$
+$$6x^2-7x-3=(3x+1)(2x-3)$$

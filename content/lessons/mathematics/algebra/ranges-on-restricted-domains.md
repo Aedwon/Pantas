@@ -48,13 +48,13 @@ Find the range of $f(x)=2x+1$ on the domain $[1,4]$. Then find the range of $h(x
 
 1. The line $f$ goes up as $x$ goes up, so the ends of the domain give the ends of the range.
 
-$$f(1)=3\qquad f(4)=9$$
+$$f(1)=2(1)+1=3\qquad f(4)=2(4)+1=9$$
 
 So the range is $[3,9]$.
 
 2. The curve $h$ is a parabola written as $(x-2)^2+1$, so its turning point is at $x=2$. That is inside $[0,5]$. There $h(2)=1$. Since $a=1>0$, the parabola opens up, so $1$ is the smallest output.
 3. Check the two ends of the domain.
 
-$$h(0)=4+1=5\qquad h(5)=9+1=10$$
+$$h(0)=(0-2)^2+1=5\qquad h(5)=(5-2)^2+1=10$$
 
 The largest output is $10$. So the range is $[1,10]$.

@@ -24,6 +24,8 @@ In addition, each number being added is an **addend**. In multiplication, each n
 
 The **commutative property** lets you swap the order of numbers in addition and multiplication. Think of walking $3$ blocks east and then $4$ blocks east. You end up $7$ blocks away whether you walk $3$ first or $4$ first.
 
+Swapping $7$ and $12$ gives the same sum:
+
 $$7+12=19$$
 
 $$12+7=19$$
@@ -53,6 +55,8 @@ The answer is yes. The terms $5$ and $2x$ swapped order inside the parentheses, 
 ### Associative Property
 
 The **associative property** lets you change the grouping in repeated addition or repeated multiplication. Parentheses show which pair to do first. The order of the numbers stays the same.
+
+Regrouping $3$, $5$ and $4$ gives the same sum:
 
 $$(3+5)+4=8+4=12$$
 

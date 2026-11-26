@@ -51,7 +51,7 @@ $$x+(x+2)+(x+4)=S$$
 
 3. Add the three copies of $x$ to get $3x$. Add $2+4$ to get $6$.
 
-$$3x+6=S$$
+$$x+(x+2)+(x+4)=3x+6=S$$
 
 4. Subtract $6$ from both sides.
 
@@ -67,6 +67,4 @@ $$\text{Largest}=\dfrac{S-6}{3}+4$$
 
 7. Write $4$ with denominator $3$, then add.
 
-$$\text{Largest}=\dfrac{S-6+12}{3}$$
-
-$$\text{Largest}=\dfrac{S+6}{3}$$
+$$\text{Largest}=\dfrac{S-6}{3}+4=\dfrac{S-6+12}{3}=\dfrac{S+6}{3}$$

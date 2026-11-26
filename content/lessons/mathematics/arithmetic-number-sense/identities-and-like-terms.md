@@ -18,13 +18,13 @@ keyPoints:
 
 An **identity** is a number that keeps another number unchanged under an operation.
 
-The **additive identity** is $0$. Adding $0$ leaves any real number unchanged.
+The **additive identity** is $0$. Adding $0$ leaves any real number unchanged. Let's add $0$ to $7$ and $-17$:
 
 $$7+0=7$$
 
 $$(-17)+0=-17$$
 
-The **multiplicative identity** is $1$. Multiplying by $1$ leaves any real number unchanged.
+The **multiplicative identity** is $1$. Multiplying by $1$ leaves any real number unchanged. Let's multiply $7$ and $-17$ by $1$:
 
 $$7\times 1=7$$
 
@@ -54,7 +54,7 @@ A **variable** is a letter that stands for a number. An **exponent** tells how m
 
 A **term** is a number, a variable, or a product of numbers and variables separated by $+$ or $-$ signs. Keep the sign in front with its term. In $8x-3x+5$, the three terms are $8x$, $-3x$, and $5$.
 
-The number multiplying the variable part is the **coefficient**. When no number is written in front of a variable, its coefficient is $1$ (or $-1$ if there is a minus sign).
+The number multiplying the variable part is the **coefficient**. When no number is written in front of a variable, its coefficient is $1$ (or $-1$ if there is a minus sign). Let's simplify $5x-x$ and $-4a+a$:
 
 $$5x-x=(5-1)x=4x$$
 
@@ -64,11 +64,11 @@ $$-4a+a=(-4+1)a=-3a$$
 
 **Like terms** have the exact same variable part with the exact same exponents. Plain numbers are like terms with other plain numbers.
 
-To combine like terms, add their signed coefficients and keep the variable part unchanged.
+To combine like terms, add their signed coefficients and keep the variable part unchanged. Let's combine $8x-3x$:
 
 $$8x-3x=(8-3)x=5x$$
 
-Because multiplication can swap order, $xy$ and $yx$ have the same variable part.
+Because multiplication can swap order, $xy$ and $yx$ have the same variable part, so we can combine $4xy+2yx$:
 
 $$4xy+2yx=(4+2)xy=6xy$$
 
@@ -134,11 +134,11 @@ $$(7x^2-2x^2)+(-3x+8x)+(4-9)$$
 
 2. Add the signed coefficients of the $x^2$ terms.
 
-$$(7-2)x^2=5x^2$$
+$$7x^2-2x^2=(7-2)x^2=5x^2$$
 
 3. Add the signed coefficients of the $x$ terms.
 
-$$(-3+8)x=5x$$
+$$-3x+8x=(-3+8)x=5x$$
 
 :::try
 Finish the last step: combine the plain numbers $4-9$, and write the final simplified expression.

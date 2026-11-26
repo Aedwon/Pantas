@@ -35,9 +35,7 @@ $$2^3=8$$
 
 That leaves $36\div 4\times 3+8$. Next, multiply and divide from left to right:
 
-$$36\div 4=9$$
-
-$$9\times 3=27$$
+$$36\div 4\times 3=9\times 3=27$$
 
 Add last:
 
@@ -59,11 +57,7 @@ A **root** reverses a power. For example, $\sqrt{49}=7$ because $7^2=49$.
 
 Try this example: evaluate $\sqrt{49}+2^3$.
 
-$$\sqrt{49}=7$$
-
-$$2^3=8$$
-
-$$7+8=15$$
+$$\sqrt{49}+2^3=7+8=15$$
 
 :::pair #power-not-product
 Right: $\sqrt{49}+2^3=7+8=15$
@@ -134,9 +128,7 @@ Evaluate $16 \div 4 \times 2 + 3$.
 1. There are no grouping symbols, exponents, or roots.
 2. Multiply and divide from left to right.
 
-$$16 \div 4 = 4$$
-
-$$4 \times 2 = 8$$
+$$16 \div 4 \times 2 = 4 \times 2 = 8$$
 
 3. Add last.
 

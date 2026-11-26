@@ -77,8 +77,8 @@ Why does subtracting the ratio parts work? Every box in the ratio has the exact 
 :::
 
 :::pair #one-share-not-total
-Right: total length is $(4+7)\times7=77\text{ meters}$
-Wrong: total length is $7\times7=49\text{ meters}$
+Right: for ratio $4:7$ with $1$ part $=7\text{ meters}$, total length is $(4+7)\times7=77\text{ meters}$
+Wrong: for ratio $4:7$ with $1$ part $=7\text{ meters}$, total length is $7\times7=49\text{ meters}$
 Here $49\text{ meters}$ is only the longer piece. Re-read the question to see if it asks for one piece or the total.
 :::
 

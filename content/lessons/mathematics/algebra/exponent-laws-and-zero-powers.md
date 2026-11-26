@@ -84,7 +84,7 @@ Simplify $\dfrac{(x^3y^2)(x^4y^{-1})}{x^2y^3}$ for nonzero $x$ and $y$.
 
 1. Combine powers in the numerator.
 
-$$\dfrac{x^7y}{x^2y^3}$$
+$$\dfrac{(x^3y^2)(x^4y^{-1})}{x^2y^3}=\dfrac{x^7y}{x^2y^3}$$
 
 2. Subtract exponents when dividing like bases.
 

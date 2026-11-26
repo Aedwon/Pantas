@@ -20,7 +20,7 @@ For a nested radical such as
 
 $$L=\sqrt{20+\sqrt{20+\cdots}},$$
 
-you may set $L=\sqrt{20+L}$ **only after the problem establishes or assumes that the nested expression converges to a real limit**. Then:
+you may set $L=\sqrt{20+L}$ **only after the problem establishes or assumes that the nested expression converges to a real limit**. Squaring both sides and moving $20+L$ to the left gives:
 
 $$L^2-L-20=0.$$
 
@@ -40,7 +40,7 @@ For nonzero rational $x$, rationalize $\dfrac2{\sqrt[3]{4x}}$.
 
 $$\sqrt[3]{2x^2}.$$
 
-2. Then:
+2. Multiply the top and bottom by that cube root:
 
 $$\dfrac2{\sqrt[3]{4x}}\cdot\dfrac{\sqrt[3]{2x^2}}{\sqrt[3]{2x^2}}=\dfrac{2\sqrt[3]{2x^2}}{\sqrt[3]{8x^3}}$$
 

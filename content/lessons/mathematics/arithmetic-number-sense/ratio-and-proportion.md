@@ -82,7 +82,7 @@ $$24x=4\times84=336$$
 
 3. Divide by $24$.
 
-$$x=14$$
+$$x=\dfrac{336}{24}=14$$
 
 The bakery needs $14$ cups of flour.
 

@@ -52,11 +52,11 @@ Classify $f(x)=1.2^x$ and $g(x)=0.4^x$ as growth or decay. Find each function's 
 
 1. The base $1.2>1$ gives growth. Use the zero-exponent rule for the first value.
 
-$$f(0)=1,\qquad f(1)=1.2$$
+$$f(0)=1.2^0=1,\qquad f(1)=1.2^1=1.2$$
 
 2. The base satisfies $0<0.4<1$, so it gives decay. Its zero power also equals $1$.
 
-$$g(0)=1,\qquad g(1)=0.4$$
+$$g(0)=0.4^0=1,\qquad g(1)=0.4^1=0.4$$
 
 ## Traps to Watch For
 

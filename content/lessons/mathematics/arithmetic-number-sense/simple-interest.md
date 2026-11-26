@@ -29,11 +29,7 @@ $$A=P+I$$
 
 Suppose you borrow Php $10,000$ at $5\%$ simple interest per annum for $3$ years. First change $5\%$ to a decimal: $5\%=0.05$.
 
-$$I=10,000\times0.05\times3$$
-
-$$10,000\times0.05=500$$
-
-$$500\times3=1,500$$
+$$I=10,000\times0.05\times3=500\times3=1,500$$
 
 The interest is Php $1,500$. Add the principal to find the total repayment:
 
@@ -69,11 +65,7 @@ Suppose a borrower takes Php $15,000$ at $8\%$ simple annual interest for $9$ mo
 
 $$T=\dfrac{9}{12}=0.75$$
 
-$$I=15,000\times0.08\times0.75$$
-
-$$15,000\times0.08=1,200$$
-
-$$1,200\times0.75=900$$
+$$I=15,000\times0.08\times0.75=1,200\times0.75=900$$
 
 The interest for $9$ months is Php $900$.
 

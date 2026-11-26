@@ -53,9 +53,7 @@ $15-2=13$
 
 4. Subtract the inside tile count from the full tile count.
 
-$15^2-13^2=225-169$
-
-$225-169=56$
+$15^2-13^2=225-169=56$
 
 5. Check by counting the top and bottom rows, then the sides between them.
 

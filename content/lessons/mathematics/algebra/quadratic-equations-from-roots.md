@@ -49,7 +49,7 @@ $$\dfrac1{r_1}+\dfrac1{r_2}=\dfrac{r_1+r_2}{r_1r_2}$$
 
 3. Substitute. The product is not $0$, so the division is allowed.
 
-$$\dfrac{4}{\frac{7}{3}}=4\cdot\dfrac37=\dfrac{12}{7}$$
+$$\dfrac{r_1+r_2}{r_1r_2}=\dfrac{4}{\frac{7}{3}}=4\cdot\dfrac37=\dfrac{12}{7}$$
 
 ### #2: Equation From Its Roots
 
@@ -65,4 +65,4 @@ $$r_1r_2=2(-5)=-10$$
 
 2. Use $x^2-(r_1+r_2)x+r_1r_2=0$.
 
-$$x^2+3x-10=0$$
+$$x^2-(-3)x+(-10)=x^2+3x-10=0$$

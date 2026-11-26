@@ -50,11 +50,7 @@ The answer is $11$. Its only positive factors are $1$ and $11$, while $9=3\times
 
 Try $60$. Start by dividing by $2$ while the number is even, then move to $3$:
 
-$$60=2\times 30$$
-
-$$30=2\times 15$$
-
-$$15=3\times 5$$
+$$60=2\times 30=2\times 2\times 15=2\times 2\times 3\times 5$$
 
 Now every factor ($2, 2, 3, 5$) is prime.
 
@@ -68,7 +64,7 @@ $$60=2^2\times 3\times 5$$
 
 Try $72$ the same way: divide by $2$ three times to get $9$, then split $9=3\times 3$.
 
-$$72=2\times 36=2\times 2\times 18=2\times 2\times 2\times 9=2^3\times 3^2$$
+$$72=2\times 36=2\times 2\times 18=2\times 2\times 2\times 9=2\times 2\times 2\times 3\times 3=2^3\times 3^2$$
 
 :::pair #stop-at-composite
 Right: $180=2^2\times 3^2\times 5$
@@ -92,17 +88,11 @@ What is the prime factorization of $360$?
 
 1. Divide repeatedly by $2$ while the result is even.
 
-$$360=2\times 180$$
-
-$$180=2\times 90$$
-
-$$90=2\times 45$$
+$$360=2\times 180=2\times 2\times 90=2\times 2\times 2\times 45$$
 
 2. Next divide $45$ by $3$.
 
-$$45=3\times 15$$
-
-$$15=3\times 5$$
+$$45=3\times 15=3\times 3\times 5$$
 
 3. Both $3$ and $5$ are prime, so stop dividing.
 

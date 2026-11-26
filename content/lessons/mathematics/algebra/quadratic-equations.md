@@ -70,7 +70,7 @@ Find the roots of $x^2-8x+15=0$.
 1. Find two numbers with product $15$ and sum $-8$: $-3$ and $-5$.
 2. Factor.
 
-$$(x-3)(x-5)=0$$
+$$x^2-8x+15=(x-3)(x-5)=0$$
 
 3. Apply the zero-product property.
 
@@ -85,7 +85,7 @@ Solve $2x^2+7x+3=0$.
 1. Compute $ac=6$. The numbers $6$ and $1$ have product $6$ and sum $7$.
 2. Split the middle term.
 
-$$2x^2+6x+x+3=0$$
+$$2x^2+7x+3=2x^2+6x+x+3=0$$
 
 3. Factor by grouping.
 

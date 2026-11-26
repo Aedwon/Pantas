@@ -55,7 +55,7 @@ $$x=\dfrac{-4\pm\sqrt{40}}{4}$$
 
 4. Simplify the radical: $\sqrt{40}=2\sqrt{10}$. Then divide the top and bottom by $2$.
 
-$$x=\dfrac{-4\pm2\sqrt{10}}{4}=\dfrac{-2\pm\sqrt{10}}{2}$$
+$$x=\dfrac{-4\pm\sqrt{40}}{4}=\dfrac{-4\pm2\sqrt{10}}{4}=\dfrac{-2\pm\sqrt{10}}{2}$$
 
 ## Traps to Watch For
 

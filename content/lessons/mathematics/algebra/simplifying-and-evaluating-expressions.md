@@ -46,7 +46,7 @@ Simplify $4(2a-3b)-2(a-5b)$.
 
 1. Distribute $4$ through the first group and $-2$ through the second.
 
-$$8a-12b-2a+10b$$
+$$4(2a-3b)-2(a-5b)=8a-12b-2a+10b$$
 
 2. Group like terms.
 
@@ -64,7 +64,7 @@ If $x=-2$ and $y=3$, evaluate $x^3-4xy+y^2$.
 
 1. Replace each variable with its value.
 
-$$(-2)^3-4(-2)(3)+(3)^2$$
+$$x^3-4xy+y^2=(-2)^3-4(-2)(3)+(3)^2$$
 
 2. Work out the powers.
 

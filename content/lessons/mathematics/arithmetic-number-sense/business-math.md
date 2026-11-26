@@ -204,7 +204,7 @@ $$A=10,000(1+0.02)^4$$
 
 4. Use the approximation given in the question.
 
-$$A=10,000\times1.0824$$
+$$A=10,000\times1.0824=10,824$$
 
 5. The total amount is approximately Php $10,824$.
 

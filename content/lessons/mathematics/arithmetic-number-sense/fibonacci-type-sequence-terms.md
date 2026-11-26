@@ -97,9 +97,7 @@ To add two expressions with the same variable, add their coefficients together a
 
 Add $2a+3$ and $a+5$:
 
-$$(2a+3)+(a+5)$$
-
-$$=(2+1)a+(3+5)=3a+8$$
+$$(2a+3)+(a+5)=(2+1)a+(3+5)=3a+8$$
 
 :::check
 If $x=a+4$ and $y=2a-1$ are two consecutive terms of a Fibonacci-type sequence, what is the next term?

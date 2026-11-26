@@ -113,7 +113,7 @@ $$3b+6=2b+12$$
 
 4. Subtract $2b$ and then subtract $6$.
 
-$$b=6$$
+$$b+6=12\quad\Rightarrow\quad b=6$$
 
 5. Find Ana's age.
 
@@ -159,7 +159,7 @@ $$270=90t$$
 
 3. Divide by $90$.
 
-$$t=3$$
+$$t=\dfrac{270}{90}=3$$
 
 4. They meet after $3$ hours.
 
@@ -179,7 +179,7 @@ $$40=20t$$
 
 3. Divide by $20$.
 
-$$t=2$$
+$$t=\dfrac{40}{20}=2$$
 
 4. The car catches the motorcycle after $2$ hours.
 
@@ -201,7 +201,7 @@ $$r_{\text{together}}=\dfrac{1}{6}+\dfrac{1}{3}$$
 
 $$r_{\text{together}}=\dfrac{1}{6}+\dfrac{2}{6}$$
 
-$$r_{\text{together}}=\dfrac{1}{2}$$
+$$r_{\text{together}}=\dfrac{3}{6}=\dfrac{1}{2}$$
 
 3. Divide $1$ job by the combined rate to find the time in hours.
 
@@ -266,7 +266,7 @@ $$x+5y=52$$
 
 4. Subtract the count equation from the value equation.
 
-$$4y=32$$
+$$4y=52-20=32$$
 
 5. Divide by $4$.
 
@@ -301,7 +301,7 @@ $$u-t=3$$
 
 6. Add this equation to $t+u=9$.
 
-$$2u=12$$
+$$2u=9+3=12$$
 
 $$u=6$$
 

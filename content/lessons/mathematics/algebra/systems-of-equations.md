@@ -106,11 +106,11 @@ Nothing cancels yet. We must multiply first to make matching terms. Let us make 
 
 1. Multiply the first equation by $5$.
 
-$$15x + 10y = 80$$
+$$5(3x + 2y) = 5(16) \quad\Rightarrow\quad 15x + 10y = 80$$
 
 2. Multiply the second equation by $2$.
 
-$$4x + 10y = 36$$
+$$2(2x + 5y) = 2(18) \quad\Rightarrow\quad 4x + 10y = 36$$
 
 3. Both have $+10y$, so we subtract the second from the first.
 

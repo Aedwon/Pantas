@@ -35,9 +35,7 @@ Try this example. Pipe A fills a tank in $4$ hours, and Pipe B fills the same ta
 
 $$r_1=\dfrac{1}{4},\qquad r_2=\dfrac{1}{12}$$
 
-$$r_{\text{together}}=\dfrac{1}{4}+\dfrac{1}{12}$$
-
-$$r_{\text{together}}=\dfrac{3}{12}+\dfrac{1}{12}=\dfrac{4}{12}=\dfrac{1}{3}$$
+$$r_{\text{together}}=\dfrac{1}{4}+\dfrac{1}{12}=\dfrac{3}{12}+\dfrac{1}{12}=\dfrac{4}{12}=\dfrac{1}{3}$$
 
 $$t=1\div\dfrac{1}{3}=3$$
 
@@ -109,11 +107,7 @@ $$r_1=\dfrac{1}{6},\qquad r_2=\dfrac{1}{3}$$
 
 2. Add the two rates using a common denominator of $6$.
 
-$$r_{\text{together}}=\dfrac{1}{6}+\dfrac{1}{3}$$
-
-$$r_{\text{together}}=\dfrac{1}{6}+\dfrac{2}{6}$$
-
-$$r_{\text{together}}=\dfrac{3}{6}=\dfrac{1}{2}$$
+$$r_{\text{together}}=\dfrac{1}{6}+\dfrac{1}{3}=\dfrac{1}{6}+\dfrac{2}{6}=\dfrac{3}{6}=\dfrac{1}{2}$$
 
 3. Divide $1$ whole job by the combined rate.
 
@@ -135,11 +129,7 @@ $$r_{\text{together}}=\dfrac{1}{6},\qquad r_1=\dfrac{1}{10}$$
 
 2. Subtract Pump A's rate from the shared rate using a common denominator of $30$.
 
-$$r_2=\dfrac{1}{6}-\dfrac{1}{10}$$
-
-$$r_2=\dfrac{5}{30}-\dfrac{3}{30}$$
-
-$$r_2=\dfrac{2}{30}=\dfrac{1}{15}$$
+$$r_2=\dfrac{1}{6}-\dfrac{1}{10}=\dfrac{5}{30}-\dfrac{3}{30}=\dfrac{2}{30}=\dfrac{1}{15}$$
 
 :::try
 Finish the last step: divide $1$ job by Pump B's rate $\dfrac{1}{15}$ to find Pump B's solo time.

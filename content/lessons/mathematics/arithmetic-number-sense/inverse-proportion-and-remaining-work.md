@@ -72,7 +72,7 @@ One **worker-day** is the work $1$ worker does in $1$ day. Follow three steps:
 
 <!-- ILLUSTRATION: two stacked horizontal bars. Top bar labeled "Total job = 10 x 12 = 120 worker-days". Bottom bar split into shaded left section "Done in 4 days: 10 x 4 = 40 worker-days" and right section "Remaining: 80 worker-days, 8 workers x 10 days" -->
 
-Suppose $10$ workers can finish a project in $12$ days. After $4$ days, $2$ workers leave. How many more days do the remaining workers need?
+Suppose $10$ workers can finish a project in $12$ days. After $4$ days, $2$ workers leave. How many more days do the remaining workers need? Let's apply the three steps to this job:
 
 $$10\times12=120\text{ worker-days}$$
 

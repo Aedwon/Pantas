@@ -63,9 +63,7 @@ Evaluate the expression: $16 \div 4 \times 2 + 3$.
 1. There are no grouping symbols, exponents, or roots to evaluate first.
 2. Work through division and multiplication from left to right.
 
-$$16 \div 4 = 4$$
-
-$$4 \times 2 = 8$$
+$$16 \div 4 \times 2 = 4 \times 2 = 8$$
 
 3. Add last.
 
@@ -156,7 +154,7 @@ $$6-2^3+4=6-8+4=2$$
 
 4. Divide the two results.
 
-$$\dfrac{29}{2}$$
+$$\dfrac{3^2+4\times5}{6-2^3+4}=\dfrac{29}{2}$$
 
 ### #6: Algebraic Evaluation
 

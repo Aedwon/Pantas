@@ -124,9 +124,7 @@ $$\dfrac{4}{24}=\dfrac{x}{84}$$
 
 2. Cross-multiply.
 
-$$24x=4\times84$$
-
-$$24x=336$$
+$$24x=4\times84=336$$
 
 3. Divide both sides by $24$.
 

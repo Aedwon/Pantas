@@ -32,7 +32,7 @@ $$\dfrac{2}{5}=\dfrac{2\times 3}{5\times 3}=\dfrac{6}{15}$$
 
 $$\dfrac{1}{3}=\dfrac{1\times 5}{3\times 5}=\dfrac{5}{15}$$
 
-$$\dfrac{6}{15}+\dfrac{5}{15}=\dfrac{11}{15}$$
+$$\dfrac{2}{5}+\dfrac{1}{3}=\dfrac{6}{15}+\dfrac{5}{15}=\dfrac{11}{15}$$
 
 Subtraction works the same way. Try $\dfrac{5}{6}-\dfrac{1}{4}$ with common denominator $12$:
 
@@ -40,7 +40,7 @@ $$\dfrac{5}{6}=\dfrac{10}{12}$$
 
 $$\dfrac{1}{4}=\dfrac{3}{12}$$
 
-$$\dfrac{10}{12}-\dfrac{3}{12}=\dfrac{7}{12}$$
+$$\dfrac{5}{6}-\dfrac{1}{4}=\dfrac{10}{12}-\dfrac{3}{12}=\dfrac{7}{12}$$
 
 :::why
 Why do we keep the denominator unchanged when adding? The denominator names the size of each piece. Adding $1$ third and $1$ third makes $2$ thirds, never $2$ sixths.
@@ -112,7 +112,7 @@ $$\dfrac{1}{6}=\dfrac{1\times 2}{6\times 2}=\dfrac{2}{12}$$
 
 2. Combine the numerators and keep the denominator $12$.
 
-$$\dfrac{9+8-2}{12}=\dfrac{15}{12}$$
+$$\dfrac{3}{4}+\dfrac{2}{3}-\dfrac{1}{6}=\dfrac{9+8-2}{12}=\dfrac{15}{12}$$
 
 3. Divide both $15$ and $12$ by $3$.
 
@@ -134,7 +134,7 @@ $$\dfrac{3}{4}\times\dfrac{2}{3}$$
 
 2. Multiply numerators together and denominators together.
 
-$$\dfrac{3\times 2}{4\times 3}=\dfrac{6}{12}$$
+$$\dfrac{3}{4}\times\dfrac{2}{3}=\dfrac{3\times 2}{4\times 3}=\dfrac{6}{12}$$
 
 :::try
 Finish the last step: simplify $\dfrac{6}{12}$ to lowest terms.

@@ -46,11 +46,11 @@ If $A=3x^2-2x+5$ and $B=-x^2+4x-1$, simplify $2A-B$.
 
 1. Multiply every term of $A$ by $2$.
 
-$$2A=6x^2-4x+10$$
+$$2A=2(3x^2-2x+5)=6x^2-4x+10$$
 
 2. Subtract every term of $B$, changing each sign.
 
-$$2A-B=6x^2-4x+10+x^2-4x+1$$
+$$2A-B=6x^2-4x+10-(-x^2+4x-1)=6x^2-4x+10+x^2-4x+1$$
 
 3. Combine like terms.
 
@@ -72,7 +72,7 @@ $$-3(x^2+x+4)=-3x^2-3x-12$$
 
 3. Add the products and combine like terms.
 
-$$2x^3-x^2+5x-12$$
+$$(2x-3)(x^2+x+4)=2x^3+2x^2+8x-3x^2-3x-12=2x^3-x^2+5x-12$$
 
 ## Speed Tricks & Shortcuts
 

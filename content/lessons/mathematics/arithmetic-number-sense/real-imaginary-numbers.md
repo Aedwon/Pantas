@@ -147,7 +147,7 @@ $$(3-4i)(2+5i)=6+15i-8i-20i^2$$
 
 2. Replace $i^2$ with $-1$ and add matching terms.
 
-$$6+15i-8i-20(-1)=26+7i$$
+$$6+15i-8i-20i^2=6+15i-8i-20(-1)=26+7i$$
 
 ### #4: Dividing Complex Numbers
 
@@ -163,9 +163,7 @@ $$\dfrac{2+3i}{1-i}\times\dfrac{1+i}{1+i}$$
 
 2. Multiply the numerator and use $i^2=-1$.
 
-$$(2+3i)(1+i)=2+5i+3i^2$$
-
-$$2+5i+3(-1)=-1+5i$$
+$$(2+3i)(1+i)=2+5i+3i^2=2+5i+3(-1)=-1+5i$$
 
 3. Multiply the denominator.
 
@@ -173,7 +171,7 @@ $$(1-i)(1+i)=1-i^2=2$$
 
 4. Divide both terms in the numerator by $2$.
 
-$$\dfrac{-1+5i}{2}=-\dfrac{1}{2}+\dfrac{5}{2}i$$
+$$\dfrac{2+3i}{1-i}=\dfrac{-1+5i}{2}=-\dfrac{1}{2}+\dfrac{5}{2}i$$
 
 ## Speed Tricks & Shortcuts
 

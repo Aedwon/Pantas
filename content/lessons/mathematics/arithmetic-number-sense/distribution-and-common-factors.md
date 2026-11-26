@@ -132,7 +132,7 @@ Evaluate $847\times 63+847\times 37$.
 
 1. Both products share the common factor $847$. Factor it out.
 
-$$847(63+37)$$
+$$847\times 63+847\times 37=847(63+37)$$
 
 2. Add inside the parentheses first.
 

@@ -74,9 +74,7 @@ To divide by a nonzero decimal, turn the divisor into a whole number first.
 
 Try $0.72\div0.015$. The divisor $0.015$ needs $3$ places right to become $15$. Move the point $3$ places right in $0.72$ as well, adding one zero at the end.
 
-$$0.72\div0.015=720\div15$$
-
-$$720\div15=48$$
+$$0.72\div0.015=720\div15=48$$
 
 Never divide by $0$. An expression such as $4.8\div0$ has no answer and is **undefined**.
 
@@ -124,9 +122,7 @@ A roll of wire is $5.4$ meters long. How many pieces of length $0.15$ meter can 
 
 **Solution:**
 
-1. Divide the total length by the length of one piece.
-
-$$5.4\div0.15$$
+1. Divide the total length $5.4$ by the length of one piece, $0.15$.
 
 2. The divisor $0.15$ needs $2$ decimal places right to become the whole number $15$. Move the decimal point in $5.4$ the same $2$ places right by adding a zero.
 

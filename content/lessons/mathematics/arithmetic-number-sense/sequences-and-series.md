@@ -207,7 +207,7 @@ $$S_{15}=\dfrac{15}{2}\left[2(20)+14(4)\right]$$
 
 3. Work out the value inside the brackets, then multiply.
 
-$$S_{15}=\dfrac{15}{2}(96)=720$$
+$$S_{15}=\dfrac{15}{2}\left[2(20)+14(4)\right]=\dfrac{15}{2}(96)=720$$
 
 4. The theater has $720$ seats.
 
@@ -235,7 +235,7 @@ $$S_6=\dfrac{3(1-2^6)}{1-2}$$
 
 3. Calculate the power, then divide.
 
-$$S_6=\dfrac{3(-63)}{-1}=189$$
+$$S_6=\dfrac{3(1-2^6)}{1-2}=\dfrac{3(-63)}{-1}=189$$
 
 4. The sum is $189$.
 
@@ -252,7 +252,7 @@ $$S_\infty=\dfrac{18}{1-\frac{1}{3}}$$
 
 3. Subtract in the denominator, then divide.
 
-$$S_\infty=18\times\dfrac{3}{2}=27$$
+$$S_\infty=\dfrac{18}{1-\frac{1}{3}}=18\times\dfrac{3}{2}=27$$
 
 ### #10: Finding a Term in a Harmonic Sequence
 
@@ -267,7 +267,7 @@ $$a_6=2+(6-1)(3)=17$$
 
 3. Take the reciprocal to return to the harmonic sequence. Its $6^{\text{th}}$ term is:
 
-$$\dfrac{1}{17}$$
+$$\dfrac{1}{a_6}=\dfrac{1}{17}$$
 
 ### #11: Fibonacci-Type Sequence with Variables
 

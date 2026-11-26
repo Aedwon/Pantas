@@ -184,7 +184,7 @@ The signs are different, so the answer is negative.
 
 2. Put each answer back where its operation was. Keep every sign that sat between the parts.
 
-$$18-(-18)+(-4)$$
+$$18-6\times(-3)+8\div(-2)=18-(-18)+(-4)$$
 
 3. Subtracting $-18$ is the same as adding $18$.
 
@@ -218,7 +218,7 @@ The signs are the same, so the answer is positive.
 
 2. Put each answer back. Keep the signs between the parts.
 
-$$-15-(-12)+4$$
+$$-15-(-4)\times3+(-24)\div(-6)=-15-(-12)+4$$
 
 3. Subtracting $-12$ is the same as adding $12$.
 

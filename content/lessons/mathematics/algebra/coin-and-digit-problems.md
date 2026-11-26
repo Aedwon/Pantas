@@ -28,7 +28,7 @@ $$5f+10t=160$$
 
 Multiply the count equation by $5$ so $f$ matches: $5f+5t=100$. Subtract it from the value equation:
 
-$$5t=60$$
+$$5t=160-100=60$$
 
 $$t=12$$
 
@@ -105,7 +105,7 @@ $$x+5y=52$$
 
 4. Subtract the count equation from the value equation to cancel $x$.
 
-$$4y=32$$
+$$4y=52-20=32$$
 
 5. Divide both sides by $4$.
 
@@ -140,7 +140,7 @@ $$u-t=3$$
 
 6. Add this equation to $t+u=9$ to cancel $t$.
 
-$$2u=12$$
+$$2u=9+3=12$$
 
 $$u=6$$
 

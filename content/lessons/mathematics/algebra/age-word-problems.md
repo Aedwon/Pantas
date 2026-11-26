@@ -87,9 +87,7 @@ Solving for the letter often gives the younger person's age, or an age at anothe
 
 Suppose $b$ is Ben's age now, $b=6$, and Ana is $3b$. If the question asks for Ana's age in $4$ years, substitute and shift:
 
-$$3(6)=18$$
-
-$$18+4=22$$
+$$3(6)+4=18+4=22$$
 
 Ana will be $22$ years old in $4$ years.
 

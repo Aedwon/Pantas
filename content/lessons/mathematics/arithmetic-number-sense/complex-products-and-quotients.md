@@ -66,9 +66,7 @@ $$(a+bi)(a-bi)=a^2-b^2i^2=a^2+b^2$$
 
 Try multiplying $5-3i$ by its conjugate $5+3i$:
 
-$$(5-3i)(5+3i)=25+15i-15i-9i^2$$
-
-$$25-9(-1)=25+9=34$$
+$$(5-3i)(5+3i)=25+15i-15i-9i^2=25-9(-1)=25+9=34$$
 
 :::why
 Why does $(a+bi)(a-bi)$ equal $a^2+b^2$? The middle terms $+abi$ and $-abi$ cancel to $0$, and $-b^2i^2=-b^2(-1)=+b^2$.
@@ -144,9 +142,7 @@ $$\dfrac{2+3i}{1-i}\times\dfrac{1+i}{1+i}$$
 
 2. Multiply the numerator and replace $i^2$ with $-1$.
 
-$$(2+3i)(1+i)=2+2i+3i+3i^2$$
-
-$$2+5i+3(-1)=-1+5i$$
+$$(2+3i)(1+i)=2+2i+3i+3i^2=2+5i+3(-1)=-1+5i$$
 
 3. Multiply the denominator using $c^2+d^2$.
 

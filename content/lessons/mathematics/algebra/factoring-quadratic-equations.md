@@ -41,7 +41,7 @@ Find the roots of $x^2-8x+15=0$.
 1. Find two numbers with product $15$ and sum $-8$: $-3$ and $-5$.
 2. Factor.
 
-$$(x-3)(x-5)=0$$
+$$x^2-8x+15=(x-3)(x-5)=0$$
 
 3. Apply the zero-product property.
 

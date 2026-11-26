@@ -47,8 +47,8 @@ Why does dividing the part by the rate give the base? Because $\text{Part}=\text
 :::
 
 :::pair #wrong-percentage-base
-Right: $15\%$ of the whole set $=0.15\times180=27$
-Wrong: $15\%$ of the whole set $=0.15\times72=10.8$
+Right: if $40\%$ of a set is $72$, then $15\%$ of the whole set $=0.15\times180=27$
+Wrong: if $40\%$ of a set is $72$, then $15\%$ of the whole set $=0.15\times72=10.8$
 Here $72$ is only the $40\%$ part already answered, not the whole set. Always find the base before taking another percent of it.
 :::
 
@@ -108,7 +108,7 @@ After completing $40\%$ of a practice set, a student has answered $72$ questions
 
 **Solution:**
 
-1. Let $B$ be the total number of questions in the set. The part $72$ equals $40\%$ of $B$.
+1. The base is the total number of questions in the set. The part $72$ equals $40\%$ of the base.
 
 $$\text{Base}=\dfrac{72}{0.40}$$
 

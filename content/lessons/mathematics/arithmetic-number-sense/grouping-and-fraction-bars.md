@@ -152,9 +152,7 @@ $$9+20=29$$
 
 4. Evaluate the denominator as one group: power first, then add and subtract from left to right.
 
-$$6-2^3+4=6-8+4$$
-
-$$-2+4=2$$
+$$6-2^3+4=6-8+4=-2+4=2$$
 
 :::try
 Finish the last step: divide the numerator $29$ by the denominator $2$.
