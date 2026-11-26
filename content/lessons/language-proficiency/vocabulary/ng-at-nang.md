@@ -18,7 +18,7 @@ keyPoints:
 
 Magkaiba ang gamit ng **ng** at **nang**. Tingnan ang papel ng kasunod na salita sa buong pangungusap bago pumili.
 
-Ginagamit ang **ng** sa apat na karaniwang ayos:
+Ilang karaniwang gamit ng **ng**:
 
 1. **Bagay na tinutukoy ng kilos**: "Kumain **ng** mangga si Ana." *Mangga* ang kinain.
 2. **Pagmamay-ari o ugnayan**: "Malinis ang bahay **ng** guro." Kanino ang bahay?
@@ -38,9 +38,9 @@ Ang *tatlong mangga* ay dami ng binili. Kaya *ng* ang kailangan.
 :::
 
 :::check
-Piliin ang tamang salita: "Nagdala si Carlo *(ng / nang)* dalawang kahon ng aklat."
+Sa "Mataas ang bakod ng paaralan," pagmamay-ari ba o dami ang ipinakikita ng *ng*?
 :::answer
-Ang sagot ay **ng**. Tumutukoy ang *dalawang kahon* sa bagay at daming dinala, kaya *ng* ang tamang gamit.
+Ang sagot ay **pagmamay-ari**. Sa paaralan ang bakod, at walang bilang o sukat sa pariralang *bakod ng paaralan*.
 :::
 
 ### Mga Gamit ng Nang
@@ -60,9 +60,9 @@ Katumbas ng *noong* ang *nang* dito. Hindi ito *ng*.
 :::
 
 :::check
-Piliin ang tamang salita: "Sumagot *(ng / nang)* magalang ang mag-aaral."
+Piliin ang pares: "Sumulat si Ben *(ng / nang)* liham *(ng / nang)* maayos."
 :::answer
-Ang sagot ay **nang**. Sinasabi ng *magalang* kung paano sumagot ang mag-aaral, kaya *nang* ang gamit sa paraan ng kilos.
+Ang sagot ay **ng**, **nang**. Ang *liham* ang sinulat, kaya *ng*. Sinasabi ng *maayos* kung paano sumulat si Ben, kaya *nang*.
 :::
 
 ## Examples

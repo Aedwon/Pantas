@@ -56,9 +56,9 @@ Wrong: Its been confirmed that the company lost its license.
 :::
 
 :::check
-In which sentence does *it's* mean *it has*: "It's ready for review" or "It's been delayed"?
+In which sentence does *it's* mean *it has*: "It's raining again" or "It's rained all week"?
 :::answer
-The answer is "It's been delayed." It expands to "It has been delayed."
+The answer is "It's rained all week." It expands to "It has rained all week." "It's raining again" expands to "It is raining again."
 :::
 
 ## Examples
@@ -80,7 +80,7 @@ D) they're
 
 The sentence reads: "The university updated its guidelines regarding artificial intelligence."
 
-**Check:** Swap *its* for *the*: "The university updated the guidelines" keeps the pattern, so a possessive word fits.
+**Check:** Ask who owns the guidelines. The university does, and *its* names that owner.
 
 ### #2: A Difficult Week
 

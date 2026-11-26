@@ -18,8 +18,6 @@ keyPoints:
 
 The suffix **-ly** often makes an adverb. In "She spoke quietly," *quietly* tells how she spoke.
 
-Here it is one step at a time.
-
 - *Quiet* describes a noun.
 - Add *-ly* to make *quietly*.
 - *Quietly* tells how an action happens.
@@ -47,9 +45,9 @@ Wrong: In "the friendly receptionist," *friendly* is an adverb of manner.
 :::
 
 :::check
-In "the lively crowd," what job does *lively* do?
+In "The lively crowd cheered loudly," which *-ly* word tells how the crowd cheered?
 :::answer
-The answer is adjective. *Lively* describes the noun *crowd*, not an action.
+The answer is *loudly*. It tells how the action happens, so it is an adverb. *Lively* describes the noun *crowd*, so it is an adjective.
 :::
 
 ## Examples
@@ -69,7 +67,7 @@ D) Helpful means without help; quickly means without speed.
 2. *-Ly* makes *quickly* tell how the clerk answered. It is an adverb.
 3. Only B gives both jobs correctly. Answer: **B**.
 
-**Check:** Replace the words in bold: "The clerk full of help answered in a quick way." Both meaning and grammar match **B**.
+**Check:** Replace the words in bold: "The clerk who gives help answered fast." Both meaning and grammar match **B**.
 
 ### #2: The Garden
 

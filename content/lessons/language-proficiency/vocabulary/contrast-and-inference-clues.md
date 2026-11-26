@@ -121,7 +121,7 @@ Tapusin ang huling hakbang: ano ang kahulugan ng **ikinubli** batay sa kilos ni 
 :::answer
 Ang sagot ay **B**, *itinago*. Tumalikod siya upang hindi makita ang luha, kaya itinago niya ito.
 
-**Check:** Kapag *itinago* ang inilagay sa pangungusap, malinaw ang diwa nito.
+**Check:** Pilit na *itinago* ni Maria ang kaniyang mga luha sa pamamagitan ng pagtalikod sa kaniyang mga kaibigan. Malinaw ang diwa ng pangungusap.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -133,5 +133,5 @@ Ang sagot ay **B**, *itinago*. Tumalikod siya upang hindi makita ang luha, kaya 
 :::checklist
 - *Unlike* or *in contrast to*: find who the bold word describes, then take the opposite of the other side. {#contrast-target}
 - A trait that fits the other person: it belongs to the other side, not to the bold word. {#contrast-other-side}
-- *However*, *this*, *therefore*: read the whole passage before you choose. {#inference-clues}
+- *However* or *therefore*: read the whole passage before you choose. {#inference-clues}
 :::

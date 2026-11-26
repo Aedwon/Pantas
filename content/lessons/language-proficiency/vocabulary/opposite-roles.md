@@ -38,14 +38,14 @@ The exchange has two sides. Each word tells what one side does.
 :::
 
 :::check
-If Carlo lends a ladder to Mia, what does Mia do in that same exchange?
+If Carlo teaches a lesson to Mia, what does Mia do in that same exchange?
 :::answer
-The answer is *borrow*. Mia borrows the ladder from Carlo.
+The answer is *learn*. Mia learns the lesson from Carlo. *Teach* and *learn* are two sides of one exchange.
 :::
 
 ## Examples
 
-### #1: Opposite Roles
+### #1: A Gift
 
 Nina gave a gift to Rico. From Rico's point of view, what did he do?
 

@@ -8,7 +8,8 @@ Worktree (shared with the lead and one other worker; touch ONLY your assigned fi
 ## Hard limits
 
 - Do not start subagents; do the work yourself.
-- Change files only with the Edit or Write tool. Bash is for read-only commands only (cat, grep, git show, git diff, git log, dart run of the check runner). No python, sed, perl, awk or heredoc writes. No git add, commit, push, stash, checkout or reset: the lead commits.
+- Change files only with the Edit or Write tool. Write any scratch file with the Write tool too.
+- Bash only for plain read-only commands: grep, ls, cat, git show, git diff, git status, git log, date. No `>` or `>>` redirection (not even into scratch folders), no pipes into files, no sh, zsh, python, perl, awk or sed scripts, no zsh array or loop tricks, no heredocs. Any of these makes Aedwon approve a prompt, and a worker once sat 40 minutes on one (Nov 26). No git add, commit, push, stash, checkout or reset: the lead commits. Do not run the importer or count words; the lead runs both after you report.
 - Edit only the lesson files assigned to you. Never edit question files (`content/questions/**`), never edit retired files, never touch non-CSE CET lessons.
 - Never change the `:::` block syntax (agreed with the UX lead). Fences: `:::check` / `:::answer` / `:::`, `:::try` / `:::answer` / `:::`, `:::why`, `:::pair #slug` (lines `Right:`, `Wrong:`, then a 1 to 2 sentence note), `:::checklist` with only item lines `- Cue: right move {#slug}`. At most 3 pairs and 3 checklist items per lesson. Every checklist item ends with `{#slug}` naming a pair id or a `###` heading slug. Only `:::check` and `:::try` contain `:::answer`; nothing else nests.
 - Do not change front matter except where the brief says so.
@@ -46,13 +47,10 @@ Rules: `git show origin/main:docs/content/lesson-style-guide.md`, section "Filip
 - **Aedwon's Oct 4 decision (option 1): a hard grammar term gets a short English gloss the first time it appears, `**pang-abay** (adverb)`, then the Filipino term alone.** An earlier audit wrongly asked for all glosses to be removed and they were stripped. Restore a first-use gloss for each hard grammar term (pokus, tagaganap, layon, panghalip, pandiwa, sugnay, hugnayan, langkapan, unlapi, gitlapi, hulapi, kabilaan, laguhan, and the like), once per lesson, at its first use in teaching prose. Do not gloss common words, and do not gloss a second time. Do not gloss a term whose English gloss would only repeat an obvious cognate (aspekto/aspect, pokus/focus, kontemplatibo/contemplated); give the meaning instead where one helps (kontemplatibo: "not yet begun"), or leave the Filipino description to carry it. Do not add glosses inside headings, quiz stems or example sentences.
 - Spelling and usage follow the Komisyon sa Wikang Filipino (KWF) and the Ortograpiyang Pambansa (2013). For ng/nang, din/rin, raw/daw, affixes: follow KWF.
 
-## Checks you run (read-only, on your files)
+## Checks
 
-1. Importer parser (the app's real lesson parser):
-   `cd /private/tmp/claude-501/-Users-aedwon--t3-worktrees-Pantas-content-lesson-walkthro-85719f9d9f054ca1/ff6c9cf0-0ae4-4563-96ed-f37e73eb8c4d/scratchpad/importer && dart run run.dart <absolute paths of your lesson files>` must print `failing: 0`. (The runner is `walkthrough-work/importer/run.dart` plus `lib/core/content/walkthrough_markdown.dart` from `ux/walkthrough-renderer-r1` `222010878`.)
-2. Pre-tap word count before and after for each file you edit: count words outside `:::answer` and `:::why` blocks and outside HTML comments. Report before, after and the delta. Any growth must be explained and offset.
-Do NOT run flutter or the Dart lesson_checks suite; the lead runs those, one at a time.
+Workers run no checks. After you report, the lead runs the importer parser (the app's real lesson parser), the pre-tap word count (words outside `:::answer`, `:::why` and HTML comments) and `lesson_checks.dart` on your files, and sends back anything that fails. So keep the structure exact by reading, and keep word growth near zero: when you add a lead-in or a scope word, cut a line the reader would not miss in the same lesson, and list what you added and cut.
 
 ## Report (short)
 
-Pass or fail per lesson; for each finding you were given: fixed how (one line) or why not. Citations for any pair you added or changed. Word counts. Importer output pasted. Files touched. Anything you could not resolve goes to the lead; do not guess.
+Pass or fail per lesson; for each finding you were given: fixed how (one line) or why not. Citations for any pair you added or changed. Words added and cut per lesson. Files touched. Anything you could not resolve goes to the lead; do not guess.

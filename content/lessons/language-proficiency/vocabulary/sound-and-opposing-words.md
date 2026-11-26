@@ -19,7 +19,7 @@ keyPoints:
 
 **Alliteration** repeats the same starting sound, usually a consonant, in nearby words, as in *busy bees buzzed*. Sound matters in alliteration, not just spelling.
 
-Here is alliteration on one line: *Peter Piper picked a peck of pickled peppers.* Many nearby words start with the *p* sound.
+*Peter Piper picked a peck of pickled peppers.* Many nearby words start with the *p* sound.
 
 :::pair #repeated-sound
 Right: "Peter Piper picked a peck of pickled peppers" is alliteration.
@@ -28,9 +28,9 @@ No word here imitates a noise. A repeated starting sound is alliteration.
 :::
 
 :::check
-Which device is in "Cold winds crept closer"?
+Which words in "Cold winds crept closer" repeat a starting sound?
 :::answer
-The answer is alliteration. *Cold*, *crept*, and *closer* all start with the *k* sound.
+The answer is *cold*, *crept*, and *closer*. All three start with the *k* sound, so the line uses alliteration.
 :::
 
 ### Onomatopoeia
@@ -38,9 +38,9 @@ The answer is alliteration. *Cold*, *crept*, and *closer* all start with the *k*
 **Onomatopoeia** uses a word that sounds like the sound it names, such as *buzz* or *clang*.
 
 :::check
-Which device is the word *thud*?
+Which word in "Bees hummed in the garden" imitates its noise?
 :::answer
-The answer is onomatopoeia. The word sounds like the noise it names.
+The answer is *hummed*. It sounds like the buzzing noise it names, so it is onomatopoeia.
 :::
 
 ### Oxymoron
@@ -54,9 +54,9 @@ The phrase joins two opposing words. It does not simply stretch the truth.
 :::
 
 :::check
-Which device is in the phrase "cruel kindness"?
+Which two words in "a cruel kindness" oppose each other?
 :::answer
-The answer is oxymoron. *Cruel* and *kindness* have opposite meanings.
+The answer is *cruel* and *kindness*. Joining opposing words makes an oxymoron.
 :::
 
 ## Examples
@@ -75,7 +75,7 @@ D) Oxymoron
 1. Several nearby words begin with the same *s* sound.
 2. Repeating a starting consonant sound is alliteration. Answer: **A**.
 
-**Check:** Say the line aloud. *Silver snakes silently slid* all start with *s*.
+**Check:** *Silver snakes silently slid* all start with *s*.
 
 ### #2: The Firecracker
 
@@ -93,9 +93,9 @@ D) Oxymoron
 
 **Check:** Say *bang* aloud. It sounds like the noise.
 
-### #3: The Plan
+### #3: The Meeting
 
-“The plan was an **open secret**.” Which literary device is created by the phrase in bold?
+“The meeting ended in **organized chaos**.” Which literary device is created by the phrase in bold?
 
 A) Personification  
 B) Simile  
@@ -109,9 +109,9 @@ D) Onomatopoeia
 :::try
 Finish the last step: compare the two meanings and choose the device.
 :::answer
-*Open* means known to all, and *secret* means hidden. These meanings oppose each other, so “open secret” is an oxymoron. The answer is **C**.
+*Organized* means arranged in order, and *chaos* means complete disorder. These meanings oppose each other, so “organized chaos” is an oxymoron. The answer is **C**.
 
-**Check:** “The plan was an open secret” says the plan was both known to all and hidden. That clash marks an oxymoron.
+**Check:** “The meeting ended in organized chaos” says the meeting was both in order and in disorder. That clash marks an oxymoron.
 :::
 
 ## Speed Tricks & Shortcuts

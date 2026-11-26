@@ -38,9 +38,9 @@ Ang buong salita ay may panlapi pa. Alisin ang *-in-* upang makuha ang *gawa*.
 :::
 
 :::check
-Ano ang salitang-ugat ng *sulatan*?
+Ano ang salitang-ugat ng *nagluto*?
 :::answer
-Ang sagot ay **sulat**. Ang *-an* sa hulihan ay panlapi lamang, at ang *sulat* ang may pangunahing kahulugan.
+Ang sagot ay **luto**. Ang *nag-* sa unahan ay panlapi lamang, at ang *luto* ang may pangunahing kahulugan.
 :::
 
 ### Unlapi, Gitlapi, at Hulapi
@@ -48,7 +48,7 @@ Ang sagot ay **sulat**. Ang *-an* sa hulihan ay panlapi lamang, at ang *sulat* a
 Tatlo sa mga uri ng panlapi, ayon sa puwesto nito sa salitang-ugat:
 
 1. **Unlapi** (prefix) sa unahan ng ugat: *pag-* + *ibig* = *pag-ibig*; *um-* + *alis* = *umalis*.
-2. **Gitlapi** (infix) sa loob ng ugat: *s* + *-um-* + *ulat* = *sumulat*; *s* + *-um-* + *ayaw* = *sumayaw*.
+2. **Gitlapi** (infix) sa loob ng ugat: *sulat* + *-um-* = *sumulat*; *sayaw* + *-um-* = *sumayaw*.
 3. **Hulapi** (suffix) sa hulihan ng ugat: *sulat* + *-an* = *sulatan*.
 
 Sa karaniwang pagsusuri sa paaralan, magkaiba ang puwesto ng *um* sa dalawang salita. Gitlapi ang *-um-* sa *sumayaw* dahil nasa loob ito ng *sayaw*. Unlapi ang *um-* sa *umalis* dahil nasa unahan ito ng *alis*.

@@ -18,7 +18,7 @@ keyPoints:
 
 Ang **paksa** (subject) ang sentrong pinag-uusapan sa pangungusap. Karaniwan itong minamarkahan ng *ang* o *ang mga* para sa karaniwang ngalan, at *si* o *sina* para sa tiyak na ngalan ng tao.
 
-Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya sa pariralang may pangngalan, hanapin muna ang **parirala** (phrase) na may *ang*, *si*, *ang mga*, o *sina*. Walang pananda ang paksang panghalip, gaya ng *siya* sa "Kumain siya ng tinapay." Hanapin ang pariralang may panandang paksa:
+Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya sa pariralang may pangngalan, hanapin muna ang **parirala** (phrase) na may *ang*, *si*, *ang mga*, o *sina*. Walang pananda ang paksang **panghalip** (pronoun), gaya ng *siya* sa "Kumain siya ng tinapay." Hanapin ang paksa:
 
 - "Kumain **ang bata** ng tinapay." (*Ang bata* ang paksa, hindi ang tinapay.)
 - "Sumulat **si Mara** ng liham." (*Si Mara* ang paksa, hindi ang liham.)

@@ -57,7 +57,7 @@ As a verb, *effect* means "to bring about."
 :::pair #bring-about
 Right: The mediator effected an agreement yesterday.
 Wrong: The mediator affected an agreement yesterday.
-The mediator made the agreement happen. *Affected* only means influenced.
+The mediator made the agreement happen. Here *affected* means influenced.
 :::
 
 In psychology, *affect* can be a noun for the outward signs of emotion, such as a person's voice and face.
@@ -81,12 +81,11 @@ D) effects
 
 **Solution:**
 
-1. The word after *will* must be a verb in its base form. This removes C and D.
+1. The gap follows *will*, so it needs a base-form verb. This removes C and D.
 2. The drought influences the crop yield. The meaning is "influence."
 3. *Affect* means influence. Answer: **A**.
 
-**Check:** Read it back: "The drought will affect crop yield." *Effect* would need a different meaning, "bring about."
-
+**Check:** Read it back: "The drought will affect crop yield."
 ### #2: A Result
 
 The new schedule had a positive ______ on attendance.
@@ -99,10 +98,11 @@ D) effected
 **Solution:**
 
 1. The words *a positive* come before the gap. A noun must follow.
-2. C and D are verbs. A, *affect*, is usually a verb too. This leaves B.
+2. C and D are verbs. A, *affect*, is usually a verb too, and *on attendance* names what the result reached. This leaves B.
 3. The noun *effect* means a result. Answer: **B**.
 
 **Check:** "The new schedule had a positive effect on attendance."
+
 ### #3: Bringing About Change
 
 Which sentence uses the word in bold correctly?

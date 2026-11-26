@@ -92,9 +92,6 @@ D) noisy
 
 1. The sentence gives animal examples and says they are active after dark.
 2. These details show that **nocturnal** means active at night. Answer: **C**.
-
-**Check:** Owls and bats hunt after dark, which fits *active at night*.
-
 ### #3: The Clerk's Interview
 
 The clerk was **courteous** throughout the interview. She remained polite even when an applicant spoke rudely. What does the word in bold most likely mean?
@@ -125,5 +122,5 @@ The word is *polite*, so the answer is **B**, *respectful*. Both describe the sa
 :::checklist
 - A restatement, often after *or*: take the meaning from it, not from how people react. {#restatement-not-reaction}
 - A word with more than one meaning: pick the meaning the sentence needs. {#sentence-meaning}
-- Words that look alike: check the sentence before you choose. {#nearby-synonyms-and-sentence-meaning}
+- A nearby synonym: read the unfamiliar word through it, then check the sentence. {#nearby-synonyms-and-sentence-meaning}
 :::

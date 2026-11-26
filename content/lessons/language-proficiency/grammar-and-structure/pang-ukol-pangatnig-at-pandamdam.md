@@ -28,9 +28,9 @@ Iniuugnay ng pang-ukol ang pangkat ng pangngalan (*mga bisita*); hindi ito kilos
 :::
 
 :::check
-Sa "Dumating ang sulat **mula sa** Cebu," anong bahagi ng pananalita ang mga salitang nakadiin?
+Hanapin ang pang-ukol sa "Dumating ang sulat mula sa Cebu."
 :::answer
-Ang sagot ay **Pang-ukol**. Ipinakikilala ng *mula sa* ang pangngalang *Cebu* at iniuugnay ito sa pagdating.
+Ang sagot ay **mula sa**. Ipinakikilala nito ang pangngalang *Cebu* at iniuugnay ito sa pagdating.
 :::
 
 ### Pangatnig: Nagdurugtong ng mga Salita o Sugnay
@@ -47,14 +47,14 @@ Paano agad paghiwalayin ang pang-ukol at pangatnig? Itanong kung ano ang ginagaw
 :::
 
 :::check
-Sa "Umulan nang malakas, **kaya** hindi natuloy ang laro," anong bahagi ng pananalita ang salitang nakadiin?
+Sa "Naglinis kami para sa pista, kaya pagod na kami," alin ang pangatnig: *para sa* o *kaya*?
 :::answer
-Ang sagot ay **Pangatnig**. Pinagdurugtong ng *kaya* ang dalawang sugnay (*umulan nang malakas* at *hindi natuloy ang laro*).
+Ang sagot ay **kaya**. Pinagdurugtong nito ang dalawang sugnay (*naglinis kami para sa pista* at *pagod na kami*). Iniuugnay naman ng *para sa* ang pangngalang *pista*.
 :::
 
 ### Pandamdam: Tuwirang Pahayag ng Damdamin
 
-Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*. Hanapin ang salitang nagpapahayag ng reaksiyon:
+Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*. Halimbawa:
 
 - "**Aray!** Masakit ang sugat ko."
 
@@ -65,9 +65,9 @@ Hindi pinapangalanan ng *Naku* ang isang damdamin tulad ng salitang *kaba*, hind
 :::
 
 :::check
-Sa "**Hala!** Nahulog ang baso," anong bahagi ng pananalita ang salitang nakadiin?
+Sa "Hala! Nahulog ang baso dahil sa hangin," alin ang pandamdam: *Hala*, *dahil*, o *sa*?
 :::answer
-Ang sagot ay **Pandamdam**. Nagpapahayag ang *Hala!* ng pagkagulat o reaksiyon.
+Ang sagot ay **Hala**. Nagpapahayag ito ng pagkagulat o reaksiyon. Pangatnig ang *dahil* at pang-ukol ang *sa*.
 :::
 
 ## Examples

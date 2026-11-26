@@ -34,16 +34,16 @@ Wrong: She was stingy.
 :::
 
 :::check
-Which describes a thin build with a positive tone: *slender* or *skinny*?
+Her teacher admired her *(determined / stubborn)* effort. Which word keeps the positive tone?
 :::answer
-The answer is *slender*. *Slender* sounds positive, while *skinny* sounds critical.
+The answer is *determined*. *Admired* shows approval, *determined* sounds positive, and *stubborn* sounds critical.
 :::
 
 ### Intensity
 
 **Intensity** is the strength of a meaning. *Annoyed* means bothered or a little angry. *Furious* means very angry, so it would make a mild complaint sound much stronger.
 
-We match the strength in this sentence: “The clerk was annoyed by a minor interruption but resumed work calmly.”
+We replace *annoyed* in this sentence: “The clerk was annoyed by a minor interruption but resumed work calmly.”
 
 - The clerk resumed work calmly, so the anger is mild.
 - *Bothered* is mild, and *enraged* is extreme anger.
@@ -63,15 +63,14 @@ The answer is *chilly*. It matches a mild feeling, while *freezing* means extrem
 
 ### Register
 
-**Register** is the level of formality that fits a situation. *Commence* is formal, *start* is neutral, and *kick off* is casual. An official notice and a chat with friends call for different wording.
-
+**Register** is the level of formality that fits a situation. *Commence* is formal, *start* is neutral, and *kick off* is casual.
 First ask who will read the sentence and why it was written. Then choose the word whose meaning and setting both fit.
 
-We pick wording for a public notice: “Processing will kick off after the briefing.”
+We replace *kick off* in a public notice: “Processing will kick off after the briefing.”
 
 - A public notice is formal.
-- *Commence* is formal.
-- *Get going* is casual.
+- *Commence* is formal, and *get going* is casual.
+- So *commence* fits: “Processing will commence after the briefing.”
 
 :::pair #formal-register
 Right: Processing will commence after the briefing.
@@ -119,7 +118,7 @@ D) bony
 2. **Slender** describes a thin build with a positive tone. The answer is **B**.
 
 
-### #3: Matching Intensity
+### #3: A Brief Delay
 
 Rina was **annoyed** by the brief delay, but she soon forgot about it. Which replacement best keeps the strength of the word in bold?
 
@@ -142,7 +141,7 @@ The answer is **C**, **irritated**. *Irritated* means mild anger, while *enraged
 
 ## Speed Tricks & Shortcuts
 
-Try a simple replacement. Put the choice in place of the target word. Check meaning, grammar, feeling, strength, and formality.
+Put the choice in place of the target word. Check meaning, grammar, feeling, strength, and formality.
 
 ## Traps to Watch For
 

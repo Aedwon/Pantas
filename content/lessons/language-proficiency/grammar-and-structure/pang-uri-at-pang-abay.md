@@ -28,9 +28,9 @@ Kahit may kilos na *nagtanggol* sa pangungusap, direktang nakakabit ang *matapan
 :::
 
 :::check
-Sa "Bumili siya ng **bagong** bag," anong bahagi ng pananalita ang salitang nakadiin?
+Sa "Bumili siya ng bagong bag," ano ang inilalarawan ng *bagong*: *bumili* o *bag*?
 :::answer
-Ang sagot ay **Pang-uri**. Inilalarawan ng *bago* ang pangngalang *bag*.
+Ang sagot ay **bag**. Pangngalan ito, kaya pang-uri ang *bagong*.
 :::
 
 ### Pang-abay: Nagbibigay-Linaw sa Pandiwa, Pang-uri, o Pang-abay
@@ -53,9 +53,9 @@ Hindi tao ang direktang inilalarawan dito kundi kung paano ginawa ang kilos na *
 :::
 
 :::check
-Sa "**Maingat** na binilang ng kawani ang salapi," anong bahagi ng pananalita ang salitang nakadiin?
+Sa "Mabagal na lumakad ang matandang lalaki," alin ang pang-abay: *mabagal* o *matandang*?
 :::answer
-Ang sagot ay **Pang-abay**. Sinasabi ng *maingat* kung paano binilang ang salapi, kaya pandiwa ang binibigyang-linaw nito.
+Ang sagot ay **mabagal**. Sinasabi nito kung paano lumakad ang lalaki, kaya pandiwa ang nililinaw. Ang *matandang* ay naglalarawan sa pangngalang *lalaki*, kaya pang-uri.
 :::
 
 ### Pang-abay na Panlunan: Salita o Buong Pangkat
@@ -72,7 +72,7 @@ Katabi ng pandiwa ang *ng mga kawani*, ngunit ito ang gumawa ng kilos at ang *an
 :::
 
 :::check
-Sa "Kumain kami sa kusina kahapon," aling pangkat ng salita ang gumaganap na pang-abay na panlunan?
+Sa "Kumain kami sa kusina kahapon," aling pangkat ng salita ang nagsasabi kung saan ginanap ang kilos?
 :::answer
 Ang sagot ay **Sa kusina**. Sinasagot nito ang tanong na "Saan kami kumain?"
 :::

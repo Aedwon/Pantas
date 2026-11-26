@@ -17,7 +17,7 @@ keyPoints:
 
 Ang **ugat** (root) ay ang batayang salita na walang dagdag, gaya ng *linis* at *kain*. Ang **panlapi** (affix) ay ikinakabit sa ugat, gaya ng *mag-*, *nag-*, *ka-*, at *-um-*.
 
-Kapag nagsisimula sa katinig ang ugat, inuulit ang unang katinig at patinig nito (*li-* sa *linis*, *ka-* sa *kain*, *ta-* sa *takbo*). Kung nagsisimula sa patinig ang ugat tulad ng *alis*, inuulit ang unang patinig (*aalis*, *umaalis*). Tatawagin natin itong **inuulit na bahagi** sa mga ugat na ito. Maaaring iba ang ugat na may magkasunod na katinig, gaya ng *trabaho*.
+Kapag nagsisimula sa katinig ang ugat, inuulit ang unang katinig at patinig nito (*li-* sa *linis*, *ka-* sa *kain*, *ta-* sa *takbo*). Kung nagsisimula sa patinig ang ugat tulad ng *alis*, inuulit ang unang patinig (*aalis*, *umaalis*). Tatawagin natin itong **inuulit na bahagi** sa mga ugat na ito. Sa *trabaho*, *ta* lamang ang inuulit (*nagtatrabaho*).
 
 ### Pangkat na Mag- (Maglinis)
 
@@ -27,7 +27,7 @@ Sa pangkat ng *maglinis*, sumusunod ang tatlong **aspekto** (stage of an action)
 2. **Imperpektibo** (ongoing): nagpapatuloy, gamitin ang *nag-* at idagdag ang inuulit na bahagi -> *naglilinis*.
 3. **Kontemplatibo** (not yet begun): gagawin pa, panatilihin ang *mag-* at idagdag ang inuulit na bahagi -> *maglilinis*.
 
-Para sa katatapos na kilos, gamitin ang *ka-* at ang inuulit na bahagi: *kalilinis lang* (o *kadarating lang* mula sa *dating*, kung saan nagiging *r* ang *d* sa gitna ng mga patinig).
+Para sa **katatapos** (recently completed) na kilos, gamitin ang *ka-* at ang inuulit na bahagi: *kalilinis lang* (o *kadarating lang* mula sa *dating*, kung saan nagiging *r* ang *d* sa gitna ng mga patinig).
 
 :::check
 Ano ang anyong imperpektibo (nagpapatuloy) ng pandiwang *maglaba*?
@@ -107,13 +107,13 @@ Sa tala ay nakasulat, "Kasasara lang nila ng tanggapan. Magbabasa sila ng ulat b
 
 **Solution:**
 
-1. Suriin ang *kasasara lang*: ang *ka-*, inulit na *sa*, at *lang* ay nagpapakitang katatapos lamang ang pagsara, kaya **perpektibong katatapos** (recently completed) ito.
+1. Suriin ang *kasasara lang*: ang *ka-*, inulit na *sa*, at *lang* ay nagpapakitang katatapos lamang ang pagsara, kaya **perpektibong katatapos** ito.
 2. Suriin ang *magbabasa*: tingnan ang **unlapi** (prefix) at ang oras (*bukas*).
 
 :::try
 Tapusin ang huling hakbang: anong aspekto ang *magbabasa*, at bakit?
 :::answer
-Ang sagot ay **Perpektibong katatapos ang una; kontemplatibo ang ikalawa.** Gumagamit ang *magbabasa* ng unlaping *mag-* (hindi *nag-*) kasama ng inulit na *ba* at pahiwatig na *bukas*, kaya gagawin pa ito at hindi nagpapatuloy.
+Ang sagot ay **Kontemplatibo**. Gumagamit ang *magbabasa* ng unlaping *mag-* (hindi *nag-*) kasama ng inulit na *ba* at pahiwatig na *bukas*, kaya gagawin pa ito at hindi nagpapatuloy.
 
 **Check:** Ihambing ang dalawang unlapi: ang nagpapatuloy na anyo ay *nagbabasa* (*nag-* + *ba*), habang ang *magbabasa* (*mag-* + *ba*) ay nakatuon sa kilos na gagawin pa.
 :::

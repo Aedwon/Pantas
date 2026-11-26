@@ -25,7 +25,7 @@ Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod n
 Tandaan na iba ang panandang *ng* sa *nang*. Halimbawa, ginagamit ang *nang* sa paraan, oras, o pag-uulit ng kilos, samantalang ang *ng* ang nagmamarka ng **pangngalan** (noun) na layon, tagaganap, o may-ari.
 
 :::why
-Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi ang *ng* ang nagmamarka ng paksa. Ang *ang* ang nagmamarka ng paksa, at ang anyo ng **pandiwa** (verb) ang nagsasabi kung ano ang papel nito, gumawa man o bagay na ginawa.
+Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi ang *ng* ang nagmamarka ng paksa. Ang paksa ay minamarkahan ng *ang*, at ang anyo ng **pandiwa** (verb) ang nagsasabi kung ano ang papel nito, gumawa man o bagay na ginawa.
 :::
 
 :::pair #ng-para-sa-gumagawa
@@ -57,9 +57,9 @@ Ang *ng kawani* ang naghatid, at tao ang *aplikante* na binigyan ng katibayan. S
 :::
 
 :::check
-Ano ang papel ng *sa bodega* sa "Pumunta ang mga kawani sa bodega"?
+Ano ang papel ng *sa Davao* sa "Lumipat ang pamilya sa Davao"?
 :::answer
-Ang sagot ay **Direksiyon o patutunguhan**. Sinasagot nito ang tanong na "Saan patungo ang mga kawani?" kasama ng pandiwang *pumunta*.
+Ang sagot ay **Direksiyon o patutunguhan**. Sinasagot nito ang tanong na "Saan lumipat ang pamilya?" kasama ng pandiwang *lumipat*.
 :::
 
 ## Examples

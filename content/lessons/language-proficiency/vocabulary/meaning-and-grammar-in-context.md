@@ -51,9 +51,9 @@ After *must*, the sentence needs a verb. *Decision* is a noun.
 :::
 
 :::check
-In "She made a quick _____," which fits: *decide* or *decision*?
+In "The judges will _____ the winner tomorrow," which fits: *announce* or *announcement*?
 :::answer
-The answer is *decision*. After *a quick*, the sentence needs a noun, and *decision* is a noun.
+The answer is *announce*. After *will*, the sentence needs a verb, and *announce* is a verb.
 :::
 
 ## Examples
@@ -89,8 +89,9 @@ D) avoiding tasks to reduce effort
 2. He does this to gain favor.
 3. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
 
-**Check:** Read it back: "The assistant gave too much praise to win approval."
-### #3: Keeping the Same Grammar
+**Check:** Swap in *flattering*: "The manager's flattering assistant praised every idea."
+
+### #3: The Committee
 
 The committee will **decide** tomorrow. Which word can replace the word in bold without changing the sentence's meaning or grammar?
 

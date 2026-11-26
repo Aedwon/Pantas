@@ -40,7 +40,7 @@ The answers are *hopping* and *boxing*. *Hop* ends in *o* plus *p*, so *p* doubl
 
 ### Stress in Longer Words
 
-In most longer words, the last syllable must also be stressed.
+In most longer words, double only if the last syllable is stressed.
 
 - *Begin* becomes *beginning*.
 - *Refer* becomes *referred*.
@@ -72,9 +72,9 @@ The stressed last syllable is the one you hear strongly. A doubled consonant is 
 These are useful patterns, not rules for every suffix. Check a standard spelling when the pattern does not settle the answer.
 
 :::check
-Does the final *n* double in *open* plus *-ed*?
+Spell *open* plus *-ed*.
 :::answer
-The answer is *no*, write *opened*. *Open* has stress on its first syllable, not its last.
+The answer is *opened*. *Open* has stress on its first syllable, not its last, so the final *n* does not double.
 :::
 
 ## Examples

@@ -49,17 +49,17 @@ Ang *pagkain* ay pangngalan ng bagay, ngunit ang *kumain* ay kilos mismo ng mga 
 :::
 
 :::check
-Sa "**Sumulat** si Ben ng maikling liham," anong bahagi ng pananalita ang salitang nakadiin?
+Alin ang pandiwa sa "Nagluto si Aling Rosa ng sopas": *Rosa*, *nagluto*, o *sopas*?
 :::answer
-Ang sagot ay **Pandiwa**. Sinasabi ng *sumulat* ang kilos na ginawa ni Ben.
+Ang sagot ay **nagluto**. Ito ang kilos na ginawa ni Aling Rosa. Ngalan ng tao ang *Rosa* at ngalan ng pagkain ang *sopas*.
 :::
 
 ### Pandiwari sa Tradisyonal na Pag-uuri
 
-Ang **pandiwari** (participle) ay anyong mula sa pandiwa na gumaganap bilang pangngalan o pang-uri sa tradisyonal na balarila. Sundin ang dalawang hakbang sa pagsusuri:
+Ang **pandiwari** (participle) ay anyong mula sa pandiwa na sa tradisyonal na balarila ay ginagamit na pang-uri (*ang nahimatay na lalaki*) o, kapag walang pangngalang kasunod, na pangngalan (*ang nahimatay*). Sundin ang dalawang hakbang:
 
-1. Hanapin muna ang pangunahing kilos na ginawa sa pangungusap.
-2. Tingnan ang anyong mula sa pandiwa: kung kasunod ito ng pantukoy, itanong kung tao o bagay ang tinutukoy ng buong parirala (phrase).
+1. Hanapin muna ang pangunahing kilos ng pangungusap.
+2. Tingnan ang anyong mula sa pandiwa: kung may pangngalang kasunod, pang-uri ito; kung wala, itanong kung tao o bagay ang tinutukoy ng buong parirala (phrase).
 
 <!-- ILLUSTRATION: ang pangungusap na "Inihatid ng kawani sa klinika ang nahimatay." na may tatak sa ilalim ng "Inihatid" (pandiwa ng kawani), "sa klinika" (lugar), at "ang nahimatay" (taong tinulungan, pandiwaring gamit na pangngalan) -->
 
@@ -74,9 +74,9 @@ Ang ginawa ng kawani ay *inihatid*, at ang lugar ay *sa klinika*. Tumutukoy ang 
 :::
 
 :::check
-Sa tradisyonal na pag-uuri, paano ginagamit ang salitang nakadiin sa "Tinulungan ng nars ang **nasugatan**"?
+Sa "Tinulungan ng nars ang nasugatang bata," pang-uri o pangngalan ba ang gamit ng pandiwaring *nasugatang*?
 :::answer
-Ang sagot ay **Pandiwaring gamit na pangngalan**. Mula sa pandiwa ang *nasugatan*, at dito ay tumutukoy ito sa taong tinulungan ng nars.
+Ang sagot ay **pang-uri**. Mula sa pandiwa ang *nasugatan*, at inilalarawan nito ang pangngalang *bata*.
 :::
 
 ## Examples
@@ -122,7 +122,7 @@ Ang sagot ay **Pandiwaring gamit na pangngalan**. Mula sa pandiwa ang *nahuli*. 
 
 ## Speed Tricks & Shortcuts
 
-Suriin ang salita ayon sa papel nito sa pangungusap, hindi sa hitsura lamang. Ang pantukoy (*ang*, *si*) ay unang palatandaan ng pangngalan. Itanong ang kilos para sa pandiwa, at kung tao o bagay ang tinutukoy ng anyong mula sa pandiwa.
+Suriin ang salita ayon sa papel nito sa pangungusap. Itanong ang kilos para sa pandiwa, at kung tao o bagay ang tinutukoy ng anyong mula sa pandiwa.
 
 ## Traps to Watch For
 

@@ -4,7 +4,7 @@ You are an independent verifier. You did not write the lessons you check. First 
 /Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1/docs/content/verification/walkthrough-work/worker-rules.md
 
 - Do not start subagents; do the work yourself.
-- READ-ONLY: do not edit any file in the repository. Bash for read-only commands only. Scratch notes or arithmetic scripts only under your own folder in the scratchpad, written with the Write tool, run with `python3 -I`. Never run dart or flutter anywhere except the importer runner in its own directory (pass lesson paths as separate arguments, for example with xargs). Never run any tool with its working directory inside the repository's `content/` folder.
+- READ-ONLY: do not edit any file in the repository. Bash only for plain read-only commands (grep, ls, cat, git diff/status/log/show, date). No `>` or `>>` redirection, no sh, python or perl scripts, no zsh array or loop tricks, not even in scratch folders; scratch notes only with the Write tool. Do the arithmetic yourself. Run no dart or flutter; the lead runs the importer and the checks.
 - Worktree: /Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1. Other workers may be editing other folders; ignore them.
 
 For each lesson in your list, read the whole file line by line as a student who has never seen it, and read its questions (grep `lesson: "<_id>"` or `lesson: <_id>` under `content/questions/`). Check:
@@ -14,6 +14,5 @@ For each lesson in your list, read the whole file line by line as a student who 
 4. Every :::pair: its Wrong line shows the mistake of a non-correct choice cited for that pair in `content/walkthrough-trap-evidence.json`; the cited choice text exists exactly in a question whose `lesson:` is that lesson. Check every pair, not a sample.
 5. Filipino lessons: simple Filipino teaching prose, no Taglish, first-use English gloss for each hard grammar term (once, at first teaching use, never in headings, stems, example sentences, Right/Wrong lines or checklist lines).
 6. Style: Grade 5 English in lessons, American spelling, no em or en dashes, `\dfrac` not top-level `\frac`, no ALL-CAPS emphasis, no stock AI phrasing.
-7. Run the importer runner on your files and paste its output line.
 
 Report: verdict PASS or FAIL; one line per lesson (OK, or its findings); findings as `Severity | file:line | problem | fix`. Blocker: false rule or fact, wrong answer, answer given away, parse failure. Major: missing connection, citation mismatch, misleading wording, added wordiness. Minor: style. Under 700 words. No praise.

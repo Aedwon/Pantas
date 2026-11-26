@@ -42,7 +42,7 @@ Bukod sa paghahambing, may dalawa pang karaniwang tayutay:
 1. **Pagbibigay-katauhan** (personification): pagbibigay ng kilos o katangian ng tao sa bagay na hindi tao. Halimbawa: "**Ngumiti** ang araw habang **sumasayaw** ang mga dahon."
 2. **Pagmamalabis** (hyperbole): sadyang pagsobra sa paglalarawan. Halimbawa: "Parang isang **bundok** ang bigat ng bag ko!" (Karaniwan lamang ang bigat ng bag, ngunit pinalabis ito.)
 
-May paghahambing din ang halimbawang iyon, gamit ang *parang*. Kung sadyang pagsobra ang itinatanong, pagmamalabis ang sagot.
+May *parang* din ang halimbawang iyon. Kung sobrang pagsobra ang pangunahing punto ng linya, pagmamalabis ang sagot.
 
 :::pair #labis-hindi-tulad
 Right: Pagmamalabis ang "Parang isang bundok ang bigat ng bag ko!" dahil sadyang labis ang paglalarawan sa karaniwang bigat ng bag.

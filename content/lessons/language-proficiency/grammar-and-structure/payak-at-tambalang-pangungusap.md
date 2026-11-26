@@ -31,9 +31,9 @@ May simuno at panaguri rin ang mga iyon, ngunit bitin ang diwa dahil sa *dahil* 
 :::
 
 :::check
-Alin ang sugnay na makapag-iisa: *(Habang nag-aaral si Ben. / Nag-aaral si Ben.)*?
+Alin ang sugnay na makapag-iisa: *(Kung malakas ang ulan. / Malakas ang ulan.)*?
 :::answer
-Ang sagot ay **Nag-aaral si Ben.** Buo ang diwa nito at hindi naghihintay ng kasunod na pangyayari gaya ng *habang nag-aaral si Ben*.
+Ang sagot ay **Malakas ang ulan.** Buo ang diwa nito. Ang *kung malakas ang ulan* ay naghihintay pa ng kasunod.
 :::
 
 ### Payak at Tambalang Pangungusap
@@ -89,7 +89,7 @@ Tukuyin ang uri ng pangungusap: "Naglilinis at nag-aayos ng silid sina Ana at Be
 2. Hanapin ang panaguri: *naglilinis at nag-aayos ng silid*.
 3. Iisa lamang ang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa, kaya **Payak** ito.
 
-**Check:** Parehong panaguri ang tungkol sa *sina Ana at Ben*, at walang ikalawang sugnay na makapag-iisa.
+**Check:** Kapwa ginagawa nina Ana at Ben ang dalawang kilos, at walang ikalawang sugnay na makapag-iisa.
 
 ### #2: Tambalang Pangungusap
 

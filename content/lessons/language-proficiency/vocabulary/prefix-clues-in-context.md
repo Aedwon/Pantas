@@ -23,7 +23,7 @@ Wrong: In "unfair treatment," *unfair* means not finished.
 The prefix *un-* means *not*, and the base is *fair*.
 :::
 
-Not every opening group of letters is a prefix. Test *un-* meaning *not*: a real word must be left, as *fair* is in *unfair*. *Uncle* does not mean "not cle." Some prefixes attach to parts that cannot stand alone, such as *in-* in *include*.
+Not every opening group of letters is a prefix. For *un-* meaning *not*, a real word must be left, as *fair* is in *unfair*. *Uncle* does not mean "not cle." Other prefixes can attach to parts that cannot stand alone, such as *in-* in *include*.
 
 :::pair #real-prefix
 Right: *Uncle* has no base *cle*, so *un-* is not a prefix.
@@ -36,16 +36,16 @@ For *un-* meaning *not*, the prefix changes the meaning of a real base word. If 
 :::
 
 :::check
-In "The water was **unsafe** to drink," does *un-* act as a real prefix, and what does *unsafe* mean?
+In "The water was **unsafe** to drink," which real word is left after *un-*, and what does *unsafe* mean?
 :::answer
-The answer is yes, *not safe*. *Safe* is a real base word, *un-* means *not*, and *not safe* fits the sentence.
+The answer is *safe*, so *unsafe* means *not safe*. *Safe* is a real base word, *un-* means *not*, and *not safe* fits the sentence.
 :::
 
 ## Examples
 
-### #1: Checking a Prefix in Context
+### #1: The Directions
 
-The answer was **incorrect** because it gave the wrong date. Which phrase is closest in meaning to the word in bold?
+The directions were **unclear** because they skipped a step. Which phrase is closest in meaning to the word in bold?
 
 A) not finished  
 B) not correct  
@@ -59,10 +59,9 @@ D) not needed
 :::try
 Finish the last step: say what each part means and put them together. Which phrase fits, and does the sentence agree?
 :::answer
-*In-* means *not*, and *correct* is a real word, so *incorrect* means not correct. An answer with the wrong date is not correct. The answer is **B**.
+*Un-* means *not*, and *clear* is a real word, so *unclear* means not clear. Directions that skip a step are hard to follow. The answer is **C**.
 
-**Check:** Put the phrase in the sentence: "The answer was not correct because it gave the wrong date." It makes sense.
-
+**Check:** Put the phrase in the sentence: "The directions were not clear because they skipped a step." It makes sense.
 :::
 
 ## Speed Tricks & Shortcuts

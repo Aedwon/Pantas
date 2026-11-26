@@ -22,9 +22,9 @@ A **synonym** is a word or phrase with the same or a closely related meaning in 
 Words with close meanings can differ in strength. They can also sound more formal, friendly, or harsh. Choose the word that keeps the meaning and fits the sentence.
 
 :::check
-Is *daring* a synonym or an antonym of *audacious*?
+Which word is a synonym of *audacious*: *daring*, *polite*, *tired*, or *mild*?
 :::answer
-The answer is a synonym. Both words mean bold and willing to take risks.
+The answer is *daring*. Both words mean bold and willing to take risks.
 :::
 
 ### Word Pairings
@@ -57,9 +57,9 @@ Wrong: The opposite of *mitigate* is *alleviate*.
 :::
 
 :::check
-Is *scarce* a synonym or an antonym of *abundant*?
+Which word is an antonym of *abundant*: *scarce*, *plentiful*, *common*, or *large*?
 :::answer
-The answer is an antonym. *Abundant* means plentiful, and *scarce* means hard to find enough of.
+The answer is *scarce*. *Abundant* means plentiful, and *scarce* means hard to find enough of.
 :::
 
 ## Examples
@@ -95,9 +95,6 @@ D) isolate
 1. **Mitigate** means to make something less severe.
 2. *Alleviate* and *placate* ease or calm. They are not opposites.
 3. **Aggravate** can mean to make it worse or more severe. The answer is **A**.
-
-**Check:** Mitigate makes a problem smaller. Aggravate makes it bigger.
-
 ### #3: Weather Words
 
 Which phrase sounds most natural in standard English?
@@ -128,5 +125,5 @@ Read the task first. Check whether it asks for a similar meaning or an opposite.
 :::checklist
 - A task that asks for an opposite: pick the word that reverses the meaning, not a synonym. {#mitigate-opposite}
 - A word pairing: use the usual partner, as in *heavy rain*. {#heavy-rain}
-- A synonym choice: compare meanings and fit in the sentence, not how a word looks. {#synonyms}
+- A synonym choice: check that it keeps the meaning and fits the sentence. {#synonyms}
 :::

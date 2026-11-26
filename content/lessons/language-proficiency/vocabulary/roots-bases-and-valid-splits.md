@@ -34,14 +34,14 @@ A stem is the form that receives the suffix. The suffix is not the stem.
 :::
 
 :::check
-In *carelessness* (built from *care*, then *-less*, then *-ness*), what is the stem before *-ness*?
+In *hopelessness* (built from *hope*, then *-less*, then *-ness*), what is the stem before *-ness*?
 :::answer
-The answer is *careless*. *-Ness* is added to *careless*, so *careless* is the stem.
+The answer is *hopeless*. *-Ness* is added to *hopeless*, so *hopeless* is the stem.
 :::
 
 ### Valid Splits and False Prefixes
 
-To **infer** a meaning is to work it out from clues. Word parts can help you infer meaning, but a familiar set of letters is not always a real word part.
+Word parts can help you work out meaning, but a familiar set of letters is not always a real word part.
 
 Ask whether your split leaves a meaningful base. Then check whether the parts explain the whole word.
 
@@ -58,9 +58,9 @@ Here *in-* is not the negative prefix *in-* ("not"). Read the sentence too.
 :::
 
 :::check
-Is *re-* a real prefix in *ready*?
+In *ready*, what is left after the letters *re*, and is *re-* a real prefix?
 :::answer
-The answer is no. The rest, *ady*, is not a base with a meaning, so *re-* changes nothing.
+The answer is *ady*, and no. *Ady* is not a base with a meaning, so *re-* changes nothing.
 :::
 
 ## Examples

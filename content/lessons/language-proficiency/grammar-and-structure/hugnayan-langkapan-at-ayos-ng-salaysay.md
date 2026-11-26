@@ -30,7 +30,7 @@ Ginagawang di-makapag-iisa ng *dahil* ang *dahil umuulan na*. Kaya hindi ito tam
 :::
 
 :::check
-Hugnayan ba o tambalan ang "Isinara ang tanggapan sapagkat bumaha sa loob nito"?
+Bilangin ang mga sugnay sa "Isinara ang tanggapan sapagkat bumaha sa loob nito." Ano ang uri ng pangungusap?
 :::answer
 Ang sagot ay **Hugnayan**. May isang buong diwa (*Isinara ang tanggapan*) at isang sugnay na di-makapag-iisa na may *sapagkat* (*sapagkat bumaha sa loob nito*).
 :::
@@ -61,7 +61,7 @@ Ang sagot ay **Langkapan**. Dalawa ang sugnay na makapag-iisa (*Nag-aral si Liza
 
 ### Ayos ng Salaysay at mga Pananda
 
-Sa pagsasalaysay ng mga hakbang o pangyayari, pumili ng **pananda** (marker) na tugma sa pagkakasunod ng oras. Halimbawa, sa pagtatanim ni Mia:
+Sa pagsasalaysay, pumili ng **panandang pangkasunod** (sequence word) na tugma sa pagkakasunod ng oras. Halimbawa, sa pagtatanim ni Mia:
 
 1. Simula (*una*, *sa simula*): "**Una**, naghukay si Mia ng butas."
 2. Kasunod (*pagkatapos*, *kasunod*, *saka*): "**Pagkatapos**, itinanim niya ang buto."
@@ -74,9 +74,9 @@ Ang *sa huli* ay para lamang sa pangwakas na pangyayari. Kapag inilagay ito sa u
 :::
 
 :::check
-Punan ang gitnang pananda: "Una, naglaba si Aling Rosa ng damit. ___, isinampay niya ang mga ito. Sa huli, tinupi niya ang mga ito." *(Sa simula / Pagkatapos / Panghuli)*
+Alin ang bagay sa patlang: "Una, naghugas si Ben ng gulay. Pagkatapos, ___. Sa huli, inihain niya ang sinigang." *(naglagay siya ng gulay sa kaldero / naghugas ulit siya / kumain ang pamilya)*
 :::answer
-Ang sagot ay **Pagkatapos**. Nasa gitna ang pagsasampay, kasunod ng paglalaba at bago ang pagtupi.
+Ang sagot ay **naglagay siya ng gulay sa kaldero**. Kasunod ito ng paghuhugas at bago ang paghahain. Ang *naghugas ulit* ay kabilang sa simula, at ang *kumain* ay pagkatapos ng paghahain.
 :::
 
 ## Examples
@@ -95,15 +95,14 @@ Tukuyin ang uri ng pangungusap: "Umuwi ang bata dahil umuulan na."
 
 ### #2: Pagbuo ng Langkapan
 
-Pagsamahin sa isang langkapan ang mga diwa: nag-aral si Liza; may pagsusulit siya; naghanda si Ben para sa ulat. Gawing dahilan ng pag-aaral ang pagsusulit.
-
+Pagsamahin sa isang langkapan ang mga diwa: nag-aral si Liza; may pagsusulit siya; naghanda si Ben para sa ulat.
 **Solution:**
 
 1. Iugnay ang dahilan gamit ang *dahil*: "Nag-aral si Liza dahil may pagsusulit siya."
 2. Idagdag ang ikalawang buong diwa gamit ang *at*: "Nag-aral si Liza dahil may pagsusulit siya, at naghanda si Ben para sa ulat."
 3. Bilangin ang mga sugnay: dalawang makapag-iisa at isang di-makapag-iisa, kaya **Langkapan** ito.
 
-**Check:** Dalawang buong diwa ang naroon, at isang sugnay na may *dahil*.
+**Check:** Dalawang buong diwa at isang sugnay na may *dahil*.
 
 ### #3: Ayos ng mga Pananda sa Salaysay
 
@@ -117,19 +116,19 @@ Lagyan ng pananda ang tatlong pangyayari sa salaysay ng aplikante: nagrehistro s
 :::try
 Tapusin ang huling hakbang: anong pananda at pangungusap ang tugma sa pagkuha ng resibo?
 :::answer
-Ang sagot ay **"Panghuli, kinuha niya ang resibo."** Maaari ding *sa huli* ang panghuli.
+Ang sagot ay **"Panghuli, kinuha niya ang resibo."** Tama rin ang *sa huli*, dahil parehong pangwakas ang dalawa.
 
 **Check:** Basahin ang tatlo nang sunod: "Sa simula, nagrehistro siya. Kasunod, ipinasa niya ang mga papel. Panghuli, kinuha niya ang resibo."
 :::
 
 ## Speed Tricks & Shortcuts
 
-Bilangin ang sugnay na makapag-iisa, saka hanapin ang sugnay na may *dahil*, *sapagkat*, *kapag*, o iba pang pang-ugnay. Isang makapag-iisa na may di-makapag-iisa ay hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa ay langkapan.
+Bilangin ang sugnay na makapag-iisa, saka hanapin ang sugnay na may *dahil*, *sapagkat*, *kapag*, o iba pang pang-ugnay ng sugnay na di-makapag-iisa. Isang makapag-iisa na may di-makapag-iisa ay hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa ay langkapan.
 
 ## Traps to Watch For
 
 :::checklist
 - Sugnay na may *dahil* kasama ng isang buong diwa: hugnayan ito, hindi tambalan at hindi payak. {#hugnayan-laban-sa-tambalan}
-- Dalawang buong diwa na may kasamang pang-ugnay gaya ng *dahil* o *kapag*: bilangin lahat ng sugnay para sa langkapan. {#langkapan-bilangin-ang-bawat-sugnay}
+- Dalawang buong diwa na may kasamang *dahil* o *kapag*: bilangin lahat ng sugnay para sa langkapan. {#langkapan-bilangin-ang-bawat-sugnay}
 - Mga panandang *una*, *pagkatapos*, at *sa huli*: ilagay ang *una* sa simula at *sa huli* sa wakas. {#ayos-ng-pananda-sa-salaysay}
 :::

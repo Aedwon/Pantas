@@ -29,9 +29,9 @@ Hindi ginagamit ang anyong *ang* (*ako*) o *ng* (*ko*) bago ang *ang aklat* upan
 :::
 
 :::check
-Kausap ni Liza ang kaibigan niya. Si Liza at ang kapatid niya ang may-ari ng bahay. Piliin ang tama sa sasabihin ni Liza: "*(Namin / Amin / Kami)* ang bahay sa kanto."
+Kausap ni Liza si Ben, at kay Ben ang bag. Piliin ang tama sa tanong ni Liza: "*(Ikaw / Mo / Iyo)* ba ang bag na ito?"
 :::answer
-Ang sagot ay **Amin**. Nauuna ang may-ari bago ang *ang bahay*, at hindi kasama ang kausap sa may-ari.
+Ang sagot ay **Iyo**. Nauuna ang may-ari bago ang *ang bag*, kaya anyong *sa* ang kailangan, hindi *ikaw* o *mo*.
 :::
 
 ### Nagsasalita, Kausap, Pinag-uusapan, at Tayo Laban sa Kami
@@ -94,7 +94,7 @@ Kausap ni Ruben si Mila. Dadalo si Ruben at ang kaniyang mga kasama, ngunit hind
 
 **Solution:**
 
-1. Alamin kung kasama ang nagsasalita (Ruben): oo, dadalo siya, kaya alisin ang *sila* at *kayong lahat*.
+1. Alamin kung kasama ang nagsasalita (Ruben): oo, dadalo siya, kaya alisin ang *sila*.
 2. Alamin kung kasama ang kausap (Mila): hindi siya dadalo, kaya alisin ang *tayo*.
 3. Gamitin ang panghalip na kasama ang nagsasalita ngunit hindi kasama ang kausap: **Kami**.
 
@@ -109,9 +109,9 @@ Sinabi ni Lea sa kaibigan niya, "Salamat sa tulong mo." Paano niya ito sasabihin
 1. Hanapin ang panghalip sa linya para sa kaibigan: *mo*.
 
 :::try
-Tapusin ang huling hakbang: ano ang bagong linya para sa guro, at bakit?
+Tapusin ang huling hakbang: aling panghalip ang pamalit sa *mo* para sa guro, at bakit?
 :::answer
-Ang sagot ay **"Salamat po sa tulong ninyo."** Magalang na anyo para sa iisang kausap ang *ninyo*.
+Ang sagot ay **ninyo**, o *inyong* bago ang *tulong*: "Salamat po sa tulong ninyo" o "Salamat po sa inyong tulong." Magalang na anyo para sa iisang kausap ang dalawa.
 
 **Check:** Iisa ang kausap sa dalawang linya: "Salamat sa tulong *mo*" sa kaibigan, at "Salamat po sa tulong *ninyo*" sa guro. Paggalang ang pagkakaiba.
 :::

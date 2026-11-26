@@ -62,21 +62,21 @@ The answer is off. With only two states allowed, ruling out *on* leaves *off*.
 
 ## Examples
 
-### #1: The Fish Record
+### #1: The Exam Record
 
-A record classifies each fish as either alive or dead, with no other category. A fish is recorded as not **alive**. Which opposite of the word in bold must describe its state in this record?
+A record marks each student as either pass or fail, with no other mark. Maya's mark is not **pass**. Which opposite of the word in bold must describe her mark in this record?
 
 A) weak  
-B) asleep  
-C) injured  
-D) dead
+B) absent  
+C) average  
+D) fail
 
 **Solution:**
 
-1. The record allows only *alive* or *dead*.
-2. Ruling out *alive* leaves **dead**: the fish is recorded as dead. The answer is **D**.
+1. The record allows only *pass* or *fail*.
+2. Ruling out *pass* leaves **fail**: Maya is marked fail. The answer is **D**.
 
-**Check:** A weak, asleep, or injured fish is still alive, so A, B, and C cannot be the label.
+**Check:** Weak, absent, and average are not marks in this record, so A, B, and C cannot be the label.
 
 ### #2: The Box
 
@@ -94,7 +94,7 @@ D) The exact size is not given.
 :::try
 Finish the last step: which choice must be true?
 :::answer
-The answer is **D**: from "The box is not large," the exact size is not given. *Large* and *small* have middle sizes between them, so A, B, and C each force one size when *tiny*, *medium*, and *small* are all possible.
+The answer is **D**: from "The box is not large," the exact size is not given. *Large* and *small* have middle sizes between them, so "not large" could mean tiny, medium, or small. A, B, and C each force one size.
 
 **Check:** A medium box is not large, and a tiny box is not large, so no single size is forced.
 :::

@@ -15,11 +15,13 @@ keyPoints:
 ## Core Concept
 
 Spelling has patterns, but some words must be learned one by one. Use a pattern to check a word.
+
 ### Letters and Sounds
 
 The letters **a, e, i, o, u** are the main **vowel** letters in English. Vowel sounds are made without blocking the flow of air. Sometimes *y* also works as a vowel, as in *my*.
 
 Most other letters usually stand for **consonant** sounds. Consonant sounds usually involve blocking or narrowing the flow of air with the lips, tongue, or teeth.
+
 A **syllable** is a beat in a word. It usually has one main vowel sound. **Stress** is the extra force used to say one syllable.
 
 - *Begin* has stress on its last syllable.
@@ -77,12 +79,11 @@ D) weird
 **Solution:**
 
 1. In *achieve*, no c comes before the pair, so *ie* is right.
-2. *Sleigh* uses *ei* because the pair makes the long-*a* sound.
 
 :::try
-Finish the checking: check the other two words and name the misspelled one.
+Finish the checking: check the other three words and name the misspelled one.
 :::answer
-The answer is **B**, *percieve*, which is misspelled. A *c* comes before the pair, so the standard spelling is *perceive*, with *ei*. *Weird* is a known exception, so it is correct.
+The answer is **B**, *percieve*, which is misspelled. A *c* comes before the pair, so the standard spelling is *perceive*, with *ei*. *Sleigh* uses *ei* because the pair makes the long-*a* sound, and *weird* is a known exception, so both are correct.
 
 **Check:** Spell B as *perceive*. It now matches *receive*.
 :::

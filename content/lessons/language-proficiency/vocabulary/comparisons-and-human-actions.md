@@ -37,16 +37,15 @@ A simile compares with a marker such as *like* or *as*. This line calls the clas
 :::
 
 :::check
-“She works as a nurse” and “Her hands were like ice.” Which one is a simile?
+“He ran as fast as he could” and “Her hands were like ice.” Which one is a simile?
 :::answer
-The answer is “Her hands were like ice.” It compares two different things with *like*, while “works as a nurse” only states a job.
+The answer is “Her hands were like ice.” It compares two different things with *like*. “He ran as fast as he could” compares him with himself, not with a different thing.
 :::
 
 ### Personification and Hyperbole
 
 - **Personification:** gives a human action or quality to something nonhuman: “Opportunity knocked.”
-- **Hyperbole:** makes something seem much greater or smaller than it really is: “I've told you a million times.” This is exaggeration for effect.
-
+- **Hyperbole:** makes something seem much greater or smaller than it really is: “I've told you a million times.”
 Now we test a line that has a human action.
 
 - “The floorboards groaned, as if complaining.”
@@ -63,7 +62,7 @@ The words *as if* do not decide it. Ask what the boards are made to do.
 :::check
 “I could eat a horse.” Which figure is this?
 :::answer
-The answer is hyperbole. Eating a horse greatly overstates how hungry he is.
+The answer is hyperbole. Eating a horse greatly overstates how hungry the speaker is.
 :::
 
 ## Examples

@@ -25,9 +25,8 @@ We split *beginning* into its beats.
 
 Now we check the ending of *beginning*.
 
-- The last syllable of *begin* is stressed.
+- *Begin* ends in a stressed vowel plus one consonant.
 - So the final *n* doubles before *-ing*.
-- The ending *-ing* has the vowel sound in *sing*.
 
 :::pair #known-base
 Right: The definite answer is in the report.
@@ -46,7 +45,7 @@ Use this process for a long word:
 Now we apply the process to *occurrence*.
 
 - Split it: *occur* + *-ence*.
-- The last syllable of *occur* is stressed, so its final *r* doubles.
+- *Occur* ends in a stressed vowel plus one consonant, so its *r* doubles.
 - *occur* + *r* + *-ence* gives *occurrence*.
 
 :::pair #doubled-pairs
@@ -56,9 +55,9 @@ The spoken sound does not show a doubled letter. Check each pair: *cc* and *mm* 
 :::
 
 :::check
-Which is spelled correctly: *regretting* or *regreting*?
+Add *-ing* to *regret* and write the new word.
 :::answer
-The answer is *regretting*. The last syllable of the base *regret* is stressed, so its final *t* doubles before *-ing*.
+The answer is *regretting*. The base *regret* ends in a stressed vowel plus one consonant, so its final *t* doubles before *-ing*.
 :::
 
 ## Examples
@@ -76,12 +75,12 @@ D) preferrd
 
 1. Say the word in beats: *pri-furd*. The beats do not give every letter.
 2. Recall the base *prefer*.
-3. The last syllable of *prefer* is stressed.
+3. *Prefer* ends in a stressed vowel plus one consonant.
 
 :::try
 Finish the last step: apply the doubling rule to *prefer* with *-ed* and choose the correct option.
 :::answer
-The answer is **B**, *preferred*. The stressed final *r* doubles before *-ed*.
+The answer is **B**, *preferred*. The base ends in a stressed vowel plus one consonant, so its final *r* doubles before *-ed*.
 
 **Check:** Read it back: "Yesterday, Ana preferred the window seat." Base *prefer*, doubled *r*, ending *-ed*.
 :::

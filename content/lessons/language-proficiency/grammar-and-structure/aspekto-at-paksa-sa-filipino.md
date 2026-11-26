@@ -43,13 +43,13 @@ Ang sagot ay **Naghuhugas**. Nagaganap pa at hindi pa tapos ang paghuhugas ni Ma
 
 Ang **paksa** (subject) ang pinag-uusapan sa pangungusap, gaya ng *ang kawani* (isahan) o *ang mga kawani* (maramihan).
 
-Sa ibang wika tulad ng Ingles, nagbabago ang pandiwa kapag naging maramihan ang paksa. Sa Filipino, hindi nagbabago ang aspekto ng pandiwa dahil lamang dumami ang paksa:
+Sa ibang wika tulad ng Ingles, nagbabago ang pandiwa kapag naging maramihan ang paksa. Sa Filipino, karaniwang hindi nagbabago ang aspekto ng pandiwa dahil lamang dumami ang paksa:
 
 - Isahan: "**Kumakain** ng tanghalian **ang kawani**."
 - Maramihan: "**Kumakain** ng tanghalian **ang mga kawani**."
 
 :::why
-Bakit nananatili ang *kumakain* kahit marami na ang kawani? Sa dalawang pangungusap na ito, aspekto ang ipinakikita ng pandiwa, hindi ang bilang ng paksa. Hindi kailangang baguhin ang pandiwa kapag dumami ang paksa. Ang *mga* sa paksa ang nagpapakita ng maramihan.
+Bakit nananatili ang *kumakain* kahit marami na ang kawani? Sa dalawang pangungusap na ito, aspekto ang ipinakikita ng pandiwa, hindi ang bilang ng paksa. Karaniwang hindi kailangang baguhin ang pandiwa kapag dumami ang paksa. Ang *mga* sa paksa ang nagpapakita ng maramihan.
 :::
 
 :::pair #bilang-ng-paksa-at-pandiwa
@@ -75,7 +75,7 @@ Kasalukuyang nasa hapag si Nena at hindi pa tapos sa pagkain. Aling anyo ang ang
 1. Ang pahiwatig ay "hindi pa tapos": nagpapatuloy pa ang pagkain.
 2. Imperpektibo ang anyo: "**Kumakain** pa si Nena habang hinihintay ang kaniyang kasama."
 
-**Check:** Tugma ang *pa* sa kilos na nagpapatuloy.
+**Check:** Dito, tugma ang *pa* sa kilos na nagpapatuloy.
 
 ### #2: Pagbabago ng Bilang ng Paksa
 
@@ -108,7 +108,7 @@ Ang sagot ay **Maghahanda**: "Maghahanda si Ben ng meryenda bukas ng umaga."
 
 ## Speed Tricks & Shortcuts
 
-Itanong muna kung tapos na, nagaganap pa, o gagawin pa ang kilos bago pumili ng anyo ng pandiwa. Kapag bilang lamang ng paksa ang binago (*ang bata* -> *ang mga bata*), panatilihing buo ang pandiwa.
+Itanong muna kung tapos na, nagaganap pa, o gagawin pa ang kilos. Kapag bilang lamang ng paksa ang binago (*ang bata* -> *ang mga bata*), panatilihin ang pandiwa.
 
 ## Traps to Watch For
 

@@ -21,8 +21,8 @@ Ang **sina** ay **pananda** (marker) na ginagamit bago ang pangalan ng mga tao: 
 
 Sa pormal na pagsulat, sundin ang dalawang hakbang na ito:
 
-1. Tingnan ang kasunod ng salita: may mga pangalan ba ng tao pagkatapos nito?
-2. Kung may kasunod na mga pangalan, gamitin ang *sina*. Kung pumapalit lamang ito sa mga pangalan, gamitin ang *sila*.
+1. Tingnan ang kasunod agad ng salita: pangalan ba ng tao?
+2. Kung mga pangalan ang kasunod agad, gamitin ang *sina*. Kung pumapalit lamang ito sa mga pangalan, gamitin ang *sila*.
 
 :::pair #bago-ang-pangalan
 Right: Sina Pedro, Ana, at Miguel ang mga kasapi ng grupong ito.
@@ -75,14 +75,14 @@ D) Ang
 
 **Check:** Hindi puwede ang *sina* dahil walang pangalang kasunod.
 
-### #3: Mga Tagapagsalita
+### #3: Mga Bisita
 
-Piliin ang tamang pares: "Dumating ______ Liza at Ben. ______ ang mga tagapagsalita."
+Piliin ang tamang pares: "Nang dumating ______ Liza at Ben, nagpasalamat ______ sa mga bisita."
 
-A) sina; Sila  
-B) sila; Sina  
-C) sina; Sina  
-D) sila; Sila
+A) sina; sila  
+B) sila; sina  
+C) sina; sina  
+D) sila; sila
 
 **Solution:**
 
@@ -91,14 +91,14 @@ D) sila; Sila
 :::try
 Tapusin ang mga hakbang: ano ang tamang salita sa bawat patlang at aling letra ang sagot?
 :::answer
-Ang sagot ay **A**. May kasunod na pangalang *Liza at Ben* ang unang patlang, kaya **sina**. Pumapalit sa mga pangalan ang ikalawang patlang at walang pangalang kasunod, kaya **Sila**.
+Ang sagot ay **A**. May kasunod na pangalang *Liza at Ben* ang unang patlang, kaya **sina**. Pumapalit sa mga pangalan ang ikalawang patlang at walang pangalang kasunod, kaya **sila**.
 
-**Check:** Basahin: "Dumating sina Liza at Ben. Sila ang mga tagapagsalita." May pangalan pagkatapos ng *sina*, at pamalit sa dalawang tao ang *Sila*.
+**Check:** Basahin: "Nang dumating sina Liza at Ben, nagpasalamat sila sa mga bisita." May pangalan pagkatapos ng *sina*, at pamalit sa dalawang tao ang *sila*.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Tingnan kung may pangalang kasunod.
+Tingnan ang kasunod.
 
 ## Traps to Watch For
 

@@ -14,16 +14,14 @@ keyPoints:
 ---
 ## Core Concept
 
-When two choices still seem possible, check smaller clues.
-
 ### Word Partners and Feeling
 
 - **Word partners:** some words often appear together. In *file a complaint*, *file* means submit, not smooth a surface.
 - **Connotation:** a word can carry a feeling beyond its basic meaning. *Slim* and *scrawny* both suggest being thin, but *scrawny* suggests being too thin.
 
-Here is *charged* with its partner.
+Here is *charged* in this sentence: “The hotel charged the guest for an extra night, and the fee appeared on the final invoice.”
 
-- *Charged the guest for an extra night, and the fee appeared on the final invoice*: the partners are *extra night* and *fee*.
+- The partners are *extra night* and *fee*.
 - They point to *billed*: the hotel billed the guest.
 
 :::pair #charged-partner
@@ -46,12 +44,12 @@ The answer is fail to keep. The partner *promise* is something you keep or fail 
 First guess the meaning from the sentence. Then put a possible answer in place of the target word. It must keep the meaning and fit the grammar.
 
 :::pair #furnish-grammar
-Right: Please send proof of residence.
+Right: Please furnish proof of residence.
 Wrong: Please furniture proof of residence.
-In a request like this, a verb follows *please*. *Furniture* is a noun.
+In a request like this, a verb follows *please*. *Furnish* is the verb here. *Furniture* is a noun.
 :::
 
-*Qualified* has more than one meaning. Look at *qualified support* in "they favored it only if drainage repairs were completed first."
+*Qualified* has more than one meaning. Look at *qualified support* in “The residents gave the project qualified support: they favored it only if drainage repairs were completed first.”
 
 :::pair #qualified-meaning
 Right: *Qualified support* means limited support.
@@ -69,7 +67,7 @@ The answer is stop working as a protest. The words *workers* and *unless the com
 
 ### #1: The Official Letter
 
-The official letter asked the applicant to **furnish** proof of residence before the office could process the request. What does the word in bold most likely mean?
+The official letter asked the applicant to **furnish** a valid photo ID before the office could process the request. What does the word in bold most likely mean?
 
 A) decorate  
 B) inspect  
@@ -79,20 +77,19 @@ D) withhold
 **Solution:**
 
 1. *Furnish* has more than one meaning.
-2. Here, its partner is *proof of residence*.
+2. Here, its partner is *photo ID*.
 
 :::try
 Finish the last step: which choice fits the partner and the grammar after *to*?
 :::answer
 The answer is **C**, **provide**. *Furnish* can mean put furniture in a room or provide something. *Provide* is a verb that fits after *to* and matches handing over a document in a formal letter.
 
-**Check:** Put *provide* back: “asked the applicant to provide proof of residence.” It keeps the meaning, grammar, and formal tone.
+**Check:** Put *provide* back: “asked the applicant to provide a valid photo ID.” It keeps the meaning, grammar, and formal tone.
 :::
 
 ## Speed Tricks & Shortcuts
 
-**Put the choice back.** Check the full sentence for meaning and grammar. For a noun or describing word, keep that same job when replacing it.
-
+**Put the choice back.** Check the full sentence for meaning and grammar.
 ## Traps to Watch For
 
 :::checklist

@@ -16,7 +16,7 @@ keyPoints:
 
 ### Useful English Word Elements
 
-Some word parts come from older languages. They may carry meaning even when they cannot stand alone as English words.
+Some word parts carry meaning even when they cannot stand alone as English words.
 
 - **mal-** suggests bad, badly, or faulty: *malfunction*, *malpractice*.
 - **bene-/ben-** suggests good or well: *benevolent*, *benefit*.
@@ -26,6 +26,7 @@ Some word parts come from older languages. They may carry meaning even when they
 - **circum-** means around, and **locut-** relates to speaking: *circumlocution* is an indirect, wordy way of speaking.
 
 These parts give clues, not the whole meaning of every word. Do not force a split in a word such as *bench* just because it begins with *ben*.
+
 We split *malicious* and read the first part.
 
 - *Malicious* starts with *mal-*.
@@ -90,23 +91,23 @@ D) angry shouting
 
 ### #3: Contrasting Elements
 
-Which pair best gives the meanings of the words in bold, in order: **malevolent**, **benevolent**?
+Which pair gives the meanings of the words in bold, in order: **malnutrition**, **benefactor**?
 
-A) wishing harm; wishing good  
-B) acting slowly; acting quickly  
-C) very old; very new  
-D) speaking loudly; speaking softly
+A) poor nourishment; one who does good  
+B) slow growth; one who works slowly  
+C) too much food; one who is old  
+D) loud eating; one who speaks loudly
 
 **Solution:**
 
-1. Split the first letters of each word: *mal-* in **malevolent** and *bene-* in **benevolent**.
+1. Split the first letters of each word: *mal-* in **malnutrition** and *bene-* in **benefactor**.
 
 :::try
 Finish the last step: match *mal-* and *bene-* to their meanings and choose the right pair.
 :::answer
-The answer is **A**, *wishing harm; wishing good*. *Mal-* suggests bad or harmful, while *bene-* suggests good or well.
+The answer is **A**, *poor nourishment; one who does good*. *Mal-* suggests bad or faulty, while *bene-* suggests good or well.
 
-**Check:** The two words are opposites, and so are *mal-* and *bene-*.
+**Check:** Put each meaning back into the word: poor nourishment fits *malnutrition*, and one who does good fits *benefactor*.
 :::
 
 ## Traps to Watch For

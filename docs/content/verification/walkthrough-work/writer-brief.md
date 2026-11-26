@@ -4,7 +4,7 @@ First read the rules file in full and follow it exactly:
 /Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1/docs/content/verification/walkthrough-work/worker-rules.md
 
 - Do not start subagents; do the work yourself.
-- Change files only with the Edit or Write tool. Bash for read-only commands only. Never run any tool with its working directory inside the repository's `content/` folder.
+- Change files only with the Edit or Write tool, scratch files included. Bash only for plain read-only commands (grep, ls, cat, git diff/status/log/show, date). No `>` or `>>` redirection, no sh, python or perl scripts, no zsh array or loop tricks, not even in scratch folders. Run no checks; the lead runs the importer and word counts.
 - Edit only the lesson files your task names. Never edit question files or `content/walkthrough-trap-evidence.json`.
 
 Read first, in full:
@@ -25,7 +25,6 @@ Shape of each rewritten lesson:
 9. Filipino lessons: everything in the rules file's Filipino section.
 
 Then reread each lesson in full as a student who has never seen it: rules 5, 5a, 5b and 7 for every check and try; every example connected and ending at its finished sentence; nothing wordy; every rule true.
-Run the importer on your files.
 
 Report under 600 words: per lesson pre-tap word count, number of pairs, anything unresolved; importer output; and a JSON block of every pair's citations in this exact shape:
 {"<lesson _id>": {"<pair slug>": [{"questionId": "...", "wrongChoice": "<exact text from the YAML>", "mistakeNote": "<one line>"}]}}

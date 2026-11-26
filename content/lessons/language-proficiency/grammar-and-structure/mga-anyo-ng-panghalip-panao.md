@@ -56,7 +56,7 @@ Ang sagot ay **Nila**. *Ang ulat* ang paksa, kaya anyong *ng* para sa maraming g
 
 ### Anyong Sa: Para sa Tumanggap o Pinaglaanan
 
-Gamitin ang anyong **sa** (*akin, iyo, kaniya, amin, atin, inyo, kanila*) pagkatapos ng *sa* o *para sa* para sa tatanggap. Palitan ang *kay Ana*:
+Gamitin ang anyong **sa** (*akin, iyo, kaniya, amin, atin, inyo, kanila*) para sa tatanggap na may *sa* o *kay*. Palitan ang *kay Ana*:
 
 - "Ibinigay ng kawani **kay Ana** ang resibo." -> "Ibinigay ng kawani **sa kaniya** ang resibo."
 
