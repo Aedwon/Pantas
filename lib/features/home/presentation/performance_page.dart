@@ -291,10 +291,8 @@ class _PerformancePageState extends State<PerformancePage> {
                     title: row.title,
                     subtitle: level == 0
                         ? _topicsLabel(widget.data.subjectCounts[row.id] ?? 0)
-                        : [
-                            if (row.subtext != null) row.subtext!,
-                            '${row.answered} answered',
-                          ].join(' · '),
+                        : row.subtext,
+                    count: '(${row.answered})',
                     accuracy: row.accuracy!,
                     divider: index < rows.length - 1,
                     onTap: () => setState(() {
@@ -431,12 +429,14 @@ class _PerformanceRow extends StatelessWidget {
   const _PerformanceRow({
     required this.title,
     required this.subtitle,
+    required this.count,
     required this.accuracy,
     required this.divider,
     required this.onTap,
   });
   final String title;
-  final String subtitle;
+  final String? subtitle;
+  final String count;
   final double accuracy;
   final bool divider;
   final VoidCallback onTap;
@@ -448,6 +448,7 @@ class _PerformanceRow extends StatelessWidget {
           child: ScoreBreakdownRow.value(
             name: title,
             subtitle: subtitle,
+            count: count,
             accuracy: accuracy,
             chevron: true,
             divider: divider,
