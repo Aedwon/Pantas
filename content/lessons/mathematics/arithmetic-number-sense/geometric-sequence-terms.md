@@ -82,9 +82,7 @@ $$a_6=3\times32=96$$
 
 Try the same steps when $r$ is a fraction. Find the fifth term of $81,27,9,3,\dots$, where $a_1=81$ and $r=\dfrac{1}{3}$.
 
-$$a_5=81\left(\dfrac{1}{3}\right)^{5-1}=81\left(\dfrac{1}{3}\right)^4$$
-
-$$a_5=81\times\dfrac{1}{81}=1$$
+$$a_5=81\left(\dfrac{1}{3}\right)^{5-1}=81\left(\dfrac{1}{3}\right)^4=81\times\dfrac{1}{81}=1$$
 
 :::why
 Why is the exponent $n-1$ instead of $n$? You start at $a_1$ with $0$ multiplications by $r$, so $a_2$ multiplies once ($r^1$), $a_3$ multiplies twice ($r^2$), and $a_6$ multiplies five times ($r^5$).

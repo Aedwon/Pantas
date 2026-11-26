@@ -207,9 +207,7 @@ $$6\times\text{LCM}=18\times24$$
 
 2. Divide by the GCF.
 
-$$\text{LCM}=\dfrac{18\times24}{6}$$
-
-$$\text{LCM}=72$$
+$$\text{LCM}=\dfrac{18\times24}{6}=72$$
 
 ## Speed Tricks & Shortcuts
 

@@ -19,13 +19,13 @@ keyPoints:
 
 To **substitute** means to replace a letter with its number. When the number is negative, put it in parentheses first. The parentheses keep the minus sign attached to its number.
 
-If $x=-2$:
+Let's substitute $x = -2$ into $3x$, $x^2$ and $\dfrac{12}{x}$:
 
-$$3x=3(-2)=-6$$
+$$3x = 3(-2) = -6$$
 
-$$x^2=(-2)^2$$
+$$x^2 = (-2)^2 = 4$$
 
-$$\dfrac{12}{x}=\dfrac{12}{(-2)}=-6$$
+$$\dfrac{12}{x} = \dfrac{12}{-2} = -6$$
 
 Write the parentheses even when they seem extra. They cost nothing, and they stop the mistakes below.
 

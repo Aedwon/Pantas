@@ -71,9 +71,7 @@ Find the fourth term of $\dfrac{1}{3},\dfrac{1}{7},\dfrac{1}{11},\dots$.
 
 2. Use $n-1=4-1=3$ steps to find $a_4$ in the arithmetic sequence.
 
-$$a_4=3+(4-1)(4)$$
-
-$$a_4=3+12=15$$
+$$a_4=3+(4-1)(4)=3+12=15$$
 
 3. Flip $15$ back to return to the harmonic sequence: $\dfrac{1}{15}$.
 

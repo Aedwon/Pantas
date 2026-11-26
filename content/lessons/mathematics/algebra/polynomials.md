@@ -128,9 +128,7 @@ For the cube identities, the binomial uses the same sign as the original express
 
 When you subtract a polynomial, change the sign of every term in the second group. For example:
 
-$$(x^3+4x)-(x^3+x)$$
-
-$$=x^3+4x-x^3-x=3x$$
+$$(x^3+4x)-(x^3+x)=x^3+4x-x^3-x=3x$$
 
 The cubic terms cancel. The highest power left is $x^1$, so the degree is $1$.
 
@@ -313,9 +311,7 @@ $$R(x)=12$$
 
 8. Check by multiplying the quotient by the divisor and adding the remainder.
 
-$$(x+2)(2x^2-x-3)+12$$
-
-$$=2x^3+3x^2-5x+6$$
+$$(x+2)(2x^2-x-3)+12=2x^3+3x^2-5x+6$$
 
 ### #11: Synthetic Division
 

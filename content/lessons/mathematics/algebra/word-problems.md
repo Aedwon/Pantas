@@ -323,9 +323,9 @@ For two workers on the same job, the product-over-sum formula can save time. Bot
 
 $$t=\dfrac{ab}{a+b}$$
 
-For the work example:
+With $a=6$ and $b=3$:
 
-$$t=\dfrac{6(3)}{6+3}=2$$
+$$t=\dfrac{6(3)}{6+3}=\dfrac{18}{9}=2$$
 
 For motion at steady speeds along the same straight path, use relative speed. Add speeds for opposite-direction separation or for moving toward each other. In a same-direction chase, subtract the slower speed from the faster speed.
 

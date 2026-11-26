@@ -58,9 +58,9 @@ For $y>0$:
 
 $$\dfrac{x}{\sqrt y}=\dfrac{x\sqrt y}{y}.$$
 
-For example:
+With $x=10$ and $y=2$:
 
-$$\dfrac{10}{\sqrt2}=5\sqrt2.$$
+$$\dfrac{10}{\sqrt2}=\dfrac{10\sqrt2}{2}=5\sqrt2.$$
 
 ## Traps to Watch For
 

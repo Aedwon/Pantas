@@ -71,6 +71,4 @@ $$R(x)=12$$
 
 8. Check by multiplying the quotient by the divisor and adding the remainder.
 
-$$(x+2)(2x^2-x-3)+12$$
-
-$$=2x^3+3x^2-5x+6$$
+$$(x+2)(2x^2-x-3)+12=2x^3+3x^2-5x+6$$

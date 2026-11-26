@@ -62,11 +62,13 @@ Find $3\sqrt{20}-\sqrt{45}+2\sqrt5$.
 
 **Solution:**
 
+Simplify the radicals first:
+
 $$\sqrt{20}=2\sqrt5$$
 
 $$\sqrt{45}=3\sqrt5$$
 
-So:
+Put them back:
 
 $$3(2\sqrt5)-3\sqrt5+2\sqrt5=5\sqrt5$$
 
