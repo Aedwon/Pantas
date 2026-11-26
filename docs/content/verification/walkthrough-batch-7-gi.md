@@ -1,0 +1,25 @@
+# Batch 7 Verification Record: Code of Conduct and Ethical Standards (RA 6713 — 47 Active Lessons)
+
+- Date: November 27, 2026
+- Branch: `content/lesson-walkthrough-cse-gi-r1` (branched from `content/lesson-walkthrough-cse-r1` `97fda158a`)
+- Policy commit read: `origin/main` `6a2b2ec97` (Nov 26 Claude-limit rule, connection rule, cut-pass rule, shell-command rule, save-as-you-go rule, fresh-instance `:::check` and `:::try` ruling)
+- Spec: `docs/superpowers/specs/2026-11-25-lesson-walkthrough-standard.md` (Pick 1a: 900 pre-tap words; Pick 2A: Show answer)
+- Checks branch: `tools/walkthrough-checks-r1` (`3358aaa08`, all 10 locked Dart lesson checks)
+- Scope: All 47 active RA 6713 Code of Conduct CSE lessons under `content/lessons/general-information/code-of-conduct-ra-6713/` (`ord` 1–47 across Chunks 7-1 [12], 7-2 [10], 7-3 [10], 7-4 [6], 7-5 [9]). All 6 retired parent files (`norms-of-conduct.md`, `prohibited-acts-and-gift-rules.md`, `duties-and-prohibited-acts.md`, `statements-of-assets-and-divestment.md`, `corruption-and-its-effects.md`, `penalties-and-enforcement.md`) and all 6 question YAML files kept byte-identical to `97fda158a`.
+- Preserved markers (byte-identical to `97fda158a`): all 3 existing `<!-- ILLUSTRATION: ... -->` markers (`2` in `corruption-social-economic-political-effects.md`, `1` in `corruption-state-response.md`) and all 19 active `<!-- Audit: ... -->` comments (`8` RW-107 in Chunk 7-1 prohibitions, `1` RW-084 in `duties-code-coverage.md`, `1` RW-126 in `corruption-public-trust-and-bribery.md`, `9` RW-126 in Chunk 7-5 penalties).
+
+## Independent Verification & Re-Verification (All 5 Chunks)
+
+Every lesson was verified line-by-line by independent Hydrogen verifiers that did not author the lessons against `content/reference/cse/ra-6713-code-of-conduct.md`, `docs/content/verification/code-of-conduct-ra-6713.md`, `HEAD` parity (`97fda158a`), primary statutory rules (RA 6713 Sections 3–12 and IRR, Article XI Sections 1–4 and 17, RPC Articles 8, 10, 17–20, and 210, G.R. No. 232390, RA 3019 Section 3(b),(e),(g),(h),(k), RA 7080 amended by RA 7659 Section 12, RA 11032 Sections 4, 6, 9, RA 6770 Sections 11(4), 13, 15(1), BP 881 Section 261(a), Rules of Court Rule 43 and Rule 133 Sections 2 and 6, CSC 2025 RACCS, and G.R. No. 143538), and the 6 linked RA 6713 question YAML files:
+
+- **Chunk 7-1 (12 lessons, Norms & Prohibited Acts/Gifts, `ord` 1–12):** Round 1 found `0B/19M/3m`, all fixed directly; Round 2 independent re-verification returned `VERDICT: PASS` (`0B/0M/0m`), 35 pairs / 49 citations folded, committed at `b4cd83777`.
+- **Chunk 7-2 (10 lessons, Duties & Prohibited Acts, `ord` 13–22):** Round 1 found `0B/0M/3m`, all fixed directly; Round 2 independent re-verification returned `VERDICT: PASS` (`0B/0M/0m`), 29 pairs / 34 citations folded, committed at `247509376`.
+- **Chunk 7-3 (10 lessons, SALN & Divestment, `ord` 29–38):** Round 1 found `0B/1M/3m`, all fixed directly; Round 2 independent re-verification returned `VERDICT: PASS` (`0B/0M/0m`), 30 pairs / 36 citations folded, committed at `7c8b27e55`.
+- **Chunk 7-4 (6 lessons, Corruption & Effects, `ord` 23–28):** Round 1 found `0B/2M/3m` (4 visible steps before `:::try` leaking rulings + 1 Core 1 `:::check` mirroring quiz item `0006`), all fixed directly; Round 2 independent re-verification returned `VERDICT: PASS` (`0B/0M/0m`), 18 pairs / 18 citations folded, committed at `bd1f98e0c`.
+- **Chunk 7-5 (9 lessons, Penalties & Enforcement Sec. 11, `ord` 39–47):** Round 1 found `0B/1M/2m` (`penalties-conspiracy-and-principals.md` line 122 Step 3 pre-stating role/trial before `:::try` and line 21 `"or both"` statutory wording; `penalties-criminal-and-removal.md` line 112 6-month salary phrasing), plus lead fixed `stock=1` (`acts as a`) in `penalties-conspiracy-and-principals.md` line 97 beforehand; Round 2 independent re-verification returned `VERDICT: PASS` (`0B/0M/0m`), 27 pairs / 29 citations folded.
+- **Trap evidence (`content/walkthrough-trap-evidence-gi.json`):** Batch 7 contributes 47 lessons, 139 inline `:::pair` blocks, and 166 verbatim non-correct quiz citations matching each lesson's exact `lesson:` ID across the 6 RA 6713 YAML files (`0` errors; cumulative GI total across Batches 6a + 6b + 7: 123 lessons, 354 pairs, 494 citations).
+- **Mechanical & locked Dart gates (`tools/walkthrough-checks-r1` `3358aaa08`):** `0` violations across all 10 locked Dart lesson checks (`lesson-size`, `lesson-split-coverage`, `lesson-pool`, `walkthrough-trap-pair` structure/anchors, `walkthrough-example-connection`, `walkthrough-fresh-instance`, `walkthrough-hard-break`, `walkthrough-emphasis`, `walkthrough-fence-line`, `walkthrough-example-check-line`); `0` em/en dashes, `0` backticks, `0` stock AI phrases, `0` `not just/only ... but`, every sentence `<= 25` words, all pre-tap word counts well under the 900 cap (target `<= 850`).
+
+## Checkpoint Audit Status
+
+- **Codex GPT 6.2 Sol High Checkpoint Audit Round 1:** Queued to run via `codex-pick` immediately after the active Batch 6b Codex Sol High Round 2 audit finishes (1 Codex run at a time across lanes).

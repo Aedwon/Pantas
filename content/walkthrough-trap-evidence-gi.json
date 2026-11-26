@@ -3206,6 +3206,223 @@
           "mistakeNote": "Treats small gift value as satisfying Section 3(c) even when linked to an official favor."
         }
       ]
+    },
+    "lesson-code-of-conduct-ra-6713-penalties-administrative-limits": {
+      "salary-fine-ceiling": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0001",
+          "wrongChoice": "Twelve months' salary",
+          "mistakeNote": "Sets the Section 11(a) general salary fine ceiling at twelve months by copying the one-year suspension limit instead of six months."
+        }
+      ],
+      "suspension-ceiling-one-year": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0002",
+          "wrongChoice": "Six months",
+          "mistakeNote": "Caps administrative suspension at six months by transferring the six-month salary-fine limit to suspension."
+        }
+      ],
+      "removal-depends-on-gravity": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0009",
+          "wrongChoice": "It follows automatically after any complaint, without examining the evidence.",
+          "mistakeNote": "Treats a filed complaint as triggering automatic removal without examining evidence, gravity, notice, and hearing."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-penalties-notice-and-evidence": {
+      "handling-authority-rules": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0011",
+          "wrongChoice": "Criminal trial rules in every case",
+          "mistakeNote": "Applies criminal courtroom trial rules to every administrative case instead of the handling authority's administrative rules."
+        }
+      ],
+      "notice-before-dismissal": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0018",
+          "wrongChoice": "Yes, the official must be dismissed before receiving notice of the accusation.",
+          "mistakeNote": "Requires dismissal before giving the official notice of the accusation instead of following due notice and hearing."
+        }
+      ],
+      "complaint-not-proof": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0018",
+          "wrongChoice": "Yes, any filed complaint automatically proves a violation of the ethics code.",
+          "mistakeNote": "Treats a bare complaint as proving a violation without substantial evidence in a proper proceeding."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-penalties-criminal-and-removal": {
+      "sections-seven-eight-nine-ceilings": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0004",
+          "wrongChoice": "Six months' salary",
+          "mistakeNote": "Uses the general six-month salary administrative fine as the criminal fine ceiling for Sections 7, 8, or 9 instead of P5,000."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0020",
+          "wrongChoice": "Both fines equal six months' salary regardless of the section that was violated.",
+          "mistakeNote": "Applies the six-month salary general fine to both the administrative track and the specified criminal track."
+        }
+      ],
+      "heavier-penalty-statute-governs": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0007",
+          "wrongChoice": "Use RA 6713 exclusively even if the other statute has a heavier penalty.",
+          "mistakeNote": "Applies RA 6713 exclusively instead of prosecuting under the statute imposing a heavier penalty."
+        }
+      ],
+      "removal-needs-no-criminal-case": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0008",
+          "wrongChoice": "No, removal always requires a prior criminal conviction in court.",
+          "mistakeNote": "Requires a prior criminal conviction before administrative removal despite Section 11(b)'s independent removal rule."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-penalties-confidential-information-proof": {
+      "section-seven-covers-confidential-data": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0012",
+          "wrongChoice": "Section 3",
+          "mistakeNote": "Assigns confidential-information misuse to Section 3 (definitions) instead of Section 7(c)'s prohibited acts carrying criminal penalties."
+        }
+      ],
+      "substantial-evidence-cannot-convict": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0021",
+          "wrongChoice": "The criminal court must convict once substantial evidence has been accepted by the administrative body.",
+          "mistakeNote": "Forces a criminal conviction on administrative substantial evidence instead of requiring proof beyond reasonable doubt."
+        }
+      ],
+      "acquittal-does-not-cancel-discipline": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0021",
+          "wrongChoice": "Reasonable doubt in the criminal case automatically cancels the separate administrative finding.",
+          "mistakeNote": "Cancels an independent substantial-evidence administrative finding whenever a criminal trial ends in acquittal on reasonable doubt."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-penalties-conspiracy-and-principals": {
+      "private-conspirator-faces-same-ceiling": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0015",
+          "wrongChoice": "No imprisonment because the person is not a public official",
+          "mistakeNote": "Exempts private co-principals from imprisonment despite Section 11(c) applying the same five-year Section 7 ceiling."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0022",
+          "wrongChoice": "The technician cannot have criminal liability under the Code because only public workers may be tried.",
+          "mistakeNote": "Excludes private participants from criminal Code liability despite Section 11(c)'s conspiracy rule."
+        }
+      ],
+      "joint-trial-not-separate": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0022",
+          "wrongChoice": "The technician can be tried only apart from the officer because private and public participants cannot be joined.",
+          "mistakeNote": "Requires separate trials for private and public participants despite Section 11(c) requiring joint trial."
+        }
+      ],
+      "agreement-plus-essential-help": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0022",
+          "wrongChoice": "The technician's conduct shows only knowledge of a plan, even though the technician agreed and supplied essential help.",
+          "mistakeNote": "Reduces agreement, decision, and indispensable help to passive knowledge instead of co-principal conspiracy."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-penalties-accomplices-and-accessories": {
+      "accomplice-same-liability": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0006",
+          "wrongChoice": "Only half the official's penal liabilities apply because the accomplice is private.",
+          "mistakeNote": "Halves a private accomplice's penal liability instead of applying the same penal liabilities under Section 11(c)."
+        }
+      ],
+      "accomplice-joint-trial": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0006",
+          "wrongChoice": "The same liabilities apply, but the law requires a separate trial in every case.",
+          "mistakeNote": "Requires separate trials for private accomplices despite Section 11(c)'s joint-trial rule."
+        }
+      ],
+      "accessory-included-lawful-outsiders-not": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0017",
+          "wrongChoice": "A relative who knew the official but took no part in the offense",
+          "mistakeNote": "Treats an uninvolved relative who merely knew the official as covered by Section 11(c) instead of actual post-crime accessory acts."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-penalties-filed-statement-misuse": {
+      "twenty-five-thousand-ceiling": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0005",
+          "wrongChoice": "P5,000",
+          "mistakeNote": "Substitutes Section 11(a)'s P5,000 criminal fine for Section 11(d)'s P25,000 filed-statement misuse ceiling."
+        }
+      ],
+      "not-salary-based-fine": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0005",
+          "wrongChoice": "Six months' salary",
+          "mistakeNote": "Applies the employee's six-month salary general fine to a Section 11(d) statement-misuse action instead of P25,000."
+        }
+      ],
+      "official-concerned-sues": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0019",
+          "wrongChoice": "Only a business that wishes to purchase all filed statements for resale",
+          "mistakeNote": "Gives standing under Section 11(d) to a resale business instead of the official or employee concerned."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-penalties-enforcement-and-protection": {
+      "csc-refers-ombudsman-investigates": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0023",
+          "wrongChoice": "The CSC decides criminal guilt, while the Sandiganbayan only forwards the complaint for administrative review.",
+          "mistakeNote": "Swaps the CSC's administrative referral role with the Sandiganbayan's criminal trial role."
+        }
+      ],
+      "preliminary-investigation-not-verdict": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0023",
+          "wrongChoice": "The Ombudsman's preliminary investigation itself establishes criminal guilt without a court trial.",
+          "mistakeNote": "Treats a preliminary investigation checking basis to charge as a final court conviction."
+        }
+      ],
+      "ombudsman-protects-reporters": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0024",
+          "wrongChoice": "The CSC must give the citizen automatic immunity from every legal claim related to the report.",
+          "mistakeNote": "Assigns citizen-reporter protection to the CSC as blanket immunity instead of Ombudsman protective steps under Section 12."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-penalties-review-of-decisions": {
+      "verified-rule-forty-three-petition": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0025",
+          "wrongChoice": "An unverified request sent directly to the Court of Appeals without the required petition.",
+          "mistakeNote": "Omits verification under oath and the formal Rule 43 petition required for Court of Appeals review."
+        }
+      ],
+      "appeal-not-criminal-complaint": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0025",
+          "wrongChoice": "A new criminal complaint in the Sandiganbayan seeking reversal of the CSC disciplinary ruling.",
+          "mistakeNote": "Routes a CSC administrative ruling to a criminal complaint in the Sandiganbayan instead of a Rule 43 appeal to the Court of Appeals."
+        }
+      ],
+      "notice-to-counsel-starts-clock": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-penalties-and-enforcement-0026",
+          "wrongChoice": "The date the employee personally reads the denial, even if counsel already received notice earlier.",
+          "mistakeNote": "Delays the 15-day Rule 43 period until the client reads the denial instead of counting from earlier notice to counsel."
+        }
+      ]
     }
   }
 }
