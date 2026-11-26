@@ -12,8 +12,10 @@ void main() {
   });
 
   test('fails on triple-star bold italics', () {
-    expect(checkWalkthroughEmphasis('bad', 'Use ***always*** here.\n'),
-        hasLength(1));
+    expect(
+      checkWalkthroughEmphasis('bad', 'Use ***always*** here.\n'),
+      hasLength(1),
+    );
   });
 
   test('passes on one level of emphasis, math and bullets', () {
