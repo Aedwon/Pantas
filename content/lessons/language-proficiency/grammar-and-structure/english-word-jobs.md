@@ -107,19 +107,18 @@ Identify the part of speech of **light** in each sentence: "Turn on the **light*
 
 ### #3: Two Words to Classify
 
-Identify the parts of speech of **remarkably** and **lovely**: "**Remarkably**, the library reopened." "The **lovely** garden attracted visitors."
+Identify the parts of speech of **luckily** and **lovely**: "**Luckily**, the bus arrived." "The **lovely** garden attracted visitors."
 
 **Solution:**
 
-1. *Remarkably* comments on the whole reopening statement, rather than one noun.
-2. A word modifying a whole statement in school grammar is an **adverb**.
+1. *Luckily* comments on the whole statement *the bus arrived*, so it is an **adverb**.
 
 :::try
 Finish the last step: what part of speech is **lovely**, and which word does it describe?
 :::answer
 The answer is **Adjective**. *Lovely* describes the noun *garden*, telling what kind of garden it was.
 
-**Check:** Replace *remarkably* with *surprisingly* and *lovely* with *pretty* ("The pretty garden"); each keeps the same job.
+**Check:** Replace *luckily* with *fortunately* and *lovely* with *pretty* ("The pretty garden"); each keeps the same job.
 :::
 
 ## Speed Tricks & Shortcuts

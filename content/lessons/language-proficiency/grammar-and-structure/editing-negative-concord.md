@@ -32,17 +32,16 @@ Keeping *doesn't* and *no* fails the formal rule, while *wants some help* flips 
 :::
 
 :::check
-Revise for standard formal English: *"The shop doesn't sell no snacks."*
+Keep *doesn't* and replace only the next negative word for standard formal English: *"The shop doesn't sell no snacks."*
 :::answer
-The answer is **"The shop doesn't sell any snacks."** (Or *"The shop sells no snacks."*) One negative pattern (*doesn't...any*) states that no snacks are sold.
+The answer is **"The shop doesn't sell any snacks."** One negative pattern (*doesn't...any*) states that no snacks are sold.
 :::
 
 ### How Dialectal Negative Concord Works
 
 A **dialect** is a language variety used by a group of speakers with its own grammar rules. Many English dialects use **negative concord**, where two or more negative words work together to express **one** negative meaning.
 
-In a negative-concord dialect, *"I didn't see nothing unusual that night"* means *"The speaker saw no unusual thing."* Similarly, *"I don't have no time"* means the speaker has no time.
-
+In a negative-concord dialect, *"I didn't see nothing unusual that night"* means *"The speaker saw no unusual thing."*
 :::why
 Why do two negatives not cancel into a positive here? Grammar is not sign arithmetic. In negative-concord dialects, negative words reinforce a single negative statement.
 :::
@@ -60,9 +59,9 @@ Wrong: Revise it to *"There is somebody at the office right now, waiting inside.
 :::
 
 :::check
-A speaker who uses negative concord says, *"She won't go nowhere tonight."* Write the formal English version with the same meaning.
+A speaker who uses negative concord says, *"She won't go nowhere tonight."* Keep *won't* and replace only *nowhere* to write the formal version with the same meaning.
 :::answer
-The answer is **"She won't go anywhere tonight"** (or *"She will go nowhere tonight"*). *Won't* and *nowhere* express one negative, so one pattern remains.
+The answer is **"She won't go anywhere tonight."** *Won't* and *nowhere* express one negative, so one pattern remains.
 :::
 
 ## Examples
@@ -96,8 +95,11 @@ In a dialect that uses negative concord, what does *"I didn't see nothing unusua
 In standard formal English, choose the best revision of *"He didn't bring nothing to the party."*
 
 (A) "He didn't bring nothing to the party."
+
 (B) "He brought a gift to the party after all."
+
 (C) "He didn't bring something special to the party."
+
 (D) "He didn't bring anything to the party."
 
 **Solution:**

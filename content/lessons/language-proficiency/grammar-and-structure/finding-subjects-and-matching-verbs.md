@@ -41,7 +41,7 @@ Three verbs have their own forms in the present.
 - *I have*, *you have*, *we have*, *they have*, but *he has*, *she has*, *it has*
 - *I do*, *you do*, *we do*, *they do*, but *he does*, *she does*, *it does*
 
-Most other verbs follow one rule in the simple present. With a singular third-person subject, add *-s* or *-es*, or change *y* to *ies*: *she works*, *he watches*, *she studies*. With every other subject, use the plain verb: *I work*, *they watch*.
+Most other verbs follow one rule in the simple present. With a singular third-person subject, add *-s* or *-es*, or, after a consonant, change *y* to *ies*: *she works*, *he watches*, *she studies*. With every other subject, use the plain verb: *I work*, *they watch*.
 
 :::pair #verb-s
 Right: The dog barks every morning.
@@ -142,6 +142,6 @@ Some words are exceptions: with *some*, *most*, *all*, *half* or *a lot*, the no
 ## Traps to Watch For
 
 :::checklist
-- Singular third-person subject with a regular present verb: add *-s*, as in "The dog barks." {#verb-s}
+- Singular third-person subject with a regular present verb: add its third-person ending (*-s*, *-es*, or *y* to *ies*), as in "The dog barks." {#verb-s}
 - A phrase between the subject and the verb: cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
 :::

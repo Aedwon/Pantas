@@ -60,7 +60,7 @@ The answer is **It is**. *"It is too cold outside"* fits, while *"It has too col
 
 ### Its vs. It's
 
-**Its** (no apostrophe) shows ownership: *"The company announced its new product line yesterday."* **It's** (with an apostrophe) always stands for *it is* or *it has*. Never write *its'*.
+**Its** (no apostrophe) shows ownership: *"The company announced its new product line yesterday."* **It's** (with an apostrophe) always stands for *it is* or *it has*.
 
 :::why
 Why does possessive *its* have no apostrophe? Possessive pronouns such as *his*, *hers*, *ours*, *yours*, *theirs*, and *its* never take apostrophes.
@@ -107,7 +107,7 @@ Correct answer: **It has**.
 
 ### #3: Choosing Between Its and It's
 
-Treat the school as one organization. Choose the possessive form: *"The school painted ___ front gate last week."*
+Treat the school as one organization. Choose the form that completes the sentence: *"The school painted ___ front gate last week."*
 
 (A) Its
 (B) It's
@@ -116,19 +116,19 @@ Treat the school as one organization. Choose the possessive form: *"The school p
 
 **Solution:**
 
-1. *The school* is one organization (singular *it*), ruling out plural *Their* (D).
+1. The blank comes before the noun *front gate*, and *the school* is one organization (singular *it*).
 
 :::try
-Finish the last step: choose the correct form.
+Finish the last step: choose the form that completes the sentence.
 :::answer
-The answer is **(A) Its**: **"The school painted its front gate last week."** (B) expands to *"it is front gate"* (wrong), and (C) *Its'* is invalid; *its* with no apostrophe shows ownership.
+The answer is **(A) Its**: **"The school painted its front gate last week."** The gate belongs to the school, so ownership is needed, and plural *Their* does not fit one organization. (B) expands to *"it is front gate"* (wrong), and (C) *Its'* is invalid; *its* with no apostrophe shows ownership.
 
 **Check:** Swap in a possessive noun: *"the school's front gate."* It means the same, so **Its** is right.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Expand *it's* to *it is* or *it has*; if neither fits, use *its*. For noun possessives, write the owner word first, then choose *'s* (singular or irregular plural) or *'* (plural ending in *s*).
+For a choice between *its* and *it's*, expand *it's* to *it is* or *it has*; if neither fits and the word shows ownership, use *its*. For noun possessives, write the owner word first, then choose *'s* (singular or irregular plural) or *'* (plural ending in *s*).
 
 ## Traps to Watch For
 

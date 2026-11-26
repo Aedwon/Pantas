@@ -16,9 +16,9 @@ keyPoints:
 
 ### Commas After Opening Clauses and Phrases
 
-A **dependent clause** cannot stand alone. Put a comma right after an opening one that has its own subject and verb: *"Because she was tired, she rested."*
+A **dependent clause** cannot stand alone. Usually put a comma after an opening one that has its own subject and verb: *"Because she was tired, she rested."*
 
-An **opening phrase** usually takes a comma after the whole phrase: *"After the meeting, we went home."* A short, clear opening (*"Yesterday we met"*) may skip it. An opening clause with its own subject and verb normally takes one.
+An **opening phrase** usually takes a comma after the whole phrase: *"After the meeting, we went home."* A short, clear opening (*"Yesterday we met"*) may skip it.
 
 Put the opening comma at the **end** of the opening group, never inside it (*"After, the meeting"*) or between subject and verb (*"we, went home"*).
 
@@ -102,6 +102,7 @@ Correct sentence: **"After the long meeting with the principal, my brother, who 
 Only some applicants submitted incomplete folders, and only they must return on Monday. Choose the right sentence:
 
 (A) "The applicants, who submitted incomplete folders, must return on Monday."
+
 (B) "The applicants who submitted incomplete folders must return on Monday."
 
 **Solution:**
@@ -119,7 +120,7 @@ The answer is **(B) "The applicants who submitted incomplete folders must return
 
 ## Speed Tricks & Shortcuts
 
-Put one comma after an opening dependent clause, and after an opening phrase unless it is short and clear. For *who* or *which*, ask: narrows which one (no commas) or adds a side detail (commas)?
+Usually put one comma after an opening dependent clause, and after an opening phrase unless it is short and clear. For *who* or *which*, ask: narrows which one (no commas) or adds a side detail (commas)?
 
 ## Traps to Watch For
 

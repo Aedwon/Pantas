@@ -41,7 +41,7 @@ Before *Reyes*, *President* sits right in front of a name and takes a capital *P
 :::
 
 :::check
-Using the before-name rule, fix: *"The note needed president Santos's signature, and the President signed it."*
+Fix the capitals: *"The note needed president Santos's signature, and the President signed it."*
 :::answer
 The answer is **"The note needed President Santos's signature, and the president signed it."** Capitalize *President* right before *Santos*, and lowercase *president* after *the*.
 :::
@@ -50,7 +50,7 @@ The answer is **"The note needed President Santos's signature, and the president
 
 Capitalize the first word of a **quoted complete sentence**: *She said, "Please close the door."* The second half of a quote split by *she said* stays lowercase when it continues the same sentence: *"Please," she said, "close the door."*
 
-Keep a **quoted word or short fragment** inside a sentence lowercase (unless it is a proper name or *I*): *The word "meeting" appears twice.*
+Keep a **quoted ordinary word or short fragment** inside a sentence lowercase (unless it is a proper name, a title, or *I*): *The word "meeting" appears twice.*
 :::pair #quoted-word-capitalized
 Right: "The word \"meeting\" appears twice."
 Wrong: "The word \"Meeting\" appears twice in the short announcement."
@@ -64,9 +64,9 @@ Wrong: "She said, \"please close the door.\"" or "She said, \"Please Close The D
 :::
 
 :::check
-Choose the correct sentence: *The sign used the words "public entrance."* or *The sign used the words "Public entrance."*
+Choose the correct sentence: *The teacher wrote the word "garden" on the board.* or *The teacher wrote the word "Garden" on the board.*
 :::answer
-The answer is **The sign used the words "public entrance."** The quote is a short phrase named inside the sentence, not a complete quoted sentence, so it stays lowercase.
+The answer is **The teacher wrote the word "garden" on the board.** The quote is one ordinary word named inside the sentence, not a complete quoted sentence or a name, so it stays lowercase.
 :::
 
 ## Examples
@@ -76,7 +76,9 @@ The answer is **The sign used the words "public entrance."** The quote is a shor
 Choose the correctly capitalized sentence:
 
 (A) "We met president Reyes yesterday at the company office."
+
 (B) "We met President reyes yesterday at the company office."
+
 (C) "We met President Reyes yesterday."
 
 **Solution:**
@@ -85,9 +87,9 @@ Choose the correctly capitalized sentence:
 2. (B) leaves the surname *reyes* lowercase.
 3. (C) capitalizes sentence-start *We*, before-name title *President*, and surname *Reyes*.
 
-The correct answer is **(C)**.
+The correct answer is **(C)**: "We met President Reyes yesterday."
 
-**Check:** Each capital has a reason in step 3.
+**Check:** The capitalized title *President* comes directly before the name *Reyes*.
 
 ### #2: Quoted Sentence vs. Quoted Word
 
@@ -117,12 +119,12 @@ Finish the last step: fix the title before *Lim's* and write the full corrected 
 :::answer
 The answer is **"The report was ready; its final section needed President Lim's approval."** *President* sits directly before *Lim*, so it takes a capital *P*.
 
-**Check:** Four fixes: *The* opens the sentence, the semicolon joins two clauses, *its* needs no apostrophe, and *President Lim's* has both capitals.
+**Check:** Take away the name: *"needed the president's approval"* has a lowercase *p*. The capital depends on *Lim* coming right after.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Check four spots: sentence start, specific names, titles directly before a name, and quotes (a full sentence gets an opening capital; a single word stays lowercase unless it is a name or *I*).
+Check four spots: sentence start, specific names, titles directly before a name, and quotes (a full sentence gets an opening capital; a single ordinary word stays lowercase).
 
 ## Traps to Watch For
 

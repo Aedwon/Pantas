@@ -78,9 +78,9 @@ Proximity does not fix an unclear pronoun. When either person could own the pain
 :::
 
 :::check
-Sam alone passed. Rewrite "Alex told Sam that they had passed" clearly.
+Sam alone passed. Which sentence says so clearly: "Alex told Sam that they had passed" or "Alex told Sam that Sam had passed"?
 :::answer
-The answer is **"Alex told Sam that Sam had passed."** Repeating *Sam* names who passed and removes ambiguity. Any rewrite that names who passed also works.
+The answer is **"Alex told Sam that Sam had passed."** Repeating *Sam* names who passed. In the first sentence, *they* could mean Alex, Sam, or both.
 :::
 
 ## Examples
@@ -94,7 +94,7 @@ Choose the pronouns: (a) "The girls lost *(her / their)* books on the way home."
 1. In (a), *the girls* is plural: "The girls lost **their** books on the way home."
 2. In (b), *each* points to one unspecified student: "Each of the students must submit **their** essay by Friday."
 
-**Check:** Plural *girls* pairs with *their*. *Each of the students* names one unspecified person, so singular *their* fits (*his* assumes male gender and *its* names an object).
+**Check:** Plural *girls* pairs with *their*. *Each of the students* is one unspecified person, so singular *their* fits.
 
 ### #2: Combining Everybody and Singular They
 
@@ -110,23 +110,27 @@ Choose the correct sentence: (A) "Everybody have said they are ready." (B) "Ever
 
 ### #3: Fixing an Ambiguous Reference
 
-Explain why "When Mrs. Santos spoke to Anna, she seemed upset" is unclear, and rewrite it so Anna was upset.
+Explain why "When Mrs. Santos spoke to Anna, she seemed upset" is unclear, and fix it so Anna was upset.
 
 **Solution:**
 
 1. Both *Mrs. Santos* and *Anna* fit *she*, so either woman could be the one who seemed upset.
 
 :::try
-Finish the last step: rewrite the sentence so it clearly states that Anna seemed upset.
+Finish the last step: which sentence clearly states that Anna seemed upset?
+
+(A) "When Mrs. Santos spoke to Anna, the woman seemed upset."
+
+(B) "When Mrs. Santos spoke to Anna, Anna seemed upset."
 :::answer
-The answer is **"When Mrs. Santos spoke to Anna, Anna seemed upset."** Replacing *she* with *Anna* names the exact person meant.
+The answer is **(B) "When Mrs. Santos spoke to Anna, Anna seemed upset."** Replacing *she* with *Anna* names the exact person meant. In (A), *the woman* still fits either person.
 
 **Check:** Ask "Who seemed upset?" Only *Anna* answers the question, with no guessing by order or proximity.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Find the antecedent first. Check number, keep *everybody + singular verb* separate from *they + are*, and repeat a name whenever two people fit one pronoun.
+Find the antecedent first. Keep *everybody + singular verb* separate from *they + are*, and repeat a name when two people fit one pronoun.
 
 ## Traps to Watch For
 

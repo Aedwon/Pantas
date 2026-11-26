@@ -16,11 +16,11 @@ keyPoints:
 
 ### Matching an Opening Phrase to the Main Subject
 
-When a sentence begins with a subjectless opening phrase that describes a person or thing in the sentence (*"Driving through the mountains,"* *"Exhausted from the hike,"* *"To meet the deadline,"*), the phrase attaches to the **main subject**, the subject of the main clause. Ask who does it or is in that state.
+When a sentence begins with a subjectless opening phrase that describes a person or thing in the sentence (*"Driving through the mountains,"* *"Exhausted from the hike,"* *"To meet the deadline,"*), the phrase attaches to the **main subject**, the subject of the main clause. Ask which person or thing the phrase is meant to describe, and check the main subject names it.
 
 A **dangling modifier** happens when the main subject is not the one the phrase describes. In *"After finishing the marathon, a warm bath felt amazing,"* the main subject is *a warm bath*, making the sentence say the bath finished the race.
 
-An opening phrase is fine when the main subject can logically do that action (*"Working toward the deadline, the editors requested more time"*).
+An opening phrase is fine when the main subject names the one it describes (*"Working toward the deadline, the editors requested more time"*).
 
 <!-- ILLUSTRATION: two stacked sentences: top "After finishing the marathon, [a warm bath] felt amazing." with a crossed line from "finishing" to "a warm bath" labeled "dangling: bath cannot finish a race"; bottom "After finishing the marathon, [she] enjoyed a warm bath." with a teal arrow from "finishing" to "she" labeled "matching main subject" -->
 
@@ -33,13 +33,13 @@ Wrong: Write *"After finishing the marathon, a warm bath was enjoyed by her."* o
 :::pair #activity-noun-subject
 Right: *"Excited about the trip, we packed the suitcases a week early."* and *"Exhausted from the hike, the campers quickly pitched their tents."*
 Wrong: Write *"Excited about the trip, packing the suitcases was finished a week early."* or *"Exhausted from the long hike, pitching the tents took the campers an hour."*
-Making an activity (*packing*, *pitching*) the main subject leaves the phrase dangling, since activities cannot feel excited or tired. Name the people (*we*, *the campers*) instead.
+Making an activity (*packing*, *pitching*) the main subject leaves the phrase dangling, since the phrase describes people who felt excited or tired. Name the people (*we*, *the campers*) instead.
 :::
 
 :::check
 Does *"Reading the departure board, the train arrived late"* have a dangling modifier?
 :::answer
-The answer is **Yes**. *The train* is the main subject, and a train cannot read a board.
+The answer is **Yes**. The phrase describes whoever reads the board, but the main subject is *the train*.
 :::
 
 ### Two Ways to Fix a Dangling Modifier
@@ -76,10 +76,10 @@ What is the problem in *"Having studied all night, the exam seemed easy"*?
 **Solution:**
 
 1. *"Having studied all night"* needs a person who studied.
-2. The main subject is *the exam*, which cannot study.
-3. So *"Having studied all night, the exam seemed easy"* **dangles**: *the exam* is the wrong doer.
+2. The main subject is *the exam*, not a person who studied.
+3. So *"Having studied all night, the exam seemed easy"* **dangles**: the person who studied is never named.
 
-**Check:** Ask who studied all night: *the exam* cannot.
+**Check:** Ask who studied all night: the sentence never says.
 
 ### #2: Fixing With the Main Subject
 
@@ -90,12 +90,14 @@ Revise *"Rushing to catch the bus, my coffee spilled everywhere"* so the runner 
 1. Identify who was rushing: *I*.
 2. Put *I* right after the comma: **"Rushing to catch the bus, I spilled my coffee everywhere."**
 
-**Check:** *I* can rush; *my coffee* cannot.
+**Check:** *I* is the one rushing; *my coffee* is not.
 
 ### #3: Comparing Two Openings
 
 Choose the sentence without a dangling modifier:
+
 (A) *"While crossing the bridge, the strong wind blew Marco's hat away."*
+
 (B) *"As Marco crossed the bridge, the strong wind blew his hat away."*
 
 **Solution:**
@@ -113,7 +115,7 @@ The answer is **(B) "As Marco crossed the bridge, the strong wind blew his hat a
 
 ## Speed Tricks & Shortcuts
 
-Check the opening phrase against the main subject. If it does not fit, change the subject or make the phrase a clause.
+Ask who the opening phrase is meant to describe. If the main subject is not that person, change the subject or make the phrase a clause.
 
 ## Traps to Watch For
 

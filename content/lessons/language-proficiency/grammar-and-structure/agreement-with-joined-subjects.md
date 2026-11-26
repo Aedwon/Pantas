@@ -34,12 +34,12 @@ The answer is **Is**. One person holds both roles, so singular *is* agrees.
 
 ### Agreement with Or and Nor
 
-With *or*, *either...or*, and *neither...nor*, formal English uses the **proximity convention**. Match each verb to the nearer subject:
+With *or*, *either...or*, and *neither...nor*, a common formal convention (the **proximity convention**) is to match the verb to the nearer subject:
 
 1. "Neither the manager nor the employees **were** aware." (Nearer head: *employees*, plural -> *were*.)
 2. "Neither the students nor the teacher **was** late." (Nearer head: *teacher*, singular -> *was*.)
 
-Set aside any detail phrase after the nearer subject. In "Neither the coach nor the players on the visiting team **were** satisfied," cover *on the visiting team* so plural *players* controls *were*.
+Set aside detail phrases. In "Neither the coach nor the players on the visiting team **were** satisfied," cover *on the visiting team* so plural *players* controls *were*.
 
 <!-- ILLUSTRATION: the sentence "Neither the coach nor the players on the visiting team were satisfied." with "the coach" grayed out, "on the visiting team" bracketed as "added detail", and a teal arrow from "players" (labeled "nearer head, plural") to "were" -->
 
@@ -112,12 +112,12 @@ The answer is **Were**. The nearer head, *visitors*, is plural. The finished sen
 
 ## Speed Tricks & Shortcuts
 
-With *and*, ask whether the nouns name two things (plural) or one unit (singular); after *each* or *every*, use singular. With *or* or *nor*, cover added phrases and match the nearer head.
+With *and*, ask whether the nouns name two things or one unit; after *each* or *every*, use singular. With *or* or *nor*, cover added phrases and, by the formal convention, match the nearer head.
 
 ## Traps to Watch For
 
 :::checklist
 - Two names joined by *and* doing one shared activity: keep the verb plural. {#joined-by-and-plural}
-- *Neither...nor* or *either...or*: match the nearer subject's head, not the first subject. {#proximity-first-subject}
+- *Neither...nor* or *either...or*: by the formal convention, match the nearer subject's head, not the first subject. {#proximity-first-subject}
 - Rewriting *neither...nor* into two clauses: check each clause's verb separately instead of repeating one form. {#split-clause-agreement}
 :::

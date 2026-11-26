@@ -25,7 +25,7 @@ Change "The committee approved the new budget" to passive:
 - Active: "The committee **approved** the new budget."
 - Passive: "The new budget **was approved** by the committee."
 
-To switch back, make the agent the subject and drop passive *be*.
+To switch back, if the passive names the doer, make the doer the subject and rebuild the active verb in the same tense and aspect.
 
 :::pair #swap-roles-correctly
 Right: Changing "The novel was written by a famous author" to active gives "A famous author wrote the novel."
@@ -77,9 +77,9 @@ Wrong: Call it a linking construction with *got* meaning ownership of an object,
 :::
 
 :::check
-Which uses a get-passive: "The bike got old" or "The bike got stolen"?
+In "The bike got old" and "The bike got stolen," which verb group names something done to the bike?
 :::answer
-The answer is **"The bike got stolen."** *Stolen* is a past participle naming an action done to the bike, while *old* is an adjective.
+The answer is **"The bike got stolen."** It is a get-passive: *stolen* is a past participle naming an action done to the bike, while *old* is an adjective.
 :::
 
 ## Examples
@@ -130,7 +130,7 @@ The answer is **"The wooden fence was damaged during the typhoon."** Replace pas
 
 ## Speed Tricks & Shortcuts
 
-When changing voice, first move the receiver and the doer to their new places, then match the time and aspect. With *get*, ask whether the subject receives an action: *get* + a participle naming that action is a *get*-passive, while *get* + adjective is a state.
+To change voice, swap the doer and receiver, then keep the time and aspect. With *get*, ask whether the subject receives an action: *get* + a participle naming that action is a *get*-passive, while *get* + adjective is a state.
 
 ## Traps to Watch For
 

@@ -22,35 +22,35 @@ A **connector** joins clauses and shows how their ideas relate:
 - **Reason** (such as *because, since*): explains why something happened. *"We stayed inside because it was raining."*
 - **Contrast** (such as *although, even though, though*): introduces a fact that goes against the expected result. *"Although she was tired, she finished her homework."*
 
-**Use one connector for one link.** A subordinating connector (*although, because*) already joins one dependent clause to one main clause. A coordinating connector (*but, so*) joins two independent clauses. Using both for one link is an error, as in *"Although it rained, but we walked"* or *"Because the store was closed, so we went home."* Pick one connector; keep one main clause.
+**Use one connector for one link.** A subordinating connector (*although, because*) already joins one dependent clause to one main clause. A coordinating connector (*but, so*) joins two independent clauses. Using both for one link is an error, as in *"Although it rained, but we walked"* or *"Because the store was closed, so we went home."* Keep one connector for the link: *"Although it rained, we walked"* or *"It rained, but we walked."*
 
 :::why
 Why does *"Because it rained, so we stayed inside"* fail? *Because* makes *"it rained"* wait for a main clause, while *so* expects a main clause before it. Drop *so* so *"we stayed inside"* serves as the main clause.
 :::
 
 :::check
-Fix *"Although the team practiced, but it lost"*: keep *although* alone, or keep both *although* and *but*?
+Fix *"Although the team practiced, but it lost"* in two ways: keep *although*, or keep *but*.
 :::answer
-The answer is **Keep *although* alone**. *"Although the team practiced, it lost."* Dropping *but* removes the double connector.
+Keep *although*: **"Although the team practiced, it lost."** Keep *but*: **"The team practiced, but it lost."** Each version has one connector for the one link.
 :::
 
 ### Comma Placement by Clause Order
 
 Compare comma placement by order:
 
-1. **Dependent clause first:** Add a comma after it: *"Because it was raining, we stayed inside."*
+1. **Dependent clause first:** Usually add a comma after it: *"Because it was raining, we stayed inside."*
 2. **Essential reason second:** Skip the comma: *"We stayed inside because it was raining."*
 
 :::pair #comma-by-clause-order
 Right: *"Because it was raining, we stayed inside."* (comma after *raining*) and *"We stayed inside because it was raining."* (no comma before *because*).
 Wrong: Claim *"No: the comma should be removed entirely"* for the opening clause, or *"Yes: a comma is always required regardless of clause order"* for the second.
-Comma use depends on clause order. Put a comma after an opening dependent clause; skip it before a following essential *because* clause.
+Comma use depends on clause order. Usually put a comma after an opening dependent clause; skip it before a following essential *because* clause.
 :::
 
 :::check
 Where does a comma belong in *"Although the shop was open we left without buying anything"*?
 :::answer
-The answer is **After *open***. *"Although the shop was open, we left without buying anything."* An opening dependent clause takes a comma before the main clause.
+The answer is **After *open***. *"Although the shop was open, we left without buying anything."* An opening dependent clause usually takes a comma before the main clause.
 :::
 
 ### Completing a Dependent-Clause Fragment
@@ -74,7 +74,7 @@ Both clauses start with subordinating words (*because, while, although*). Joinin
 :::check
 Which completes *"If the records are accurate, ___"* as a full sentence: *"the totals will match"* or *"when the totals finally match"*?
 :::answer
-The answer is **the totals will match**. *The totals* is the subject and *will match* is the finite verb with no subordinating word at the front.
+The answer is **the totals will match**: **"If the records are accurate, the totals will match."** *The totals* is the subject and *will match* is the finite verb with no subordinating word at the front.
 :::
 
 ## Examples
@@ -125,7 +125,7 @@ Count subordinating words (*because, although, if*). Every sentence needs at lea
 ## Traps to Watch For
 
 :::checklist
-- Reversing clause order with *because*: put a comma after an opening *because* clause, and skip it before a closing essential *because* clause. {#comma-by-clause-order}
+- Reversing clause order with *because*: usually put a comma after an opening *because* clause, and skip it before a closing essential *because* clause. {#comma-by-clause-order}
 - Dependent clause ending with a period in formal prose: treat it as a fragment and attach it to a main clause. {#fragment-is-not-sentence}
 - Two clauses both starting with subordinating words: drop the second connector so one clause is independent. {#two-dependent-clauses}
 :::

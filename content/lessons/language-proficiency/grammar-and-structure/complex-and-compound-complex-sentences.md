@@ -25,18 +25,18 @@ A dependent clause can sit at the front (*"Although the storm was severe, the to
 
 Even **two dependent clauses** still make a **complex** sentence when there is only **one** independent clause. In *"[If the rain stops [when the guests arrive]], we will open the hall,"* the *when* clause sits inside the *if* clause. Both are dependent, and *we will open the hall* is the one independent clause.
 
-<!-- ILLUSTRATION: two-column clause inventory diagram: left column "Complex = 1 independent + 1 or more dependent" with example "If [the rain stops] (dep) + when [the guests arrive] (dep) + [we will open the hall] (1 indep)"; right column "Compound-complex = 2+ independent + 1+ dependent" with example "When [the bell rang] (dep) + [the students grabbed their bags] (indep 1), and [they rushed out] (indep 2)" -->
+<!-- ILLUSTRATION: two-column clause inventory diagram: left column "Complex = 1 independent + 1 or more dependent" with example "[If the rain stops [when the guests arrive]] (dep, with a second dep clause inside) + [we will open the hall] (1 indep)"; right column "Compound-complex = 2+ independent + 1+ dependent" with example "When [the bell rang] (dep) + [the students grabbed their bags] (indep 1), and [they rushed out] (indep 2)" -->
 
 :::pair #multiple-dependents-still-complex
 Right: *"If the rain stops when the guests arrive, we will open the hall."* and *"Although the storm was severe, the town suffered minimal damage."* are **Complex**.
 Wrong: Label the first **Compound-complex**, or label the second **Compound**.
-Count independent and dependent clauses separately. Two dependent clauses with only one main clause make a complex sentence, and an *although*-clause is dependent, never a second main clause.
+Two dependent clauses with only one main clause make a complex sentence, and an *although*-clause is dependent, never a second main clause.
 :::
 
 :::check
-Classify *"The driver, because the road was closed, took another route."*
+How many independent and how many dependent clauses are in *"The driver, because the road was closed, took another route."*?
 :::answer
-The answer is **Complex**. *Because the road was closed* is one dependent clause tucked inside one independent clause (*The driver took another route*).
+One independent clause (*The driver took another route*) and one dependent clause (*because the road was closed*) tucked inside it. That makes the sentence **complex**.
 :::
 
 ### Compound-Complex Sentences: Two or More Main Clauses Plus Dependent Clauses
@@ -49,7 +49,7 @@ Split *"When the bell rang, the students grabbed their bags, and they rushed out
 2. *The students grabbed their bags* -> independent clause 1.
 3. *They rushed out the door* -> independent clause 2 (own subject *they* and verb *rushed*, joined by *and*).
 
-Two independent clauses plus one dependent clause make the sentence **compound-complex**.
+Marked in the sentence: "[When the bell rang] (dependent), [the students grabbed their bags] (independent 1), and [they rushed out the door] (independent 2)." Two independent clauses plus one dependent clause make it **compound-complex**.
 
 :::pair #missed-second-main-or-dep
 Right: *"When the bell rang, the students grabbed their bags, and they rushed out the door."* is **Compound-complex**.
@@ -58,9 +58,9 @@ Wrong: Label it **Compound** or **Complex**.
 :::
 
 :::check
-Classify *"The students lit candles, and they continued studying because the power went out."*
+How many independent and how many dependent clauses are in *"The students lit candles, and they continued studying because the power went out."*?
 :::answer
-The answer is **Compound-complex**. *The students lit candles* and *they continued studying* are two independent clauses, plus the dependent clause *because the power went out*.
+Two independent clauses (*The students lit candles* and *they continued studying*) and one dependent clause (*because the power went out*). That makes the sentence **compound-complex**.
 :::
 
 ### Clue Words That Can Start Phrases or Clauses
@@ -73,7 +73,7 @@ The answer is **Compound-complex**. *The students lit candles* and *they continu
 :::pair #after-phrase-vs-clause
 Right: *"After rehearsal, the musicians left."* is simple; *"After rehearsal ended, the musicians left the hall."* is complex.
 Wrong: Pick *"After rehearsal ended, the musicians left the hall."* as a simple sentence starting with *After*.
-*After* can introduce a phrase or a clause. Spot the verb *ended* after *rehearsal*; once a subject and verb appear, the group is a dependent clause.
+*After* can introduce a phrase or a clause. Spot the verb *ended* after *rehearsal*; in these examples, once a subject and verb appear, the group is a dependent clause.
 :::
 
 :::check
@@ -102,8 +102,8 @@ Which sentence is simple: *"After rehearsal, the musicians left."* or *"After th
 
 **Solution:**
 
-1. *"After rehearsal"* has no verb, leaving only *"the musicians left"* (**Simple**).
-2. *"After the musicians left"* has subject *the musicians* and verb *left*, making it dependent (**Complex**).
+1. *"After rehearsal"* has no verb, so *"After rehearsal, the musicians left."* has one clause: **Simple**.
+2. *"After the musicians left"* has subject *the musicians* and verb *left*, so it is dependent: *"After the musicians left, the caretaker closed the hall."* is **Complex**.
 
 **Check:** Sentence 1 has only one subject-verb pair.
 

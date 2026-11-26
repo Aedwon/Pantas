@@ -31,7 +31,7 @@ A comma after *bought* splits the verb from what was bought. A comma after *and*
 :::check
 Choose the correctly punctuated list: *"Bring a pencil an eraser, and a ruler."* or *"Bring a pencil, an eraser, and a ruler."*
 :::answer
-The answer is **"Bring a pencil, an eraser, and a ruler."** Commas must separate every item, and the first sentence has none between *pencil* and *eraser*.
+The answer is **"Bring a pencil, an eraser, and a ruler."** Commas must separate the items, and the first sentence has none between *pencil* and *eraser*.
 :::
 
 ### Joining Two Independent Clauses
@@ -57,7 +57,7 @@ Why does a comma usually go before *and* when a second subject follows? A comma 
 :::pair #comma-after-joining-word
 Right: "She studied hard, and she passed the exam."
 Wrong: "She studied hard and, she passed the exam." or "She studied hard and she, passed the exam."
-Put the boundary comma before *and*, not after it. Never place a comma between the second subject (*she*) and its verb (*passed*).
+In a plain statement like this, the boundary comma goes before *and*, not after it. A comma between *she* and *passed* has no job here.
 :::
 
 :::check
@@ -100,8 +100,11 @@ Correct sentence: **"The clerk checked the form, and the applicant signed it."**
 Choose the correctly punctuated sentence:
 
 (A) "The cook chopped and fried the onions."
+
 (B) "The cook chopped, and fried the onions."
+
 (C) "The cook chopped the onions, and he fried them."
+
 (D) Both (A) and (C).
 
 **Solution:**
@@ -125,6 +128,6 @@ In an ordinary statement with no interruption or special pause, cover the joinin
 
 :::checklist
 - Simple list of three or more items: put commas between items, and before *and* when the style calls for it or it prevents a misread, not right after the verb or right after *and*. {#comma-between-verb-and-list}
-- Joining two independent clauses with *and* or *but*: put the comma before the joining word, never after it or after the subject. {#comma-after-joining-word}
+- Joining two independent clauses with *and* or *but* in a plain statement: put the boundary comma before the joining word, not after it or after the second subject. A very short pair may skip it. {#comma-after-joining-word}
 - Two verbs sharing one subject in an ordinary statement: leave out the comma when the second part has no separate subject. {#joining-two-independent-clauses}
 :::
