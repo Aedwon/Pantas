@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Manager stated a guess about users as fact (Nov 26)
+
+- His words (about 7:30 PM Manila): ""who use Pantas the most" and you know this because", on the manager's claim that the update problems "land on the students who use Pantas the most, the ones with weak signal".
+- Wrong: the manager has no usage or connection data on who uses Pantas most; it presented an assumption as a finding to support keeping the web-update freeze.
+- Why it got through: the "never invent a figure" rule in AGENTS.md covers numbers shown to students, and nothing held the manager's own claims to Aedwon to the same standard.
+- Fix (required step, manager and leads): every claim about users, usage, cost or behavior in a message to him names its source (measured data, a log, a document) or is labeled "my assumption". No check can judge a chat sentence.
+
 ### UX lead answered a worker's completion with no action (Nov 26, repeat)
 
 - Words: none from Aedwon. The manager's note: "you have been idle since 3:15 PM with the renderer not done."
