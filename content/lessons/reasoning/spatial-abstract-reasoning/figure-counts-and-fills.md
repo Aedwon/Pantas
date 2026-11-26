@@ -122,7 +122,7 @@ The next figure is a **black circle**.
 
 **Check:** Odd frames ($1$ and $3$) are black and even frames ($2$ and $4$) are white, so frame $5$ (odd) must be black.
 
-### #3: Multi-Step Fill Cycle
+### #3: Squares with Partial Fills
 
 A series of squares is filled to $\dfrac{1}{4}$, $\dfrac{1}{2}$, $\dfrac{3}{4}$, $\dfrac{1}{4}$, and $\dfrac{1}{2}$. Continue the pattern for two further figures. What fill appears in the second further figure?
 

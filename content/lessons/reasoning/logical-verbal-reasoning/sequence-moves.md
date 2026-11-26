@@ -140,7 +140,7 @@ Find the next term in the sequence: $4, 6, 9, 13, 18, \ldots$
 
 **Solution:**
 
-1. List the first two differences:
+1. List the differences:
 
 $$6-4=2,\quad 9-6=3$$
 

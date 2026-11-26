@@ -32,9 +32,9 @@ Passing one required exam finishes only that single requirement, not unmentioned
 :::
 
 :::check
-"If it rains heavily, the outdoor assembly will move indoors. The assembly was held indoors." Must heavy rain have occurred?
+"If a typhoon signal is raised, classes are suspended. Classes were suspended." Must a typhoon signal have been raised?
 :::answer
-The answer is **no (undetermined)**. The rule runs from rain to moving indoors, never backward; wind or heat could move it indoors too.
+The answer is **no (undetermined)**. The rule runs from the signal to suspension, never backward; a flood or power outage could suspend classes too.
 :::
 
 ### Reading "All" Without Reversing It
@@ -55,9 +55,9 @@ Being outside the supervisor group does not deny the degree. The rule places no 
 :::
 
 :::check
-"All candidates who score above $80\%$ pass. Juan scored $85\%$." Must everyone scoring exactly $80\%$ pass?
+"All riders taller than $120$ cm are let in. Rico is $130$ cm." Must a rider exactly $120$ cm be allowed in?
 :::answer
-The answer is **no**. The rule covers scores strictly *above* $80\%$, leaving $80\%$ outside the guarantee.
+The answer is **no**. The rule covers heights strictly *above* $120$ cm, leaving $120$ cm outside the guarantee.
 :::
 
 ### Reading "Some" Without Adding Exceptions
@@ -132,7 +132,7 @@ Every specimen in an exhibit tray is cataloged. Some specimens in the tray are s
 3. Drop (B): *some* allows all specimens in the tray to be shells.
 
 :::try
-Finish the last step: trace the shell in the tray through Premise $1$ and pick (A) or (C).
+Finish the last step: compare (A) and (C) against the two premises.
 :::answer
 The answer is **(C) Some cataloged specimens are shells.** Since that shell sits in the tray, Premise $1$ forces it to be cataloged too, giving at least one cataloged shell. Choice (A) wrongly sweeps in shells outside the tray.
 

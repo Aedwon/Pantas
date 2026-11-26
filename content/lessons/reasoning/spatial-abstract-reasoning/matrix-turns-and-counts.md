@@ -102,7 +102,7 @@ The blank shows a **circle with $5$ dots**.
 
 **Check:** Do not add $+1$ twice to get $6$; row $3$ and column $3$ agree on $5$.
 
-### #3: Growing Turn Steps Down Rows
+### #3: Lines in a Grid of Squares
 
 A $3 \times 3$ matrix shows squares with one center line. Row $1$ lines point up, upper-right, and right, while row $2$ lines point up, right, and down.
 

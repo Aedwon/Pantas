@@ -82,9 +82,9 @@ The wrong pair treats **or** as exclusive when both inputs are true. Inclusive *
 :::
 
 :::check
-A sign says "Bring a pen or a pencil." Ana brings both. Under inclusive **or**, is "she brings a pen or a pencil" true or false?
+Ana brings a pen and a pencil. Is "she brings a pen or a pencil" true under inclusive **or**?
 :::answer
-The answer is **true**. Both parts are true, and inclusive **or** is true when at least one part is true, including both.
+The answer is **true**. Inclusive **or** is true when at least one part is true, including both.
 :::
 
 ## Examples
@@ -133,7 +133,7 @@ $Q$ is false and $P$ is not known. Evaluate inclusive $P \lor Q$ for all possibl
 :::try
 Finish the last step: evaluate $P \lor Q$ in Case $2$ when $P=F$, then state what happens for either value of $P$.
 :::answer
-The answer is **the result matches $P$**: $T$ when $P=T$, and $F$ when $P=F$. In Case $2$, $F \lor F = F$ because neither input is true.
+The answer is **the result matches $P$**: $T$ when $P=T$, and $F$ when $P=F$.
 
 **Check:** With $Q=F$, no $T$ input comes from $Q$, so $P$ alone decides the result.
 :::

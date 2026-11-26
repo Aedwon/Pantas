@@ -62,9 +62,9 @@ The meeting corner of the two creases is the center of the flat sheet. Check whi
 :::
 
 :::check
-A square is folded vertically, left onto right. An arrow cut in the right half points right and sits $2$ centimeters from the fold. When opened, which way does its copy point, and how far is it from the fold?
+A square is folded horizontally, bottom onto top. An arrow cut in the upper half points up and sits $3$ centimeters from the fold. When opened, which way does its copy point, and how far is it from the fold?
 :::answer
-The answer is **leftward, $2$ centimeters from the fold**. A vertical fold flips right to left and keeps the $2$-centimeter distance unchanged.
+The answer is **downward, $3$ centimeters from the fold**. A horizontal fold flips up to down and keeps the $3$-centimeter distance unchanged.
 :::
 
 ## Examples

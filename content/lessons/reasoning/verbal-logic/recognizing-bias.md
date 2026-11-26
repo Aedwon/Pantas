@@ -32,9 +32,9 @@ Taking a side can still be fair when backed by facts. Bias appears in unsupporte
 :::
 
 :::check
-A newsletter calls longtime traders near Site $1$ "experienced vendors" and equally longtime traders near Site $2$ "people protecting their turf." What shows bias?
+A school paper calls the Grade $10$ debaters "confident speakers" and the equally trained Grade $9$ debaters "loud show-offs." What shows bias?
 :::answer
-The answer is **Similar groups are described in unequal terms.** Praising one group's skill while painting the equal group as selfish favors Site $1$ unfairly.
+The answer is **Similar groups are described in unequal terms.** Praising one team while mocking an equally trained team favors Grade $10$ unfairly.
 :::
 
 ### One-Sided Evidence and One-Sided Sources
@@ -55,9 +55,9 @@ Comparing records can support a fair choice. Bias comes from showing only wins f
 :::
 
 :::check
-A campus article claims to present student views on a parking fee. It invites only anti-fee club members and quotes them accurately. What creates the bias?
+A newsletter claims to share what residents think about a new bus route. It interviews only residents of the street that asked for it and quotes them accurately. What creates the bias?
 :::answer
-The answer is **The invitations favored one viewpoint.** Accurate quotes cannot balance an article that excluded every other student voice.
+The answer is **The interviews favored one viewpoint.** Accurate quotes cannot balance a newsletter that left out every other resident.
 :::
 
 ### Rewriting a Biased Phrase into Neutral Words
@@ -77,9 +77,9 @@ Wrong: A drainage plan for residents who understand the problem
 :::
 
 :::check
-Which headline is neutral: "Council Stalls Again While Clubs Do the Real Work" or "Council Delays Decision on Fair Schedule"?
+Which headline is neutral: "Greedy Landlords Squeeze Tenants Again" or "Landlords Raise Monthly Rents"?
 :::answer
-The answer is **"Council Delays Decision on Fair Schedule."** It states the event without belittling the council or praising clubs for "real work."
+The answer is **"Landlords Raise Monthly Rents."** It states the event without name-calling landlords or casting tenants as victims.
 :::
 
 ## Examples
@@ -114,21 +114,21 @@ A report states, "Our favored supplier is clearly the only sensible choice." It 
 
 ### #3: Fixing a Biased Notice
 
-A barangay bulletin calls a drainage project "a gift for sensible residents." Which revision best removes bias while keeping the subject?
+A barangay bulletin calls a curfew rule "a smart rule for decent families." Which revision best removes bias while keeping the subject?
 
-(A) A long-awaited drainage plan for the neighborhood
-(B) A drainage plan that even its critics should welcome
-(C) A proposed drainage plan for residents
+(A) A long-needed curfew rule for the barangay
+(B) A curfew rule that even its critics should accept
+(C) A proposed curfew rule for families
 
 **Solution:**
 
-1. Biased words: "gift" pushes praise, and "sensible" flatters supporters.
-2. Drop (A): "long-awaited" adds an unsupported positive claim.
+1. Biased words: "smart" pushes praise, and "decent" flatters supporters.
+2. Drop (A): "long-needed" adds an unsupported positive claim.
 
 :::try
-Finish the last step: compare (B) and (C) to choose the revision with no judgment about what readers ought to think.
+Finish the last step: compare (B) and (C) to choose the best revision.
 :::answer
-The answer is **(C) A proposed drainage plan for residents.** Choice (B) still tells critics what to welcome, whereas (C) states only what the plan is and whom it serves.
+The answer is **(C) A proposed curfew rule for families.** Choice (B) still tells critics what to accept, whereas (C) states only what the rule is and whom it serves.
 
 **Check:** Both supporters and critics can agree on (C) as a factual description.
 :::

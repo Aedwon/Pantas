@@ -143,7 +143,7 @@ The answer is **(A) Flour**.
 
 **Check:** Fire leaves ash, and grinding grain produces flour.
 
-### #4: Whole to Contents
+### #4: Matching a Pair
 
 Which pair best matches the ordered relationship in "Zoo is to animals"?
 

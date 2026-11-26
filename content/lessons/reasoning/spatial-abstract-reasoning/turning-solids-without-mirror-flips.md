@@ -42,9 +42,9 @@ Moving right (square) to front and back (cross) to left turns opposite ways. Pus
 :::
 
 :::check
-From the same starting cube (star on top, triangle on front, square on right, cross on back, dot on left), make a quarter-turn around the vertical axis so the left face moves to the front. Which symbol is now on the right?
+A cube has a heart on top, sun on front, moon on right, key on back, and leaf on left. Make a quarter-turn around the vertical axis so the left face moves to the front. Which symbol is now on the right?
 :::answer
-The answer is **triangle**. Moving left to front pushes the front face (triangle) one step to the right.
+The answer is **sun**. Moving left to front pushes the front face (sun) one step to the right.
 :::
 
 ### Using Corner Order to Catch a Mirror Flip

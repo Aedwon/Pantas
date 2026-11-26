@@ -121,7 +121,7 @@ Given "If a pass is stamped, boarding is allowed," which situation obeys the rul
 1. Drop Option $3$: a stamped pass with forbidden boarding breaks the original rule.
 
 :::try
-Finish the solution: test Options $1$, $2$, and $4$, and pick the one that obeys the rule while showing boarding allowed without a stamp.
+Finish the solution: test Options $1$, $2$, and $4$ and pick the answer.
 :::answer
 The answer is **Option $4$: Unstamped pass, boarding allowed**. Option $1$ has a stamp, and Option $2$ forbids boarding, so neither shows boarding allowed without a stamp. In Option $4$ the pass is unstamped, so the rule makes no promise.
 

@@ -60,9 +60,9 @@ Handing all credit to the second change repeats the same error in reverse. Neith
 :::
 
 :::check
-Lowland plots got new trays and had fewer failed seedlings than upland plots with old trays. Should a follow-up test more plots the same way, or test both trays at one elevation?
+Section A used a new textbook in the morning and scored higher than Section B, which used the old textbook in the afternoon. Should a follow-up repeat this setup with more sections, or test both textbooks at the same hour?
 :::answer
-The answer is **test both trays at one elevation**. Holding elevation fixed isolates the tray type.
+The answer is **test both textbooks at the same hour**. Holding the hour fixed isolates the textbook.
 :::
 
 ### Separating Actions from Unstated Motives
@@ -118,23 +118,23 @@ Carlo approved a revised schedule after reading staff feedback. No reason is giv
 
 **Check:** Every detail in (C) comes straight from the stated sequence with zero mind-reading.
 
-### #3: Observational Pattern Without Causal Testing
+### #3: Reading an Attendance Record
 
-Across observed service periods, busier periods had longer waits than quieter periods. No causes were tested. Which conclusion is best supported?
+Across observed school days, rainier days had lower attendance than drier days. No causes were tested. Which conclusion is best supported?
 
-(A) Every delay is caused only by a busy period.
-(B) Adding one worker always eliminates all delays.
-(C) Busy periods are associated with longer waits.
+(A) Rain is the only reason pupils miss class.
+(B) Giving every pupil a raincoat always ends absences.
+(C) Rainier days are associated with lower attendance.
 
 **Solution:**
 
-1. Data: wait lengths during busier periods versus quieter periods.
-2. Drop (B): staffing was never tested, and *always eliminates all* is an unsupported promise.
+1. Data: attendance on rainier days versus drier days.
+2. Drop (B): raincoats were never tested, and *always ends* is an unsupported promise.
 
 :::try
-Finish the last step: compare (A) and (C) for an observational pattern with no causal test.
+Finish the last step: compare (A) and (C) against the data.
 :::answer
-The answer is **(C) Busy periods are associated with longer waits.** Without causal tests or ruling out other factors, the data show an association rather than proving in (A) that busyness is the sole cause of every delay.
+The answer is **(C) Rainier days are associated with lower attendance.** Without causal tests or ruling out other factors, the data show an association rather than proving in (A) that rain is the sole cause of every absence.
 
 **Check:** "Associated with" matches "went together in the records" without claiming an untested cause.
 :::

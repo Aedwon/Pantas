@@ -60,9 +60,9 @@ Shaded pieces stay shaded when combined. Imagine stacking two clear films so eve
 :::
 
 :::check
-A $3 \times 3$ matrix adds dot counts across each row: row $1$ has $1, 2, 3$ dots and row $2$ has $2, 2, 4$ dots. If row $3$ starts with $1$ dot and $3$ dots, how many dots belong in the third cell?
+A $3 \times 3$ matrix adds dot counts across each row: row $1$ has $2, 1, 3$ dots and row $2$ has $3, 3, 6$ dots. If row $3$ starts with $2$ dots and $4$ dots, how many dots belong in the third cell?
 :::answer
-The answer is **$4$ dots**. Add the first two counts in row $3$: $1+3=4$.
+The answer is **$6$ dots**. Add the first two counts in row $3$: $2+4=6$.
 :::
 
 ## Examples
@@ -84,7 +84,7 @@ The blank shows a **square with both diagonals (an X inside)**.
 
 **Check:** Each completed row keeps every mark from cells $1$ and $2$ without dropping anything, so the blank keeps both diagonals.
 
-### #2: Combining Shaded Halves
+### #2: Shaded Squares in a Grid
 
 A $2 \times 3$ matrix uses squares. Row $1$ shows a small bottom-half black square, a small top-half black square, and a small fully black square.
 

@@ -85,9 +85,9 @@ You cannot predict choices under equal supply when access was unequal. Report on
 :::
 
 :::check
-Slotted crates won on long routes and solid crates won on short routes, with no total counts. Does that prove they tie overall?
+Ana's pupils scored higher on short tests and Ben's pupils scored higher on long tests, with no test counts. Does that prove Ana's pupils scored higher overall?
 :::answer
-The answer is **no (the trial does not tell us whether they tie)**. Depending on subgroup sizes and damage rates, the overall result could be a tie or either crate winning.
+The answer is **no (the records do not tell us)**. Depending on how many tests of each length were taken, either group could lead overall.
 :::
 
 ## Examples
@@ -121,7 +121,7 @@ A plant trialed two fruit crates. Slotted crates had less damage on long routes;
 
 **Check:** Opposite winners on the two route lengths directly establish that the better crate depended on route length.
 
-### #3: Separating Access from Unmeasured Effects
+### #3: Reading a Later-Hours Trial
 
 Before a later-hours trial, several workers arrived after closing. During the trial, those same workers used the library after their shifts during the added evening and weekend hours. Which conclusion is best supported?
 

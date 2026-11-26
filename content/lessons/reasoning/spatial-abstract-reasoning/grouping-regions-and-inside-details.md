@@ -37,9 +37,9 @@ Line count is not region count. Trace and number every closed area inside the fi
 :::
 
 :::check
-Square $1$ has $1$ diagonal ($2$ regions), square $2$ has $2$ crossing diagonals ($4$ regions), and square $3$ has $2$ parallel horizontal lines ($3$ strips). Which square has an odd region count?
+Square $1$ has $1$ vertical line, square $2$ has $1$ vertical and $1$ horizontal line crossing at the center, and square $3$ has $4$ parallel horizontal lines. Which square has an odd region count?
 :::answer
-The answer is **square $3$**. Two parallel lines divide the square into $3$ strips, and $3$ is odd.
+The answer is **square $3$**. Four parallel lines divide the square into $5$ strips, and $5$ is odd, while squares $1$ and $2$ have $2$ and $4$ regions.
 :::
 
 ### Comparing Inside Details
@@ -107,7 +107,7 @@ The odd-one-out is the **hexagon**.
 
 **Check:** Even though the circle is the only curved outline, its $1$ dot matches the first four figures.
 
-### #3: Comparing Side Count and Dot Count
+### #3: Polygons with Dots
 
 Four polygons contain shaded dots: a square with $2$ dots, a rectangle with $2$ dots, a hexagon with $3$ dots, and a triangle with $2$ dots. Which figure does not belong?
 
@@ -116,12 +116,12 @@ Four polygons contain shaded dots: a square with $2$ dots, a rectangle with $2$ 
 **Solution:**
 
 1. Sides and dots: square ($4, 2$), rectangle ($4, 2$), hexagon ($6, 3$), triangle ($3, 2$).
-2. Test $\text{sides}=2\times\text{dots}$ on the first three: $4=2\times2$ (square, rectangle), $6=2\times3$ (hexagon).
+2. Test $\text{sides}=2\times\text{dots}$ on each figure.
 
 :::try
-Test the triangle against $\text{sides}=2\times\text{dots}$.
+Finish the last step: name the figure that fails the test.
 :::answer
-The answer is the **triangle**. With $2$ dots, twice the dot count would be $4$ sides, yet the triangle has $3$ sides.
+The answer is the **triangle**. The square ($4=2\times2$), rectangle ($4=2\times2$), and hexagon ($6=2\times3$) fit. With $2$ dots, the triangle would need $4$ sides, yet it has $3$.
 
 **Check:** Notice the hexagon has $3$ dots, yet $6=2\times3$ matches the rule; only the triangle fails it.
 :::

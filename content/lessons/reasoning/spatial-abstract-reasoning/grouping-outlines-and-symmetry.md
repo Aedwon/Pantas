@@ -46,9 +46,9 @@ Why check side count before proportions? Turning or stretching a $4$-sided shape
 :::
 
 :::check
-Four outlines are shown: a trapezoid, a square, a pentagon, and a rhombus. Grouped by side count, which outline does not belong?
+Four outlines are shown: a kite, a square, a trapezoid, and an octagon. Grouped by side count, which outline does not belong?
 :::answer
-The answer is the **pentagon**. The trapezoid, square, and rhombus each have $4$ sides, while the pentagon has $5$ sides.
+The answer is the **octagon**. The kite, square, and trapezoid each have $4$ sides, while the octagon has $8$ sides.
 :::
 
 ### Testing Reflection Symmetry
@@ -71,7 +71,7 @@ A corner dot keeps symmetry along the diagonal through that corner and the cente
 :::
 
 :::check
-Four figures are shown: a circle, an equilateral triangle, a rectangle, and a scalene triangle with three unequal sides. Which figure has no reflection axis?
+Four figures are shown: a rectangle, an isosceles triangle, a regular hexagon, and a scalene triangle with three unequal sides. Which figure has no reflection axis?
 :::answer
 The answer is the **scalene triangle**. With all three sides unequal, no fold line makes matching halves.
 :::
@@ -110,7 +110,7 @@ The odd-one-out is the **irregular blob**.
 
 **Check:** Straight vs. curved boundaries would single out the circle, yet the blob also has curves; only reflection symmetry groups the first three figures together.
 
-### #3: Grouping by Curved and Straight Lines
+### #3: Grouping Four Outlines
 
 Four figures are shown: a triangle, a square, a pentagon, and a circle. Which figure does not belong?
 
@@ -119,12 +119,11 @@ Four figures are shown: a triangle, a square, a pentagon, and a circle. Which fi
 **Solution:**
 
 1. Check whether each outline uses straight segments or a curve.
-2. The triangle ($3$ sides), square ($4$ sides), and pentagon ($5$ sides) use only straight segments.
 
 :::try
-Finish the last step: check the fourth figure's boundary to name the odd-one-out.
+Finish the last step: name the odd-one-out.
 :::answer
-The answer is the **circle**. Unlike the three polygons, the circle has a curved outline.
+The answer is the **circle**. The triangle ($3$ sides), square ($4$ sides), and pentagon ($5$ sides) use only straight segments, while the circle has a curved outline.
 
 **Check:** All four figures have reflection symmetry and different side counts ($3, 4, 5$), so only straight vs. curved boundary separates one figure cleanly.
 :::

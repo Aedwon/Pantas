@@ -86,9 +86,9 @@ With a good battery, one full card, and one card with room, the original still h
 :::
 
 :::check
-What is the negation of "The backup generator starts or both solar batteries are charged"?
+What is the negation of "The backup generator starts or at least one of the two solar batteries is charged"?
 :::answer
-The answer is **The backup generator does not start, and at least one solar battery is not charged.** Flip *or* to *and*, and negate "both are charged" to "at least one is not charged."
+The answer is **The backup generator does not start, and neither solar battery is charged.** Flip *or* to *and*, and negate "at least one is charged" to "neither is charged."
 :::
 
 ## Examples

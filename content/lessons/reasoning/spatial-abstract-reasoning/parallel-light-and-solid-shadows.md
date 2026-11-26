@@ -102,7 +102,6 @@ An opaque sphere is projected by parallel light onto a flat screen perpendicular
 
 1. Look at the sphere along the parallel rays before turning: every cross-section is a circle of the same radius, so the shadow is a **circle**.
 2. Turn the sphere in place while keeping the screen perpendicular to the rays.
-3. Check whether any flat face, corner, or narrower edge appears.
 
 :::try
 Finish the last step: state what happens to the shadow outline after the turn.

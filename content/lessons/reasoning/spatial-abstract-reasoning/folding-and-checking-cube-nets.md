@@ -116,7 +116,7 @@ The pattern is **not a valid cube net** because D and F overlap.
 
 **Check:** Five directions are filled (front, left, right, top, back twice) and bottom is open, confirming overlap.
 
-### #3: Three Faces Meeting at One Corner
+### #3: Faces of a Folded Net
 
 A row of $4$ squares reads B, C, D, E from left to right, with A above B and F below E. Fold the net into a cube. Which set meets at one corner: (A, B, D), (A, B, F), or (A, B, C)?
 
@@ -130,12 +130,11 @@ A row of $4$ squares reads B, C, D, E from left to right, with A above B and F b
 4. Fold E from D to **left**.
 5. Fold A up from B to **top**.
 6. Fold F down from E to **bottom**.
-7. Opposite pairs: A and F, B and D, C and E.
 
 :::try
-Finish the last step: rule out sets with opposite faces, and name the three faces that meet at one corner.
+Finish the last step: name the set of three faces that meet at one corner.
 :::answer
-The answer is **A, B, C**. B and D are opposite, and A and F are opposite, so only A (top), B (front), and C (right) meet at the top-front-right corner.
+The answer is **A, B, C**. The opposite pairs are A and F, B and D, and C and E. Faces that oppose each other never share a corner, so only A (top), B (front), and C (right) meet at the top-front-right corner.
 
 **Check:** Folding brings A's right edge directly onto C's top edge, so A and C share an entire edge whose front endpoint lies on B.
 :::

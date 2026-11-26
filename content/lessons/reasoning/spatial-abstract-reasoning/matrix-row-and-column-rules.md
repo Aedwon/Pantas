@@ -36,9 +36,9 @@ Medium belongs to row $2$. Follow size down column $3$ to row $3$'s large size.
 :::
 
 :::check
-A $3 \times 3$ grid shows stars: row $1$ has small black, small white, small black; row $2$ has medium black, medium white, medium black. Row $3$ starts with a large black star and a large white star, so what belongs in the blank?
+A $3 \times 3$ grid shows stars: row $1$ has small white, small gray, small black; row $2$ has medium white, medium gray, medium black. Row $3$ starts with a large white star and a large gray star, so what belongs in the blank?
 :::answer
-The answer is a **large black star**. Fill alternates black, white, black across every row, and row $3$ keeps the large size.
+The answer is a **large black star**. Fill goes white, gray, black across every row, and row $3$ keeps the large size.
 :::
 
 ### Checking Shifted Cycles and Full-Set Rules
@@ -87,7 +87,7 @@ The bottom row shows a large black square, a large white square, and a blank. Wh
 
 **Check:** Column $3$ runs small black, medium black, so a large black square satisfies both row and column rules.
 
-### #2: One of Each Shape Per Row and Column
+### #2: Shapes in a Grid
 
 A $3 \times 3$ matrix contains plain outlines. Row $1$ shows a circle, a triangle, and a square, while row $2$ shows a triangle, a square, and a circle.
 

@@ -89,7 +89,7 @@ The open sheet has **one circular opening at the center**.
 
 **Check:** Both creases pass through the cut, so all four quarter-circles meet at the center point to form one circle.
 
-### #2: Cut on One of Two Fold Lines
+### #2: A Notch on a Folded Square
 
 A square is folded vertically in half, then horizontally in half. A small semicircular notch is cut through all $4$ layers, centered on the vertical folded edge and away from the horizontal crease and outer edges. How many connected openings appear when the square is fully opened?
 

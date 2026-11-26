@@ -86,9 +86,9 @@ Swapping *rejected* and *accepted* checks the wrong starting group. Keep the exa
 :::
 
 :::check
-Why is "No permanent employee has access" not the negation of "No temporary employee has access"?
+Why is "No night guard has a key" not the negation of "No day guard has a key"?
 :::answer
-The answer is **It switches the group from temporary to permanent employees.** A negation must test the exact same group.
+The answer is **It switches the group from day guards to night guards.** A negation must test the exact same group.
 :::
 
 ## Examples
@@ -138,7 +138,7 @@ A records officer assumes every form returned by a class adviser contained at le
 **Solution:**
 
 1. Outer quantifier: *every* form returned by a class adviser.
-2. One returned form without a parent signature breaks *every*.
+2. *Every* fails when one such form fails.
 3. Drop (A): another parent still signed each form.
 
 :::try

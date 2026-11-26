@@ -116,7 +116,7 @@ A training roster lists supervisors, trainees, and mentors. No supervisor is lis
 3. Drop (B): mentors outside *Supervisors* have no rule forcing them into *Trainees*.
 
 :::try
-Finish the last step: trace a mentor-supervisor through Premise $1$ and choose (A) or (C).
+Finish the last step: compare (A) and (C) against the two premises.
 :::answer
 The answer is **(C) Some mentors are not trainees.** Any mentor in *Supervisors* is excluded from *Trainees*, giving at least $1$ mentor who is not a trainee. Choice (A) wrongly stretches that limit to every mentor.
 

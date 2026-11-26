@@ -142,7 +142,7 @@ The answer is **right**.
 
 **Check:** A $180^\circ$ turn always points the exact opposite way, and the opposite of left is right.
 
-### #4: Alternating Turns
+### #4: Arrows in Squares
 
 An arrow inside a square points up, right, up, and right. Which direction completes the series: up, down, right, or left?
 

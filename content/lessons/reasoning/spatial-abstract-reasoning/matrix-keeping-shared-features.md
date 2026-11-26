@@ -97,7 +97,7 @@ The blank shows a **square with only the diagonal from top-left to bottom-right*
 
 **Check:** Unshared lines drop out in rows $1$ and $2$, confirming the third square keeps shared full lines rather than joining all lines.
 
-### #2: Keeping Shared Corner Dots
+### #2: Corner Dots in a Grid
 
 A $3 \times 3$ matrix shows squares with corner dots. Row $1$ shows (top-left, top-right), then (top-right, bottom-left), then (top-right).
 

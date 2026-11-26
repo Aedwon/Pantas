@@ -39,9 +39,9 @@ Half-folds multiply the layer count by $2$ at every fold, rather than adding $2$
 :::
 
 :::check
-A rectangular sheet is folded completely in half $4$ times and punched once through all layers, away from every crease and edge. How many separate holes appear when opened?
+A rectangular sheet is folded completely in half $5$ times and punched once through all layers, away from every crease and edge. How many separate holes appear when opened?
 :::answer
-The answer is **$16$ holes**. Four complete half-folds double the layers four times: $2\times2\times2\times2=16$.
+The answer is **$32$ holes**. Five complete half-folds double the layers five times: $2\times2\times2\times2\times2=32$.
 :::
 
 ### Checking the Two Conditions and Partial Unfolding
@@ -66,9 +66,9 @@ Stopping after $1$ fold reflects the punch across only that $1$ crease. Count vi
 :::
 
 :::check
-A square has $2$ complete half-folds ($4$ layers) and an interior punch through all $4$ layers away from every crease. If you open only the last fold and keep the first fold closed, how many holes do you see?
+A square has $3$ complete half-folds ($8$ layers) and an interior punch through all $8$ layers away from every crease. If you open only the last fold and keep the other two closed, how many hole locations do you see?
 :::answer
-The answer is **$2$ holes**. Opening only the last fold doubles the single punch once across that crease, while the first fold still holds $2$ layers together at each spot.
+The answer is **$2$ locations**. Opening only the last fold doubles the single punch once across that crease, while the other folds still hold $4$ layers together at each spot.
 :::
 
 ## Examples

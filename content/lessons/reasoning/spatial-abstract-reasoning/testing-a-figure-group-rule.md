@@ -58,9 +58,9 @@ Why do phrases like "at least" or "closed boundary" trap learners? They describe
 :::
 
 :::check
-Four figures are shown: a square, a rectangle, a rhombus, and a circle. "Has a closed boundary" fits all four. What rule groups three and excludes the circle?
+Four figures are shown: a square, a small rectangle, a large rectangle, and a slanted parallelogram. "Has four sides" fits all four. What rule groups three and excludes the parallelogram?
 :::answer
-The answer is **four straight sides** (or **uses only straight sides**). The first three are $4$-sided polygons, while the circle is curved.
+The answer is **four square corners** (right angles). The first three have square corners, while the slanted parallelogram does not.
 :::
 
 ## Examples
@@ -84,7 +84,7 @@ The odd-one-out is **E**.
 
 **Check:** Size catches the eye because B and D are twice as tall, yet dot count is the only tested rule that includes both large figures and excludes just one.
 
-### #2: Narrowing a Rule That Includes Everything
+### #2: Choosing a Rule for Four Figures
 
 Four figures are shown: three equilateral triangles and one rhombus. The rule "all outlines have straight sides" includes every shown figure. Which more specific rule groups exactly three and excludes one?
 
@@ -97,16 +97,15 @@ Four figures are shown: three equilateral triangles and one rhombus. The rule "a
 
 **Solution:**
 
-1. Test choice A ("at least three sides"): $3$ and $4$ are both at least $3$, so $0$ figures are excluded.
-2. Test choice C ("at least one reflection axis"): equilateral triangles ($3$ axes) and a rhombus ($2$ axes) all pass, so $0$ figures are excluded.
-3. Test choice D ("a closed boundary"): all $4$ shapes are closed, so $0$ figures are excluded.
+1. Test each choice against all four figures.
+2. Count how many figures each choice leaves out.
 
 :::try
-Finish the last step: test choice B ("three sides") against all four figures to confirm it excludes only one.
+Finish the last step: pick the choice that leaves out exactly one figure.
 :::answer
 The answer is **B (Three sides)**. The three triangles have $3$ sides and pass, while the $4$-sided rhombus is the single excluded figure.
 
-**Check:** Choices A, C, and D are true of all four figures ($0$ excluded); only B leaves out exactly $1$ figure.
+**Check:** Choices A ($3$ and $4$ are both at least $3$), C (triangles and rhombus all have reflection axes), and D (all $4$ shapes are closed) fit all four figures ($0$ excluded); only B leaves out exactly $1$ figure.
 :::
 
 ## Traps to Watch For
