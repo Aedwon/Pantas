@@ -126,6 +126,16 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Walk-through examples still show math without saying where it comes from (Nov 26, repeat)
+
+- His words (about 12:05 PM Manila, screenshot of the board round 2 sample "Put a Negative Value in Parentheses"): "i read this in the boards, this is the exact thing i'm concerned and as to why i wanted the walk-through type lessons. notice what's missing here? there was not enough context given here. where's the expression from? if those were examples they should at least say $3x$ becomes $3(-2)=6$ etc. do you get what i mean? the lessons should be clearly assisting the user to understand logic".
+- Wrong: the sample lists "If x = -2:" then three bare equation chains (3x = 3(-2) = -6; x^2 = (-2)^2; 12/x = 12/(-2) = -6). No sentence says what is being found or where each expression comes from, no step says what changed or why, and the x^2 chain stops before its value.
+- Why it got through: this is the second time (Nov 25 entry "Walk-through lesson rewrite still too compressed"). That fix asked for every move on its own line and a reason, but the samples, the board review and the Codex audits checked numbers, trap citations and formatting, not whether each example is introduced and narrated. The samples were the reference, so the Gemini lane copied the same shape into 55 math lessons that passed audit.
+- Fix (moves up from a required step to a check plus a required step):
+  1. Check (walk-through lane, non-UI): a lesson check fails a worked example whose first display line has no lead-in sentence naming what is being found, and fails a display chain that does not end in a final value. Shown failing on this sample first.
+  2. Required step (every rewrite, every reviewer and every Codex audit brief): each worked example says in words what we are finding and where the expression comes from ("Find 3x when x = -2"), shows the substitution as its own step ("3x becomes 3(-2)"), says why each move works, and ends at the value. Reviewers read each example as a student who has never seen it.
+  3. The samples, board round 2 text and every lesson already rewritten (Batch 1 math first) are redone to this before anything ships.
+
 ### Staging pass found a broken consent line and misaligned tab titles (Nov 26)
 
 - His words (about 3:35 AM Manila, phone screenshots of staging): "done checking, looks good / some refinements: / - premature newline after privaxy policy link / - Study and Quiz headers have the same spacing from the topmost, but they are both wrong. please align them to look equal to Settings".
