@@ -343,8 +343,8 @@ void main() {
           ),
         );
         for (final perk in [
-          'Notes on why your answer was wrong',
-          "Progress that's always backed up",
+          'Full adaptive plan, tailored for you',
+          'Your tendencies as a test-taker',
         ]) {
           final box = tester.getSize(find.text(perk));
           final text = tester.widget<Text>(find.text(perk));
