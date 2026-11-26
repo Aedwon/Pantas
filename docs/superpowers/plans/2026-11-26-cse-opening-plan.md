@@ -110,7 +110,8 @@ puts the beta gate back by switching the app to today's version (about a minute)
 ## Not part of the opening (recorded so nobody widens scope)
 
 - Service worker option A (after the opening, 48-hour staging soak, clean audit).
-- The BIR seal badge on the website (L10, his Nov 24 "only on the landing page"): not built on any branch
-  found; a website change, his copy and placement. Listed for the manager, not a gate here.
+- The BIR seal badge on the website (L10): **dropped** (his words, Nov 26: "okay take it off"). Display is
+  voluntary under RMC 113-2026, and scanning it shows his name and TIN digits. Revisit only if BIR makes
+  display mandatory again. The UX lead removes it from the homepage branch; the lead rechecks the new head.
 - One-time in-app notice of the new Terms for accounts made before publication (round 6 follow-up).
 - Under-18 sign-up stays closed (option C); other exams stay "Coming soon".

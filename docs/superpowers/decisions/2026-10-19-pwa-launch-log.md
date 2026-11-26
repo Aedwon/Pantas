@@ -4817,3 +4817,9 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Rule 7:** before, prod 9,210 reads and staging 31,158 this quota day; expected about 4,500 each; after, prod 10,500 and 205 writes, staging 34,586 and 2,518 writes.
 - **Rollback:** re-upload the content root at a7cc22b6b (plus the same three main files) from main's tools.
 - **Note for the content lane:** the key "kuwento" is the longest choice by one letter (SUBAGENTS content rule); inherent to this spelling item, not changed here.
+
+### Nov 26: BIR Registration Seal Badge dropped from the website (Aedwon, relayed by the operations manager)
+
+- **Context:** display is voluntary under BIR RMC 113-2026, and scanning the badge shows his name and TIN digits.
+- **Aedwon, verbatim:** "okay take it off".
+- **Effect:** checklist L10 dropped until BIR makes display mandatory again; not in the opening. The UX lead removes it from the homepage branch (`web/home-opening-r1`); the integrator rechecks the new head before publishing.
