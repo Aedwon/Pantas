@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'dart:io';
 
+import 'package:pantas/core/content/walkthrough_markdown.dart';
+
 import 'lesson_asset_map.dart';
 
 /// The most bytes a lesson may take once its figures are embedded: the lesson
@@ -15,16 +17,56 @@ const maxResolvedLessonBytes = 900000;
 /// Markdown tables, and structured `<!-- FIGURE: ... -->` and
 /// `<!-- ILLUSTRATION: ... -->` markers.
 ///
+/// Walk-through fences (`:::check`, `:::try`, `:::why`, `:::pair`,
+/// `:::checklist`) become `walk*` blocks, and every `h3` gains an `anchor`.
+/// A lesson with no fence gets no new field. The rules live in
+/// `lib/core/content/walkthrough_markdown.dart`, which the app's converter
+/// in `lesson_markdown.dart` shares.
+///
 /// Throws [FormatException] with lesson path and line number when:
 /// - A `FIGURE` marker contains invalid JSON or is not a JSON object.
 /// - An `ILLUSTRATION` marker has no entry in [assets].
 /// - A Markdown table contains mismatched column counts or an invalid
 ///   delimiter.
+/// - A walk-through fence breaks a rule of the walk-through standard.
 List<Map<String, Object?>> markdownToPortableText(
   String body, {
   required LessonIdentity lesson,
   required LessonAssetMap assets,
   void Function(String message)? onWarning,
+}) {
+  final lines = body.split('\n');
+  final plan = planWalkthrough(
+    lines,
+    firstLine: 1,
+    error: (line, message) =>
+        FormatException('$message at ${lesson.path}:$line'),
+  );
+  return _convertLines(
+    lines,
+    1,
+    lesson: lesson,
+    assets: assets,
+    onWarning: onWarning,
+    plan: plan,
+    anchors: plan.isWalk,
+    nested: false,
+  );
+}
+
+/// Converts [lines], the first of which is line [firstLine] of the lesson. A
+/// nested call converts the lines inside a walk-through fence. Those hold no
+/// figure or illustration marker, so only the top-level call uses the asset
+/// map's figures.
+List<Map<String, Object?>> _convertLines(
+  List<String> lines,
+  int firstLine, {
+  required LessonIdentity lesson,
+  required LessonAssetMap assets,
+  required void Function(String message)? onWarning,
+  required WalkPlan plan,
+  required bool anchors,
+  required bool nested,
 }) {
   final blocks = <Map<String, Object?>>[];
   final paragraph = <String>[];
@@ -57,18 +99,43 @@ List<Map<String, Object?>> markdownToPortableText(
   final delimiterPattern = RegExp(r'^\s*:?-+:?\s*$');
 
   var illustrationSeq = 0;
-  var resolvedBytes = utf8.encode(body).length;
-  final lines = body.split('\n');
+  var resolvedBytes = utf8.encode(lines.join('\n')).length;
 
   var i = 0;
   while (i < lines.length) {
     final line = lines[i];
-    final lineNumber = i + 1;
+    final lineNumber = firstLine + i;
     final trimmed = line.trim();
 
     if (trimmed.isEmpty) {
       flushAll();
       i++;
+      continue;
+    }
+
+    // A walk-through fence: its parts come from this same converter.
+    final fence = plan.fences[i];
+    if (fence != null) {
+      flushAll();
+      blocks.add(
+        walkBlock(
+          fence,
+          lines,
+          firstLine,
+          convert: (inner, innerFirst) => _convertLines(
+            inner,
+            innerFirst,
+            lesson: lesson,
+            assets: assets,
+            onWarning: onWarning,
+            plan: WalkPlan.none,
+            anchors: anchors,
+            nested: true,
+          ),
+          spans: _inlineSpans,
+        ),
+      );
+      i = fence.end + 1;
       continue;
     }
 
@@ -226,8 +293,15 @@ List<Map<String, Object?>> markdownToPortableText(
     final headingMatch = heading.firstMatch(trimmed);
     if (headingMatch != null) {
       flushAll();
+      final level = headingMatch.group(1)!.length;
       blocks.add(
-        _textBlock(headingMatch.group(2)!, 'h${headingMatch.group(1)!.length}'),
+        _textBlock(headingMatch.group(2)!, 'h$level')
+          // The tap target of a checklist line. Only in a walk-through
+          // lesson, so every other lesson converts exactly as before.
+          ..addAll({
+            if (anchors && level == 3)
+              'anchor': headingSlug(headingMatch.group(2)!),
+          }),
       );
       i++;
       continue;
@@ -336,7 +410,9 @@ List<Map<String, Object?>> markdownToPortableText(
 
   flushAll();
   // A figure file that no marker consumed would otherwise be dropped silently.
-  final unused = assets.localFiguresFor(lesson).skip(illustrationSeq);
+  final unused = nested
+      ? const <String>[]
+      : assets.localFiguresFor(lesson).skip(illustrationSeq).toList();
   if (unused.isNotEmpty) {
     throw FormatException(
       'Figure file has no ILLUSTRATION marker to use it in ${lesson.path}: '

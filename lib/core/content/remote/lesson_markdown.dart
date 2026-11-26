@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:pantas/core/content/walkthrough_markdown.dart';
+
 /// Converts the Markdown body `getContent` serves for a lesson into the
 /// Portable Text blocks the lesson screen reads.
 ///
@@ -10,9 +12,31 @@ import 'dart:convert';
 /// build drops it while no asset map is configured. A test compares the two
 /// on every lesson in `content/lessons`, so they cannot drift apart.
 ///
+/// Walk-through fences become `walk*` blocks and every `h3` gains an
+/// `anchor`, in the lessons that have a fence, through the same shared rules
+/// (`walkthrough_markdown.dart`) as the build tool.
+///
 /// Throws [FormatException] (with the line number) when a `FIGURE` marker
-/// holds invalid JSON or a Markdown table is malformed.
+/// holds invalid JSON, a Markdown table is malformed, or a walk-through fence
+/// breaks a rule of the walk-through standard.
 List<Map<String, Object?>> lessonBlocksFromMarkdown(String body) {
+  final lines = body.split('\n');
+  final plan = planWalkthrough(
+    lines,
+    firstLine: 1,
+    error: (line, message) => FormatException('$message at line $line'),
+  );
+  return _convertLines(lines, 1, plan: plan, anchors: plan.isWalk);
+}
+
+/// Converts [lines], the first of which is line [firstLine] of the lesson. A
+/// nested call converts the lines inside a walk-through fence.
+List<Map<String, Object?>> _convertLines(
+  List<String> lines,
+  int firstLine, {
+  required WalkPlan plan,
+  required bool anchors,
+}) {
   final blocks = <Map<String, Object?>>[];
   final paragraph = <String>[];
   final quote = <String>[];
@@ -44,17 +68,37 @@ List<Map<String, Object?>> lessonBlocksFromMarkdown(String body) {
       RegExp(r'<!--\s*ILLUSTRATION:\s*(.*?)\s*-->', dotAll: true);
   final delimiterPattern = RegExp(r'^\s*:?-+:?\s*$');
 
-  final lines = body.split('\n');
-
   var i = 0;
   while (i < lines.length) {
     final line = lines[i];
-    final lineNumber = i + 1;
+    final lineNumber = firstLine + i;
     final trimmed = line.trim();
 
     if (trimmed.isEmpty) {
       flushAll();
       i++;
+      continue;
+    }
+
+    // A walk-through fence: its parts come from this same converter.
+    final fence = plan.fences[i];
+    if (fence != null) {
+      flushAll();
+      blocks.add(
+        walkBlock(
+          fence,
+          lines,
+          firstLine,
+          convert: (inner, innerFirst) => _convertLines(
+            inner,
+            innerFirst,
+            plan: WalkPlan.none,
+            anchors: anchors,
+          ),
+          spans: _inlineSpans,
+        ),
+      );
+      i = fence.end + 1;
       continue;
     }
 
@@ -174,8 +218,15 @@ List<Map<String, Object?>> lessonBlocksFromMarkdown(String body) {
     final headingMatch = heading.firstMatch(trimmed);
     if (headingMatch != null) {
       flushAll();
+      final level = headingMatch.group(1)!.length;
       blocks.add(
-        _textBlock(headingMatch.group(2)!, 'h${headingMatch.group(1)!.length}'),
+        _textBlock(headingMatch.group(2)!, 'h$level')
+          // The tap target of a checklist line. Only in a walk-through
+          // lesson, so every other lesson converts exactly as before.
+          ..addAll({
+            if (anchors && level == 3)
+              'anchor': headingSlug(headingMatch.group(2)!),
+          }),
       );
       i++;
       continue;

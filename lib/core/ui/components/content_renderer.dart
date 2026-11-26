@@ -20,6 +20,7 @@ import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/reader_blocks.dart';
 import 'package:pantas/core/ui/components/reader_figure_placement.dart';
 import 'package:pantas/core/ui/components/reader_link_words.dart';
+import 'package:pantas/core/ui/components/walkthrough_parts.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -43,6 +44,14 @@ part 'content_renderer_held.dart';
 // ds-board: Figure README sets no placeholder height; as built
 const double _figurePlaceholderHeight = 223;
 
+/// The width of a solution step's number column and the gap after it. The step
+/// text starts [_stepColumn] + [_stepGap] in; the answer line of a
+/// walk-through solution lines up with it (walk.css `.note` padding-left 31).
+// ds-board: ReaderBlock README has no step column; as built
+const double _stepColumn = 22;
+// ds-board: ReaderBlock README has no step gap; as built
+const double _stepGap = 9;
+
 class ReaderResizedNotification extends Notification {
   const ReaderResizedNotification();
 }
@@ -57,9 +66,26 @@ class ContentRenderer extends StatelessWidget {
     this.readerFigures = false,
     this.questionStem = false,
     this.openSolutions = false,
+    this.walkthrough,
+    this.mathLinePadding = 0,
     super.key,
   }) : assert(blocks != null || text != null, 'Provide blocks or text.');
   final List<Map<String, Object?>>? blocks;
+
+  /// Room above and below every inline formula, so lines that each hold a
+  /// fraction do not touch. The walk-through parts set it; every other
+  /// reader keeps its lines as they were (0).
+  final double mathLinePadding;
+
+  /// Whether the lesson is in walk-through mode: example solutions show open
+  /// and in step groups. Null reads it from [blocks] (any block whose type
+  /// starts with `walk`). A page that draws one lesson in several renderers
+  /// passes the answer for the whole lesson.
+  final bool? walkthrough;
+
+  bool get _walk =>
+      readerFigures &&
+      (walkthrough ?? (blocks != null && lessonIsWalkthrough(blocks!)));
   final String? text;
   final TextStyle? style;
   final int? maxLines;
@@ -313,6 +339,7 @@ class ContentRenderer extends StatelessWidget {
           source,
           style: runStyle,
           onErrorFallback: readerFigures ? fallback : null,
+          verticalPadding: mathLinePadding,
         );
         spans.add(
           link != null && span is WidgetSpan
@@ -377,6 +404,7 @@ class ContentRenderer extends StatelessWidget {
             source,
             style: runStyle,
             onErrorFallback: readerFigures ? fallback : null,
+            verticalPadding: mathLinePadding,
           ),
         );
         final label = inlineMathSemantics(source);
@@ -551,13 +579,13 @@ class ContentRenderer extends StatelessWidget {
             if (step)
               ConstrainedBox(
                 // ds-board: ReaderBlock README has no step column; as built
-                constraints: const BoxConstraints(minWidth: 22),
+                constraints: const BoxConstraints(minWidth: _stepColumn),
                 child: Text(marker, style: markerStyle),
               )
             else
               Text(marker, style: markerStyle),
             // ds-board: ReaderBlock README has no step gap; as built
-            SizedBox(width: readerFigures ? 9 : PantasSpace.s12),
+            SizedBox(width: readerFigures ? _stepGap : PantasSpace.s12),
             Expanded(child: body),
           ],
         ),
@@ -881,7 +909,12 @@ class ContentRenderer extends StatelessWidget {
           ),
         );
       default:
-        return fallback(context);
+        // Walk-through parts draw only in the reader; a block of a type this
+        // build does not know keeps the fallback.
+        return (readerFigures && type.startsWith('walk')
+                ? buildWalkPart(context, block)
+                : null) ??
+            fallback(context);
     }
   }
 
@@ -916,9 +949,13 @@ class ContentRenderer extends StatelessWidget {
     for (var i = 0; i < slots.length; i++) {
       if (i > 0) {
         final prev = slots[i - 1];
+        // A negative margin pulls a block up under the board's 18 px
+        // paragraph margin, as "Why?" does (-10, so 8 under its paragraph).
         final gap = prev.list && slots[i].list
             ? PantasSpace.s8
-            : math.max(prev.below, slots[i].above);
+            : slots[i].above < 0
+                ? math.max(PantasSpace.s0, PantasSpace.s18 + slots[i].above)
+                : math.max(prev.below, slots[i].above);
         if (gap > 0) children.add(SizedBox(height: gap));
       }
       children.add(slots[i].child);
@@ -1037,25 +1074,62 @@ class ContentRenderer extends StatelessWidget {
         counters.clear();
       }
       final style = isBlock ? string(block['style']) : '';
-      final (above, below) = switch (style) {
+      final type = string(block['_type']);
+      // A walk-through part under display maths keeps the board's space after
+      // a formula (`.dm` margin-bottom 22, about 27 under the ink): 24 under
+      // the formula's box. Other blocks keep their rhythm.
+      final afterMath = type.startsWith('walk') &&
+          index > 0 &&
+          items[index - 1] is ReaderPlain &&
+          (items[index - 1] as ReaderPlain).block['_type'] == 'latex';
+      final (rhythmAbove, below) = switch (style) {
         // ReaderLayout rhythm: 16 between blocks, h2 40 above and 12 under,
         // h3 28 above and 8 under. Display math has no value in the system
         // and takes the h3 rhythm.
         'h2' => (PantasSpace.s40, PantasSpace.s12),
         'h3' => (PantasSpace.s28, PantasSpace.s8),
+        // Walk-through parts (walk.css): "Why?" is pulled up 10 under the
+        // block before it; a card inside a solution has 8 above and 16 under;
+        // every other part has 18 under.
+        _ when type == 'walkWhy' => (-PantasSpace.s10, PantasSpace.s18),
+        _ when (type == 'walkCheck' || type == 'walkTry') && solution => (
+            PantasSpace.s8,
+            PantasSpace.s16,
+          ),
+        _ when type.startsWith('walk') => (PantasSpace.s0, PantasSpace.s18),
         _ when block['_type'] == 'latex' => (PantasSpace.s28, PantasSpace.s8),
         _ when list.isNotEmpty && solution => (PantasSpace.s0, PantasSpace.s8),
         _ => (PantasSpace.s0, PantasSpace.s16),
       };
+      final above = afterMath ? PantasSpace.s24 : rhythmAbove;
+      var child = dispatch(
+        context,
+        block,
+        marker: marker,
+        section: plain.section,
+        step: solution && list == 'number',
+      );
+      // A heading a checklist line points at: its anchor is a tap-back target.
+      final anchor = block['anchor'];
+      if (style == 'h3' && anchor is String && anchor.isNotEmpty && _walk) {
+        child = WalkTarget(slug: anchor, heading: true, child: child);
+      }
+      // The answer line of a walk-through solution lines up with the step text
+      // (walk.css `.note`), not with the step number.
+      if (_walk &&
+          solution &&
+          isBlock &&
+          style == 'normal' &&
+          list.isEmpty &&
+          readerBlockText(block).trimLeft().startsWith('The answer is')) {
+        child = Padding(
+          padding: const EdgeInsets.only(left: _stepColumn + _stepGap),
+          child: child,
+        );
+      }
       slots.add(
         _Slot(
-          dispatch(
-            context,
-            block,
-            marker: marker,
-            section: plain.section,
-            step: solution && list == 'number',
-          ),
+          child,
           above: above,
           below: below,
           list: list.isNotEmpty,
@@ -1187,30 +1261,87 @@ class ContentRenderer extends StatelessWidget {
       ),
     );
     final wide = context.wideWeb;
+    final walk = _walk;
+    final solutionBlocks = [
+      for (final block in example.solution)
+        if (held == null || !held.moved.contains(block)) block,
+    ];
     final solution = example.solution.isEmpty
         ? null
-        : _solutionBody(
-            context,
-            [
-              for (final block in example.solution)
-                if (held == null || !held.moved.contains(block)) block,
-            ],
-            ReaderSection.examples,
-            inCard: true,
-          );
+        : walk
+            ? _walkSolution(context, solutionBlocks)
+            : _solutionBody(
+                context,
+                solutionBlocks,
+                ReaderSection.examples,
+                inCard: true,
+              );
+    var heading = _spoken(
+      Text.rich(TextSpan(children: inline.spans), style: titleStyle),
+      inline,
+    );
+    // The example's heading is a tap-back target like any other heading.
+    final anchor = example.title['anchor'];
+    if (walk && anchor is String && anchor.isNotEmpty) {
+      heading = WalkTarget(slug: anchor, heading: true, child: heading);
+    }
     return _ExampleCard(
       key: ValueKey('reader-example-${example.number}'),
       wide: wide,
       label: 'Example ${example.number}',
-      title: _spoken(
-        Text.rich(TextSpan(children: inline.spans), style: titleStyle),
-        inline,
-      ),
+      title: heading,
       stem: stem.children,
       stemTail: stem.tail,
       solution: solution,
       open: held?.open,
       startOpen: openSolutions,
+      walk: walk,
+    );
+  }
+
+  /// A solution in a walk-through lesson: open from the start, in step groups.
+  /// Four or more groups show the first and open the rest one at a time.
+  Widget _walkSolution(
+    BuildContext context,
+    List<Map<String, Object?>> blocks,
+  ) {
+    final groups = splitStepGroups(blocks);
+    // One count across the groups, so a step keeps its number when a group
+    // ends in a paragraph.
+    final counters = <int, int>{};
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        caps(
+          'Solution',
+          PantasType.webEyebrow.copyWith(color: context.colors.textSecondary),
+        ),
+        const SizedBox(height: PantasSpace.s10),
+        WalkSteps(
+          stepped: groups.length >= walkStepThreshold,
+          groups: [
+            for (final group in groups)
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                // The last margin of a group is not drawn: the space between
+                // groups is the step gap (`.sg`).
+                children: _stack(
+                  _readerSlots(
+                    context,
+                    [
+                      for (final block in group)
+                        ReaderPlain(block, ReaderSection.examples),
+                    ],
+                    solution: true,
+                    sharedCounters: counters,
+                  ),
+                ).children,
+              ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -1250,7 +1381,14 @@ class ContentRenderer extends StatelessWidget {
               : string(block['url']))
           .isNotEmpty;
     }).toList();
-    if (readerFigures) return _readerColumn(context, visible);
+    if (readerFigures) {
+      final column = _readerColumn(context, visible);
+      // One controller serves the whole lesson. A page that draws the lesson
+      // in several renderers puts a scope above them all.
+      return _walk && WalkScope.maybeOf(context) == null
+          ? WalkScope(child: column)
+          : column;
+    }
     final children = <Widget>[];
     final counters = <int, int>{};
     for (var index = 0; index < visible.length; index++) {
@@ -1327,11 +1465,16 @@ class _ExampleCard extends StatefulWidget {
     required this.solution,
     this.open,
     this.startOpen = false,
+    this.walk = false,
     super.key,
   });
 
   /// The solution is open when the card first shows.
   final bool startOpen;
+
+  /// The lesson is in walk-through mode: the solution is open and has no
+  /// "Show solution" button. It draws with no fade, as part of the page.
+  final bool walk;
 
   /// Told when the solution opens, so a figure beside the card can follow.
   final ValueNotifier<bool>? open;
@@ -1350,7 +1493,7 @@ class _ExampleCard extends StatefulWidget {
 class _ExampleCardState extends State<_ExampleCard> {
   final _button = FocusNode(debugLabel: 'Show solution');
   final _panel = FocusNode(debugLabel: 'Solution', skipTraversal: true);
-  late bool _open = widget.startOpen;
+  late bool _open = widget.startOpen || widget.walk;
 
   @override
   void dispose() {
@@ -1413,7 +1556,7 @@ class _ExampleCardState extends State<_ExampleCard> {
             ),
           ),
         );
-        region = still
+        region = still || widget.walk
             ? panel
             : TweenAnimationBuilder<double>(
                 tween: Tween(begin: 0, end: 1),
@@ -1448,7 +1591,7 @@ class _ExampleCardState extends State<_ExampleCard> {
       }
       // A zero-length AnimatedSize re-enters its own layout, so reduced
       // motion skips it and the panel appears at once.
-      if (!still) {
+      if (!still && !widget.walk) {
         region = AnimatedSize(
           // ds-board: no README entry; flip token is the flip role
           duration: const Duration(milliseconds: 300),

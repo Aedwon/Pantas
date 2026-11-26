@@ -10,8 +10,10 @@ import 'package:pantas/core/ui/components/figure_highlight.dart';
 import 'package:pantas/core/ui/components/held_reader.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/reader_blocks.dart';
 import 'package:pantas/core/ui/components/reader_figure_placement.dart';
 import 'package:pantas/core/ui/components/toast.dart';
+import 'package:pantas/core/ui/components/walkthrough_parts.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/lesson_text_scale.dart';
@@ -790,7 +792,12 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
             ? Duration.zero
             : Duration(milliseconds: _showBar ? 420 : 700);
     // Built once here, so the window's slide does not rebuild the lesson.
-    final columnBody = Column(
+    // The sections are drawn by one renderer each, so the lesson as a whole
+    // says whether it is in walk-through mode, and one scope serves them all.
+    final walk = lessonIsWalkthrough(
+      [for (final b in reader.lesson.bodyJson) b],
+    );
+    final columnContent = Column(
       crossAxisAlignment: CrossAxisAlignment.stretch,
       children: [
         LessonTextScale(
@@ -819,6 +826,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                     key: _anchors[i],
                     blocks: groups[i],
                     readerFigures: true,
+                    walkthrough: walk,
                   ),
                 ),
             ],
@@ -828,10 +836,11 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
         widget.footer,
       ],
     );
+    final columnBody = walk ? WalkScope(child: columnContent) : columnContent;
     final held = lessonHasMarginFigures(
       [for (final b in reader.lesson.bodyJson) b],
     );
-    final heldBody = held
+    final heldLesson = held
         ? _HeldLessonBody(
             key: ValueKey(('web-reader-held', reader.lesson.id)),
             reader: reader,
@@ -840,6 +849,8 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
             footer: widget.footer,
           )
         : null;
+    final Widget? heldBody =
+        heldLesson != null && walk ? WalkScope(child: heldLesson) : heldLesson;
     return LetterShortcuts(
       bindings: {if (ending == null) 'b': _bookmark},
       also: {
