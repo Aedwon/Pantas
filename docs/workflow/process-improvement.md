@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Homepage Free card: a silent spacer left a hole (Nov 26)
+
+- His words (about 2:50 PM Manila, wide screenshot of the built homepage section): "looks terrible, please optimize better".
+- Wrong: to level the Free rows with Pro's rows, the Free card got an empty spacer where Pro says "Everything in Free, plus:". On the page it reads as a large hole under "Free".
+- Why it got through: the manager's brief proposed "an empty or quiet slot" as the fix for his "not congruent" note, and the lead built exactly that; the board showed it and the review passed it on measurements (rows level to the pixel), not on how the card looks.
+- Fix (required step, manager briefs and every UI review): alignment between two components is never achieved with empty space a reader can see; fix the asymmetry at its source (same structure in both, or remove the extra line). Reviews judge the rendered card as a reader sees it, not only measured alignment.
+
 ### Wide Performance list clips text and bars and drops the percent (Nov 26)
 
 - His words (about 1:30 PM Manila, wide dark screenshot of app.pantas.study/performance, Lessons tab, plus a phone screenshot of the same page): "i also found a problem screen" and "overall as its own column is a waste of space imo".
