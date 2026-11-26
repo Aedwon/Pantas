@@ -31,9 +31,9 @@ After *customer*, *covered in cheese* attaches to the customer; at the front bef
 :::
 
 :::check
-The car, not the owner, has a dented door. Revise *"The mechanic showed a car to the owner with a dented door."*
+The car, not the owner, has a dented door. Which sentence says so: *"The mechanic showed a car to the owner with a dented door"* or *"The mechanic showed the owner a car with a dented door"*?
 :::answer
-The answer is **"The mechanic showed the owner a car with a dented door."** Putting *with a dented door* right after *a car* connects the dented door to the car. Any order with *with a dented door* right after *a car* works.
+**"The mechanic showed the owner a car with a dented door."** *With a dented door* follows *a car*, so the dent belongs to the car.
 :::
 
 ### Keeping the Intended Meaning When Revising
@@ -76,13 +76,13 @@ The book has a torn cover. Revise *"The librarian handed a book to the student w
 
 ### #2: Preserving Which Object Is Damaged
 
-Which sentence identifies a broken window, not a broken ladder: *"On a broken ladder, a worker repaired the window outside the hall"* or *"A worker on a ladder repaired the broken window"*?
+Which sentence identifies a broken window, not a broken ladder: *"A worker on a broken ladder repaired the window"* or *"A worker on a ladder repaired the broken window"*?
 
 **Solution:**
 
-1. In *"On a broken ladder, a worker repaired the window outside the hall,"* *broken* describes *ladder*.
+1. In *"A worker on a broken ladder repaired the window,"* *broken* describes *ladder*.
 2. In *"A worker on a ladder repaired the broken window,"* *broken* sits right before *window*.
-3. The second sentence keeps the intended meaning.
+3. The second sentence keeps the intended meaning: **"A worker on a ladder repaired the broken window."**
 
 **Check:** Drop *"on a ladder"* and read *"A worker repaired the broken window."* The damage stays on *window*.
 
@@ -96,11 +96,11 @@ The visitors walk into the room, and the bread is wrapped in a napkin. Check thi
 2. In sentence 2, *"wrapped in a napkin"* sits after *the baker*, attaching the napkin to the baker.
 
 :::try
-Finish the last step: rewrite sentence 2 so *"wrapped in a napkin"* clearly describes *bread*.
+Finish the last step: which rewrite of sentence 2 makes *"wrapped in a napkin"* describe *bread*: (A) *"Wrapped in a napkin, we received bread from the baker."* or (B) *"We received bread wrapped in a napkin from the baker."*?
 :::answer
-**"Entering the room, we smelled fresh bread. We received bread wrapped in a napkin from the baker."** Putting *wrapped in a napkin* right after *bread* removes *the baker* from between them. Any order with the phrase right after *bread* works.
+**B: "Entering the room, we smelled fresh bread. We received bread wrapped in a napkin from the baker."** *Wrapped in a napkin* follows *bread*, with *the baker* no longer between them. In A, the opener would describe *we*.
 
-**Check:** Match each modifier to its noun: *"Entering the room, we..."* (people enter) and *"...bread wrapped in a napkin"* (bread is wrapped). Both fit the prompt.
+**Check:** Match each modifier to its noun: *"Entering the room, we..."* (people enter) and *"...bread wrapped in a napkin"* (bread is wrapped).
 :::
 
 ## Speed Tricks & Shortcuts

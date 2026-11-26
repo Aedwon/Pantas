@@ -18,11 +18,11 @@ keyPoints:
 **Parallelism**, or **parallel structure**, means items doing the same job in a list or pair read best in matching grammatical forms:
 
 - **-ing gerunds:** *"Her hobbies include painting, dancing, and singing."* *"The recipe requires chopping onions, mincing garlic, and boiling water."*
-- **Infinitives (*to + verb*):** *"The coach told the team to run faster, to jump higher, and to try harder."*
+- **Infinitives (to + verb):** *"The coach told the team to run faster, to jump higher, and to try harder."*
 - **Nouns or noun phrases:** *"The committee values accuracy, fairness, and transparency."* *-ing* words used as ordinary nouns (*budgeting*, *marketing*) count as nouns and can sit beside other noun phrases, as in *"The workshop covers budgeting, marketing, and sales strategy."*
 - **Matching verb tenses in a compound predicate:** *"She opened the folder, checked the total, and signed the form."* Finite verbs sharing a subject keep the same tense when they describe the same time.
 
-In these lists, avoid mixing in a full clause (*"tools will be bought"*), a *how-to* clause (*"how to plan sales"*), or a new verb predicate that changes the meaning.
+In these lists, usually avoid mixing in a full clause (*"tools will be bought"*), a *how-to* clause (*"how to plan sales"*), or a new verb predicate that changes the meaning.
 
 <!-- ILLUSTRATION: three-row parallel alignment chart under the shared lead-in "Her hobbies include": row 1 "painting (-ing)", row 2 "dancing (-ing)" with "to dance" crossed out beside it, row 3 "singing (-ing)", each aligned with a teal checkmark -->
 
@@ -35,7 +35,7 @@ Changing *painting* or *singing* breaks two matches. Fix only the outlier.
 :::pair #changing-meaning-in-pair
 Right: Revise *"She enjoys hiking and to swim"* to *"She enjoys hiking and swimming."*
 Wrong: Revise it to *"She enjoys hiking and swims in the lake."* or *"She enjoys hiking and to swim in the lake."*
-*"And swims"* makes *swims* a second main verb, so she no longer enjoys swimming. *"And to swim"* does not match *hiking*. Keep both in *-ing* form after *enjoys*.
+*"And swims"* makes *swims* a second main verb. The sentence now says she swims, without saying whether she enjoys it. *"And to swim"* does not match *hiking*. Keep both in *-ing* form after *enjoys*.
 :::
 
 :::pair #noun-list-vs-clause
@@ -59,8 +59,7 @@ Find and fix the error: *"The guide told the hikers to bring water, wearing boot
 **Solution:**
 
 1. List the three actions after *"told the hikers"*: *to bring water*, *wearing boots*, *to stay together*.
-2. Two items use *to + verb*, while *wearing* uses *-ing*.
-3. Change *wearing* to *to wear*: **"The guide told the hikers to bring water, to wear boots, and to stay together."**
+2. Change *wearing* to *to wear*: **"The guide told the hikers to bring water, to wear boots, and to stay together."**
 
 **Check:** Read each item after *told the hikers*: all three match.
 
@@ -87,7 +86,7 @@ Find the hidden error in *"Yesterday the clerk sorted the mail, counts the cash,
 :::try
 Finish the last step: name the item that does not match and give the fix.
 :::answer
-**Change *counts* to *counted*.** Items (1) and (3) are simple past, and item (2) is the outlier in simple present. Changing item (1) or (3) to present would break *Yesterday*. Changing *counts* gives **"Yesterday the clerk sorted the mail, counted the cash, and locked the safe."**
+Change *counts* to **counted**. Items (1) and (3) are simple past, and item (2) is the outlier in simple present. Changing item (1) or (3) to present would break *Yesterday*. Changing *counts* gives **"Yesterday the clerk sorted the mail, counted the cash, and locked the safe."**
 
 **Check:** Read *"Yesterday the clerk"* before each verb: *sorted*, *counted*, *locked*. All three are past.
 :::
@@ -101,5 +100,5 @@ Read each item after its shared lead-in (*"The report covers..."*, *"We must cho
 :::checklist
 - Changing an already matching item in a three-item list: compare all three items and fix the single outlier. {#fix-only-two-items}
 - Replacing an *-ing* item with a finite verb like *swims*: keep both items inside the shared structure so meaning stays intact. {#changing-meaning-in-pair}
-- Mixing an *-ing* phrase or full clause into a list of noun phrases: match every item to the surrounding noun phrases. {#noun-list-vs-clause}
+- *-ing* phrase or clause among noun phrases: match the noun phrases. *It grew financially* cannot follow *The report covers*. {#noun-list-vs-clause}
 :::

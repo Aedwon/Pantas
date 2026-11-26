@@ -55,16 +55,16 @@ With *before*, simple past is grammatical because the order is already clear. Pa
 :::
 
 :::check
-In "The tailor measured the coat before the client paid," do the two simple past verbs already show which event came first?
+In "The tailor measured the coat before the client paid," which event happened first, and which word shows it?
 :::answer
-The answer is **Yes**. *Before* shows that measuring came first, so *measured* and *paid* need no *had*.
+**Measuring** came first, and *before* shows it. So *measured* and *paid* need no *had*.
 :::
 
 ## Examples
 
 ### #1: Showing Earlier Completion Before a Past Point
 
-Choose the past-perfect form to make earlier completion explicit: "By the time the bus left, Ben ___ his ticket."
+Choose the past-perfect form to make earlier completion explicit: "By the time the bus left, Ben ___ (buy) his ticket."
 
 **Solution:**
 
@@ -74,7 +74,7 @@ Choose the past-perfect form to make earlier completion explicit: "By the time t
 
 Correct: "By the time the bus left, Ben had bought his ticket."
 
-**Check:** *The bus left* sets the past reference point, and *had bought* marks buying as finished before that.
+**Check:** *Had bought* finishes before *the bus left*.
 
 ### #2: Two Past Actions in One Sentence
 
@@ -95,7 +95,7 @@ The answer is **had gone**. The owner left before Rita reached the shop, so *had
 
 ## Speed Tricks & Shortcuts
 
-Put two past events on a timeline. Use *had* + past participle on the action completed first. If *before* or *after* already makes the order clear, simple past is also valid unless the question asks for past perfect.
+Put two past events on a timeline. Use *had* + past participle on the action completed first. If *before* or *after* already makes the order clear, simple past is often valid too, unless the question asks for past perfect.
 
 ## Traps to Watch For
 

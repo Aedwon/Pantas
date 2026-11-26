@@ -44,7 +44,7 @@ Never add *-s*, *-ed*, or *-ing* to the verb after *will*. Always use the plain 
 :::pair #will-is-simple-future
 Right: In "She will write a letter tomorrow," *will write* is simple future.
 Wrong: Call *will write* present perfect just because it uses a helping word before *write*.
-*Will* plus the base form shows future meaning, not present perfect (which uses *has* or *have* plus a past participle).
+Here, *tomorrow* shows future meaning, so *will write* is simple future, not present perfect (which uses *has* or *have* plus a past participle).
 :::
 
 :::check
@@ -53,9 +53,9 @@ Choose the correct form: I think the office *(will close / will closes)* early t
 The answer is **Will close**. *Tomorrow* points to the future, and *will* always takes the plain base form *close*.
 :::
 
-### When a Tense Shift Is Correct
+### Verbs Across Clauses
 
-Usually keep one tense for same-time actions; shift tenses when time clues change:
+Usually keep one tense for parallel completed actions at the same time; shift tenses when time clues change:
 
 - Same time: "Yesterday, she **walked** to the store and **bought** bread." (Both are yesterday.)
 - Different times: "I **studied** yesterday, and I **will practice** tomorrow." (Past moves to future.)
@@ -67,7 +67,7 @@ Why is a tense shift allowed in "I studied yesterday, and I will practice tomorr
 :::pair #justified-tense-shift
 Right: "I studied yesterday, and I will practice tomorrow" is justified because the two time clues set different timelines.
 Wrong: Say no, because every coordinated sentence must use one tense throughout.
-Joining two clauses with *and* does not force them into the same time. Keep one tense when both actions share the same timeline.
+Joining two clauses with *and* does not force them into the same time. Usually keep one tense for parallel completed actions on the same timeline.
 :::
 
 :::check
@@ -90,7 +90,7 @@ Both events happened yesterday. Correct the sentence: "Yesterday, she walks to t
 
 Correct: "Yesterday, she walked to the store and bought some bread."
 
-**Check:** Read both verbs with the time clue: "Yesterday, she walked" and "Yesterday, she bought." Both match past time.
+**Check:** Both verbs now match *yesterday*.
 
 ### #2: Naming a Verb Form
 
@@ -122,7 +122,7 @@ The answer is **No, the shift is not justified.** Both clauses share the clue *l
 
 ## Speed Tricks & Shortcuts
 
-Spot every time word first (*yesterday*, *last week*, *now*, *tomorrow*). Usually keep verbs in the same tense when they share one time, and allow a shift whenever a new time word moves the event to a different time.
+Spot every time word first (*yesterday*, *last week*, *now*, *tomorrow*). Usually keep verbs in the same tense when completed actions share one time, and allow a shift whenever a new time word moves the event to a different time.
 
 ## Traps to Watch For
 

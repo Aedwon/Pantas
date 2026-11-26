@@ -38,9 +38,9 @@ Which word supplies the finite verb form in *"The clerks were sorting the files 
 The answer is **were**. Shifting to present time turns *were* into *are*, while *sorting* and *to mail* stay the same.
 :::
 
-### Why Standalone -ing Groups Are Not Sentences
+### Standalone -ing Groups
 
-A group built on an *-ing* word without a finite helper verb, such as *"running quickly through the park,"* is a **nonfinite verb group**. It names an action, yet it has no tense-carrying verb and no subject paired with a finite verb.
+A group built on an *-ing* word without a finite helper verb, such as *"running quickly through the park,"* is a **nonfinite verb group**. It names an action, yet it has no tense-carrying verb.
 
 Compare *"Running quickly through the park"* (incomplete nonfinite group) with *"Ana is running quickly through the park"* (*Ana* is the subject and *is* supplies the finite tense form).
 
@@ -55,9 +55,9 @@ Without a finite helper like *is* or *was*, *running* carries no tense, so the g
 :::
 
 :::check
-Can *"Checking the forms before noon"* stand alone as a complete formal sentence?
+Which can stand alone as a complete sentence: *"Checking the forms before noon"* or *"The nurse is checking the forms before noon"*?
 :::answer
-The answer is **No**. *Checking* is a nonfinite *-ing* form with no stated subject and no tense-carrying helper like *is* or *was*.
+The second one: **The nurse is checking the forms before noon.** *The nurse* is the subject and *is* carries tense. *Checking* alone has no stated subject and no tense-carrying helper.
 :::
 
 ## Examples
@@ -72,7 +72,7 @@ Which is a complete formal sentence: *"Running quickly through the park"* or *"L
 2. In *"Lia was running quickly through the park,"* *Lia* is the subject and *was* carries past tense.
 3. The second entry is the complete formal sentence.
 
-**Check:** Shift the second sentence to present time: *was* changes to *is* (*"Lia is running"*), proving *was* is the finite verb.
+**Check:** Shift the second sentence to present time: *was* changes to *is* (*"Lia is running"*).
 
 ### #2: Sorting -ing Words and Infinitives
 
@@ -86,7 +86,7 @@ In *"The assistant is preparing the documents to submit before closing,"* identi
 
 The word that supplies the finite verb form is **is**.
 
-**Check:** Shift the sentence to past time: only *is* changes (*"The assistant was preparing the documents to submit before closing"*).
+**Check:** Shift to past time: only *is* changes, to *was*.
 
 ### #3: Completing an -ing Fragment
 
@@ -97,9 +97,9 @@ Revise *"Preparing the final report for the committee"* into a complete formal s
 1. *Preparing* alone is nonfinite: it shows no time, so the group is not a sentence.
 
 :::try
-Finish the last step: add a subject and a finite verb, then test by shifting the time.
+Finish the last step. It is happening right now. Pick the helper: *The coordinator (is / was) preparing the final report for the committee.*
 :::answer
-**The coordinator is preparing the final report for the committee.** *The coordinator* is the subject, and *is* supplies present tense. Any subject with a finite verb works.
+**The coordinator is preparing the final report for the committee.** *The coordinator* is the subject, and *is* supplies present tense.
 
 **Check:** Shift the sentence to past time: *"The coordinator was preparing the final report for the committee."* *Is* changes to *was*, confirming a real finite verb is present.
 :::

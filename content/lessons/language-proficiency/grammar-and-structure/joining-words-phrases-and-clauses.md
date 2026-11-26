@@ -42,9 +42,9 @@ The answer is **Interjection**. *Oops* expresses a sudden reaction and stands in
 
 ### A Phrase or a Clause After a Joining Word
 
-A **subject** tells who or what a clause is about. A **clause** has a subject and a verb (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
+A **subject** tells who or what a clause is about. In this lesson, a **clause** has a subject and a verb that shows tense (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
 
-A **subordinate clause** usually has its own subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. *Before leaving* is a non-finite clause; this lesson groups it with phrases. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
+A **subordinate clause** usually has its own subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. A group like *before leaving* has no tense; another lesson covers it. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
 
 Words like *before*, *after*, and *until* can do two jobs. Compare a noun phrase with a clause after *before*:
 
@@ -66,7 +66,7 @@ Because *we* (subject) and *finished* (verb) follow *before*, it introduces a su
 :::check
 In school grammar, what part of speech is **after** in "She called **after** the meeting ended"?
 :::answer
-The answer is **Subordinating conjunction**. *The meeting* (subject) and *ended* (verb) form a subordinate clause after *after*.
+The answer is **Subordinating conjunction**. *After the meeting ended* is a subordinate clause: *the meeting* is the subject and *ended* is the verb.
 :::
 
 ## Examples
@@ -90,10 +90,10 @@ In traditional school grammar, identify **before** in each sentence: "We met **b
 **Solution:**
 
 1. First, *dinner* follows *before* with no verb, so *before* is a **preposition**.
-2. Second, *it* (subject) and *rained* (verb) follow *before*, forming a subordinate clause.
+2. Second, *it* (subject) and *rained* (verb) follow *before*, so *before it rained* is a subordinate clause.
 3. So *before* is a **subordinating conjunction**.
 
-**Check:** Only "it rained" has a subject and verb.
+**Check:** Count the verbs: "We met before dinner" has one; "We left before it rained" has two.
 
 ### #3: Four Words in One Sentence
 

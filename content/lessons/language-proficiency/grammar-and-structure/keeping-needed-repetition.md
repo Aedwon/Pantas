@@ -29,7 +29,7 @@ Why can *repeat again* be wrong in one case and right in another? *Repeat* means
 :::pair #cutting-or-changing-first-repeat
 Right: With no earlier repetition, revise *"Could you please repeat again what you just said?"* to *"Could you please repeat what you just said?"*
 Wrong: Revise it to *"Could you please repeat again once more what you just said?"* or *"Could you please change what you just said into a new idea?"*
-Adding *once more* piles on extra filler, while asking to *change* the words alters the request. With no prior repeat, drop *again* and keep the repeat request.
+Adding *once more* piles on extra filler, while asking to *change* the words alters the request. With no prior repeat, usually drop *again*.
 :::
 
 :::check
@@ -52,9 +52,9 @@ Wrong: Claim *again* means *"It says the instruction has never been repeated."* 
 :::
 
 :::check
-A pilot announced a gate change, then repeated it twice. Now a late passenger asks. By that timeline, should *again* stay in *"Please repeat the gate change again for the late passenger"*?
+A pilot announced a gate change, then repeated it twice. Now a late passenger asks, *"Please repeat the gate change again."* By that timeline, what does *again* mark?
 :::answer
-The answer is **Yes**. The pilot already repeated the announcement twice, so *again* points to a further repeat.
+**Another repeat after the two already given.** *"Please repeat the gate change again"* asks for one more saying, so *again* adds a step.
 :::
 
 ## Examples
@@ -81,20 +81,20 @@ Mara read a notice aloud. At Ben's request, she repeated it. Ben still could not
 1. Count prior readings: (1) first reading, (2) first repeat for Ben.
 2. Ben now wants a **second** repeat, so *again* adds that further step and stays: **"Please repeat it again."**
 
-**Check:** Replace *repeat it again* with *"say it one more time after already repeating it."* That matches the timeline directly.
+**Check:** Two readings came before this request.
 
 ### #3: Reading a Longer Timeline
 
-A coach explained a drill once, and no one asked for a repeat. Sam came late. Should *again* stay in *"Could you repeat the drill again for Sam?"*
+A coach explained a drill once, and no one asked for a repeat. Sam came late. For concise formal writing, revise *"Could you repeat the drill again for Sam?"*
 
 **Solution:**
 
 1. List what happened before Sam arrived.
 
 :::try
-Finish the last step: decide whether to keep or cut *again*, and say why.
+Finish the last step: write the shorter request that keeps the same meaning.
 :::answer
-The answer is **Cut it.** The coach has not repeated the drill yet, so *repeat* alone asks for the first repeat: *"Could you repeat the drill for Sam?"*
+**"Could you repeat the drill for Sam?"** The coach has not repeated the drill yet, so *repeat* alone asks for the first repeat.
 
 **Check:** Count the times the drill was said: (1) the original explanation. Sam's request is the first repeat, so *again* adds no step.
 :::
@@ -106,6 +106,6 @@ Before cutting *again* after *repeat*, count how many times the words were alrea
 ## Traps to Watch For
 
 :::checklist
-- First-time repeat request: cut *again* (do not pile on *once more* or change the request into a new idea). {#cutting-or-changing-first-repeat}
+- First-time repeat request: usually cut *again* (do not pile on *once more* or change the request into a new idea). {#cutting-or-changing-first-repeat}
 - Request after an earlier repeat: keep *again* because it marks a further repeat, not a first repeat or a new instruction. {#missing-prior-repeat}
 :::

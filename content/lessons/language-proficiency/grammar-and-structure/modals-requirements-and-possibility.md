@@ -40,7 +40,7 @@ The host hopes guests wear a jacket but lets anyone in. Choose: "Guests *(must /
 The answer is **Should**. *Should* gives advice, whereas *must* makes it required.
 :::
 
-### Possibility with May, Might, and Could
+### May, Might, and Could
 
 Use **may**, **might**, or **could** when an event is possible but not certain:
 
@@ -56,18 +56,16 @@ Here *might* shows the late arrival could happen, not that anyone is required to
 :::
 
 :::check
-What does *may* express in "It may rain later": permission or possibility?
+A forecaster says, "It may rain later." What does *may* say about the rain?
 :::answer
-The answer is **Possibility**. The speaker is predicting what could happen with the weather.
+**It could happen, but it is not certain.** *May* expresses possibility: the speaker is predicting, not giving permission.
 :::
 
-### A Second Meaning of Must
+### More on Must
 
 Besides giving a rule, **must** can express a **strong conclusion** based on clues:
 
 - "The reservation sheet is signed and the lights are on, so someone **must** be using the room."
-
-The speaker is not ordering anyone to use the room. Instead, the clues show what is very likely true right now.
 
 :::pair #must-conclusion-vs-rule
 Right: In "Could I use the meeting room?" *could* asks permission. In "The sheet is signed and the lights are on, so someone must be using the room," *must* states a strong conclusion.
@@ -76,9 +74,9 @@ The signed sheet and lit room are evidence for what is happening now, not a rule
 :::
 
 :::check
-In "Ana's bag is on her chair, so she must be here," is *must* a rule or a conclusion from evidence?
+In "Ana's bag is on her chair, so she must be here," which words give the clue, and what does *must* express?
 :::answer
-The answer is **A conclusion from evidence**. Her bag on the chair is the clue supporting that conclusion.
+The clue is **her bag is on her chair**. *Must* expresses a strong conclusion from that clue, not a rule.
 :::
 
 ## Examples
@@ -108,18 +106,18 @@ In "The delivery might arrive after the office closes," determine what *might* e
 
 ### #3: Two Modals in One Notice
 
-Read: "The lights are off and the door is locked, so the shop must be closed. The owner might open it at noon." What do *must* and *might* express?
+Read: "The lights are off and the door is locked, so the shop must be closed. The owner might open it at noon." What do *must be closed* and *might open it* express?
 
 **Solution:**
 
-1. Split the notice into its two sentences.
+1. Take the two modal phrases one at a time: *must be closed* and *might open it at noon*.
 
 :::try
-Finish the job: what do *must* and *might* express?
+Finish the job: what does each phrase express?
 :::answer
-*Must* is **a strong conclusion from evidence**: the dark lights and locked door show what is very likely true now. *Might* is **possibility**: opening at noon is uncertain.
+Strong conclusion from evidence: **"The shop must be closed."** The dark lights and locked door are the clues. Possibility: **"The owner might open it at noon."** Opening is uncertain.
 
-**Check:** Replace *must be closed* with *is probably closed*: the meaning fits the clues, whereas *has to be closed* would usually state a rule.
+**Check:** Replace *must be closed* with *is probably closed*: the meaning still fits the clues.
 :::
 
 ## Speed Tricks & Shortcuts

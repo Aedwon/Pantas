@@ -68,7 +68,7 @@ With words such as *all*, *some*, *most*, *half*, and *a lot* followed by *of*, 
 1. Uncountable (mass) noun, one amount: "Most of the water **has** evaporated."
 2. Plural countable noun, separate items: "Some of the cookies **are** gone."
 
-With *none of*, uncountable nouns always take a singular verb ("None of the water **is** left"). With plural countable nouns, *none of* takes a singular verb in strict formal style ("not one") or a plural verb in general use ("not any").
+With *none of*, an uncountable noun takes a singular verb ("None of the water **is** left"). With a plural countable noun, either verb can occur, and formal style may prefer singular.
 
 :::pair #some-most-noun-after-of
 Right: "Some of the cookies on the tray are already gone," and "Most of the water in the tank has evaporated."

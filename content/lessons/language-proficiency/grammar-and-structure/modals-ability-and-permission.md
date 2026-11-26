@@ -17,12 +17,12 @@ keyPoints:
 
 ### Always Use the Base Form After a Modal
 
-A **modal verb** is a helper such as *can, could, may, might, must, should,* or *will*. True modals never add *-s* for singular subjects, and the next verb always stays in its **base form** (no *-s*, *-ed*, *-ing*, and no *to*):
+A **modal verb** is a helper such as *can, could, may, might, must, should,* or *will*. True modals never add *-s* for singular subjects, and the verb they govern stays in its **base form** (no *-s*, *-ed*, *-ing*, and no *to*):
 
 - "The assistant **can prepare** the minutes without help."
 - "The new clerk **can answer** routine inquiries."
 
-Semi-modals like *have to* and *ought to* include *to*, while true modals take the bare base verb directly.
+Semi-modals like *have to* and *ought to* include *to*, while the verb a true modal governs takes the bare base form.
 
 :::pair #base-form-after-modal
 Right: The assistant can prepare the minutes without help.
@@ -54,7 +54,7 @@ Choose the form: Before school started, Lina *(can / could)* already read short 
 The answer is **Could**. *Before school started* describes general past ability, so choose *could*.
 :::
 
-### Requesting Permission
+### Polite Requests
 
 Three common modals ask for permission, from everyday to formal:
 
@@ -92,7 +92,7 @@ Complete "The pilot can ___ the plane in strong wind" with *lands*, *landing*, *
 2. Apply the modal rule: *can* takes the bare base form.
 3. Rule out *lands*, *landing*, and *to land*, leaving **land**: "The pilot can land the plane in strong wind."
 
-**Check:** Test the same verb after another modal: "The pilot will **land** the plane" and "The pilot must **land** the plane" both use *land*.
+**Check:** The same verb after other modals: "The pilot will **land** the plane" and "The pilot must **land** it" both use *land*.
 
 ### #2: Ability and Formal Permission
 
@@ -124,7 +124,7 @@ Finish the job: say what *could* does in the other two sentences, then choose th
 
 ## Speed Tricks & Shortcuts
 
-First check form: after a modal such as *can, could, may,* or *will*, allow only the bare base verb. Then read the full sentence for meaning: ability, permission, or possibility.
+First check form: the verb a modal such as *can, could, may,* or *will* governs uses the bare base form. Then read the full sentence for meaning: ability, permission, or possibility.
 
 ## Traps to Watch For
 

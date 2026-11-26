@@ -16,7 +16,7 @@ keyPoints:
 
 ### What Makes a Clause Independent
 
-In an ordinary statement, a **clause** has a stated subject and a **finite verb** (a verb that carries tense and matches its subject, such as *slept* or *arrives*). A command like *Close the door* leaves its subject understood, and *after leaving*, with no finite verb, is not a clause here.
+In an ordinary statement, a **clause** has a stated subject and a **finite verb** (a verb form that often shows tense or agreement, such as *slept* or *arrives*). A command like *Close the door* leaves its subject understood. This lesson compares finite clauses; *after leaving* has no finite verb.
 
 An **independent clause**, also called a **main clause**, gives a complete thought and can stand alone as a sentence. Even a short group is independent when it has a subject, a finite verb, and no word leaving the reader waiting: *"The cat slept."* *"She finished her homework."*
 
@@ -27,9 +27,9 @@ Length does not decide clause type. *The cat* is the subject and *slept* is the 
 :::
 
 :::check
-Is *"Our neighbor waved to us"* an independent clause or a dependent clause?
+Which can stand alone: *"Our neighbor waved to us"* or *"Our neighbor waving to us"*?
 :::answer
-The answer is **Independent clause**. *Our neighbor* is the subject, *waved* is the finite verb, and the group stands complete.
+**Our neighbor waved to us.** *Our neighbor* is the subject and *waved* is the finite verb. *Waving* shows no tense by itself.
 :::
 
 ### Dependent Clauses and Subordinating Words
@@ -49,9 +49,9 @@ Include the opening word in your stand-alone test. *Although* and *when* make th
 :::
 
 :::check
-Which word signals that the first clause is dependent in *"Since the concert ended late, everyone was tired"*?
+Which group leaves you waiting for a main clause: *"The crowd left early"* or *"When the crowd left early"*?
 :::answer
-The answer is **Since**. It introduces *"the concert ended late"* and makes it depend on *"everyone was tired."*
+**When the crowd left early.** *When* makes it lean on a main clause: *"When the crowd left early, the street was quiet."*
 :::
 
 ### Checking After Words Like After, Before, and Since
@@ -60,8 +60,6 @@ The answer is **Since**. It introduces *"the concert ended late"* and makes it d
 
 1. Noun group only, no finite verb: *"After the bus trip"* is a prepositional phrase.
 2. Subject paired with a finite verb: *"After the bus arrived"* has subject *the bus* and finite verb *arrived*, so it contains a dependent clause.
-
-Event nouns such as *trip* or *journey* act as nouns after *the bus*, not finite verbs.
 
 <!-- ILLUSTRATION: two stacked groups starting with "After": top "After [the bus trip]" with "the bus trip" bracketed and labeled "noun group, no finite verb -> prepositional phrase"; bottom "After [the bus] [arrived]" with "the bus" labeled "subject", "arrived" labeled "finite verb", and the whole group labeled "dependent clause" -->
 
@@ -72,9 +70,9 @@ Here *trip* and *journey* act as nouns after *the bus*, not finite verbs. Look f
 :::
 
 :::check
-Which group contains a finite clause: *"Before the last bus"* or *"Before the last bus left"*?
+Which group contains a finite clause: *"Before the sale"* or *"Before the sale ended"*?
 :::answer
-The answer is **Before the last bus left**. *The last bus* is the subject and *left* is the finite verb; *"Before the last bus"* has no verb.
+**Before the sale ended.** *The sale* is the subject and *ended* is the finite verb; *"Before the sale"* has no verb.
 :::
 
 ## Examples
@@ -123,7 +121,7 @@ Finish the last step: which group has a verb that changes when the time changes?
 
 ## Speed Tricks & Shortcuts
 
-Run two checks: find a subject paired with a finite verb, not an event noun like *trip* or *journey*, and keep any opening connector (*although, when, since*) in the stand-alone test.
+For finite clauses, run two checks: find a subject paired with a finite verb, not an event noun like *trip* or *journey*, and keep any opening connector (*although, when, since*) in the stand-alone test.
 
 ## Traps to Watch For
 

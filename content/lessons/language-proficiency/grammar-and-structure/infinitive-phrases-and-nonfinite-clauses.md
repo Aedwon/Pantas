@@ -41,7 +41,7 @@ Using basic school grammar, how is **to submit the report** classified in *"The 
 The answer is **Infinitive phrase**. *To submit* carries no tense, and basic school grammar calls an infinitive plus its object a phrase.
 :::
 
-### Complete Sentences Need a Finite Main Verb
+### Fragments and Sentences
 
 Adding extra time words, a passive participle inside the group (*revised* in *to have the policy revised*), or a second infinitive (*to revise ... and to notify ...*) never makes an infinitive group a complete formal sentence.
 
@@ -57,9 +57,9 @@ Look for a stated subject paired with a tense-carrying finite verb like *plans*;
 :::
 
 :::check
-Can *"To verify every receipt before noon"* stand alone as a complete formal sentence?
+Which is a complete sentence, and which word carries its tense: *"To verify every receipt before noon"* or *"The clerk plans to verify every receipt before noon"*?
 :::answer
-The answer is **No**. *To verify* is an infinitive, and no finite verb appears, so there is no main clause.
+**The clerk plans to verify every receipt before noon.** *Plans* carries present tense. *To verify* has no tense, so the first group has no main clause.
 :::
 
 ## Examples
@@ -94,13 +94,12 @@ Using basic school grammar, classify the bold words in *"The manager wants **to 
 
 **Solution:**
 
-1. *To review the budget* starts with the infinitive *to review* and has no tense form.
-2. Basic school grammar calls it an **infinitive phrase**.
+1. Find the two action words: *wants* and *to review the budget*.
 
 :::try
-Finish the last step: find the finite main verb and test it by shifting time.
+Finish the last step: which one carries the main tense, and what is the bold group called?
 :::answer
-The finite main verb is **wants**. *Wants* matches *The manager* in present tense.
+**Wants** carries the main tense and matches *The manager*. The bold group is an **infinitive phrase**: *to review* has no tense form.
 
 **Check:** Shift to past time: *"The manager wanted to review the budget before Monday."* *Wants* shifts to *wanted*, while *to review* stays unchanged.
 :::
