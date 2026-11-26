@@ -52,15 +52,17 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Get a written brief, do one job, return a short summary (pass or fail, errors, files touched).
 - Never talk to Aedwon, never merge, and never start work outside their brief.
 
-## Lanes (current as of November 26, 2 AM Manila)
+## Lanes (current as of November 26, 3:40 PM Manila)
 
 Manager: `mcp:launch:00976645432b2f793e42bfeeea73583c727484762376837beea722b8a3c65b8d` (restarted blank Nov 26 from `docs/superpowers/handoffs/2026-11-26-operations-manager.md`; bound schedules rebound to it).
 Old manager, retired (do not message): `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926`.
-Active: CSE release lead r8, integrator, service worker fix, P12 loop runs, payment PR merges, then the opening ship `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
+Active: CSE release lead r9 (same thread), integrator, service worker fix, P12 loop runs, payment PR merges, then the opening ship `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
 UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (idle; guided first run handed to the release lead Nov 26);
 security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (alert email confirmed 1:22 AM; live PayMongo key Nov 26 9 AM, first real payment).
-Lesson walk-through CSE build, Gemini 4 Neon xhigh lead with Gemini subagents, Codex checkpoint audits only (Aedwon, Nov 26) `mcp:launch:b7636146c2e66e268cb6e853fade6c2d585c3fa734c80ae1f6ecaaec1648308c`, branch `content/lesson-walkthrough-cse-r1`.
-Retired: old Claude lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd` (spec and samples on `content/lesson-walkthrough-r1`).
+Lesson walk-through, Claude lead (takeover Nov 26, Gemini weekly quota spent): `mcp:launch:d0b92d05876bd9854657cafae346820c99095f72f43494be336846fad3ba9c63`, branch `content/lesson-walkthrough-cse-r1`: Grammar, Vocabulary, Math recheck, Language Application, Reading Comprehension; Codex b first.
+Lesson walk-through, General Information, Gemini 4 Neon xhigh lead (after Gemini's weekly reset): `mcp:launch:b0df58086776a5a77d6f3512e73088175546b9de53242fd3645752a166cae361`, branch `content/lesson-walkthrough-cse-gi-r1`, only `content/lessons/general-information/`; runs no Codex.
+UX lead also builds the walk-through renderer and importer (E-196) after the homepage hand-off.
+Retired (do not message): first Gemini walk-through lead `mcp:launch:b7636146c2e66e268cb6e853fade6c2d585c3fa734c80ae1f6ecaaec1648308c`, Claude stopgap lead `mcp:launch:9311c7e2af7f6722e8eefce7355936436161d5ed206f07d80f15c3fb95927ab9`, old Claude lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd`.
 Paused by him: under-13 (keep 13 to 17 closed), PSHS-NCE (go/no-go Dec 8), QG Phase 2, dots.
 Retired for length (do not message): CSE release lead r2 to r5 `mcp:launch:89c734558b...`, old CSE release lead `mcp:launch:b14e5d0e...`, old security lead `mcp:bc3317cf...`.
 The table below is the Nov 17 history.
