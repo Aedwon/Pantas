@@ -1,6 +1,6 @@
 # Worker rules: CSE lesson walk-through rewrite (lead: Claude lesson lead, E-198)
 
-Startup: Work on `Aedwon/Pantas`. Retrieve `AGENTS.md`, `WORKFLOW.md` and `SUBAGENTS.md` from the current GitHub `main` branch (`git fetch origin -q; git show origin/main:<path>`) and follow them, regardless of the code branch. These shared rules supersede older project workflow instructions. Policy commit read by the lead: `650eda378`. Record the policy commit you read in your report.
+Startup: Work on `Aedwon/Pantas`. Retrieve `AGENTS.md`, `WORKFLOW.md` and `SUBAGENTS.md` from the current GitHub `main` branch (`git fetch origin -q; git show origin/main:<path>`) and follow them, regardless of the code branch. These shared rules supersede older project workflow instructions. Policy commit read by the lead: `a5888282f` (session 2, Nov 26 5:25 PM Manila). Record the policy commit you read in your report.
 
 Worktree (shared with the lead and one other worker; touch ONLY your assigned files):
 `/Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1` (branch `content/lesson-walkthrough-cse-r1`).
@@ -49,7 +49,7 @@ Rules: `git show origin/main:docs/content/lesson-style-guide.md`, section "Filip
 ## Checks you run (read-only, on your files)
 
 1. Importer parser (the app's real lesson parser):
-   `cd /private/tmp/claude-501/-Users-aedwon--t3-worktrees-Pantas-content-lesson-walkthro-85719f9d9f054ca1/ccba2862-baef-455a-a40a-1db609b1af35/scratchpad/importer && dart run run.dart <your lesson files>` must print `failing: 0`.
+   `cd /private/tmp/claude-501/-Users-aedwon--t3-worktrees-Pantas-content-lesson-walkthro-85719f9d9f054ca1/ff6c9cf0-0ae4-4563-96ed-f37e73eb8c4d/scratchpad/importer && dart run run.dart <absolute paths of your lesson files>` must print `failing: 0`. (The runner is `walkthrough-work/importer/run.dart` plus `lib/core/content/walkthrough_markdown.dart` from `ux/walkthrough-renderer-r1` `222010878`.)
 2. Pre-tap word count before and after for each file you edit: count words outside `:::answer` and `:::why` blocks and outside HTML comments. Report before, after and the delta. Any growth must be explained and offset.
 Do NOT run flutter or the Dart lesson_checks suite; the lead runs those, one at a time.
 

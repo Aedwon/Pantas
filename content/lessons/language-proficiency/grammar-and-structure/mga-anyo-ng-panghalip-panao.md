@@ -17,9 +17,9 @@ keyPoints:
 
 ### Anyong Ang: Para sa Taong Itinatampok
 
-Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa papel at bilang ng tao.
+Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao o kung minsan ng hayop. Nagbabago ang anyo nito ayon sa papel at bilang ng tao.
 
-Gamitin ang anyong **ang** para sa **paksa** (subject), halimbawa *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila* (*ikaw* sa unahan, gaya ng "Ikaw ang sumulat"; *ka* sa loob, gaya ng "Sumulat ka"). Palitan ang *si Ana*:
+Gamitin ang anyong **ang** para sa **paksa** (subject), halimbawa *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila*. Karaniwang nasa unahan o diniinan ang *ikaw* ("Ikaw ang sumulat"), at nasa loob ang *ka* ("Sumulat ka"). Palitan ang *si Ana*:
 
 - "Si Ana ang dumating." -> "**Siya** ang dumating."
 
@@ -30,14 +30,14 @@ Iisang tao ang maaaring tukuyin ng tatlong anyo (*siya, niya, kaniya*), ngunit *
 :::
 
 :::check
-Aling panghalip ang nasa pangkat ng *ang* para sa maraming taong pinag-uusapan: *(sila / nila / kanila)*?
+Palitan ng panghalip ang *sina Lito at Mila*: "Sina Lito at Mila ang nagluto ng pagkain." *(sila / nila / kanila)*
 :::answer
-Ang sagot ay **Sila**. Ito ang pamalit sa paksang may *ang mga* o *sina* ("Sila ang dumating").
+Ang sagot ay **Sila**: "Sila ang nagluto ng pagkain." Paksa ang *sina Lito at Mila*, kaya anyong *ang* ang kapalit.
 :::
 
 ### Anyong Ng: Para sa May-ari o Gumawa
 
-Gamitin ang anyong **ng** (halimbawa, *ko, mo, niya, namin, natin, ninyo, nila*) para sa dalawang papel:
+Sa mga halimbawang ito, hanapin ang may-ari o ang gumawa. Gamitin ang anyong **ng** (halimbawa, *ko, mo, niya, namin, natin, ninyo, nila*) para sa dalawang papel:
 
 1. **May-ari** pagkatapos ng **pangngalan** (noun): "aklat **ko**," "proyekto **nila**."
 2. **Gumagawa** ng kilos kapag iba ang paksa: "Sinulat **niya** ang ulat." "Ipinakita **niya** ito."
@@ -45,7 +45,7 @@ Gamitin ang anyong **ng** (halimbawa, *ko, mo, niya, namin, natin, ninyo, nila*)
 :::pair #bilang-at-gumawa-sa-ng
 Right: "Isang estudyante lamang ang nagdala ng proyekto; ipinakita niya ito sa buong klase."
 Wrong: Gamitin ang *nila*, *namin*, o *ninyo* para sa iisang estudyante.
-Iisang estudyante ang nagpakita kaya mali ang maramihang *nila*. Binabago rin ng *namin* (nagsasalita) at *ninyo* (kausap) ang **panauhan** (person); kailangan ang isahang ikatlong panauhang *niya*.
+Iisang estudyante ang nagpakita kaya mali ang maramihang *nila*. Binabago rin ng *namin* (nagsasalita) at *ninyo* (kausap) ang **panauhan** (person); kailangan ang *niya*.
 :::
 
 :::check
@@ -63,7 +63,7 @@ Gamitin ang anyong **sa** (*akin, iyo, kaniya, amin, atin, inyo, kanila*) pagkat
 <!-- ILLUSTRATION: tatlong hilera na nagpapakita ng pangkat ng panghalip panao: anyong ang ("Siya ay dumating"), anyong ng ("Ipinakita niya ito"), at anyong sa ("Ibinigay sa kaniya ang resibo"), may palaso sa bawat papel -->
 
 :::why
-Bakit may tatlong anyo para sa iisang tao (*siya, niya, kaniya*)? Sa Filipino, ipinakikita ng anyo ng panghalip kung siya ang paksa (*ang*), ang gumagawa o may-ari (*ng*), o ang tatanggap (*sa*). Kaya hindi napagpapalit ang mga ito kahit iisang tao ang tinutukoy.
+Bakit may tatlong anyo para sa iisang tao (*siya, niya, kaniya*)? Sa mga halimbawang ito, ipinakikita ng anyo ng panghalip kung siya ang paksa (*ang*), ang gumagawa o may-ari (*ng*), o ang tatanggap (*sa*). Kaya hindi napagpapalit ang mga ito kahit iisang tao ang tinutukoy.
 :::
 
 :::pair #anyong-sa-para-sa-tatanggap
@@ -90,7 +90,7 @@ Alin sa *siya*, *niya*, *kaniya*, at *nila* ang kabilang sa pangkat ng *ang* par
 2. *Niya* at *nila* ay nasa pangkat ng *ng*, habang *kaniya* ay nasa pangkat ng *sa*.
 3. Piliin ang **siya**.
 
-**Check:** Sa simula ng pangungusap, wasto ang "**Siya** ay dumating" at hindi maaaring pumalit ang *niya* o *kaniya*.
+**Check:** Wasto ang "**Siya** ay dumating"; hindi maaaring pumalit ang *niya* o *kaniya*.
 
 ### #2: Pagpili ng Tamang Panauhan at Bilang sa Anyong Ng
 
@@ -99,7 +99,7 @@ Piliin ang tamang panghalip: "Isang estudyante lamang ang nagdala ng proyekto; i
 **Solution:**
 
 1. Suriin ang papel ng patlang: *ito* (ang proyekto) ang paksa, kaya kailangan ng tagaganap ang anyong *ng*.
-2. Tukuyin kung sino at ilan ang nagpakita: isang estudyanteng pinag-uusapan (hindi ang nagsasalita at hindi ang kausap).
+2. Tukuyin kung sino at ilan: isang estudyanteng pinag-uusapan.
 3. Piliin ang isahang anyong *ng* para sa pinag-uusapan: **niya**. "Isang estudyante lamang ang nagdala ng proyekto. Ipinakita **niya** ito sa buong klase."
 
 **Check:** Anyong *ng* (gumawa), isahan (estudyante), ikatlong panauhan (*niya*).
@@ -110,7 +110,7 @@ Palitan ng panghalip ang "sa mga magulang" sa "Ipinadala ng guro sa mga magulang
 
 **Solution:**
 
-1. Tukuyin ang papel ng "sa mga magulang": sila ang tatanggap ng paanyaya, kaya kailangan ang anyong **sa**.
+1. Tatanggap ng paanyaya ang "sa mga magulang," kaya anyong **sa** ang kailangan.
 2. Suriin ang bilang at panauhan: marami ang *mga magulang* at pinag-uusapan sila.
 
 :::try
@@ -118,12 +118,12 @@ Tapusin ang huling hakbang: anong anyong *sa* ang ipapalit sa "sa mga magulang"?
 :::answer
 Ang sagot ay **Sa kanila**: "Ipinadala ng guro sa kanila ang paanyaya."
 
-**Check:** Tugma ang *sa kanila* sa pinalitang parirala: anyong *sa* (tatanggap), maramihan (*mga magulang*), at ikatlong panauhan.
+**Check:** Tugma ang *sa kanila* sa bahaging pinalitan: anyong *sa* (tatanggap), maramihan (*mga magulang*), at ikatlong panauhan.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Tiyakin muna ang papel: *ang* kung siya ang paksa (*siya, sila*), *ng* kung gumawa o may-ari (*niya, nila*), at *sa* kung tumanggap (*sa kaniya, sa kanila*).
+Sa mga papel na itinuro rito, tiyakin muna ang papel: *ang* kung siya ang paksa (*siya, sila*), *ng* kung gumawa o may-ari (*niya, nila*), at *sa* kung tumanggap (*sa kaniya, sa kanila*).
 
 ## Traps to Watch For
 

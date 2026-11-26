@@ -22,7 +22,7 @@ A **connector** joins clauses and shows how their ideas relate:
 - **Reason** (such as *because, since*): explains why something happened. *"We stayed inside because it was raining."*
 - **Contrast** (such as *although, even though, though*): introduces a fact that goes against the expected result. *"Although she was tired, she finished her homework."*
 
-**Never double-connect.** A subordinating connector (*although, because*) already joins one dependent clause to one main clause. A coordinating connector (*but, so*) joins two independent clauses. Never use both together, as in *"Although it rained, but we walked"* or *"Because the store was closed, so we went home."* Pick one connector and keep one main clause.
+**Use one connector for one link.** A subordinating connector (*although, because*) already joins one dependent clause to one main clause. A coordinating connector (*but, so*) joins two independent clauses. Using both for one link is an error, as in *"Although it rained, but we walked"* or *"Because the store was closed, so we went home."* Pick one connector; keep one main clause.
 
 :::why
 Why does *"Because it rained, so we stayed inside"* fail? *Because* makes *"it rained"* wait for a main clause, while *so* expects a main clause before it. Drop *so* so *"we stayed inside"* serves as the main clause.
@@ -89,7 +89,7 @@ Revise *"Although the manager reviewed the proposal carefully. She still had que
 2. *"She still had questions"* is an independent clause.
 3. Join them with a comma: *"Although the manager reviewed the proposal carefully, she still had questions."*
 
-**Check:** Cover *"Although the manager reviewed the proposal carefully,"* and read *"she still had questions."* The main clause stands alone.
+**Check:** Cover the *although* clause; *"she still had questions"* stands alone.
 
 ### #2: Checking Comma Order
 
@@ -100,7 +100,7 @@ Decide whether the comma placement is right in (a) *"Because it was raining, we 
 1. In (a), the *because* clause comes first, so the comma after *raining* is right.
 2. In (b), the main clause comes first and the reason clause is essential, so no comma before *because* is right.
 
-**Check:** Move the *because* clause in (b) to the front; a comma appears after *raining*, matching (a).
+**Check:** Move the *because* clause in (b) to the front; a comma follows *raining*, as in (a).
 
 ### #3: Completing an Opening Clause
 
@@ -108,7 +108,7 @@ Complete *"Even though the bus was late, ___"* with one option: (a) *"after wait
 
 **Solution:**
 
-1. Choice (a) is a prepositional phrase with no subject-verb clause.
+1. Choice (a) cannot stand alone as a main clause.
 
 :::try
 Finish the last step: test (b) and (c), then write the full sentence.
@@ -120,7 +120,7 @@ Finish the last step: test (b) and (c), then write the full sentence.
 
 ## Speed Tricks & Shortcuts
 
-Count subordinating words (*because, although, when, while, if*). Every sentence needs at least one clause with no subordinating word, and never pair *although* with *but* or *because* with *so*.
+Count subordinating words (*because, although, if*). Every sentence needs at least one clause with no subordinating word, and do not use two connectors for one link (*although* with *but*, *because* with *so*).
 
 ## Traps to Watch For
 

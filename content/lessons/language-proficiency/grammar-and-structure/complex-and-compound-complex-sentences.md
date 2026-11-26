@@ -23,14 +23,14 @@ A **complex sentence** has **one independent clause** and **one or more dependen
 
 A dependent clause can sit at the front (*"Although the storm was severe, the town suffered minimal damage."*), at the end, or inside the main clause (*"The nurse, while she checked the records, called the patient."*).
 
-Even **two dependent clauses** still make a **complex** sentence when there is only **one** independent clause. In *"If the rain stops when the guests arrive, we will open the hall,"* *If the rain stops* and *when the guests arrive* are dependent, and *we will open the hall* is the one independent clause.
+Even **two dependent clauses** still make a **complex** sentence when there is only **one** independent clause. In *"[If the rain stops [when the guests arrive]], we will open the hall,"* the *when* clause sits inside the *if* clause. Both are dependent, and *we will open the hall* is the one independent clause.
 
 <!-- ILLUSTRATION: two-column clause inventory diagram: left column "Complex = 1 independent + 1 or more dependent" with example "If [the rain stops] (dep) + when [the guests arrive] (dep) + [we will open the hall] (1 indep)"; right column "Compound-complex = 2+ independent + 1+ dependent" with example "When [the bell rang] (dep) + [the students grabbed their bags] (indep 1), and [they rushed out] (indep 2)" -->
 
 :::pair #multiple-dependents-still-complex
 Right: *"If the rain stops when the guests arrive, we will open the hall."* and *"Although the storm was severe, the town suffered minimal damage."* are **Complex**.
 Wrong: Label the first **Compound-complex**, or label the second **Compound**.
-Count independent and dependent clauses separately. Two dependent clauses never make a sentence compound-complex, and an *although*-clause is dependent, never a second main clause.
+Count independent and dependent clauses separately. Two dependent clauses with only one main clause make a complex sentence, and an *although*-clause is dependent, never a second main clause.
 :::
 
 :::check
@@ -65,10 +65,10 @@ The answer is **Compound-complex**. *The students lit candles* and *they continu
 
 ### Clue Words That Can Start Phrases or Clauses
 
-*After, before,* and *since* start phrases or clauses. Check what follows *after*:
+*After, before,* and *since* start phrases or clauses. Ask what *after* introduces in each sentence:
 
-- *"After rehearsal, the musicians left."* -> *rehearsal* has no verb, so *"After rehearsal"* is a phrase. One clause remains -> **Simple**.
-- *"After rehearsal ended, the musicians left the hall."* -> *rehearsal* + *ended* forms a dependent clause -> **Complex**.
+- *"[After rehearsal], the musicians left."* -> phrase, **Simple**.
+- *"[After rehearsal ended], the musicians left the hall."* -> dependent clause, **Complex**.
 
 :::pair #after-phrase-vs-clause
 Right: *"After rehearsal, the musicians left."* is simple; *"After rehearsal ended, the musicians left the hall."* is complex.
@@ -134,5 +134,5 @@ Keep two counts: independent clauses and dependent clauses.
 :::checklist
 - Two dependent clauses with one main clause: count main clauses separately so you pick complex, not compound-complex. {#multiple-dependents-still-complex}
 - Subordinating word plus *and* or *but*: check for a second subject so you do not pick complex or compound. {#missed-second-main-or-dep}
-- Opening word like *after*, *before*, or *since*: verify a subject and finite verb follow before counting a dependent clause. {#after-phrase-vs-clause}
+- Opening word like *after*, *before*, or *since*: in this lesson, count a dependent clause only when a subject and finite verb follow. {#after-phrase-vs-clause}
 :::

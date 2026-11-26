@@ -36,7 +36,7 @@ The answer is **"Bring a pencil, an eraser, and a ruler."** Commas must separate
 
 ### Joining Two Independent Clauses
 
-An **independent clause** has a subject and finite verb and stands alone. The seven **coordinating conjunctions** are *for, and, nor, but, or, yet,* and *so*.
+In an ordinary statement, an **independent clause** has a subject and finite verb and stands alone. The seven **coordinating conjunctions** are *for, and, nor, but, or, yet,* and *so*.
 
 Usually put a comma **before** the joining word between two independent clauses (a very short pair may skip it), such as *"She studied hard"* and *"she passed the exam"* with *and*:
 
@@ -46,12 +46,12 @@ Usually put a comma **before** the joining word between two independent clauses 
 
 Result: *"She studied hard, and she passed the exam."*
 
-Condition: do **not** add a comma when two verbs share one subject (a **compound predicate**). In *"She studied hard and passed the exam,"* *"passed the exam"* has no new subject and cannot stand alone, so omit the comma before *and*.
+Condition: in an ordinary statement, do **not** add a comma when two verbs share one subject (a **compound predicate**). In *"She studied hard and passed the exam,"* *"passed the exam"* has no new subject and cannot stand alone, so omit the comma before *and*.
 
 <!-- ILLUSTRATION: two stacked sentence diagrams: top "She studied hard, and she passed the exam." with two complete boxes connected by a teal ", and"; bottom "She studied hard and passed the exam." with one subject "She" branching to "studied hard" and "passed the exam" and no comma before "and" -->
 
 :::why
-Why does a comma go before *and* only when a second subject follows? A comma warns the reader that a brand-new complete clause is starting. When one subject simply does two actions, the sentence stays one clause.
+Why does a comma usually go before *and* when a second subject follows? A comma warns the reader that a brand-new complete clause is starting. When one subject simply does two actions, the sentence stays one clause.
 :::
 
 :::pair #comma-after-joining-word
@@ -79,7 +79,7 @@ Add commas to this list, using the serial comma: *"Pack a towel a hat and sunscr
 
 Correct sentence: **"Pack a towel, a hat, and sunscreen."**
 
-**Check:** Count the items: (1) a towel, (2) a hat, (3) sunscreen. Two commas separate the three items cleanly.
+**Check:** Three items, two commas.
 
 ### #2: Joining Two Independent Clauses
 
@@ -87,13 +87,13 @@ Add a comma where needed: *"The clerk checked the form and the applicant signed 
 
 **Solution:**
 
-1. Test the words before *and*: *"The clerk checked the form"* has subject *the clerk* and verb *checked*. It stands alone.
-2. Test the words after *and*: *"the applicant signed it"* has subject *the applicant* and verb *signed*. It stands alone.
+1. Before *and*: *"The clerk checked the form"* has subject *the clerk* and verb *checked*. It stands alone.
+2. After *and*: *"the applicant signed it"* has subject *the applicant* and verb *signed*. It stands alone.
 3. Place a comma before *and*.
 
 Correct sentence: **"The clerk checked the form, and the applicant signed it."**
 
-**Check:** Read both sides separately as full sentences: *"The clerk checked the form."* *"The applicant signed it."* Both work, so the comma before *and* is required.
+**Check:** Read both sides alone: *"The clerk checked the form."* *"The applicant signed it."* Both work, so a comma belongs here.
 
 ### #3: Choosing the Correct Punctuation
 
@@ -106,7 +106,7 @@ Choose the correctly punctuated sentence:
 
 **Solution:**
 
-1. Look at (A) and (B): *chopped* and *fried* share one subject (*the cook*), so no comma belongs before *and*. That makes (A) right and (B) wrong.
+1. Look at (A) and (B): *chopped* and *fried* share one subject (*the cook*), so no comma belongs before *and*: (A) right, (B) wrong.
 2. Now test (C) by splitting at *and*.
 
 :::try
@@ -119,12 +119,12 @@ The answer is **(D) Both (A) and (C).** In (C), *"The cook chopped the onions"* 
 
 ## Speed Tricks & Shortcuts
 
-When you see *for, and, nor, but, or, yet,* or *so*, cover the joining word and read the right side alone. If it has its own subject and verb, put a comma before the joining word. If it is only a second verb for the first subject, leave the comma out. After *nor*, the verb may come first (*nor did she write*) and still counts.
+In an ordinary statement with no interruption or special pause, cover the joining word (*for, and, nor, but, or, yet,* or *so*) and read the right side alone. A second subject and verb takes a comma before the joining word (a very short, closely connected pair may skip it). A second verb for the same subject takes none. After *nor*, the verb may come first (*nor did she write*).
 
 ## Traps to Watch For
 
 :::checklist
-- List of three or more items: put commas between items and before *and*, never after the verb or after *and*. {#comma-between-verb-and-list}
+- List of three or more items: put commas between items, and before *and* when the style calls for it or it prevents a misread, never after the verb or after *and*. {#comma-between-verb-and-list}
 - Joining two independent clauses with *and* or *but*: put the comma before the joining word, never after it or after the subject. {#comma-after-joining-word}
-- Two verbs sharing one subject: leave out the comma when the second part has no separate subject. {#joining-two-independent-clauses}
+- Two verbs sharing one subject in an ordinary statement: leave out the comma when the second part has no separate subject. {#joining-two-independent-clauses}
 :::

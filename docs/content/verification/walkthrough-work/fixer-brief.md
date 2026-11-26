@@ -1,7 +1,7 @@
 # Fixer brief: CSE lesson walk-through rewrite
 
 You are a content worker. First read the rules file in full and follow it exactly (note rules 5, 5a, 5b, 7 and the Filipino section):
-/private/tmp/claude-501/-Users-aedwon--t3-worktrees-Pantas-content-lesson-walkthro-85719f9d9f054ca1/ccba2862-baef-455a-a40a-1db609b1af35/scratchpad/worker-rules.md
+/Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1/docs/content/verification/walkthrough-work/worker-rules.md
 
 - Do not start subagents; do the work yourself.
 - Change files only with the Edit or Write tool. Bash for read-only commands only. Never run any tool with its working directory inside the repository's `content/` folder.

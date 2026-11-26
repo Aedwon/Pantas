@@ -19,7 +19,7 @@ keyPoints:
 
 Capitalize the **first word** of every sentence and every **proper noun** (such as a specific person, city, country, organization, month, or day).
 
-In *"We visited Manila last summer,"* *We* begins the sentence and *Manila* is a specific city, so both take capitals. Ordinary verbs and nouns inside a sentence (*visited*, *summer*) stay lowercase.
+In *"We visited Manila last summer,"* *We* begins the sentence and *Manila* is a specific city, so both take capitals. Other words (*visited*, *summer*) stay lowercase.
 
 :::check
 Choose the correctly capitalized sentence: *"They Flew to cebu in March."* or *"They flew to Cebu in March."*
@@ -60,13 +60,13 @@ Quotation marks around one ordinary word do not start a new sentence. Keep the e
 :::pair #quoted-sentence-lowercase
 Right: "She said, \"Please close the door.\""
 Wrong: "She said, \"please close the door.\"" or "She said, \"Please Close The Door.\""
-*"Please close the door"* is a full spoken sentence, so capitalize *Please* while keeping the remaining words lowercase.
+*"Please close the door"* is a full spoken sentence, so capitalize *Please*, but not every word.
 :::
 
 :::check
-Should *open* be capitalized in *The sign carried the words "open daily"*?
+Choose the correct sentence: *The sign used the words "public entrance."* or *The sign used the words "Public entrance."*
 :::answer
-The answer is **No**. *"Open daily"* is an embedded phrase, not a complete quoted sentence.
+The answer is **The sign used the words "public entrance."** The quote is a short phrase named inside the sentence, not a complete quoted sentence, so it stays lowercase.
 :::
 
 ## Examples
@@ -87,7 +87,7 @@ Choose the correctly capitalized sentence:
 
 The correct answer is **(C)**.
 
-**Check:** In (C), *We* starts the sentence, *President* is before a name, and *Reyes* is a surname.
+**Check:** Each capital has a reason in step 3.
 
 ### #2: Quoted Sentence vs. Quoted Word
 
@@ -100,7 +100,7 @@ Fix the quotes: *She said, "please close the door." The word "Meeting" appears t
 
 Corrected text: **She said, "Please close the door." The word "meeting" appears twice.**
 
-**Check:** Read each quote alone: *"Please close the door."* stands as a full sentence (capital start), while *"meeting"* is one ordinary word (lowercase).
+**Check:** Read each quote alone: a full sentence starts with a capital, one ordinary word stays lowercase.
 
 ### #3: Fixing Multiple Errors Together
 
@@ -122,12 +122,12 @@ The answer is **"The report was ready; its final section needed President Lim's 
 
 ## Speed Tricks & Shortcuts
 
-Check four spots: sentence start, specific names, titles directly before a name, and quotes (full sentence gets a capital; single word stays lowercase).
+Check four spots: sentence start, specific names, titles directly before a name, and quotes (a full sentence gets an opening capital; a single word stays lowercase unless it is a name or *I*).
 
 ## Traps to Watch For
 
 :::checklist
 - Formal title before a name vs. after *the*: capitalize *President Reyes*, lowercase *the president*. {#title-before-name-vs-role}
 - Single quoted word inside a sentence: keep an ordinary word like *"meeting"* lowercase. {#quoted-word-capitalized}
-- Quoted full sentence: capitalize only the opening word (*"Please close the door."*), not every word inside the quote. {#quoted-sentence-lowercase}
+- Quoted full sentence: capitalize the opening word (*"Please close the door."*), not every word; usual capitals for names and *I* still apply. {#quoted-sentence-lowercase}
 :::

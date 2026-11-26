@@ -50,7 +50,7 @@ Bakit kailangang bilangin nang hiwalay ang bawat sugnay sa langkapan? Pinagsasam
 :::pair #langkapan-bilangin-ang-bawat-sugnay
 Right: Ang "Umuwi ang bata at nagsara ang tindahan dahil malakas na ang ulan" ay **Langkapan**.
 Wrong: Tawaging **Tambalan** o **Hugnayan** ang pangungusap na ito.
-Kung *tambalan* ang pipiliin, nalalaktawan ang "dahil malakas na ang ulan." Kung *hugnayan* naman, napagsasama sa bilang ang dalawang hiwalay na buong diwa (*Umuwi ang bata* at *nagsara ang tindahan*).
+Kung *tambalan*, nalalaktawan ang "dahil malakas na ang ulan." Kung *hugnayan*, napagsasama ang dalawang buong diwa.
 :::
 
 :::check
@@ -61,22 +61,22 @@ Ang sagot ay **Langkapan**. Dalawa ang sugnay na makapag-iisa (*Nag-aral si Liza
 
 ### Ayos ng Salaysay at mga Pananda
 
-Sa pagsasalaysay ng mga hakbang o pangyayari, pumili ng **pananda** (marker) na tugma sa pagkakasunod ng oras. Halimbawa:
+Sa pagsasalaysay ng mga hakbang o pangyayari, pumili ng **pananda** (marker) na tugma sa pagkakasunod ng oras. Halimbawa, sa pagtatanim ni Mia:
 
-1. Simula: *una*, *sa simula*
-2. Kasunod: *pagkatapos*, *kasunod*, *saka*
-3. Pangwakas: *sa huli*, *panghuli*
+1. Simula (*una*, *sa simula*): "**Una**, naghukay si Mia ng butas."
+2. Kasunod (*pagkatapos*, *kasunod*, *saka*): "**Pagkatapos**, itinanim niya ang buto."
+3. Pangwakas (*sa huli*, *panghuli*): "**Sa huli**, dinilig niya ang tanim."
 
 :::pair #ayos-ng-pananda-sa-salaysay
-Right: Para sa unang paghahanda, kasunod na pagsusuri, at pangwakas na pagpasa: "**Una, pagkatapos, sa huli**."
+Right: Para sa unang paghahanda, kasunod na pagsusuri, at pangwakas na pagpasa: "**Una**, inihanda ang ulat. **Pagkatapos**, sinuri ito. **Sa huli**, ipinasa ito."
 Wrong: "**Una, sa huli, pagkatapos**" o "**Sa huli, pagkatapos nito, una**."
 Ang *sa huli* ay para lamang sa pangwakas na pangyayari. Kapag inilagay ito sa unahan o gitna, nagkakabaligtad ang ayos ng salaysay.
 :::
 
 :::check
-Punan ang wastong hanay ng pananda: "___, hinugasan niya ang bigas. ___, isinalang niya ang kaldero." *(Sa huli, una / Una, pagkatapos)*
+Punan ang gitnang pananda: "Una, naglaba si Aling Rosa ng damit. ___, isinampay niya ang mga ito. Sa huli, tinupi niya ang mga ito." *(Sa simula / Pagkatapos / Panghuli)*
 :::answer
-Ang sagot ay **Una, pagkatapos**. Nauuna ang paghuhugas ng bigas bago ang pagsalang ng kaldero.
+Ang sagot ay **Pagkatapos**. Nasa gitna ang pagsasampay, kasunod ng paglalaba at bago ang pagtupi.
 :::
 
 ## Examples
@@ -91,7 +91,7 @@ Tukuyin ang uri ng pangungusap: "Umuwi ang bata dahil umuulan na."
 2. Suriin ang "dahil umuulan na": may *dahil* sa unahan, kaya sugnay na di-makapag-iisa ito.
 3. May isang makapag-iisa at isang di-makapag-iisa, kaya **Hugnayan** ang pangungusap.
 
-**Check:** Basahin nang mag-isa ang bawat bahagi: buo ang "Umuwi ang bata" (1 makapag-iisa) ngunit bitin ang "dahil umuulan na" (1 di-makapag-iisa), kaya **hugnayan** ito.
+**Check:** Buo ang "Umuwi ang bata" ngunit bitin ang "dahil umuulan na."
 
 ### #2: Pagbuo ng Langkapan
 
@@ -103,7 +103,7 @@ Pagsamahin sa isang langkapan ang mga diwa: nag-aral si Liza; may pagsusulit siy
 2. Idagdag ang ikalawang buong diwa gamit ang *at*: "Nag-aral si Liza dahil may pagsusulit siya, at naghanda si Ben para sa ulat."
 3. Bilangin ang mga sugnay: dalawang makapag-iisa at isang di-makapag-iisa, kaya **Langkapan** ito.
 
-**Check:** Naroon ang dalawang buong diwa (*Nag-aral si Liza* at *naghanda si Ben para sa ulat*) at ang isang sugnay na may *dahil* (*dahil may pagsusulit siya*).
+**Check:** Dalawang buong diwa ang naroon, at isang sugnay na may *dahil*.
 
 ### #3: Ayos ng mga Pananda sa Salaysay
 

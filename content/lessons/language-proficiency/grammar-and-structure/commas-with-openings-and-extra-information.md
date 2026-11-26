@@ -36,10 +36,14 @@ The answer is **After *sheets***. *"Before the proctor collected the sheets"* is
 
 ### Extra Information vs. Identifying Information
 
+**Nonrestrictive (extra):** adds a side detail about a person or thing already identified. Use a word such as *who* or *which*, never *that*, with commas (on **both** sides mid-sentence).
+
+**Restrictive (identifying):** tells **which** ones out of a group (words such as *who*, *which*, or *that*, **no commas**).
+
 Compare extra detail about an only brother with a clause that picks out some students:
 
-1. **Nonrestrictive (extra):** adds a side detail about a person or thing already identified. Use a word such as *who* or *which*, never *that*, with commas (on **both** sides mid-sentence): *"My brother, who lives in Cebu, is visiting this week."*
-2. **Restrictive (identifying):** tells **which** ones out of a group (words such as *who*, *which*, or *that*, **no commas**): *"The students who missed the test must report today."* (Only those students.)
+1. *"My brother, who lives in Cebu, is visiting this week."*
+2. *"The students who missed the test must report today."*
 
 <!-- ILLUSTRATION: two stacked sentences comparing comma pairs: top "My brother, who lives in Cebu, is visiting." with "who lives in Cebu" shaded between two teal commas and labeled "only one brother -> extra info"; bottom "The students who missed the test must report." with no commas and a tight bracket from "who missed the test" to "The students" labeled "picks out some students -> identifying" -->
 
@@ -73,25 +77,25 @@ Add the needed punctuation: *"Because the office was closed we returned the next
 
 **Solution:**
 
-1. Find the opening dependent clause: *"Because the office was closed."*
+1. Find the opening clause: *"Because the office was closed."*
 2. Put one comma before the main clause *"we returned the next day."*
 
 Correct sentence: **"Because the office was closed, we returned the next day."**
 
-**Check:** Cover the opening clause. *"We returned the next day"* stands as a complete main clause, confirming the boundary after *closed*.
+**Check:** Cover the opening clause; *"We returned the next day"* still stands alone.
 
 ### #2: Opening and Extra Information
 
-The speaker has only one brother. Add commas: *"After the meeting my brother who lives in Cebu drove me home."*
+The speaker has only one brother. Add commas: *"After the long meeting with the principal my brother who lives in Cebu drove me home."*
 
 **Solution:**
 
-1. Put a comma after the opening phrase: *"After the meeting,"*
-2. Because the speaker has only one brother, *who lives in Cebu* is extra information and takes commas on both sides.
+1. Put a comma after the opening phrase: *"After the long meeting with the principal,"*
+2. The speaker has only one brother, so *who lives in Cebu* is extra and takes commas on both sides.
 
-Correct sentence: **"After the meeting, my brother, who lives in Cebu, drove me home."**
+Correct sentence: **"After the long meeting with the principal, my brother, who lives in Cebu, drove me home."**
 
-**Check:** Lift out *"who lives in Cebu"*: *"After the meeting, my brother drove me home."* The single brother is still clear.
+**Check:** Lift out *"who lives in Cebu"*: *"After the long meeting with the principal, my brother drove me home."* The single brother is still clear.
 
 ### #3: Applicants and Folders
 
@@ -120,7 +124,7 @@ Put one comma after an opening dependent clause, and after an opening phrase unl
 ## Traps to Watch For
 
 :::checklist
-- Opening dependent clause or phrase: place the opening comma after the whole opening, never inside it or between the main subject and verb. {#splitting-opening-or-subject}
+- If an opener takes a comma: place it after the whole opening, never inside it or between the main subject and verb. {#splitting-opening-or-subject}
 - Extra detail about a person or thing already identified: set it off with commas (both sides mid-sentence). {#missing-commas-on-extra-info}
 - Identifying clause narrowing a group: omit commas so it does not claim all members. {#commas-on-identifying-clause}
 :::

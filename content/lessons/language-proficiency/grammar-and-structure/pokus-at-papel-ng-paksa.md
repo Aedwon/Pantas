@@ -18,7 +18,7 @@ keyPoints:
 
 Ang **paksa** (subject) ang sentrong pinag-uusapan sa pangungusap. Karaniwan itong minamarkahan ng *ang* o *ang mga* para sa karaniwang ngalan, at *si* o *sina* para sa tiyak na ngalan ng tao.
 
-Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya hanapin muna ang **parirala** (phrase) na may *ang*, *si*, *ang mga*, o *sina*.
+Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya sa pariralang may pangngalan, hanapin muna ang **parirala** (phrase) na may *ang*, *si*, *ang mga*, o *sina*. Walang pananda ang paksang panghalip, gaya ng *siya* sa "Kumain siya ng tinapay." Hanapin ang pariralang may panandang paksa:
 
 - "Kumain **ang bata** ng tinapay." (*Ang bata* ang paksa, hindi ang tinapay.)
 - "Sumulat **si Mara** ng liham." (*Si Mara* ang paksa, hindi ang liham.)
@@ -31,7 +31,7 @@ Ang sagot ay **Ang kuwento**. Ito ang may panandang *ang*, habang *ni Rey* ay ma
 
 ### Pokus sa Tagaganap at Pokus sa Layon
 
-Ang **pokus** ay ang ugnayan ng anyo ng **pandiwa** (verb) at ng papel ng paksa sa kilos. Paghambingin ang **tagaganap** (actor) at **layon** (object) sa iisang kilos (*sulat*, si Mara, liham):
+Ang **pokus** (role marked by the verb) ay ang ugnayan ng anyo ng **pandiwa** (verb) at ng papel ng paksa sa kilos. Paghambingin ang **tagaganap** (actor) at **layon** (object) sa iisang kilos (*sulat*, si Mara, liham):
 
 1. Pokus sa **tagaganap**: ang paksa ang gumagawa (halimbawa, *-um-*): "Sumulat **si Mara** ng liham."
 2. Pokus sa **layon**: ang paksa ang bagay na ginawan ng kilos (halimbawa, *-in-*): "Sinulat ni Mara **ang liham**."
@@ -45,7 +45,7 @@ Bakit sabay na nagbabago ang pandiwa at pananda? Ipinakikita ng **panlapi** (aff
 :::pair #paksa-may-ang-o-si
 Right: Kumain ang bata ng tinapay.
 Wrong: Kumain ng bata ng tinapay.
-Nakapokus sa tagaganap ang pandiwang *kumain*, kaya kailangan ng gumagawa ang panandang *ang* (*ang bata*) upang maging paksa.
+Nakapokus sa tagaganap ang *kumain*, kaya *ang bata* ang paksa.
 :::
 
 :::check
@@ -56,7 +56,7 @@ Ang sagot ay **Ang**. Ang *nagluto* ay nakapokus sa tagaganap, kaya *ang kusiner
 
 ### Pagpapanatili ng Aspekto Kapag Nagpalit ng Pokus
 
-Ang **aspekto** ng pandiwa ay nagsasabi kung tapos na, ginaganap pa, o gagawin pa lamang ang kilos. Kapag inilipat mo ang paksa mula tagaganap patungong layon, panatilihin ang gumawa at ang parehong aspekto:
+Ang **aspekto** (stage of an action) ng pandiwa ay nagsasabi kung tapos na, ginaganap pa, o gagawin pa lamang ang kilos. Sa paglipat ng paksa sa layon, panatilihin ang gumawa at ang aspekto:
 
 - Tapos na: "Sumulat si Mara ng liham." -> "Sinulat ni Mara ang liham."
 - Ginaganap pa: "Sumusulat si Mara ng liham." -> "Sinusulat ni Mara ang liham."
@@ -65,7 +65,7 @@ Ang **aspekto** ng pandiwa ay nagsasabi kung tapos na, ginaganap pa, o gagawin p
 :::pair #panatilihin-ang-aspekto
 Right: Mula sa "Sumulat si Mara ng liham," ang tapos na kilos sa layon ay "Sinulat ni Mara ang liham."
 Wrong: Piliin ang "Sinusulat ni Mara ang mahalagang liham" o "Susulatin ni Mara ang mahalagang liham."
-Bagaman naging paksa ang *liham*, binago ng mga maling anyo ang kalagayan ng kilos. Panatilihing tapos na ang kilos (*sinulat*).
+Binago ng mga maling anyo ang kalagayan ng kilos. Panatilihing tapos na ang *sinulat*.
 :::
 
 :::check
@@ -84,9 +84,9 @@ Piliin ang tamang pananda sa patlang: "Kumain ______ bata ng tinapay."
 
 1. Suriin ang pandiwa: ang *kumain* ay may *-um-*, kaya nakapokus sa tagaganap ito.
 2. Itanong kung sino ang kumain: ang bata.
-3. Gamitin ang panandang paksa para sa karaniwang ngalan: "Kumain **ang** bata ng tinapay."
+3. Gamitin ang panandang paksa: "Kumain **ang** bata ng tinapay."
 
-**Check:** Tingnan ang papel ng bawat parirala: *ang bata* ang paksa (gumawa) at *ng tinapay* ang bagay na kinain, kaya tugma sa *kumain*.
+**Check:** *Ang bata* ang paksa (gumawa) at *ng tinapay* ang kinain.
 
 ### #2: Tagaganap Laban sa Layon
 
@@ -97,7 +97,7 @@ Tukuyin ang paksa at pokus ng pandiwa sa bawat pangungusap: "Nagluto ang kusiner
 1. Sa unang pangungusap, *ang kusinero* ang may panandang *ang*. Siya ang gumawa ng pagluluto, kaya nakapokus sa **tagaganap** ang *nagluto*.
 2. Sa ikalawang pangungusap, *ang sopas* ang may panandang *ang*. Ito ang bagay na niluto, kaya nakapokus sa **layon** ang *niluto*.
 
-**Check:** Itanong "Sino ang nagluto?" sa una: *ang kusinero*. Itanong "Ano ang niluto?" sa ikalawa: *ang sopas*.
+**Check:** Sino ang nagluto? *Ang kusinero.* Ano ang niluto? *Ang sopas.*
 
 ### #3: Paglipat ng Paksa Nang Walang Bawas sa Kilos
 
@@ -118,11 +118,11 @@ Ang sagot ay **"Binili ni Marco ang aklat."** Ang *binili* ay nakapokus sa layon
 
 ## Speed Tricks & Shortcuts
 
-Hanapin muna ang *ang*, *si*, *ang mga*, o *sina* upang makuha ang paksa. Itanong kung ito ang gumagawa o ang bagay na ginawan ng kilos, at tiyaking pareho pa rin ang kalagayan ng kilos.
+Sa mga pangngalan, hanapin muna ang *ang*, *si*, *ang mga*, o *sina* upang makuha ang paksa; walang pananda ang panghalip na *siya*. Itanong kung ito ang gumagawa o ang bagay na ginawan ng kilos, at tiyaking pareho pa rin ang kalagayan ng kilos.
 
 ## Traps to Watch For
 
 :::checklist
-- Pandiwang nakapokus sa tagaganap gaya ng *kumain*: gamitin ang *ang* o *si* para sa gumagawa sa halip na *ng*. {#paksa-may-ang-o-si}
+- Pandiwang nakapokus sa tagaganap gaya ng *kumain*: gamitin ang *ang* o *si* para sa gumagawang pangngalan sa halip na *ng*; panghalip na *siya* ang walang pananda. {#paksa-may-ang-o-si}
 - Paglipat ng paksa sa layon: panatilihin ang tapos na kilos (*sinulat*) at huwag palitan ng *sinusulat* o *susulatin*. {#panatilihin-ang-aspekto}
 :::

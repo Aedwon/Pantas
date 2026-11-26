@@ -44,7 +44,7 @@ The answer is **"The chef cooked the meal."** *The chef* becomes the subject, an
 Change the voice of each sentence and keep its tense and aspect:
 
 - Simple past: "The novel **was written** by a famous author." -> "A famous author **wrote** the novel."
-- Simple past: "The committee **approved** the new budget." -> "The new budget **was approved** by the committee."
+- Ongoing present: "The crew **is repairing** the road." -> "The road **is being repaired** by the crew."
 
 :::pair #preserve-tense-and-aspect
 Right: "The committee approved the new budget" becomes "The new budget was approved by the committee."
@@ -111,9 +111,9 @@ Correct: "The new budget was approved by the committee."
 
 **Check:** Both sentences keep *the committee* as approver and the verb in simple past.
 
-### #3: Spotting a Get-Passive and Rewriting It Formally
+### #3: A Line from a Storm Report
 
-In "The wooden fence got damaged during the typhoon," classify the action clause, then rewrite it for a formal report.
+Look at "The wooden fence got damaged during the typhoon."
 
 **Solution:**
 
@@ -121,7 +121,7 @@ In "The wooden fence got damaged during the typhoon," classify the action clause
 2. Check the verb group: *got* plus the past participle *damaged* names that action, so the clause is a **get-passive**.
 
 :::try
-Finish the last step: how do you rewrite "The wooden fence got damaged during the typhoon" as a formal *be*-passive?
+Finish the last step: rewrite the sentence for a formal report.
 :::answer
 The answer is **"The wooden fence was damaged during the typhoon."** Replace past *got* with singular past *was*, keeping *damaged* and past time unchanged.
 
@@ -130,7 +130,7 @@ The answer is **"The wooden fence was damaged during the typhoon."** Replace pas
 
 ## Speed Tricks & Shortcuts
 
-When changing voice, first swap who acts and who receives, then match the time and aspect. With *get*, ask whether the subject receives an action: *get* + a participle naming that action is a *get*-passive, while *get* + adjective is a state.
+When changing voice, first move the receiver and the doer to their new places, then match the time and aspect. With *get*, ask whether the subject receives an action: *get* + a participle naming that action is a *get*-passive, while *get* + adjective is a state.
 
 ## Traps to Watch For
 

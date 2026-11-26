@@ -121,9 +121,9 @@ Treat the school as one organization. Choose the possessive form: *"The school p
 :::try
 Finish the last step: choose the correct form.
 :::answer
-The answer is **(A) Its**. (B) expands to *"it is front gate"* (wrong), and (C) *Its'* is invalid; *its* with no apostrophe shows ownership.
+The answer is **(A) Its**: **"The school painted its front gate last week."** (B) expands to *"it is front gate"* (wrong), and (C) *Its'* is invalid; *its* with no apostrophe shows ownership.
 
-**Check:** Test with a possessive noun: *"the school's front gate."* Since singular ownership is needed, **Its** is right.
+**Check:** Swap in a possessive noun: *"the school's front gate."* It means the same, so **Its** is right.
 :::
 
 ## Speed Tricks & Shortcuts

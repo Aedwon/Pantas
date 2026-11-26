@@ -39,8 +39,8 @@ Ang sagot ay **Panghalip**. Humahalili ang *sila* sa pangalan ng mga taong nagda
 
 Ang **pandiwa** (verb) ay nagsasaad ng kilos, pangyayari, o kalagayan. Hanapin ang kilos o pangyayari sa dalawang halimbawa:
 
-- "Kumain ang mga bata ng masarap na hapunan." (*Kumain* ang kilos na ginawa ng mga bata.)
-- "Bumuhos ang malakas na ulan." (*Bumuhos* ang pangyayari.)
+- "**Kumain** ang mga bata ng masarap na hapunan."
+- "**Bumuhos** ang malakas na ulan."
 
 :::pair #pandiwa-kilos-hindi-pangngalan
 Right: Sa "Kumain ang mga bata ng masarap na hapunan," ang *kumain* ay pandiwa dahil sinasabi nito ang kilos.
@@ -99,9 +99,8 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Kumain** ang mga bata 
 
 **Solution:**
 
-1. Hanapin ang **paksa** (subject): *ang mga bata*.
-2. Itanong kung ano ang ginawa ng mga bata: sila ay kumain.
-3. Sinasabi ng *kumain* ang kilos, kaya **pandiwa** ito.
+1. Ang *kumain* ang kilos na ginawa ng **paksa** (subject) na *ang mga bata*.
+2. Kaya **pandiwa** ito.
 
 **Check:** Hindi ngalan ng bagay ang *kumain* tulad ng *hapunan*, at hindi ito naglalarawan ng isa pang kilos.
 
@@ -111,13 +110,12 @@ Sa tradisyonal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitan
 
 **Solution:**
 
-1. Tukuyin ang kilos na ginawa ng pulis: *hinatid*.
-2. Tukuyin ang lugar ng paghahatid: *sa istasyon*.
+1. Hanapin ang *ang nahuli* sa dulo ng pangungusap, kasunod ng *sa istasyon*.
 
 :::try
-Tapusin ang huling hakbang: sino ang tinutukoy ng *ang nahuli*, at ano ang gamit nito sa itinakdang pag-uuri?
+Tapusin ang huling hakbang: ano ang ginagawa ng *ang nahuli* sa pangungusap, at ano ang gamit nito sa itinakdang pag-uuri?
 :::answer
-Ang sagot ay **Pandiwaring gamit na pangngalan**. Mula sa pandiwa ang *nahuli*, at tumutukoy ito sa taong hinatid sa istasyon, hindi sa kilos ng pulis at hindi sa lugar.
+Ang sagot ay **Pandiwaring gamit na pangngalan**. Mula sa pandiwa ang *nahuli*. Hindi ito ang kilos ng pulis (*hinatid*) at hindi ang lugar (*sa istasyon*); tumutukoy ito sa taong hinatid.
 
 **Check:** Ihiwalay ang tatlong bahagi: *hinatid* (kilos), *sa istasyon* (lugar), at *ang nahuli* (taong hinatid).
 :::

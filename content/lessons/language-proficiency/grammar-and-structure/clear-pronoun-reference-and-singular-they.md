@@ -18,9 +18,9 @@ keyPoints:
 
 ### Matching Number and Ownership Form
 
-A **pronoun** replaces a noun or noun phrase, like *she*, *it*, or *they*. The **antecedent** is the noun it refers back to. In "The girl lost **her** book," *the girl* is the antecedent of *her*.
+A **pronoun** replaces a noun or noun phrase, like *she*, *it*, or *they*. The **antecedent** is the word or group of words it refers to. In "The girl lost **her** book," *the girl* is the antecedent of *her*.
 
-Match number and kind: use *her*, *his*, or *its* for one (or singular *their* when gender is unknown or unspecified, explained next), and *their* for more than one ("The girls lost **their** books"). Before a noun, use *her* or *their* (*her book*). Alone without a noun after it, use *hers* or *theirs* ("That book is **hers**").
+Match number and kind: use *her*, *his*, or *its* for one (or singular *their*, explained next), and *their* for more than one ("The girls lost **their** books"). Before a noun, use *her* or *their* (*her book*). Alone without a noun after it, use *hers* or *theirs* ("That book is **hers**").
 
 :::check
 Maya uses she/her pronouns. Choose the right form: "Maya left *(her / hers)* jacket at school."
@@ -52,7 +52,7 @@ Singular *they* changes the pronoun, not the verb attached to *everybody*. Match
 2. *They* always takes plural verb forms in general (such as *are*, *have*, and plain verbs without *-s*), even when referring to one person.
 
 :::why
-Why write "Everybody **has** said they **are** ready"? Each verb agrees directly with the subject beside it. *Everybody* is grammatically singular (*has*), while *they* always pairs with *are*.
+Why write "Everybody **has** said they **are** ready"? Each verb agrees with its own subject. *Everybody* is grammatically singular (*has*), while *they* always pairs with *are*.
 :::
 
 :::pair #everybody-and-they-verbs
@@ -91,10 +91,10 @@ Choose the pronouns: (a) "The girls lost *(her / their)* books on the way home."
 
 **Solution:**
 
-1. In (a), *the girls* is plural, so choose **their**.
-2. In (b), *each* points to one unspecified student, so modern gender-neutral English uses singular **their**.
+1. In (a), *the girls* is plural: "The girls lost **their** books on the way home."
+2. In (b), *each* points to one unspecified student: "Each of the students must submit **their** essay by Friday."
 
-**Check:** In (a), plural *girls* pairs with *their*; in (b), *each of the students* names one unspecified person, so gender-neutral singular *their* matches it (*his* assumes male gender and *its* names an object).
+**Check:** Plural *girls* pairs with *their*. *Each of the students* names one unspecified person, so singular *their* fits (*his* assumes male gender and *its* names an object).
 
 ### #2: Combining Everybody and Singular They
 
@@ -114,8 +114,7 @@ Explain why "When Mrs. Santos spoke to Anna, she seemed upset" is unclear, and r
 
 **Solution:**
 
-1. Both *Mrs. Santos* and *Anna* fit *she*.
-2. Either woman could be the one who seemed upset.
+1. Both *Mrs. Santos* and *Anna* fit *she*, so either woman could be the one who seemed upset.
 
 :::try
 Finish the last step: rewrite the sentence so it clearly states that Anna seemed upset.

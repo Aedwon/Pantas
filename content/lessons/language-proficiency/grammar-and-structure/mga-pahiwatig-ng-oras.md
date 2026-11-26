@@ -18,7 +18,7 @@ keyPoints:
 
 Ang **pang-abay na pamanahon** (time adverb) ay salitang nagsasabi kung kailan nangyari, nangyayari, o mangyayari ang kilos. Ilan sa mga karaniwang pahiwatig ang *kahapon* (nakaraan), *ngayon* (kasalukuyan), *bukas* (hinaharap), at *tuwing* (paulit-ulit).
 
-Maaaring ilagay ang pahiwatig ng oras sa unahan ng pangungusap na may *ay*, o ilipat sa hulihan nang walang *ay*. Hindi nagbabago ang oras at **aspekto** ng **pandiwa** (verb) kapag inilipat lamang ang puwesto nito:
+Maaaring ilagay ang pahiwatig ng oras sa unahan ng pangungusap na may *ay*, o ilipat sa hulihan nang walang *ay*. Hindi nagbabago ang oras at **aspekto** (stage of an action) ng **pandiwa** (verb) kapag inilipat lamang ang puwesto nito. Ilipat ang *bukas* sa hulihan ng pangungusap tungkol kay Elena:
 
 - Unahan: "**Bukas** ay magsusumite si Elena ng ulat."
 - Hulihan: "Magsusumite si Elena ng ulat **bukas**."
@@ -37,27 +37,27 @@ Ang sagot ay **"Nag-aral si Mia kahapon."** Nanatili ang *kahapon* at ang tapos 
 
 ### Paulit-ulit na Kilos at Pahiwatig na Tuwing
 
-Ginagamit ang **imperpektibo** (ongoing) hindi lamang sa kilos na nangyayari sa mismong sandali ng pagsasalita. Ginagamit din ito para sa paulit-ulit o nakatakdang gawain. Tanda ng pag-uulit ang *tuwing*:
+Ginagamit ang **imperpektibo** (ongoing) hindi lamang sa kilos na nangyayari sa mismong sandali ng pagsasalita. Ginagamit din ito para sa paulit-ulit na gawaing umiiral na. Dalas ang ipinakikita ng *tuwing*. Kontemplatibo ang pandiwa kung binabalak pa lamang ang iskedyul: "Magpupulong kami tuwing Biyernes simula sa susunod na linggo."
 
-- "Naglilinis ng bulwagan ang mga kawani **tuwing Sabado**." (Lingguhang iskedyul ito, kaya *naglilinis* ang tamang anyo kahit hindi Sabado ngayon.)
+- "Naglilinis ng bulwagan ang mga kawani **tuwing Sabado**." (Umiiral na ang iskedyul.)
 
 :::pair #tuwing-paulit-ulit-na-kilos
 Right: Sa "Naglilinis ng bulwagan ang mga kawani tuwing Sabado," imperpektibo ang *naglilinis* **sapagkat nagpapahayag ito ng paulit-ulit na gawain**.
 Wrong: Sabihing imperpektibo ito **sapagkat natapos na ang lahat ng paglilinis** o **sapagkat katatapos lamang nilang maglinis**.
-Ang *tuwing Sabado* ay tanda ng nakatakdang gawaing inuulit linggo-linggo, hindi ng isang tapos o katatapos lamang na paglilinis.
+Ang *tuwing Sabado* ay gawaing inuulit linggo-linggo, hindi tapos o katatapos lamang.
 :::
 
 :::check
-Aling pahiwatig ang tanda ng paulit-ulit na gawain: "Nagpupulong ang grupo ___ Lunes"? *(kahapon / tuwing / bukas)*
+Alin ang naglalarawan ng paulit-ulit nang gawain ng grupo: *(nagpupulong kahapon / nagpupulong tuwing Lunes / magpupulong bukas)*?
 :::answer
-Ang sagot ay **Tuwing**. Tanda ang *tuwing* ng paulit-ulit na gawain na katugma ng imperpektibong *nagpupulong*.
+Ang sagot ay **nagpupulong tuwing Lunes**. Dalas ang ipinakikita ng *tuwing*, at umiiral na ang gawain kaya imperpektibo ang *nagpupulong*.
 :::
 
 ### Nagpapatuloy na Kilos sa Nakaraan
 
-Hindi sapat ang isang salita lamang tulad ng *kahapon* upang piliin ang **perpektibo** (completed). Suriin din ang iba pang pahiwatig gaya ng *habang*, *bago*, *pagkatapos*, o *nang* kasama ng isa pang kilos.
+Hindi sapat ang *kahapon* lamang upang piliin ang **perpektibo** (completed). Suriin din ang iba pang pahiwatig gaya ng *habang*, *bago*, *pagkatapos*, o *nang* kasama ng isa pang kilos.
 
-Kapag may kilos na nagpapatuloy pa nang pumasok ang isa pang pangyayari sa nakaraan, nananatili sa imperpektibo ang kilos na nagpapatuloy:
+Kapag may kilos na nagpapatuloy pa nang pumasok ang isa pang pangyayari sa nakaraan, nananatili sa imperpektibo ang kilos na nagpapatuloy. Tingnan kung ano pa ang ginagawa ni Luis nang dumating ang pinuno:
 
 - "**Nagsusulat pa** ng ulat si Luis nang dumating ang pinuno **kahapon**."
 
@@ -70,7 +70,7 @@ Bakit imperpektibo ang *nagsusulat* kahit may *kahapon*? Ipinakikita ng *pa* na 
 :::pair #nagpapatuloy-sa-nakaraan
 Right: Sa "Nagsusulat pa ng ulat si Luis nang dumating ang pinuno kahapon," ang *nagsusulat* ay **imperpektibo, dahil nagpapatuloy ang pagsulat nang dumating ang pinuno**.
 Wrong: "**Perpektibo, dahil kahapon naganap ang pangyayari.**" o "**Kontemplatibo, dahil hindi pa tapos ang ulat.**"
-Hindi tapos ang pagsusulat kahit may *kahapon*. Hindi rin ito **kontemplatibo** (not yet begun), dahil nagsimula na ito. Nagsusulat na si Luis nang dumating ang pinuno.
+Hindi tapos ang pagsusulat kahit may *kahapon*. Hindi rin ito **kontemplatibo** (not yet begun), dahil nagsimula na ito.
 :::
 
 :::check
@@ -91,7 +91,7 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite si Elena ng ula
 2. Tanggalin ang *ay* at ilagay ang *bukas* sa hulihan nang hindi binabago ang *magsusumite*.
 3. Buuin ang pangungusap: "**Magsusumite si Elena ng ulat bukas.**"
 
-**Check:** Suriin ang dalawang bahagi: gagawin pa ang *magsusumite* (hindi *nagsumite* o *nagsusumite*), at nasa hinaharap pa rin ang *bukas* (hindi *kahapon* o *ngayon*).
+**Check:** Gagawin pa ang *magsusumite*, at nasa hinaharap pa rin ang *bukas*.
 
 ### #2: Paulit-ulit na Gawain
 
@@ -100,10 +100,10 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite si Elena ng ula
 **Solution:**
 
 1. Hanapin ang pahiwatig ng oras: *tuwing Sabado*.
-2. Ipinakikita ng *tuwing* ang iskedyul o gawaing paulit-ulit na ginagawa.
+2. Dalas ang ipinakikita ng *tuwing*, at umiiral na ang iskedyul.
 3. Kaya imperpektibo ito **sapagkat nagpapahayag ito ng paulit-ulit na gawain**.
 
-**Check:** Hindi sinasabing tapos na ang lahat ng paglilinis o katatapos lamang nito; sinasabi ng *tuwing Sabado* na umuulit ito linggo-linggo.
+**Check:** Umuulit linggo-linggo ang paglilinis; hindi ito tapos o katatapos lamang.
 
 ### #3: Dalawang Pangyayari Kahapon
 
@@ -123,12 +123,12 @@ Ang sagot ay **Imperpektibo, dahil nagpapatuloy ang paglalaba nang tumawag ang k
 
 ## Speed Tricks & Shortcuts
 
-Huwag tumingin sa *kahapon*, *ngayon*, o *bukas* lamang. Basahin ang buong pangungusap: hanapin ang *tuwing* para sa paulit-ulit na kilos, at tingnan kung nagpapatuloy pa ang kilos (*nagsusulat pa*, *habang*) sa isang nakaraang tagpo.
+Huwag tumingin sa *kahapon*, *ngayon*, o *bukas* lamang. Basahin ang buong pangungusap: hanapin ang *tuwing* para sa dalas ng kilos, at tingnan kung nagpapatuloy pa ang kilos (*nagsusulat pa*, *habang*) sa isang nakaraang tagpo.
 
 ## Traps to Watch For
 
 :::checklist
 - Paglipat ng pahiwatig sa hulihan: panatilihin ang parehong pahiwatig at anyo ng pandiwa, tulad ng "Magsusumite si Elena ng ulat bukas." {#panatilihin-ang-oras-at-aspekto}
-- Pahiwatig na *tuwing*: tanda ito ng pag-uulit, kaya tingnan din ang anyo ng pandiwa at ang buong pangungusap. {#tuwing-paulit-ulit-na-kilos}
+- Pahiwatig na *tuwing*: dalas lamang ito, kaya tingnan kung umiiral na ang iskedyul (imperpektibo) o binabalak pa (kontemplatibo). {#tuwing-paulit-ulit-na-kilos}
 - Salitang *kahapon* na may kasamang kilos na nagpapatuloy (*nagsusulat pa*): imperpektibo ang kilos sa sandaling iyon, hindi perpektibo. {#nagpapatuloy-sa-nakaraan}
 :::

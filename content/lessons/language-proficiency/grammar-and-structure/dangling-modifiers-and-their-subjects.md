@@ -16,11 +16,11 @@ keyPoints:
 
 ### Matching an Opening Phrase to the Main Subject
 
-When a sentence begins with a subjectless opening phrase (*"Driving through the mountains,"* *"Exhausted from the hike,"* *"To reach the deadline"*), the opening action attaches to the **main subject**, the subject of the main clause.
+When a sentence begins with a subjectless opening phrase that describes a person or thing in the sentence (*"Driving through the mountains,"* *"Exhausted from the hike,"* *"To meet the deadline,"*), the phrase attaches to the **main subject**, the subject of the main clause. Ask who does it or is in that state.
 
-A **dangling modifier** happens when the main subject is not the implied doer. In *"After finishing the marathon, a warm bath felt amazing,"* the main subject is *a warm bath*, making the sentence say the bath finished the race.
+A **dangling modifier** happens when the main subject is not the one the phrase describes. In *"After finishing the marathon, a warm bath felt amazing,"* the main subject is *a warm bath*, making the sentence say the bath finished the race.
 
-An opening phrase with a comma is fine when the main subject can logically do that action (*"Working toward the deadline, the editors requested more time"*).
+An opening phrase is fine when the main subject can logically do that action (*"Working toward the deadline, the editors requested more time"*).
 
 <!-- ILLUSTRATION: two stacked sentences: top "After finishing the marathon, [a warm bath] felt amazing." with a crossed line from "finishing" to "a warm bath" labeled "dangling: bath cannot finish a race"; bottom "After finishing the marathon, [she] enjoyed a warm bath." with a teal arrow from "finishing" to "she" labeled "matching main subject" -->
 
@@ -37,9 +37,9 @@ Making an activity (*packing*, *pitching*) the main subject leaves the phrase da
 :::
 
 :::check
-Does *"Waiting at the station, the train arrived late"* have a dangling modifier?
+Does *"Reading the departure board, the train arrived late"* have a dangling modifier?
 :::answer
-The answer is **Yes**. *The train* is the main subject, and a train cannot wait at a station.
+The answer is **Yes**. *The train* is the main subject, and a train cannot read a board.
 :::
 
 ### Two Ways to Fix a Dangling Modifier
@@ -79,7 +79,7 @@ What is the problem in *"Having studied all night, the exam seemed easy"*?
 2. The main subject is *the exam*, which cannot study.
 3. So *"Having studied all night, the exam seemed easy"* **dangles**: *the exam* is the wrong doer.
 
-**Check:** Ask "Who studied all night?" The main subject *the exam* cannot study, confirming it dangles.
+**Check:** Ask who studied all night: *the exam* cannot.
 
 ### #2: Fixing With the Main Subject
 
@@ -90,7 +90,7 @@ Revise *"Rushing to catch the bus, my coffee spilled everywhere"* so the runner 
 1. Identify who was rushing: *I*.
 2. Put *I* right after the comma: **"Rushing to catch the bus, I spilled my coffee everywhere."**
 
-**Check:** Read *"Rushing, I spilled my coffee."* *I* can rush, while *my coffee* cannot.
+**Check:** *I* can rush; *my coffee* cannot.
 
 ### #3: Comparing Two Openings
 
@@ -113,7 +113,7 @@ The answer is **(B) "As Marco crossed the bridge, the strong wind blew his hat a
 
 ## Speed Tricks & Shortcuts
 
-Read the opening phrase and ask "Who did this?" Check the main subject. If it cannot do the action, change the main subject or turn the phrase into a full clause.
+Read the opening phrase and check the main subject. If it does not fit, change the main subject or turn the phrase into a full clause.
 
 ## Traps to Watch For
 

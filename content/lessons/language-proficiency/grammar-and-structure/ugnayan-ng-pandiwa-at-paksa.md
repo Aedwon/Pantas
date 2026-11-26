@@ -17,17 +17,17 @@ keyPoints:
 
 ### Tagaganap at Layon
 
-Ang **pokus** ay ang ugnayan ng **pandiwa** (verb) sa **paksa** (subject) ng pangungusap. Kapag pangngalan (noun) ang paksa, hanapin ang **parirala** (phrase) na may *ang, ang mga, si,* o *sina* (ang may *ng* o *ni* ay hindi paksa), saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
+Ang **pokus** (role marked by the verb) ay ang ugnayan ng **pandiwa** (verb) sa **paksa** (subject) ng pangungusap. Kapag pangngalan (noun) ang paksa, hanapin ang **parirala** (phrase) na may *ang, ang mga, si,* o *sina* (ang may *ng* o *ni* ay hindi paksa), saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
 
 1. **Tagaganap** (actor): ang paksa ang gumagawa: "*Nagluto* ng pagkain **si Rosa**."
 2. **Layon** (object): ang paksa ang bagay na ginawan ng kilos: "*Kinain* ng bata **ang mangga**."
 
-Kapag inilipat ang paksa sa layon, panatilihin ang **aspekto**: "Nagluto ng sopas si Dina" -> "Niluto ni Dina **ang sopas**."
+Kapag inilipat ang paksa sa layon, panatilihin ang **aspekto** (stage of an action): "Nagluto ng sopas si Dina" -> "Niluto ni Dina **ang sopas**."
 
 :::pair #hanapin-ang-may-ang-o-si
 Right: Sa "Nagluto ng pagkain si Rosa," *si Rosa* ang paksa (pokus sa tagaganap); sa "Kinain ng bata ang mangga," *ang mangga* ang paksa (pokus sa layon).
 Wrong: Sa "Nagluto ng pagkain si Rosa," gawing paksa ang *ng pagkain*. Sa "Kinain ng bata ang mangga," gawing paksa ang *ng bata*, kaya tagaganap ang pokus.
-Ang pariralang may *ang*, *ang mga*, *si*, o *sina* ang paksa. Kapag *ng* o *ni* ang pananda (*ng bata*, *ni Mara*), hindi ito ang paksa.
+Ang pariralang may *ang*, *ang mga*, *si*, o *sina* ang paksa, hindi ang may *ng* o *ni*.
 :::
 
 :::check
@@ -38,7 +38,7 @@ Ang sagot ay **Sina Liza at Omar; pokus sa tagaganap**. May panandang *sina* ang
 
 ### Ganapan Laban sa Direksiyon
 
-Huwag ibatay ang sagot sa salitang lugar lamang:
+Huwag ibatay ang sagot sa salitang lugar lamang. Ihambing kung paano iniuugnay ng dalawang pandiwa ang *ang bakuran*:
 
 1. **Ganapan** (location): ang paksa ang lugar kung saan ginawa ang kilos: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**."
 2. **Direksiyon**: ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
@@ -63,7 +63,7 @@ Gamitin ang tanong na tugma sa papel ng paksa:
 
 1. **Tagatanggap** (beneficiary): sino ang nakinabang? "*Ipinagluto* ng kusinero ng lugaw **ang mga bata**."
 2. **Kagamitan**: ano ang ginamit? "*Ipinangsulat* ni Teresa ng pangalan **ang lapis**."
-3. **Sanhi**: ano ang dahilan ng damdamin? "*Ikinatuwa* ng mga kawani **ang balita**."
+3. **Sanhi**: ano ang sanhi ng nangyari o naramdaman? "*Ikinatuwa* ng mga kawani **ang balita**."
 
 :::why
 Bakit kailangang suriin ang papel ng paksa sa *ipinagluto* at *ipinangsulat*? Magkahawig ang dalawang pandiwa, kaya alamin kung nakinabang ang paksa (*ang mga bata*) o ginamit ito (*ang lapis*).
@@ -89,14 +89,14 @@ Baguhin ang "Nagluto ng sopas si Dina" upang maging paksa ang *sopas* at manatil
 
 **Solution:**
 
-1. Gawing *ang sopas* ang *ng sopas* upang ito ang maging paksa, at gawing *ni Dina* ang *si Dina*.
+1. Gawing *ang sopas* ang *ng sopas*, at *ni Dina* ang *si Dina*.
 2. Palitan ang *nagluto* ng katumbas na tapos na at nakapokus sa layon: **niluto**.
 
 Sagot: **"Niluto ni Dina ang sopas."**
 
 **Check:** *Ang sopas* ang may *ang* (layon), *ni Dina* ang gumawa, at tapos na ang *niluto*.
 
-### #2: Dalawang Lugar na Magkaiba ang Pokus
+### #2: Iisang Lugar, Dalawang Papel
 
 Paghambingin ang pokus sa "Pinagtaniman ng mga kawani ng gulay ang bakuran" at "Pinuntahan ng mga kawani ang bakuran."
 
@@ -114,8 +114,7 @@ Suriin ang "Ipinaghanda ni Carlo ng meryenda ang mga panauhin" at "Ipinampunas n
 
 **Solution:**
 
-1. Hindi paksa ang *ni Carlo* (may *ni*, hindi *si*), kaya hindi tagaganap.
-2. Mga paksang may *ang*: *ang mga panauhin* at *ang basahan*.
+1. Si Carlo ang gumawa sa dalawa, at ang mga paksa ay ang may *ang*: *ang mga panauhin* at *ang basahan*.
 
 :::try
 Tapusin: ano ang papel ng *ang mga panauhin* at *ang basahan*, at ano ang pokus ng bawat pandiwa?

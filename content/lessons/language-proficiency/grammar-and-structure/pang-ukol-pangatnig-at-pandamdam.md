@@ -16,10 +16,10 @@ keyPoints:
 
 ### Pang-ukol: Nag-uugnay Patungo sa Pangngalan
 
-Ang **pang-ukol** (preposition) ay nag-uugnay ng **pangngalan** (noun) o grupo nito sa ibang bahagi ng pangungusap, tulad ng *para sa, para kay, tungkol sa, ayon sa, laban sa,* at *ukol sa*:
+Ang **pang-ukol** (preposition) ay nag-uugnay ng **pangngalan** (noun) o grupo nito sa ibang bahagi ng pangungusap, tulad ng *para sa, para kay, tungkol sa, ayon sa, laban sa,* at *ukol sa*. Sundan ang pang-ukol at ang pangngalang kasunod nito:
 
-- "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita." (Iniuugnay ng *para sa* ang *mga bisita* sa *mga upuan*.)
-- "Nag-usap sila **tungkol sa** proyekto." (Sinasabi nito kung ano ang paksa ng pag-uusap.)
+- "Naghanda ang tanggapan ng [mga upuan] **para sa** [mga bisita]."
+- "Nag-usap sila **tungkol sa** [proyekto]."
 
 :::pair #pang-ukol-laban-sa-pangatnig
 Right: Sa "Naghanda ang tanggapan ng mga upuan para sa mga bisita," ang *para sa* ay pang-ukol.
@@ -35,10 +35,10 @@ Ang sagot ay **Pang-ukol**. Ipinakikilala ng *mula sa* ang pangngalang *Cebu* at
 
 ### Pangatnig: Nagdurugtong ng mga Salita o Sugnay
 
-Ang **pangatnig** (conjunction) ay nagdurugtong ng salita, **parirala** (phrase), o **sugnay** (clause), tulad ng *at, ngunit, o, dahil, sapagkat, upang,* at *kung*:
+Ang **pangatnig** (conjunction) ay nagdurugtong ng salita, **parirala** (phrase), o **sugnay** (clause), tulad ng *at, ngunit, o, dahil, sapagkat, upang,* at *kung*. Sundan ang pangatnig at ang dalawang bahaging pinagdurugtong nito:
 
-- "Nagbasa siya **at** nagsulat." (Pinagdurugtong ng *at* ang dalawang kilos.)
-- "Umuwi siya **dahil** umuulan na." (Pinagdurugtong ng *dahil* ang dalawang sugnay.)
+- "[Nagbasa siya] **at** [nagsulat]."
+- "[Umuwi siya] **dahil** [umuulan na]."
 
 <!-- ILLUSTRATION: dalawang halimbawa sa magkatabing kahon: kaliwa "para sa [mga bisita]" na may tatak na "iniuugnay ang pangkat ng pangngalan sa ibang bahagi -> pang-ukol"; kanan "Nagbasa siya at nagsulat" na may tatak na "nagdurugtong ng dalawang kilos -> pangatnig" -->
 
@@ -54,12 +54,12 @@ Ang sagot ay **Pangatnig**. Pinagdurugtong ng *kaya* ang dalawang sugnay (*umula
 
 ### Pandamdam: Tuwirang Pahayag ng Damdamin
 
-Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*:
+Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*. Hanapin ang salitang nagpapahayag ng reaksiyon:
 
-- "**Aray!** Masakit ang sugat ko." (Tuwirang pahayag ng sakit.)
+- "**Aray!** Masakit ang sugat ko."
 
 :::pair #pandamdam-laban-sa-pangngalan
-Right: Sa "Naku! Naiwan ko sa bahay ang aking pagkakakilanlan," ang *Naku* ay pandamdam.
+Right: Sa "Naku! Naiwan ko sa bahay ang aking susi," ang *Naku* ay pandamdam.
 Wrong: Tawaging pangngalan, pangatnig, o pandiwa ang *Naku* sa pangungusap na ito.
 Hindi pinapangalanan ng *Naku* ang isang damdamin tulad ng salitang *kaba*, hindi ito nagdurugtong ng dalawang diwa, at hindi ito kilos tulad ng *naiwan*.
 :::

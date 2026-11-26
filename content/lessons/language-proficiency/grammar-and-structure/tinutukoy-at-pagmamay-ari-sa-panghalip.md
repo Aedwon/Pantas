@@ -17,7 +17,7 @@ keyPoints:
 
 ### Dalawang Karaniwang Ayos ng Pagmamay-ari
 
-Nagbabago ang **panghalip** (pronoun) na **paari** (possessive) depende sa puwesto nito sa pangungusap:
+Sa dalawang ayos na ito, nagbabago ang **panghalip** (pronoun) na **paari** (possessive) ayon sa puwesto ng may-ari:
 
 1. Pagkatapos ng pag-aari: anyong *ng* (*ko, mo, niya, namin, natin, ninyo, nila*), gaya sa "Ito ang aklat **ko**."
 2. Nauuna ang may-ari: anyong *sa* (*akin, iyo, kaniya, amin, atin, inyo, kanila*) nang walang *sa*, gaya sa "**Akin** ang aklat na nasa mesa."
@@ -29,7 +29,7 @@ Hindi ginagamit ang anyong *ang* (*ako*) o *ng* (*ko*) bago ang *ang aklat* upan
 :::
 
 :::check
-Kausap ni Liza ang kaibigan niya. Siya at ang kapatid niya ang may-ari ng bahay. Piliin ang tama sa sasabihin ni Liza: "*(Namin / Amin / Kami)* ang bahay sa kanto."
+Kausap ni Liza ang kaibigan niya. Si Liza at ang kapatid niya ang may-ari ng bahay. Piliin ang tama sa sasabihin ni Liza: "*(Namin / Amin / Kami)* ang bahay sa kanto."
 :::answer
 Ang sagot ay **Amin**. Nauuna ang may-ari bago ang *ang bahay*, at hindi kasama ang kausap sa may-ari.
 :::
@@ -45,7 +45,7 @@ Hinahati ang mga **panghalip panao** (personal pronoun) ayon sa **panauhan** (pe
 :::pair #tayo-laban-sa-kami
 Right: Kausap ni Ruben si Mila. Hindi dadalo si Mila, kaya sabi ni Ruben: "Kami ang dadalo sa pagpupulong."
 Wrong: Sabihin ni Ruben ang "Tayo ang dadalo" o "Sila ang dadalo."
-Isinasama ng *tayo* ang kausap na si Mila, at iniaalis naman ng *sila* ang nagsasalitang si Ruben. Ang *kami* ay para sa nagsasalita at mga kasama niya maliban sa kausap.
+Isinasama ng *tayo* ang kausap na si Mila, at iniaalis naman ng *sila* ang nagsasalitang si Ruben.
 :::
 
 :::check
@@ -56,7 +56,7 @@ Ang sagot ay **Tayo**. Kasama sa pupunta ang kausap na si Ben.
 
 ### Walang Kasarian ang Panghalip sa Filipino
 
-Hindi tulad ng Ingles na may *he*, *she*, at *it*, ang *siya*, *niya*, at *kaniya* sa Filipino ay **hindi nagsasaad ng kasarian**. Pareho ang anyo para sa babae o lalaki, at ginagamit ito para sa tao at kung minsan sa alagang hayop. Para sa bagay, *ito* ang gamit, gaya ng *it* sa Ingles: "Mabigat ang bag. Dala ko ito."
+Hindi tulad ng Ingles na may *he*, *she*, at *it*, ang *siya*, *niya*, at *kaniya* sa Filipino ay **hindi nagsasaad ng kasarian**. Pareho ang anyo para sa babae o lalaki, at ginagamit ito para sa tao at kung minsan sa alagang hayop. Para sa bagay na malapit o tinutukoy ngayon, maaaring gamitin ang *ito*, gaya ng *it* sa Ingles: "Mabigat ang bag. Dala ko ito."
 
 :::why
 Bakit iisa ang *siya* para sa babae at lalaki? Sa balarilang Filipino, ang anyo ng panghalip ay sumusunod sa bilang at papel (*ang*, *ng*, o *sa*), hindi sa kasarian ng taong tinutukoy.
@@ -65,7 +65,7 @@ Bakit iisa ang *siya* para sa babae at lalaki? Sa balarilang Filipino, ang anyo 
 :::pair #walang-kasarian-ang-siya
 Right: Ang salitang *siya* sa Filipino ay hindi nagsasaad ng kasarian.
 Wrong: Sabihing tumutukoy lamang ang *siya* sa babae, sa lalaki, o sa mga bagay.
-Tumutukoy ang *siya* sa sinumang iisang taong pinag-uusapan, babae man o lalaki. Para sa bagay, *ito* ang gamit.
+Tumutukoy ang *siya* sa sinumang iisang taong pinag-uusapan, babae man o lalaki. Maaaring gamitin ang *ito* para sa bagay.
 :::
 
 :::check
@@ -98,7 +98,7 @@ Kausap ni Ruben si Mila. Dadalo si Ruben at ang kaniyang mga kasama, ngunit hind
 2. Alamin kung kasama ang kausap (Mila): hindi siya dadalo, kaya alisin ang *tayo*.
 3. Gamitin ang panghalip na kasama ang nagsasalita ngunit hindi kasama ang kausap: **Kami**.
 
-**Check:** Basahin nang buo: "Kami ang dadalo sa pagpupulong" ay nangangahulugang si Ruben at ang mga kasama niya lamang ang dadalo, hindi si Mila.
+**Check:** Si Ruben at ang mga kasama niya lamang ang dadalo sa "Kami ang dadalo sa pagpupulong."
 
 ### #3: Linya ni Lea
 
@@ -118,12 +118,12 @@ Ang sagot ay **"Salamat po sa tulong ninyo."** Magalang na anyo para sa iisang k
 
 ## Speed Tricks & Shortcuts
 
-Tingnan ang puwesto sa pagmamay-ari (*aklat ko* laban sa *akin ang aklat*). Tanungin kung kasama ang kausap para sa *tayo* laban sa *kami*, at piliin ang *siya, niya,* o *kaniya* ayon sa papel, hindi sa kasarian.
+Sa dalawang ayos na itinuro rito, tingnan ang puwesto sa pagmamay-ari (*aklat ko* laban sa *Akin ang aklat*). Tanungin kung kasama ang kausap para sa *tayo* laban sa *kami*, at piliin ang *siya, niya,* o *kaniya* ayon sa papel, hindi sa kasarian.
 
 ## Traps to Watch For
 
 :::checklist
-- Nauuna ang may-ari sa pangungusap ("___ ang aklat"): gamitin ang *akin*, hindi *ako* o *ko*. {#ayos-ng-pagmamay-ari}
+- Nagsasabi ang nagsasalita na siya ang may-ari ("___ ang aklat"): gamitin ang *akin*, hindi *ako* o *ko*. {#ayos-ng-pagmamay-ari}
 - Kasama ang nagsasalita ngunit hindi ang kausap: gamitin ang *kami*, hindi *tayo* o *sila*. {#tayo-laban-sa-kami}
 - Paggamit ng *siya*: tandaang para ito sa iisang tao (o alaga) at hindi nagsasaad ng kasarian. {#walang-kasarian-ang-siya}
 :::

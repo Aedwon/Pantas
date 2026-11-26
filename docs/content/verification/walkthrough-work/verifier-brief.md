@@ -1,7 +1,7 @@
 # Verifier brief: CSE lesson walk-through rewrite
 
 You are an independent verifier. You did not write the lessons you check. First read the rules file in full; it defines the standard:
-/private/tmp/claude-501/-Users-aedwon--t3-worktrees-Pantas-content-lesson-walkthro-85719f9d9f054ca1/ccba2862-baef-455a-a40a-1db609b1af35/scratchpad/worker-rules.md
+/Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1/docs/content/verification/walkthrough-work/worker-rules.md
 
 - Do not start subagents; do the work yourself.
 - READ-ONLY: do not edit any file in the repository. Bash for read-only commands only. Scratch notes or arithmetic scripts only under your own folder in the scratchpad, written with the Write tool, run with `python3 -I`. Never run dart or flutter anywhere except the importer runner in its own directory (pass lesson paths as separate arguments, for example with xargs). Never run any tool with its working directory inside the repository's `content/` folder.
