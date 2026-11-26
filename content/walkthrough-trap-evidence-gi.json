@@ -2336,6 +2336,345 @@
           "mistakeNote": "Confuses Article XVIII (Transitory Provisions) with Article XVII (Amendments or Revisions)."
         }
       ]
+    },
+    "lesson-code-of-conduct-ra-6713-norms-public-interest-and-professionalism": {
+      "eight-named-norms": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0001",
+          "wrongChoice": "10",
+          "mistakeNote": "Counts sub-duties inside Section 4 norms as extra named norms beyond the eight listed."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0001",
+          "wrongChoice": "12",
+          "mistakeNote": "Substitutes a longer ethics list for the eight named norms in Section 4(A)."
+        }
+      ],
+      "public-interest-first": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0015",
+          "wrongChoice": "Responsiveness to the public",
+          "mistakeNote": "Assigns preventing waste of public resources to Responsiveness instead of Commitment to public interest."
+        }
+      ],
+      "professionalism-vs-patronage": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0017",
+          "wrongChoice": "Political neutrality",
+          "mistakeNote": "Confuses rejecting undue patronage and improving technical skill with party neutrality."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-norms-fair-and-responsive-service": {
+      "justness-vs-party-bias": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0019",
+          "wrongChoice": "Political neutrality",
+          "mistakeNote": "Confuses poverty-based discrimination with political party bias instead of Justness and sincerity."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0010",
+          "wrongChoice": "Political neutrality",
+          "mistakeNote": "Assigns remaining true to the people and respecting others' rights to Political neutrality."
+        }
+      ],
+      "political-neutrality-party": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0003",
+          "wrongChoice": "Justness and sincerity",
+          "mistakeNote": "Substitutes general fairness for Political neutrality when party affiliation is the specific basis."
+        }
+      ],
+      "responsiveness-beyond-courtesy": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0009",
+          "wrongChoice": "Professionalism",
+          "mistakeNote": "Substitutes technical skill for prompt, courteous, and adequate public service."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0009",
+          "wrongChoice": "Commitment to democracy",
+          "mistakeNote": "Confuses prompt and courteous public service with constitutional accountability."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-norms-nationalism-and-democracy": {
+      "nationalism-local-goods": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0018",
+          "wrongChoice": "Commitment to public interest",
+          "mistakeNote": "Assigns promoting locally produced goods and technology to public-resource efficiency instead of Nationalism and patriotism."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0007",
+          "wrongChoice": "Commitment to public interest",
+          "mistakeNote": "Substitutes public-interest stewardship for loyalty to the Republic and Filipino people."
+        }
+      ],
+      "democracy-vs-nationalism": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0008",
+          "wrongChoice": "Nationalism and patriotism",
+          "mistakeNote": "Assigns constitutional loyalty above persons or party to Nationalism instead of Commitment to democracy."
+        }
+      ],
+      "accountability-to-people": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0020",
+          "wrongChoice": "Officials may use public power without answering to the people.",
+          "mistakeNote": "Denies the principle of public accountability required by Section 4(g)."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-norms-simple-living-and-rewards": {
+      "simple-living-families": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0012",
+          "wrongChoice": "It applies only to elected officials and never to their family members.",
+          "mistakeNote": "Excludes appointed employees and officials' families despite Section 4(h)'s express wording."
+        }
+      ],
+      "simple-living-modest-not-equal": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0012",
+          "wrongChoice": "It requires every household to have exactly the same income and lifestyle.",
+          "mistakeNote": "Replaces modesty suited to position and income with uniform household income."
+        }
+      ],
+      "rewards-conditions-and-types": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0021",
+          "wrongChoice": "The system guarantees automatic promotion to every nominee without checking legal conditions.",
+          "mistakeNote": "Drops the statutory requirement that a nominee meet legal promotion conditions."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-prohibitions-interests-and-business-roles": {
+      "office-approval-interest": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0001",
+          "wrongChoice": "The practical limit on the number of document signatories alone",
+          "mistakeNote": "Mistakes a conflicted financial interest in an office-approved deal for a signatory-count rule."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0001",
+          "wrongChoice": "The obligation to write an annual report within the stated period",
+          "mistakeNote": "Substitutes an administrative reporting duty for Section 7(a)'s ban on financial interests."
+        }
+      ],
+      "express-law-only": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014",
+          "wrongChoice": "The supervisor's informal verbal approval",
+          "mistakeNote": "Treats informal verbal permission from a supervisor as express statutory authority under Section 7(b)(1)."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014",
+          "wrongChoice": "A longstanding custom within the government department",
+          "mistakeNote": "Treats department custom as replacing express authorization by law."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-prohibitions-private-practice": {
+      "permission-alone-insufficient": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010",
+          "wrongChoice": "It is allowed because permission removes every conflict restriction.",
+          "mistakeNote": "Drops the separate Section 7(b)(2) proviso barring practice that conflicts or tends to conflict with official duties."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0003",
+          "wrongChoice": "Legal authorization alone permits work even when it conflicts with office duties.",
+          "mistakeNote": "Treats legal authorization as sufficient even when an official conflict exists."
+        }
+      ],
+      "after-hours-still-barred": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010",
+          "wrongChoice": "It is allowed whenever the work happens outside government hours.",
+          "mistakeNote": "Assumes after-hours timing removes an official conflict under Section 7(b)(2)."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0003",
+          "wrongChoice": "Working after office hours permits practice without checking conflicts or authority.",
+          "mistakeNote": "Replaces both legal authority and non-conflict tests with off-duty scheduling."
+        }
+      ],
+      "unpaid-still-barred": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010",
+          "wrongChoice": "It is allowed if the private client offers no direct cash payment.",
+          "mistakeNote": "Assumes unpaid private work cannot conflict with official duties."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0003",
+          "wrongChoice": "Absence of a cash payment permits work even without legal authorization for it.",
+          "mistakeNote": "Treats lack of cash payment as substituting for constitutional, statutory, or regulatory authority."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-prohibitions-referrals-and-separation": {
+      "referral-merit-not-exception": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0015",
+          "wrongChoice": "The friend has qualifications that match the vacant position.",
+          "mistakeNote": "Treats an applicant's qualifications as lifting Section 7(b)(3)'s ban on recommending to a transacting firm."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0007",
+          "wrongChoice": "The officer sends the referral from a personal email account.",
+          "mistakeNote": "Treats personal email as creating or defeating a referral exception."
+        }
+      ],
+      "one-year-cooling-off": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0004",
+          "wrongChoice": "6 months",
+          "mistakeNote": "Halves the statutory 1-year post-separation period under Section 7(b)."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0004",
+          "wrongChoice": "2 years",
+          "mistakeNote": "Doubles the statutory 1-year post-separation period under Section 7(b)."
+        }
+      ],
+      "former-office-matter-scope": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0002",
+          "wrongChoice": "Every matter in the profession regardless of its connection to government",
+          "mistakeNote": "Expands the 1-year former-office matter limit into a total ban on professional practice."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-prohibitions-information-and-benefits": {
+      "confidential-info-section": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013",
+          "wrongChoice": "Section 2",
+          "mistakeNote": "Misplaces Section 7(c)'s confidential-information ban in Section 2's declaration of policy."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013",
+          "wrongChoice": "Section 8",
+          "mistakeNote": "Misplaces Section 7(c)'s confidential-information ban in Section 8's SALN rules."
+        }
+      ],
+      "confidential-not-public-release": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0016",
+          "wrongChoice": "Only the duty to make all official information public immediately",
+          "mistakeNote": "Confuses public-document access with nonpublic confidential bid evaluations protected by Section 7(c)."
+        }
+      ],
+      "solicitation-needs-no-delivery": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0004",
+          "wrongChoice": "The rule applies only if the company pays for the vacation.",
+          "mistakeNote": "Ignores that Section 7(d) bans soliciting a benefit even when the request is refused."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-prohibitions-nominal-gifts-and-donations": {
+      "small-gift-no-favor": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0005",
+          "wrongChoice": "A small token requested in return for promptly approving a permit",
+          "mistakeNote": "Treats small value as allowing a gift that was solicited and exchanged for a permit favor."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008",
+          "wrongChoice": "Its low price alone, regardless of an expected official favor",
+          "mistakeNote": "Relies on low price alone instead of Rule X's salary, frequency, and expected-benefit factors."
+        }
+      ],
+      "post-service-or-courtesy-note": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008",
+          "wrongChoice": "Its polite wording alone, regardless of its value or official connection",
+          "mistakeNote": "Mistakes polite presentation for the statutory and IRR nominal-value test."
+        }
+      ],
+      "expected-transaction-bars-donation": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0008",
+          "wrongChoice": "Yes, because only transactions already pending must be checked.",
+          "mistakeNote": "Ignores that Rule X, Section 1(f)(3) bars expected transactions alongside regular and pending ones."
+        },
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0008",
+          "wrongChoice": "Yes, because nominal value removes every condition about agency transactions.",
+          "mistakeNote": "Drops the separate no-transaction requirement on nominal personal donations."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-prohibitions-family-gifts-and-relatives": {
+      "fourth-degree-count": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0017",
+          "wrongChoice": "The gift is excluded from the exception because a first cousin is outside the fourth civil degree.",
+          "mistakeNote": "Miscounts civil degrees by placing a first cousin outside the fourth civil degree."
+        }
+      ],
+      "in-law-named-terms": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0006",
+          "wrongChoice": "The donor is excluded because only blood relatives can give family-celebration gifts.",
+          "mistakeNote": "Excludes affinity relatives and named in-laws expressly covered by Section 3(k)."
+        }
+      ],
+      "friends-not-relatives": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0017",
+          "wrongChoice": "The exception covers family friends and relatives on the same basis because the occasion is a celebration.",
+          "mistakeNote": "Treats close friends at a family celebration as covered relatives under Section 3(k)."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-prohibitions-organization-and-government-donations": {
+      "org-vs-personal-donation": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0010",
+          "wrongChoice": "The pending application automatically defeats this exception under the rule for nominal donations from persons.",
+          "mistakeNote": "Imports the personal-donation transaction bar into Rule X, Section 1(f)(4)'s organization-donation rule."
+        }
+      ],
+      "donation-never-buys-favor": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0010",
+          "wrongChoice": "Acceptance of the donation permits the agency to favor the donor's license application.",
+          "mistakeNote": "Assumes accepting humanitarian aid lets the agency give favorable licensing action."
+        }
+      ],
+      "gov-to-gov-not-personal": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0009",
+          "wrongChoice": "The receiving officer may keep the equipment as a personal courtesy gift.",
+          "mistakeNote": "Treats an agency-to-agency equipment donation as personal property of the receiving officer."
+        }
+      ]
+    },
+    "lesson-code-of-conduct-ra-6713-prohibitions-foreign-government-benefits": {
+      "souvenir-vs-fellowship": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0005",
+          "wrongChoice": "The grant qualifies only if it can be treated as a nominal courtesy souvenir.",
+          "mistakeNote": "Applies the nominal souvenir limit to foreign-government fellowships listed separately in Section 7(d)."
+        }
+      ],
+      "travel-entirely-abroad": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0011",
+          "wrongChoice": "Travel within the Philippines with the same office-head permission",
+          "mistakeNote": "Ignores Section 7(d)'s requirement that foreign-funded travel take place entirely outside the Philippines."
+        }
+      ],
+      "travel-needs-permission": [
+        {
+          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0011",
+          "wrongChoice": "Travel abroad from a foreign government accepted without the required permission",
+          "mistakeNote": "Drops the required permission from the head of office, branch, or agency."
+        }
+      ]
     }
   }
 }

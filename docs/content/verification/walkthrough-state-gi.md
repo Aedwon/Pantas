@@ -23,11 +23,11 @@
 | 6b | 6b-2 | Philippine Constitution: Citizenship/Suffrage Arts. IV-V & Amending Art. XVII (ord 47-55) | 9 | 9/9 | 9/9 PASS (R2: 0B/0M/1m fixed) | Committed & pushed | Fable audit running |
 | 6b | 6b-3 | Philippine Constitution: Civil Service Commission Arts. IX-A/IX-B (ord 56-63) | 8 | 8/8 | 8/8 PASS (R2: 0B/0M/0m) | Committed & pushed | Fable audit running |
 | 6b | 6b-4 | Philippine Constitution: Accountability/Impeachment Art. XI & Articles Outline (ord 64-76) | 13 | 13/13 | 13/13 PASS (R2: 0B/0M/0m) | Committed & pushed | Fable audit running |
-| 7 | 7-1 | Code of Conduct RA 6713: Norms (4) & Prohibited Acts/Gifts (8) (ord 1-12) | 12 | 12/12 | R1 0B/19M/3m fixing directly | Pending | Pending (batch 7) |
-| 7 | 7-2 | Code of Conduct RA 6713: Duties & Prohibited Acts (ord 13-22) | 10 | In progress | 0/10 | Pending | Pending (batch 7) |
-| 7 | 7-3 | Code of Conduct RA 6713: SALN & Divestment (ord 29-38) | 10 | 0/10 | 0/10 | Pending | Pending (manager) |
-| 7 | 7-4 | Code of Conduct RA 6713: Corruption & Effects (RA 3019/7080/11032/RPC) (ord 23-28) | 6 | 0/6 | 0/6 | Pending | Pending (manager) |
-| 7 | 7-5 | Code of Conduct RA 6713: Penalties & Enforcement Sec. 11 (ord 39-47) | 9 | 0/9 | 0/9 | Pending | Pending (manager) |
+| 7 | 7-1 | Code of Conduct RA 6713: Norms (4) & Prohibited Acts/Gifts (8) (ord 1-12) | 12 | 12/12 | 12/12 PASS (R2: 0B/0M/0m) | Committed & pushed | Pending (batch 7) |
+| 7 | 7-2 | Code of Conduct RA 6713: Duties & Prohibited Acts (ord 13-22) | 10 | 10/10 | R1 0B/0M/3m fixed; R2 running | Pending | Pending (batch 7) |
+| 7 | 7-3 | Code of Conduct RA 6713: SALN & Divestment (ord 29-38) | 10 | 10/10 | R1 running | Pending | Pending (batch 7) |
+| 7 | 7-4 | Code of Conduct RA 6713: Corruption & Effects (RA 3019/7080/11032/RPC) (ord 23-28) | 6 | In progress | 0/6 | Pending | Pending (batch 7) |
+| 7 | 7-5 | Code of Conduct RA 6713: Penalties & Enforcement Sec. 11 (ord 39-47) | 9 | 0/9 | 0/9 | Pending | Pending (batch 7) |
 | 8 | 8-1 | Environment Management: DRRM, Climate Change, Species/Protected Areas (ord 1-13) | 13 | 0/13 | 0/13 | Pending | Pending (manager) |
 | 8 | 8-2 | Environment Management: Environmental Laws (9) & Waste Concepts (3) (ord 14-25) | 12 | 0/12 | 0/12 | Pending | Pending (manager) |
 | 8 | 8-3 | Peace and Human Rights: Human Rights Fundamentals, UDHR, Bill of Rights, CHR (ord 1-12) | 12 | 0/12 | 0/12 | Pending | Pending (manager) |
@@ -43,3 +43,4 @@
 - 2026-11-26 20:58 Manila (12:58 UTC): Resumed after Gemini quota reset. Started Batch 6a Fable checkpoint audit (`claudeAgent / claude-fable-5-2`, effort high, read-only). Chunk 6b-2 verified PASS (R2: 0B/0M/1m fixed directly), 27 pairs / 39 citations folded into `content/walkthrough-trap-evidence-gi.json` (55/170 verified & pushed). Chunk 6b-3 R1 (0B/3M/1m) fixed directly and queued for combined R2 check with Chunk 6b-4 (currently being written).
 - 2026-11-26 21:16 Manila (13:16 UTC): Batch 6a Fable R1 (`FAIL: 0B/26M/19m`) fully remediated and pushed (`190aa5d77`), Fable R2 running. Chunk 6b-3 verified PASS (R2: 0B/0M/0m), 24 pairs / 44 citations folded into `content/walkthrough-trap-evidence-gi.json` (63/170 verified & pushed). Chunk 6b-4 R1 (`0B/1M/1m`) fixed directly; combined verifier running Chunk 6b-4 R2 + Chunk 7-1 R1 (12 RA 6713 lessons written, 0 sweep hits) while Chunk 7-2 writer runs.
 - 2026-11-26 21:23 Manila (13:23 UTC): Chunk 6b-4 verified PASS (R2: 0B/0M/0m), 34 pairs / 63 citations folded into `content/walkthrough-trap-evidence-gi.json` (**76/170 verified & pushed — 100% of Philippine Constitution complete!**). Starting Batch 6b Fable checkpoint audit (`claudeAgent / claude-fable-5-2`, effort high, read-only) while fixing Chunk 7-1 R1 (`0B/19M/3m`) directly. Chunk 7-2 writer running.
+- 2026-11-26 21:42 Manila (13:42 UTC): Batch 6a Fable R2 (`0B/2M/14m`) + 3 nested emphasis hits fixed and pushed (`bb381ff32`), Fable R3 running. Chunk 7-1 verified PASS (R2: `0B/0M/0m`), 35 pairs / 49 citations folded into `content/walkthrough-trap-evidence-gi.json` (**88/170 verified & pushed**). Chunk 7-2 R1 (`0B/0M/3m`) fixed directly and bundled with Chunk 7-3 R1 verifier; Chunk 7-4 writer running.
