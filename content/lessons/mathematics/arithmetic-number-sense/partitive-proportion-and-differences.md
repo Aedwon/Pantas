@@ -77,9 +77,9 @@ Why does subtracting the ratio parts work? Every box in the ratio has the exact 
 :::
 
 :::pair #one-share-not-total
-Right: for ratio $4:7$ with $1$ part $=7\text{ meters}$, total length is $(4+7)\times7=77\text{ meters}$
-Wrong: for ratio $4:7$ with $1$ part $=7\text{ meters}$, total length is $7\times7=49\text{ meters}$
-Here $49\text{ meters}$ is only the longer piece. Re-read the question to see if it asks for one piece or the total.
+Right: ratio $4:7$ with $1$ part $=7\text{ m}$ -> total $=(4+7)\times7=77\text{ m}$
+Wrong: total $=7\times7=49\text{ m}$
+Here $49\text{ m}$ is only the longer piece. Check whether the question asks for one piece or the total.
 :::
 
 Watch the order of names in every ratio problem. A blue-to-yellow ratio of $9:11$ is not the same as $11:9$.
@@ -122,28 +122,28 @@ The share is Php $60,000$.
 
 ### #2: Finding a Total from a Difference
 
-A piece of copper wire is cut into two pieces in the ratio $4:7$. If the longer piece is $21$ meters longer than the shorter piece, what was the original length of the wire?
+A cable is cut in the ratio $3:8$. If the longer piece is $25$ meters longer than the shorter piece, what was the original length?
 
 **Solution:**
 
-1. Find the difference in ratio parts.
+1. Subtract the ratio parts:
 
-$$7-4=3$$
+$$8-3=5$$
 
-2. The $3$-part difference equals $21$ meters, so find $1$ part.
+2. Divide $25$ meters by $5$ parts to find $1$ part:
 
-$$\dfrac{21}{3}=7\text{ meters}$$
+$$\dfrac{25}{5}=5\text{ meters}$$
 
-3. Find the total number of ratio parts in the whole wire.
+3. Add the ratio parts for the whole cable:
 
-$$4+7=11$$
+$$3+8=11$$
 
 :::try
-Finish the last step: multiply the total parts by $7$ meters to find the original length.
+Finish the last step: multiply $11$ parts by $5$ meters to find the original length.
 :::answer
-The answer is $77$ meters. Multiply $11\times7=77$ meters.
+The answer is $55$ meters. Multiply $11\times5=55$ meters.
 
-**Check:** The shorter piece is $4\times7=28$ meters, and the longer piece is $7\times7=49$ meters. Their difference is $49-28=21$ meters, and their sum is $28+49=77$ meters.
+**Check:** The pieces are $3\times5=15$ meters and $8\times5=40$ meters. Their difference is $40-15=25$ meters, and their sum is $15+40=55$ meters.
 :::
 
 ## Speed Tricks & Shortcuts

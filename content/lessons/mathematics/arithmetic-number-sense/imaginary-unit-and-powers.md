@@ -27,7 +27,7 @@ A **complex number** has standard form $a+bi$, where $a$ and $b$ are real number
 
 If $b=0$, the number is real, so every real number has form $a+0i$. If $a=0$ and $b\ne 0$, it is **purely imaginary**.
 
-To add or subtract complex numbers, combine real parts with real parts and $i$ terms with $i$ terms. When subtracting, change both signs inside the second group. Let's subtract $6-3i$ from $10+2i$:
+To add or subtract complex numbers, combine real parts and $i$ terms separately. Subtract $6-3i$ from $10+2i$ (flip both signs in the second group):
 
 $$(10+2i)-(6-3i)=10+2i-6+3i=4+5i$$
 

@@ -62,14 +62,14 @@ A **prime power** has a prime number as its base. For $60$, there are two $2$s, 
 
 $$60=2^2\times 3\times 5$$
 
-Try $72$ the same way: divide by $2$ three times to get $9$, then split $9=3\times 3$.
+Try $72$ the same way: divide by $2$ three times to get $9$, then split $9=3\times 3$:
 
 $$72=2\times 36=2\times 2\times 18=2\times 2\times 2\times 9=2\times 2\times 2\times 3\times 3=2^3\times 3^2$$
 
 :::pair #stop-at-composite
 Right: $180=2^2\times 3^2\times 5$
 Wrong: $180=2^2\times 9\times 5$
-The wrong line stopped early at $9$. Because $9=3\times 3$ is composite, keep splitting every composite factor until only primes remain.
+The wrong line stopped at composite $9=3\times 3$. Keep splitting until only primes remain.
 :::
 
 :::check

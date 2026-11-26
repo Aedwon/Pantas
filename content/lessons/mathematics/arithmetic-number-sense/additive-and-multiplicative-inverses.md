@@ -16,9 +16,9 @@ keyPoints:
 
 ### Additive Inverse
 
-The **additive inverse** (or **opposite**) of a number is the number with the opposite sign. A number and its additive inverse always add to $0$, the additive identity.
+The **additive inverse** (or **opposite**) of a number has the opposite sign and adds with it to $0$, the additive identity.
 
-Let's add $5$ and $-8$ to their opposites:
+Add $5$ and $-8$ to their opposites:
 
 $$5+(-5)=0$$
 
@@ -38,11 +38,11 @@ The answer is $\dfrac{5}{6}$. Adding $-\dfrac{5}{6}+\dfrac{5}{6}$ gives $0$.
 
 ### Multiplicative Inverse
 
-For any nonzero number, the **multiplicative inverse** (or **reciprocal**) is the number that multiplies with it to give $1$, the multiplicative identity.
+For any nonzero number, the **multiplicative inverse** (or **reciprocal**) multiplies with it to give $1$.
 
-For a nonzero whole number $a$, write it over $1$ and flip it to $\dfrac{1}{a}$. For a nonzero fraction, switch its numerator and denominator and keep the same sign.
+For a nonzero whole number $a$, flip $\dfrac{a}{1}$ to $\dfrac{1}{a}$. For a nonzero fraction, swap numerator and denominator and keep the sign.
 
-Let's multiply $4$, $\dfrac{2}{5}$ and $-\dfrac{4}{7}$ by their reciprocals:
+Multiply $4$, $\dfrac{2}{5}$, and $-\dfrac{4}{7}$ by their reciprocals:
 
 $$4\times \dfrac{1}{4}=1$$
 

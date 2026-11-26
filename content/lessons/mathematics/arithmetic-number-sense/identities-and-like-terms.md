@@ -18,13 +18,13 @@ keyPoints:
 
 An **identity** is a number that keeps another number unchanged under an operation.
 
-The **additive identity** is $0$. Adding $0$ leaves any real number unchanged. Let's add $0$ to $7$ and $-17$:
+The **additive identity** is $0$: adding $0$ keeps any number unchanged. Add $0$ to $7$ and $-17$:
 
 $$7+0=7$$
 
 $$(-17)+0=-17$$
 
-The **multiplicative identity** is $1$. Multiplying by $1$ leaves any real number unchanged. Let's multiply $7$ and $-17$ by $1$:
+The **multiplicative identity** is $1$: multiplying by $1$ keeps any number unchanged. Multiply $7$ and $-17$ by $1$:
 
 $$7\times 1=7$$
 
@@ -54,7 +54,7 @@ A **variable** is a letter that stands for a number. An **exponent** tells how m
 
 A **term** is a number, a variable, or a product of numbers and variables separated by $+$ or $-$ signs. Keep the sign in front with its term. In $8x-3x+5$, the three terms are $8x$, $-3x$, and $5$.
 
-The number multiplying the variable part is the **coefficient**. When no number is written in front of a variable, its coefficient is $1$ (or $-1$ if there is a minus sign). Let's simplify $5x-x$ and $-4a+a$:
+The number multiplying the variable part is the **coefficient** ($1$ or $-1$ if unwritten). Simplify $5x-x$ and $-4a+a$:
 
 $$5x-x=(5-1)x=4x$$
 
@@ -62,13 +62,13 @@ $$-4a+a=(-4+1)a=-3a$$
 
 ### Combining Like Terms
 
-**Like terms** have the exact same variable part with the exact same exponents. Plain numbers are like terms with other plain numbers.
+**Like terms** share the same variable part and exponents. Plain numbers are like terms with each other.
 
-To combine like terms, add their signed coefficients and keep the variable part unchanged. Let's combine $8x-3x$:
+Add signed coefficients and keep the variable part. Combine $8x-3x$:
 
 $$8x-3x=(8-3)x=5x$$
 
-Because multiplication can swap order, $xy$ and $yx$ have the same variable part, so we can combine $4xy+2yx$:
+Since $xy=yx$, combine $4xy+2yx$:
 
 $$4xy+2yx=(4+2)xy=6xy$$
 

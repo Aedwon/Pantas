@@ -72,7 +72,7 @@ One **worker-day** is the work $1$ worker does in $1$ day. Follow three steps:
 
 <!-- ILLUSTRATION: two stacked horizontal bars. Top bar labeled "Total job = 10 x 12 = 120 worker-days". Bottom bar split into shaded left section "Done in 4 days: 10 x 4 = 40 worker-days" and right section "Remaining: 80 worker-days, 8 workers x 10 days" -->
 
-Suppose $10$ workers can finish a project in $12$ days. After $4$ days, $2$ workers leave. How many more days do the remaining workers need? Let's apply the three steps to this job:
+Suppose $10$ workers finish a job in $12$ days. After $4$ days, $2$ leave. Apply the three steps to find how many more days the rest need:
 
 $$10\times12=120\text{ worker-days}$$
 
@@ -144,7 +144,7 @@ The answer is $26\dfrac{2}{3}$ more days. Divide $\dfrac{800}{30}=\dfrac{80}{3}=
 
 ## Speed Tricks & Shortcuts
 
-When everyone works at the same rate up to the change, you can skip total work and multiply the old group by the remaining days right away. In Example $2$, $30-10=20$ days remain for $40$ people, so $40\times20=800$ person-days left.
+When rates stay constant up to the change, skip total work and multiply the old group by the remaining days. In Example $2$, $30-10=20$ days remain for $40$ people, giving $40\times20=800$ person-days left.
 
 ## Traps to Watch For
 

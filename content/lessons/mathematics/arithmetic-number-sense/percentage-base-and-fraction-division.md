@@ -47,9 +47,9 @@ Why does dividing the part by the rate give the base? Because $\text{Part}=\text
 :::
 
 :::pair #wrong-percentage-base
-Right: if $40\%$ of a set is $72$, then $15\%$ of the whole set $=0.15\times180=27$
-Wrong: if $40\%$ of a set is $72$, then $15\%$ of the whole set $=0.15\times72=10.8$
-Here $72$ is only the $40\%$ part already answered, not the whole set. Always find the base before taking another percent of it.
+Right: $40\%$ of a set is $72$ -> base $=180$, so $15\%$ of the set $=0.15\times180=27$
+Wrong: $15\%$ of the set $=0.15\times72=10.8$
+Here $72$ is only the $40\%$ part, not the whole set. Find the base before taking another percent.
 :::
 
 :::check
@@ -108,21 +108,21 @@ After completing $40\%$ of a practice set, a student has answered $72$ questions
 
 **Solution:**
 
-1. The base is the total number of questions in the set. The part $72$ equals $40\%$ of the base.
+1. The part $72$ equals $40\%$ of the base (the full set):
 
 $$\text{Base}=\dfrac{72}{0.40}$$
 
-2. Divide to find the full set size.
+2. Divide to find the base:
 
 $$\text{Base}=\dfrac{7,200}{40}=180$$
 
 :::pair #stop-at-the-base
-Right: find $15\%$ of $180$, so $0.15\times180=27$
-Wrong: answer with $180$
-The question asks for $15\%$ of the entire set, not the full size of the set. Check what the final sentence asks before picking your answer.
+Right: $15\%$ of $180$: $0.15\times180=27$
+Wrong: stopping at $180$
+The question asks for $15\%$ of the set, not the full set. Check what the final sentence asks.
 :::
 
-3. Multiply the base by $0.15$ to find $15\%$ of the entire set.
+3. Multiply the base by $0.15$:
 
 $$0.15\times180=27$$
 
