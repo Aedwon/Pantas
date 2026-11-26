@@ -23,12 +23,10 @@ May dalawang karaniwang paraan ng paghahambing:
 1. **Pagtutulad** (simile): naghahambing gamit ang salitang panulad gaya ng *parang*, *tulad ng*, *gaya ng*, o *kasing-*. Halimbawa: "Ang tinig ni Ana ay **parang** banayad na agos ng ilog."
 2. **Pagwawangis** (metaphor): tuwirang ipinapantay ang isang bagay sa iba nang walang salitang panulad. Halimbawa: "Ang guro ay **ilaw** ng silid-aralan."
 
-Tingnan kung may salitang panulad sa paghahambing bago pumili ng sagot.
-
 :::pair #tulad-hindi-wangis
-Right: Pagtutulad ang "kasingganda ng mga bituin" dahil may panandang panulad na *kasing-*.
-Wrong: Pagwawangis ang "kasingganda ng mga bituin" dahil iniuugnay ang mga mata sa bituin.
-May salitang panulad ang pagtutulad. Walang salitang panulad ang pagwawangis.
+Right: Pagtutulad ang "Ang kaniyang mga mata ay kasingganda ng mga bituin," dahil may panandang panulad na *kasing-*.
+Wrong: Pagwawangis ang "Ang kaniyang mga mata ay kasingganda ng mga bituin," dahil tuwirang inihahambing ang mga mata sa mga bituin.
+May salitang panulad ang pagtutulad. Walang salitang panulad ang pagwawangis, gaya ng "Ang guro ay ilaw ng silid-aralan."
 :::
 
 :::check
@@ -130,7 +128,7 @@ D) Pagwawangis
 
 ### #5: Kilos ng Tao sa Kalikasan
 
-"Ngumiti ang araw habang sumasayaw ang mga dahon." Anong tayutay ang ginamit sa pangungusap?
+"Humihikbi ang ulan sa bubong buong gabi." Anong tayutay ang ginamit?
 
 A) Pagtutulad  
 B) Pagwawangis  
@@ -139,14 +137,14 @@ D) Pagbibigay-katauhan
 
 **Solution:**
 
-1. Walang salitang panulad, walang tuwirang pagpapantay ng dalawang bagay, at walang sadyang pagsobra ng sukat.
+1. Hanapin ang salitang kilos: *humihikbi*.
 
 :::try
-Tapusin ang huling hakbang: anong katangian ang ibinigay sa araw at mga dahon, at aling tayutay ang sagot?
+Tapusin ang huling hakbang: sino ang karaniwang humihikbi, at aling tayutay ang sagot?
 :::answer
-Ang sagot ay **D**, **Pagbibigay-katauhan**. Kilos ng tao ang pagngiti at pagsayaw na ibinigay sa araw at mga dahon.
+Ang sagot ay **D**, **Pagbibigay-katauhan**. Tao ang karaniwang humihikbi, at ibinigay ang kilos na ito sa ulan.
 
-**Check:** Hindi maaaring ngumiti o sumayaw ang araw at mga dahon sa totoong buhay, kaya kilos ng tao ang ikinabit sa mga ito.
+**Check:** Walang salitang panulad at walang sadyang pagsobra sa pangungusap.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -156,7 +154,7 @@ Hanapin muna kung may salitang panulad, tuwirang pagpapantay, kilos ng tao sa hi
 ## Traps to Watch For
 
 :::checklist
-- May salitang panulad gaya ng *kasingganda ng mga bituin*: pagtutulad ito, hindi pagwawangis. {#tulad-hindi-wangis}
+- May salitang panulad gaya ng *kasingganda ng mga bituin*: pagtutulad. Tuwirang pagpapantay na walang panulad gaya ng *ang guro ay ilaw*: pagwawangis. {#tulad-hindi-wangis}
 - Sobrang paglalarawan kahit may *parang* gaya ng "Parang isang bundok ang bigat ng bag ko!": pagmamalabis ito, hindi pagtutulad. {#labis-hindi-tulad}
 - Kilos ng tao sa hindi tao gaya ng "Ngumiti ang araw": pagbibigay-katauhan ito, hindi paghahambing. {#katauhan-hindi-hambing}
 :::

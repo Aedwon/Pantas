@@ -20,10 +20,10 @@ Magkaiba ang gamit ng **ng** at **nang**. Tingnan ang papel ng kasunod na salita
 
 Ginagamit ang **ng** sa apat na karaniwang ayos:
 
-1. **Bagay na tinutukoy ng kilos**: "Kumain **ng** mangga si Ana." (*Mangga* ang bagay na kinain.)
-2. **Pagmamay-ari o ugnayan**: "Malinis ang bahay **ng** guro." (Sinasabi nito kung kanino ang bahay.)
-3. **Dami o sukat**: "Bumili siya **ng** tatlong kilo **ng** bigas." (Nagsasabi ng dami o sukat.)
-4. **Bahagi ng araw sa oras**: "Magsisimula tayo sa alas-singko **ng** hapon." (Sinasabi ng *hapon* kung aling bahagi ng araw ang tinutukoy.)
+1. **Bagay na tinutukoy ng kilos**: "Kumain **ng** mangga si Ana." *Mangga* ang kinain.
+2. **Pagmamay-ari o ugnayan**: "Malinis ang bahay **ng** guro." Kanino ang bahay?
+3. **Dami o sukat**: "Bumili siya **ng** tatlong kilo **ng** bigas."
+4. **Bahagi ng araw sa oras**: "Magsisimula tayo sa alas-singko **ng** hapon." Sinasabi ng *hapon* ang bahagi ng araw.
 
 :::pair #pagmamay-ari
 Right: Ang bahay ng aking lola ay malapit sa simbahan.
@@ -47,14 +47,14 @@ Ang sagot ay **ng**. Tumutukoy ang *dalawang kahon* sa bagay at daming dinala, k
 
 Ginagamit ang **nang** sa tatlong karaniwang ayos:
 
-1. **Paraan ng kilos**: "Tumakbo **nang** mabilis ang aso." (Inilalarawan ng *mabilis* kung paano ginawa ang kilos.)
-2. **Katumbas ng "noong"**: "**Nang** dumating siya, nagsimula ang pulong." (Ibig sabihin, *noong* dumating siya.)
-3. **Kilos na inuulit**: "Takbo **nang** takbo ang bata sa bakuran." (Nagpapakita ng tuloy-tuloy o paulit-ulit na kilos.)
+1. **Paraan ng kilos**: "Tumakbo **nang** mabilis ang aso." Inilalarawan ng *mabilis* kung paano tumakbo ang aso.
+2. **Katumbas ng "noong"**: "**Nang** dumating siya, nagsimula ang pulong."
+3. **Kilos na inuulit**: "Takbo **nang** takbo ang bata sa bakuran."
 
 :::pair #noong
 Right: Nang dumating ang bus, tumayo ang mga pasahero.
 Wrong: Ng dumating ang bus, tumayo ang mga pasahero.
-Ang unang salita ay may kahulugang *noong*. *Nang* ang gamit dito.
+Katumbas ng *noong* ang *nang* dito. Hindi ito *ng*.
 :::
 
 :::check
@@ -67,7 +67,7 @@ Ang sagot ay **nang**. Sinasabi ng *magalang* kung paano sumagot ang mag-aaral, 
 
 ### #1: Paraan ng Kilos
 
-Tumakbo ______ mabilis ang aso nang makita nito ang pusa.
+Punan ang patlang: "Tumakbo ______ mabilis ang aso nang makita nito ang pusa."
 
 A) ng  
 B) nang  
@@ -77,9 +77,9 @@ D) may
 **Solution:**
 
 1. Sinasabi ng *mabilis* kung paano tumakbo ang aso.
-2. Gamitin ang **nang** sa paglalarawang ito. Sagot: **B**.
+2. Gamitin ang **nang**: "Tumakbo nang mabilis ang aso nang makita nito ang pusa." Sagot: **B**.
 
-**Check:** Basahin: "Tumakbo nang mabilis." Paraan ng pagtakbo ang sinasabi.
+**Check:** Itanong: paano tumakbo ang aso? Mabilis.
 
 ### #2: Bagay at Pagmamay-ari
 
@@ -93,13 +93,13 @@ D) nang; nang
 **Solution:**
 
 1. Mangga ang binili, kaya *ng* ang unang sagot.
-2. Ipinakikita ng *anak ng guro* ang ugnayan ng anak at guro. Parehong **ng** ang kailangan. Sagot: **A**.
+2. Ipinakikita ng *anak ng guro* ang ugnayan ng anak at guro, kaya **ng** din ang ikalawa: "Bumili ng mangga si Ana para sa anak ng guro." Sagot: **A**.
 
-**Check:** Basahin: "Bumili ng mangga si Ana para sa anak ng guro." Bagay ang una, ugnayan ang ikalawa.
+**Check:** Walang paraan ng kilos o *noong* sa pangungusap, kaya hindi kailangan ang *nang*.
 
 ### #3: Dami o Sukat
 
-Bumili si Liza ng tatlong kilo ______ bigas.
+Punan ang patlang: "Bumili si Liza ng tatlong kilo ______ bigas."
 
 A) nang  
 B) ng  
@@ -109,13 +109,13 @@ D) may
 **Solution:**
 
 1. Ang *tatlong kilo* ay nagsasabi ng dami o sukat.
-2. Gamitin ang **ng** sa *tatlong kilo ng bigas*. Sagot: **B**.
+2. Gamitin ang **ng**: "Bumili si Liza ng tatlong kilo ng bigas." Sagot: **B**.
 
-**Check:** Basahin: "tatlong kilo ng bigas." Dami ang sinasabi.
+**Check:** Bigas ang binili, at tatlong kilo ang sukat nito.
 
 ### #4: Pahayag ng Oras
 
-Nagsimula ang programa nang alas-tres ______ hapon.
+Punan ang patlang: "Nagsimula ang programa sa alas-tres ______ hapon."
 
 A) nang  
 B) ng  
@@ -124,10 +124,10 @@ D) may
 
 **Solution:**
 
-1. Ang *hapon* ay bahagi ng pahayag ng oras.
-2. Ang tamang parirala ay *alas-tres ng hapon*. Sagot: **B**.
+1. Ang *hapon* ay bahagi ng araw.
+2. Gamitin ang **ng**: "Nagsimula ang programa sa alas-tres ng hapon." Sagot: **B**.
 
-**Check:** Basahin: "alas-tres ng hapon." Bahagi ng araw ang *hapon*.
+**Check:** Hindi paraan ng kilos ang *hapon*, kaya hindi *nang*.
 
 ### #5: Oras at Paulit-ulit na Kilos
 
@@ -141,9 +141,9 @@ D) Nang; nang
 **Solution:**
 
 1. Ang unang patlang ay may kahulugang *noong*, kaya *nang* ang kailangan.
-2. Inuulit ang kilos sa *tawag nang tawag*. Parehong **nang** ang sagot. Sagot: **D**.
+2. Inuulit ang kilos sa *tawag nang tawag*, kaya **nang** din ang ikalawa: "Nang dumating ang bus, tawag nang tawag si Mila sa kapatid niya." Sagot: **D**.
 
-**Check:** Basahin: "Nang dumating ang bus, tawag nang tawag si Mila." *Noong* ang una, inuulit na kilos ang ikalawa.
+**Check:** Palitan ng *noong* ang unang *nang*. Tama pa rin ang kahulugan.
 
 ### #6: Bagay, Noong, at Paraan sa Iisang Pangungusap
 
@@ -169,7 +169,7 @@ Ang sagot ay **A**. Sinasabi ng *mabilis* kung paano tumakbo si Ben, kaya *nang*
 
 ## Speed Tricks & Shortcuts
 
-Sa *ng* at *nang*, tingnan ang buong parirala. Suriin kung tumutukoy ito sa bagay, ugnayan, dami, oras, paraan ng kilos, o kilos na inuulit.
+Tingnan ang buong parirala. Alamin kung bagay, ugnayan, dami, oras, paraan ng kilos, *noong*, o kilos na inuulit ang tinutukoy.
 
 ## Traps to Watch For
 

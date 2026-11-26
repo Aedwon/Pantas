@@ -16,13 +16,13 @@ keyPoints:
 
 ### Kasingkahulugan sa Pangungusap
 
-Ang **kasingkahulugan** (synonym) ay salitang may pareho o malapit na kahulugan. Basahin ang buong pangungusap upang makita ang pahiwatig na ibinibigay ng iba pang salita.
+Ang **kasingkahulugan** (synonym) ay salitang may pareho o malapit na kahulugan. Basahin ang buong pangungusap upang makita ang pahiwatig.
 
-Maaaring hindi literal ang gamit ng salita:
+Hanapin natin ang kahulugan ng *gumuho* sa pangungusap na ito:
 
-- Pangungusap: "Gumuho ang kaniyang mga pangarap dahil sa sakuna."
-- Hindi gusali ang gumuho, kundi nasira ang kaniyang mga pangarap.
-- Kaya ang *gumuho* rito ay may kahulugang *nawasak* o *nasira*.
+- "Gumuho ang kaniyang mga pangarap dahil sa sakuna."
+- Hindi gusali ang gumuho. Ang mga pangarap ang nasira.
+- Kasingkahulugan ng *gumuho* rito: *nawasak*.
 
 :::pair #kasingkahulugan
 Right: Gumuho ang kaniyang mga pangarap dahil sa sakuna. Ang *gumuho* ay kasingkahulugan ng *nawasak*.
@@ -38,12 +38,12 @@ Ang sagot ay **palakaibigan**. Ipinakikita ng pagngiti at masayang pagbati ang m
 
 ### Kasalungat ng Salita
 
-Ang **kasalungat** (antonym) ay salitang may kabaligtarang kahulugan. Alamin muna ang kahulugan ng salitang ibinigay, bago hanapin ang kabaligtaran nito:
+Ang **kasalungat** (antonym) ay salitang may kabaligtarang kahulugan. Alamin muna ang kahulugan ng salita, bago hanapin ang kabaligtaran nito.
 
-- Salita: *maralita* (ang kahulugan ay *mahirap*).
-- Kabaligtaran ng *mahirap*: *mayaman*.
-- Salita: *matapang* (may lakas ng loob sa harap ng panganib).
-- Kabaligtaran ng *matapang*: *duwag*.
+Hanapin natin ang kasalungat ng *matapang*:
+
+- *Matapang*: may lakas ng loob sa harap ng panganib.
+- Kabaligtaran nito: *duwag*.
 
 :::pair #kasalungat
 Right: Ang kasalungat ng *maralita* ay *mayaman*.
@@ -61,7 +61,7 @@ Ang sagot ay **mapanlinlang**. Nagsasabi ng totoo ang matapat, samantalang nanlo
 
 ### #1: Kasingkahulugan sa Pangungusap
 
-Ang kaniyang mga pangarap ay **gumuho** matapos siyang mabigo sa pagsusulit. Alin ang pinakamalapit na kahulugan ng salitang nakaitim?
+Ang kaniyang mga pangarap ay **gumuho** matapos siyang mabigo sa pagsusulit. Alin ang pinakamalapit na kahulugan ng salitang may makapal na titik?
 
 A) natupad  
 B) nasira  
@@ -73,11 +73,11 @@ D) nagsimula
 1. Hindi gusali ang gumuho sa pangungusap. Nasira ang kaniyang mga pangarap dahil sa pagkabigo.
 2. Ang pinakamalapit na kahulugan ay **nasira**. Ang sagot ay **B**.
 
-**Check:** Basahin: "Ang kaniyang mga pangarap ay nasira." Pareho ang kahulugan sa pagkabigo.
+**Check:** Basahin: "Ang kaniyang mga pangarap ay nasira." Pareho ang kahulugan.
 
 ### #2: Kasalungat na Kahulugan
 
-Alin ang kasalungat ng salitang nakaitim na **maralita**?
+Alin ang kasalungat ng salitang may makapal na titik na **maralita**?
 
 A) mahirap  
 B) mayaman  
@@ -89,11 +89,11 @@ D) tamad
 1. Ang **maralita** ay tumutukoy sa taong mahirap.
 2. Ang kasalungat nito ay **mayaman**. Ang sagot ay **B**.
 
-**Check:** *Mahirap* at *mayaman* ay magkabaligtad ang kalagayan.
+**Check:** Magkabaligtad ang kalagayan ng *mahirap* at *mayaman*.
 
 ### #3: Kasalungat ng Damdamin
 
-Alin ang kasalungat ng salitang nakaitim na **masaya**?
+Alin ang kasalungat ng salitang may makapal na titik na **masaya**?
 
 A) nasisiyahan  
 B) nasasabik  
@@ -107,14 +107,14 @@ D) nababahala
 :::try
 Tapusin ang huling hakbang: aling pagpipilian ang may kabaligtarang damdamin ng *masaya*?
 :::answer
-Ang sagot ay **C**, **malungkot**. Ang *malungkot* ay kabaligtaran ng *masaya*, samantalang ang *nasisiyahan* ay kasingkahulugan nito.
+Ang sagot ay **C**, **malungkot**. Kabaligtaran ng *masaya* ang *malungkot*, samantalang kasingkahulugan nito ang *nasisiyahan*.
 
-**Check:** Kapag masaya ang isang tao, puno siya ng tuwa; kapag malungkot siya, wala ang tuwang iyon.
+**Check:** Kapag masaya ang isang tao, puno siya ng tuwa. Kapag malungkot siya, wala ang tuwang iyon.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Kasingkahulugan: pareho ang kahulugan sa pangungusap, tulad ng *gumuho* at *nawasak*. {#kasingkahulugan}
-- Kasalungat: kabaligtaran ang kahulugan, tulad ng *maralita* at *mayaman*. {#kasalungat}
+- Salitang tila literal ang kahulugan: basahin ang buong pangungusap, gaya ng *gumuho* na kasingkahulugan ng *nawasak*. {#kasingkahulugan}
+- Kasalungat ang hinahanap: huwag piliin ang kasingkahulugan, gaya ng *mahirap* para sa *maralita*; *mayaman* ang kasalungat. {#kasalungat}
 :::

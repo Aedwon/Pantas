@@ -15,40 +15,41 @@ keyPoints:
 
 ### Baybay ng mga Hiram na Salita
 
-Ang **hiram na salita** (borrowed word) ay mula sa ibang wika. May mga tuntunin ang Komisyon sa Wikang Filipino (KWF) sa pagbaybay nito sa **Ortograpiyang Pambansa**.
+Ang **hiram na salita** (borrowed word) ay mula sa ibang wika. Sinusunod sa pagbaybay nito ang Ortograpiyang Pambansa ng Komisyon sa Wikang Filipino (KWF).
 
-Sa salitang *cuento*, magkasunod ang *u* at *e*. Tinatawag itong **kambal-patinig** (vowel pair). Nasa unang pantig ang pares (*cuen-*) at may katinig (*c*) bago ito.
+Sa *cuento*, magkasunod ang *u* at *e* sa unang pantig, at may katinig (*c*) bago ang mga ito. Tinatawag itong **kambal-patinig** (vowel pair).
 
-Sa ganitong ayos, sundin ang dalawang hakbang:
+Baybayin natin ang *cuento* sa Filipino:
 
-1. Palitan ng *k* ang *c* sa unahan: *c-u-e-n-t-o* ay nagiging *k-u-e-n-t-o*.
-2. Panatilihin ang *u* at magsingit ng *w* bago ang *e*: nagiging **kuwento**.
+1. *cuento*
+2. Palitan ng *k* ang *c*: *kuento*
+3. Isingit ang *w* bago ang *e*: **kuwento**
 
-Ganoon din ang ayos sa *cuenta* -> palitan ng *k* ang *c*, panatilihin ang *u*, at isingit ang *w* -> **kuwenta**. Hindi ito tuntunin para sa lahat ng salitang hiram, kundi para sa kambal-patinig sa unang pantig na may katinig bago ito.
+Hindi ito tuntunin para sa lahat ng salitang hiram. Para lamang ito sa kambal-patinig na ito sa unang pantig.
 
 :::pair #huwag-alisin-ang-u
 Right: Ang baybay sa Filipino ng *cuento* ay *kuwento*.
 Wrong: Ang baybay sa Filipino ng *cuento* ay *kwento*.
-Huwag alisin ang *u* sa unang pantig. *Kuwento* ang kinikilalang pormal na baybay sa KWF Ortograpiyang Pambansa.
+Nananatili ang *u* sa unang pantig. Nawawala ito sa *kwento*.
 :::
 
 :::pair #isingit-ang-w
 Right: Ang baybay sa Filipino ng *cuento* ay *kuwento*.
 Wrong: Ang baybay sa Filipino ng *cuento* ay *kuento*.
-Panatilihin ang *u* at isingit ang *w* bago ang *e*. Kulang ang *kuento*.
+Isingit ang *w* bago ang *e*. Kulang ang *kuento*.
 :::
 
 :::check
-Gamit ang parehong tuntunin para sa hiram na salitang *suerte*, alin ang wastong baybay sa Filipino: *swerte* o *suwerte*?
+Sa *cuento*, ano ang ipinapalit sa *c*, at saan isinisingit ang *w*?
 :::answer
-Ang sagot ay **suwerte**. Nasa unang pantig ang *ue* pagkatapos ng *s*, kaya pinananatili ang *u* at isinisingit ang *w* bago ang *e*.
+Ang *k* ang ipinapalit sa *c*, at isinisingit ang *w* bago ang *e*.
 :::
 
 ## Examples
 
 ### #1: Baybay sa Filipino
 
-Aling baybay sa Filipino ng salitang hiram na *cuento* ang naaayon sa Ortograpiyang Pambansa upang mabuo ang pangungusap? "Binasa niya ang maikling ______ bago matulog."
+Punan ang patlang ng baybay sa Filipino ng *cuento*: "Binasa niya ang maikling ______ bago matulog."
 
 A) kwento  
 B) kuwento  
@@ -57,14 +58,15 @@ D) kwentu
 
 **Solution:**
 
-1. Sa *cuento*, nasa unang pantig ang kambal-patinig na *ue* pagkatapos ng katinig na *c*.
-2. Palitan ng *k* ang *c*, panatilihin ang *u*, at isingit ang *w* bago ang *e*: **kuwento**. Sagot: **B**.
+1. Palitan ng *k* ang *c* sa *cuento*: *kuento*.
+2. Isingit ang *w* bago ang *e*: *kuwento*.
+3. Buo ang pangungusap: "Binasa niya ang maikling kuwento bago matulog." Sagot: **B**.
 
-**Check:** Basahin: "Binasa niya ang maikling kuwento bago matulog." Nananatili ang *u*, may *w* bago ang *e*, at *o* ang huling patinig.
+**Check:** *O* pa rin ang huling patinig, kaya mali ang *kuwentu*.
 
 ### #2: Paglalapat sa Ibang Salitang Hiram
 
-Alin ang wastong baybay sa Filipino ng salitang hiram na *cuenta* ayon sa Ortograpiyang Pambansa?
+Piliin ang baybay sa Filipino ng *cuenta*.
 
 A) kwenta  
 B) kuwenta  
@@ -73,19 +75,19 @@ D) kuwentu
 
 **Solution:**
 
-1. Nasa unang pantig ng *cuenta* ang *ue* pagkatapos ng katinig na *c*, kaya palitan ng *k* ang *c*.
+1. Nasa unang pantig ng *cuenta* ang *ue* pagkatapos ng *c*. Palitan ng *k* ang *c*: *kuenta*.
 
 :::try
-Tapusin ang huling hakbang: ilapat ang tuntunin ng kambal-patinig sa unang pantig upang piliin ang wastong baybay.
+Tapusin ang huling hakbang: ano ang idaragdag sa *kuenta*, at alin ang sagot?
 :::answer
-Ang sagot ay **B**, **kuwenta**. Tulad ng *kuwento*, pinananatili ang *u* at isinisingit ang *w* bago ang *e*.
+Ang sagot ay **B**. Isingit ang *w* bago ang *e*: **kuwenta**.
 
-**Check:** Basahin ang *kuwenta*: naroon ang *k*, ang *u*, ang *w* bago ang *e*, at ang huling *a* mula sa *cuenta*.
+**Check:** Nanatili ang *u* at ang huling *a*, kaya hindi *kwenta* o *kuenta*.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Tingnan kung nasa unang pantig pagkatapos ng katinig ang pares ng patinig. Sa *kuwento*, hindi inaalis ang *u* at isinisingit ang *w* bago ang *e*.
+Sa *kuwento*, hindi inaalis ang *u*, at may *w* bago ang *e*.
 
 ## Traps to Watch For
 

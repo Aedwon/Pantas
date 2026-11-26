@@ -46,7 +46,7 @@ Ang sagot ay **sina**. May kasunod na mga pangalan (*Marco at Joy*), kaya *sina*
 
 ### #1: Bago ang mga Pangalan
 
-______ Maria, Jose, at Juan ay naghanda para sa pagsusulit.
+Punan ang patlang: "______ Maria, Jose, at Juan ay naghanda para sa pagsusulit."
 
 A) Sila  
 B) Sina  
@@ -56,13 +56,13 @@ D) Ang
 **Solution:**
 
 1. Sinusundan ang patlang ng mga pangalan ng tao.
-2. Gamitin ang **sina** bago ang mga pangalang ito. Sagot: **B**.
+2. Gamitin ang **sina**: "Sina Maria, Jose, at Juan ay naghanda para sa pagsusulit." Sagot: **B**.
 
-**Check:** Basahin: "Sina Maria, Jose, at Juan." Mga pangalan ang kasunod.
+**Check:** Hindi puwede ang *sila* dahil may mga pangalan pang kasunod.
 
 ### #2: Pamalit sa mga Pangalan
 
-Maagang dumating sina Ana at Lito. ______ ang unang pumasok sa silid.
+Punan ang patlang: "Maagang dumating sina Ana at Lito. ______ ang unang pumasok sa silid."
 
 A) Sila  
 B) Sina  
@@ -71,10 +71,10 @@ D) Ang
 
 **Solution:**
 
-1. Pumapalit ang patlang sa mga pangalang *Ana at Lito*, at walang pangalang kasunod nito.
-2. Gamitin ang panghalip na **sila**. Sagot: **A**.
+1. Pumapalit ang patlang sa *Ana at Lito*, at walang pangalang kasunod.
+2. Gamitin ang panghalip na **sila**: "Sila ang unang pumasok sa silid." Sagot: **A**.
 
-**Check:** Basahin: "Sila ang unang pumasok sa silid." Walang pangalang kasunod.
+**Check:** Hindi puwede ang *sina* dahil walang pangalang kasunod.
 
 ### #3: Pagsasama ng Sina at Sila
 
@@ -99,7 +99,7 @@ Ang sagot ay **A**. Pumapalit sa mga pangalan ang ikalawang patlang at walang pa
 
 ## Speed Tricks & Shortcuts
 
-Tingnan ang kasunod ng patlang. May mga pangalan bang kasunod, o pumapalit ang salita sa mga pangalan?
+Tingnan kung may pangalang kasunod.
 
 ## Traps to Watch For
 

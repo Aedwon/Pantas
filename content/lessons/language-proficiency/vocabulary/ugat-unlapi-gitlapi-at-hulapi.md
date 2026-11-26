@@ -18,10 +18,12 @@ keyPoints:
 
 Ang **salitang-ugat** (root word) ang nagdadala ng pangunahing kahulugan. Ang **panlapi** (affix) ay idinadagdag dito upang makabuo ng bagong salita.
 
-Upang makuha ang salitang-ugat, alisin ang lahat ng panlapi hanggang matira ang pinakamaikling salitang may pangunahing kahulugan:
+Upang makuha ang salitang-ugat, alisin ang lahat ng panlapi hanggang matira ang salitang may pangunahing kahulugan.
 
-- Sa *pinaghirapan*: alisin ang *pinag-* sa unahan at *-an* sa hulihan -> ang salitang-ugat ay **hirap**.
-- Sa *ginawa*: alisin ang *-in-* sa loob -> ang salitang-ugat ay **gawa**.
+Hanapin natin ang salitang-ugat ng *pinaghirapan* at ng *ginawa*:
+
+- *pinaghirapan*: alisin ang *pinag-* sa unahan at *-an* sa hulihan, at matitira ang **hirap**.
+- *ginawa*: alisin ang *-in-* sa loob, at matitira ang **gawa**.
 
 :::pair #ugat-hindi-panlapi
 Right: Ang salitang-ugat ng *pinaghirapan* ay *hirap*.
@@ -49,25 +51,25 @@ Tinatawag ang panlapi ayon sa puwesto nito sa salitang-ugat:
 2. **Gitlapi** (infix) sa loob ng ugat: *s* + *-um-* + *ulat* = *sumulat*; *s* + *-um-* + *ayaw* = *sumayaw*.
 3. **Hulapi** (suffix) sa hulihan ng ugat: *sulat* + *-an* = *sulatan*.
 
-Hindi iisa ang gamit o puwesto ng isang panlapi sa lahat ng salita. Sa *sumayaw*, gitlapi ang *-um-* dahil nasa loob ito ng *sayaw*, ngunit sa *umalis*, unlapi ang *um-* dahil nasa unahan ito ng *alis*.
+Hindi iisa ang puwesto ng isang panlapi sa lahat ng salita. Gitlapi ang *-um-* sa *sumayaw* dahil nasa loob ito ng *sayaw*. Unlapi ang *um-* sa *umalis* dahil nasa unahan ito ng *alis*.
 
 :::pair #puwesto-ng-um
-Right: Gitlapi ang *-um-* sa *sumayaw* dahil nasa loob ng *sayaw*, ngunit unlapi ang *um-* sa *umalis* dahil nasa unahan ng *alis*.
-Wrong: Palaging unlapi ang *um-* sa lahat ng salita.
-Ang puwesto sa unahan o loob ng ugat ang batayan ng pangalan ng panlapi, hindi ang mga titik lamang.
+Right: Gitlapi ang *-um-* sa *sumayaw* dahil nasa loob ng *sayaw*. Unlapi ang *um-* sa *umalis* dahil nasa unahan ng *alis*.
+Wrong: Unlapi ang *um-* sa *sumayaw* dahil palaging unlapi ang *um-*.
+Puwesto sa ugat ang batayan ng pangalan ng panlapi, hindi ang mga titik lamang.
 :::
 
 :::check
-Sa salitang *ginawa*, anong uri ng panlapi ang *-in-* at bakit?
+Sa salitang *tumakbo*, anong uri ng panlapi ang *-um-*?
 :::answer
-Ang sagot ay **gitlapi**. Nakasingit ang *-in-* sa loob ng salitang-ugat na *gawa*.
+Ang sagot ay **gitlapi**. Nakasingit ang *-um-* sa loob ng salitang-ugat na *takbo*.
 :::
 
 ## Examples
 
 ### #1: Paghanap ng Salitang-Ugat
 
-Tukuyin ang salitang-ugat ng salitang nakaitim: **pinagsumikapan**.
+Tukuyin ang salitang-ugat ng salitang may makapal na titik: **pinagsumikapan**.
 
 A) sikap  
 B) pinag  
@@ -83,12 +85,12 @@ D) sikapan
 
 ### #2: Pagbabalik sa Salitang-Ugat
 
-Tukuyin ang salitang-ugat ng salitang nakaitim: **pinaghirapan**.
+Tukuyin ang salitang-ugat ng salitang may makapal na titik: **pinaghintayan**.
 
 A) pinag  
-B) naghirap  
-C) hirap  
-D) hirapan
+B) naghintay  
+C) hintay  
+D) hintayan
 
 **Solution:**
 
@@ -97,14 +99,14 @@ D) hirapan
 :::try
 Tapusin ang huling hakbang: ano ang natitirang salitang-ugat kapag inalis ang mga panlaping ito?
 :::answer
-Ang sagot ay **C**, **hirap**. Ito ang pinakamaliit na bahaging nagdadala ng pangunahing kahulugan.
+Ang sagot ay **C**, **hintay**. Ito ang bahaging nagdadala ng pangunahing kahulugan.
 
-**Check:** Ibalik ang mga panlapi sa ugat: *pinag-* + *hirap* + *-an* = *pinaghirapan*.
+**Check:** Ibalik ang mga panlapi sa ugat: *pinag-* + *hintay* + *-an* = *pinaghintayan*.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Hanapin muna ang salitang-ugat na nagdadala ng pangunahing kahulugan. Pagkatapos, tingnan kung nasa unahan, loob, o hulihan nito ang bawat panlapi.
+Hanapin muna ang salitang-ugat. Pagkatapos, tingnan kung nasa unahan, loob, o hulihan nito ang bawat panlapi.
 
 ## Traps to Watch For
 

@@ -16,13 +16,13 @@ keyPoints:
 
 ### Panlaping Kabilaan
 
-Ang **kabilaan** (affixes on both sides) ay may panlapi sa unahan at hulihan ng salitang-ugat, at walang panlapi sa loob.
+Ang **kabilaan** (affixes on both sides) ay may **panlapi** (affix) sa unahan at hulihan ng **salitang-ugat** (root word), at wala sa loob.
 
-Suriin ang salitang *kabataan*:
+Suriin natin ang *kabataan*:
 
 1. Salitang-ugat: *bata*.
-2. Unlapi sa unahan: *ka-*.
-3. Hulapi sa hulihan: *-an*.
+2. **Unlapi** (prefix) sa unahan: *ka-*.
+3. **Hulapi** (suffix) sa hulihan: *-an*.
 4. Walang panlapi sa loob ng *bata*, kaya kabilaan ito.
 
 :::pair #kabilaan-ka-an
@@ -41,15 +41,13 @@ Ang sagot ay **ka- at -an**. Nasa unahan ng *sagana* ang *ka-* at nasa hulihan a
 
 Ang **laguhan** (prefix, infix, and suffix together) ay may panlapi sa unahan, loob, at hulihan ng salitang-ugat.
 
-Suriin ang salitang *pinagsumikapan*:
+Suriin natin ang *pinagsumikapan*:
 
 1. Salitang-ugat: *sikap*.
 2. Unlapi sa unahan: *pinag-*.
-3. Gitlapi sa loob ng ugat: *-um-*.
+3. **Gitlapi** (infix) sa loob ng ugat: *-um-*.
 4. Hulapi sa hulihan: *-an*.
-5. May panlapi sa lahat ng tatlong puwesto, kaya laguhan ito.
-
-Hanapin muna ang salitang-ugat bago bilangin ang mga puwesto ng panlapi. Huwag magtanggal ng mga letra dahil lamang nasa unahan o hulihan ang mga ito.
+5. May panlapi sa tatlong puwesto, kaya laguhan ito.
 
 :::pair #laguhan-hindi-kabilaan
 Right: Laguhan ang *pinagsumikapan*.
@@ -77,13 +75,13 @@ D) bahay
 **Solution:**
 
 1. Ang ugat ng *kabataan* ay *bata*.
-2. Nasa unahan ang *ka-* at nasa hulihan ang *-an*. Sagot: **A**.
+2. Nasa unahan ang *ka-* at nasa hulihan ang *-an*, kaya kabilaan ang **kabataan**. Sagot: **A**.
 
 **Check:** Ang *pag-ibig* ay may unlapi lamang. Ang *sumulat* ay may gitlapi lamang. Ang *bahay* ay walang panlapi.
 
 ### #2: Panlaping Laguhan
 
-Anong uri ng panlapi ang makikita sa salitang nakaitim: **pinagsumikapan**?
+Anong uri ng panlapi ang makikita sa salitang may makapal na titik na **pinagsumikapan**?
 
 A) unlapi lamang  
 B) gitlapi lamang  
@@ -99,7 +97,7 @@ D) laguhan
 
 ### #3: Pagsuri sa Uri ng Panlapi
 
-Sa salitang **kabataan**, anong uri ng panlapi ang ginamit?
+Sa salitang **katapatan**, anong uri ng panlapi ang ginamit?
 
 A) unlapi lamang  
 B) gitlapi lamang  
@@ -108,14 +106,14 @@ D) laguhan
 
 **Solution:**
 
-1. Hanapin muna ang salitang-ugat ng *kabataan*: ang ugat ay *bata*.
+1. Hanapin muna ang salitang-ugat ng *katapatan*: ang ugat ay *tapat*.
 
 :::try
-Tapusin ang huling hakbang: tukuyin ang mga panlapi sa paligid ng *bata* at piliin ang tamang uri ng panlapi.
+Tapusin ang huling hakbang: tukuyin ang mga panlapi sa paligid ng *tapat* at piliin ang tamang uri ng panlapi.
 :::answer
-Ang sagot ay **C**, **kabilaan**. Nasa unahan ang *ka-* at nasa hulihan ang *-an*, at walang panlapi sa loob ng *bata*.
+Ang sagot ay **C**, **kabilaan**. Nasa unahan ang *ka-* at nasa hulihan ang *-an*, at walang panlapi sa loob ng *tapat*.
 
-**Check:** Kung laguhan ito, dapat may dagdag na panlapi sa loob ng *bata*, ngunit dalawa lamang ang puwesto ng panlapi.
+**Check:** Kung laguhan ito, may panlapi rin sa loob ng *tapat*. Wala.
 :::
 
 ## Traps to Watch For
