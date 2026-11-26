@@ -6,7 +6,7 @@ Base: the Terms live in the app on main (versions 2026-11-12), the Oct 30 web pa
 
 ---
 
-**Version:** 2026-11-24 (November 24, 2026)
+**Version:** 2026-11-28 (November 28, 2026)
 **Applies to:** Pantas on the web (pantas.study and app.pantas.study) and in the Pantas mobile apps.
 
 ## Who we are

@@ -21,7 +21,7 @@ const T0 = Date.parse('2026-11-09T10:00:00+08:00');
 const DAY = 86400000;
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
-const versions = {privacy: '2026-11-24', terms: '2026-11-24', teens: '2026-11-24'};
+const versions = {privacy: '2026-11-28', terms: '2026-11-28', teens: '2026-11-28'};
 const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data, ...extra});
 const answer = (token, over = {}) => ({token, decision: 'confirm', agreed: true,
   documentVersions: versions, noticeWordingVersion: '2026-11-12', ...over});

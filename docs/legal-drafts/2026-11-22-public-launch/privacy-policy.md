@@ -6,7 +6,7 @@ Base: the Privacy Policy live in the app on main (version 2026-11-12). Each stat
 
 ---
 
-**Version:** 2026-11-24 (November 24, 2026)
+**Version:** 2026-11-28 (November 28, 2026)
 
 ## Who this is for
 

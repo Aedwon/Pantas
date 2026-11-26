@@ -2,8 +2,8 @@
 /// go-live day, change these two lines and the three dates in
 /// `GUARDIAN_DOCUMENT_VERSIONS` in `functions/src/guardianConsent.ts`
 /// (spec choice 14). Deploy together, or the guardian page refuses answers.
-const legalTextsVersion = '2026-11-24';
-final legalTextsPublishedAt = DateTime.utc(2026, 11, 24);
+const legalTextsVersion = '2026-11-28';
+final legalTextsPublishedAt = DateTime.utc(2026, 11, 28);
 
 /// Published versions shown by the guardian confirmation page. They are the
 /// real publication date of the three texts below, not placeholders.

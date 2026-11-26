@@ -46,7 +46,7 @@ const DAY_MS = 86_400_000;
 // this one line and `legalTextsVersion` plus `legalTextsPublishedAt` in the
 // app's legal_document.dart (spec choice 14). Deploy together, or the guardian
 // page refuses answers with "Reload the page".
-const LEGAL_TEXTS_VERSION = '2026-11-24';
+const LEGAL_TEXTS_VERSION = '2026-11-28';
 export const GUARDIAN_DOCUMENT_VERSIONS = {
   privacy: LEGAL_TEXTS_VERSION, terms: LEGAL_TEXTS_VERSION, teens: LEGAL_TEXTS_VERSION,
 } as const;
