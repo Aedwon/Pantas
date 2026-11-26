@@ -1045,6 +1045,372 @@
           "mistakeNote": "Substitutes the CHR's investigative mandate for a trial court's authority over criminal charges."
         }
       ]
+    },
+    "lesson-philippine-constitution-branches-and-checks": {
+      "execute-vs-decide": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0021",
+          "wrongChoice": "Congress executes laws; the President settles legal disputes.",
+          "mistakeNote": "Swaps lawmaking with execution and assigns court dispute settlement to the President."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0021",
+          "wrongChoice": "The President executes laws and alone settles actual legal disputes.",
+          "mistakeNote": "Places judicial power inside the executive branch instead of reserving dispute settlement to the courts."
+        }
+      ],
+      "veto-and-override-check": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0022",
+          "wrongChoice": "Judicial review and veto override",
+          "mistakeNote": "Labels the President's rejection of a bill as judicial review instead of a veto."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0022",
+          "wrongChoice": "Veto and Commission on Appointments consent",
+          "mistakeNote": "Pairs a bill veto with an appointment check instead of a congressional veto override."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-congress-members-and-terms": {
+      "senate-nationwide-and-terms": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0001",
+          "wrongChoice": "24 senators elected by district, serving six-year terms with two consecutive terms allowed",
+          "mistakeNote": "Confuses nationwide at-large Senate elections with district elections for the House."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0001",
+          "wrongChoice": "24 senators elected nationwide, serving six-year terms with only two terms allowed in a lifetime",
+          "mistakeNote": "Treats the two-consecutive-term limit as a permanent lifetime cap."
+        }
+      ],
+      "house-terms-not-senate": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0002",
+          "wrongChoice": "Representatives serve six-year terms with two consecutive terms allowed.",
+          "mistakeNote": "Applies Senate term length and consecutive-term rules to Members of the House."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0001",
+          "wrongChoice": "24 senators elected nationwide, serving three-year terms with three consecutive terms allowed",
+          "mistakeNote": "Applies House three-year terms and three-term limits to Senators."
+        }
+      ],
+      "house-cap-and-party-list": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0002",
+          "wrongChoice": "Its membership can never exceed 250, even if a law provides otherwise.",
+          "mistakeNote": "Ignores the constitutional clause allowing a law to fix a different House size."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0002",
+          "wrongChoice": "Party-list seats equal 20 percent of district seats alone.",
+          "mistakeNote": "Applies the 20 percent party-list share to district seats alone instead of total House membership."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-congress-bills-budget-and-inquiries": {
+      "house-origin-senate-amends": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0003",
+          "wrongChoice": "The bill starts in the Senate because it concerns national revenue.",
+          "mistakeNote": "Starts a national revenue bill in the Senate even though Article VI, Section 24 requires House origin."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0003",
+          "wrongChoice": "The bill starts in the House, and the Senate must accept it without amendments.",
+          "mistakeNote": "Denies the Senate's constitutional power to propose or agree to amendments on House-originated bills."
+        }
+      ],
+      "inquiry-rules-and-rights": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0020",
+          "wrongChoice": "The committee may disregard witnesses' rights because its inquiry supports lawmaking.",
+          "mistakeNote": "Treats a lawmaking purpose as excusing violations of witnesses' rights during an inquiry."
+        }
+      ],
+      "no-budget-increase": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0020",
+          "wrongChoice": "Congress may increase those recommended appropriations whenever each House approves by a simple majority.",
+          "mistakeNote": "Allows a majority vote to bypass Article VI, Section 25(1)'s bar on increasing recommended operating appropriations."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-congress-war-and-veto-votes": {
+      "war-vote-separate": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0019",
+          "wrongChoice": "The President commands the armed forces and alone declares the existence of a state of war.",
+          "mistakeNote": "Gives Congress's exclusive power to declare a state of war to the Commander-in-Chief."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0019",
+          "wrongChoice": "The President commands the armed forces; Congress declares a state of war by pooling both Houses' votes for one majority.",
+          "mistakeNote": "Pools both Houses' votes into a single majority instead of requiring separate two-thirds votes in joint session."
+        }
+      ],
+      "override-separate-two-thirds": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0018",
+          "wrongChoice": "The override succeeds because the two Houses together supplied more than two-thirds of their combined membership.",
+          "mistakeNote": "Pools House and Senate votes instead of requiring two-thirds of all Members in each House separately."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0018",
+          "wrongChoice": "The override succeeds because a timely veto needs only a simple majority to reverse.",
+          "mistakeNote": "Uses a simple majority instead of the required two-thirds of all Members of each House."
+        }
+      ],
+      "override-exact-two-thirds": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0018",
+          "wrongChoice": "The override fails because the House needs at least 225 votes.",
+          "mistakeNote": "Applies a three-fourths threshold (225 of 300) instead of the veto override's two-thirds threshold (200 of 300)."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-president-terms-and-appointments": {
+      "vp-succeeds-permanently": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0004",
+          "wrongChoice": "The Senate President becomes President immediately upon the death.",
+          "mistakeNote": "Skips the Vice-President in the constitutional line of succession."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0004",
+          "wrongChoice": "The Vice-President only acts as President until Congress selects a permanent President.",
+          "mistakeNote": "Treats permanent presidential succession as temporary instead of serving the unexpired term."
+        }
+      ],
+      "four-year-succession-bar": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0004",
+          "wrongChoice": "The successor may later be elected President because the five years were only an inherited term.",
+          "mistakeNote": "Exempts an inherited term over four years from Article VII, Section 4's bar on later election as President."
+        }
+      ],
+      "vp-cabinet-no-confirmation": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0025",
+          "wrongChoice": "Consent is required because all Cabinet appointments follow the same rule.",
+          "mistakeNote": "Overlooks Article VII, Section 3's express confirmation exemption for a Vice-President named to the Cabinet."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0025",
+          "wrongChoice": "The Judicial and Bar Council must first recommend the Vice-President.",
+          "mistakeNote": "Applies the judicial nomination process to a Cabinet appointment."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-president-emergency-powers": {
+      "sixty-day-initial-limit": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0015",
+          "wrongChoice": "30 days initially; report within 48 hours",
+          "mistakeNote": "Shortens the 60-day initial martial-law maximum to 30 days."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0015",
+          "wrongChoice": "60 days initially; report within 30 days",
+          "mistakeNote": "Substitutes 30 days for the strict 48-hour deadline to report to Congress."
+        }
+      ],
+      "joint-majority-revocation": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0016",
+          "wrongChoice": "Congress may revoke only through separate two-thirds votes in each House.",
+          "mistakeNote": "Applies separate two-thirds voting instead of a majority of all Members voting jointly."
+        }
+      ],
+      "court-review-never-waits": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0016",
+          "wrongChoice": "Only Congress may review the factual basis, and courts must wait until martial law ends.",
+          "mistakeNote": "Denies citizens immediate Supreme Court review of the factual basis under Article VII, Section 18."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-president-clemency-and-treaties": {
+      "pardon-after-final-judgment": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0005",
+          "wrongChoice": "A pardon may remove the result of impeachment if the Senate agrees.",
+          "mistakeNote": "Extends presidential pardon power to impeachment cases despite Article VII, Section 19's exclusion."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0005",
+          "wrongChoice": "A pardon may be granted before conviction by final judgment, while amnesty needs no congressional concurrence.",
+          "mistakeNote": "Drops the final-conviction requirement for pardon alongside congressional concurrence for amnesty."
+        }
+      ],
+      "amnesty-needs-all-congress": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0005",
+          "wrongChoice": "Amnesty requires concurrence of two-thirds of all Senators, with no House participation.",
+          "mistakeNote": "Confuses the Senate treaty rule with amnesty's requirement of a majority of all Members of Congress."
+        }
+      ],
+      "treaty-two-thirds-all-senators": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0017",
+          "wrongChoice": "Yes, because 15 is more than half of the full Senate.",
+          "mistakeNote": "Substitutes a simple majority of all Senators for the required two-thirds concurrence."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0017",
+          "wrongChoice": "Yes, because 15 exceeds two-thirds of the 18 Senators present.",
+          "mistakeNote": "Counts two-thirds of only the Senators present rather than two-thirds of all 24 Senators."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-courts-and-judicial-review": {
+      "grave-abuse-review": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0023",
+          "wrongChoice": "They may review only private disputes, never government actions.",
+          "mistakeNote": "Omits the courts' duty under Article VIII, Section 1 to examine grave abuse by government bodies."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0023",
+          "wrongChoice": "They must accept the act whenever the body calls it a policy decision.",
+          "mistakeNote": "Treats a policy label as shielding acts beyond legal authority from judicial review."
+        }
+      ],
+      "supreme-court-15-en-banc": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0014",
+          "wrongChoice": "The Court has 14 Members and hears the constitutional challenge en banc.",
+          "mistakeNote": "Counts only the 14 Associate Justices and leaves out the Chief Justice."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0014",
+          "wrongChoice": "The Court has 15 Members and must hear the constitutional challenge in a three-member division.",
+          "mistakeNote": "Assigns a constitutional challenge to a division instead of the full Court en banc."
+        }
+      ],
+      "jbc-list-no-confirmation": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0009",
+          "wrongChoice": "Both ambassadors and judges need Commission on Appointments consent.",
+          "mistakeNote": "Requires Commission on Appointments confirmation for judicial appointments."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0009",
+          "wrongChoice": "The Judicial and Bar Council appoints judges directly from its own list.",
+          "mistakeNote": "Confuses the Council's nominating role with the President's appointment power."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-elected-office-qualifications": {
+      "district-one-year-residence": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0006",
+          "wrongChoice": "She meets the district residence rule because voter registration replaces it.",
+          "mistakeNote": "Treats district voter registration as substituting for one full year of district residence."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0006",
+          "wrongChoice": "She meets the district residence rule because only six months are required.",
+          "mistakeNote": "Confuses the six-month local voting residence rule with the one-year requirement for district Representatives."
+        }
+      ],
+      "age-measured-election-day": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0008",
+          "wrongChoice": "She fails the age requirement because she must already be 40 when filing her candidacy.",
+          "mistakeNote": "Measures the minimum age at candidacy filing instead of on election day."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0006",
+          "wrongChoice": "She fails the age rule because district representatives must be at least 35.",
+          "mistakeNote": "Applies the Senate's 35-year minimum age to a district Representative."
+        }
+      ],
+      "vp-ten-year-residence": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0008",
+          "wrongChoice": "She meets the residence requirement because the Vice-President needs only two years.",
+          "mistakeNote": "Applies the Senate's two-year residence rule to the Vice-Presidency."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0008",
+          "wrongChoice": "She meets the residence requirement because it applies only to presidential candidates.",
+          "mistakeNote": "Overlooks that Article VII, Section 3 gives the Vice-President the same ten-year residence rule as the President."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-judicial-office-qualifications": {
+      "supreme-court-all-three": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0010",
+          "wrongChoice": "A natural-born citizen, age 39, with 16 years of Philippine law practice",
+          "mistakeNote": "Allows extra years of law practice to excuse failing the 40-year minimum age."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0010",
+          "wrongChoice": "A naturalized citizen, age 45, with 20 years of Philippine law practice",
+          "mistakeNote": "Allows naturalized citizenship with long experience despite the natural-born requirement."
+        }
+      ],
+      "lower-collegiate-natural-born": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0024",
+          "wrongChoice": "Every lower-court judge must satisfy the Supreme Court’s age and experience minimums.",
+          "mistakeNote": "Applies Supreme Court age and 15-year experience thresholds to every lower court."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0024",
+          "wrongChoice": "Congress cannot set further qualifications once citizenship and Bar membership are met.",
+          "mistakeNote": "Ignores Article VIII, Section 7(2), which directs Congress to set lower-court qualifications."
+        }
+      ],
+      "qualities-beyond-bar": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0024",
+          "wrongChoice": "Lower-court judges need no proven integrity if they are Philippine Bar members.",
+          "mistakeNote": "Treats Philippine Bar membership as waiving Article VIII, Section 7(3)'s integrity requirement."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-commission-and-ombudsman-qualifications": {
+      "comelec-chair-in-majority": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0011",
+          "wrongChoice": "Every COMELEC member must have ten years of law practice.",
+          "mistakeNote": "Applies the ten-year lawyer requirement to all seven COMELEC members instead of a majority including the Chair."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0011",
+          "wrongChoice": "Four qualified lawyers cannot form a majority of seven members.",
+          "mistakeNote": "Miscounts four out of seven as not a majority while missing that the Chair must be in that majority."
+        }
+      ],
+      "coa-no-same-profession": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0012",
+          "wrongChoice": "A CPA with twelve years of auditing experience who is not a lawyer",
+          "mistakeNote": "Picks a third CPA when two seats are already CPAs, violating the mixed-profession rule."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0012",
+          "wrongChoice": "A lawyer with nine years of law practice who is not a CPA",
+          "mistakeNote": "Accepts nine years of practice even though Article IX-D, Section 1(1) requires at least ten years."
+        }
+      ],
+      "ombudsman-prior-candidacy": [
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0013",
+          "wrongChoice": "She may be appointed because only losing candidates are barred from this office.",
+          "mistakeNote": "Narrows Article XI, Section 8's prior-candidacy bar to losing candidates only."
+        },
+        {
+          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0013",
+          "wrongChoice": "She may be appointed because legal experience cancels the candidacy restriction.",
+          "mistakeNote": "Treats meeting the legal-experience rule as waiving the separate bar on prior candidacy."
+        }
+      ]
     }
   }
 }

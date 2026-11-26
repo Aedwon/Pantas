@@ -12,19 +12,69 @@ keyPoints:
   - "Check citizenship, age, and residence for Representative and Senator."
   - "Check qualifications for President and Vice-President."
 ---
+
 ## Core Concept
 
-### Who may hold each office
+### Citizenship and Legislative Qualifications
 
-A **natural-born citizen** is Filipino from birth without an act needed to gain or complete citizenship. Article IV, Section $2$ also includes those who elect citizenship under Section $1(3)$. See Articles IV and V: Citizenship and Suffrage for that special case.
+A **natural-born citizen** is Filipino from birth without an act needed to complete citizenship. Article IV, Section $2$ also covers electors under Section $1(3)$ (see Articles IV and V: Citizenship and Suffrage).
 
-A Representative must be natural-born, at least $25$, and able to read and write. A district representative must be a registered voter in that district and have lived there for at least $1$ year immediately before election day. Those district voter and residence rules exclude party-list representatives (Article VI, Section $6$).
+National and congressional offices require natural-born citizenship, literacy, and minimum age **on election day**:
 
-A Senator must be natural-born, at least $35$, able to read and write, and a registered voter. The Senator must have lived in the Philippines for at least $2$ years immediately before election day (Article VI, Section $3$).
+1. **Representative** (Article VI, Section $6$): natural-born, at least $25$ on election day, able to read and write. District seats also need district registration and $1$ year of district residence right before election day. Party-list seats exclude those district rules.
+2. **Senator** (Article VI, Section $3$): natural-born, at least $35$ on election day, able to read and write, registered voter. The Senator must also live in the Philippines for $2$ years right before election day.
 
-The President and Vice-President must be natural-born, at least $40$, registered voters, and able to read and write. They must have lived in the Philippines for at least $10$ years immediately before election day (Article VII, Sections $2$ and $3$). These elected offices measure age on election day.
+Screen a $36$-year-old natural-born Senate candidate who returned to Manila $18$ months before election day:
+
+1. Citizenship and age ($36 \ge 35$) pass Article VI, Section $3$.
+2. Eighteen months of Philippine residence is under $2$ years, so the candidate fails.
+
+:::pair #district-one-year-residence
+Right: A district Representative needs at least $1$ year of district residence, separate from district registration.
+Wrong: Treating $6$ months of district residence or voter registration alone as enough.
+Section $6$ requires both district registration and $1$ full year of district residence.
+:::
+
+:::pair #age-measured-election-day
+Right: Minimum ages ($25$, $35$, $40$) are measured on election day, with Representative starting at $25$.
+Wrong: Checking minimum age at candidacy filing, or requiring $35$ for a district Representative.
+Age $35$ is for Senators; Representatives start at $25$, measured on election day.
+:::
+
+:::check
+A natural-born citizen is $24$ at filing and turns $25$ one week before election day. She meets the voter and $1$-year district rules. Is she old enough?
+:::answer
+The answer is **Yes**. Article VI, Section $6$ measures the $25$-year minimum on election day, not at filing.
+:::
+
+### President and Vice-President Qualifications
+
+Under Article VII, Sections $2$ and $3$, the President and Vice-President share identical qualifications. Both must be natural-born citizens, registered voters, and able to read and write. Both must be at least $40$ on election day and Philippine residents for at least $10$ years right before election day.
+
+Age, registration, and long residence never waive natural-born citizenship.
 
 <!-- ILLUSTRATION: minimum-age ladder 25: Representative; 35: Senator, COMELEC, COA; 40: President, Vice-President, Supreme Court Member, Ombudsman; footer Age alone is not full qualification -->
+
+Check a $43$-year-old natural-born Vice-Presidential candidate who returned from abroad $7$ years before election day:
+
+1. Citizenship and age ($43 \ge 40$) pass Article VII, Sections $2$ and $3$.
+2. Seven years of Philippine residence falls below the $10$-year rule, so the candidate fails.
+
+:::why
+Why give the Vice-President identical qualifications to the President? The Vice-President can succeed to the presidency anytime, so both need equal standards.
+:::
+
+:::pair #vp-ten-year-residence
+Right: The Vice-President shares the President's $10$-year Philippine residence requirement.
+Wrong: Applying the Senate's $2$-year residence rule to the Vice-President, or limiting $10$ years to the President.
+Article VII, Section $3$ gives the Vice-President identical qualifications to the President.
+:::
+
+:::check
+A naturalized citizen, age $46$, has lived in the Philippines for $25$ years and is a registered voter. May he run for President or Senator?
+:::answer
+The answer is **No**. Both offices require natural-born citizenship, which residence and age never replace.
+:::
 
 ## Examples
 
@@ -34,18 +84,51 @@ On election day, Ana is $25$, Ben is $35$, and Cara is $40$. All meet the other 
 
 **Solution:**
 
-1. Ana meets the Representative minimum of $25$.
-2. Ben meets the Representative and Senator minimums.
-3. Cara meets all three age minimums.
+1. Compare against $25$ (Representative), $35$ (Senator), and $40$ (President).
+2. Ana ($25$) clears Representative; Ben ($35$) clears Representative and Senator; Cara ($40$) clears all three.
 
-## Traps to Watch For
+Answer: Ana meets Representative; Ben meets Representative and Senator; Cara meets Representative, Senator, and President.
 
-### #1: Different Ages
+**Check:** Higher ages clear lower minimums ($40 > 35 > 25$) when other rules pass.
 
-> Representative, Senator, and President start at $25$, $35$, and $40$.
+### #2: District vs. Party-List Residence
 
-The Senator's minimum does not qualify someone for President. Citizenship and residence still need checking.
+On election day, Marco is $27$, natural-born, and literate. He registered in District B after living there for $10$ months. Does he qualify as District B's Representative, or for a party-list seat?
+
+**Solution:**
+
+1. For District B, $10$ months is under $1$ year, and registration cannot replace residence.
+2. Section $6$ excludes party-list seats from district voter and residence rules.
+
+Answer: He fails the district seat, yet district rules do not bar a party-list seat.
+
+**Check:** Section $6$ limits the $1$-year district residence rule to district representatives.
+
+### #3: Checking a Vice-Presidential Candidate
+
+Elena runs for Vice-President. She files at $39$ and turns $40$ on election morning. She is natural-born, a registered voter, literate, and has lived in the Philippines for $8$ years. Does she pass age and residence?
+
+**Solution:**
+
+1. Under Article VII, Sections $2$ and $3$, age is checked on election day, when Elena is $40$.
+2. The Vice-President shares the President's $10$-year Philippine residence requirement.
+
+:::try
+Finish the last step: rule on Elena's age and residence and explain why they give opposite results.
+:::answer
+The answer is **She passes the $40$-year age rule on election day, yet fails the $10$-year Philippine residence rule.** Minimum age is checked on election day, not at filing. Eight years falls short of the $10$ years required under Article VII, Sections $2$ and $3$.
+
+**Check:** Age $40$ on election day passes, whereas $8 < 10$ fails the shared residence rule.
+:::
 
 ## Speed Tricks & Shortcuts
 
-Remember $25$, $35$, $40$: Representative, Senator, President. Vice-President and Supreme Court Member also start at $40$. Age alone never proves full qualification.
+Remember $25$, $35$, $40$ for Representative, Senator, and President on election day. Vice-President, Supreme Court Member, and Ombudsman also start at $40$. Residence jumps from $1$ year (district) to $2$ years (Senate) to $10$ years (President and Vice-President).
+
+## Traps to Watch For
+
+:::checklist
+- District Representative: require $1$ full year of district residence alongside district registration. {#district-one-year-residence}
+- Minimum ages: measure $25$, $35$, and $40$ on election day, not at filing. {#age-measured-election-day}
+- Vice-President residence: apply the President's $10$-year Philippine residence rule, not $2$ years. {#vp-ten-year-residence}
+:::
