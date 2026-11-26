@@ -116,7 +116,7 @@ Correct sentence: **"I can hardly hear you from over here."**
 The clerk did finish the audit. Her memo says she *"could scarcely finish the audit."* Another memo says *"The branch seldom cancels briefings."* What does each convey?
 
 :::try
-Finish the last step: state what *"could scarcely finish the audit"* conveys here, and define *"seldom cancels."*
+State what *"could scarcely finish the audit"* conveys here, and define *"seldom cancels."*
 :::answer
 The answer is **She finished the audit, though only with great difficulty; and the branch *rarely* cancels briefings (not never).**
 

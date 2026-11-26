@@ -61,7 +61,7 @@ Nagpapatuloy ang kilos sa *kumakain* at tapos na sa *kumain*. Alisin ang *-um-* 
 
 :::pair #basahin-ang-buong-pandiwa
 Right: Sa "Kakakain lang ng mga kawani. Maglilinis sila bukas," perpektibong katatapos ang *kakakain* at kontemplatibo ang *maglilinis*.
-Wrong: Sabihing imperpektibo ang *kakakain*, at kontemplatibo ang *maglilinis*.
+Wrong: "Imperpektibo ang una; kontemplatibo ang ikalawa."
 Hindi sapat ang pag-uulit upang sabihing nagpapatuloy ang kilos. May pag-uulit din ang katatapos (*ka-* + *ka* -> *kakakain*) at ang kontemplatibo (*mag-* + *li* -> *maglilinis*). Tingnan ang panlapi kasama ng pag-uulit upang makita ang tamang aspekto.
 :::
 

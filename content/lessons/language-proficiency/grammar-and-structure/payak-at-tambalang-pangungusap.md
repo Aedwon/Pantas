@@ -105,7 +105,7 @@ Tukuyin ang uri ng pangungusap: "Umuwi ang bata ngunit naiwan ang bag niya."
 
 ### #3: Pagtutugma ng Pangatnig
 
-Aling pangatnig ang angkop upang magdagdag ng diwa: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
+Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
 
 **Solution:**
 

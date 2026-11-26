@@ -110,7 +110,6 @@ Sa "Naglaro ang mga bata ng taguan sa bakuran," aling pangkat ang nagsasabi ng l
 **Solution:**
 
 1. Kilalanin ang kilos: *naglaro*.
-2. Ihiwalay ang "ang mga bata" (gumawa) at "ng taguan" (nilaro).
 
 :::try
 Tapusin ang huling hakbang: itanong kung saan naglaro ang mga bata, at tukuyin ang buong pangkat na pang-abay na panlunan.

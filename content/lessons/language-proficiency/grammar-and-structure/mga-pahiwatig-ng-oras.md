@@ -70,7 +70,7 @@ Bakit imperpektibo ang *nagsusulat* kahit may *kahapon* sa pangungusap? Nang dum
 :::pair #nagpapatuloy-sa-nakaraan
 Right: Sa "Nagsusulat pa ng ulat si Luis nang dumating ang pinuno kahapon," ang *nagsusulat* ay **imperpektibo, dahil nagpapatuloy ang pagsulat nang dumating ang pinuno**.
 Wrong: "**Perpektibo, dahil kahapon naganap ang pangyayari.**" o "**Kontemplatibo, dahil hindi pa tapos ang ulat.**"
-Hindi tapos ang pagsusulat dahil lamang may *kahapon*, at ang hindi pa tapos ay hindi nangangahulugang hindi pa nagsisimula. Nagsusulat na si Luis nang dumating ang pinuno.
+Hindi tapos ang pagsusulat kahit may *kahapon*. Hindi rin ito **kontemplatibo** (contemplated), dahil nagsimula na ito. Nagsusulat na si Luis nang dumating ang pinuno.
 :::
 
 :::check
@@ -118,7 +118,7 @@ Tapusin ang huling hakbang: ano ang aspekto ng *naglalaba*, at bakit hindi ito p
 :::answer
 Ang sagot ay **Imperpektibo, dahil nagpapatuloy ang paglalaba nang tumawag ang kaibigan**.
 
-**Check:** Nagsimula na si Rita (kaya hindi **kontemplatibo** (contemplated)) at hindi pa siya tapos sa sandaling iyon (kaya hindi perpektibo kahit may *kahapon*). Salitang *pa* ang pahiwatig.
+**Check:** Nagsimula na si Rita (kaya hindi kontemplatibo) at hindi pa siya tapos sa sandaling iyon (kaya hindi perpektibo kahit may *kahapon*). Salitang *pa* ang pahiwatig.
 :::
 
 ## Speed Tricks & Shortcuts
