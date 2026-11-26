@@ -4,6 +4,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
+import 'package:pantas/features/settings/presentation/widgets/pro_hero_gradient.dart';
 import 'package:pantas/features/settings/presentation/widgets/pro_perks.dart';
 
 class WebProHero extends StatelessWidget {
@@ -14,9 +15,8 @@ class WebProHero extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
-    final dark = Theme.of(context).brightness == Brightness.dark;
     final perkStyle = PantasType.webBody.copyWith(
-      color: c.textPrimary,
+      color: c.onHero,
       height: 1.3,
     );
     final headingColumn = Column(
@@ -24,15 +24,15 @@ class WebProHero extends StatelessWidget {
       children: [
         Text(
           'PANTAS PRO',
-          style: PantasType.webEyebrow.copyWith(color: c.accent),
+          style: PantasType.webEyebrow.copyWith(color: c.onHero),
         ),
         const SizedBox(height: PantasSpace.s8),
-        Text(heading, style: PantasType.webH2.copyWith(color: c.textPrimary)),
+        Text(heading, style: PantasType.webH2.copyWith(color: c.onHero)),
         if (detail != null) ...[
           const SizedBox(height: PantasSpace.s8),
           Text(
             detail!,
-            style: PantasType.webBody.copyWith(color: c.textSecondary),
+            style: PantasType.webBody.copyWith(color: c.onHero),
           ),
         ],
       ],
@@ -47,7 +47,11 @@ class WebProHero extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(feature.$1, color: c.accent, size: PantasSize.icon),
+                Icon(
+                  feature.$1,
+                  color: c.onHeroSecondary,
+                  size: PantasSize.icon,
+                ),
                 const SizedBox(width: PantasSpace.s12),
                 Expanded(child: Text(feature.$2, style: perkStyle)),
               ],
@@ -66,21 +70,8 @@ class WebProHero extends StatelessWidget {
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(PantasRadius.r2xl),
-        gradient: LinearGradient(
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-          colors: [c.surfaceCard, c.surfaceCard, c.accentTint],
-          stops: const [0, .55, 1],
-        ),
+        gradient: proHeroGradient(c),
       ),
-      // The dark edge takes up no room: the card is the same size in both
-      // themes (6T-11).
-      foregroundDecoration: dark
-          ? BoxDecoration(
-              borderRadius: BorderRadius.circular(PantasRadius.r2xl),
-              border: Border.all(color: c.edgeCard),
-            )
-          : null,
       child: LayoutBuilder(
         builder: (context, constraints) {
           // The perks take the width of the longest one, so none wraps while

@@ -122,6 +122,10 @@ void main() {
       tester.getTopLeft(row).dy,
       greaterThan(tester.getTopLeft(find.text('Manage in Google Play')).dy),
     );
+    // The test font is wider than Geist, so a longer Pro line wraps and
+    // pushes the row to the screen edge: scroll to it before the tap.
+    await tester.ensureVisible(row);
+    await tester.pumpAndSettle();
     await tester.tap(row);
     await tester.pumpAndSettle();
     expect(gateway.restoreCalls, 1);

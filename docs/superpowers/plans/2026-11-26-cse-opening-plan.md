@@ -45,7 +45,7 @@ puts the beta gate back by switching the app to today's version (about a minute)
 | E | Past-mistakes fix: the 4:10 PM diagnostic run finds the cause. If it is the stale Quiz tab count (cause 1), the fix is built test first and merged. Otherwise it does not ride, and the manager gets the cause and size. | Diagnostic after the 08:00 UTC quota reset. |
 | F | P12 remaining: CSE Sub resume and offline loops; update loop (today's staging build to the candidate). | After the reset. |
 | G | Staging proof of the exact opening candidate (Thursday evening or Friday) (main after B, D, E), built without BETA_GATE: new visitor to Welcome with no beta screen; 17 blocked, 25 continues; onboarding to CSE Home; Free lesson and quiz; mock setup (anonymous visitor gets the sign-up card); Pro page plans; checkout page opens with the tick, the seller line "Sold by Pantas Online Tutorial Services" and the Terms link (staging test keys, no purchase); in-app Terms, Privacy and Teen notice show the new texts and the opening date; guardian page accepts with matching versions (functions stamp deployed to staging together). Rule 7 counted first. | After E and F, same evening. |
-| H | Website: `legal/public-pages-r1` (e625511, dated Nov 28) plus his homepage words, tests green (192 now), merged to pantas-web main. Not deployed until the opening. | **Ready.** UX lead's `web/home-opening-r1` 06dfb0e, built on e625511 to his approved board: approved words, one button on screen at a time, full-width top bar, bottom beta section and beta status call removed. Lead check: 200 of 200 tests, no beta wording on the homepage. **New head 0d11f64** adds his approved Free and Pro section (his list wording; Pro card in the app's phone Pro green; prices from docs/pricing.md; college tiers marked "Soon"; no button in the section) and removes the BIR badge. Lead recheck: built on e625511, 208 of 208 tests, no beta wording, no badge, his lines word for word. "No ads" dropped on purpose (his pick, relayed by the UX lead: it would become untrue if partner promotions ever appear). A later head before Friday 9 PM Manila gets the same recheck. Kept on the branch until the opening (manager, Nov 26); merged to pantas-web main at step 4. |
+| H | Website: `legal/public-pages-r1` (e625511, dated Nov 28) plus his homepage words, tests green (192 now), merged to pantas-web main. Not deployed until the opening. | **Ready.** UX lead's `web/home-opening-r1` 06dfb0e, built on e625511 to his approved board: approved words, one button on screen at a time, full-width top bar, bottom beta section and beta status call removed. Lead check: 200 of 200 tests, no beta wording on the homepage. **New head 0d11f64** adds his approved Free and Pro section (his list wording; Pro card in the app's phone Pro green; prices from docs/pricing.md; college tiers marked "Soon"; no button in the section) and removes the BIR badge. Lead recheck: built on e625511, 208 of 208 tests, no beta wording, no badge, his lines word for word. "No ads" dropped on purpose (his pick, relayed by the UX lead: it would become untrue if partner promotions ever appear). A later head before Friday 9 PM Manila gets the same recheck. **Head now 179613d** (his words: "looks terrible, please optimize better", then "just maybe make Everything in Free its own item?"): "Everything in Free" is Pro's first checked item, the Free spacer is gone. Lead recheck: built on e625511, 208 of 208, no beta wording, no badge, his ten lines present, "Everything in Free" once. Kept on the branch until the opening (manager, Nov 26); merged to pantas-web main at step 4. |
 | I | Rule 7 for the whole day: staging about 17,000 reads planned (P12 Sub, Pro diagnostic, update loop, candidate proof) against 40,000; prod opening steps under 200 reads. | Staging 30,168 used before the reset (resets 08:00 UTC). |
 
 ## The opening, step by step (Saturday, Nov 28, from 6:00 AM Manila)
@@ -65,7 +65,7 @@ puts the beta gate back by switching the app to today's version (about a minute)
 3. **App:** prod build from the same main commit, `lib/main_prod.dart`, no BETA_GATE, SCREEN_COUNTS=true,
    SELLER_* loaded privately (lengths only in the record); deploy the Worker; compare 92 of 92; check
    version.json with a cache-busting query.
-4. **Website:** merge `web/home-opening-r1` (0d11f64, or the UX lead's later rechecked head) into pantas-web main, run the tests, then `npx wrangler deploy` from main (legal pages, footer, his homepage words and layout).
+4. **Website:** merge `web/home-opening-r1` (179613d, or the UX lead's later rechecked head) into pantas-web main, run the tests, then `npx wrangler deploy` from main (legal pages, footer, his homepage words and layout).
 5. **Smoke on prod (no money, under 200 reads):** a new visitor reaches Welcome; Terms, Privacy and Teen
    notice in the app and on the website show the opening date; the website button opens the app; a
    throwaway account reaches Home, and its Pro page shows plans with "Payments open soon." (checkout still
@@ -106,6 +106,17 @@ puts the beta gate back by switching the app to today's version (about a minute)
 | No "Free" flash on Pro during an exam switch | App | No new screen; removes a defect (C15). Rides only if D holds. |
 | Past mistakes count right on a second device | App | No new screen; restores the built behavior. Rides only if E holds. |
 | Link-preview image without the beta mark | App metadata | Already on prod since Nov 26 (#134, approved board). |
+
+## After the opening (his "A", Nov 26)
+
+- No prod web update until service worker option A passes its audit and the 48-hour staging soak, unless a fix
+  is urgent and he approves it through the manager. Content uploads (no web build) stay allowed.
+- The walk-through renderer and importer (E-196) is in the opening build only if it reaches the integrator,
+  passes checks and a staging proof by Friday evening, and renders old-format lessons byte-identically.
+  Walk-through lessons then go live as content uploads only.
+- Staging proofs: a first proof of the current candidate (main 118a00ef3, with every merged opening fix)
+  Thursday evening; the final proof of the exact opening build Friday at 8:00 PM Manila (12:00 UTC), after the
+  renderer cutoff.
 
 ## Not part of the opening (recorded so nobody widens scope)
 

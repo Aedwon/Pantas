@@ -463,11 +463,11 @@ void main() {
       (tester) async {
     await _pump(tester);
     for (final icon in [
+      PantasIcons.calendarBlank,
       PantasIcons.unlimitedMocks,
       PantasIcons.answerNotes,
-      PantasIcons.studyHabits,
-      PantasIcons.proBackup,
       PantasIcons.topicResults,
+      PantasIcons.tendencies,
     ]) {
       expect(find.byIcon(icon), findsOneWidget);
     }
