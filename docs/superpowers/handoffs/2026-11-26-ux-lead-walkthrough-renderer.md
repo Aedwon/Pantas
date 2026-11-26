@@ -16,7 +16,7 @@ Policy read: `Aedwon/Pantas` main 094637286 (workers later read up to 118a00ef3)
 - Ship order: this build before any walk-through lesson reaches users. A client without it shows `:::` lines as text.
 - The 4 failing lessons must be fixed before their content ships; the client converter rejects them.
 - The board figures (number line, jump, discount bar, exponent, sentence head) are content work for the lesson leads; the samples carry only `ILLUSTRATION` comments.
-- CI: `home_questions_sheet_footer_test` was pinned (a leaked web override in its CI bundle made it fail); the leaking test file is not identified.
+- CI: the new test files re-sharded the suite, and `figure_choice_tiles_test` (sets a 1440 view, never reset) then leaked into `home_questions_sheet_footer_test` in the same bundle. Fixed at the source with `addTearDown(tester.view.reset)`; reproduced and cleared locally on the generated bundle.
 
 ## Process notes
 
