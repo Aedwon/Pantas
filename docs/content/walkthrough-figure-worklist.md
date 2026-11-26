@@ -266,3 +266,150 @@ Zero existing `ILLUSTRATION:` or `FIGURE:` markers existed in `a7cc22b6b` across
 
 78. `content/lessons/language-proficiency/grammar-and-structure/hugnayan-langkapan-at-ayos-ng-salaysay.md` (`## Core Concept` -> `### Langkapang Pangungusap`):
     `<!-- ILLUSTRATION: dalawang kahon ng bilang ng sugnay: kaliwa "Hugnayan (halimbawa: 1 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] + [dahil umuulan na]"; kanan "Langkapan (halimbawa: 2 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] at [nagsara ang tindahan] + [dahil malakas na ang ulan]" -->`
+
+## Spatial fresh-instance figures (session 3, ruling 3)
+
+Each row is a `:::try` that tested the same figure its lesson's Core Concept had already worked. Manager ruling 3: no figure is invented in text, so the try was removed and its last step is now a visible step in the example. When the new figure exists, the quoted block returns with the figure placed in the example (same heading). The block text below is quoted in full, including its `:::answer` part.
+
+1. `content/lessons/reasoning/spatial-abstract-reasoning/cuts-at-two-fold-lines.md` (`## Examples` -> `### #2: A Notch on a Folded Square`):
+   Removed `:::try`:
+   ```
+   :::try
+   Finish the last step: open the vertical fold to see how each of the two notches unfolds.
+   :::answer
+   The answer is **two connected openings**. Each semicircular notch sits on the vertical fold, so it joins its mirror copy across that crease instead of splitting into four holes.
+
+   **Check:** Opening the untouched horizontal crease separates the notch into $2$ spots on the vertical crease, and opening the vertical crease joins each spot across that fold into $2$ connected openings.
+   :::
+   ```
+   Figure needed: a square folded vertically then horizontally with a small semicircular notch centered on the vertical folded edge, but placed at a different height from the core figure's notch and with a different notch shape (for example a small triangle with its base on the vertical fold), still away from the horizontal crease. The horizontal-fold-open view must show 2 notches on the vertical crease, and the answer must be 2 connected openings.
+
+2. `content/lessons/reasoning/spatial-abstract-reasoning/figure-counts-and-fills.md` (`## Examples` -> `### #3: Squares with Partial Fills`):
+   Removed `:::try`:
+   ```
+   :::try
+   Finish the last step: find the fill for the second further figure (frame $7$) after $\dfrac{3}{4}$.
+   :::answer
+   The answer is a **quarter-filled square** ($\dfrac{1}{4}$). The three-step cycle resets after $\dfrac{3}{4}$ back to $\dfrac{1}{4}$.
+
+   **Check:** Do not stop after one step ($\dfrac{3}{4}$) and do not keep growing to a fully filled square, because the fourth frame already proved the cycle resets at $\dfrac{1}{4}$.
+   :::
+   ```
+   Figure needed: a series of equal frames shaded in a different three-step cycle (for example circles filled $\dfrac{1}{3}$, $\dfrac{2}{3}$, full, then $\dfrac{1}{3}$, $\dfrac{2}{3}$) followed by two blank frames, so the second blank needs the reset to the first fill of the cycle. The series must not be the core's $\dfrac{1}{4}, \dfrac{1}{2}, \dfrac{3}{4}, \dfrac{1}{4}, \dfrac{1}{2}$ squares. Note for the lead: the example's own series is word for word the series in the `#skip-cycle-restart` pair and the "Why check if the cycle restarted?" why block, so the example is also a repeat of the core text (not changed here).
+
+3. `content/lessons/reasoning/spatial-abstract-reasoning/figure-turns-and-positions.md` (`## Examples` -> `### #4: Arrows in Squares`):
+   Removed `:::try`:
+   ```
+   :::try
+   Finish the last step: apply the alternating rule to the fourth arrow (pointing right) to find the fifth arrow.
+   :::answer
+   The answer is **up**. After turning clockwise to right, the next alternating step turns $90^\circ$ counterclockwise back to **up**.
+
+   **Check:** Odd frames ($1$ and $3$) point up and even frames ($2$ and $4$) point right, so frame $5$ (odd) points up.
+   :::
+   ```
+   Figure needed: four equal square frames with an arrow that alternates between two directions the core did not use (for example down, left, down, left, or up, left, up, left), followed by a blank fifth frame. The reader must apply the alternating clockwise then counterclockwise $90^\circ$ rule to reach the fifth arrow (down, or up, respectively). It must not be the core's up, right, up, right arrows.
+
+4. `content/lessons/reasoning/spatial-abstract-reasoning/matrix-row-and-column-rules.md` (`## Examples` -> `### #2: Shapes in a Grid`):
+   Removed `:::try`:
+   ```
+   :::try
+   Finish the last step: name the outline that is missing from both row $3$ and column $3$.
+   :::answer
+   The answer is a **triangle**. Both row $3$ and column $3$ already contain square and circle, leaving triangle as the missing third outline.
+
+   **Check:** Do not repeat circle (beside the blank) or square (start of row $3$); every row and column uses each shape once.
+   :::
+   ```
+   Figure needed: a $3 \times 3$ one-of-each grid of three outlines that are not the core's circle, triangle and square (for example plus, diamond and star, or a mix of filled and plain shapes), rows shifted one step per row, bottom-right cell blank. The blank must be the one outline missing from both row $3$ and column $3$.
+
+5. `content/lessons/reasoning/spatial-abstract-reasoning/folded-layers-and-separate-holes.md` (`## Examples` -> `### #2: Three Folds, Interior Punch`):
+   Removed `:::try`:
+   ```
+   :::try
+   Finish the last step: compute $2^3$ to find how many separate holes appear on the fully opened rectangle.
+   :::answer
+   The answer is **$8$ separate holes**. Three doublings give $2^3=2\times2\times2=8$ holes.
+
+   **Check:** Do not multiply $3\times2=6$; opening the last vertical fold gives $2$ holes, opening the horizontal fold doubles $2$ to $4$, and opening the first vertical fold doubles $4$ to $8$.
+   :::
+   ```
+   Figure needed: a rectangle folded in half a different number of times than the core's $3$-fold pair (for example $4$ complete half-folds in a stated order), with one interior punch through every layer, away from every crease and edge, and the unfolded layout showing the mirror-position holes. It must lead to $2^4=16$ separate holes. Judged a reuse because the example's $3$ folds, $8$ layers and answer of $8$ are the same case as the core's `#multiply-folds-by-two` pair and why block; borderline, since the core has no $3$-fold figure of its own.
+
+6. `content/lessons/reasoning/spatial-abstract-reasoning/grouping-regions-and-inside-details.md` (`## Examples` -> `### #3: Polygons with Dots`):
+   Removed `:::try`:
+   ```
+   :::try
+   Finish the last step: name the figure that fails the test.
+   :::answer
+   The answer is the **triangle**. The square ($4=2\times2$), rectangle ($4=2\times2$), and hexagon ($6=2\times3$) fit. With $2$ dots, the triangle would need $4$ sides, yet it has $3$.
+
+   **Check:** Notice the hexagon has $3$ dots, yet $6=2\times3$ matches the rule; only the triangle fails it.
+   :::
+   ```
+   Figure needed: a row of four polygons with shaded dots where sides $=2\times\text{dots}$ holds for three and fails for one, using shapes and counts the core did not use (for example a pentagon with $5$ sides and $3$ dots that fails, against a square with $2$ dots, a hexagon with $3$ dots and an octagon with $4$ dots). The failing figure is the answer.
+
+7. `content/lessons/reasoning/spatial-abstract-reasoning/matrix-keeping-shared-features.md` (`## Examples` -> `### #2: Corner Dots in a Grid`):
+   Removed `:::try`:
+   ```
+   :::try
+   Finish the last step: test bottom-left and bottom-right in row $3$, and list all corner dots for the blank square.
+   :::answer
+   The answer is **top-left and bottom-right**. Bottom-left is only in cell $2$ (drop), while bottom-right is in both cells (keep), leaving top-left and bottom-right.
+
+   **Check:** Testing all four corners avoids stopping at top-left alone or keeping unshared corners.
+   :::
+   ```
+   Figure needed: a $3 \times 3$ shared-only grid of squares with corner dots, with rows $1$ and $2$ showing the shared dots kept, and a row $3$ whose cell $1$ and cell $2$ share two or three corners that differ from the core's (for example cell $1$ at top-right, bottom-left and bottom-right, cell $2$ at top-left, top-right and bottom-right, sharing top-right and bottom-right). The blank must keep exactly the shared corners.
+
+8. `content/lessons/reasoning/spatial-abstract-reasoning/matrix-keeping-all-features.md` (`## Examples` -> `### #2: Shaded Squares`):
+   Removed `:::try`:
+   ```
+   :::try
+   Finish the last step: combine row $2$'s bottom-half black shading and top-half black shading to describe the blank square.
+   :::answer
+   The answer is a **large fully black square**. The bottom half and top half join to cover the entire large square.
+
+   **Check:** Do not erase the fill to white or keep only one half; all shaded pieces from both starting cells stay filled.
+   :::
+   ```
+   Figure needed: a $2 \times 3$ keep-all grid of squares whose shaded pieces differ from the core's halves (for example left half black and right half black joining into a fully black square, or two different quarters joining into a half), with a different size in row $2$. The blank must show every shaded piece from both starting cells combined.
+
+9. `content/lessons/reasoning/spatial-abstract-reasoning/matrix-turns-and-counts.md` (`## Examples` -> `### #3: Lines in Squares`):
+   Removed `:::try`:
+   ```
+   :::try
+   Finish the last step: apply row $3$'s $+135^\circ$ clockwise turn to lower-right ($135^\circ$) to find the blank direction.
+   :::answer
+   The answer is a **line pointing left**. Adding $+135^\circ$ to $135^\circ$ gives $270^\circ$, which points straight left.
+
+   **Check:** Column $3$ turns $+90^\circ$ per step too (right $90^\circ$, down $180^\circ$, left $270^\circ$), confirming left.
+   :::
+   ```
+   Figure needed: a $3 \times 3$ grid of squares each with one center line, where the turn step grows by a different amount from row to row than the core's $45^\circ$, $90^\circ$, $135^\circ$ (for example rows turning $+90^\circ$, $+135^\circ$, $+180^\circ$, or counterclockwise steps), with row $3$ showing its first two cells and a blank. The reader must apply row $3$'s step to the second cell to reach the blank direction, and the column must agree.
+
+10. `content/lessons/reasoning/spatial-abstract-reasoning/testing-a-figure-group-rule.md` (`## Examples` -> `### #2: Choosing a Rule for Four Figures`):
+    Removed `:::try`:
+    ```
+    :::try
+    Finish the last step: pick the choice that leaves out exactly one figure.
+    :::answer
+    The answer is **B (Three sides)**. The three triangles have $3$ sides and pass, while the $4$-sided rhombus is the single excluded figure.
+
+    **Check:** Choices A ($3$ and $4$ are both at least $3$), C (triangles and rhombus all have reflection axes), and D (all $4$ shapes are closed) fit all four figures ($0$ excluded); only B leaves out exactly $1$ figure.
+    :::
+    ```
+    Figure needed: four unshaded outlines where three share a property and one breaks it, using different shapes than the core's three triangles and one rhombus (for example three squares and one pentagon, or three circles and one square). The four answer choices must include two too-broad rules that fit all four figures and one rule that excludes two or more figures, and exactly one rule that excludes only the odd figure.
+
+11. `content/lessons/reasoning/spatial-abstract-reasoning/uneven-folds-and-cut-layers.md` (`## Examples` -> `### #2: Finding Hole Coordinates Inside an Uneven Overlap`):
+    Removed `:::try`:
+    ```
+    :::try
+    Finish the last step: reflect the hole $4\text{ cm}$ to the left of the $6\text{ cm}$ fold line and give both hole positions.
+    :::answer
+    The answer is **$(2, 3)$ and $(10, 3)$**. Moving $4\text{ cm}$ left of $6\text{ cm}$ gives $6-4=2\text{ cm}$, while the height stays $3\text{ cm}$.
+
+    **Check:** Both $2$ and $10$ are $4\text{ cm}$ from the fold at $6$ ($6-2=4$ and $10-6=4$), and the height $3$ is unchanged by a vertical fold.
+    :::
+    ```
+    Figure needed: a sheet with a vertical fold and a flap whose width, fold position and punch point differ from the core's $16\text{ cm}$ sheet, $6\text{ cm}$ flap and punch at $(10, 3)$ (for example a $14\text{ cm}$ wide sheet with a $5\text{ cm}$ flap folded at $5\text{ cm}$ and a full-depth punch at $(8, 4)$ inside the overlap from $5$ to $10\text{ cm}$). The reader must find the distance from the fold, reflect it, and give both hole positions with the height unchanged: here $(2, 4)$ and $(8, 4)$.

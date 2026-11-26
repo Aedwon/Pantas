@@ -110,13 +110,11 @@ Row $2$ shows (bottom-left, bottom-right), then (top-left, bottom-left), then (b
 1. Rows $1$ and $2$ keep only dots found in the exact same corners of both starting squares.
 2. In row $3$, test top-left (in both -> keep) and top-right (cell $1$ only -> drop).
 
-:::try
-Finish the last step: test bottom-left and bottom-right in row $3$, and list all corner dots for the blank square.
-:::answer
-The answer is **top-left and bottom-right**. Bottom-left is only in cell $2$ (drop), while bottom-right is in both cells (keep), leaving top-left and bottom-right.
+3. Test bottom-left (cell $2$ only, drop) and bottom-right (in both cells, keep).
+
+The blank shows dots at **top-left and bottom-right**.
 
 **Check:** Testing all four corners avoids stopping at top-left alone or keeping unshared corners.
-:::
 
 ## Traps to Watch For
 

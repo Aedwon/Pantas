@@ -97,13 +97,11 @@ Row $2$ shows a large bottom-half black square, a large top-half black square, a
 1. Row $1$ combines the bottom half and top half into one fully black small square.
 2. Row $2$ uses large squares, so the blank stays large.
 
-:::try
-Finish the last step: combine row $2$'s bottom-half black shading and top-half black shading to describe the blank square.
-:::answer
-The answer is a **large fully black square**. The bottom half and top half join to cover the entire large square.
+3. Combine row $2$'s bottom-half black and top-half black shading: together they cover the entire large square.
+
+The blank shows a **large fully black square**.
 
 **Check:** Do not erase the fill to white or keep only one half; all shaded pieces from both starting cells stay filled.
-:::
 
 ## Traps to Watch For
 

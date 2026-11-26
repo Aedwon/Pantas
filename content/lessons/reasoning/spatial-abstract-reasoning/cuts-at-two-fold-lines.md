@@ -100,13 +100,11 @@ A square is folded vertically in half, then horizontally in half. A small semici
 1. Unfold in reverse order: open the **horizontal fold** first.
 2. Since the notch stays away from the horizontal crease, reflecting across it makes **$2$ separate notches** on the vertical fold.
 
-:::try
-Finish the last step: open the vertical fold to see how each of the two notches unfolds.
-:::answer
-The answer is **two connected openings**. Each semicircular notch sits on the vertical fold, so it joins its mirror copy across that crease instead of splitting into four holes.
+3. Open the **vertical fold**: each notch sits on that crease, so it joins its mirror copy across the fold.
+
+The open square has **two connected openings**.
 
 **Check:** Opening the untouched horizontal crease separates the notch into $2$ spots on the vertical crease, and opening the vertical crease joins each spot across that fold into $2$ connected openings.
-:::
 
 ## Traps to Watch For
 

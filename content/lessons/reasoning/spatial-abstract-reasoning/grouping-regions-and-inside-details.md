@@ -118,13 +118,11 @@ Four polygons contain shaded dots: a square with $2$ dots, a rectangle with $2$ 
 1. Sides and dots: square ($4, 2$), rectangle ($4, 2$), hexagon ($6, 3$), triangle ($3, 2$).
 2. Test $\text{sides}=2\times\text{dots}$ on each figure.
 
-:::try
-Finish the last step: name the figure that fails the test.
-:::answer
-The answer is the **triangle**. The square ($4=2\times2$), rectangle ($4=2\times2$), and hexagon ($6=2\times3$) fit. With $2$ dots, the triangle would need $4$ sides, yet it has $3$.
+3. The square ($4=2\times2$), rectangle ($4=2\times2$), and hexagon ($6=2\times3$) fit. With $2$ dots, the triangle would need $4$ sides, yet it has $3$.
+
+The odd-one-out is the **triangle**.
 
 **Check:** Notice the hexagon has $3$ dots, yet $6=2\times3$ matches the rule; only the triangle fails it.
-:::
 
 ## Traps to Watch For
 

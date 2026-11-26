@@ -100,13 +100,11 @@ A rectangular sheet is folded in half $3$ times: left onto right, bottom onto to
 1. Check both conditions: the punch crosses all $8$ layers made by $3$ complete half-folds, and it touches no crease or outside edge.
 2. Since every fold doubles the separate copies when opened, multiply $2$ by itself $3$ times.
 
-:::try
-Finish the last step: compute $2^3$ to find how many separate holes appear on the fully opened rectangle.
-:::answer
-The answer is **$8$ separate holes**. Three doublings give $2^3=2\times2\times2=8$ holes.
+3. Compute $2^3=2\times2\times2=8$.
+
+The open rectangle has **$8$ separate holes**.
 
 **Check:** Do not multiply $3\times2=6$; opening the last vertical fold gives $2$ holes, opening the horizontal fold doubles $2$ to $4$, and opening the first vertical fold doubles $4$ to $8$.
-:::
 
 ## Speed Tricks & Shortcuts
 

@@ -134,13 +134,11 @@ A series of squares is filled to $\dfrac{1}{4}$, $\dfrac{1}{2}$, $\dfrac{3}{4}$,
 2. Find the repeating fill cycle: $\dfrac{1}{4}$, $\dfrac{1}{2}$, $\dfrac{3}{4}$, then back to $\dfrac{1}{4}$ at frame $4$.
 3. Take the first step after the shown $\dfrac{1}{2}$ (frame $5$): frame $6$ is $\dfrac{3}{4}$ filled.
 
-:::try
-Finish the last step: find the fill for the second further figure (frame $7$) after $\dfrac{3}{4}$.
-:::answer
-The answer is a **quarter-filled square** ($\dfrac{1}{4}$). The three-step cycle resets after $\dfrac{3}{4}$ back to $\dfrac{1}{4}$.
+4. Frame $7$ comes after $\dfrac{3}{4}$, so the cycle resets to $\dfrac{1}{4}$.
+
+The second further figure is a **quarter-filled square** ($\dfrac{1}{4}$).
 
 **Check:** Do not stop after one step ($\dfrac{3}{4}$) and do not keep growing to a fully filled square, because the fourth frame already proved the cycle resets at $\dfrac{1}{4}$.
-:::
 
 ## Traps to Watch For
 

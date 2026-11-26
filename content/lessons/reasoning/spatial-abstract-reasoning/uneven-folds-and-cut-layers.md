@@ -108,13 +108,11 @@ When opened, where are the hole centers in centimeters (from left edge, from bot
 2. Check $(10, 3)$: since $10$ is between $6$ and $12$, the punch cuts both layers.
 3. Measure distance from the fold line: $10-6=4\text{ cm}$ right of the fold.
 
-:::try
-Finish the last step: reflect the hole $4\text{ cm}$ to the left of the $6\text{ cm}$ fold line and give both hole positions.
-:::answer
-The answer is **$(2, 3)$ and $(10, 3)$**. Moving $4\text{ cm}$ left of $6\text{ cm}$ gives $6-4=2\text{ cm}$, while the height stays $3\text{ cm}$.
+4. Reflect the hole $4\text{ cm}$ to the left of the fold: $6-4=2\text{ cm}$, with the height still $3\text{ cm}$.
+
+The holes are at **$(2, 3)$ and $(10, 3)$**.
 
 **Check:** Both $2$ and $10$ are $4\text{ cm}$ from the fold at $6$ ($6-2=4$ and $10-6=4$), and the height $3$ is unchanged by a vertical fold.
-:::
 
 ## Traps to Watch For
 

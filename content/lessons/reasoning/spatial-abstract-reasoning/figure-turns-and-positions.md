@@ -154,13 +154,11 @@ An arrow inside a square points up, right, up, and right. Which direction comple
 2. Compare frame $2$ to $3$: the arrow turns $90^\circ$ counterclockwise back to up.
 3. Compare frame $3$ to $4$: the arrow turns $90^\circ$ clockwise back to right.
 
-:::try
-Finish the last step: apply the alternating rule to the fourth arrow (pointing right) to find the fifth arrow.
-:::answer
-The answer is **up**. After turning clockwise to right, the next alternating step turns $90^\circ$ counterclockwise back to **up**.
+4. Apply the alternating rule to the fourth arrow (pointing right): turn $90^\circ$ counterclockwise back to up.
+
+The fifth arrow points **up**.
 
 **Check:** Odd frames ($1$ and $3$) point up and even frames ($2$ and $4$) point right, so frame $5$ (odd) points up.
-:::
 
 ## Traps to Watch For
 

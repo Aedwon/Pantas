@@ -100,13 +100,11 @@ Row $3$ shows a square, a circle, and a blank. Which outline completes the blank
 1. Check completed rows $1$ and $2$: each row uses circle, triangle, and square once each.
 2. Check completed columns $1$ and $2$: each column also contains circle, triangle, and square once each.
 
-:::try
-Finish the last step: name the outline that is missing from both row $3$ and column $3$.
-:::answer
-The answer is a **triangle**. Both row $3$ and column $3$ already contain square and circle, leaving triangle as the missing third outline.
+3. Row $3$ and column $3$ already contain square and circle, so the missing outline is a **triangle**.
+
+The blank shows a **triangle**.
 
 **Check:** Do not repeat circle (beside the blank) or square (start of row $3$); every row and column uses each shape once.
-:::
 
 ## Traps to Watch For
 

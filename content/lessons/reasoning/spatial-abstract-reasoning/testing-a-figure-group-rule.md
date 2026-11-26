@@ -100,13 +100,11 @@ Four figures are shown: three equilateral triangles and one rhombus. The rule "a
 1. Test each choice against all four figures.
 2. Count how many figures each choice leaves out.
 
-:::try
-Finish the last step: pick the choice that leaves out exactly one figure.
-:::answer
-The answer is **B (Three sides)**. The three triangles have $3$ sides and pass, while the $4$-sided rhombus is the single excluded figure.
+3. Choice B leaves out exactly one figure: the three triangles have $3$ sides and pass, while the $4$-sided rhombus fails.
+
+The answer is **B (Three sides)**.
 
 **Check:** Choices A ($3$ and $4$ are both at least $3$), C (triangles and rhombus all have reflection axes), and D (all $4$ shapes are closed) fit all four figures ($0$ excluded); only B leaves out exactly $1$ figure.
-:::
 
 ## Traps to Watch For
 

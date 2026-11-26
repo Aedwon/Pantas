@@ -116,13 +116,11 @@ Row $3$ lines point up, lower-right, and a blank. Which direction does the line 
 2. Row $2$ turns $+90^\circ$ per step ($0^\circ \to 90^\circ \to 180^\circ$).
 3. Row $3$ starts with $+135^\circ$ clockwise ($0^\circ \to 135^\circ$).
 
-:::try
-Finish the last step: apply row $3$'s $+135^\circ$ clockwise turn to lower-right ($135^\circ$) to find the blank direction.
-:::answer
-The answer is a **line pointing left**. Adding $+135^\circ$ to $135^\circ$ gives $270^\circ$, which points straight left.
+4. Apply the $+135^\circ$ turn to lower-right ($135^\circ$): $135^\circ+135^\circ=270^\circ$, which points straight left.
+
+The blank shows a **line pointing left**.
 
 **Check:** Column $3$ turns $+90^\circ$ per step too (right $90^\circ$, down $180^\circ$, left $270^\circ$), confirming left.
-:::
 
 ## Traps to Watch For
 
