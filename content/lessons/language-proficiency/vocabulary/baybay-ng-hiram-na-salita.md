@@ -21,9 +21,17 @@ Sa *cuento*, magkasunod ang *u* at *e*. Tinatawag itong **kambal-patinig** (vowe
 
 Sa ganitong ayos, panatilihin ang *u* at maglagay ng *w* bago ang kasunod na patinig. Kaya *kuwento* ang baybay sa Filipino ayon sa Ortograpiyang Pambansa. Hindi ito tuntunin para sa lahat ng salitang hiram.
 
+:::pair #isingit-ang-w
+Right: Ang baybay sa Filipino ng *cuento* ay *kuwento*.
+Wrong: Ang baybay sa Filipino ng *cuento* ay *kuento*.
+Panatilihin ang *u* at isingit ang *w* bago ang *e*. Kulang ang *kuento*.
+:::
+
 ## Examples
 
 ### #1: Baybay sa Filipino
+
+Pipili tayo ng baybay para sa salitang mula sa *cuento*.
 
 Aling baybay ang naaayon sa Ortograpiyang Pambansa upang mabuo ang pangungusap? “Binasa niya ang maikling ______ bago matulog.”
 
@@ -37,14 +45,27 @@ D) kwentu
 1. Sa salitang mula sa *cuento*, panatilihin ang *u* at isingit ang *w* bago ang *e*.
 2. Ang baybay ay **kuwento**. Sagot: **B**.
 
+**Check:** Basahin: "Binasa niya ang maikling kuwento bago matulog." Nananatili ang *u*, at may *w* bago ang *e*.
+
+:::try
+Isulat ang baybay sa Filipino ng *cuenta*. Alin ang naaayon sa parehong tuntunin?
+
+A) kwenta  
+B) kuwenta  
+C) kuenta  
+D) kuwentu
+:::answer
+Ang sagot ay **B**. Gaya ng *kuwento*, panatilihin ang *u* at isingit ang *w* bago ang *e*.
+
+**Check:** Basahin: "kuwenta." Pareho ang ayos ng *kuwento*.
+:::
+
 ## Speed Tricks & Shortcuts
 
 Sa Filipino, suriin ang puwesto ng mga patinig. Sa *kuwento*, hindi inaalis ang *u*.
 
 ## Traps to Watch For
 
-### #1: Pag-alis ng Patinig
-
-> Huwag basta alisin ang u sa kuwento.
-
-Maaaring pamilyar ang *kwento*. Ngunit *kuwento* ang anyong sumusunod sa tuntuning itinuro rito.
+:::checklist
+- Salitang mula sa *cuento*: panatilihin ang *u* at isingit ang *w*, kaya *kuwento*. {#isingit-ang-w}
+:::
