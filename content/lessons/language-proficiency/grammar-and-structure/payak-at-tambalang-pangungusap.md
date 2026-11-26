@@ -40,8 +40,8 @@ Ang sagot ay **Malakas ang ulan.** Buo ang diwa nito. Ang *kung malakas ang ulan
 
 Bilangin ang mga sugnay upang matukoy ang kayarian ng pangungusap:
 
-- Ang **payak** (simple) ay may iisang sugnay na makapag-iisa lamang at walang sugnay na di-makapag-iisa: "[Umuwi ang bata]." (1 sugnay) Kahit may dalawang tao o dalawang kilos sa iisang sugnay, payak pa rin ito: "[Naglilinis at nag-aayos ng silid sina Ana at Ben]." (1 sugnay)
-- Ang **tambalan** (compound) ay may dalawa o higit pang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa: "[Umuwi ang bata] **ngunit** [naiwan ang bag niya]." (2 sugnay)
+- Ang **payak** (simple) ay may iisang sugnay na makapag-iisa lamang at walang sugnay na di-makapag-iisa: "[Umuwi ang bata]." Kahit may dalawang tao o dalawang kilos sa iisang sugnay, payak pa rin ito: "[Naglilinis at nag-aayos ng silid sina Ana at Ben]." (1 sugnay)
+- Ang **tambalan** (compound) ay may dalawa o higit pang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa: "[Umuwi ang bata] **ngunit** [naiwan ang bag niya]."
 
 <!-- ILLUSTRATION: dalawang halimbawa: sa itaas "Naglilinis at nag-aayos sina Ana at Ben" na may isang kahon na may tatak na "1 sugnay na makapag-iisa -> Payak"; sa ibaba "[Umuwi ang bata] ngunit [naiwan ang bag niya]" na may dalawang hiwalay na kahon at tatak na "2 sugnay na makapag-iisa -> Tambalan" -->
 
@@ -89,8 +89,6 @@ Tukuyin ang uri ng pangungusap: "Naglilinis at nag-aayos ng silid sina Ana at Be
 2. Hanapin ang panaguri: *naglilinis at nag-aayos ng silid*.
 3. Iisa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Payak** ang "Naglilinis at nag-aayos ng silid sina Ana at Ben."
 
-**Check:** Kapag inalis ang *at nag-aayos*, buo pa rin ang pangungusap at isa pa rin ang sugnay.
-
 ### #2: Tambalang Pangungusap
 
 Tukuyin ang uri ng pangungusap: "Umuwi ang bata ngunit naiwan ang bag niya."
@@ -101,11 +99,9 @@ Tukuyin ang uri ng pangungusap: "Umuwi ang bata ngunit naiwan ang bag niya."
 2. Basahin nang hiwalay ang bawat panig: parehong may simuno, panaguri, at buong diwa.
 3. Dalawa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Tambalan** ang "Umuwi ang bata ngunit naiwan ang bag niya."
 
-**Check:** Kapag inalis ang *ngunit*, dalawang buong pangungusap ang natitira.
-
 ### #3: Pagtutugma ng Pangatnig
 
-Pagsamahin ang dalawang gawaing naganap. Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
+Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
 
 **Solution:**
 

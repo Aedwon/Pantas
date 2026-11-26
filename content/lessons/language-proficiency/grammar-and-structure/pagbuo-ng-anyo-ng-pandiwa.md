@@ -99,7 +99,7 @@ Isinulat ng kawani, "Bukas ay magkakain kami matapos maglinis." Kung ang pandiwa
 
 Sagot: **Palitan ang *magkakain* ng *kakain*.**
 
-**Check:** Basahin ang buong pangungusap: walang *-um-* ang *kakain*, at inuulit ang *ka*.
+**Check:** Kung may *-um-* pa, *kumakain* na iyon, hindi *kakain*.
 
 ### #3: Dalawang Pandiwa sa Tala
 

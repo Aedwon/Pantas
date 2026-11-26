@@ -68,7 +68,7 @@ Ano ang tinutukoy ng *ang nahimatay* sa "Inihatid ng kawani sa klinika ang nahim
 :::
 
 :::pair #pandiwari-bilang-pangngalan
-Right: Sa "Inihatid ng kawani sa klinika ang nahimatay," ang *nahimatay* ay pandiwaring gamit na pangngalan.
+Right: Sa tradisyonal na pag-uuri, sa "Inihatid ng kawani sa klinika ang nahimatay," ang *nahimatay* ay pandiwaring gamit na pangngalan.
 Wrong: Sabihing ito ay pandiwang nagsasaad ng ginawa ng kawani o pang-abay na nagsasaad ng lugar ng kilos.
 Ang ginawa ng kawani ay *inihatid*, at ang lugar ay *sa klinika*. Tumutukoy ang *ang nahimatay* sa taong inihatid.
 :::
@@ -91,8 +91,6 @@ Sa "**Ang** masipag na **guro** ay ngumiti at umupo **siya**," tukuyin ang bahag
 2. Ang *guro* ay ngalan ng tao, kaya **pangngalan** ito.
 3. Ang *siya* ay pumapalit sa ngalan ng guro, kaya **panghalip** ito.
 
-**Check:** Palitan ng *ang guro* ang *siya*: tama pa rin ang pangungusap, kaya panghalip ito.
-
 ### #2: Pagkilala sa Pandiwa
 
 Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Kumain** ang mga bata ng masarap na hapunan."
@@ -101,22 +99,22 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Kumain** ang mga bata 
 
 1. Ang *kumain* ang ginawa ng **paksa** (subject) na *ang mga bata*, kaya **pandiwa** ito: "**Kumain** ang mga bata ng masarap na hapunan."
 
-**Check:** Itanong: "Ano ang ginawa ng mga bata?" Ang sagot ay *kumain*.
+**Check:** "Ano ang ginawa ng mga bata?" *Kumain.*
 
-### #3: Pangungusap Tungkol sa Pulis
+### #3: Pangungusap Tungkol sa Guro
 
-Sa tradisyonal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitang nakadiin sa "Hinatid ng pulis sa istasyon ang **nahuli**"?
+Sa tradisyonal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitang nakadiin sa "Sinagot ng guro sa harap ng klase ang **nagtanong**"?
 
 **Solution:**
 
-1. Hanapin ang *ang nahuli* sa dulo ng pangungusap, kasunod ng *sa istasyon*.
+1. Hanapin ang *ang nagtanong* sa dulo ng pangungusap, kasunod ng *sa harap ng klase*.
 
 :::try
 Tapusin ang huling hakbang: ano ang ginagawa ng *ang nahuli* sa pangungusap, at ano ang gamit nito sa itinakdang pag-uuri?
 :::answer
-Ang sagot ay **Pandiwaring gamit na pangngalan**: "Hinatid ng pulis sa istasyon ang **nahuli**." Mula sa pandiwa ang *nahuli*. Hindi ito ang kilos ng pulis (*hinatid*) at hindi ang lugar (*sa istasyon*); tumutukoy ito sa taong hinatid.
+Ang sagot ay **Pandiwaring gamit na pangngalan**: "Sinagot ng guro sa harap ng klase ang **nagtanong**." Mula sa pandiwa ang *nagtanong*. Hindi ito ang kilos ng guro (*sinagot*) at hindi ang lugar (*sa harap ng klase*); tumutukoy ito sa taong sinagot.
 
-**Check:** Palitan ng *tao* ang *nahuli*: tama pa rin ang pangungusap, kaya pangngalan ang gamit nito.
+**Check:** Palitan ng *tao* ang *nagtanong*: tama pa rin ang pangungusap, kaya pangngalan ang gamit nito.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -128,5 +126,5 @@ Suriin ang salita ayon sa papel nito sa pangungusap. Itanong ang kilos para sa p
 :::checklist
 - Salitang kasunod ng pantukoy gaya ng *ang bata*: unang palatandaan ito ng pangngalan, kaya tiyaking ngalan ng pinag-uusapan ito. {#bata-pangngalan-hindi-pang-uri}
 - Salitang nagsasabi ng nangyari gaya ng *kumain*: ito ang kilos mismo, kaya pandiwa ito. {#pandiwa-kilos-hindi-pangngalan}
-- Anyong mula sa pandiwa pagkatapos ng *ang* na walang pangngalang kasunod, gaya ng *ang nahimatay*: kung tao ang tinutukoy, pandiwaring gamit na pangngalan ito, hindi kilos ng gumagawa o lugar. {#pandiwari-bilang-pangngalan}
+- Anyong mula sa pandiwa pagkatapos ng *ang* na walang pangngalang kasunod, gaya ng *ang nahimatay*: kung tao ang tinutukoy, sa tradisyonal na pag-uuri ay pandiwaring gamit na pangngalan ito, hindi kilos ng gumagawa o lugar. {#pandiwari-bilang-pangngalan}
 :::

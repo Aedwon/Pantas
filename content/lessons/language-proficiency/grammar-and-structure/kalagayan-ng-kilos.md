@@ -83,7 +83,7 @@ Alin ang anyong kontemplatibo (magaganap pa) ng pandiwang ugat na *kain*: (A) *K
 3. Suriin ang (D) *kainin*: ibang **pokus** na nakatuon sa bagay, hindi anyong *-um-* ng **tagaganap** (actor).
 4. Piliin ang **(C) *Kakain***: "Kakain kami bukas ng tanghali."
 
-**Check:** Mali ang "Kumain kami bukas ng tanghali," dahil hindi pa tapos ang kilos bukas.
+**Check:** Mali ang "Kumain kami bukas ng tanghali," dahil hindi pa nangyayari ang kilos bukas.
 
 ### #2: Pagpili ng Pandiwa Ayon sa Kuwento
 
@@ -95,8 +95,6 @@ Natapos na ang paglilinis ng tanggapan kahapon. Alin ang angkop na pandiwa sa pa
 2. Alisin ang *maglilinis* (gagawin pa) at *naglilinis* (nagpapatuloy).
 3. Suriin ang *kalilinis lang*: hindi tugma sa *si Mila* ang anyong ito, dahil kailangan nito ang *ni Mila*.
 4. Piliin ang **Naglinis**: "Naglinis ng tanggapan si Mila kahapon."
-
-**Check:** Basahin ang buong pangungusap: "Naglinis ng tanggapan si Mila kahapon." Tugma ang *naglinis* sa tapos na kilos kahapon at sa *si Mila*.
 
 ### #3: Dalawang Anyo ng *Sulat*
 

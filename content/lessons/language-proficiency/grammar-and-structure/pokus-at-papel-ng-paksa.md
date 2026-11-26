@@ -18,7 +18,7 @@ keyPoints:
 
 Ang **paksa** (subject) ang sentrong pinag-uusapan sa pangungusap. Karaniwan itong minamarkahan ng *ang* o *ang mga* para sa karaniwang ngalan, at *si* o *sina* para sa tiyak na ngalan ng tao.
 
-Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya sa pariralang may pangngalan, hanapin muna ang **parirala** (phrase) na may *ang*, *si*, *ang mga*, o *sina*. Walang pananda ang paksang **panghalip** (pronoun), gaya ng *siya* sa "Kumain siya ng tinapay." Hanapin ang paksa:
+Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya sa pariralang may **pangngalan** (noun), hanapin muna ang **parirala** (phrase) na may *ang*, *si*, *ang mga*, o *sina*. Walang pananda ang paksang **panghalip** (pronoun), gaya ng *siya* sa "Kumain siya ng tinapay." Hanapin ang paksa:
 
 - Hanapin ang may *ang*: "Kumain **ang bata** ng tinapay."
 - Hanapin ang may *si*: "Sumulat **si Mara** ng liham."
@@ -90,14 +90,12 @@ Piliin ang tamang pananda sa patlang: "Kumain ______ bata ng tinapay."
 
 ### #2: Tagaganap Laban sa Layon
 
-Tukuyin ang paksa at pokus ng pandiwa sa bawat pangungusap: "Nagluto ang kusinero ng sopas." "Niluto ng kusinero ang sopas."
+Tukuyin ang paksa at pokus ng pandiwa sa bawat pangungusap: "Nagbasa ang guro ng tula." "Binasa ng guro ang tula."
 
 **Solution:**
 
-1. Hanapin ang gumawa: "Nagluto **ang kusinero** ng sopas." Siya ang paksa, kaya nakapokus sa **tagaganap** ang *nagluto*.
-2. Hanapin ang niluto: "Niluto ng kusinero **ang sopas**." Ito ang paksa, kaya nakapokus sa **layon** ang *niluto*.
-
-**Check:** Isa lamang ang may *ang* sa bawat pangungusap.
+1. Hanapin ang gumawa: "Nagbasa **ang guro** ng tula." Siya ang paksa, kaya nakapokus sa **tagaganap** ang *nagbasa*.
+2. Hanapin ang binasa: "Binasa ng guro **ang tula**." Ito ang paksa, kaya nakapokus sa **layon** ang *binasa*.
 
 ### #3: Paglipat ng Paksa Nang Walang Bawas sa Kilos
 

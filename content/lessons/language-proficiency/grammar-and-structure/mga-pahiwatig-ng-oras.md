@@ -53,9 +53,9 @@ Sa "Nagdidilig ng halaman si Lola tuwing umaga," imperpektibo o kontemplatibo an
 Ang sagot ay **Imperpektibo**. Paulit-ulit at umiiral na ang gawain, kaya hindi ito kontemplatibo.
 :::
 
-### Nagpapatuloy na Kilos sa Nakaraan
+### Kahapon at Isa Pang Pangyayari
 
-Hindi sapat ang *kahapon* lamang upang piliin ang **perpektibo** (completed). Suriin din ang iba pang pahiwatig gaya ng *habang* o *nang* kasama ng isa pang kilos.
+Hindi sapat ang *kahapon* lamang upang piliin ang **perpektibo** (completed).
 
 Kapag may kilos na nagpapatuloy pa nang pumasok ang isa pang pangyayari sa nakaraan, nananatili sa imperpektibo ang kilos na nagpapatuloy. Tingnan kung ano pa ang ginagawa ni Luis nang dumating ang pinuno:
 
@@ -74,9 +74,9 @@ Hindi tapos ang pagsusulat kahit may *kahapon*. Hindi rin ito kontemplatibo, dah
 :::
 
 :::check
-Sa "Nagluluto si Ana nang pumasok ako kahapon," alin ang kilos na hindi pa tapos nang mangyari ang isa pa?
+Ano ang aspekto ng *naglalakad* sa "Naglalakad si Ana sa plaza nang umulan kahapon"?
 :::answer
-Ang sagot ay ang pagluluto ni Ana. **Imperpektibo** ang *nagluluto*, dahil nagpapatuloy ito noong pumasok ang nagsasalita kahapon.
+Ang sagot ay **Imperpektibo**. Hindi pa tapos ang paglalakad ni Ana nang umulan kahapon, kaya hindi ito perpektibo.
 :::
 
 ## Examples
@@ -102,8 +102,6 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Bukas ay magsusumite si Elena ng ula
 1. Hanapin ang pahiwatig ng oras: *tuwing Sabado*.
 2. Dalas ang ipinakikita ng *tuwing*; umiiral na gawain ang ipinakikita ng *naglilinis*.
 3. Kaya imperpektibo ito **sapagkat nagpapahayag ito ng paulit-ulit na gawain**.
-
-**Check:** Umuulit linggo-linggo ang paglilinis; hindi ito tapos o katatapos lamang.
 
 ### #3: Dalawang Pangyayari Kahapon
 

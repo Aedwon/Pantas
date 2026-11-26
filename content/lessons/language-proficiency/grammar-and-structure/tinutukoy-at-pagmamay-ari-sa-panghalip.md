@@ -98,8 +98,6 @@ Kausap ni Ruben si Mila. Dadalo si Ruben at ang kaniyang mga kasama, ngunit hind
 2. Alamin kung kasama ang kausap (Mila): hindi siya dadalo, kaya alisin ang *tayo*.
 3. Gamitin ang panghalip na kasama ang nagsasalita ngunit hindi kasama ang kausap: **Kami**. "**Kami** ang dadalo sa pagpupulong."
 
-**Check:** Kapag *tayo* ang ginamit, kasama na rin si Mila.
-
 ### #3: Linya ni Lea
 
 Sinabi ni Lea sa kaibigan niya, "Salamat sa tulong mo." Paano niya ito sasabihin sa kaniyang guro lamang?

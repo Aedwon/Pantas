@@ -30,14 +30,14 @@ Ginagawang di-makapag-iisa ng *dahil* ang *dahil umuulan na*. Kaya hindi ito tam
 :::
 
 :::check
-Ilang sugnay na makapag-iisa at ilang di-makapag-iisa ang nasa "Isinara ang tanggapan sapagkat bumaha sa loob nito"?
+Ilang sugnay na makapag-iisa at ilang di-makapag-iisa ang nasa "Nagpahinga si Ben dahil pagod siya at sapagkat masakit ang paa niya"?
 :::answer
-Ang sagot ay isang makapag-iisa (*Isinara ang tanggapan*) at isang di-makapag-iisa (*sapagkat bumaha sa loob nito*). **Hugnayan** ang pangungusap.
+Ang sagot ay isang makapag-iisa (*Nagpahinga si Ben*) at dalawang di-makapag-iisa (*dahil pagod siya*, *sapagkat masakit ang paa niya*). **Hugnayan** ang pangungusap.
 :::
 
 ### Langkapang Pangungusap
 
-Ang **langkapan** (compound-complex sentence) ay may dalawa o higit pang sugnay na makapag-iisa at isa o higit pang di-makapag-iisa. Bilangin ang mga sugnay na pinagdugtong ng *at* at ipinakilala ng *dahil*:
+Ang **langkapan** (compound-complex sentence) ay may dalawa o higit pang sugnay na makapag-iisa at isa o higit pang di-makapag-iisa. Halimbawa:
 
 - "[Umuwi ang bata] **at** [nagsara ang tindahan] [**dahil malakas na ang ulan**]." (2 makapag-iisa + 1 di-makapag-iisa)
 
@@ -54,9 +54,9 @@ Kung *tambalan*, nalalaktawan ang "dahil malakas na ang ulan." Kung *hugnayan*, 
 :::
 
 :::check
-Ilang sugnay na makapag-iisa at ilang di-makapag-iisa ang nasa "Nagtanim si Lito dahil tag-ulan na, at nagdilig si Ana ng halaman"?
+Ilang sugnay na makapag-iisa at ilang di-makapag-iisa ang nasa "Umalis si Ana dahil gabi na, at nagpaiwan si Ben dahil may bisita"?
 :::answer
-Ang sagot ay dalawang makapag-iisa (*Nagtanim si Lito* at *nagdilig si Ana ng halaman*) at isang di-makapag-iisa (*dahil tag-ulan na*). **Langkapan** ang pangungusap.
+Ang sagot ay dalawang makapag-iisa (*Umalis si Ana* at *nagpaiwan si Ben*) at dalawang di-makapag-iisa (*dahil gabi na* at *dahil may bisita*). **Langkapan** ang pangungusap.
 :::
 
 ### Ayos ng Salaysay at mga Pananda
@@ -99,8 +99,6 @@ Tukuyin ang uri ng pangungusap: "Umuwi ang bata dahil umuulan na."
 2. Suriin ang "dahil umuulan na": may *dahil* sa unahan, kaya sugnay na di-makapag-iisa ito.
 3. May isang makapag-iisa at isang di-makapag-iisa, kaya **Hugnayan** ang pangungusap.
 
-**Check:** Buo ang "Umuwi ang bata" ngunit bitin ang "dahil umuulan na."
-
 ### #2: Pagbuo ng Langkapan
 
 Pagsamahin sa isang langkapan ang mga diwa, at gamitin ang *dahil* sa dahilan: nag-aral si Liza; may pagsusulit siya; naghanda si Ben para sa ulat.
@@ -110,8 +108,6 @@ Pagsamahin sa isang langkapan ang mga diwa, at gamitin ang *dahil* sa dahilan: n
 1. Iugnay ang dahilan gamit ang *dahil*: "Nag-aral si Liza dahil may pagsusulit siya."
 2. Idagdag ang ikalawang buong diwa gamit ang *at*: "Nag-aral si Liza dahil may pagsusulit siya, at naghanda si Ben para sa ulat."
 3. Bilangin ang mga sugnay: dalawang makapag-iisa at isang di-makapag-iisa, kaya **Langkapan** ito.
-
-**Check:** Dalawang buong diwa at isang sugnay na may *dahil*.
 
 ### #3: Ayos ng mga Pananda sa Salaysay
 
@@ -137,7 +133,7 @@ Ang sagot ay **B**: "Sa simula, nagrehistro siya. Kasunod, ipinasa niya ang mga 
 
 ## Speed Tricks & Shortcuts
 
-Bilangin ang sugnay na makapag-iisa, saka hanapin ang sugnay na may *dahil*, *sapagkat*, *kapag*, o iba pang pang-ugnay ng sugnay na di-makapag-iisa. Isang makapag-iisa na may di-makapag-iisa ay hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa ay langkapan.
+Isang makapag-iisa na may di-makapag-iisa ay hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa ay langkapan.
 
 ## Traps to Watch For
 

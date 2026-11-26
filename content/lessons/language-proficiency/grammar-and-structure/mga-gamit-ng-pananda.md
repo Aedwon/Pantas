@@ -83,8 +83,7 @@ Piliin ang tamang pananda sa patlang: "Kinain ______ bata ang tinapay."
 **Solution:**
 
 1. Tingnan ang pandiwa: ang anyo ng *kinain* ay nakatuon sa bagay na kinain, at ang paksa ay *ang tinapay*.
-2. Ang bata ang kumain, ngunit hindi siya ang paksa.
-3. Piliin ang **ng**: "Kinain **ng** bata ang tinapay."
+2. Piliin ang **ng**: "Kinain **ng** bata ang tinapay."
 
 **Check:** Tiyaking isa lamang ang may *ang* (*ang tinapay*), at *ng* ang nasa gumagawa (*ng bata*) upang tumugma sa *kinain*.
 
@@ -100,8 +99,6 @@ Sa "Ibinigay ng guro ang gantimpala sa nanalo," ano ang papel ng *sa nanalo*?
 Tapusin ang huling hakbang: anong tanong ang sinasagot ng *sa nanalo*, at ano ang papel nito sa pangungusap?
 :::answer
 Ang sagot ay **Tagatanggap ng gantimpala**: "Ibinigay ng guro ang gantimpala **sa nanalo**." Sinasagot nito ang tanong na "Kanino?", hindi "Saan?"
-
-**Check:** Ang *sa nanalo* ang sagot sa "Kanino ibinigay ang gantimpala?"
 :::
 
 ## Speed Tricks & Shortcuts

@@ -88,7 +88,7 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "Ang **matapang** na sund
 1. Hanapin ang salitang binibigyang-turing ng *matapang*: ang *sundalo*, isang pangngalan.
 2. Pangngalan ang inilalarawan, kaya **pang-uri** ang *matapang*: "Ang **matapang** na sundalo ay nagtanggol sa kaniyang bayan."
 
-**Check:** Itanong: "Ano ang matapang?" Ang sagot ay *sundalo* (pangngalan), hindi *nagtanggol* (pandiwa).
+**Check:** Itanong: "Sino ang matapang?" Ang sagot ay *sundalo* (pangngalan), hindi *nagtanggol* (pandiwa).
 
 ### #2: Pagtukoy sa Pang-abay
 

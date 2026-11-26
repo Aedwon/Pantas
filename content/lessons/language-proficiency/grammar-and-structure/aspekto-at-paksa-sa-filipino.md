@@ -59,9 +59,15 @@ Dagdag na *mga* lamang ang pagbabago sa paksa. Kapag pinalitan ang *kumakain* ng
 :::
 
 :::check
-Gawing maramihan ang paksa ng "Sumulat ng liham ang mag-aaral" habang pinananatili ang tapos na kilos.
+Gawing maramihan ang paksa ng "Sumulat ng liham ang mag-aaral" at panatilihin ang tapos na kilos. Alin ang tama?
+
+(A) Sumulat ng liham ang mga mag-aaral.
+
+(B) Sumusulat ng liham ang mga mag-aaral.
+
+(C) Susulat ng liham ang mga mag-aaral.
 :::answer
-Ang sagot ay **"Sumulat ng liham ang mga mag-aaral."** Dinagdagan lamang ng *mga* ang paksa at nanatiling tapos na ang *sumulat*.
+Ang sagot ay **A**: "Sumulat ng liham ang mga mag-aaral." Dinagdagan lamang ng *mga* ang paksa at nanatiling tapos na ang *sumulat*.
 :::
 
 ## Examples
@@ -75,8 +81,6 @@ Kasalukuyang nasa hapag si Nena at hindi pa tapos sa pagkain. Aling anyo ang ang
 1. Ang pahiwatig ay "hindi pa tapos": nagpapatuloy pa ang pagkain.
 2. Imperpektibo ang anyo: "**Kumakain** pa si Nena habang hinihintay ang kaniyang kasama."
 
-**Check:** Dito, tugma ang *pa* sa kilos na nagpapatuloy.
-
 ### #2: Pagbabago ng Bilang ng Paksa
 
 Gawing maramihan ang paksa ng "Kumakain ng tanghalian ang kawani." Panatilihin ang kalagayan ng kilos. Alin ang wastong pagbabago?
@@ -85,8 +89,6 @@ Gawing maramihan ang paksa ng "Kumakain ng tanghalian ang kawani." Panatilihin a
 
 1. Hanapin ang paksa at gawing maramihan: *ang kawani* -> *ang mga kawani*.
 2. Iwan ang pandiwa: "**Kumakain ng tanghalian ang mga kawani.**"
-
-**Check:** Ihambing ang dalawang pangungusap: *mga* lamang ang idinagdag.
 
 ### #3: Tatlong Kalagayan sa Iisang Salitang-Ugat
 
@@ -102,7 +104,7 @@ Tapusin ang huling hakbang: aling anyo ng *handa* ang akma kay Ben, at ano ang b
 :::answer
 Ang sagot ay **Maghahanda**: "Maghahanda si Ben ng meryenda bukas ng umaga."
 
-**Check:** Suriin ang tatlo ayon sa kalagayan: *naghanda* (tapos na kagabi), *naghahanda* (nagaganap pa ngayon), at *maghahanda* (bukas pa sisimulan).
+**Check:** *Bukas* ang oras, kaya hindi na *naghanda* o *naghahanda*.
 :::
 
 ## Speed Tricks & Shortcuts

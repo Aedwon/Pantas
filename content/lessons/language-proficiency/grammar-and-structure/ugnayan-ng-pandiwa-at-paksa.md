@@ -15,9 +15,9 @@ keyPoints:
 ---
 ## Core Concept
 
-### Tagaganap at Layon
+### Paksa at Pokus ng Pandiwa
 
-Ang **pokus** (role marked by the verb) ay ang ugnayan ng **pandiwa** (verb) sa **paksa** (subject) ng pangungusap. Kapag pangngalan (noun) ang paksa, hanapin ang **parirala** (phrase) na may *ang, ang mga, si,* o *sina* (ang may *ng* o *ni* ay hindi paksa), saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
+Ang **pokus** (role marked by the verb) ay ang ugnayan ng **pandiwa** (verb) sa **paksa** (subject) ng pangungusap. Kapag pangngalan (noun) ang paksa, hanapin ang **parirala** (phrase) na may *ang, ang mga, si,* o *sina*, saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
 
 1. **Tagaganap** (actor): ang paksa ang gumagawa: "*Nagluto* ng pagkain **si Rosa**."
 2. **Layon** (object): ang paksa ang bagay na ginawan ng kilos: "*Kinain* ng bata **ang mangga**."
@@ -31,14 +31,14 @@ Sa mga pangngalan sa halimbawang ito, ang pariralang may *ang*, *ang mga*, *si*,
 :::
 
 :::check
-Sa "Naglilinis ng bulwagan sina Liza at Omar," ano ang paksa at pokus?
+Sa "Nagdilig ng halaman sina Rey at Tina," ano ang paksa at pokus?
 :::answer
-Ang sagot ay **Sina Liza at Omar; pokus sa tagaganap**. May panandang *sina* ang mga naglilinis, habang may *ng* ang *bulwagan*.
+Ang sagot ay **Sina Rey at Tina; pokus sa tagaganap**. May panandang *sina* ang mga nagdilig, habang may *ng* ang *halaman*.
 :::
 
-### Ganapan Laban sa Direksiyon
+### Paksang Lugar
 
-Huwag ibatay ang sagot sa salitang lugar lamang. Ihambing kung paano iniuugnay ng dalawang pandiwa ang *ang bakuran*:
+Ihambing kung paano iniuugnay ng dalawang pandiwa ang *ang bakuran*:
 
 1. **Ganapan** (location): ang paksa ang lugar kung saan ginawa ang kilos: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**."
 2. **Direksiyon**: ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
@@ -57,7 +57,7 @@ Ano ang pokus sa "Pinagdausan ng pulong ang kantina"?
 Ang sagot ay **Ganapan**. *Ang kantina* ang paksa at doon ginanap ang pulong.
 :::
 
-### Tagatanggap, Kagamitan, at Sanhi
+### Iba Pang Papel ng Paksa
 
 Gamitin ang tanong na tugma sa papel ng paksa:
 
@@ -94,17 +94,14 @@ Baguhin ang "Nagluto ng sopas si Dina" upang maging paksa ang *sopas* at manatil
 
 Sagot: **"Niluto ni Dina ang sopas."**
 
-**Check:** Isa lamang ang may *ang* sa sagot: *ang sopas*.
-
 ### #2: Iisang Lugar, Dalawang Papel
 
 Paghambingin ang pokus sa "Pinagtaniman ng mga kawani ng gulay ang bakuran" at "Pinuntahan ng mga kawani ang bakuran."
 
 **Solution:**
 
-1. Pareho ang paksa: *ang bakuran*.
-2. Hanapin kung ano ang ginawa roon: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**." Doon nagtanim, kaya **ganapan**.
-3. Hanapin kung ano ang bakuran sa ikalawa: "*Pinuntahan* ng mga kawani **ang bakuran**." Iyon ang tinungo, kaya **direksiyon**.
+1. Hanapin kung ano ang ginawa roon: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**." Doon nagtanim, kaya **ganapan**.
+2. Hanapin kung ano ang bakuran sa ikalawa: "*Pinuntahan* ng mga kawani **ang bakuran**." Iyon ang tinungo, kaya **direksiyon**.
 
 **Check:** Itanong sa ikalawa: "Saan pumunta ang mga kawani?" Ang sagot ay *sa bakuran*.
 
@@ -126,7 +123,7 @@ Tagatanggap: "Ipinaghanda ni Carlo ng meryenda **ang mga panauhin**," dahil naki
 
 ## Speed Tricks & Shortcuts
 
-Bilugan muna ang paksa (ang may *ang, ang mga, si,* o *sina*, o panghalip na tulad ng *siya*), saka itanong ang papel nito: gumawa (*tagaganap*), bagay (*layon*), lugar ng gawain (*ganapan*), pinuntahan (*direksiyon*), nakinabang (*tagatanggap*), ginamit (*kagamitan*), o dahilan (*sanhi*).
+Bilugan muna ang paksa (ang may *ang, ang mga, si,* o *sina*, o panghalip na tulad ng *siya*), saka itanong ang papel nito, tulad ng: gumawa (*tagaganap*), bagay (*layon*), lugar ng gawain (*ganapan*), pinuntahan (*direksiyon*), nakinabang (*tagatanggap*), ginamit (*kagamitan*), o dahilan (*sanhi*).
 
 ## Traps to Watch For
 

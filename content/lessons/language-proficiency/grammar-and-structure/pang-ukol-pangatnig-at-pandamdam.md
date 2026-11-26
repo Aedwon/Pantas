@@ -24,11 +24,11 @@ Ang **pang-ukol** (preposition) ay nag-uugnay ng **pangngalan** (noun) o grupo n
 :::pair #pang-ukol-laban-sa-pangatnig
 Right: Sa "Naghanda ang tanggapan ng mga upuan para sa mga bisita," ang *para sa* ay pang-ukol.
 Wrong: Tawaging pangatnig, pang-abay, o pangngalan ang *para sa* sa pangungusap na ito.
-Iniuugnay ng pang-ukol ang pangkat ng pangngalan (*mga bisita*); hindi ito kilos o ang pangngalan mismo.
+Iniuugnay ng pang-ukol ang pangkat ng pangngalan (*mga bisita*).
 :::
 
 :::check
-Alin sa *dumating*, *sulat*, at *mula sa* ang pang-ukol sa "Dumating ang sulat mula sa Cebu"?
+Alin sa *ang*, *sulat*, at *mula sa* ang pang-ukol sa "Dumating ang sulat mula sa Cebu"?
 :::answer
 Ang sagot ay **mula sa**. Ipinakikilala nito ang pangngalang *Cebu* at iniuugnay ito sa pagdating.
 :::
@@ -47,9 +47,9 @@ Paano agad paghiwalayin ang pang-ukol at pangatnig? Itanong kung ano ang ginagaw
 :::
 
 :::check
-Sa "Naglinis kami para sa pista, kaya pagod na kami," alin ang pangatnig: *para sa* o *kaya*?
+Sa "Nag-ayos kami ayon sa utos, kaya mabilis natapos ang trabaho," alin ang pangatnig: *ayon sa* o *kaya*?
 :::answer
-Ang sagot ay **kaya**. Pinagdurugtong nito ang dalawang sugnay (*naglinis kami para sa pista* at *pagod na kami*). Iniuugnay naman ng *para sa* ang pangngalang *pista*.
+Ang sagot ay **kaya**. Pinagdurugtong nito ang dalawang sugnay (*nag-ayos kami ayon sa utos* at *mabilis natapos ang trabaho*). Iniuugnay naman ng *ayon sa* ang pangngalang *utos*.
 :::
 
 ### Pandamdam: Tuwirang Pahayag ng Damdamin
