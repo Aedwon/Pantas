@@ -7,13 +7,27 @@ import 'package:pantas/features/settings/presentation/widgets/web_pro_hero.dart'
 
 // Aedwon, staging check: "in desktop view the icons are just checks instead of
 // the custom ones per line (as seen in mobile)".
+const proLines = [
+  'Full adaptive plan, tailored for you',
+  'Unlimited mock exams',
+  'Detailed explanations',
+  'Concept-specific results',
+  'Your tendencies as a test-taker',
+];
+const oldProLines = [
+  'Notes on why your answer was wrong',
+  'The figures behind your study habits',
+  "Progress that's always backed up",
+  'Results by topic and lesson',
+];
+
 void main() {
   final icons = [
+    PantasIcons.calendarBlank,
     PantasIcons.unlimitedMocks,
     PantasIcons.answerNotes,
-    PantasIcons.studyHabits,
-    PantasIcons.proBackup,
     PantasIcons.topicResults,
+    PantasIcons.tendencies,
   ];
 
   Future<void> pump(
@@ -60,6 +74,24 @@ void main() {
       find.descendant(of: hero, matching: find.byType(CustomPaint)),
       findsNothing,
     );
+  });
+
+  // Aedwon, Nov 26, after rewriting the website lists: "you can update the Pro
+  // texts in other places as well".
+  testWidgets('lists his five Pro lines in his order, and none of the old ones',
+      (tester) async {
+    await pump(tester, width: 1440, dark: false);
+    final hero = find.byKey(const ValueKey('pro-hero'));
+    final texts = tester
+        .widgetList<Text>(
+          find.descendant(of: hero, matching: find.byType(Text)),
+        )
+        .map((t) => t.data)
+        .toList();
+    expect(texts.where(proLines.contains).toList(), proLines);
+    for (final old in oldProLines) {
+      expect(texts, isNot(contains(old)), reason: old);
+    }
   });
 
   for (final width in [1024.0, 1440.0]) {
