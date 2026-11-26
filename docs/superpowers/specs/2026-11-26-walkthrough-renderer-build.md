@@ -25,6 +25,7 @@ Controlling documents:
 
 Lead decisions (rule 4; searched the standard's UI section, the board notes and files, patterns.md button placement, the Nov 21 to 26 process entries):
 - Walk-through mode is per lesson: a lesson is in it when its Markdown has any `:::` block. Only then are solutions open and stepped. This keeps old lessons unchanged, as the brief requires.
+- Built to the board: walk-through solutions show open (the board's `LB_*` and `PT_Next_*` frames draw no "Show solution"), with Next step for 4 or more steps; old-format lessons keep "Show solution". Manager, Nov 26: "no objection. Build to the approved board: walk-through solutions show open (Next step for 4+ steps); old-format lessons keep \"Show solution\". Record it as built-to-board in your spec."
 - The Reduce Motion outline stays until the reader taps another checklist line or leaves the lesson (the board's state holds it).
 - A step group is a numbered step and every block after it up to the next numbered step; the answer line and the Check line belong to the last group (board `PT_Next_*`).
 - Malformed blocks fail the build with the lesson path and line, as malformed tables do today.
