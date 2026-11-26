@@ -17,9 +17,9 @@ keyPoints:
 
 ### Anyong Ang: Para sa Taong Itinatampok
 
-Ang **panghalip panao** ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa papel ng tao sa pangungusap at sa bilang kung isa o marami.
+Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa papel ng tao sa pangungusap at sa bilang kung isa o marami.
 
-Gamitin ang anyong **ang** para sa paksa: *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila* (*ikaw* sa unahan, gaya ng "Ikaw ang sumulat"; *ka* sa loob, gaya ng "Sumulat ka"). Palitan ang *si Ana*:
+Gamitin ang anyong **ang** para sa **paksa** (subject): *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila* (*ikaw* sa unahan, gaya ng "Ikaw ang sumulat"; *ka* sa loob, gaya ng "Sumulat ka"). Palitan ang *si Ana*:
 
 - "Si Ana ang dumating." -> "**Siya** ang dumating."
 
@@ -47,7 +47,7 @@ Tiyakin muna kung sino ang gumawa at kung isa o marami siya.
 :::pair #bilang-at-gumawa-sa-ng
 Right: "Isang estudyante lamang ang nagdala ng proyekto; ipinakita niya ito sa buong klase."
 Wrong: Gamitin ang *nila*, *namin*, o *ninyo* para sa iisang estudyante.
-Iisang estudyante ang nagpakita kaya mali ang maramihang *nila*. Binabago rin ng *namin* (unang panauhan, nagsasalita) at *ninyo* (ikalawang panauhan, kausap) ang panauhan; kailangan ang isahang ikatlong panauhang *niya*.
+Iisang estudyante ang nagpakita kaya mali ang maramihang *nila*. Binabago rin ng *namin* (unang **panauhan** (person), nagsasalita) at *ninyo* (ikalawang panauhan, kausap) ang panauhan; kailangan ang isahang ikatlong panauhang *niya*.
 :::
 
 :::check
@@ -100,7 +100,7 @@ Piliin ang tamang panghalip: "Isang estudyante lamang ang nagdala ng proyekto; i
 
 **Solution:**
 
-1. Suriin ang papel ng patlang: *ito* (ang proyekto) ang paksa, kaya kailangan ng tagaganap ang anyong *ng*.
+1. Suriin ang papel ng patlang: *ito* (ang proyekto) ang paksa, kaya kailangan ng **tagaganap** (actor) ang anyong *ng*.
 2. Tukuyin kung sino at ilan ang nagpakita: isang estudyanteng pinag-uusapan (hindi ang nagsasalita at hindi ang kausap).
 3. Piliin ang isahang anyong *ng* para sa pinag-uusapan: **niya**.
 
@@ -108,7 +108,7 @@ Piliin ang tamang panghalip: "Isang estudyante lamang ang nagdala ng proyekto; i
 
 ### #3: Anyong Sa para sa Maraming Tatanggap
 
-Ang mga magulang ang tatanggap ng paanyaya. Palitan ng panghalip ang "sa mga magulang" sa "Ipinadala ng guro sa mga magulang ang paanyaya."
+Palitan ng panghalip ang "sa mga magulang" sa "Ipinadala ng guro sa mga magulang ang paanyaya."
 
 **Solution:**
 

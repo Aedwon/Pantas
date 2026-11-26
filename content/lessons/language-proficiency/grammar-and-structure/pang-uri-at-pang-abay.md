@@ -16,7 +16,7 @@ keyPoints:
 
 ### Pang-uri: Naglalarawan sa Pangngalan o Panghalip
 
-Ang **pang-uri** ay naglalarawan sa **pangngalan** o **panghalip**. Tingnan ang inilalarawan ng *masipag* at *matangkad*:
+Ang **pang-uri** (adjective) ay naglalarawan sa **pangngalan** (noun) o **panghalip** (pronoun). Tingnan ang inilalarawan ng *masipag* at *matangkad*:
 
 - "Ang **masipag** na guro ay maagang dumating." (Inilalarawan ng *masipag* ang *guro*, na isang pangngalan.)
 - "Matangkad siya." (Inilalarawan ng *matangkad* ang panghalip na *siya*.)
@@ -35,7 +35,7 @@ Ang sagot ay **Pang-uri**. Inilalarawan ng *bago* ang pangngalang *bag*.
 
 ### Pang-abay: Nagbibigay-Linaw sa Pandiwa, Pang-uri, o Pang-abay
 
-Ang **pang-abay** ay nagbibigay-linaw sa **pandiwa**, pang-uri, o kapuwa pang-abay (*paano, kailan, saan, gaano*). Suriin ang *mabilis* at *lubhang*:
+Ang **pang-abay** (adverb) ay nagbibigay-linaw sa **pandiwa** (verb), pang-uri, o kapuwa pang-abay (*paano, kailan, saan, gaano*). Suriin ang *mabilis* at *lubhang*:
 
 - "**Mabilis** na tumakbo ang atleta." (Sinasabi ng *mabilis* kung paano tumakbo ang atleta.)
 - "**Lubhang** masaya ang mga bata." (Sinasabi ng *lubhang* kung gaano kasaya, kaya pang-uri ang binibigyang-linaw nito.)
@@ -60,7 +60,7 @@ Ang sagot ay **Pang-abay**. Sinasabi ng *maingat* kung paano binilang ang salapi
 
 ### Pang-abay na Panlunan: Salita o Buong Pangkat
 
-Ang **pang-abay na panlunan** ay nagsasabi kung saan ginanap ang kilos. Maaari itong isang salita lamang o isang buong pangkat ng mga salita:
+Ang **pang-abay na panlunan** (place adverb) ay nagsasabi kung saan ginanap ang kilos. Maaari itong isang salita lamang o isang buong pangkat ng mga salita:
 
 - Isang salita: "**Doon** naghintay si Mara." (Tanong: Saan naghintay si Mara? *Doon*.)
 - Buong pangkat: "Nag-aral siya **sa silid-aklatan**." (Tanong: Saan nag-aral? *Sa silid-aklatan*.)
@@ -110,7 +110,7 @@ Sa "Sinuri ng mga kawani ang mga kahon sa bodega," aling pangkat ang nagsasabi n
 **Solution:**
 
 1. Kilalanin ang kilos: *sinuri*.
-2. Itanong ang "ng mga kawani" (gumawa) at "ang mga kahon" (bagay na sinuri) upang maihiwalay ang mga ito.
+2. Ihiwalay ang "ng mga kawani" (gumawa) at "ang mga kahon" (bagay na sinuri).
 
 :::try
 Tapusin ang huling hakbang: itanong kung saan sinuri ang mga kahon, at tukuyin ang buong pangkat na pang-abay na panlunan.

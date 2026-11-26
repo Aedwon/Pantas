@@ -18,7 +18,7 @@ keyPoints:
 
 A **dependent clause** has a subject and finite verb but cannot stand alone. Put a comma right after an opening dependent clause: *"Because she was tired, she rested."*
 
-An **opening phrase** also takes a comma after the whole phrase: *"After the meeting, we went home."* Short openings like *"Yesterday we met"* can skip the comma if clear.
+An **opening phrase** also takes a comma after the whole phrase: *"After the meeting, we went home."* A short opening word or phrase (*"Yesterday we met"*) can skip the comma. A dependent clause cannot.
 
 Put the comma at the **end** of the opening group, never inside it (*"After, the meeting"*) or between subject and verb (*"we, went home"*).
 
@@ -38,7 +38,7 @@ The answer is **After *sheets***. *"Before the proctor collected the sheets"* is
 
 Relative clauses work in two ways (use *who* or *which* for extra detail, never *that*):
 
-1. **Nonrestrictive (extra):** adds a side detail about someone already known. Use commas (on **both** sides mid-sentence): *"My brother, who lives in Cebu, is visiting this week."* (Only one brother, so *who lives in Cebu* is extra.)
+1. **Nonrestrictive (extra):** adds a side detail about a person or thing already identified. Use commas (on **both** sides mid-sentence): *"My brother, who lives in Cebu, is visiting this week."*
 2. **Restrictive (identifying):** tells **which** ones out of a group (*who*, *which*, or *that*, **no commas**): *"The students who missed the test must report today."* (Only those students.)
 
 <!-- ILLUSTRATION: two stacked sentences comparing comma pairs: top "My brother, who lives in Cebu, is visiting." with "who lives in Cebu" shaded between two teal commas and labeled "only one brother -> extra info"; bottom "The students who missed the test must report." with no commas and a tight bracket from "who missed the test" to "The students" labeled "picks out some students -> identifying" -->
@@ -115,12 +115,12 @@ The answer is **(B) "The applicants who submitted incomplete folders must return
 
 ## Speed Tricks & Shortcuts
 
-Put one comma after an opening phrase or dependent clause (short, clear openings like *"Yesterday we met"* can skip it). For *who* or *which*, ask: narrows which one (no commas) or adds a side detail (commas)?
+Put one comma after an opening dependent clause, and after an opening phrase unless it is short. For *who* or *which*, ask: narrows which one (no commas) or adds a side detail (commas)?
 
 ## Traps to Watch For
 
 :::checklist
-- Opening phrase or dependent clause: place one comma after the whole opening when needed (short, clear openings can skip it), never inside it or after the main subject. {#splitting-opening-or-subject}
-- Extra detail about someone already known: set it off with commas (both sides mid-sentence). {#missing-commas-on-extra-info}
+- Opening dependent clause or phrase: place one comma after the whole opening (a short phrase may skip it), never inside it or after the main subject. {#splitting-opening-or-subject}
+- Extra detail about a person or thing already identified: set it off with commas (both sides mid-sentence). {#missing-commas-on-extra-info}
 - Identifying clause narrowing a group: omit commas so it does not claim all members. {#commas-on-identifying-clause}
 :::

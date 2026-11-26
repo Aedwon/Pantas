@@ -16,7 +16,7 @@ keyPoints:
 
 ### Pang-ukol: Nag-uugnay Patungo sa Pangngalan
 
-Ang **pang-ukol** ay nag-uugnay ng **pangngalan** o grupo nito sa ibang bahagi ng pangungusap, tulad ng *para sa, para kay, tungkol sa, ayon sa, laban sa,* at *ukol sa*:
+Ang **pang-ukol** (preposition) ay nag-uugnay ng **pangngalan** (noun) o grupo nito sa ibang bahagi ng pangungusap, tulad ng *para sa, para kay, tungkol sa, ayon sa, laban sa,* at *ukol sa*:
 
 - "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita." (Iniuugnay ng *para sa* ang *mga bisita* sa *mga upuan*.)
 - "Nag-usap sila **tungkol sa** proyekto." (Sinasabi nito kung ano ang paksa ng pag-uusap.)
@@ -24,7 +24,7 @@ Ang **pang-ukol** ay nag-uugnay ng **pangngalan** o grupo nito sa ibang bahagi n
 :::pair #pang-ukol-laban-sa-pangatnig
 Right: Sa "Naghanda ang tanggapan ng mga upuan para sa mga bisita," ang *para sa* ay pang-ukol.
 Wrong: Tawaging pangatnig, pang-abay, o pangngalan ang *para sa* sa pangungusap na ito.
-Laging sinusundan ng pangngalan o pangkat ng pangngalan (*mga bisita*) ang pang-ukol, hindi ng isang kilos at hindi rin ito ang pangngalan mismo.
+Sinusundan ng pangngalan o pangkat ng pangngalan (*mga bisita*) ang pang-ukol, hindi ng isang kilos at hindi rin ito ang pangngalan mismo.
 :::
 
 :::check
@@ -35,7 +35,7 @@ Ang sagot ay **Pang-ukol**. Ipinakikilala ng *tungkol sa* ang pangngalang *kalik
 
 ### Pangatnig: Nagdurugtong ng mga Salita o Sugnay
 
-Ang **pangatnig** ay nagdurugtong ng salita, parirala, o **sugnay**, tulad ng *at, ngunit, o, dahil, sapagkat, upang,* at *kung*:
+Ang **pangatnig** (conjunction) ay nagdurugtong ng salita, parirala, o **sugnay** (clause), tulad ng *at, ngunit, o, dahil, sapagkat, upang,* at *kung*:
 
 - "Nagbasa siya **at** nagsulat." (Pinagdurugtong ng *at* ang dalawang kilos.)
 - "Umuwi siya **dahil** umuulan na." (Pinagdurugtong ng *dahil* ang dalawang sugnay.)
@@ -54,7 +54,7 @@ Ang sagot ay **Pangatnig**. Pinagdurugtong ng *upang* ang dalawang bahaging may 
 
 ### Pandamdam: Tuwirang Pahayag ng Damdamin
 
-Ang **pandamdam** ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*:
+Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*:
 
 - "**Aray!** Masakit ang sugat ko." (Tuwirang pahayag ng sakit.)
 
@@ -102,7 +102,7 @@ Sa "**Naku!** Naiwan ko sa bahay ang aking pagkakakilanlan," paano gumagana ang 
 
 **Solution:**
 
-1. Basahin ang *Naku!* nang hiwalay sa pangungusap: isa itong biglaang bulalas ng gulat o pag-aalala.
+1. Basahin ang *Naku!* nang hiwalay sa pangungusap.
 2. Suriin kung pinapangalanan nito ang bagay, nagdurugtong ng mga diwa, o nagsasaad ng kilos: hindi.
 
 :::try

@@ -43,17 +43,17 @@ The answer is **Somewhat expected**. *Not unexpected* rules out surprise without
 
 ### Near-Negatives: Hardly, Scarcely, and Barely
 
-*Hardly, scarcely,* and *barely* are **near-negatives** meaning **almost not** or **only with great difficulty** (not zero). See what *barely* and *scarcely* convey:
+*Hardly, scarcely,* and *barely* are **near-negatives** meaning **almost not** or **only with great difficulty**. See what *barely* and *scarcely* convey:
 
 1. *"She has barely started her homework"* = only just begun (not zero, not finished).
 2. *"He crossed the line, though he could scarcely finish the race"* = finished, but with great difficulty.
 
-Pair them with a **positive** verb (never *not*, *can't*, *didn't*, or *no*), using *any* if a determiner is needed: *"I can hardly hear you."* *"Scarcely any supplies remained."*
+Pair them with a **positive** verb. Adding *not*, *can't*, *didn't*, or *no* doubles the negative: *"I can hardly hear you."* *"Scarcely any supplies remained."*
 
 :::pair #not-with-near-negative
 Right: *"I can hardly hear you from over here."* and *"Scarcely any supplies remained."*
 Wrong: *"I can't hardly hear you from over here."* or *"Scarcely no supplies remained after the last group left."*
-Adding *can't* or *no* puts an extra negative onto a word that already means *almost not*. Drop *not* or switch *no* to *any*.
+Adding *can't* or *no* puts a second negative onto a word that already means *almost not*. Drop *can't*, or switch *no* to *any*.
 :::
 
 :::check
@@ -113,29 +113,28 @@ Correct sentence: **"I can hardly hear you from over here."**
 
 ### #3: Reading Scarcely and Seldom Accurately
 
-The clerk submitted the forms on time, yet wrote she *"could scarcely finish the audit."* Another memo says *"The branch seldom cancels briefings."* What does each convey?
+The clerk did finish the audit. Her memo says she *"could scarcely finish the audit."* Another memo says *"The branch seldom cancels briefings."* What does each convey?
 
 **Solution:**
 
-1. Submitting on time confirms she completed the audit.
-2. Apply *scarcely* (*with great difficulty*) and *seldom*.
+1. Read *scarcely* and *seldom* against what the memos say happened.
 
 :::try
 Finish the last step: state what *"could scarcely finish the audit"* conveys here, and define *"seldom cancels."*
 :::answer
 The answer is **She finished the audit, though only with great difficulty; and the branch *rarely* cancels briefings (not never).**
 
-**Check:** Submitting on time confirms completion while *scarcely* signals great difficulty; replacing *seldom* with *rarely* keeps occasional cancellations possible rather than zero.
+**Check:** The audit was finished, so *scarcely* signals great difficulty, not failure; replacing *seldom* with *rarely* keeps occasional cancellations possible rather than zero.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Keep *not unexpected* in the middle (not surprising, not guaranteed). Read *hardly*, *scarcely*, and *barely* as *almost not* with a positive verb (*any* when needed), and *seldom* as *rarely*.
+Keep *not unexpected* in the middle (not surprising, not guaranteed). Read *hardly*, *scarcely*, and *barely* as *almost not* with a positive verb and no second negative, and *seldom* as *rarely*.
 
 ## Traps to Watch For
 
 :::checklist
 - Qualified negative (*not unexpected*, *not unreasonable*): keep the middle meaning, not negative or extreme. {#qualified-negative-extremes}
-- Near-negative (*hardly*, *scarcely*, *barely*): use a positive verb (never *not* or *no*; *any* when needed). {#not-with-near-negative}
+- Near-negative (*hardly*, *scarcely*, *barely*): use a positive verb, with no second negative like *not* or *no*. {#not-with-near-negative}
 - *Seldom*: means *rarely*, never *never*. {#seldom-as-never}
 :::

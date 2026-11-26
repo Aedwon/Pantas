@@ -16,11 +16,11 @@ keyPoints:
 
 ### Switching Between Active and Passive Voice
 
-To change active to passive, move the **object** (what receives the action) into the subject spot. Use the matching form of *be* plus the past participle, and add *by* plus the agent if needed.
+To change active to passive, move the **object** (what receives the action) into the subject spot. Only an active clause with an object or prepositional object can do this ("The child slept" has none). Use the matching form of *be* plus the past participle, and add *by* plus the agent if needed.
 
 <!-- ILLUSTRATION: two stacked sentences showing role swap: top "The committee [actor] approved [simple past] the new budget [receiver]." with crossing arrows to bottom "The new budget [subject] was approved [simple past passive] by the committee [agent]." -->
 
-To switch back, make the agent the subject and drop passive *be*. A passive clause needs an object or prepositional object ("The child slept" has none). Compare active and passive for *"approved the new budget"*:
+To switch back, make the agent the subject and drop passive *be*. Compare both voices:
 
 - Active: "The committee **approved** the new budget."
 - Passive: "The new budget **was approved** by the committee."
@@ -39,7 +39,7 @@ The answer is **"The chef cooked the meal."** *The chef* becomes the subject, an
 
 ### Keeping the Same Time and Aspect
 
-Changing voice only swaps the subject role. Keep the source construction's exact tense and aspect:
+Change the voice of each sentence and keep its tense and aspect:
 
 - Simple past: "The novel **was written** by a famous author." -> "A famous author **wrote** the novel."
 - Simple past: "The committee **approved** the new budget." -> "The new budget **was approved** by the committee."

@@ -16,13 +16,13 @@ keyPoints:
 
 ### Tatlong Pangunahing Aspekto ng Pandiwa
 
-Ang **pandiwa** ay salitang nagsasaad ng kilos, pangyayari, o kalagayan. Ipinapakita ng **aspekto** kung tapos na, nagpapatuloy, o gagawin pa ang kilos, sa halip na oras lamang tulad ng nakaraan o kasalukuyan.
+Ang **pandiwa** (verb) ay salitang nagsasaad ng kilos, pangyayari, o kalagayan. Ipinapakita ng **aspekto** (aspect) kung tapos na, nagpapatuloy, o gagawin pa ang kilos, sa halip na oras lamang tulad ng nakaraan o kasalukuyan.
 
 May tatlong pangunahing aspekto para sa ugat na *linis* at *kain*:
 
-1. **Perpektibo**: tapos na ang kilos: *Naglinis si Carlo.* *Kumain si Carlo.*
-2. **Imperpektibo**: nasimulan na at nagpapatuloy o paulit-ulit ang kilos: *Naglilinis si Carlo tuwing Sabado.* *Kumakain siya ngayon.*
-3. **Kontemplatibo**: hindi pa nasisimulan at gagawin pa lamang ang kilos: *Maglilinis si Carlo bukas.* *Kakain siya mamaya.*
+1. **Perpektibo** (completed): tapos na ang kilos: *Naglinis si Carlo.* *Kumain si Carlo.*
+2. **Imperpektibo** (ongoing): nasimulan na at nagpapatuloy o paulit-ulit ang kilos: *Naglilinis si Carlo tuwing Sabado.* *Kumakain siya ngayon.*
+3. **Kontemplatibo** (contemplated): hindi pa nasisimulan at gagawin pa lamang ang kilos: *Maglilinis si Carlo bukas.* *Kakain siya mamaya.*
 
 Tandaan na ang anyong tulad ng *kainin* ay nakatuon sa bagay o pag-uutos sa iba, hindi sa aspekto ng *kumain*.
 
@@ -40,13 +40,13 @@ Ang sagot ay **Kumakain**. Ipinapakita ng *-um-* kasama ng inulit na *ka* na nas
 
 ### Perpektibo Laban sa Perpektibong Katatapos
 
-Bukod sa tatlong pangunahing aspekto, may **perpektibong katatapos** para sa kilos na kailan lang natapos, na madalas may *ka-* + pag-uulit ng unang pantig at salitang *lang* o *lamang*:
+Bukod sa tatlong pangunahing aspekto, may **perpektibong katatapos** (recently completed) para sa kilos na kailan lang natapos, na madalas may *ka-* + pag-uulit ng unang pantig at salitang *lang* o *lamang*:
 
 - Perpektibo: "*Naglinis* ng silid si Noel noong nakaraang linggo." (Tapos na, ngunit matagal na.)
 - Perpektibong katatapos: "*Kalilinis lang* ni Noel ng silid." (Katatapos lamang ng paglilinis.)
 - Perpektibong katatapos: "*Kadarating lang* ng mga dokumento." (Katatapos lamang ng pagdating.)
 
-Pansinin din ang pananda: sa perpektibong katatapos, ginagamit ang *ni* o *ng* para sa gumawa (*Kalilinis lang ni Mila*), hindi *si* o *ang* (*si Mila*).
+Pansinin din ang **pananda** (marker): sa perpektibong katatapos, ginagamit ang *ni* o *ng* para sa gumawa (*Kalilinis lang ni Mila*), hindi *si* o *ang* (*si Mila*).
 
 :::why
 Bakit hiwalay ang perpektibong katatapos sa karaniwang perpektibo? Parehong natapos ang dalawa, ngunit idinidiin ng anyong *ka-* + pag-uulit na ilang sandali pa lamang ang lumilipas mula nang matapos ang kilos.
@@ -80,7 +80,7 @@ Alin ang anyong kontemplatibo (magaganap pa) ng pandiwang ugat na *kain*: (A) *K
 
 1. Suriin ang (A) *kumain*: tapos na ang kilos (perpektibo).
 2. Suriin ang (B) *kumakain*: nagpapatuloy ang kilos (imperpektibo).
-3. Suriin ang (D) *kainin*: ibang pokus na nakatuon sa bagay, hindi sa magaganap pang kilos ng tagaganap.
+3. Suriin ang (D) *kainin*: ibang **pokus** (focus) na nakatuon sa bagay, hindi sa magaganap pang kilos ng **tagaganap** (actor).
 4. Piliin ang **(C) *Kakain*** dahil walang *-um-* at inuulit ang *ka* para sa gagawin pa.
 
 **Check:** Ilagay sa pangungusap na may pahiwatig ng hinaharap: "Kakain kami bukas ng tanghali" ay tama, samantalang mali ang "Kumain kami bukas."
@@ -105,12 +105,12 @@ Paghambingin ang "Naglinis ng silid si Noel noong nakaraang linggo" at "Kalilini
 **Solution:**
 
 1. Suriin ang unang pangungusap: ang *naglinis* ay may pahiwatig na *noong nakaraang linggo*, kaya tapos na ito at **perpektibo** (hindi katatapos lang, at hindi nagpapatuloy).
-2. Suriin ang ikalawang pangungusap: may *ka-* + *li* at *lang* ang *kalilinis lang*, kaya tapos na ito kamakailan lamang.
+2. Suriin ang ikalawang pangungusap: may *ka-* + *li* at *lang* ang *kalilinis lang*.
 
 :::try
 Tapusin ang huling hakbang: ano ang aspekto ng *kalilinis lang*, at ano ang buong paghahambing ng dalawang pangungusap?
 :::answer
-Ang sagot ay **Perpektibo ang una; perpektibong katatapos ang ikalawa.** Hindi lahat ng tapos na kilos ay katatapos lamang, at ang *lang* sa *kalilinis lang* ay nagdidiing katatapos lang ang paglilinis, hindi plano sa hinaharap.
+Ang sagot ay **Perpektibo ang una; perpektibong katatapos ang ikalawa.** Hindi lahat ng tapos na kilos ay katatapos lamang, at ang *lang* sa *kalilinis lang* ay nagdidiin na katatapos lang ang paglilinis, hindi plano sa hinaharap.
 
 **Check:** Suriin ang bawat oras: *noong nakaraang linggo* = tapos nang matagal (perpektibo); *kalilinis lang* = katatapos pa lamang (perpektibong katatapos).
 :::

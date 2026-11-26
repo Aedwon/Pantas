@@ -46,17 +46,17 @@ The answer is **No**. *The editors* sits right after the comma as the main subje
 
 Fix a dangling opening phrase in two ways:
 
-1. **Change the main subject:** *"Rushing to catch the bus, my coffee spilled"* -> *"Rushing to catch the bus, **I** spilled my coffee."* (Names *I* right after the comma.)
-2. **Turn the phrase into a full clause:** *"While approaching the gate, the barking of a dog startled Liza"* -> *"As **Liza approached** the gate, a dog began barking."* (With *Liza* and finite verb *approached* inside the opening clause, the main clause can use *a dog*.)
+1. **Change the main subject:** *"Rushing to catch the bus, my coffee spilled"* -> *"Rushing to catch the bus, **I** spilled my coffee."*
+2. **Turn the phrase into a full clause:** *"While approaching the gate, the barking of a dog startled Liza"* -> *"As **Liza approached** the gate, the barking of a dog startled her."*
 
-Watch out for *while* or *after* before an *-ing* word: with no stated subject inside the opening group, it is still a phrase and still dangles.
+*While* or *after* before an *-ing* word still opens a subjectless phrase. It dangles unless the main subject is the doer: *"While walking home, Ben found a wallet."*
 
 :::why
-Why can *"As Liza approached the gate, a dog began barking"* use two subjects? *"As Liza approached the gate"* is a full clause with subject *Liza* and verb *approached*, so *a dog* does not take over Liza's action.
+Why can *"As Liza approached the gate, the barking of a dog startled her"* have a different main subject? *"As Liza approached the gate"* is a full clause with its own subject *Liza* and verb *approached*, so *the barking* does not take over Liza's action.
 :::
 
 :::pair #while-ing-no-subject
-Right: *"As Liza approached the gate, a dog began barking."* and *"After the guests arrived, dinner was served."*
+Right: *"As Liza approached the gate, the barking of a dog startled her."* and *"After the guests arrived, dinner was served."*
 Wrong: Write *"While approaching the gate, the barking of a dog startled Liza."* or *"After arriving at the house, dinner was served to the guests in the hall."*
 *While* or *after* before an *-ing* word supplies no subject. Name the actor inside the opening clause, or make that actor the main subject.
 :::
@@ -92,7 +92,7 @@ Revise *"Rushing to catch the bus, my coffee spilled everywhere"* so the runner 
 
 **Check:** Read *"Rushing, I spilled my coffee."* *I* can rush, while *my coffee* cannot.
 
-### #3: Naming the Doer Inside the Opening Clause
+### #3: Comparing Two Openings
 
 Choose the sentence without a dangling modifier:
 (A) *"While crossing the bridge, the strong wind blew Marco's hat away."*
@@ -101,7 +101,7 @@ Choose the sentence without a dangling modifier:
 **Solution:**
 
 1. Compare the openings: *"While crossing the bridge"* (A) vs. *"As Marco crossed the bridge"* (B).
-2. Check which names its own subject and finite verb instead of passing the action to *the strong wind*.
+2. Ask who crossed the bridge in each version.
 
 :::try
 Finish: choose (A) or (B), and prove why it avoids a dangling modifier.

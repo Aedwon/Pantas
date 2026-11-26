@@ -16,7 +16,7 @@ keyPoints:
 
 ### Pagpili ng Aspekto Ayon sa Kalagayan ng Kilos
 
-Ang **pandiwa** ay nagsasaad ng kilos. Ang **aspekto** ay nagsasabi kung tapos na, nagaganap pa, o gagawin pa ang kilos. May apat na anyo ang aspekto gamit ang salitang-ugat na *kain*:
+Ang **pandiwa** (verb) ay nagsasaad ng kilos. Ang **aspekto** (aspect) ay nagsasabi kung tapos na, nagaganap pa, o gagawin pa ang kilos. May apat na anyo ang aspekto gamit ang salitang-ugat na *kain*:
 
 1. **Perpektibo** (tapos na): *kumain* ("Kumain na si Nena kanina.")
 2. **Perpektibong katatapos** (katatapos lamang): *kakakain lamang* o *katatapos lamang kumain* ("Kakakain lamang ni Nena bago siya umalis.")
@@ -41,7 +41,7 @@ Ang sagot ay **Naghuhugas**. Nagaganap pa at hindi pa tapos ang paghuhugas ni Ma
 
 ### Bilang ng Paksa at Anyo ng Pandiwa
 
-Ang **paksa** ang pinag-uusapan sa pangungusap, gaya ng *ang kawani* (isahan) o *ang mga kawani* (maramihan).
+Ang **paksa** (subject) ang pinag-uusapan sa pangungusap, gaya ng *ang kawani* (isahan) o *ang mga kawani* (maramihan).
 
 Sa ibang wika tulad ng Ingles, nagbabago ang pandiwa kapag naging maramihan ang paksa. Sa Filipino, hindi nagbabago ang aspekto ng pandiwa dahil lamang dumami ang paksa:
 

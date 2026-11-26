@@ -17,7 +17,7 @@ keyPoints:
 
 ### Dalawang Ayos ng Pagmamay-ari
 
-Nagbabago ang panghalip na **paari** depende sa puwesto nito sa pangungusap:
+Nagbabago ang **panghalip** (pronoun) na **paari** (possessive) depende sa puwesto nito sa pangungusap:
 
 1. Pagkatapos ng pag-aari: anyong *ng* (*ko, mo, niya, namin, natin, ninyo, nila*), gaya sa "Ito ang aklat **ko**."
 2. Nauuna ang may-ari: anyong *sa* (*akin, iyo, kaniya, amin, atin, inyo, kanila*) nang walang *sa*, gaya sa "**Akin** ang aklat na nasa mesa."
@@ -36,7 +36,7 @@ Ang sagot ay **Amin**. Nauuna ang may-ari bago ang *ang bahay*, at hindi kasama 
 
 ### Nagsasalita, Kausap, Pinag-uusapan, at Tayo Laban sa Kami
 
-Hinahati ang mga panghalip panao ayon sa panauhan:
+Hinahati ang mga **panghalip panao** (personal pronoun) ayon sa **panauhan** (person):
 
 1. **Nagsasalita**: *ako, ko, akin* (isa). Kung marami at **kasama** ang kausap: *tayo, natin, atin*. Kung marami at **hindi kasama** ang kausap: *kami, namin, amin*.
 2. **Kausap**: *ikaw, ka, mo, iyo* (isa). Kung marami: *kayo, ninyo, inyo*. Ginagamit din ang *kayo, ninyo,* at *inyo* bilang magalang na pantawag sa iisang kausap, tulad ng "Pumasok po **kayo**."
@@ -106,8 +106,8 @@ Ano ang tamang paliwanag tungkol sa salitang *siya* sa Filipino?
 
 **Solution:**
 
-1. Ang *siya* ay panghalip panao, kaya ginagamit ito para sa tao at hindi lamang para sa mga bagay.
-2. Hindi ito gaya ng *he* o *she* sa Ingles na naghihiwalay ng lalaki at babae.
+1. Ang *siya* ay panghalip panao, kaya para ito sa tao, hindi para sa mga bagay.
+2. Ihambing ang *siya* sa *he* at *she* sa Ingles.
 
 :::try
 Tapusin ang huling hakbang: ano ang ipinahihiwatig ng *siya* tungkol sa kasarian at bilang ng taong tinutukoy?

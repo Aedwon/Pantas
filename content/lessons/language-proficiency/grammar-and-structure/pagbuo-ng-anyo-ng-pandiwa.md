@@ -15,17 +15,17 @@ keyPoints:
 
 ### Ugat, Panlapi, at Pag-uulit ng Pantig
 
-Ang **ugat** ay ang batayang salita na walang dagdag, gaya ng *linis* at *kain*. Ang **panlapi** ay ikinakabit sa ugat, gaya ng *mag-*, *nag-*, *ka-*, at *-um-*. Ang **pantig** ay bahagi ng salitang binibigkas nang isang bugso, gaya ng *li* sa *linis* o *ka* sa *kain*.
+Ang **ugat** (root) ay ang batayang salita na walang dagdag, gaya ng *linis* at *kain*. Ang **panlapi** (affix) ay ikinakabit sa ugat, gaya ng *mag-*, *nag-*, *ka-*, at *-um-*. Ang **pantig** (syllable) ay bahagi ng salitang binibigkas nang isang bugso, gaya ng *li* sa *linis* o *ka* sa *kain*.
 
 Kapag nagsisimula sa katinig ang ugat, inuulit ang unang katinig at patinig nito (*li-* sa *linis*, *ka-* sa *kain*). Kung nagsisimula sa patinig ang ugat tulad ng *alis*, inuulit ang unang patinig (*aalis*, *umaalis*).
 
 ### Pangkat na Mag- (Maglinis)
 
-Sa pangkat ng *maglinis*, sumusunod ang tatlong aspekto sa iisang hulma:
+Sa pangkat ng *maglinis*, sumusunod ang tatlong **aspekto** (aspect) sa iisang hulma:
 
-1. **Perpektibo** (tapos na): palitan ang *mag-* ng *nag-* -> *naglinis*.
-2. **Imperpektibo** (nagpapatuloy): gamitin ang *nag-* at ulitin ang unang pantig -> *naglilinis*.
-3. **Kontemplatibo** (gagawin pa): panatilihin ang *mag-* at ulitin ang unang pantig -> *maglilinis*.
+1. **Perpektibo** (completed, tapos na): palitan ang *mag-* ng *nag-* -> *naglinis*.
+2. **Imperpektibo** (ongoing, nagpapatuloy): gamitin ang *nag-* at ulitin ang unang pantig -> *naglilinis*.
+3. **Kontemplatibo** (contemplated, gagawin pa): panatilihin ang *mag-* at ulitin ang unang pantig -> *maglilinis*.
 
 Para sa katatapos na kilos, gamitin ang *ka-* at pag-uulit ng unang pantig: *kalilinis lang* (o *kadarating lang* mula sa *dating*, kung saan nagiging *r* ang *d* sa gitna ng mga patinig).
 
@@ -62,7 +62,7 @@ Nagpapatuloy ang kilos sa *kumakain* at tapos na sa *kumain*. Alisin ang *-um-* 
 :::pair #basahin-ang-buong-pandiwa
 Right: Sa "Kakakain lang ng mga kawani. Maglilinis sila bukas," perpektibong katatapos ang *kakakain* at kontemplatibo ang *maglilinis*.
 Wrong: Tawaging imperpektibo ang *kakakain* o *maglilinis* dahil lamang may inuulit na pantig.
-May pag-uulit din ang katatapos (*ka-* + *ka* -> *kakakain*) at ang kontemplatibo (*mag-* + *li* -> *maglilinis*). Tingnan ang unlapi kasama ng pag-uulit upang makita ang tamang aspekto.
+May pag-uulit din ang katatapos (*ka-* + *ka* -> *kakakain*) at ang kontemplatibo (*mag-* + *li* -> *maglilinis*). Tingnan ang **unlapi** (prefix) kasama ng pag-uulit upang makita ang tamang aspekto.
 :::
 
 :::check
@@ -107,7 +107,7 @@ Sa tala ay nakasulat, "Kakakain lang ng mga kawani nang tumawag ang pinuno kahap
 
 **Solution:**
 
-1. Suriin ang *kakakain lang*: ang *ka-* kasama ng inulit na *ka* at *lang* ay nagpapakitang katatapos lamang ang pagkain nang dumating ang tawag (kahit kahapon iyon nangyari), kaya **perpektibong katatapos** ito.
+1. Suriin ang *kakakain lang*: ang *ka-* kasama ng inulit na *ka* at *lang* ay nagpapakitang katatapos lamang ang pagkain nang dumating ang tawag (kahit kahapon iyon nangyari), kaya **perpektibong katatapos** (recently completed) ito.
 2. Suriin ang *maglilinis*: tingnan ang unlapi at ang oras (*bukas*).
 
 :::try

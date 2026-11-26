@@ -16,16 +16,16 @@ keyPoints:
 
 ### Tatlong Gamit ng Panandang Ng
 
-Ang **pananda** ay salitang nagpapakita ng papel o ugnayan ng kasunod na salita o **parirala**. May tatlong karaniwang gamit ang panandang *ng* (at *ni* para sa tiyak na ngalan ng tao):
+Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod na salita o **parirala** (phrase). May tatlong karaniwang gamit ang panandang *ng* (at *ni* para sa tiyak na ngalan ng tao):
 
-1. **Layon** na hindi paksa: "Kumain ang bata **ng mangga**." (Ito ang kinain, habang *ang bata* ang paksa.)
-2. **Tagaganap** kapag iba ang paksa: "Kinain **ng bata** ang tinapay." (Ang bata ang kumain, habang *ang tinapay* ang paksa.)
-3. **Pagmamay-ari** o ugnayan: "Malinis ang bahay **ng guro**." (Sinasabi nito kung kanino ang bahay.)
+1. **Layon** (object) na hindi **paksa** (subject): "Kumain ang bata **ng mangga**." (Ito ang kinain, habang *ang bata* ang paksa.)
+2. **Tagaganap** (actor) kapag iba ang paksa: "Kinain **ng bata** ang tinapay." (Ang bata ang kumain, habang *ang tinapay* ang paksa.)
+3. **Pagmamay-ari** (possession) o ugnayan: "Malinis ang bahay **ng guro**." (Sinasabi nito kung kanino ang bahay.)
 
 Tandaan na iba ang panandang *ng* sa *nang*: ginagamit ang *nang* sa paraan, oras, o pag-uulit ng kilos, samantalang ang *ng* ang nagmamarka ng pangngalang layon, tagaganap, o may-ari.
 
 :::why
-Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi kasi ang *ng* ang nagmamarka ng paksa. Ang anyo ng pandiwa ang nagsasabi kung alin ang paksa (*ang*) at alin ang katulong na bahagi (*ng*).
+Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi kasi ang *ng* ang nagmamarka ng paksa. Ang anyo ng **pandiwa** (verb) ang nagsasabi kung alin ang paksa (*ang*) at alin ang katulong na bahagi (*ng*).
 :::
 
 :::pair #ng-para-sa-gumagawa
@@ -45,8 +45,8 @@ Ang sagot ay **Tagaganap o gumagawa ng kilos**. *Ang sopas* ang paksa, kaya ipin
 Ang panandang *sa* (at *kay* o *kina* para sa tiyak na ngalan ng tao) ay may tatlo ring karaniwang gamit:
 
 1. **Lugar** kung saan ginawa ang kilos: "Nagbasa si Ana **sa silid**." (Tanong: Saan nagbasa?)
-2. **Direksiyon** o patutunguhan ng kilos: "Pumunta si Ana **sa tanggapan**." (Tanong: Saan patungo?)
-3. **Tagatanggap** o pinaglaanan: "Inihatid ng kawani ang katibayan **sa aplikante**." (Tanong: Kanino inihatid?)
+2. **Direksiyon** (direction) o patutunguhan ng kilos: "Pumunta si Ana **sa tanggapan**." (Tanong: Saan patungo?)
+3. **Tagatanggap** (recipient) o pinaglaanan: "Inihatid ng kawani ang katibayan **sa aplikante**." (Tanong: Kanino inihatid?)
 
 Huwag ibatay sa salitang *sa* lamang ang sagot. Itanong kung *saan* o *kanino* nakatuon ang kilos sa buong pangungusap.
 
@@ -82,7 +82,7 @@ Piliin ang tamang pananda sa patlang: "Kinain ______ bata ang tinapay."
 
 **Solution:**
 
-1. Tingnan ang pandiwa: *kinain* (pokus sa layon), at ang paksa ay *ang tinapay*.
+1. Tingnan ang pandiwa: *kinain* (**pokus** (focus) sa layon), at ang paksa ay *ang tinapay*.
 2. Ang bata ang gumagawa ng pagkain, ngunit hindi siya ang paksa.
 3. Piliin ang **ng**: "Kinain **ng** bata ang tinapay."
 
@@ -95,7 +95,7 @@ Sa "Inihatid ng kawani ang katibayan sa aplikante," ano ang papel ng *sa aplikan
 **Solution:**
 
 1. Hanapin ang gumawa at ang bagay na inihatid: *ng kawani* ang naghatid, at *ang katibayan* ang inihatid.
-2. Itanong kung sino o ano ang *aplikante*: isang tao na binigyan ng katibayan.
+2. Tingnan ang *aplikante*: tao ito, hindi lugar.
 
 :::try
 Tapusin ang huling hakbang: anong tanong ang sinasagot ng *sa aplikante*, at ano ang papel nito sa pangungusap?

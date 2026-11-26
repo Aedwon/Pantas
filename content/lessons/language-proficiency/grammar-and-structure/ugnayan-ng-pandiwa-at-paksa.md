@@ -17,16 +17,16 @@ keyPoints:
 
 ### Tagaganap at Layon
 
-Ang **pokus** ay ang ugnayan ng pandiwa sa **paksa** ng pangungusap. Hanapin ang pariralang may *ang, ang mga, si,* o *sina* (ang may *ng* o *ni* ay hindi paksa), saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
+Ang **pokus** (focus) ay ang ugnayan ng **pandiwa** (verb) sa **paksa** (subject) ng pangungusap. Hanapin ang pariralang may *ang, ang mga, si,* o *sina* (ang may *ng* o *ni* ay hindi paksa), saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
 
-1. **Tagaganap**: ang paksa ang gumagawa: "*Nagluto* ng pagkain **si Rosa**." (Paksa: *si Rosa*; pokus: tagaganap.)
-2. **Layon**: ang paksa ang bagay na ginawan ng kilos: "*Kinain* ng bata **ang mangga**." (Paksa: *ang mangga*; pokus: layon.)
+1. **Tagaganap** (actor): ang paksa ang gumagawa: "*Nagluto* ng pagkain **si Rosa**."
+2. **Layon** (object): ang paksa ang bagay na ginawan ng kilos: "*Kinain* ng bata **ang mangga**."
 
-Kapag inilipat ang paksa sa layon, panatilihin ang aspekto: "Nagluto ng sopas si Dina" -> "Niluto ni Dina **ang sopas**."
+Kapag inilipat ang paksa sa layon, panatilihin ang **aspekto** (aspect): "Nagluto ng sopas si Dina" -> "Niluto ni Dina **ang sopas**."
 
 :::pair #hanapin-ang-may-ang-o-si
 Right: Sa "Nagluto ng pagkain si Rosa," *si Rosa* ang paksa (pokus sa tagaganap); sa "Kinain ng bata ang mangga," *ang mangga* ang paksa (pokus sa layon).
-Wrong: Gawing paksa ang *ng pagkain* o *ng bata* at sabihing tagaganap ang "Kinain ng bata ang mangga."
+Wrong: Sa "Nagluto ng pagkain si Rosa," gawing paksa ang *ng pagkain*. Sa "Kinain ng bata ang mangga," gawing paksa ang *ng bata*, kaya tagaganap ang pokus.
 Ang pariralang may *ang*, *ang mga*, *si*, o *sina* ang paksa. Kahit tao ang gumawa, kung *ng* o *ni* ang pananda nito (*ng bata*, *ni Mara*), hindi ito ang paksa.
 :::
 
@@ -40,8 +40,8 @@ Ang sagot ay **Sina Liza at Omar; pokus sa tagaganap**. May panandang *sina* ang
 
 Huwag ibatay ang sagot sa salitang lugar lamang. Tingnan kung saan ginanap ang kilos o ano ang pinuntahan:
 
-1. **Ganapan**: ang paksa ang lugar kung saan ginawa ang kilos: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**."
-2. **Direksiyon**: ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
+1. **Ganapan** (location): ang paksa ang lugar kung saan ginawa ang kilos: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**."
+2. **Direksiyon** (direction): ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
 
 <!-- ILLUSTRATION: dalawang nakapatong na pangungusap na parehong may "ang bakuran": sa itaas "Pinagtaniman ng mga kawani ng gulay ang bakuran." na may tatak na "lugar ng pagtatanim -> ganapan"; sa ibaba "Pinuntahan ng mga kawani ang bakuran." na may tatak na "patutunguhan ng kilos -> direksiyon" -->
 
@@ -61,9 +61,9 @@ Ang sagot ay **Ganapan**. Sa bulwagan ginanap ang pulong, hindi ito ang pinuntah
 
 Gamitin ang tanong na tugma sa papel ng paksa:
 
-1. **Tagatanggap**: sino ang nakinabang? "*Ipinagluto* ng kusinero ng lugaw **ang mga bata**."
-2. **Kagamitan**: ano ang ginamit? "*Ipinangsulat* ni Teresa ng pangalan **ang lapis**."
-3. **Sanhi**: ano ang dahilan ng damdamin? "*Ikinatuwa* ng mga kawani **ang balita**."
+1. **Tagatanggap** (beneficiary): sino ang nakinabang? "*Ipinagluto* ng kusinero ng lugaw **ang mga bata**."
+2. **Kagamitan** (instrument): ano ang ginamit? "*Ipinangsulat* ni Teresa ng pangalan **ang lapis**."
+3. **Sanhi** (cause): ano ang dahilan ng damdamin? "*Ikinatuwa* ng mga kawani **ang balita**."
 
 :::why
 Bakit kailangang suriin ang papel ng paksa sa *ipinagluto* at *ipinangsulat*? Pareho itong may *ip-* o *ipina-*, kaya alamin kung nakinabang ang paksa (*ang mga bata*) o ginamit ito (*ang lapis*).
@@ -71,7 +71,7 @@ Bakit kailangang suriin ang papel ng paksa sa *ipinagluto* at *ipinangsulat*? Pa
 
 :::pair #tagatanggap-kagamitan-at-sanhi
 Right: Sa "Ipinagluto ni Mara ng lugaw ang mga bisita," tagatanggap ang *ang mga bisita*; sa "Ipinangsulat ni Mara ng mga pangalan ang lapis," kagamitan ang *ang lapis*.
-Wrong: Tawaging tagaganap dahil si Mara o ang kusinero ang nagluto, o sabihing kagamitan ang mga bisita at tagatanggap ang lapis.
+Wrong: Sabihing parehong tagaganap dahil si Mara ang gumawa ng dalawa, o kagamitan ang mga bisita at tagatanggap ang lapis.
 Hindi paksa ang *ni Mara*. Nakinabang *ang mga bisita* (tagatanggap), habang ginamit *ang lapis* (kagamitan).
 :::
 

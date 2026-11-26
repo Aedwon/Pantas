@@ -17,7 +17,7 @@ keyPoints:
 
 ### Hugnayang Pangungusap
 
-Ang **hugnayan** ay binubuo ng isang **sugnay** na makapag-iisa at isa o higit pang sugnay na di-makapag-iisa.
+Ang **hugnayan** (complex sentence) ay binubuo ng isang **sugnay** (clause) na makapag-iisa (independent) at isa o higit pang sugnay na di-makapag-iisa (dependent).
 
 Gamitin ang *dahil* o *sapagkat* upang ipakilala ang dahilan:
 
@@ -26,7 +26,7 @@ Gamitin ang *dahil* o *sapagkat* upang ipakilala ang dahilan:
 :::pair #hugnayan-laban-sa-tambalan
 Right: Ang "Umuwi ang bata dahil umuulan na" ay **Hugnayan**.
 Wrong: Tawaging **Tambalan** o **Payak** ang "Umuwi ang bata dahil umuulan na."
-Ginagawang di-makapag-iisa ng *dahil* ang *dahil umuulan na*. Hindi ito buong diwa kung mag-isa, kaya hindi tambalan ang pangungusap at hindi rin payak.
+Ginagawang di-makapag-iisa ng *dahil* ang *dahil umuulan na*. Hindi ito buong diwa kung mag-isa, kaya hindi **tambalan** (compound) ang pangungusap at hindi rin **payak** (simple).
 :::
 
 :::check
@@ -37,9 +37,9 @@ Ang sagot ay **Hugnayan**. May isang buong diwa (*Isinara ang tanggapan*) at isa
 
 ### Langkapang Pangungusap
 
-Ang **langkapan** ay may dalawa o higit pang sugnay na makapag-iisa at isa o higit pang di-makapag-iisa. Bilangin ang mga sugnay na pinagdugtong ng *at* at ipinakilala ng *dahil*:
+Ang **langkapan** (compound-complex sentence) ay may dalawa o higit pang sugnay na makapag-iisa at isa o higit pang di-makapag-iisa. Bilangin ang mga sugnay na pinagdugtong ng *at* at ipinakilala ng *dahil*:
 
-- "Umuwi ang bata **at** nagsara ang tindahan **dahil malakas na ang ulan**."
+- "[Umuwi ang bata] **at** [nagsara ang tindahan] [**dahil malakas na ang ulan**]." (2 makapag-iisa + 1 di-makapag-iisa)
 
 <!-- ILLUSTRATION: dalawang kahon ng bilang ng sugnay: kaliwa "Hugnayan (halimbawa: 1 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] + [dahil umuulan na]"; kanan "Langkapan (halimbawa: 2 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] at [nagsara ang tindahan] + [dahil malakas na ang ulan]" -->
 
@@ -61,7 +61,7 @@ Ang sagot ay **Langkapan**. Dalawa ang sugnay na makapag-iisa (*Nag-aral si Liza
 
 ### Ayos ng Salaysay at mga Pananda
 
-Sa pagsasalaysay ng mga hakbang o pangyayari, pumili ng **pananda** na tugma sa pagkakasunod ng oras:
+Sa pagsasalaysay ng mga hakbang o pangyayari, pumili ng **pananda** (marker) na tugma sa pagkakasunod ng oras:
 
 1. Simula: *una*, *sa simula*
 2. Kasunod: *pagkatapos*, *kasunod*, *saka*
@@ -107,7 +107,7 @@ Pagsamahin sa isang langkapan ang mga diwa: nag-aral si Liza; may pagsusulit siy
 
 ### #3: Ayos ng mga Pananda sa Salaysay
 
-Sa salaysay, unang nagrehistro ang aplikante, kasunod ipinasa ang mga papel, at pangwakas kinuha ang resibo. Aling hanay mula sa *sa simula*, *kasunod*, at *panghuli* ang angkop?
+Sa salaysay ng aplikante, nagrehistro siya, ipinasa niya ang mga papel, at kinuha niya ang resibo. Aling hanay ng pananda ang angkop?
 
 **Solution:**
 
@@ -117,7 +117,7 @@ Sa salaysay, unang nagrehistro ang aplikante, kasunod ipinasa ang mga papel, at 
 :::try
 Tapusin ang huling hakbang: anong pananda ang tugma sa pagkuha ng resibo, at ano ang buong hanay?
 :::answer
-Ang sagot ay **Sa simula, kasunod, panghuli**.
+Ang sagot ay **Sa simula, kasunod, panghuli**. Maaari ding *sa huli* ang panghuli.
 
 **Check:** Tugma ang bawat pananda sa tamang puwesto: *Sa simula* (nagrehistro), *kasunod* (ipinasa), at *panghuli* (kinuha ang resibo).
 :::
