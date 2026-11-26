@@ -18,7 +18,7 @@ keyPoints:
 
 - **mal-** suggests bad, badly, or faulty: *malfunction*, *malpractice*.
 - **bene-/ben-** suggests good or well: *benevolent*, *benefit*.
-- **omni-** means all: *omnivorous*, eating all kinds of food.
+- **omni-** means all: *omnivorous*, eating all foods.
 - **chron-/chrono-** relates to time: *chronology*.
 - **pseudo-** means false or imitation: *pseudoscience*.
 - **circum-** means around, and **locut-** relates to speaking: *circumlocution*.
