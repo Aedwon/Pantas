@@ -176,6 +176,95 @@ void main() {
     expect(mistakes, 2);
   });
 
+  test('a session saved from outside the tab reaches its rows, no invalidate',
+      () async {
+    final tab = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        scopedTopicsProvider.overrideWith((ref, examId) async => const []),
+      ],
+    );
+    addTearDown(tab.dispose);
+    final subscription = tab.listen(
+      quizPracticeCountsProvider('exam_cse_pro'),
+      (_, __) {},
+    );
+    addTearDown(subscription.close);
+    expect(
+      (await tab.read(quizPracticeCountsProvider('exam_cse_pro').future))
+          .mistakes,
+      0,
+    );
+
+    // A lesson quiz saves through the repository and never touches the tab.
+    await AttemptsRepository(db).save(
+      Attempt(
+        id: 'a_lesson',
+        examId: 'exam_cse_pro',
+        startedAt: DateTime.now().subtract(const Duration(minutes: 5)),
+        completedAt: DateTime.now(),
+        items: [
+          item('q_1', correct: true),
+          item('q_2', correct: false),
+          item('q_3', correct: false),
+          item('q_4', correct: false),
+        ],
+      ),
+    );
+
+    var mistakes = 0;
+    for (var i = 0; i < 200 && mistakes == 0; i++) {
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+      mistakes =
+          (await tab.read(quizPracticeCountsProvider('exam_cse_pro').future))
+              .mistakes;
+    }
+    expect(mistakes, 3);
+  });
+
+  test('a flag toggled elsewhere reaches the flagged row, no invalidate',
+      () async {
+    await seedContentTopicWithQuestions(
+      contentDb,
+      examId: 'exam_cse_pro',
+      topicId: 'topic_algebra',
+      topicName: 'Algebra',
+      questionIds: ['q_1'],
+    );
+    final tab = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+        scopedTopicsProvider.overrideWith(
+          (ref, examId) =>
+              ref.read(contentRepositoryProvider).topicsByExam(examId),
+        ),
+      ],
+    );
+    addTearDown(tab.dispose);
+    final subscription = tab.listen(
+      quizPracticeCountsProvider('exam_cse_pro'),
+      (_, __) {},
+    );
+    addTearDown(subscription.close);
+    expect(
+      (await tab.read(quizPracticeCountsProvider('exam_cse_pro').future)).flags,
+      0,
+    );
+
+    await QuestionFlagsRepository(db).flag('q_1');
+
+    var flags = 0;
+    for (var i = 0; i < 200 && flags == 0; i++) {
+      await Future<void>.delayed(const Duration(milliseconds: 10));
+      flags =
+          (await tab.read(quizPracticeCountsProvider('exam_cse_pro').future))
+              .flags;
+    }
+    expect(flags, 1);
+  });
+
   test('a flag written during a run reaches the rows the tab keeps', () async {
     var countReads = 0;
     final tab = ProviderContainer(
