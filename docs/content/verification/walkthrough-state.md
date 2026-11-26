@@ -35,6 +35,11 @@ Order: Language Application (13 partly done first), Grammar sweep and Fable audi
 
 Manager, later in session 3: Vocabulary round 2 Codex audit FAIL, 20 Blockers, 72 Majors, 5 Minors across all 29 (`walkthrough-work/codex-vocab-r2.md`, `54486e786`). Codex b at 98% weekly: no Codex runs until Monday's reset; Fable 5.2 high audits only. Vocabulary findings fold into the same five-pattern sweep as Grammar (`grammar-pattern-brief.md` now covers both topics).
 
+### Lead rulings and findings, session 3
+
+- `completion-word-forms` (verifier asked for a ruling): the checks on *decide* and *avoid* stay. A verb's pattern (*to* plus base, or *-ing*) is a word-by-word fact, so the lesson must name the verbs it teaches; a check on a fresh sentence with a named verb tests the taught fact on a new instance, as "My sister (teach / teaches)" does. Removing the names would test verbs the lesson never taught (rule 5a's other half).
+- Option lines: the app's two lesson converters (`lib/core/content/remote/lesson_markdown.dart` and `tools/content/markdown_portable_text.dart` on `ux/walkthrough-renderer-r1`) trim every line and join a paragraph's lines with spaces. So two trailing spaces do not make a line break, and stacked `(A)` / `(B)` options render as one line. Options must be separated by blank lines. My session 3 briefs wrongly told fixers to use two trailing spaces (copying `baybay-ng-hiram-na-salita`); a re-verifier flagged it. Found in 45 lane lessons (507 lines), most of them Vocabulary written before this session. Fixed in the 16 Language Application lessons (`7fe09f978`); the 8 others with their fix round; Vocabulary in its pattern sweep; the rest (`reasoning/verbal-logic/assumptions-and-conclusions.md`, `grammar-and-structure/modifiers.md`) in the Grammar sweep or by the lead. A check for this is proposed for the checks branch.
+
 ## Claude lesson lead takeover (Nov 26, 15:31 Manila, E-198)
 
 - Lead: Claude Opus 5.5 lesson lead (Gemini lead out of quota). Policy read: `origin/main` `650eda378`.
