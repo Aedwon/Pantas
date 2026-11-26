@@ -38,9 +38,10 @@ puts the beta gate back by switching the app to today's version (about a minute)
 | # | Precondition | State now |
 |---|---|---|
 | A | His three inputs above. | Waiting on him. |
-| B | Legal PR #110 up to date with main, stray backup file removed, CI green, merged. Go-live stamp set to 2026-11-28 in one commit (done: e5981bd4e): `legalTextsVersion` and `legalTextsPublishedAt` (app) and `LEGAL_TEXTS_VERSION` (functions/src/guardianConsent.ts), plus the website pages' "Version" lines. | Main merged in, stray file removed (aac45c546); 37 legal tests pass locally; CI running. Stamp change waits for the confirmed date. |
+| B | Legal PR #110 up to date with main, stray backup file removed, CI green, merged. Go-live stamp set to 2026-11-28 in one commit (done: e5981bd4e): `legalTextsVersion` and `legalTextsPublishedAt` (app) and `LEGAL_TEXTS_VERSION` (functions/src/guardianConsent.ts), plus the website pages' "Version" lines. | **Done.** Merged d6b792d32 (head 04817e487, CI green on run 45755501105). |
+| B2 | No deploy from main, before the opening, of the guardian callables or createPaymongoCheckout: main now carries the Nov 28 stamp, and the prod app sends Nov 12, so such a deploy would refuse checkouts and guardian answers. | Told the manager (Nov 26) to hold every lane to this. |
 | C | Batched fixes on main: PR #147 (Study title, report announcement). | Merged 4b9d7378b, CI green. |
-| D | Security lead's Pro flicker fix (C15): green PR, test fails first, plus an account-switch test (the gateway must not keep the old account's database). | In progress (security lead). Rides only if merged and proven on staging before the proof run. |
+| D | Security lead's Pro flicker fix (C15): green PR, test fails first, plus an account-switch test (the gateway must not keep the old account's database). | **Done.** PR #149 merged f32d05e46 (18 checks green; the database is never replaced while the app runs). Proven in the staging run G. |
 | E | Past-mistakes fix: the 4:10 PM diagnostic run finds the cause. If it is the stale Quiz tab count (cause 1), the fix is built test first and merged. Otherwise it does not ride, and the manager gets the cause and size. | Diagnostic after the 08:00 UTC quota reset. |
 | F | P12 remaining: CSE Sub resume and offline loops; update loop (today's staging build to the candidate). | After the reset. |
 | G | Staging proof of the exact opening candidate (Thursday evening or Friday) (main after B, D, E), built without BETA_GATE: new visitor to Welcome with no beta screen; 17 blocked, 25 continues; onboarding to CSE Home; Free lesson and quiz; mock setup (anonymous visitor gets the sign-up card); Pro page plans; checkout page opens with the tick, the seller line "Sold by Pantas Online Tutorial Services" and the Terms link (staging test keys, no purchase); in-app Terms, Privacy and Teen notice show the new texts and the opening date; guardian page accepts with matching versions (functions stamp deployed to staging together). Rule 7 counted first. | After E and F, same evening. |
@@ -53,10 +54,14 @@ puts the beta gate back by switching the app to today's version (about a minute)
    www.pantas.study serves version e10acf80; guardian functions' current revisions and createPaymongoCheckout
    00024-viz recorded in `Pantas-private/releases/2026-11-28-opening/`. If the app does not serve d2a72e17,
    stop (two-session rule, Nov 25).
-2. **Functions, legal stamp:** deploy the guardian functions that read `LEGAL_TEXTS_VERSION` (pinned CLI,
-   `--only` those functions, from the origin/main tip). The app and functions stamps must match, or the
-   guardian page asks to reload; nobody under 18 can sign up (option C), so the window affects only
-   guardian pages already open.
+2. **Functions, legal stamp:** deploy every function that reads `GUARDIAN_DOCUMENT_VERSIONS` (pinned CLI,
+   `--only`, from the origin/main tip): the guardian callables in `guardianConsent.ts` (sendGuardianLink,
+   answerGuardianRequest, getGuardianStatus, getGuardianRequest, getGuardianManage, setGuardianSharing,
+   withdrawGuardianPermission, markGuardianAdult) **and createPaymongoCheckout**, which refuses a checkout
+   whose declaration carries another Terms version (`paymongoCheckout.ts:93`). The checkout switch stays
+   false here. The app and functions stamps must match: until step 3 lands, the guardian page asks to
+   reload (nobody under 18 can sign up, option C) and admin checkouts from the old app are refused; step 3
+   follows at once.
 3. **App:** prod build from the same main commit, `lib/main_prod.dart`, no BETA_GATE, SCREEN_COUNTS=true,
    SELLER_* loaded privately (lengths only in the record); deploy the Worker; compare 92 of 92; check
    version.json with a cache-busting query.
@@ -80,7 +85,7 @@ puts the beta gate back by switching the app to today's version (about a minute)
 |---|---|---|---|
 | App (gate off, batch, fixes) | `npx -y wrangler@4.162.0 rollback d2a72e17-f423-4042-8d8d-e953a2a992bd -c tool/cloudflare-app/wrangler.prod.jsonc` | about 1 min | Puts the beta gate back. Students who opened the new build keep it until their next safe point. |
 | Checkout open | `PAYMONGO_CHECKOUT_OPEN=false` and redeploy createPaymongoCheckout | about 3 min | Security lead: the pre-live revisions no longer work (their secret version is destroyed). |
-| Guardian legal stamp | route traffic back to the recorded revisions | about 2 min | Must move together with the app rollback. |
+| Guardian legal stamp and checkout stamp | route traffic back to the recorded guardian revisions; for createPaymongoCheckout, redeploy with the old stamp and the switch false (its pre-live revisions no longer work) | about 5 min | Must move together with the app rollback: old app plus new checkout stamp refuses every checkout. |
 | Website | `npx wrangler rollback e10acf80-257a-4c56-a898-c49788117036` in pantas-web | about 1 min | Restores the beta homepage and the Nov 12 legal pages. |
 | Content | none changes at the opening | | P10 mock text is already on prod. |
 
