@@ -25,7 +25,7 @@ Some word parts carry meaning even when they cannot stand alone as English words
 - **pseudo-** means false or imitation: *pseudoscience*.
 - **circum-** means around, and **locut-** relates to speaking: *circumlocution* is an indirect, wordy way of speaking.
 
-These parts give clues, not the whole meaning of every word. Do not force a split in a word such as *bench* just because it begins with *ben*.
+These parts give clues, not the whole meaning of every word. Do not force a split in a word such as *bench* because it begins with *ben*.
 
 We split *malicious* and read the first part.
 

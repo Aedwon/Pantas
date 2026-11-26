@@ -33,9 +33,9 @@ Warm and cool sit between hot and cold. *Not hot* does not pick one of them.
 :::
 
 :::check
-A cup is not cold. Must it be hot?
+A cup is not cold. What could it be?
 :::answer
-The answer is no. It may be cool or warm, because the levels between cold and hot are still possible.
+The answer is cool, warm, or hot. Not cold does not pick one level, because the levels between cold and hot are still possible.
 :::
 
 ### Complementary Opposites
