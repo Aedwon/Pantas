@@ -4789,3 +4789,8 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Put to him (two choices, recommendation first):** (1) wide hand-off: A, links glide left as the button arrives (recommended), or B, button space kept and fade only (a gap right of Contact at page top); (2) phone top bar button: Yes (recommended) or No (no button between the hero and the menu on phone).
 - **Strings scanned for internal terms** (taste, tutorial, guided, starter, first run, decision codes): none on the frames or notes.
 - **Next:** stop until he answers through the manager. After his yes: build 1:1 on a pantas-web branch from `legal/public-pages-r1`, tests, side-by-side review, hand to r9 by Friday evening. Nothing publishes before the opening.
+
+## 2026-11-26 about 12:50 PM Manila: content lanes save as they go (manager)
+
+- Aedwon, verbatim: "also why'd you stop the lesson rewrites at just math, complete as much as you can before gemini resets", then "can you prevent this unsaved work thing, isn't that a waste of tokens? i'm afraid it might be reading a lot and not doing and suddenly run out, which is just essentially a waste".
+- Done: the Claude stopgap lead moved on to CSE Vocabulary until 1:02 PM (the manager had scoped it to math only). The Gemini lane now commits and pushes every finished chunk at once with a "WIP, not yet audited:" prefix, keeps docs/content/verification/walkthrough-state.md current, and resumes from that file and the git log after a quota stop. Codex PASS still gates the hand-off to the integrator, so WIP commits on the lane branch are safe.
