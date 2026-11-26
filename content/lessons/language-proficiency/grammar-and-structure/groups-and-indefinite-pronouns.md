@@ -56,9 +56,9 @@ Do not use *are* because *everybody* means many people, or match the plural *fil
 :::
 
 :::check
-Choose the correct verb: Everybody in both offices *(needs / need)* a new badge.
+Choose the correct verb: Anyone with a late pass *(is / are)* allowed inside.
 :::answer
-The answer is **needs**: "Everybody in both offices needs a new badge." Set aside *in both offices*; *everybody* is grammatically singular and takes *needs*.
+The answer is **is**: "Anyone with a late pass is allowed inside." Set aside *with a late pass*; *anyone* is grammatically singular and takes *is*.
 :::
 
 ### Words Like All, Some, Most, and None

@@ -48,9 +48,9 @@ The answer is **"The note needed President Santos's signature, and the president
 
 ### Quoted Sentences vs. Quoted Words
 
-Capitalize the first word of a **quoted complete sentence**: *She said, "Please close the door."* The second half of a quote split by *she said* stays lowercase when it continues the same sentence: *"Please," she said, "close the door."*
+In stand-alone direct speech, capitalize the first word of a **quoted complete sentence**: *She said, "Please close the door."* The second half of a quote split by *she said* stays lowercase when it continues the same sentence: *"Please," she said, "close the door."*
 
-Keep a **quoted ordinary word or short fragment** inside a sentence lowercase (unless it is a proper name, a title, or *I*): *The word "meeting" appears twice.*
+Keep an **ordinary word mentioned as a word** inside a sentence lowercase (unless it is a proper name, a title, or *I*): *The word "meeting" appears twice.*
 :::pair #quoted-word-capitalized
 Right: "The word \"meeting\" appears twice."
 Wrong: "The word \"Meeting\" appears twice in the short announcement."
@@ -89,6 +89,8 @@ Choose the correctly capitalized sentence:
 
 The correct answer is **(C)**: "I called Mayor Lopez this morning."
 
+**Check:** *Mayor* sits right before *Lopez*, so it takes a capital. *The mayor* alone would stay lowercase.
+
 ### #2: Quoted Sentence vs. Quoted Word
 
 Fix the quotes: *He said, "please wait here." The word "Weather" appears twice.*
@@ -100,9 +102,13 @@ Fix the quotes: *He said, "please wait here." The word "Weather" appears twice.*
 
 Corrected text: **He said, "Please wait here." The word "weather" appears twice.**
 
+**Check:** *Please wait here* works alone as a complete sentence, so it needs the capital. *Weather* alone is not a sentence.
+
 ### #3: Fixing Multiple Errors Together
 
-Fix every error in: *"the mayor met senator Garcia on friday and said, "the clinic opens soon.""*
+Fix every error in this sentence:
+
+*the mayor met senator Garcia on friday and said, "the clinic opens soon."*
 
 **Solution:**
 
@@ -113,19 +119,19 @@ Fix every error in: *"the mayor met senator Garcia on friday and said, "the clin
 :::try
 Finish the last step: fix the title before *Garcia* and write the full corrected sentence.
 :::answer
-The answer is **"The mayor met Senator Garcia on Friday and said, "The clinic opens soon.""** *Senator* sits directly before *Garcia*, so it takes a capital *S*.
+The answer is **The mayor met Senator Garcia on Friday and said, "The clinic opens soon."** *Senator* sits directly before *Garcia*, so it takes a capital *S*.
 
 **Check:** Take away the name: *"met the senator"* has a lowercase *s*. The capital depends on *Garcia* coming right after.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Check four spots: sentence start, specific names, titles directly before a name, and quotes (a full sentence gets an opening capital; a single ordinary word stays lowercase).
+Check four spots: sentence start, specific names, titles directly before a name, and quotes (stand-alone direct speech gets an opening capital; an ordinary word mentioned as a word stays lowercase).
 
 ## Traps to Watch For
 
 :::checklist
 - Formal title before a name vs. after *the*: capitalize *President Reyes*, lowercase *the president*. {#title-before-name-vs-role}
-- Single quoted word inside a sentence: keep an ordinary word like *"meeting"* lowercase. {#quoted-word-capitalized}
-- Quoted full sentence: capitalize the opening word (*"Please close the door."*), not every word; usual capitals for names and *I* still apply. {#quoted-sentence-lowercase}
+- Ordinary word mentioned as a word inside a sentence: keep it lowercase, like *"meeting"*. {#quoted-word-capitalized}
+- Quoted full sentence as direct speech: capitalize the opening word (*"Please close the door."*), not every word; usual capitals for names and *I* still apply. {#quoted-sentence-lowercase}
 :::

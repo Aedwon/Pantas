@@ -49,7 +49,7 @@ The answer is **Their**. *Somebody* is one unspecified person, so *their* fits w
 Singular *they* changes the pronoun, not the verb attached to *everybody*. Match each verb to its own subject:
 
 1. *Everybody*, *everyone*, *each*, and *somebody* take a **singular** verb (*is, has*).
-2. *They* always takes plural verb forms (such as *are*, *have*, and plain verbs without *-s*), even when referring to one person.
+2. Singular *they* takes the same verb forms as plural *they* (the present of *be* is *are*; also *have* and plain verbs without *-s*).
 
 :::why
 Why write "Everybody **has** said they **are** ready"? Each verb agrees with its own subject. *Everybody* is grammatically singular (*has*), while *they* pairs with *are* in the present.
@@ -78,9 +78,15 @@ Proximity does not fix an unclear pronoun. When either person could own the pain
 :::
 
 :::check
-Mia alone was late. Which sentence says so clearly: "Lea told Mia that she was late" or "Lea told Mia that Mia was late"?
+Which sentence clearly says that the person who heard the news was the one who was late?
+
+(A) "Lea told Mia that she was late."
+
+(B) "Lea told Mia that Mia was late."
+
+(C) "Lea told Mia that Lea was late."
 :::answer
-The answer is **"Lea told Mia that Mia was late."** Repeating *Mia* names who was late. In the first sentence, *she* could mean Lea or Mia.
+The answer is **(B) "Lea told Mia that Mia was late."** Repeating the name of the person told makes the late person clear. In (A), *she* could mean either woman, and (C) names the wrong one.
 :::
 
 ## Examples
@@ -93,6 +99,8 @@ Choose the pronouns: (a) "The boys left *(his / their)* bags at the gate." (b) G
 
 1. In (a), *the boys* is plural: "The boys left **their** bags at the gate."
 2. In (b), *each* points to one unspecified player: "Each of the players must bring **their** shoes."
+
+**Check:** In (a), *their* stands for several boys. In (b), it stands for one unnamed player.
 
 ### #2: Combining Everybody and Singular They
 
@@ -115,25 +123,25 @@ Explain why "When Mr. Lim called Ben, he sounded tired" is unclear, and fix it s
 1. Both *Mr. Lim* and *Ben* fit *he*, so either man could be the one who sounded tired.
 
 :::try
-Finish the last step: which sentence clearly states that Ben sounded tired?
+Finish the last step: which rewrite keeps the stated meaning?
 
-(A) "When Mr. Lim called Ben, the man sounded tired."
+(A) "When Mr. Lim called Ben, Mr. Lim sounded tired."
 
 (B) "When Mr. Lim called Ben, Ben sounded tired."
 :::answer
-The answer is **(B) "When Mr. Lim called Ben, Ben sounded tired."** Replacing *he* with *Ben* names the exact person meant. In (A), *the man* still fits either person.
+The answer is **(B) "When Mr. Lim called Ben, Ben sounded tired."** Replacing *he* with a name makes one person clear, and (B) names Ben, the person who sounded tired.
 
-**Check:** Ask "Who sounded tired?" Only *Ben* answers the question, with no guessing by order or proximity.
+**Check:** Ask "Who sounded tired?" Each sentence now has one answer, and only (B) answers *Ben*.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Find the antecedent first. Keep *everybody + singular verb* separate from *they + are*, and repeat a name when two people fit one pronoun.
+Find the antecedent first. Keep *everybody + singular verb* separate from *they*, which takes the same verb forms as plural *they* (present *be*: *are*), and repeat a name when two people fit one pronoun.
 
 ## Traps to Watch For
 
 :::checklist
 - Singular indefinite words like *each* or *somebody*: use singular *their* for gender-neutral reference instead of guessing *his* or *its*. {#reject-singular-they}
-- *Everybody* paired with *they*: keep *everybody* with a singular verb (*has*) and *they* with *are*. {#everybody-and-they-verbs}
+- *Everybody* paired with *they*: keep *everybody* with a singular verb (*has*) and *they* with the same forms as plural *they* (present *be*: *are*). {#everybody-and-they-verbs}
 - Two people who fit *she* or *her*: repeat the intended name instead of picking the first or nearest noun. {#ambiguous-antecedent}
 :::

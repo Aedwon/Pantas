@@ -107,15 +107,14 @@ Only some applicants submitted incomplete folders, and only they must return on 
 
 **Solution:**
 
-1. Check the meaning: only some applicants must return.
-2. Decide whether *who submitted incomplete folders* adds extra detail about all applicants or identifies which subset must return.
+1. Decide whether *who submitted incomplete folders* adds extra detail about all applicants or identifies which subset must return.
 
 :::try
 Finish the last step: choose (A) or (B), and explain how the comma choice matches the intended meaning.
 :::answer
 The answer is **(B) "The applicants who submitted incomplete folders must return on Monday."** Leaving out the commas locks the clause to *The applicants* so only that subset must return; the commas in (A) would claim every applicant submitted an incomplete folder.
 
-**Check:** Read (B) without commas: *who submitted incomplete folders* identifies which applicants must return, matching *"only some applicants"* in the prompt.
+**Check:** Remove *who submitted incomplete folders*: "The applicants must return on Monday" would mean all of them, so the clause is needed to identify the group.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -77,36 +77,38 @@ What is the problem in *"Having finished the report, the printer jammed"*?
 2. The main subject is *the printer*, not a person who finished.
 3. So *"Having finished the report, the printer jammed"* **dangles**: the person who finished is never named.
 
+**Check:** Ask a reader who finished the report. The sentence gives no person, so the reader cannot tell.
+
 ### #2: Fixing With the Main Subject
 
-Revise *"Hoping to win the race, my shoes were laced tightly"* so the runner is the main subject.
+Revise *"Hoping to win the race, my shoes were laced tightly"* so the runner who laced them is the main subject.
 
 **Solution:**
 
-1. Identify who was hoping: *I*.
+1. Identify who was hoping and who laced the shoes: *I*.
 2. Put *I* right after the comma: **"Hoping to win the race, I laced my shoes tightly."**
 
-**Check:** *I* is the one hoping; *my shoes* are not.
+**Check:** *Hoping* and *laced* now belong to the same person, *I*.
 
 ### #3: Comparing Two Openings
 
-Choose the sentence without a dangling modifier:
+Dan, not the host, felt nervous before the talk. Choose the sentence whose opening phrase matches its main subject:
 
-(A) *"While crossing the bridge, the strong wind blew Marco's hat away."*
+(A) *"Feeling nervous before the talk, the host called Dan to the stage."*
 
-(B) *"As Marco crossed the bridge, the strong wind blew his hat away."*
+(B) *"Feeling nervous before the talk, Dan walked to the stage."*
 
 **Solution:**
 
-1. Compare the openings: *"While crossing the bridge"* (A) vs. *"As Marco crossed the bridge"* (B).
-2. Ask who crossed the bridge in each version.
+1. The opening phrase describes the person who felt nervous: Dan.
+2. Find the main subject of each sentence.
 
 :::try
 Finish: choose (A) or (B), and prove why it avoids a dangling modifier.
 :::answer
-The answer is **(B) "As Marco crossed the bridge, the strong wind blew his hat away."** Inside (B)'s opening clause, *Marco* is the subject and *crossed* is the finite verb, so *the strong wind* can safely serve as the main subject. In (A), *"While crossing the bridge"* lacks a subject, wrongly making *the strong wind* cross the bridge.
+The answer is **(B) "Feeling nervous before the talk, Dan walked to the stage."** Its main subject is *Dan*, the nervous person, so the phrase attaches correctly. In (A), the main subject is *the host*, so the phrase says the host felt nervous.
 
-**Check:** Ask "Who crossed the bridge?" Sentence (B) answers *Marco* right inside the opening clause before the comma.
+**Check:** Ask "Who felt nervous?" In (B), *Dan* answers it right after the comma.
 :::
 
 ## Speed Tricks & Shortcuts

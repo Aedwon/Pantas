@@ -91,19 +91,21 @@ Identify the part of speech of each word in bold: "Although Rosa was tired, **sh
 2. *Long* describes *report*, so it is an **adjective**.
 3. *Calmly* tells how she finished, so it is an **adverb**.
 
-**Check:** Replace *she* with *Rosa* ("Rosa finished") to see who it stands for, pair *long report* (adjective + noun), and pair *finished calmly* (verb + adverb).
+Marked: "Although Rosa was tired, **she** (pronoun) finished the **long** (adjective) report **calmly** (adverb)."
+
+**Check:** Replace *calmly* with *slowly*: "finished the long report slowly" keeps the same job.
 
 ### #2: Same Word, Three Jobs
 
-Identify the part of speech of **light** in each sentence: "The bag is **light**." "Please **light** the stove." "Turn off the **light**."
+Identify the part of speech of **cool** in each sentence: "The room felt **cool**." "Please **cool** the soup." "Enjoy the **cool** of the evening."
 
 **Solution:**
 
-1. First, *light* describes *the bag*, so it is an **adjective**.
-2. Second, *light* is what you do to the stove, so it is a **verb**.
-3. Third, *light* names a thing after *the*, so it is a **noun**.
+1. *Cool* describes *the room*, so it is an **adjective**: "The room felt **cool**."
+2. *Cool* is what you do to the soup, so it is a **verb**: "Please **cool** the soup."
+3. *Cool* names a thing after *the*, so it is a **noun**: "Enjoy the **cool** of the evening."
 
-**Check:** Swap words with one job: "The bag is *heavy*" (adjective), "Please *start* the stove" (verb), and "Turn off the *lamp*" (noun).
+**Check:** Swap words with one job: "The room felt *chilly*" (adjective), "Please *refrigerate* the soup" (verb), and "Enjoy the *peace* of the evening" (noun).
 
 ### #3: Two Words to Classify
 
@@ -111,12 +113,12 @@ Identify the parts of speech of **luckily** and **lovely**: "**Luckily**, the bu
 
 **Solution:**
 
-1. *Luckily* comments on the whole statement *the bus arrived*, so it is an **adverb**.
+1. *Luckily* comments on the whole statement *the bus arrived*, so it is an **adverb**: "**Luckily**, the bus arrived."
 
 :::try
 Finish the last step: what part of speech is **lovely**, and which word does it describe?
 :::answer
-The answer is **Adjective**. *Lovely* describes the noun *garden*, telling what kind of garden it was.
+The answer is **Adjective**: "The **lovely** garden attracted visitors." *Lovely* describes the noun *garden*, telling what kind of garden it was.
 
 **Check:** Replace *luckily* with *fortunately* and *lovely* with *pretty* ("The pretty garden"); each keeps the same job.
 :::
@@ -129,6 +131,6 @@ Check what the word points to in that sentence. Nouns and pronouns name or repla
 
 :::checklist
 - Familiar action word after *a* or *the*: check its job in that sentence before calling it a verb. {#class-by-habit}
-- Modifier near an action: check whether it describes a noun (adjective) or a verb (adverb). {#adjective-vs-adverb}
+- Modifier near an action: in the *diligent* / *quickly* pair, find whether the word describes the student (adjective) or the action (adverb). {#adjective-vs-adverb}
 - Word ending in *-ly*: test whether it describes a noun before calling it an adverb. {#ly-ending-trap}
 :::

@@ -56,7 +56,7 @@ Which group leaves you waiting for a main clause: *"The crowd left early"* or *"
 
 ### Checking After Words Like After, Before, and Since
 
-*After, before, since,* and *until* start either a **prepositional phrase** or a **dependent clause**. Compare:
+*After, before, since,* and *until* can start a **prepositional phrase** or a **dependent clause**. Compare the two groups shown, then ask whether a finite verb is present:
 
 1. Noun group only, no finite verb: *"After the bus trip"* is a prepositional phrase.
 2. Subject paired with a finite verb: *"After the bus arrived"* has subject *the bus* and finite verb *arrived*, so it contains a dependent clause.
@@ -66,7 +66,7 @@ Which group leaves you waiting for a main clause: *"The crowd left early"* or *"
 :::pair #event-noun-vs-verb
 Right: *"After the bus arrived"* contains a finite dependent clause.
 Wrong: Pick *"After the bus trip"* or *"During the bus journey"* as a finite clause because *trip* and *journey* name actions.
-Here *trip* and *journey* act as nouns after *the bus*, not finite verbs. Look for a subject-and-verb pair stating what the subject did.
+Here *trip* and *journey* act as nouns after *the bus*, not finite verbs. Look for a subject paired with a finite verb.
 :::
 
 :::check
@@ -87,9 +87,9 @@ How is the whole group *"the dog barked"* classified?
 2. Find the finite verb: *barked*.
 3. Check for any opening subordinating word: none appears.
 
-The group is an **independent clause**.
+The group is an **independent clause**: "The **dog** (subject) **barked** (finite verb)."
 
-**Check:** *"The dog barked."* stands as a complete sentence.
+**Check:** Read it alone with a period: nothing leaves you waiting for more.
 
 ### #2: Finding the Signal Word
 
@@ -99,9 +99,9 @@ In *"Because the road flooded, the bus was late,"* which word signals that the f
 
 1. Isolate the first clause: *"Because the road flooded."*
 2. Remove *Because*: *"the road flooded"* has subject *the road* and verb *flooded*, and stands alone.
-3. So **Because** is the signal word making the clause dependent.
+3. So **Because** is the signal word making the clause dependent: "**Because** the road flooded, the bus was late."
 
-**Check:** Put *Because* back: *"Because the road flooded."* leaves you waiting for a main clause.
+**Check:** Stop after *Because the road flooded*: you still wait for a main clause, which is *the bus was late*.
 
 ### #3: Phrase or Clause After a Time Word
 
@@ -109,7 +109,7 @@ Which group contains a finite clause: *"Until the doors opened"* or *"Until the 
 
 **Solution:**
 
-1. Compare the words after *Until* in each group.
+1. Mark the words after *Until* in each group: *the doors opened* and *the opening ceremony*.
 
 :::try
 Finish the last step: which group has a verb that changes when the time changes?
@@ -128,5 +128,5 @@ For finite clauses, run two checks: find a subject paired with a finite verb, no
 :::checklist
 - Short statement with a subject and finite verb: do not call it a phrase or dependent just because it is brief. {#short-clause-is-complete}
 - Clause starting with *although, since,* or *when*: include the opening word in the stand-alone test. {#subordinator-makes-dependent}
-- Time group with an event noun like *trip* or *journey*: check for a finite verb stating an action. {#event-noun-vs-verb}
+- Time group with an event noun like *trip* or *journey*: check whether a finite verb is present. {#event-noun-vs-verb}
 :::

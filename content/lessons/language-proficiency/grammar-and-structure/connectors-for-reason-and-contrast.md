@@ -29,9 +29,9 @@ Why does *"Because it rained, so we stayed inside"* fail? *Because* makes *"it r
 :::
 
 :::check
-Fix *"Although the team practiced, but it lost"* in two ways: keep *although*, or keep *but*.
+Fix *"Although the team practiced, but it lost"* by keeping *although*.
 :::answer
-Keep *although*: **"Although the team practiced, it lost."** Keep *but*: **"The team practiced, but it lost."** Each version has one connector for the one link.
+The answer is **"Although the team practiced, it lost."** Dropping *but* leaves one connector for the one link.
 :::
 
 ### Comma Placement by Clause Order
@@ -57,7 +57,7 @@ The answer is **after "open"**. *"Although the shop was open, we left without bu
 
 In formal writing, a dependent clause standing alone with a period is a **fragment**, an incomplete sentence: *"Although the teacher explained the lesson twice."*
 
-To fix a dependent-clause fragment, attach a true **independent clause** with a subject, finite verb, and no subordinating word at the front. Adding another dependent clause (*while, because*), a noun phrase, or a prepositional phrase still leaves a fragment.
+To fix a dependent-clause fragment, add a **main clause** that can stand alone, with no subordinating word at the front. For the formal statements here, that means a subject and a finite verb. Adding another dependent clause (*while, because*), a noun phrase, or a prepositional phrase still leaves a fragment.
 
 :::pair #fragment-is-not-sentence
 Right: In formal prose, *"Although the teacher explained the lesson twice"* is **a dependent-clause fragment**.
@@ -97,35 +97,35 @@ Decide whether the comma placement is right in (a) *"Because the road flooded, t
 
 **Solution:**
 
-1. In (a), the *because* clause comes first, so the comma after *flooded* is right.
-2. In (b), the main clause comes first and the reason clause is essential, so no comma before *because* is right.
+1. In (a), the *because* clause comes first, so the comma after *flooded* is right: "Because the road flooded, the bus stopped."
+2. In (b), the main clause comes first and the reason clause is essential, so no comma before *because* is right: "The bus stopped because the road flooded."
 
-**Check:** Move the *because* clause in (b) to the front; a comma follows *flooded*, as in (a).
+**Check:** Bracket the clause in (b): "The bus stopped [because the road flooded]." No comma sits at the bracket.
 
 ### #3: Completing an Opening Clause
 
-Complete *"Even though the bus was late, ___"* with one option: (a) *"after waiting an hour"*, (b) *"because the driver was lost"*, or (c) *"the students arrived on time."*
+Complete *"Even though the bus was late, ___"* with the option that keeps the contrast: (a) *"the students arrived on time."* or (b) *"the students arrived late."*
 
 **Solution:**
 
-1. Choice (a) cannot stand alone as a main clause.
+1. Both options have a subject and a finite verb, so either can stand alone as the main clause.
 
 :::try
-Finish the last step: test (b) and (c), then write the full sentence.
+Finish the last step: choose the option that expresses the contrast, then write the full sentence.
 :::answer
-**Even though the bus was late, the students arrived on time.** (b) starts with *because*, adding a second dependent clause. In (c), *students* is the subject and *arrived* is the finite verb with no subordinating word.
+**Even though the bus was late, the students arrived on time.** A late bus leads us to expect late students, so (a) goes against that expectation. (b) matches it, so *even though* would not fit.
 
-**Check:** Drop *"Even though the bus was late,"* and *"The students arrived on time."* stands alone.
+**Check:** Join them with *but*: "The bus was late, but the students arrived on time" makes sense.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Count subordinating words (*because, although, if*). Every sentence needs at least one clause with no subordinating word, and do not use two connectors for one link (*although* with *but*, *because* with *so*).
+Count subordinating words (*because, although, if*). For the formal statements here, add a main clause that can stand alone, and do not use two connectors for one link (*although* with *but*, *because* with *so*).
 
 ## Traps to Watch For
 
 :::checklist
 - Reversing clause order with *because*: usually put a comma after an opening *because* clause, and skip it before a closing essential *because* clause. {#comma-by-clause-order}
 - Dependent clause ending with a period in formal prose: treat it as a fragment and attach it to a main clause. {#fragment-is-not-sentence}
-- Two clauses both starting with subordinating words: drop the second connector so one clause is independent. {#two-dependent-clauses}
+- Two clauses both starting with subordinating words: provide a main clause that keeps the intended relation. {#two-dependent-clauses}
 :::

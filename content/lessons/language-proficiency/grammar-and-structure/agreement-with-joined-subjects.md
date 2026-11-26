@@ -90,7 +90,7 @@ Revise "Neither the cooks nor the waiter arrived early" into two negative clause
 2. Second clause: *the waiter* (singular) -> *and the waiter was not early*.
 3. Combined: "The cooks were not early, and the waiter was not early."
 
-**Check:** *Cooks were*, *waiter was*; both keep the negative meaning.
+**Check:** Reread the combined sentence: it still says that nobody arrived early.
 
 ### #3: Two Clauses with Or and Nor
 
@@ -98,12 +98,11 @@ Using formal proximity, choose the verbs in one sentence: Neither the nurses nor
 
 **Solution:**
 
-1. In the first clause, look after *nor*: *the doctor on the night shift*.
-2. Cover *on the night shift*. Nearer head *doctor* is singular, so choose **was**.
-3. Then look after *or*.
+1. In the first clause, cover *on the night shift*. Nearer head *doctor* is singular.
+2. So the first clause reads "Neither the nurses nor the doctor on the night shift **was** ready."
 
 :::try
-Finish the last step: is the second verb *was* or *were*?
+Now the second clause: is the verb *was* or *were*?
 :::answer
 The answer is **Were**. The nearer head, *visitors*, is plural. The finished sentence is "Neither the nurses nor the doctor on the night shift **was** ready, and either the guard or the visitors **were** waiting outside."
 

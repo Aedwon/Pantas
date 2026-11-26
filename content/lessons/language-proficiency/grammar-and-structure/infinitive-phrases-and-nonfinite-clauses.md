@@ -74,7 +74,9 @@ In *"Ana hopes to finish the project,"* can *"to finish the project"* stand alon
 2. *To finish* is an infinitive with no tense, so *"to finish the project"* cannot stand alone as a formal sentence.
 3. Basic school grammar calls it an **infinitive phrase**; a system using nonfinite clauses calls it a **nonfinite clause** with *Ana* as the understood doer.
 
-**Check:** *"To finish the project."* has no finite verb, so it cannot stand alone.
+Marked: "Ana **hopes** (finite verb) **to finish the project** (infinitive phrase, or nonfinite clause)."
+
+**Check:** Shift to past time: *hopes* becomes *hoped*, while *to finish* stays unchanged.
 
 ### #2: Spotting an Infinitive Fragment
 
@@ -94,12 +96,12 @@ Using basic school grammar, classify the bold words in "The manager wants **to r
 
 **Solution:**
 
-1. Find the two action words: *wants* and *to review the budget*.
+1. Find the two verb forms: *wants* and *to review*.
 
 :::try
 Finish the last step: which one carries the main tense, and what is the bold group called?
 :::answer
-**Wants** carries the main tense and matches *The manager*. The bold group is an **infinitive phrase**: *to review* has no tense form.
+**Wants** carries the main tense and matches *The manager*. The bold group is an **infinitive phrase**, because *to review* has no tense form: "The manager **wants** (finite verb) **to review the budget** (infinitive phrase) before Monday."
 
 **Check:** Shift to past time: *"The manager wanted to review the budget before Monday."* *Wants* shifts to *wanted*, while *to review* stays unchanged.
 :::

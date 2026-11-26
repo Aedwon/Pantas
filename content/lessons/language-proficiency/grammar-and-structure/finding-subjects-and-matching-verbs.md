@@ -63,7 +63,7 @@ Choose the correct verb: My sister *(teach / teaches)* in Cebu.
 
 A **phrase** is a group of words that works together as one part of a sentence. Many subjects carry a phrase that adds a detail, such as an *of*-phrase: *of apples*, *of the employees*.
 
-The **head** is the main word of the subject. It controls the verb. The added phrase does not.
+The **head** is the main word of the subject. It controls the verb. A phrase that only adds optional detail to an ordinary noun subject does not.
 
 <!-- ILLUSTRATION: the sentence "The basket of apples is heavy." with "of apples" grayed and bracketed as "added detail"; a teal arrow from "basket" to "is"; "basket" labeled "head, singular" -->
 
@@ -96,11 +96,10 @@ Choose the correct forms: I *(am / is)* ready, and he *(have / has)* the documen
 
 1. The first subject is *I*. With the present of *be*, use *I am*.
 2. The second subject is *he*, which is singular third person. In the present, *he* takes *has*.
-3. Read each pair together: "I am," "he has."
 
 Correct: "I am ready, and he has the documents."
 
-**Check:** *Have* goes with *I*, *you*, *we*, and *they*. *Has* goes with *he*, *she*, and *it*. The second subject is *he*, so *has* fits.
+**Check:** Put *I am* and *he has* back in place and read the whole sentence: each verb sits beside its own subject.
 
 ### #2: A Phrase in the Middle
 
@@ -118,19 +117,19 @@ Correct: "The list of items on the shelf is long."
 
 ### #3: A Plural Noun Before the Verb
 
-Choose the correct verb: The quality of the new office chairs *(was / were)* better than expected.
+Choose the correct verb: The quality of the new office chairs *(is / are)* better than expected.
 
 **Solution:**
 
-1. Ask what was better than expected. It is the quality, not the chairs.
+1. Ask what is better than expected. It is the quality, not the chairs.
 2. Set aside the detail: *of the new office chairs*. The head is *quality*.
 
 :::try
 Finish the last step: is *quality* singular or plural, and which verb matches it?
 :::answer
-*Quality* is singular, so choose *was*: "The quality of the new office chairs was better than expected."
+*Quality* is singular, so choose *is*: "The quality of the new office chairs is better than expected."
 
-**Check:** Read the head and the verb alone: "The quality was better than expected." The plural *chairs* sits right before the verb, which is why *were* is tempting.
+**Check:** Read the head and the verb alone: "The quality is better than expected." The plural *chairs* sits right before the verb, which is why *are* is tempting.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -143,5 +142,5 @@ Some words are exceptions: with *some*, *most*, *all*, *half* or *a lot*, the no
 
 :::checklist
 - Singular third-person subject with a regular present verb: add its third-person ending, as in "The dog barks." {#verb-s}
-- A phrase between the subject and the verb: cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
+- A phrase that only adds optional detail between an ordinary noun subject and the verb: cover it and match the head, as in "The box of chocolates is on the table." {#nearest-noun}
 :::

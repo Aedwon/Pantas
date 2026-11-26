@@ -82,15 +82,15 @@ The answer is **Its**. *"Wagged it is tail"* fails, and the sentence shows owner
 
 ### #1: Singular, Plural, and Irregular Plural Owners
 
-Show ownership for: (a) the book belonging to Maria; (b) the room used by several teachers; (c) the books belonging to the children.
+Finish each sentence with ownership: (a) The bike belongs to Leo. It is ___ bike. (b) The bus is used by the players. It is the ___ bus. (c) The coats belong to the men. They are the ___ coats.
 
 **Solution:**
 
-1. For (a), *Maria* is singular, so add *'s*: **"Maria's book."**
-2. For (b), *teachers* is plural ending in *s*, so add *'*: **"the teachers' room."**
-3. For (c), *children* is plural without *s*, so add *'s*: **"the children's books."**
+1. For (a), *Leo* is singular, so add *'s*: **"It is Leo's bike."**
+2. For (b), *players* is plural ending in *s*, so add *'*: **"It is the players' bus."**
+3. For (c), *men* is plural without *s*, so add *'s*: **"They are the men's coats."**
 
-**Check:** *Maria* (one), *teachers* (many + *s*), *children* (many, no *s*).
+**Check:** Count the owners: one (*Leo's*), several (*players'*), several (*men's*). Each apostrophe sits where that number requires.
 
 ### #2: Expanding a Contraction
 
@@ -99,9 +99,7 @@ In *"It's been a long day,"* what does *it's* mean?
 **Solution:**
 
 1. Test *it is*: *"It is been a long day"* fails.
-2. Test *it has*: *"It has been a long day"* fits.
-
-Correct answer: **It has**.
+2. Test *it has*: **"It has been a long day"** fits, so *it's* means *it has*.
 
 **Check:** Read *"It has been a long day."* The helping verb *has* pairs directly with *been*.
 
@@ -119,7 +117,7 @@ Choose the form that completes the sentence: *"The bakery changed ___ opening ho
 
 **Solution:**
 
-1. *The bakery* is one organization.
+1. Read each choice in the blank before *opening hours*.
 
 :::try
 Finish the last step: choose the form that completes the sentence.

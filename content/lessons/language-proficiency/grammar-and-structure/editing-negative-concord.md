@@ -72,10 +72,12 @@ In standard formal English, revise: *"The clerk didn't give us no receipts."*
 
 **Solution:**
 
-1. Find the meaning and time: past refusal to give receipts.
+1. Find the meaning and time: no receipts were given in the past.
 2. Replace *no* with *any* after *didn't* so one negative pattern remains.
 
 Correct sentence: **"The clerk didn't give us any receipts."**
+
+**Check:** *"The clerk gave us no receipts"* says the same thing.
 
 ### #2: Reading Negative Concord Without Flipping Meaning
 

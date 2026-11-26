@@ -16,7 +16,7 @@ keyPoints:
 
 ### Switching Between Active and Passive Voice
 
-To change active to passive, move the **object** (what receives the action) into the subject spot. Only an active clause with an object or prepositional object can do this ("The child slept" has none). Use the matching form of *be* plus the past participle, and add *by* plus the agent if needed.
+To change active to passive for an action like approving a budget, move the **object** (what receives the action) into the subject spot. Only an active clause with an object or prepositional object can do this ("The child slept" has none). Use the matching form of *be* plus the past participle, and add *by* plus the agent if needed.
 
 <!-- ILLUSTRATION: two stacked sentences showing role swap: top "The committee [actor] approved [simple past] the new budget [receiver]." with crossing arrows to bottom "The new budget [subject] was approved [simple past passive] by the committee [agent]." -->
 
@@ -64,7 +64,7 @@ A **get-passive** uses *get* plus a past participle (*got broken*, *got delivere
 
 A *get*-passive is common in speech. In formal reports, replace *get* with a *be*-passive ("The window **was broken** during the storm").
 
-*Get* plus an adjective is not passive: "The package **got heavy**" describes a state. *Get* plus a participle is passive only when the subject receives an action: "The package **got delivered**" is passive, but "She **got tired**" is not, because *tired* works as an adjective.
+*Get* plus an adjective is not passive: "The package **got heavy**" means it became heavy. *Get* plus a participle is passive only when the subject receives an action: "The package **got delivered**" is passive, but "She **got tired**" is not, because *tired* works as an adjective.
 
 :::why
 Why do exams test *got broken* against *got heavy*? The word *got* can mean "became" (before an adjective), "obtained" (before a noun), or act as a passive helper (before a past participle naming an action done to the subject). Reading the verb group and the event together keeps the role clear.
@@ -73,13 +73,13 @@ Why do exams test *got broken* against *got heavy*? The word *got* can mean "bec
 :::pair #get-plus-participle
 Right: In "The window got broken during the storm," *got broken* is a get-passive.
 Wrong: Call it a linking construction with *got* meaning ownership of an object, or an active clause with the window as the actor causing the break.
-*The window* received the breaking, and *broken* is a past participle, not a noun owned or a state adjective.
+*The window* received the breaking, and *broken* is a past participle, not a noun owned or an adjective.
 :::
 
 :::check
 In "The bike got old" and "The bike got stolen," which verb group names something done to the bike?
 :::answer
-The answer is **"The bike got stolen."** It is a get-passive: *stolen* is a past participle naming an action done to the bike, while *old* is an adjective.
+The answer is **got stolen**. In "The bike got stolen," *stolen* is a past participle naming an action done to the bike. In "The bike got old," *old* is an adjective.
 :::
 
 ## Examples
@@ -94,6 +94,8 @@ Rewrite in active voice while keeping the completed past action: "The report was
 2. Match simple past *was typed* to simple past *typed*.
 
 Correct: "An intern typed the report."
+
+**Check:** Before and after, an intern is the one who typed the report, and the action stays in the past.
 
 ### #2: Active to Passive Without Losing Tense
 
@@ -121,14 +123,14 @@ Look at "The wooden fence got damaged during the typhoon."
 :::try
 Finish the last step: replace only *got* to make the sentence formal.
 :::answer
-The answer is **"The wooden fence was damaged during the typhoon."** Replace past *got* with singular past *was*, keeping *damaged* and past time unchanged. Rewriting it as active ("The typhoon damaged the wooden fence") is also formal but changes more than *got*.
+The answer is **"The wooden fence was damaged during the typhoon."** Only *got* changes to *was*; *damaged* stays.
 
-**Check:** Check all three points: *the wooden fence* receives the action, *was damaged* keeps simple past time, and *was* replaces informal *got*.
+**Check:** Compare with the original: the fence was damaged during the typhoon both times, so the time did not change.
 :::
 
 ## Speed Tricks & Shortcuts
 
-To change voice, swap the doer and receiver, then keep the time and aspect. With *get*, ask whether the subject receives an action: *get* + a participle naming that action is a *get*-passive, while *get* + adjective is a state.
+To change active to passive, move the receiver into the subject spot. To change passive to active, swap only when the doer is named. Then keep the time and aspect. With *get*, ask whether the subject receives an action: *get* + a participle naming that action is a *get*-passive, while *get* + adjective shows a change (*became*).
 
 ## Traps to Watch For
 

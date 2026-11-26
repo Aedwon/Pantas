@@ -16,7 +16,7 @@ keyPoints:
 
 ### Finite Verbs Carry Tense
 
-A **finite verb** is a verb form that can be the main verb of a clause. It often shows tense (present or past) or agreement with a subject, such as *walks, walked, is,* or *was*. *"Ana walks home"* becomes *"Ana walked home"* when time changes. A modal like *must* is finite but has one form: *"She must go."*
+A **finite verb** is the verb form that can anchor the verb group in a clause, including a helper such as *is*. It often shows tense (present or past) or agreement with a subject, such as *walks, walked, is,* or *was*. *"Ana walks home"* becomes *"Ana walked home"* when time changes. A modal like *must* is finite but has one form: *"She must go."*
 
 A **nonfinite verb** does not show tense by itself. Three common nonfinite forms:
 
@@ -84,7 +84,7 @@ In *"The driver is loading the boxes to deliver before leaving,"* identify which
 2. Look at the main verb group *is loading*: *is* carries present tense and agrees with *the driver*, while *loading* is an *-ing* participle.
 3. Check the remaining action words: *to deliver* is an infinitive and *leaving* is an *-ing* noun after *before*, so neither carries tense.
 
-The word that supplies the finite verb form is **is**.
+The word that supplies the finite verb form is **is**: "The driver **is** loading the boxes to deliver before leaving."
 
 **Check:** Shift to past time: only *is* changes, to *was*.
 

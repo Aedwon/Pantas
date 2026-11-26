@@ -93,7 +93,8 @@ Add a comma where needed: *"The clerk checked the form and the applicant signed 
 
 Correct sentence: **"The clerk checked the form, and the applicant signed it."**
 
-**Check:** Read both sides alone: *"The clerk checked the form."* *"The applicant signed it."*
+**Check:** The comma falls exactly where the first clause ends and a new subject begins: *form*, *and the applicant*.
+
 ### #3: Choosing the Correct Punctuation
 
 Choose the correctly punctuated sentence:
