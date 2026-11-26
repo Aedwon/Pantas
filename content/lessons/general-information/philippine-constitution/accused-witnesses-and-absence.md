@@ -14,17 +14,67 @@ keyPoints:
 ---
 ## Core Concept
 
-### Rights During a Criminal Trial
+### Section $14(2)$: Confrontation and Compulsory Process
 
-The accused may meet witnesses face to face. This lets the defense question people who testify against the accused and test what they say.
+Under Article III, Section $14(2)$, the accused may **meet the witnesses face to face**. This confrontation right lets the defense question adverse witnesses and test their testimony. Listening without questioning is not enough.
 
-**Compulsory process** means using court orders to bring defense witnesses and evidence to court. It helps the defense obtain needed proof even when a witness will not attend willingly.
+Section $14(2)$ also grants **compulsory process**. The defense may seek court orders, such as subpoenas, requiring defense witnesses to attend and bring records, even if unwilling.
 
-### Trial When the Accused Is Absent
+Test both rights when a state witness testifies and a reluctant mechanic holds a needed repair log:
 
-**Arraignment** is when the charge is formally read and the accused enters a plea, such as guilty or not guilty. After arraignment, trial may continue without the accused only if the accused was properly notified and has no valid reason for being absent.
+1. Check the state witness: confrontation lets the defense cross-examine that witness in court.
+2. Check the mechanic: compulsory process orders the mechanic to attend with the log.
 
-Check all these conditions. Absence alone does not let the court ignore the accused's rights.
+:::pair #confrontation-vs-compulsory
+Right: Confrontation tests testifying prosecution witnesses, while compulsory process summons reluctant defense witnesses.
+Wrong: Treating a ban on questioning a state witness as a compulsory-process issue.
+Questioning an adverse witness in court is confrontation; summoning a defense witness is compulsory process.
+:::
+
+:::check
+A former store clerk refuses to attend court willingly for an accused friend. Can the accused seek a court order under Section $14(2)$?
+:::answer
+The answer is **Yes**. Compulsory process compels reluctant defense witnesses and records to appear.
+:::
+
+### Section $14(2)$: Trial in the Accused's Absence
+
+**Arraignment** is when the charge is formally read and the accused enters a plea.
+
+Under Article III, Section $14(2)$, trial may proceed without the accused **only when all three hold**:
+
+1. Arraignment has already taken place,
+2. The accused was duly notified of the hearing, and
+3. The failure to appear is unjustifiable (no valid reason).
+
+Missing any one condition bars trial in absence. When all three hold, the trial may proceed, yet absence never proves guilt. The prosecution must still prove its case.
+
+Test a hearing where a pleaded accused misses court because the clerk mailed notice to an old wrong address:
+
+1. Check the conditions: arraignment occurred, yet proper notice failed.
+2. Apply Section $14(2)$: without due notice, trial cannot proceed in absence.
+
+:::why
+Why require arraignment and notice first? Arraignment confirms the accused knows the charge, and due notice gives a fair chance to appear.
+:::
+
+:::pair #absence-needs-all-three
+Right: Trial in absence requires prior arraignment, due notice, and an unjustifiable absence.
+Wrong: Proceeding on arraignment without notice, or claiming trial can never proceed in absence.
+All three Section $14(2)$ conditions must hold together before proceeding without the accused.
+:::
+
+:::pair #absence-not-proof-of-guilt
+Right: Lawful trial in absence lets the hearing proceed while the accused stays presumed innocent.
+Wrong: Treating unjustified absence after notice as proving guilt or forcing dismissal.
+The prosecution must still prove guilt even when trial proceeds in absence.
+:::
+
+:::check
+An accused skips her arraignment date without excuse after receiving notice, before any plea is entered. May trial proceed?
+:::answer
+The answer is **No**. Article III, Section $14(2)$ permits trial in absence only after arraignment.
+:::
 
 ## Examples
 
@@ -34,9 +84,12 @@ The defense cannot question a witness testifying against the accused. The court 
 
 **Solution:**
 
-1. The right to meet witnesses face to face lets the defense test testimony against the accused.
-2. Compulsory process lets the defense seek court orders for witnesses and records.
-3. The facts involve both safeguards.
+1. Check the state witness: meeting witnesses face to face lets the defense question adverse testimony.
+2. Check the defense witness: compulsory process orders needed defense witnesses and records to appear.
+
+Answer: Both confrontation of witnesses and compulsory process under Article III, Section $14(2)$.
+
+**Check:** Confrontation tests prosecution witnesses in court, while compulsory process brings reluctant defense witnesses and evidence.
 
 ### #2: Absence After Arraignment
 
@@ -44,6 +97,34 @@ After arraignment, an accused person receives proper notice of trial but stays a
 
 **Solution:**
 
-1. Arraignment has already taken place.
-2. The accused was properly notified and the absence has no valid excuse.
-3. Section $14$ permits trial to proceed under these conditions.
+1. Check prior steps: arraignment occurred, and the accused received proper notice.
+2. Check the excuse: the absence has no valid reason, meeting all three Section $14(2)$ conditions.
+
+Answer: Yes, Section $14(2)$ permits trial to proceed, though the prosecution must still prove guilt.
+
+**Check:** Arraignment, due notice, and unjustifiable absence allow trial to continue without shifting the burden of proof.
+
+### #3: Missing Notice After Plea
+
+An accused person pleads not guilty at arraignment, moves houses, and never receives notice of a new hearing date. When he misses court, the prosecutor asks to proceed with trial and treat his absence as proof of guilt. How does Section $14(2)$ apply?
+
+**Solution:**
+
+1. Check trial in absence: arraignment occurred, yet proper notice of the hearing was never given.
+2. Check absence effect: even a lawful trial in absence never proves guilt.
+
+:::try
+Finish the last step: rule on both the request to proceed without notice and the claim that absence proves guilt.
+:::answer
+The answer is **Trial cannot proceed without proper notice, and absence never proves guilt**. Under Article III, Section $14(2)$, trial in absence requires prior arraignment, due notice, and an unjustifiable absence. Even then, the accused stays presumed innocent.
+
+**Check:** Missing notice defeats trial in absence, and absence never substitutes for proof of the crime.
+:::
+
+## Traps to Watch For
+
+:::checklist
+- Defense barred from questioning a state witness: apply confrontation, not compulsory process. {#confrontation-vs-compulsory}
+- Accused misses trial after arraignment: verify proper notice and no valid excuse before proceeding. {#absence-needs-all-three}
+- Trial proceeds lawfully in absence: remember absence never proves guilt or forces dismissal. {#absence-not-proof-of-guilt}
+:::

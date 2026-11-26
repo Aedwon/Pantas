@@ -17,9 +17,9 @@
 | Batch | Chunk | Topic / Scope | Lessons | Written | Verified | Committed | Audited |
 |---|---|---|---:|---|---|---|---|
 | 6a | 6a-1 | Philippine Constitution: Article III Bill of Rights core (ord 1-13) | 13 | 13/13 | 13/13 PASS (R2: 0B/0M/2m fixed) | Committed & pushed | Pending (manager) |
-| 6a | 6a-2 | Philippine Constitution: Article III property/custody/bail & accused/trial (ord 14-24) | 11 | In progress | 0/11 | Pending | Pending (manager) |
-| 6a | 6a-3 | Philippine Constitution: Article III detention/punishment/double jeopardy/remedies (ord 25-35) | 11 | 0/11 | 0/11 | Pending | Pending (manager) |
-| 6b | 6b-1 | Philippine Constitution: Three Branches and Powers, Arts. VI-VIII (ord 36-46) | 11 | 0/11 | 0/11 | Pending | Pending (manager) |
+| 6a | 6a-2 | Philippine Constitution: Article III property/custody/bail & accused/trial (ord 14-24) | 11 | 11/11 | 11/11 PASS (R2: 0B/0M/0m) | Committed & pushed | Pending (manager) |
+| 6a | 6a-3 | Philippine Constitution: Article III detention/punishment/double jeopardy/remedies (ord 25-35) | 11 | 11/11 | Verifying | Pending | Pending (manager) |
+| 6b | 6b-1 | Philippine Constitution: Three Branches and Powers, Arts. VI-VIII (ord 36-46) | 11 | In progress | 0/11 | Pending | Pending (manager) |
 | 6b | 6b-2 | Philippine Constitution: Citizenship/Suffrage Arts. IV-V & Amending Art. XVII (ord 47-55) | 9 | 0/9 | 0/9 | Pending | Pending (manager) |
 | 6b | 6b-3 | Philippine Constitution: Civil Service Commission Arts. IX-A/IX-B (ord 56-63) | 8 | 0/8 | 0/8 | Pending | Pending (manager) |
 | 6b | 6b-4 | Philippine Constitution: Accountability/Impeachment Art. XI & Articles Outline (ord 64-76) | 13 | 0/13 | 0/13 | Pending | Pending (manager) |
@@ -37,3 +37,4 @@
 
 - 2026-11-26 15:53 Manila (07:53 UTC): Initialized GI lane state, logged `E-199` on `main` (`ef3670e57`), starting Chunk 6a-1 (13 active lessons, Article III Bill of Rights core).
 - 2026-11-26 16:31 Manila (08:31 UTC): Chunk 6a-1 verified PASS (R2: 0 Blockers, 0 Majors, 2 Minors fixed directly), 32 pairs / 47 citations folded into `content/walkthrough-trap-evidence-gi.json`, committed & pushed; Chunk 6a-2 writer running.
+- 2026-11-26 16:52 Manila (08:52 UTC): Chunk 6a-2 verified PASS (R2: 0 Blockers, 0 Majors, 0 Minors), 33 pairs / 55 citations folded into `content/walkthrough-trap-evidence-gi.json` (24/170 verified & pushed); Chunk 6a-3 verifier and Chunk 6b-1 writer running.

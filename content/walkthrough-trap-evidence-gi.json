@@ -324,6 +324,369 @@
           "mistakeNote": "Catches retroactive criminalization but misses direct punishment without a judicial trial."
         }
       ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-property-and-contracts": {
+      "public-use-still-pays": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0011",
+          "wrongChoice": "A public purpose allows the government to take property without paying.",
+          "mistakeNote": "Treats public purpose as excusing payment when private property is taken."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0001",
+          "wrongChoice": "A promise that the owner may use the finished public project",
+          "mistakeNote": "Substitutes access to the finished public project for full and fair payment."
+        }
+      ],
+      "contract-public-welfare-balance": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0010",
+          "wrongChoice": "Any effect on an existing contract makes a later law unconstitutional.",
+          "mistakeNote": "Assumes any impact on an existing contract automatically violates Section 10 without weighing public-welfare regulation."
+        }
+      ],
+      "welfare-label-no-erasure": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0010",
+          "wrongChoice": "Calling a law a public-welfare measure permits it to erase any contract duty.",
+          "mistakeNote": "Treats a bare public-welfare label as removing constitutional limits on impairing valid contract duties."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-court-access-and-legal-help": {
+      "quasi-judicial-included": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0004",
+          "wrongChoice": "The protection applies only if the board is renamed a court.",
+          "mistakeNote": "Ignores that Section 11 protects access to quasi-judicial bodies based on their dispute-deciding role, not their title."
+        }
+      ],
+      "access-and-help-separate": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0005",
+          "wrongChoice": "A litigant must be denied filing before a denial of legal assistance can matter.",
+          "mistakeNote": "Collapses filing access and adequate legal assistance instead of enforcing both protections independently."
+        }
+      ],
+      "legal-help-not-custody-only": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0005",
+          "wrongChoice": "The Constitution protects legal assistance only during custodial investigation.",
+          "mistakeNote": "Limits legal-assistance protection to Section 12 custody and misses Section 11's protection in court and agency cases."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-custodial-silence-counsel-and-waiver": {
+      "custody-by-restraint": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0006",
+          "wrongChoice": "The investigators have not yet announced a formal arrest.",
+          "mistakeNote": "Requires a formal arrest announcement instead of checking whether liberty is significantly restricted during questioning."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0006",
+          "wrongChoice": "The suspect has not yet signed a statement.",
+          "mistakeNote": "Delays custodial safeguards until a statement is signed rather than applying them during custodial questioning."
+        }
+      ],
+      "counsel-free-if-indigent": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0007",
+          "wrongChoice": "Proof that the suspect can pay the lawyer",
+          "mistakeNote": "Mistakes ability to pay for a requirement when Section 12(1) requires free competent and independent counsel if indigent."
+        }
+      ],
+      "waiver-both-writing-and-counsel": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0008",
+          "wrongChoice": "The waiver is sufficient because counsel heard the agreement.",
+          "mistakeNote": "Accepts an oral waiver in counsel's presence and drops Section 12(1)'s writing requirement."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0008",
+          "wrongChoice": "The waiver is sufficient if an investigator remembers the suspect's words.",
+          "mistakeNote": "Substitutes an investigator's memory for the required written waiver."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-custodial-force-and-statements": {
+      "secret-detention-always-barred": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0009",
+          "wrongChoice": "The arrangement is allowed if questioning has not produced a confession.",
+          "mistakeNote": "Conditions the ban on secret detention on obtaining a confession instead of barring secret detention outright."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0009",
+          "wrongChoice": "Only physical violence is prohibited during detention.",
+          "mistakeNote": "Narrows Section 12(2) to physical violence and ignores its express ban on secret and incommunicado detention."
+        }
+      ],
+      "admissions-excluded-too": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0012",
+          "wrongChoice": "Yes, because only a full confession can be excluded.",
+          "mistakeNote": "Limits Section 12(3) exclusion to full confessions and overlooks admissions."
+        }
+      ],
+      "section-17-before-conviction": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0013",
+          "wrongChoice": "It applies only after the person has been convicted.",
+          "mistakeNote": "Restricts Section 17 protection against compelled self-incrimination to post-conviction testimony."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-bill-of-rights-bail-before-conviction": {
+      "bail-secures-appearance": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0002",
+          "wrongChoice": "That the accused will be found innocent",
+          "mistakeNote": "Confuses securing appearance on bail with deciding innocence at trial."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0002",
+          "wrongChoice": "That the case will end without a trial",
+          "mistakeNote": "Treats pretrial bail release as ending the criminal case."
+        }
+      ],
+      "bail-exception-two-parts": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0014",
+          "wrongChoice": "The official is correct because the penalty alone satisfies the exception.",
+          "mistakeNote": "Relies solely on reclusion perpetua and drops the strong-evidence requirement."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0016",
+          "wrongChoice": "A minor charge with weak evidence merely because a prosecutor opposes release",
+          "mistakeNote": "Substitutes a prosecutor's opposition on a minor charge for Section 13's two-part exception."
+        }
+      ],
+      "bail-survives-suspension": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0015",
+          "wrongChoice": "Suspension automatically removes the right to bail for every detained person.",
+          "mistakeNote": "Assumes suspending the habeas corpus privilege removes the right to bail."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-property-courts-and-custody-0015",
+          "wrongChoice": "The right to bail remains, but suspension permits excessive bail.",
+          "mistakeNote": "Assumes writ suspension suspends Section 13's ban on excessive bail."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-accused-charge-and-defense": {
+      "presumption-not-immunity": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0007",
+          "wrongChoice": "Automatic release from every criminal proceeding",
+          "mistakeNote": "Turns the presumption of innocence into total immunity from criminal trial proceedings."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0007",
+          "wrongChoice": "Automatic pardon before any court hears the case",
+          "mistakeNote": "Confuses a starting presumption of innocence with a pardon before trial."
+        }
+      ],
+      "notice-vs-other-trial-rights": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0002",
+          "wrongChoice": "The right to a public trial",
+          "mistakeNote": "Confuses knowing the charged crime and alleged acts with keeping the trial open to observers."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0002",
+          "wrongChoice": "The right to meet witnesses face to face",
+          "mistakeNote": "Confuses notice of the accusation with cross-examining adverse witnesses."
+        }
+      ],
+      "heard-by-self-and-counsel": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0003",
+          "wrongChoice": "The right to have a case resolved without unreasonable delay",
+          "mistakeNote": "Confuses refusing to let the accused and counsel answer the charge with prompt case resolution."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0003",
+          "wrongChoice": "The right to obtain defense witnesses through court orders",
+          "mistakeNote": "Confuses the right to be heard personally and by counsel with compulsory process for defense witnesses."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-accused-fair-and-speedy-trial": {
+      "speedy-not-instant": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0012",
+          "wrongChoice": "Treat any postponement as a violation without examining its reason",
+          "mistakeNote": "Treats every schedule postponement as a speedy-trial violation without checking the four delay factors."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0012",
+          "wrongChoice": "Decide solely from how much time passed",
+          "mistakeNote": "Relies solely on elapsed days and omits reasons, assertion of the right, and resulting harm."
+        }
+      ],
+      "public-trial-lawful-limits": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0005",
+          "wrongChoice": "Public attendance depends entirely on the prosecution's preference",
+          "mistakeNote": "Substitutes prosecutorial preference for lawful grounds to limit public attendance."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0005",
+          "wrongChoice": "Only the announcement of the judgment must be open to the public",
+          "mistakeNote": "Restricts the public-trial safeguard to verdict announcement instead of the trial itself."
+        }
+      ],
+      "impartiality-independent-from-speed": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0006",
+          "wrongChoice": "Public observation",
+          "mistakeNote": "Selects public access when the facts show judicial favoritism in an open courtroom."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0006",
+          "wrongChoice": "Speed",
+          "mistakeNote": "Selects promptness when the defect is a judge favoring the prosecution."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-accused-witnesses-and-absence": {
+      "confrontation-vs-compulsory": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0007",
+          "wrongChoice": "The right to compel a defense witness to attend",
+          "mistakeNote": "Confuses questioning an already-testifying prosecution witness with summoning a defense witness."
+        }
+      ],
+      "absence-needs-all-three": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0008",
+          "wrongChoice": "Yes, because arraignment removes the need for notice of trial",
+          "mistakeNote": "Drops Section 14(2)'s due-notice requirement once arraignment occurs."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0008",
+          "wrongChoice": "No, because trial can never proceed when the accused is absent",
+          "mistakeNote": "Overstates the rule by denying that trial in absence can ever proceed even when all three conditions hold."
+        }
+      ],
+      "absence-not-proof-of-guilt": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0009",
+          "wrongChoice": "It proves the accused committed the crime",
+          "mistakeNote": "Treats an unjustified absence after arraignment and notice as proving guilt."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0009",
+          "wrongChoice": "It requires the court to dismiss the charge",
+          "mistakeNote": "Assumes an accused's unjustified absence forces dismissal instead of letting trial proceed."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-habeas-corpus-suspension": {
+      "habeas-protects-liberty": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0006",
+          "wrongChoice": "Freedom from all state property assessments",
+          "mistakeNote": "Confuses detention review under habeas corpus with challenging property tax assessments."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0006",
+          "wrongChoice": "Property rights in municipal land disputes",
+          "mistakeNote": "Confuses personal custody review with municipal land possession disputes."
+        }
+      ],
+      "both-suspension-conditions": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0010",
+          "wrongChoice": "Rebellion alone makes the proposed ground sufficient",
+          "mistakeNote": "Drops Section 15's requirement that public safety must also require suspension."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0011",
+          "wrongChoice": "Any emergency declaration automatically suspends the privilege",
+          "mistakeNote": "Treats a general emergency declaration as replacing invasion or rebellion."
+        }
+      ],
+      "suspension-never-blank-power": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0035",
+          "wrongChoice": "The conclusion is correct because suspension supplies a legal basis for every detention",
+          "mistakeNote": "Treats valid suspension of habeas corpus as making every detention lawful."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-0035",
+          "wrongChoice": "The conclusion is correct because public safety cancels all trial safeguards",
+          "mistakeNote": "Assumes suspending the writ's privilege cancels all trial rights."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-speedy-disposition-of-cases": {
+      "covers-all-three-bodies": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0001",
+          "wrongChoice": "Only a criminal trial court, with all other adjudicative bodies excluded",
+          "mistakeNote": "Restricts Section 16 to criminal trial courts and drops quasi-judicial and administrative bodies."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0001",
+          "wrongChoice": "Only a court deciding an appeal after a criminal trial has ended",
+          "mistakeNote": "Limits Section 16 to criminal appeals instead of all judicial, quasi-judicial, and administrative bodies."
+        }
+      ],
+      "speedy-trial-vs-disposition": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0013",
+          "wrongChoice": "Neither protection reaches the agency because it is outside the courts",
+          "mistakeNote": "Assumes non-court agencies fall outside Section 16's speedy-disposition safeguard."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0013",
+          "wrongChoice": "Speedy disposition reaches the agency only after a criminal charge is filed",
+          "mistakeNote": "Requires a criminal charge before Section 16 covers administrative agency proceedings."
+        }
+      ],
+      "coverage-not-automatic-violation": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0014",
+          "wrongChoice": "The reply is wrong, so every postponed hearing automatically violates the right",
+          "mistakeNote": "Equates Section 16 coverage with an automatic violation on any postponement without checking reasons and circumstances."
+        }
+      ]
+    },
+    "lesson-philippine-constitution-forced-self-incrimination": {
+      "applies-beyond-accused-and-police": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0015",
+          "wrongChoice": "It is unavailable because the witness has not been criminally charged",
+          "mistakeNote": "Limits Section 17 to criminally charged persons rather than any person forced to give self-incriminating testimony."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0015",
+          "wrongChoice": "It is unavailable because the questioning is outside police investigation",
+          "mistakeNote": "Confuses Section 17 with Section 12 custodial investigation and restricts it to police questioning."
+        }
+      ],
+      "written-confession-is-testimonial": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0016",
+          "wrongChoice": "Only spoken statements can be testimonial evidence",
+          "mistakeNote": "Excludes forced written confessions from testimonial evidence under Section 17."
+        }
+      ],
+      "not-blanket-physical-ban": [
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0016",
+          "wrongChoice": "Compulsion makes every demand for physical evidence a violation of this protection",
+          "mistakeNote": "Turns Section 17 into a ban on all compelled physical evidence rather than compelled testimonial self-incrimination."
+        },
+        {
+          "questionId": "q-philippine-constitution-bill-of-rights-the-accused-and-the-trial-0015",
+          "wrongChoice": "It allows the witness to refuse every kind of evidence regardless of its nature",
+          "mistakeNote": "Overstates Section 17 as a blanket refusal right covering non-testimonial physical evidence."
+        }
+      ]
     }
   }
 }

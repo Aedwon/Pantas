@@ -16,15 +16,63 @@ keyPoints:
 
 ## Core Concept
 
-### Rights During a Criminal Trial
+### Section $14$: Due Process and Presumption of Innocence
 
-An **accused person** is someone charged with a crime. Article III, Section $14$ requires **due process**, a fair legal process, before that person may be made to answer for a crime.
+An **accused person** is someone charged with a crime. Article III, Section $14(1)$ requires **due process of law**, a fair legal process, before anyone answers for a crime.
 
-The accused is **presumed innocent** until the contrary is proved. A charge is a claim that a crime was committed. It is not proof of guilt, and the prosecution must prove its case.
+Under Section $14(2)$, the accused is **presumed innocent** until the contrary is proved. A charge is an accusation, never proof of guilt, so the prosecution must prove its case.
 
-The accused may be heard personally and through **counsel**, a lawyer. This protects the chance to answer the charge and present a defense. Keeping the accused and the lawyer from answering raises this right.
+Presumed innocence does not mean automatic release from trial, automatic pardon, or a ban on lawful police questions. Trial proceedings still test guilt.
 
-The accused must know the **nature and cause of the accusation**. This means knowing the crime charged and the acts claimed to make up that crime. A person cannot prepare a defense to a hidden charge.
+Test Section $14(2)$ when a prosecutor says an indictment forces the accused to prove an alibi first:
+
+1. Check the charge: filing a charge is an accusation, not evidence of guilt.
+2. Apply Section $14(2)$: the accused starts presumed innocent, so the prosecution proves guilt first.
+
+:::why
+Why keep the proof burden on the prosecution? The state brings charges with full official power, so fairness requires proving guilt before punishment.
+:::
+
+:::pair #presumption-not-immunity
+Right: Presumption of innocence requires the prosecution to prove guilt at a lawful trial.
+Wrong: Treating presumption of innocence as automatic release or a pardon before trial.
+The presumption keeps the proof burden on the prosecution without barring lawful proceedings.
+:::
+
+:::check
+A fraud suspect claims the presumption of innocence bars investigators from asking any lawful question. Is that right?
+:::answer
+The answer is **No**. Presumption of innocence requires proving guilt at trial, not banning lawful investigation.
+:::
+
+### Section $14(2)$: Knowing and Answering the Charge
+
+Article III, Section $14(2)$ gives the accused the right to know the **nature and cause of the accusation**. The accused must know the crime charged and the alleged acts behind it.
+
+Section $14(2)$ also guarantees the right to **be heard by himself and counsel**. This protects answering the charge personally and through a lawyer. These differ from public observation, witness confrontation, witness orders, or trial speed.
+
+Test a hearing where a clerk hands out a blank summons naming no acts and silences defense counsel:
+
+1. Check notice: hiding the crime and alleged acts denies notice of nature and cause.
+2. Check reply: silencing the accused and lawyer denies the right to be heard.
+
+:::pair #notice-vs-other-trial-rights
+Right: Asking what crime and acts are alleged invokes notice of the accusation's nature and cause.
+Wrong: Calling a request for the charge details a public-trial or witness-confrontation issue.
+Notice tells the accused what to answer, while public observation and confrontation govern how trial runs.
+:::
+
+:::pair #heard-by-self-and-counsel
+Right: Barring the accused and defense lawyer from answering breaks the right to be heard.
+Wrong: Treating a refusal to hear the defense as a speedy-disposition or subpoena issue.
+Even a fast, public hearing violates Section $14(2)$ if it silences the defense reply.
+:::
+
+:::check
+A charge sheet says only "Violation last Tuesday" without naming the crime or alleged acts. Which right is missing?
+:::answer
+The answer is **Notice of the nature and cause of the accusation**. An accused cannot prepare a defense to a hidden charge.
+:::
 
 ## Examples
 
@@ -34,9 +82,12 @@ An official says that filing a criminal charge requires the accused to prove inn
 
 **Solution:**
 
-1. Section $14$ presumes the accused innocent until the contrary is proved.
-2. Filing a charge does not prove guilt or shift the prosecution's duty to prove its case.
-3. The safeguard is the presumption of innocence.
+1. Check Section $14(2)$: the accused is presumed innocent until the contrary is proved.
+2. Check the charge: an accusation never proves guilt or shifts the prosecution's proof duty.
+
+Answer: The presumption of innocence under Article III, Section $14(2)$.
+
+**Check:** A criminal charge opens a test of proof, leaving the burden on the prosecution.
 
 ### #2: Knowing and Answering the Charge
 
@@ -44,14 +95,34 @@ An accused person is brought to trial without being told the charge. The court a
 
 **Solution:**
 
-1. The accused must know the crime charged and the acts behind the charge.
-2. The accused must be allowed to be heard personally and through counsel.
-3. The facts affect both the right to know the accusation and the right to be heard with counsel.
+1. Check notice: Section $14(2)$ requires telling the accused the crime charged and alleged acts.
+2. Check defense reply: Section $14(2)$ protects the right to be heard personally and by counsel.
+
+Answer: Both notice of the accusation's nature and cause and the right to be heard by self and counsel.
+
+**Check:** Notice lets the defense prepare, and being heard lets the accused and counsel answer.
+
+### #3: Fast Open Trial Without a Defense Reply
+
+A judge holds a prompt, public robbery trial. The court reads a clear charge naming the store, date, and acts, then hears prosecution witnesses. Next, the judge bars the accused and her counsel from answering. Which Section $14(2)$ right is denied, and do speed and openness cure it?
+
+**Solution:**
+
+1. Check notice: reading the crime and alleged acts gave notice of nature and cause.
+2. Check the refusal: silencing the accused and counsel blocks their reply to the prosecution.
+
+:::try
+Finish the last step: name the denied Section $14(2)$ right and explain why speed and openness do not cure it.
+:::answer
+The answer is **The right to be heard personally and through counsel is denied, and speed and openness do not cure it**. Section $14(2)$ protects each defense right separately. Holding a fast, public hearing never replaces hearing the accused and counsel.
+
+**Check:** Full notice and prompt open proceedings leave only the refusal to hear the defense reply.
+:::
 
 ## Traps to Watch For
 
-### #1: A Charge Is Not Proof
-
-> Filing a charge does not make the accused guilty.
-
-The accused remains presumed innocent. Do not choose an answer that makes the charge itself proof of guilt.
+:::checklist
+- Accused claims presumption of innocence bars trial: keep the proof burden on the prosecution without excusing trial. {#presumption-not-immunity}
+- Accused asks what crime and acts are alleged: match that to notice, not public trial or witnesses. {#notice-vs-other-trial-rights}
+- Court hears only the prosecution: flag denial of the right to be heard personally and by counsel. {#heard-by-self-and-counsel}
+:::
