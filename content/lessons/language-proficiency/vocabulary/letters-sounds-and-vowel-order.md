@@ -14,14 +14,12 @@ keyPoints:
 ---
 ## Core Concept
 
-Spelling has patterns, but some words must be learned one by one. Use a pattern to check a word. Do not let it overrule a standard spelling you know.
-
+Spelling has patterns, but some words must be learned one by one. Use a pattern to check a word.
 ### Letters and Sounds
 
 The letters **a, e, i, o, u** are the main **vowel** letters in English. Vowel sounds are made without blocking the flow of air. Sometimes *y* also works as a vowel, as in *my*.
 
-Most other letters usually stand for **consonant** sounds. Consonant sounds usually involve blocking or narrowing the flow of air with the lips, tongue, or teeth. Examples include the sounds of *p*, *t*, and *s*.
-
+Most other letters usually stand for **consonant** sounds. Consonant sounds usually involve blocking or narrowing the flow of air with the lips, tongue, or teeth.
 A **syllable** is a beat in a word. It usually has one main vowel sound. **Stress** is the extra force used to say one syllable.
 
 - *Begin* has stress on its last syllable.
@@ -41,8 +39,6 @@ The answer is one. The letters *ie* together make one vowel sound, so *field* ha
 ### The Limited I Before E Rhyme
 
 The rhyme “i before e except after c” helps with words such as *believe*, *receive*, and *deceive*. It does not work for every English word.
-
-Here is the rhyme on two words.
 
 - *Believe*: no c before the pair, so write *ie*.
 - *Receive*: c before the pair, so write *ei*.

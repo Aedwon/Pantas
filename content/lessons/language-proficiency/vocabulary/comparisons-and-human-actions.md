@@ -82,7 +82,6 @@ D) Simile
 1. Whispering means speaking very softly. The wind cannot speak.
 2. Giving this human action to the wind creates personification. Answer: **C**.
 
-**Check:** The line has no *like* or *as*, and it names no exaggeration.
 
 ### #2: Metaphor
 
@@ -98,7 +97,6 @@ D) Onomatopoeia
 1. The line presents hope as a bird. It compares two different things directly.
 2. This comparison is a metaphor. Answer: **A**.
 
-**Check:** The line says *is*, not *is like*.
 
 ### #3: The Moonlit Lake
 

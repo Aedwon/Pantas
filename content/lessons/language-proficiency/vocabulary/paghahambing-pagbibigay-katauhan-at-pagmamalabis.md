@@ -78,7 +78,6 @@ D) Pagbibigay-katauhan
 1. Hindi totoong umuulan ng salapi. Sobra ang paglalarawan sa dami ng kita.
 2. Ang sadyang pagsobra sa paglalarawan ay pagmamalabis. Sagot: **B**.
 
-**Check:** Walang paghahambing at walang kilos ng tao. Sobra lamang ang paglalarawan.
 
 ### #2: Pagtutulad
 
@@ -94,7 +93,6 @@ D) Pagwawangis
 1. Inihahambing ang tinig sa banayad na agos ng ilog gamit ang *parang*.
 2. Ang ganitong paghahambing ay pagtutulad. Sagot: **B**.
 
-**Check:** Alisin ang *parang*. Mawawala ang palatandaan ng pagtutulad.
 
 ### #3: Pagwawangis
 
@@ -126,7 +124,6 @@ D) Pagwawangis
 1. Ang pagyakap ay kilos ng tao. Hindi literal na yumayakap ang gabi.
 2. Binigyan ng kilos ng tao ang gabi. Ito ay pagbibigay-katauhan. Sagot: **C**.
 
-**Check:** Ang gabi ay hindi tao, ngunit may kilos ng tao.
 
 ### #5: Ulan sa Bubong
 

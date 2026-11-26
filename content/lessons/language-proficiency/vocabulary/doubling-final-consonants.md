@@ -116,7 +116,6 @@ D) begininning
 
 The spelling is **beginning**. Answer: **A**.
 
-**Check:** Say the finished word in parts: *be-gin-ning*.
 
 ### #3: An Unstressed Final Syllable
 
@@ -135,7 +134,6 @@ D) vissiting
 
 The spelling is **visiting**. Answer: **C**.
 
-**Check:** *Begin* has stress on its last beat and doubles. *Visit* does not, so it stays single.
 
 ### #4: Limits of Doubling
 

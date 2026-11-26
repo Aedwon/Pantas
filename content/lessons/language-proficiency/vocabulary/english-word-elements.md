@@ -72,7 +72,6 @@ D) fast
 1. *Pseudo-* means false or imitation.
 2. **Pseudoscientific** describes something presented as science that is not genuine science. Answer: **B**.
 
-**Check:** *Pseudoscience* is false science. The prefix gives the same idea.
 
 ### #2: Parts and Context Together
 
@@ -88,7 +87,6 @@ D) angry shouting
 1. *Circum-* suggests around, and *locut-* relates to speaking.
 2. **Circumlocution** means an indirect, wordy way of speaking. Answer: **B**.
 
-**Check:** A reply that was criticized fits an indirect, wordy style.
 
 ### #3: Contrasting Elements
 

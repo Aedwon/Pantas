@@ -71,7 +71,7 @@ D) Helpful means without help; quickly means without speed.
 
 **Check:** Replace the words in bold: "The clerk full of help answered in a quick way." Both meaning and grammar match **B**.
 
-### #2: An Ending with a Different Job
+### #2: The Garden
 
 In "A **lovely** garden surrounded the house," what job does the word in bold do?
 
@@ -82,14 +82,14 @@ D) It names a group of houses.
 
 **Solution:**
 
-1. **Lovely** ends in *-ly*, but it does not tell how an action happens.
+1. The ending *-ly* does not settle the job. See how **lovely** is used in the sentence.
 
 :::try
-Finish the last step: which choice names the job *lovely* does in this sentence?
+Finish the last step: which choice names the job *lovely* does?
 :::answer
 The answer is **C**, **it describes the garden**. *Lovely* sits before the noun *garden*, so it is an adjective despite its *-ly* ending.
 
-**Check:** Say "a lovely garden." The word describes the noun *garden*.
+**Check:** "A lovely garden surrounded the house." *Lovely* describes the noun *garden*, not an action.
 :::
 
 ## Traps to Watch For

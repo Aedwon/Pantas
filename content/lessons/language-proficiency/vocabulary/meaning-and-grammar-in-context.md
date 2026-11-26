@@ -89,8 +89,7 @@ D) avoiding tasks to reduce effort
 2. He does this to gain favor.
 3. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
 
-**Check:** Read it back: "The assistant gave too much praise to win approval." That matches praising every idea to gain favor.
-
+**Check:** Read it back: "The assistant gave too much praise to win approval."
 ### #3: Keeping the Same Grammar
 
 The committee will **decide** tomorrow. Which word can replace the word in bold without changing the sentence's meaning or grammar?

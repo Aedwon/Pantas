@@ -29,7 +29,7 @@ The answer is a synonym. Both words mean bold and willing to take risks.
 
 ### Word Pairings
 
-A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. For a large amount of rain, snow or traffic, *heavy* is the usual partner.
+A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. For a large amount, *heavy* is a usual partner.
 
 :::pair #heavy-rain
 Right: The road closed during heavy rain.
@@ -53,18 +53,18 @@ An **antonym** is a word with an opposite or contrasting meaning. The right oppo
 :::pair #mitigate-opposite
 Right: The opposite of *mitigate* is *aggravate*.
 Wrong: The opposite of *mitigate* is *alleviate*.
-*Alleviate* means to ease, so it is a synonym. Check that the task asks for an opposite.
+*Alleviate* means to ease, so it is a synonym, not an opposite.
 :::
 
 :::check
-Is *fleeting* a synonym or an antonym of *ephemeral*?
+Is *scarce* a synonym or an antonym of *abundant*?
 :::answer
-The answer is a synonym. Both words mean lasting for a very short time.
+The answer is an antonym. *Abundant* means plentiful, and *scarce* means hard to find enough of.
 :::
 
 ## Examples
 
-### #1: English Synonym
+### #1: The Word Ephemeral
 
 Choose the word closest in meaning to the word in bold: **ephemeral**.
 
@@ -81,7 +81,7 @@ D) rigid
 
 **Check:** "A fleeting moment" and "an ephemeral moment" mean the same.
 
-### #2: English Antonym
+### #2: The Word Mitigate
 
 Select the word most nearly opposite to the word in bold: **mitigate**.
 
@@ -98,7 +98,7 @@ D) isolate
 
 **Check:** Mitigate makes a problem smaller. Aggravate makes it bigger.
 
-### #3: Using a Common Word Pairing
+### #3: Weather Words
 
 Which phrase sounds most natural in standard English?
 
@@ -116,7 +116,7 @@ Finish the last step: which choice is the natural English pairing?
 :::answer
 The answer is **D**, **heavy snow**. A large amount of snow takes *heavy*, not *strong*, *powerful*, or *mighty*.
 
-**Check:** Read it in a sentence: "The road closed during heavy snow." It sounds natural in standard English.
+**Check:** "Heavy snow fell on the town overnight." It sounds natural in standard English.
 :::
 
 ## Speed Tricks & Shortcuts

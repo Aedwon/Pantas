@@ -18,7 +18,7 @@ keyPoints:
 
 A **noun** names a person, place, thing, or idea. An **adjective** describes a noun. An **adverb** can describe how an action happens, and a **verb** tells an action or state.
 
-The suffix **-ful** means "full of" or "having." *Helpful* describes someone or something that gives help, so it is an adjective.
+The suffix **-ful** often means "full of" or "having." *Helpful* describes someone or something that gives help, so it is an adjective.
 
 The suffix **-less** means "without." *Careless* describes someone who does not take enough care. It is also an adjective.
 
@@ -71,7 +71,7 @@ D) It forms an adverb telling how an action happens.
 
 **Check:** Replace it with "the quality of being kind." "The quality of being kind comforted the child" keeps the meaning.
 
-### #2: A Suffix Meaning Without
+### #2: The Family After the Fire
 
 The family was **homeless** after the fire. Which phrase best gives the meaning of the word in bold?
 
@@ -82,23 +82,23 @@ D) building a home
 
 **Solution:**
 
-1. Break the word into parts: the base is *home*, and the suffix is *-less*.
+1. Break **homeless** into its base and its suffix.
 
 :::try
-Finish the last step: what does *-less* mean, and which choice gives the meaning of *homeless*?
+Finish the last step: what does the suffix mean, and which choice gives the meaning of *homeless*?
 :::answer
-The answer is **A**, **without a home**. *-Less* means "without," so *homeless* means without a home.
+The base is *home*, and the suffix is *-less*, which means "without." So *homeless* means without a home. The answer is **A**, **without a home**.
 
 **Check:** "The family was without a home after the fire" keeps the meaning.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Ask what a suffix adds and what job the new word does. A meaning clue and a sentence clue should agree.
+Ask what a suffix adds and what job the new word does.
 
 ## Traps to Watch For
 
 :::checklist
-- -ful and -less: -ful means having, and -less means lacking. {#ful-less}
+- -ful and -less: in words like *helpful*, -ful means having, and -less means lacking. {#ful-less}
 - -ness: it makes a noun that names a quality, not a describing word. {#ness-noun}
 :::

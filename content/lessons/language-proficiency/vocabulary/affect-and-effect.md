@@ -102,8 +102,7 @@ D) effected
 2. C and D are verbs. A, *affect*, is usually a verb too. This leaves B.
 3. The noun *effect* means a result. Answer: **B**.
 
-**Check:** Read it back: "The new schedule had a positive effect on attendance." The result is good attendance.
-
+**Check:** "The new schedule had a positive effect on attendance."
 ### #3: Bringing About Change
 
 Which sentence uses the word in bold correctly?

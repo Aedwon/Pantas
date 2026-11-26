@@ -93,7 +93,6 @@ D) laguhan
 1. Ang ugat ay *sikap*. May *pinag-* sa unahan, *-um-* sa loob, at *-an* sa hulihan.
 2. May panlapi sa tatlong puwesto, kaya **laguhan** ito. Sagot: **D**.
 
-**Check:** Bilangin ang puwesto. Unahan, loob, at hulihan ang may panlapi.
 
 ### #3: Pagsuri sa Uri ng Panlapi
 

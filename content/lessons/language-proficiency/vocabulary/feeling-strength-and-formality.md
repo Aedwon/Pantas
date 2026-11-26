@@ -103,7 +103,6 @@ D) fire up
 1. The notice tells people when an examination begins. It needs wording that fits an official message.
 2. **Commence** means begin and is formal. The answer is **A**.
 
-**Check:** Read it back: “The examination will commence at 8:00 a.m.” It sounds like an official notice.
 
 ### #2: Keeping a Positive Tone
 
@@ -119,7 +118,6 @@ D) bony
 1. The word *praised* shows that the description is positive.
 2. **Slender** describes a thin build with a positive tone. The answer is **B**.
 
-**Check:** Put *slender* in the sentence: “The article praised the athlete's slender build.” *Praised* and *slender* both sound positive.
 
 ### #3: Matching Intensity
 

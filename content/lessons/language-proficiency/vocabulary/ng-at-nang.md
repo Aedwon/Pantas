@@ -97,7 +97,6 @@ D) nang; nang
 1. Mangga ang binili, kaya *ng* ang unang sagot.
 2. Ipinakikita ng *anak ng guro* ang ugnayan ng anak at guro, kaya **ng** din ang ikalawa: "Bumili ng mangga si Ana para sa anak ng guro." Sagot: **A**.
 
-**Check:** Walang paraan ng kilos o *noong* sa pangungusap, kaya hindi kailangan ang *nang*.
 
 ### #3: Dami o Sukat
 
@@ -129,7 +128,6 @@ D) may
 1. Ang *hapon* ay bahagi ng araw.
 2. Gamitin ang **ng**: "Nagsimula ang programa sa alas-tres ng hapon." Sagot: **B**.
 
-**Check:** Hindi paraan ng kilos ang *hapon*, kaya hindi *nang*.
 
 ### #5: Oras at Paulit-ulit na Kilos
 

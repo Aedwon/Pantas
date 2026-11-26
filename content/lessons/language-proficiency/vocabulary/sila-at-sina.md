@@ -58,7 +58,6 @@ D) Ang
 1. Sinusundan ang patlang ng mga pangalan ng tao.
 2. Gamitin ang **sina**: "Sina Maria, Jose, at Juan ay naghanda para sa pagsusulit." Sagot: **B**.
 
-**Check:** Hindi puwede ang *sila* dahil may mga pangalan pang kasunod.
 
 ### #2: Pamalit sa mga Pangalan
 

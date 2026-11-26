@@ -16,7 +16,7 @@ keyPoints:
 
 ### Idioms and Literal Meanings
 
-An **idiom** is a familiar expression whose meaning may differ from the meanings of its separate words. For example, *back to square one* means returning to the beginning of a process.
+An **idiom** is a familiar expression whose meaning may differ from the meanings of its separate words. *Back to square one* means returning to the beginning of a process.
 
 A **literal** meaning is the direct meaning of the words. The same words can be literal in one setting and an idiom in another. Read what happens around the phrase to decide.
 
@@ -76,8 +76,7 @@ D) To give up permanently
 1. Mark lost his work and must start again.
 2. **Back to square one** means to return to the beginning. Answer: **B**.
 
-**Check:** Put *had to start again* in place of *was back to square one*: “Mark knew he had to start again.” The meaning stays the same.
-
+**Check:** Put *had to start again* in place of *was back to square one*: “Mark knew he had to start again.”
 ### #2: The Same Words Used Literally
 
 During a board game, Mark moved his piece **back to square one** after drawing a penalty card. What does the phrase in bold mean in this sentence?
@@ -92,7 +91,6 @@ D) He forgot the rules of the game.
 1. The sentence describes a piece moving on a game board.
 2. The words name an actual move to the first space. The meaning is literal. Answer: **C**.
 
-**Check:** A piece, a penalty card, and a first space all belong to a game.
 
 ### #3: Sawikain sa Pangungusap
 

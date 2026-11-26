@@ -18,7 +18,7 @@ keyPoints:
 
 Ang **salitang-ugat** (root word) ang nagdadala ng pangunahing kahulugan. Ang **panlapi** (affix) ay idinadagdag dito upang makabuo ng bagong salita.
 
-Upang makuha ang salitang-ugat, alisin ang lahat ng panlapi hanggang matira ang salitang may pangunahing kahulugan.
+Sa karaniwang pagsusuri sa paaralan, alisin ang lahat ng panlapi hanggang matira ang salitang may pangunahing kahulugan.
 
 Hanapin natin ang salitang-ugat ng *pinaghirapan* at ng *ginawa*:
 
@@ -45,13 +45,13 @@ Ang sagot ay **sulat**. Ang *-an* sa hulihan ay panlapi lamang, at ang *sulat* a
 
 ### Unlapi, Gitlapi, at Hulapi
 
-Tinatawag ang panlapi ayon sa puwesto nito sa salitang-ugat:
+Tatlo sa mga uri ng panlapi, ayon sa puwesto nito sa salitang-ugat:
 
 1. **Unlapi** (prefix) sa unahan ng ugat: *pag-* + *ibig* = *pag-ibig*; *um-* + *alis* = *umalis*.
 2. **Gitlapi** (infix) sa loob ng ugat: *s* + *-um-* + *ulat* = *sumulat*; *s* + *-um-* + *ayaw* = *sumayaw*.
 3. **Hulapi** (suffix) sa hulihan ng ugat: *sulat* + *-an* = *sulatan*.
 
-Hindi iisa ang puwesto ng isang panlapi sa lahat ng salita. Gitlapi ang *-um-* sa *sumayaw* dahil nasa loob ito ng *sayaw*. Unlapi ang *um-* sa *umalis* dahil nasa unahan ito ng *alis*.
+Sa karaniwang pagsusuri sa paaralan, magkaiba ang puwesto ng *um* sa dalawang salita. Gitlapi ang *-um-* sa *sumayaw* dahil nasa loob ito ng *sayaw*. Unlapi ang *um-* sa *umalis* dahil nasa unahan ito ng *alis*.
 
 :::pair #puwesto-ng-um
 Right: Gitlapi ang *-um-* sa *sumayaw* dahil nasa loob ng *sayaw*. Unlapi ang *um-* sa *umalis* dahil nasa unahan ng *alis*.
@@ -60,14 +60,14 @@ Puwesto sa ugat ang batayan ng pangalan ng panlapi, hindi ang mga titik lamang.
 :::
 
 :::check
-Sa salitang *tumakbo*, anong uri ng panlapi ang *-um-*?
+Sa salitang *tumakbo*, anong uri ng panlapi ang *um*?
 :::answer
 Ang sagot ay **gitlapi**. Nakasingit ang *-um-* sa loob ng salitang-ugat na *takbo*.
 :::
 
 ## Examples
 
-### #1: Paghanap ng Salitang-Ugat
+### #1: Ang Pinagsumikapan
 
 Tukuyin ang salitang-ugat ng salitang may makapal na titik: **pinagsumikapan**.
 
@@ -81,9 +81,9 @@ D) sikapan
 1. Hanapin ang bahaging nagdadala ng pangunahing kahulugan.
 2. Ang **sikap** ang ugat. May dagdag na panlapi pa ang *sumikap* at *sikapan*. Sagot: **A**.
 
-**Check:** Alisin ang *pinag-*, *-um-*, at *-an*. Ang natira ay *sikap*.
+**Check:** Alisin ang *pinag-*, *-um-*, at *-an* sa *pinagsumikapan*, at matitira ang *sikap*.
 
-### #2: Pagbabalik sa Salitang-Ugat
+### #2: Ang Pinaghintayan
 
 Tukuyin ang salitang-ugat ng salitang may makapal na titik: **pinaghintayan**.
 
@@ -94,12 +94,12 @@ D) hintayan
 
 **Solution:**
 
-1. Hanapin ang mga panlapi sa unahan at hulihan: makikita ang *pinag-* sa unahan at *-an* sa hulihan.
+1. Hanapin ang mga panlapi ng **pinaghintayan**.
 
 :::try
-Tapusin ang huling hakbang: ano ang natitirang salitang-ugat kapag inalis ang mga panlaping ito?
+Tapusin ang huling hakbang: alisin ang mga panlapi, at piliin ang salitang-ugat.
 :::answer
-Ang sagot ay **C**, **hintay**. Ito ang bahaging nagdadala ng pangunahing kahulugan.
+Nasa unahan ang *pinag-* at nasa hulihan ang *-an*. Kapag inalis ang mga ito, matitira ang *hintay*, ang bahaging nagdadala ng pangunahing kahulugan. Ang sagot ay **C**.
 
 **Check:** Ibalik ang mga panlapi sa ugat: *pinag-* + *hintay* + *-an* = *pinaghintayan*.
 :::

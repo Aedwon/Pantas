@@ -23,7 +23,7 @@ A final silent *e* is often dropped before a suffix that begins with a vowel.
 - *Manage* becomes *managing*.
 - *Hope* becomes *hoping*.
 
-Sometimes *e* stays to help keep a sound. In *noticeable*, the *e* stays after *c*. This keeps the sound of *s* heard at the end of *notice*, often called the soft sound of *c*. The same holds after *g*: *courage* keeps its *e* before *-ous* to keep the soft *g* sound.
+Sometimes *e* stays to help keep a sound. In *noticeable*, the *e* stays after *c*. This keeps the soft *s* sound of *c*. After *g*, *courage* keeps its *e* before *-ous* the same way.
 
 :::pair #soft-g
 Right: *Courageous* is spelled correctly. The *e* stays after *g*.
@@ -39,15 +39,14 @@ The answer is *believable*. *-able* starts with a vowel and *v* needs no soft so
 
 ### Exceptions Before Consonant Suffixes
 
-Most words keep a final silent *e* before a suffix that starts with a consonant, such as *care* becoming *careful*. Some forms must be learned separately.
-
+Most words keep a final silent *e* before a suffix that starts with a consonant, such as *care* becoming *careful*.
 - *True* becomes *truly*, even though *-ly* begins with a consonant.
 - *Argue* becomes *argument*, which also loses its *e*.
 
 :::pair #truly
 Right: Truly
 Wrong: Truely
-Many words keep the *e* before a suffix that starts with a consonant. *True* is an exception, so it loses the *e* before *-ly*.
+*True* is an exception. It loses the *e* before *-ly*.
 :::
 
 :::why
@@ -98,7 +97,6 @@ D) notiseable
 
 The spelling is **noticeable**. Answer: **B**.
 
-**Check:** Without the *e*, *c* would read as a hard *k* sound before *a*.
 
 ### #3: An Exception Before Ly
 
@@ -117,7 +115,6 @@ D) truley
 
 The spelling is **truly**. Answer: **C**.
 
-**Check:** *Truly* is one of the exceptions to learn.
 
 ### #4: A Consonant Suffix After Silent E
 
@@ -131,7 +128,7 @@ D) excitmant
 **Solution:**
 
 1. Identify the base and suffix: *excite* plus *-ment*.
-2. Notice that *-ment* begins with a consonant, so check whether *excite* follows the usual rule or is an exception.
+2. *-ment* begins with a consonant. Is *excite* an exception?
 
 :::try
 Finish the last step: apply the spelling rule for *excite* plus *-ment* and choose the correct option.

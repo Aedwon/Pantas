@@ -25,7 +25,7 @@ Baybayin natin ang *cuento* sa Filipino:
 2. Palitan ng *k* ang *c*: *kuento*
 3. Isingit ang *w* bago ang *e*: **kuwento**
 
-Hindi ito tuntunin para sa lahat ng salitang hiram. Ito ang gamit kapag *ue* ang kambal-patinig pagkatapos ng *c*, gaya ng *cuento* at *cuenta*.
+Hindi ito tuntunin para sa lahat ng salitang hiram. Ito ang gamit kapag *ue* ang kambal-patinig pagkatapos ng *c*.
 
 :::pair #huwag-alisin-ang-u
 Right: Ang baybay sa Filipino ng *cuento* ay *kuwento*.
@@ -40,9 +40,9 @@ Isingit ang *w* bago ang *e*. Kulang ang *kuento*.
 :::
 
 :::check
-Sa *cuerda*, ano ang ipinapalit sa *c*, at saan isinisingit ang *w*?
+Sa *cuerdas*, ano ang ipinapalit sa *c*, at saan isinisingit ang *w*?
 :::answer
-Ang *k* ang ipinapalit sa *c*: *kuerda*. Isinisingit ang *w* bago ang *e*: *kuwerda*.
+Ang *k* ang ipinapalit sa *c*: *kuerdas*. Isinisingit ang *w* bago ang *e*: *kuwerdas*.
 :::
 
 ## Examples

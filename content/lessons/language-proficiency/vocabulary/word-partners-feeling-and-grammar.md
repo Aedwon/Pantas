@@ -23,17 +23,17 @@ When two choices still seem possible, check smaller clues.
 
 Here is *charged* with its partner.
 
-- *Charged the guest for an extra night, and the fee appeared on the final invoice*: the partner is *fee*.
-- A fee points to *billed*.
+- *Charged the guest for an extra night, and the fee appeared on the final invoice*: the partners are *extra night* and *fee*.
+- They point to *billed*: the hotel billed the guest.
 
 :::pair #charged-partner
 Right: The hotel charged the guest for an extra night, and the fee appeared on the final invoice. Here *charged* means billed.
 Wrong: The hotel charged the guest for an extra night, and the fee appeared on the final invoice. Here *charged* means accused.
-The partner words *extra night* and *fee* point to billing. *Accused* needs a crime.
+The partner words *extra night* and *fee* point to billing. *Accused* usually goes with a crime.
 :::
 
 :::check
-In "break a promise," does *break* mean smash or fail to keep?
+In "break a promise," what does *break* mean?
 :::answer
 The answer is fail to keep. The partner *promise* is something you keep or fail to keep.
 :::
@@ -48,7 +48,7 @@ First guess the meaning from the sentence. Then put a possible answer in place o
 :::pair #furnish-grammar
 Right: Please send proof of residence.
 Wrong: Please furniture proof of residence.
-After *please*, the sentence needs a verb. *Furniture* is a noun.
+In a request like this, a verb follows *please*. *Furniture* is a noun.
 :::
 
 *Qualified* has more than one meaning. Look at *qualified support* in "they favored it only if drainage repairs were completed first."
@@ -60,14 +60,14 @@ The word *only if* shows a limit. *Certified* is a different meaning of *qualifi
 :::
 
 :::check
-In "The editor gave the draft qualified praise, but she listed three problems with it," does *qualified* mean *limited* or *certified*?
+In "The workers will strike unless the company raises their pay," what does *strike* mean?
 :::answer
-The answer is *limited*. The words *listed three problems* show her praise had limits.
+The answer is stop working as a protest. The words *workers* and *unless the company raises their pay* show a demand.
 :::
 
 ## Examples
 
-### #1: Formal Wording
+### #1: The Official Letter
 
 The official letter asked the applicant to **furnish** proof of residence before the office could process the request. What does the word in bold most likely mean?
 
@@ -79,10 +79,10 @@ D) withhold
 **Solution:**
 
 1. *Furnish* has more than one meaning.
-2. Here, its partner is *proof of residence*, a document the office needs.
+2. Here, its partner is *proof of residence*.
 
 :::try
-Finish the last step: which choice fits both the partner *proof of residence* and the grammar after *to*?
+Finish the last step: which choice fits the partner and the grammar after *to*?
 :::answer
 The answer is **C**, **provide**. *Furnish* can mean put furniture in a room or provide something. *Provide* is a verb that fits after *to* and matches handing over a document in a formal letter.
 

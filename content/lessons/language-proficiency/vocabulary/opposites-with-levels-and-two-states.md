@@ -62,7 +62,7 @@ The answer is off. With only two states allowed, ruling out *on* leaves *off*.
 
 ## Examples
 
-### #1: A System with Two States
+### #1: The Fish Record
 
 A record classifies each fish as either alive or dead, with no other category. A fish is recorded as not **alive**. Which opposite of the word in bold must describe its state in this record?
 
@@ -74,13 +74,13 @@ D) dead
 **Solution:**
 
 1. The record allows only *alive* or *dead*.
-2. Ruling out *alive* leaves **dead**. The answer is **D**.
+2. Ruling out *alive* leaves **dead**: the fish is recorded as dead. The answer is **D**.
 
-**Check:** The record uses only *alive* and *dead*. Since the fish is not *alive*, *dead* is the only label left.
+**Check:** A weak, asleep, or injured fish is still alive, so A, B, and C cannot be the label.
 
-### #2: Opposites with Middle Levels
+### #2: The Box
 
-The box is not **large**. Given the meaning of the word in bold, which statement must be true based on this sentence alone?
+The box is not **large**. Which statement must be true?
 
 A) The box is tiny.  
 B) The box is medium.  
@@ -89,19 +89,19 @@ D) The exact size is not given.
 
 **Solution:**
 
-1. *Large* and *small* are opposites with middle sizes between them.
+1. Test each choice against the sentence "The box is not large."
 
 :::try
-Finish the last step: which choice matches what we know from "not large" alone?
+Finish the last step: which choice must be true?
 :::answer
-The answer is **D**, **the exact size is not given**. A, B, and C each force one size, when *tiny*, *medium*, or *small* are all possible.
+The answer is **D**: from "The box is not large," the exact size is not given. *Large* and *small* have middle sizes between them, so A, B, and C each force one size when *tiny*, *medium*, and *small* are all possible.
 
 **Check:** A medium box is not large, and a tiny box is not large, so no single size is forced.
 :::
 
 ## Speed Tricks & Shortcuts
 
-For opposites, check the relationship. Are there middle levels, only two allowed states, or two people in opposite roles? Do not use a two-state rule when middle levels are possible.
+For opposites, check the relationship. Are there middle levels, or only two allowed states? Do not use a two-state rule when middle levels are possible.
 
 ## Traps to Watch For
 

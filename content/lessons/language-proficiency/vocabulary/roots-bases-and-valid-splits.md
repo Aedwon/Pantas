@@ -65,7 +65,7 @@ The answer is no. The rest, *ady*, is not a base with a meaning, so *re-* change
 
 ## Examples
 
-### #1: False and Valid Splits
+### #1: Four Splits
 
 We test four splits and keep the one that explains its word.
 

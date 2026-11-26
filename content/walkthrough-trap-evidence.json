@@ -3700,7 +3700,7 @@
         {
           "questionId": "q-vocabulary-spelling-rules-0007",
           "wrongChoice": "Comittee",
-          "mistakeNote": "Drops one t from the double t in committee."
+          "mistakeNote": "Drops one m from the double m in committee."
         },
         {
           "questionId": "q-vocabulary-spelling-rules-0005",
@@ -3868,7 +3868,7 @@
         {
           "questionId": "q-vocabulary-synonyms-and-antonyms-0003",
           "wrongChoice": "Natupad",
-          "mistakeNote": "Reads gumuho literally as the opposite of its figurative meaning."
+          "mistakeNote": "Picks the opposite of the figurative result, fulfillment instead of ruin."
         }
       ],
       "kasalungat": [
@@ -4059,6 +4059,13 @@
       ]
     },
     "lesson-vocabulary-silent-e-with-suffixes": {
+      "soft-g": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0014",
+          "wrongChoice": "Courageous",
+          "mistakeNote": "Marks courageous as misspelled by dropping the e before -ous after soft g."
+        }
+      ],
       "truly": [
         {
           "questionId": "q-vocabulary-spelling-rules-0019",

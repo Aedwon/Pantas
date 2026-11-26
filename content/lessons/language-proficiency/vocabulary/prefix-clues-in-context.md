@@ -17,12 +17,10 @@ keyPoints:
 
 A **prefix** is a word part added at the beginning of a word. For example, *un-* can mean *not*, as in *unfair*.
 
-Use the prefix as a clue. Then check the whole word in the sentence.
-
 :::pair #prefix-meaning
 Right: In "unfair treatment," *unfair* means not fair.
 Wrong: In "unfair treatment," *unfair* means not finished.
-The prefix *un-* means *not*, and the base is *fair*. *Not finished* is the meaning of *incomplete*, a different word.
+The prefix *un-* means *not*, and the base is *fair*.
 :::
 
 Not every opening group of letters is a prefix. Test *un-* meaning *not*: a real word must be left, as *fair* is in *unfair*. *Uncle* does not mean "not cle." Some prefixes attach to parts that cannot stand alone, such as *in-* in *include*.
@@ -64,11 +62,12 @@ Finish the last step: say what each part means and put them together. Which phra
 *In-* means *not*, and *correct* is a real word, so *incorrect* means not correct. An answer with the wrong date is not correct. The answer is **B**.
 
 **Check:** Put the phrase in the sentence: "The answer was not correct because it gave the wrong date." It makes sense.
+
 :::
 
 ## Speed Tricks & Shortcuts
 
-Check prefix clues against context. A word part can suggest a meaning. The full word must still fit the sentence.
+Check prefix clues against context. The full word must still fit the sentence.
 
 ## Traps to Watch For
 

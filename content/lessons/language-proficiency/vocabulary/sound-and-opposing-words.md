@@ -17,7 +17,7 @@ keyPoints:
 
 ### Alliteration
 
-**Alliteration** repeats the same starting consonant sound in nearby words, as in *busy bees buzzed*. Sound matters in alliteration, not just spelling.
+**Alliteration** repeats the same starting sound, usually a consonant, in nearby words, as in *busy bees buzzed*. Sound matters in alliteration, not just spelling.
 
 Here is alliteration on one line: *Peter Piper picked a peck of pickled peppers.* Many nearby words start with the *p* sound.
 
@@ -28,9 +28,9 @@ No word here imitates a noise. A repeated starting sound is alliteration.
 :::
 
 :::check
-In "Cold winds crept closer," which device repeats the *k* sound?
+Which device is in "Cold winds crept closer"?
 :::answer
-The answer is alliteration. *Cold*, *crept*, and *closer* start with the same consonant sound.
+The answer is alliteration. *Cold*, *crept*, and *closer* all start with the *k* sound.
 :::
 
 ### Onomatopoeia
@@ -47,8 +47,6 @@ The answer is onomatopoeia. The word sounds like the noise it names.
 
 An **oxymoron** puts words with opposing meanings together, such as *jumbo shrimp*.
 
-Here is an oxymoron on one line: *jumbo shrimp*. The two words have opposing meanings.
-
 :::pair #opposing-words
 Right: "Deafening silence" is an oxymoron.
 Wrong: "Deafening silence" is hyperbole.
@@ -56,14 +54,14 @@ The phrase joins two opposing words. It does not simply stretch the truth.
 :::
 
 :::check
-In "cruel kindness," two opposing words sit side by side. Which device is this?
+Which device is in the phrase "cruel kindness"?
 :::answer
 The answer is oxymoron. *Cruel* and *kindness* have opposite meanings.
 :::
 
 ## Examples
 
-### #1: Alliteration
+### #1: The Snakes
 
 “Silver snakes silently slid across the sand.” Which sound device is used most clearly?
 
@@ -79,7 +77,7 @@ D) Oxymoron
 
 **Check:** Say the line aloud. *Silver snakes silently slid* all start with *s*.
 
-### #2: Onomatopoeia
+### #2: The Firecracker
 
 “The firecracker went **bang** beside the gate.” Which device is shown by the word in bold?
 
@@ -95,7 +93,7 @@ D) Oxymoron
 
 **Check:** Say *bang* aloud. It sounds like the noise.
 
-### #3: Oxymoron
+### #3: The Plan
 
 “The plan was an **open secret**.” Which literary device is created by the phrase in bold?
 
@@ -106,14 +104,14 @@ D) Onomatopoeia
 
 **Solution:**
 
-1. *Open* suggests known to all. *Secret* means hidden.
+1. Name the meaning of each word in the phrase.
 
 :::try
-Finish the last step: which device puts two opposing meanings together?
+Finish the last step: compare the two meanings and choose the device.
 :::answer
-The answer is **C**, **oxymoron**. Joining opposing meanings like *open* and *secret* creates an oxymoron.
+*Open* means known to all, and *secret* means hidden. These meanings oppose each other, so “open secret” is an oxymoron. The answer is **C**.
 
-**Check:** Known to all and hidden cannot both be literal here. That clash marks an oxymoron.
+**Check:** “The plan was an open secret” says the plan was both known to all and hidden. That clash marks an oxymoron.
 :::
 
 ## Speed Tricks & Shortcuts
