@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Wide Performance list clips text and bars and drops the percent (Nov 26)
+
+- His words (about 1:30 PM Manila, wide dark screenshot of app.pantas.study/performance, Lessons tab, plus a phone screenshot of the same page): "i also found a problem screen" and "overall as its own column is a waste of space imo".
+- Wrong: on wide, "10 answered" is clipped to "10 answerec", the accuracy bars run into the card's right edge with no padding, the rows show no percent (phone shows it), and the Overall gauge takes its own right column.
+- Why it got through: not yet known; the CSE release lead r9 reports the cause for each with its fix, and this entry is updated then.
+- Fix (checks, release lead r9): a test that fails on today's code for the clipped count, the bar's right padding and the missing percent on wide; Overall moves into the main column after his look at a before-and-after sheet.
+
 ### Wordy UI on a board again: pricing small print (Nov 26, repeat)
 
 - His words (about 1:25 PM Manila, quoting the Pro card): "Pay once with QR Ph. Plans don't renew. / New to Pro? Try it once for 7 days before you pick a plan. / remove this as well, remove all unnecessary info, remove reundancies. i hate wordy UI".
