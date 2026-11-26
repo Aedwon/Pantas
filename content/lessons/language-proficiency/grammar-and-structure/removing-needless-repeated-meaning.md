@@ -39,16 +39,16 @@ Warnings come at different times, and some repeated words add meaning. Cut *adva
 :::
 
 :::check
-Revise for concise formal writing: *"The two of them collaborated together on the mural."*
+Revise for concise formal writing: *"Please repeat the instructions again."*
 :::answer
-The answer is **"The two of them collaborated on the mural."** *Collaborated* already means worked together, keeping both people and their shared work.
+The answer is **"Please repeat the instructions."** *Repeat* already means say again, so *again* adds nothing and the request stays the same.
 :::
 
 ### Checking Before You Cut
 
 Never delete a word automatically just because two nearby words have related meanings. First ask: **what meaning does this word add here?**
 
-Compare *"The houses stand in close proximity"* with *"The houses stand in proximity."* *Proximity* means nearness, while *close* adds a strong degree of nearness (very near, not merely nearby). Before cutting *close*, an editor must check whether *close* adds a useful degree of nearness.
+Compare *"The houses stand in close proximity"* with *"The houses stand in proximity."* *Proximity* means nearness, while *close* may add a stronger degree of nearness (very near, not merely nearby). Before cutting *close*, an editor must check whether *close* adds a useful degree of nearness.
 
 :::why
 Why not cut every pair of similar words on sight? Sometimes a second word narrows the degree (*close proximity*) or marks a real difference. Concise editing cuts empty echoes, not helpful details.
@@ -61,16 +61,16 @@ There is no automatic rule forcing one word out of every related pair. Judge wha
 :::
 
 :::check
-Which revision keeps the request for an honest view without extra words in *"Please give us your honest and truthful opinion"*?
+Which revision keeps the meeting time without extra words in *"The meeting starts at 3 p.m. in the afternoon"*?
 :::answer
-The answer is **"Please give us your honest opinion."** It cuts *truthful* while keeping the request for an honest opinion.
+The answer is **"The meeting starts at 3 p.m."** The time *3 p.m.* already states the afternoon, so *in the afternoon* repeats it.
 :::
 
 ## Examples
 
 ### #1: Cutting a Repeated Word Without Changing the Action
 
-"Revise" means write a sentence again to fix an error. Revise for concise formal writing: *"Please return back the library books by Friday."*
+Revise for concise formal writing: *"Please return back the library books by Friday."*
 
 **Solution:**
 
@@ -93,21 +93,20 @@ The agency gave residents *"advance warning several days before a road closure."
 
 **Check:** Cover *advance*: *"warning several days before a road closure"* still tells the reader the warning came early.
 
-### #3: Deciding Whether a Modifier Adds Degree
+### #3: Shortening a Pair of Related Words
 
-An editor shortens *"The houses stand in close proximity"* to *"The houses stand in proximity."* What should the editor check before accepting the change?
+An editor shortens *"The soup was boiling hot"* to *"The soup was boiling."* What should the editor check before accepting the change?
 
 **Solution:**
 
-1. Define *proximity*: nearness in space.
-2. Ask what *close* adds: it specifies *how* near (very near, not merely nearby).
+1. Define *boiling*: bubbling because of heat.
 
 :::try
-Finish the last step: state what the editor should check before deleting *close*.
+Finish the last step: state what the editor should check before deleting *hot*.
 :::answer
-The answer is **Whether "close" adds a useful degree of nearness.** If very nearness matters in context, keep *close*; judge the meaning, not word count alone.
+The answer is **Whether "hot" adds a useful meaning that "boiling" does not already give.** Here it adds none, so the cut is safe. Judge the meaning, not word count alone.
 
-**Check:** Compare *"near each other"* vs. *"very close to each other."* That difference in degree is what *close* adds to *proximity*.
+**Check:** Cover *hot*: *"The soup was boiling"* still tells the reader the soup is very hot.
 :::
 
 ## Speed Tricks & Shortcuts

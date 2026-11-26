@@ -58,9 +58,9 @@ Fixing only *setting* leaves *saving* unmatched. Changing *track* to *tracking* 
 :::
 
 :::check
-Which word breaks the parallel list in *"The guide helps new clerks sort files, log calls, and answering questions"*?
+Which words break the parallel list in *"The guide helps new clerks sort files, logging calls, and answering questions"*?
 :::answer
-The answer is **Answering**. *Sort* and *log* are base verbs after *helps new clerks*, so change *answering* to *answer*.
+The answer is **Logging and answering**. *Sort* is a base verb after *helps new clerks*, so change *logging* to *log* and *answering* to *answer*.
 :::
 
 ## Examples
@@ -94,22 +94,21 @@ Fix the missing word in *"She has a strong interest and talent for music."*
 
 **Check:** Read each half alone: *"interest in music"* and *"talent for music."* Both sound natural and complete.
 
-### #3: Fixing Every Broken Item After a Shared Verb
+### #3: Fixing a Longer List
 
-Identify and fix the parallelism error: *"The app helps users track expenses, setting budgets, and saving money."*
+Identify and fix the parallelism error: *"The clinic lets patients book visits, paying fees, and checking results."*
 
 **Solution:**
 
-1. Find the shared lead-in: *"helps users."*
-2. Check the verb form required after *"helps users"*: base verb (*track*), not *-ing*.
-3. Check the remaining items: *setting budgets* and *saving money* both use *-ing*.
+1. Find the shared lead-in: *"lets patients."*
+2. Check the verb form that fits after *"lets patients"*: *book* is a base verb.
 
 :::try
-Finish the last step: change the broken items so all three match *track*.
+Finish the last step: fix the list.
 :::answer
-The answer is **Change "setting" and "saving" to "set" and "save."** The parallel list is *"track expenses, set budgets, and save money."*
+The answer is **Change "paying" and "checking" to "pay" and "check."** The parallel list is *"book visits, pay fees, and check results."*
 
-**Check:** Read *"The app helps users"* before each repaired item: *"track expenses,"* *"set budgets,"* and *"save money."* Every item uses a base verb.
+**Check:** Read *"The clinic lets patients"* before each repaired item: *"book visits,"* *"pay fees,"* and *"check results."* Every item uses a base verb.
 :::
 
 ## Speed Tricks & Shortcuts

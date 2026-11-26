@@ -48,7 +48,7 @@ The answer is **"The note needed President Santos's signature, and the president
 
 ### Quoted Sentences vs. Quoted Words
 
-Capitalize the first word of a **quoted complete sentence**: *She said, "Please close the door."* The second half of a quote split by *she said* stays lowercase.
+Capitalize the first word of a **quoted complete sentence**: *She said, "Please close the door."* The second half of a quote split by *she said* stays lowercase when it continues the same sentence: *"Please," she said, "close the door."*
 
 Keep a **quoted word or short fragment** inside a sentence lowercase (unless it is a proper name or *I*): *The word "meeting" appears twice.*
 :::pair #quoted-word-capitalized
@@ -73,7 +73,7 @@ The answer is **No**. *"Open daily"* is an embedded phrase, not a complete quote
 
 ### #1: Formal Title vs. Generic Role
 
-Follow the common convention that capitalizes a formal title directly before a name. Choose the correctly capitalized sentence:
+Choose the correctly capitalized sentence:
 
 (A) "We met president Reyes yesterday at the company office."
 (B) "We met President reyes yesterday at the company office."

@@ -18,7 +18,7 @@ keyPoints:
 
 A **semicolon (;)** joins two closely related independent clauses without a joining word: *"The train was late; the passengers remained calm."* Each side has a subject and finite verb and can stand alone.
 
-Joining two independent clauses with only a comma is a **comma splice**: *"The concert was amazing, everyone stayed until the end."* Fix a comma splice in one of three ways:
+Joining two independent clauses with only a comma is a **comma splice**: *"The concert was amazing, everyone stayed until the end."* Fix a comma splice in ways such as these:
 
 1. Replace the comma with a semicolon (;).
 2. Replace the comma with a period (.).
@@ -39,16 +39,16 @@ Wrong: "She loves reading; because she visits the library every weekend."
 :::
 
 :::check
-Can a semicolon join *"The machine runs smoothly"* and *"after regular servicing"*?
+Can a semicolon join *"The bus left on time"* and *"with every seat taken"*?
 :::answer
-The answer is **No**. *"After regular servicing"* is a phrase with no subject or finite verb, so it cannot follow a semicolon here.
+The answer is **No**. *"With every seat taken"* is a phrase with no subject or finite verb, so it cannot follow a semicolon here.
 :::
 
 ### Separating Complex List Items
 
 When list items already contain commas, commas alone blur the items together. Keep commas inside each item and place semicolons between the full items.
 
-Look at *"We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea."* Each city-country pair keeps its inside comma, and semicolons divide the three pairs.
+In *"We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea,"* each pair keeps its inside comma, and semicolons divide the pairs.
 
 <!-- ILLUSTRATION: marked-up list "We visited [Manila, Philippines] ; [Tokyo, Japan] ; and [Seoul, Korea]." with each city-country pair bracketed, the internal commas shown in gray, and the boundary semicolons highlighted in teal -->
 
@@ -94,32 +94,31 @@ Why is the semicolon faulty in *"The machine runs smoothly; after regular servic
 2. *"After regular servicing"* has no subject and no finite verb, so it is a phrase.
 3. Because the second half is not an independent clause, the semicolon is faulty.
 
-**Check:** Read *"After regular servicing."* alone. It leaves the reader waiting, proving it cannot stand as a sentence.
+**Check:** Read *"After regular servicing."* alone: it is not a full sentence.
 
-### #3: Punctuating a List with Internal Commas
+### #3: Choosing the Punctuation for a List
 
-Which sentence uses semicolons to separate city-country pairs while keeping commas inside each pair?
+Which sentence punctuates the list of three guests correctly?
 
-(A) "We visited Manila, Philippines, Tokyo, Japan, and Seoul, Korea."
-(B) "We visited Manila; Philippines, Tokyo; Japan, and Seoul; Korea."
-(C) "We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea."
+(A) "The panel included Dr. Cruz, a surgeon, Ms. Lim, a teacher, and Mr. Ong, a pilot."
+(B) "The panel included Dr. Cruz; a surgeon, Ms. Lim; a teacher, and Mr. Ong; a pilot."
+(C) "The panel included Dr. Cruz, a surgeon; Ms. Lim, a teacher; and Mr. Ong, a pilot."
 
 **Solution:**
 
-1. Group each whole pair: (1) *Manila, Philippines*, (2) *Tokyo, Japan*, (3) *Seoul, Korea*.
-2. Keep the internal comma inside each pair.
+1. Group each guest with the job: (1) *Dr. Cruz, a surgeon*, (2) *Ms. Lim, a teacher*, (3) *Mr. Ong, a pilot*.
 
 :::try
-Finish the last step: explain why (A) and (B) fail, and select the correct choice.
+Finish the last step: select the correct choice, and say why the others fail.
 :::answer
-The answer is **(C) "We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea."** Choice (A) mixes inside and outside commas, and (B) splits each city from its country with semicolons.
+The answer is **(C) "The panel included Dr. Cruz, a surgeon; Ms. Lim, a teacher; and Mr. Ong, a pilot."** Choice (A) uses only commas, so the three guests blur into six items. Choice (B) splits each name from its job with a semicolon.
 
-**Check:** Bracket each pair in (C): *[Manila, Philippines]*, *[Tokyo, Japan]*, *[Seoul, Korea]*. Commas stay inside; semicolons sit at the pair boundaries.
+**Check:** Bracket each guest in (C): *[Dr. Cruz, a surgeon]*, *[Ms. Lim, a teacher]*, *[Mr. Ong, a pilot]*. Commas stay inside; semicolons sit between the brackets.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Cover the semicolon and test both sides as standalone sentences; if either side needs the other, drop the semicolon. For complex lists, bracket each full item first, then place semicolons only between brackets.
+Cover the semicolon and test both sides as standalone sentences; if either side needs the other, drop the semicolon. For complex lists, bracket each item, then put semicolons between brackets.
 
 ## Traps to Watch For
 

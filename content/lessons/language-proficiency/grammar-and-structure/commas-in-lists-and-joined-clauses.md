@@ -70,16 +70,16 @@ The answer is **No**. *Forgot to sign it* shares the subject *the clerk*, so *an
 
 ### #1: Punctuating a Simple List
 
-Add commas to this list, using the serial comma: *"Bring a pencil an eraser and a ruler."*
+Add commas to this list, using the serial comma: *"Pack a towel a hat and sunscreen."*
 
 **Solution:**
 
-1. Name the three separate items: *a pencil*, *an eraser*, and *a ruler*.
+1. Name the three separate items: *a towel*, *a hat*, and *sunscreen*.
 2. Put a comma after the first item and a serial comma before *and*.
 
-Correct sentence: **"Bring a pencil, an eraser, and a ruler."**
+Correct sentence: **"Pack a towel, a hat, and sunscreen."**
 
-**Check:** Count the items: (1) a pencil, (2) an eraser, (3) a ruler. Two commas separate the three items cleanly.
+**Check:** Count the items: (1) a towel, (2) a hat, (3) sunscreen. Two commas separate the three items cleanly.
 
 ### #2: Joining Two Independent Clauses
 
@@ -95,7 +95,7 @@ Correct sentence: **"The clerk checked the form, and the applicant signed it."**
 
 **Check:** Read both sides separately as full sentences: *"The clerk checked the form."* *"The applicant signed it."* Both work, so the comma before *and* is required.
 
-### #3: Compound Predicate vs. Two Clauses
+### #3: Choosing the Correct Punctuation
 
 Choose the correctly punctuated sentence:
 

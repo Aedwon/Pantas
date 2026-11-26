@@ -46,14 +46,14 @@ The answer is **Checks**. *Usually* signals a habit, and singular *the clerk* ta
 
 :::pair #wider-present-project
 Right: "I am writing a novel this month" shows a project ongoing around the present.
-Wrong: Claim *am writing* means she must be writing at this exact second.
+Wrong: Claim *am writing* means I must be writing at this exact second.
 Time clues like *this month* widen the present window. A project stays in progress around now even during lunch.
 :::
 
 :::check
-Identify the tense in "She is writing a letter right now."
+Identify the tense in "My brother is repairing his bike this week."
 :::answer
-The answer is **Present progressive**. *Is* plus *-ing* (*writing*) shows an action happening right now.
+The answer is **Present progressive**. *Is* plus *-ing* (*repairing*) shows an action in progress around now.
 :::
 
 ### State Verbs Take Simple Forms
@@ -73,7 +73,7 @@ Wrong: "I am knowing how to use the filing system."
 :::
 
 :::check
-Choose the usual form for current ownership: "The blue binder *(belongs / is belonging)* to the office."
+Choose the usual form: "The blue binder *(belongs / is belonging)* to the office."
 :::answer
 The answer is **Belongs**. *Belong* states a steady relationship, so it takes simple present rather than progressive.
 :::
@@ -104,21 +104,21 @@ A writer says "I am writing a novel this month" while eating lunch. Name the ten
 
 **Check:** Contrast *right now* ("She is writing right now," happening at this second) with *this month* (an ongoing multi-week project).
 
-### #3: State Verb for Current Knowledge
+### #3: Choosing the Right Verb Form
 
-An employee describes her current knowledge, not the process of learning. Choose the correct sentence: (A) "I am knowing how to use the filing system." (B) "I knew how to use the filing system." (C) "I will know how to use the filing system." (D) "I know how to use the filing system."
+A manager says what equipment the office has today. Choose the correct sentence: (A) "The office is owning two printers." (B) "The office owned two printers." (C) "The office will own two printers." (D) "The office owns two printers."
 
 **Solution:**
 
-1. She describes **current** knowledge, so rule out past *knew* (B) and future *will know* (C).
-2. Choose between simple present *know* and present progressive *am knowing*.
+1. The fact is about **today**, so rule out past *owned* (B) and future *will own* (C).
+2. Choose between simple present *owns* and present progressive *is owning*.
 
 :::try
-Finish the last step: why does *know* take simple present instead of *am knowing*, and which choice is correct?
+Finish the last step: which of those two is correct, and why?
 :::answer
-The answer is **(D) "I know how to use the filing system."** *Know* describes a current state rather than a step-by-step action, so simple present is standard.
+The answer is **(D) "The office owns two printers."** *Own* describes a state rather than a step-by-step action, so simple present is standard.
 
-**Check:** Current time rules out *knew* and *will know*, and *know* as a steady mental state pairs with simple present *know*.
+**Check:** Today's time rules out *owned* and *will own*, and *own* as a steady state pairs with simple present *owns*.
 :::
 
 ## Speed Tricks & Shortcuts

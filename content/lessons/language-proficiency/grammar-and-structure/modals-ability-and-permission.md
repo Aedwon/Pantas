@@ -37,9 +37,9 @@ True modals like *can* take the bare base form *answer* directly, never *to* plu
 :::
 
 :::check
-Choose the right form: Maria *(can solve / can solves / can to solve)* the puzzle easily.
+Choose the right form: Omar *(can fix / can fixes / can to fix)* the bike easily.
 :::answer
-The answer is **Can solve**. After *can*, use the bare base verb *solve* with no *-s* and no *to*.
+The answer is **Can fix**. After *can*, use the bare base verb *fix* with no *-s* and no *to*.
 :::
 
 ### Can and Could for Ability
@@ -49,14 +49,14 @@ Use **can** for present or general ability: "She **can type** sixty words a minu
 For a single past success rather than general skill, writers usually prefer *was able to* or *managed to* over *could*.
 
 :::check
-Choose the form for general past ability: Before school started, Lina *(can / could)* already read short books.
+Choose the form: Before school started, Lina *(can / could)* already read short books.
 :::answer
 The answer is **Could**. *Before school started* describes general past ability, so choose *could*.
 :::
 
-### Requesting and Granting Permission
+### Requesting Permission
 
-Three modals ask for or grant permission, from everyday to formal:
+Three modals ask for permission, from everyday to formal:
 
 1. **Can** (everyday): "**Can** I borrow your pen?"
 2. **Could** (polite request): "**Could** I use this desk?"
@@ -75,24 +75,24 @@ In a statement, *could* often shows past ability (*could type*) or possibility (
 :::
 
 :::check
-Which asks permission: "I could swim at age six" or "Could I open the window?"
+Which asks permission: "Could it rain tonight?" or "Could I borrow your charger?"
 :::answer
-The answer is **"Could I open the window?"** The speaker is asking to be allowed to open it, whereas *could swim at age six* states past ability.
+The answer is **"Could I borrow your charger?"** The speaker is asking to be allowed to borrow it, whereas *Could it rain tonight?* asks whether something is possible.
 :::
 
 ## Examples
 
 ### #1: Checking Verb Form After a Modal
 
-Choose the form that completes the sentence: "The new clerk can ___ routine inquiries without assistance."
+Complete "The pilot can ___ the plane in strong wind" with *lands*, *landing*, *to land*, or *land*.
 
 **Solution:**
 
 1. Spot the modal before the blank: *can*.
 2. Apply the modal rule: *can* takes the bare base form.
-3. Rule out *answers*, *answering*, and *to answer*, leaving **answer**.
+3. Rule out *lands*, *landing*, and *to land*, leaving **land**: "The pilot can land the plane in strong wind."
 
-**Check:** Test the same verb after another modal: "The clerk will **answer** inquiries" and "The clerk must **answer** inquiries" both use *answer*.
+**Check:** Test the same verb after another modal: "The pilot will **land** the plane" and "The pilot must **land** the plane" both use *land*.
 
 ### #2: Ability and Formal Permission
 
@@ -108,24 +108,23 @@ Choose each modal: (a) Present ability: "Maria *(can / must)* solve the problem 
 
 ### #3: Spotting Permission Among Other Uses of Could
 
-Choose the sentence using *could* to request permission: "I could type before I entered college," "The records could arrive later this afternoon," or "Could I use this desk?"
+Choose the sentence using *could* to request permission: "She could dance well as a child," "It could rain by noon," or "Could I take this seat?"
 
 **Solution:**
 
-1. Check "I could type before I entered college": it states general past ability.
-2. Check "The records could arrive later this afternoon": it states a possibility.
+1. Check "She could dance well as a child": it states general past ability.
 
 :::try
-Finish the last step: why does the remaining sentence use *could* for permission?
+Finish the job: say what *could* does in the other two sentences, then choose the permission request.
 :::answer
-The answer is **"Could I use this desk?"** The speaker is politely asking someone who controls the desk to allow its use.
+"It could rain by noon" states a possibility. The permission request is **"Could I take this seat?"** The speaker is politely asking someone to allow the use of the seat.
 
-**Check:** Swap *Could* for *May* ("May I use this desk?"): it still asks permission cleanly, whereas swapping *may* into "I could type" breaks the past-ability meaning.
+**Check:** Swap *Could* for *May* ("May I take this seat?"): it still asks permission cleanly, whereas swapping *may* into "She could dance" breaks the past-ability meaning.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Check modals in two passes. First check form: after *can, could, may, might, must, should,* or *will*, allow only the bare base verb (no *-s, -ed, -ing,* or *to*). Next read the full sentence for meaning: ability, permission, or possibility.
+Check modals in two passes. First check form: after a modal such as *can, could, may, might, must, should,* or *will*, allow only the bare base verb (no *-s, -ed, -ing,* or *to*). Next read the full sentence for meaning: ability, permission, or possibility.
 
 ## Traps to Watch For
 

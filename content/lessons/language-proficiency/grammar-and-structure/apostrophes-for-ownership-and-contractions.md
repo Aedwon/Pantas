@@ -119,7 +119,7 @@ Treat the school as one organization. Choose the possessive form: *"The school p
 1. *The school* is one organization (singular *it*), ruling out plural *Their* (D).
 
 :::try
-Finish the last step: rule out (B) and (C), and name the correct choice.
+Finish the last step: choose the correct form.
 :::answer
 The answer is **(A) Its**. (B) expands to *"it is front gate"* (wrong), and (C) *Its'* is invalid; *its* with no apostrophe shows ownership.
 

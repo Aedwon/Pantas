@@ -35,7 +35,7 @@ Wrong: Write "Applicants must not bring a printed sheet," "Applicants have to br
 :::
 
 :::check
-Wearing a jacket is recommended, not required. Choose: "Guests *(must / should)* wear a jacket."
+The host hopes guests wear a jacket but lets anyone in. Choose: "Guests *(must / should)* wear a jacket."
 :::answer
 The answer is **Should**. *Should* gives advice, whereas *must* makes it required.
 :::
@@ -51,8 +51,8 @@ Context shows when these mean possibility rather than permission or past ability
 
 :::pair #might-shows-possibility
 Right: In "The delivery might arrive after the office closes," *might* expresses possibility.
-Wrong: Read *might* as a strict requirement or as permission to enter.
-*Might* shows the late arrival could happen, not that anyone is required to act or allowed to enter.
+Wrong: Read *might* in this sentence as a strict requirement or as permission to enter.
+Here *might* shows the late arrival could happen, not that anyone is required to act or allowed to enter.
 :::
 
 :::check
@@ -61,7 +61,7 @@ What does *may* express in "It may rain later": permission or possibility?
 The answer is **Possibility**. The speaker is predicting what could happen with the weather.
 :::
 
-### Must as a Strong Conclusion from Evidence
+### A Second Meaning of Must
 
 Besides giving a rule, **must** can express a **strong conclusion** based on clues:
 
@@ -108,17 +108,16 @@ In "The delivery might arrive after the office closes," determine what *might* e
 
 ### #3: Two Modals in One Exchange
 
-Read: "Could I use the meeting room?" "The reservation sheet is signed and the lights are on, so someone must be using it." What do *could* and *must* express?
+Read: "Could I borrow the projector?" "The cable is plugged in and the screen is bright, so someone must be using it." What do *could* and *must* express?
 
 **Solution:**
 
-1. Check "Could I use the meeting room?": the speaker asks to be allowed in, so *could* is a **polite permission request**.
-2. Check the clues in the reply: a signed reservation sheet and lights on.
+1. Find the clues in the reply: a plugged-in cable and a bright screen.
 
 :::try
-Finish the last step: what does *must* express in "so someone must be using it"?
+Finish the job: what do *could* and *must* express in this exchange?
 :::answer
-The answer is **A strong conclusion from evidence.** Together, *could* makes a polite permission request and *must* draws a strong conclusion from the signed sheet and lit room.
+*Could* makes a **polite permission request**: the speaker asks to be allowed to borrow the projector. *Must* is **a strong conclusion from evidence**: the plugged-in cable and bright screen show what is very likely true now.
 
 **Check:** Replace *must be using* with *is probably using*: the meaning fits the clues smoothly, whereas *is required to use* makes no sense.
 :::

@@ -95,7 +95,7 @@ Using basic school grammar, classify the bold words in *"The manager wants **to 
 2. Basic school grammar calls it an **infinitive phrase**.
 
 :::try
-Finish the last step: find the finite main verb outside the bold group and test it by shifting time.
+Finish the last step: find the finite main verb and test it by shifting time.
 :::answer
 The finite main verb is **wants**. *Wants* matches *The manager* in present tense.
 

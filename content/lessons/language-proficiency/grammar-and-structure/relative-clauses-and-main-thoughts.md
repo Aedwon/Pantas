@@ -63,7 +63,7 @@ The answer is **found**. *Checked* belongs to *who checked my form*, while *foun
 
 ## Examples
 
-### #1: Essential vs. Extra-Detail Clauses
+### #1: Describing a Volunteer
 
 In *"The volunteer who repaired the bench returned today,"* classify *"who repaired the bench,"* name the noun it describes, and explain why there are no commas.
 
@@ -89,29 +89,28 @@ Choose the formal form in *"The applicant (who / whom) the committee selected st
 
 ### #3: Separating the Relative Clause From the Main Thought
 
-In *"The driver who found the road closed delayed our delivery,"* find the relative clause and state which group is the independent clause.
+In *"The pilot who flew the storm route landed safely,"* find the relative clause and state which group of words is the independent clause.
 
 **Solution:**
 
-1. *Who found the road closed* starts with *who*, describes *the driver*, and is a dependent relative clause.
-2. The main verb after it is *delayed*.
+1. *Who flew the storm route* starts with *who* and describes *the pilot*, so it is a dependent relative clause.
 
 :::try
-Finish the last step: explain why neither *"The driver who found the road closed"* nor *"Delayed our delivery"* is the independent clause, and name what is.
+Finish the last step: name the independent clause, and say why.
 :::answer
-The answer is **The whole sentence**. *"The driver who found the road closed"* lacks its main verb *delayed*, and *"Delayed our delivery"* lacks its subject *the driver*. Together, the whole sentence is the independent clause containing the embedded relative clause.
+The answer is **The whole sentence**. *The pilot* is the main subject and *landed* is its main verb, with the relative clause inside the subject.
 
-**Check:** Cover *"who found the road closed"* and read *"The driver delayed our delivery."* Both the main subject and main verb remain.
+**Check:** Cover *"who flew the storm route"* and read *"The pilot landed safely."* Both the main subject and main verb remain.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Bracket the relative clause from *who, whom, which,* or *that* to the word right before the main verb. Read outside the brackets to pair the main subject with its main verb.
+Bracket the relative clause that starts with *who, whom, which,* or *that*. It usually ends right before the main verb, or at the end of the sentence if it comes last. Read outside the brackets to pair the main subject with its main verb.
 
 ## Traps to Watch For
 
 :::checklist
-- Clause starting with *who, which,* or *that*: classify it as a dependent clause, never as independent or a phrase. {#relative-is-dependent}
+- Relative clause starting with *who, which,* or *that* after a noun: classify it as a dependent clause, never as independent or a phrase. {#relative-is-dependent}
 - Long subject containing a relative clause: read past the relative clause to connect the main subject to its main verb. {#stop-before-main-verb}
-- Comma vs. no comma on a relative clause: use commas and *which* for extra detail, and no commas for essential identification. {#relative-clauses-and-relative-words}
+- Comma vs. no comma on a relative clause: use commas (with *which* or *who*) for extra detail, and no commas for essential identification. {#relative-clauses-and-relative-words}
 :::

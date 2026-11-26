@@ -30,14 +30,14 @@ Matching two verbs in the wrong time breaks the clue *yesterday*. Match every ve
 :::
 
 :::check
-Choose the correct verb: Last Friday, the clerk *(files / filed)* the form and left early.
+Choose the correct verb: Last Friday, the clerk *(files / filed)* the form.
 :::answer
-The answer is **Filed**. *Last Friday* sets a past timeline, so both *filed* and *left* stay in simple past.
+The answer is **Filed**. *Last Friday* sets a past timeline, so the verb stays in simple past.
 :::
 
 ### Future Meaning with Will
 
-**Simple future** is the common school label for *will* plus the base form of a verb: "She **will write** a letter tomorrow." Use it for a prediction, a promise, a future fact, or a decision made as you speak.
+**Simple future** is the common school label for *will* plus the base form of a verb: "She **will write** a letter tomorrow." Use it for things such as a prediction, a promise, a future fact, or a decision made as you speak.
 
 Never add *-s*, *-ed*, or *-ing* to the verb after *will*. Always use the plain base form (*will close*, *will help*).
 
@@ -92,7 +92,7 @@ Correct: "Yesterday, she walked to the store and bought some bread."
 
 **Check:** Read both verbs with the time clue: "Yesterday, she walked" and "Yesterday, she bought." Both match past time.
 
-### #2: Naming a Future Verb Form
+### #2: Naming a Verb Form
 
 Identify the verb tense in "She will write a letter tomorrow."
 
@@ -106,19 +106,18 @@ Identify the verb tense in "She will write a letter tomorrow."
 
 ### #3: Judging a Tense Shift Across Clauses
 
-Decide whether the tense shift in "I studied yesterday, and I will practice tomorrow" is justified.
+Decide whether the tense shift in "We cleaned the room on Saturday, and we will paint it next week" is justified.
 
 **Solution:**
 
-1. Check the first clause: *studied* matches the past clue *yesterday*.
-2. Check the second clause: *will practice* matches the future clue *tomorrow*.
+1. Check the first clause: *cleaned* matches the time clue *on Saturday*.
 
 :::try
-Finish the last step: is the tense shift justified, and what reason supports your answer?
+Finish the job: check the second clause, then say whether the shift is justified and why.
 :::answer
-The answer is **Yes, the two time clues set different timelines.** *Yesterday* requires past *studied*, while *tomorrow* requires future *will practice*.
+The answer is **Yes, the two time clues set different timelines.** *On Saturday* requires past *cleaned*, while *next week* requires future *will paint*.
 
-**Check:** Test the opposite rule: changing *will practice* to *practiced* would clash with *tomorrow*, and changing *studied* to *will study* would clash with *yesterday*.
+**Check:** Test the opposite: changing *will paint* to *painted* would clash with *next week*, and changing *cleaned* to *will clean* would clash with *on Saturday*.
 :::
 
 ## Speed Tricks & Shortcuts

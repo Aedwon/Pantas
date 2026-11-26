@@ -31,9 +31,9 @@ After *customer*, *covered in cheese* attaches to the customer; at the front bef
 :::
 
 :::check
-The book, not the student, has a torn cover. Revise *"The librarian handed a book to the student with a torn cover."*
+The car, not the owner, has a dented door. Revise *"The mechanic showed a car to the owner with a dented door."*
 :::answer
-The answer is **"The librarian handed the student a book with a torn cover."** Putting *with a torn cover* right after *a book* connects the torn cover to the book.
+The answer is **"The mechanic showed the owner a car with a dented door."** Putting *with a dented door* right after *a car* connects the dented door to the car.
 :::
 
 ### Keeping the Intended Meaning When Revising
@@ -55,9 +55,9 @@ Both wrong options are clear, yet they put the jacket on *the teacher*. Check wh
 :::
 
 :::check
-Which clearly states that the window, not the ladder, is broken: *"The window was repaired by a worker who stood on a broken ladder"* or *"A worker on a ladder repaired the broken window"*?
+Which clearly states that the mug, not the shelf, is cracked: *"Tom put the mug on the cracked shelf"* or *"Tom put the cracked mug on the shelf"*?
 :::answer
-The answer is **"A worker on a ladder repaired the broken window."** Putting *broken* before *window* keeps the damage on the window.
+The answer is **"Tom put the cracked mug on the shelf."** Putting *cracked* before *mug* keeps the damage on the mug.
 :::
 
 ## Examples
@@ -98,7 +98,7 @@ The visitors walk into the room, and the bread is wrapped in a napkin. Check thi
 :::try
 Finish the last step: rewrite sentence 2 so *"wrapped in a napkin"* clearly describes *bread*.
 :::answer
-**"Entering the room, we smelled fresh bread. The baker served bread wrapped in a napkin."** Putting *wrapped in a napkin* right after *bread* removes *the baker* from between them.
+**"Entering the room, we smelled fresh bread. We received bread wrapped in a napkin from the baker."** Putting *wrapped in a napkin* right after *bread* removes *the baker* from between them.
 
 **Check:** Match each modifier to its noun: *"Entering the room, we..."* (people enter) and *"...bread wrapped in a napkin"* (bread is wrapped). Both fit the prompt.
 :::

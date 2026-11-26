@@ -29,7 +29,7 @@ The answer is a synonym. Both words mean bold and willing to take risks.
 
 ### Word Pairings
 
-A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. For a large amount, *heavy* is the usual partner.
+A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. For a large amount of rain, snow or traffic, *heavy* is the usual partner.
 
 :::pair #heavy-rain
 Right: The road closed during heavy rain.

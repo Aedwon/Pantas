@@ -20,7 +20,7 @@ keyPoints:
 A **collective noun** names a group, like *company*, *class*, *team*, or *committee*. Your pronoun depends on whether the group acts as one unit or as separate people.
 
 1. Acting as **one unit** (standard American one-unit reading): use *it* or *its*. "The company announced **its** new policy." Never use *his* or *her* for an organization.
-2. Members acting **individually** (allowed in varieties like British English): plural *they* or *their* fits, as in "The committee returned to **their** homes." In standard American style, naming the people ("The committee members returned to **their** homes") is clearer.
+2. Members acting **individually**: plural *they* or *their* fits, as in "The committee returned to **their** homes." This is common in British English and sometimes used in American English. Naming the people ("The committee members returned to **their** homes") is clearer.
 
 :::pair #group-unit-vs-members
 Right: Treating the company as one unit, "The company announced its new policy yesterday."
@@ -47,31 +47,31 @@ Antecedents joined by *and* form a plural pair. Do not drop either person based 
 :::
 
 :::check
-Liza and Carlo share one project. Choose the form: "Liza and Carlo finished *(her / their / theirs)* project early."
+Mara and Jun share one room. Choose the form: "Mara and Jun cleaned *(his / their / theirs)* room today."
 :::answer
-The answer is **Their**. Both Liza and Carlo own the project, and *their* sits before the noun *project*.
+The answer is **Their**. Both Mara and Jun share the room, and *their* sits before the noun *room*.
 :::
 
 ### Mixed Antecedents with Or and Nor
 
-When *or* or *nor* joins a singular noun and a plural noun ("Neither the coach nor the players..."), a pronoun later often clashes in number or forces an unstated gender (*his*, *her*, or *its*).
+When *or* or *nor* joins a singular noun and a plural noun ("Neither the coach nor the players..."), the pronoun agrees with the **nearer** noun. A pronoun for a singular person can also force an unstated gender (*his*, *her*).
 
-Do not force an awkward pronoun. Rewrite by using an article (*the* or *a*) or naming the people directly.
+If the pronoun sounds awkward, rewrite with an article (*the* or *a*) or name the people directly.
 
 :::why
-Why drop the pronoun in "Neither the coach nor the players brought his or their required equipment"? Because *coach* is singular and *players* is plural, no single possessive sounds natural without guessing gender. Replacing *his or their* with *the* keeps the exact meaning cleanly.
+Why is *his* wrong in "Neither the coach nor the players brought his own required equipment"? The nearer noun, *players*, is plural, so *his* does not agree, and it guesses the coach's gender. Replacing *his own* with *the* keeps the meaning cleanly.
 :::
 
 :::pair #mixed-nor-forced-gender
 Right: "Neither the coach nor the players brought the required equipment."
 Wrong: "Neither the coach nor the players brought his own required equipment."
-*His* forces male gender onto mixed antecedents. Using *the* keeps the sentence clear and gender-neutral.
+The nearer noun, *players*, is plural, so *his* does not agree, and it forces male gender. Using *the* avoids both problems.
 :::
 
 :::check
-Which is clearer and gender-neutral: (A) "Neither the coach nor the players brought its gear." or (B) "Neither the coach nor the players brought the required gear."?
+Which fits: (A) "Neither the guard nor the drivers wore its badges." or (B) "Neither the guard nor the drivers wore their badges."?
 :::answer
-The answer is **(B)**. *Its* wrongly treats people as an object, while replacing the pronoun with *the* keeps the sentence clear.
+The answer is **(B)**. The nearer noun, *drivers*, is plural, so *their* agrees. *Its* treats people as an object.
 :::
 
 ## Examples
@@ -99,31 +99,30 @@ In "Liza and Carlo, who share one project, finished ______ project early," choos
 
 **Check:** Swap in *they*: "They finished their project early" fits both owners.
 
-### #3: Indefinite Pronoun and Collective Noun
+### #3: A Group Inside a Longer Sentence
 
-Using gender-neutral English and treating *team* as one unit, fill both blanks: "Each of the volunteers brought ______ own supplies; the coordinator said the team was proud of ______ accomplishment."
+Treating *choir* as one unit, fill the blank with *its*, *their*, or *his*: "The director said the choir was proud of ______ performance."
 
 **Solution:**
 
-1. *Each* refers to one unspecified volunteer, so gender-neutral English uses singular **their**.
-2. *The team* is treated as one unit, not separate people.
+1. Find the word the blank points back to: *the choir*.
 
 :::try
-Finish the last step: which pronoun fills the second blank for *the team* as one unit?
+Finish the last step: which pronoun fills the blank, and why?
 :::answer
-The answer is **Its**: "Each of the volunteers brought their own supplies; the coordinator said the team was proud of its accomplishment."
+The answer is **Its**: "The director said the choir was proud of its performance." One unit takes *its*, not *their* (separate members) or *his* (one male person).
 
-**Check:** Check each link: "one volunteer -> their supplies" (gender-neutral) and "one team unit -> its accomplishment."
+**Check:** Replace *its performance* with *the choir's performance*. The meaning stays the same.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names as plural (*their*), and drop forced pronouns in mixed *or/nor* sentences.
+Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names as plural (*their*), and match the nearer noun in mixed *or/nor* sentences, or rewrite with *the*.
 
 ## Traps to Watch For
 
 :::checklist
 - Collective noun acting as one organization unit: use *its*, reserving *their* for contexts pointing to separate members. {#group-unit-vs-members}
 - Two people joined by *and*: include both with *their*, rather than matching only the first or nearest name. {#joined-by-and-one-person}
-- Mixed singular and plural antecedents with *or/nor*: rewrite without *his*, *her*, or *its* so the reference stays clean. {#mixed-nor-forced-gender}
+- Mixed singular and plural antecedents with *or/nor*: match the nearer noun, or rewrite with *the* so no gender is forced. {#mixed-nor-forced-gender}
 :::

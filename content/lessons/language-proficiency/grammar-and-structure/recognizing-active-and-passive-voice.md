@@ -44,7 +44,7 @@ Passive voice usually uses **be + past participle** (*is checked*, *was chased*,
 
 - "The report **had already been submitted** by the intern." (Past perfect + passive voice.)
 
-Watch out for **linking constructions**. A form of *be* plus an adjective describes a state, not an action: "She **is** happy" links *she* to the adjective *happy*.
+Watch out for **linking constructions**. A form of *be* plus an adjective describes a state, not an action: "She **is** happy" links *she* to the adjective *happy*. Some participles also work as adjectives, so "The window was broken" can describe a state.
 
 :::pair #be-plus-adjective
 Right: "She is happy" is not passive because *is* links the subject to an adjective.
@@ -69,7 +69,7 @@ Why do formal notices often use passive voice? When readers need to know what ch
 :::pair #keep-unknown-agent-passive
 Right: When the doer is unknown and the result matters now, write "The access codes have been changed."
 Wrong: Invent a doer ("The administrator has changed the access codes") or use simple past ("The access codes were changed").
-Never invent an actor when the doer is unknown. Keep *have been changed* (present perfect passive) to link the change to now, rather than simple past *were changed*.
+Never invent an actor when the doer is unknown. *Were changed* is also passive, but for a change that matters now, *have been changed* (present perfect) links it to now.
 :::
 
 :::check
@@ -104,26 +104,25 @@ In "By the time the manager reviewed it, the report had already been submitted b
 
 **Check:** Active form "the intern had already submitted the report" keeps *had submitted* (past perfect) with *the intern* acting.
 
-### #3: Formal Notice Without an Agent
+### #3: A Notice About a Finished Change
 
-A formal notice must report that a change to the access codes is complete and matters now, with an unknown doer. Choose between: "The access codes were changed," "The administrator has changed the access codes," and "The access codes have been changed."
+A notice must report that the lobby doors are now locked and that this matters now. Nobody knows who locked them. Choose between "The guard has locked the lobby doors" and "The lobby doors have been locked."
 
 **Solution:**
 
-1. Rule out simple past *were changed* because the change matters now (present perfect).
-2. Rule out *the administrator* because the doer is unknown.
+1. List what the notice must show: a finished change, and an unknown doer.
 
 :::try
-Finish the last step: which sentence remains, and why does it fit?
+Finish the last step: which sentence fits, and why?
 :::answer
-The answer is **"The access codes have been changed."** *Have been changed* is present perfect passive, linking the completed change to now without inventing an actor.
+The answer is **"The lobby doors have been locked."** *Have been locked* is passive (be + past participle) in the present perfect, so it links the change to now. It names no doer, so it invents no actor.
 
-**Check:** Confirm all three rules: *have been* (present perfect), *been changed* + receiving subject (passive), and no invented *by* phrase or administrator.
+**Check:** The other sentence names *the guard*, a doer the notice does not know.
 :::
 
 ## Speed Tricks & Shortcuts
 
-First find the subject and ask whether it acts or receives the action. Next check the full verb group for *be* (or *get*) plus a past participle rather than an adjective.
+First find the subject and ask whether it acts or receives the action. Next check the full verb group for *be* plus a past participle rather than an adjective.
 
 ## Traps to Watch For
 

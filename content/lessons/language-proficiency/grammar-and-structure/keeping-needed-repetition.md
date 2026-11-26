@@ -33,9 +33,9 @@ Adding *once more* piles on extra filler, while asking to *change* the words alt
 :::
 
 :::check
-A speaker gave a number once and has not repeated it yet. Which is concise: *"Please repeat again the number"* or *"Please repeat the number"*?
+A teacher mumbled a date once, and a student who missed it asks. Which is concise: *"Please repeat again the date"* or *"Please repeat the date"*?
 :::answer
-The answer is **"Please repeat the number."** No earlier repeat happened yet, so *repeat* alone asks to say it a second time.
+The answer is **"Please repeat the date."** No earlier repeat happened yet, so *repeat* alone asks to say it a second time.
 :::
 
 ### Reading the Context Before Editing
@@ -52,9 +52,9 @@ Wrong: Claim *again* means *"It says the instruction has never been repeated."* 
 :::
 
 :::check
-A pilot announced a gate change, then repeated it. Now a late passenger asks. Should *again* stay in *"Please repeat the gate change again for the late passenger"*?
+A pilot announced a gate change, then repeated it twice. Now a late passenger asks. Should *again* stay in *"Please repeat the gate change again for the late passenger"*?
 :::answer
-The answer is **Yes**. The pilot already repeated the announcement once, so *again* points to a further repeat.
+The answer is **Yes**. The pilot already repeated the announcement twice, so *again* points to a further repeat.
 :::
 
 ## Examples
@@ -85,18 +85,18 @@ Mara read a notice aloud. At Ben's request, she repeated it. Ben still could not
 
 ### #3: Reading a Longer Timeline
 
-A teacher read a problem aloud, then repeated it when asked. A late student missed both readings. Should *again* stay in *"Could you repeat the problem again for Leo?"*
+A coach explained a drill once, and no one asked for a repeat. Sam came late. Should *again* stay in *"Could you repeat the drill again for Sam?"*
 
 **Solution:**
 
-1. Track the timeline: first reading -> first repeat -> Leo missed both.
+1. Track the timeline: one explanation, no repeat yet, then Sam arrives.
 
 :::try
 Finish the last step: decide whether to keep or cut *again*, and say why.
 :::answer
-The answer is **Keep it.** The teacher already repeated the problem once, so *again* asks for one more repeat without changing the words.
+The answer is **Cut it.** The coach has not repeated the drill yet, so *repeat* alone asks for the first repeat: *"Could you repeat the drill for Sam?"*
 
-**Check:** Count the readings in order: (1) original problem, (2) first repeat, (3) *"repeat...again"* for Leo.
+**Check:** Count the times the drill was said: (1) the original explanation. Sam's request is the first repeat, so *again* adds no step.
 :::
 
 ## Speed Tricks & Shortcuts

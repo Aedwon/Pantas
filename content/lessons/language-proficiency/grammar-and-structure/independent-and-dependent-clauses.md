@@ -18,7 +18,7 @@ keyPoints:
 
 A **clause** has a subject and a **finite verb** (a verb that carries tense and matches its subject, such as *slept* or *arrives*).
 
-An **independent clause**, also called a **main clause**, gives a complete thought and can stand alone as a sentence. Even a short three-word group is independent when it has a subject, a finite verb, and no word leaving the reader waiting: *"The cat slept."* *"She finished her homework."*
+An **independent clause**, also called a **main clause**, gives a complete thought and can stand alone as a sentence. Even a short group is independent when it has a subject, a finite verb, and no word leaving the reader waiting: *"The cat slept."* *"She finished her homework."*
 
 :::pair #short-clause-is-complete
 Right: Classify *"The cat slept"* as an **Independent clause**.

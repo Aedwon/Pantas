@@ -17,7 +17,7 @@ keyPoints:
 
 ### Forming Present Perfect
 
-A **past participle** is the verb form used after *has, have,* or *had* (and in passives). Regular verbs add *-d* or *-ed* (*finished*, *submitted*), while irregular verbs use forms like *written*, *eaten*, and *broken*.
+A **past participle** is the verb form used after *has, have,* or *had* (and in passives). Regular verbs add *-d* or *-ed* (*finished*, *saved*), sometimes doubling a letter first (*submitted*), while irregular verbs use forms like *written*, *eaten*, and *broken*.
 
 **Present perfect** uses *has* or *have* plus a past participle. Use *has* with *he, she, it*, or a singular noun, and *have* with *I, you, we, they*, or a plural noun:
 
@@ -31,9 +31,9 @@ Read the full verb group, not just *written*. Present *has* or *have* plus a pas
 :::
 
 :::check
-Choose the right form: The team *(has finished / has finish)* the audit today.
+Choose the right form: The nurses *(have cleaned / have clean)* the ward today.
 :::answer
-The answer is **Has finished**. After *has*, always use the past participle (*finished*), never the base form (*finish*).
+The answer is **Have cleaned**. After *have*, always use the past participle (*cleaned*), never the base form (*clean*).
 :::
 
 ### Linking the Past to Now
@@ -58,14 +58,14 @@ Wrong: We had lived here until last month, and then we left.
 :::
 
 :::check
-Choose the form for a stay continuing to now: "She *(has lived / had lived)* here since June."
+Choose the form for a job continuing to now: "Our neighbor *(has worked / had worked)* at the bank since 2020."
 :::answer
-The answer is **Has lived**. Her stay continues into the present, so present perfect links June to now.
+The answer is **Has worked**. The job continues into the present, so present perfect links 2020 to now.
 :::
 
 ### Finished Past Time Uses Simple Past
 
-Use **simple past** with a finished past time (*yesterday, last week, in 2022*). Compare finished time with present result:
+Use **simple past** with a finished past time (*yesterday, last week, in 2022*). Compare:
 
 - "The committee **submitted** its report yesterday afternoon." (*Yesterday afternoon* is finished.)
 - "The committee **has submitted** its report." (Present result, no finished time.)
@@ -77,9 +77,9 @@ Wrong: The committee has submitted (or *has submit*) its report yesterday aftern
 :::
 
 :::check
-Choose the right verb: The printer *(stopped / has stopped)* working yesterday.
+Choose the right verb: The bus *(arrived / has arrived)* late last night.
 :::answer
-The answer is **Stopped**. *Yesterday* names a finished past time, so choose simple past.
+The answer is **Arrived**. *Last night* names a finished past time, so choose simple past.
 :::
 
 ## Examples
@@ -94,7 +94,7 @@ Identify the tense in "She has written three letters this week."
 2. Check the helper: present *has* pairs with the past participle *written*.
 3. Match the form (*has* + past participle) to its tense: **present perfect**.
 
-**Check:** Verify *has written* directly: present *has* plus past participle *written* links past writing up to now with *this week* and no finished past time word, confirming **present perfect** (whereas simple past uses *wrote* alone and past perfect uses *had written*).
+**Check:** *Has* plus *written*, with *this week* and no finished past time word, confirms **present perfect**.
 
 ### #2: Choosing Simple Past for a Finished Time
 
@@ -108,26 +108,25 @@ Choose the right verb form: "The committee ___ its report yesterday afternoon."
 
 **Check:** Pair *yesterday afternoon* with a second verb: "I read it yesterday afternoon" also uses simple past.
 
-### #3: Past Arrival with a Continuing Stay
+### #3: Choosing Between Three Sentences
 
-The speakers arrived last month and still live here. Choose the clearer sentence: "We arrive last month and have lived here ever since," "We had lived here until last month, and then we left," or "We arrived last month and have lived here ever since."
+Dan joined the club in May and is still a member. Choose the correct sentence: "Dan joins the club in May and has been a member ever since," "Dan had been a member until May, and then he left," or "Dan joined the club in May and has been a member ever since."
 
 **Solution:**
 
-1. Match the arrival (*last month*) to simple past *arrived*, ruling out present *arrive*.
-2. Check whether the stay ended or still continues: they *still live here*, ruling out *had lived ... and then we left*.
+1. Check whether the membership ended or still continues: he is *still a member*, ruling out *had been ... and then he left*.
 
 :::try
 Finish the last step: which sentence fits both timelines, and why do its two verbs differ?
 :::answer
-The answer is **"We arrived last month and have lived here ever since."** *Arrived* places the move in the finished past, and *have lived* links the ongoing stay to now.
+The answer is **"Dan joined the club in May and has been a member ever since."** *Joined* places the joining in the finished past, and *has been* links the ongoing membership to now.
 
-**Check:** Test each clause: *arrived last month* matches a completed move, and *have lived here ever since* confirms they still live here now.
+**Check:** Test each clause: *joined in May* matches a completed event, and *has been a member ever since* confirms he is still a member now.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Read the time clue first. A finished past time (*yesterday*, *last month*) takes simple past, while a link to now (*since June*, *ever since*, *this week*, *so far*) takes *has* or *have* plus a past participle.
+Read the time clue first. A finished past time (*yesterday*, *last month*) takes simple past, while a link to now (*since June*, *ever since*, *so far*) takes *has* or *have* plus a past participle. An open period like *this week* usually takes present perfect, but one finished action can use simple past (*She wrote a letter this week*).
 
 ## Traps to Watch For
 

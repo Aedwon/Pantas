@@ -16,7 +16,7 @@ keyPoints:
 
 ### Correlative Conjunctions: Matching Both Sides
 
-**Correlative conjunctions** work in pairs (*either...or*, *neither...nor*, *not only...but also*, *both...and*). Match the grammatical form right after each half:
+**Correlative conjunctions** work in pairs (such as *either...or*, *neither...nor*, *not only...but also*, *both...and*). Match the grammatical form right after each half:
 
 1. Two adjectives: *"The policy is not only practical but also affordable."*
 2. Two *to + verb* phrases: *"She wanted both to travel and to save money."*
@@ -39,9 +39,9 @@ Leaving *either* before *submit* forces a verb phrase (*submit online*) to pair 
 :::
 
 :::check
-Choose the matching verb in *"The company will neither raise prices nor *(cut / cutting / cuts)* jobs."*
+Choose the matching verb in *"The shop will neither lower prices nor *(offer / offering / offers)* discounts."*
 :::answer
-The answer is **Cut**. The shared helping verb *will* governs both base verbs: *will raise* and *will cut*.
+The answer is **Offer**. The shared helping verb *will* governs both base verbs: *will lower* and *will offer*.
 :::
 
 ### Comparisons: Comparing Like to Like
@@ -65,9 +65,9 @@ The left side names a cost, while the right switches to an activity (*taking a t
 :::
 
 :::check
-Which ending keeps *"Reading a book is more relaxing than ___"* parallel: *"to watch television"*, *"watching television"*, or *"a television"*?
+Which ending keeps *"Swimming daily is healthier than ___"* parallel: *"to sit all day"*, *"sitting all day"*, or *"a sofa"*?
 :::answer
-The answer is **Watching television**. *Reading a book* and *watching television* are both *-ing* activities.
+The answer is **Sitting all day**. *Swimming daily* and *sitting all day* are both *-ing* activities.
 :::
 
 ## Examples
@@ -84,34 +84,34 @@ Identify and fix the error: *"He is both intelligent and he works hard."*
 
 Corrected sentence: **"He is both intelligent and hardworking."**
 
-**Check:** Read *He is* before each word: *"He is intelligent"* and *"He is hardworking."* Both are adjectives.
+**Check:** Read *He is* before each word. Both are adjectives.
 
 ### #2: Moving a Misplaced Connector
 
-Revise *"He wanted either to win the race or finishing in the top three"* without changing its meaning.
+Revise *"He either wanted to win the race or to finish in the top three"* without changing its meaning.
 
 **Solution:**
 
-1. After *either* sits *to win*; after *or* sits *finishing*.
-2. Factor out *wanted to* before both base verbs: *"He wanted to win the race or finish in the top three."*
+1. After *either* sits *wanted to win the race*; after *or* sits *to finish*.
+2. Move *either* after the shared verb: *"He wanted either to win the race or to finish in the top three."*
 
-**Check:** Read *"He wanted to"* before each choice: *"win the race"* and *"finish in the top three."* Both goals remain.
+**Check:** Read *"He wanted"* before each choice. Both goals remain.
 
-### #3: Fixing Two Errors in One Sentence
+### #3: Fixing Two Errors in One Passage
 
-Which replacements fix both errors in: *"The seminar teaches not only how to negotiate but also improving communication, with topics such as budgeting, marketing, and how to manage a team"*?
+Fix both errors in: *"The room is neither dark nor it is small. The rent is lower than the apartment next door."*
 
 **Solution:**
 
-1. Fix the *not only...but also* pair: match *how to negotiate* with *"how to improve communication."*
-2. Check the topic list: *budgeting*, *marketing*, and *how to manage a team*.
+1. In sentence 1, *neither* is followed by the adjective *dark* and *nor* by the clause *it is small*. Replace the clause: *"neither dark nor small."*
+2. Sentence 2 compares *the rent* with *the apartment*.
 
 :::try
-Finish the last step: replace *how to manage a team* so all three topics are noun phrases.
+Finish the last step: rewrite sentence 2 so the comparison is fair.
 :::answer
-The answer is **Use "how to improve" and "team management."** Both skills start with *how to*, and all three topics (*budgeting*, *marketing*, *team management*) are noun phrases.
+The answer is **"The rent is lower than the rent for the apartment next door."** Now a rent is compared with a rent.
 
-**Check:** Check the pair (*how to negotiate* / *how to improve*) and the list (*budgeting* / *marketing* / *team management*) separately. Both match.
+**Check:** Name the thing on each side: *rent* and *rent*. Sentence 1 now reads *neither dark nor small*, two adjectives.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -122,6 +122,6 @@ Cover everything before the first word of a paired connector, then compare what 
 
 :::checklist
 - Correlative pairs (*not only...but also*, *both...and*): match the exact grammatical form after each connector. {#mismatched-correlative-pair}
-- Shared verb before *either* or *neither*: move the connector after the shared verb so both choices match. {#misplaced-correlative-connector}
-- Comparisons with *than* or *as*: compare two costs, two people, or two *-ing* activities. {#comparing-unlike-things}
+- Shared verb after *either* or *neither*: move the connector after that verb. If both choices already match (*either to win or to lose*), leave it. {#misplaced-correlative-connector}
+- Comparisons with *than* or *as*: compare like with like, such as two costs, two people, or two *-ing* activities. {#comparing-unlike-things}
 :::

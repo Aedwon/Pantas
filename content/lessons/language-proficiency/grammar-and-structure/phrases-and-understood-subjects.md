@@ -18,7 +18,7 @@ keyPoints:
 
 A **subject** tells who or what a group of words is about. A **verb** tells the action or state of that subject.
 
-A **clause** has both a subject and a verb working together: "The cat **slept**." (*The cat* is the subject, and *slept* is the verb.) An **independent clause** can stand alone as a complete sentence.
+A **clause** has both a subject and a verb working together: "The cat **slept**." (*The cat* is the subject, and *slept* is the verb.) An **independent clause** can stand alone as a complete sentence. A **dependent clause** has a subject and a verb too, but cannot stand alone: "because the cat slept."
 
 A **phrase** is a group of words working as one part of a sentence without a subject paired with a verb: "under the old bridge." It tells where, yet has no verb at all. It is a **prepositional phrase** because it begins with the preposition *under* followed by the noun group *the old bridge*.
 
@@ -40,7 +40,7 @@ The answer is **A phrase**. *After* introduces the noun group *the morning meeti
 
 In a command such as "Close the door" or "Sit down," the subject is not written out, yet it is still there. The **understood subject** (implied subject) is *you*, the person spoken to: "(You) close the door."
 
-Because a command pairs the understood subject *you* with a real verb (*close*, *sit*) and gives a complete instruction, it is an **independent clause**. It can stand alone as a full sentence.
+Because a command pairs the understood subject *you* with a real verb (*close*, *sit*) and gives a complete instruction, it is an **independent clause**.
 
 :::why
 Why do commands leave out *you*? When you speak directly to someone to give an order or polite request, the listener already knows *you* must do the action, so English drops the word unless extra stress is needed.
@@ -62,7 +62,7 @@ The answer is **You**. The request is addressed to the listener, so "(You) pleas
 
 ### #1: Telling a Phrase from an Independent Clause
 
-"Classify" means put each item in the right group. Classify these word groups as a prepositional phrase or an independent clause: (a) "under the old bridge"; (b) "the cat slept."
+Classify these word groups as a prepositional phrase or an independent clause: (a) "under the old bridge"; (b) "the cat slept."
 
 **Solution:**
 
@@ -73,37 +73,37 @@ The answer is **You**. The request is addressed to the listener, so "(You) pleas
 
 ### #2: Identifying a Prepositional Phrase on Its Own
 
-Is "under the old bridge" a phrase or a clause: (A) Prepositional phrase, (B) Independent clause, (C) Dependent clause, or (D) Main verb phrase?
+Is "beside the quiet lake" a phrase or a clause: (A) Prepositional phrase, (B) Independent clause, (C) Dependent clause, or (D) Main verb phrase?
 
 **Solution:**
 
-1. Scan the words for a verb: *under* (preposition), *the* (article), *old* (adjective), *bridge* (noun). There is no verb.
+1. Scan the words for a verb: *beside* (preposition), *the* (article), *quiet* (adjective), *lake* (noun). There is no verb.
 2. Rule out (B) Independent clause and (C) Dependent clause, because every clause needs a subject-verb pair.
 3. Rule out (D) Main verb phrase, because there is no verb.
 4. Choose **(A) Prepositional phrase**.
 
-**Check:** Test adding a clause after it: "We waited under the old bridge." Here *under the old bridge* works as one location unit answering *where*, confirming it is a prepositional phrase.
+**Check:** Test adding a clause before it: "We camped beside the quiet lake." Here *beside the quiet lake* works as one location unit answering *where*, confirming it is a prepositional phrase.
 
 ### #3: Classifying a Complete Command
 
-In "Close the door," what kind of word group is the complete command?
+In "Open the window," what kind of word group is the complete command?
 
 **Solution:**
 
-1. Find the action word: *close* is a command verb telling someone to act (not a noun phrase naming an activity, and not a preposition).
-2. Find who is expected to close the door: the listener, understood *you*.
+1. Find the action word: *open* is a command verb telling someone to act.
+2. Find who is expected to open the window: the listener.
 
 :::try
-Finish the last step: is "Close the door" a phrase, a dependent clause, or an independent clause, and why?
+Finish the last step: is "Open the window" a phrase, a dependent clause, or an independent clause, and why?
 :::answer
-The answer is **Independent clause; implied subject.** Because *close* pairs with the understood subject *you* and gives a complete instruction, it stands alone as a full sentence without needing another clause.
+The answer is **Independent clause; implied subject.** Because *open* pairs with the understood subject *you* and gives a complete instruction, it stands alone as a full sentence without needing another clause.
 
-**Check:** Write the understood word in front: "You close the door." With *you* visible, the subject (*you*) and verb (*close*) stand out clearly as a complete independent clause.
+**Check:** Write the understood word in front: "You open the window." With *you* visible, the subject (*you*) and verb (*close*) stand out clearly as a complete independent clause.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Look for the verb first. No verb means the group is a phrase, never a clause (even if it sounds incomplete like a dependent clause). If the group starts with a plain action verb giving an order or polite request, supply *you* in front to reveal the full independent clause.
+Look for the verb first. No verb means the group is a phrase, never a clause (even if it sounds incomplete like a dependent clause). If the group is an order or polite request that starts with a plain action verb (not *Let's*), supply *you* in front to reveal the full independent clause.
 
 ## Traps to Watch For
 

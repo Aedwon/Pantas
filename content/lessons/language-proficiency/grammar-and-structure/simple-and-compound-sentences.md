@@ -17,17 +17,15 @@ keyPoints:
 
 ### Simple Sentences, Even With Compound Parts
 
-"Classify" means name the sentence type.
-
 A **clause** has a subject and a finite verb. An **independent clause** gives a complete thought and stands alone (*"The supervisor signed the request."*). A **dependent clause** starts with a subordinating word like *although, because,* or *when* and cannot stand alone (*"Although the supervisor signed the request"*).
+
+A **complex sentence** has one independent clause and at least one dependent clause. A **compound-complex sentence** has two or more independent clauses and at least one dependent clause.
 
 A **simple sentence** has **one independent clause** and **zero dependent clauses**. A simple sentence can still be long or use *and*:
 
 - **Compound subject:** two subjects sharing one verb (*"The dog and cat played together in the yard."*).
 - **Compound verb:** one subject doing two verbs (*"The teacher prepared and rehearsed the play."*).
 - **Prepositional phrases:** place or time groups with no subject-verb pair (*"Near the harbor, the old warehouse remained empty for several months."*).
-
-None of these adds a second clause, because both sides of *and* share one clause frame.
 
 :::pair #compound-parts-still-simple
 Right: Classify *"The teacher and her students prepared and rehearsed the play."* as **Simple**.
@@ -36,16 +34,16 @@ Two joined subjects and two joined verbs still share one clause. A compound sent
 :::
 
 :::check
-Classify *"Near the harbor, the old warehouse behind the fish market remained empty for several months."*
+Classify *"During the storm, the little boat near the dock rocked and creaked."*
 :::answer
-The answer is **Simple**. *The old warehouse* is the single subject paired with *remained*; the other groups are prepositional phrases with no verbs.
+The answer is **Simple**. *The little boat* is the single subject with the compound verb *rocked and creaked*; the other groups are prepositional phrases with no verbs.
 :::
 
-### Compound Sentences: Two Ways to Join Main Clauses
+### Compound Sentences: Common Ways to Join Main Clauses
 
 A **compound sentence** has **two or more independent clauses** and **zero dependent clauses**.
 
-There are two ways to join independent clauses into a compound sentence:
+Common ways to join independent clauses into a compound sentence:
 
 1. A comma plus a **coordinating conjunction** (*for, and, nor, but, or, yet, so*): *"She wanted to travel abroad, but she could not afford the airfare."* *"The rain stopped, so we went outside to play."*
 2. A **semicolon** (;) alone between two linked independent clauses: *"The clinic reopened; appointments resumed."*
@@ -69,9 +67,9 @@ Wrong: Pick *"The dog and cat played together in the yard."* or *"The dog played
 :::
 
 :::check
-Classify *"The rain stopped, so we went outside to play."*
+Classify *"The shop opened early, but few customers came."*
 :::answer
-The answer is **Compound**. *"The rain stopped"* and *"we went outside to play"* are independent clauses joined by *so*, and *to play* is a phrase.
+The answer is **Compound**. *"The shop opened early"* and *"few customers came"* are independent clauses joined by *but*.
 :::
 
 ## Examples
@@ -110,7 +108,7 @@ Delete only *"Although the road was flooded"* from *"Although the road was flood
 2. *"The truck arrived"* is an independent clause.
 
 :::try
-Finish the last step: check the clause after *and*, check for any dependent clause, and name the remaining structure.
+Finish the last step: name the remaining structure.
 :::answer
 The remaining structure is **Compound**. *"The driver unloaded the supplies"* is a second independent clause with subject *the driver* and verb *unloaded*. Zero dependent clauses remain.
 

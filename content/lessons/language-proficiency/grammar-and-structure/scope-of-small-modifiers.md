@@ -44,12 +44,12 @@ Neither rigid claim holds. *Only* limits actions, amounts, or phrases as well as
 :::
 
 :::check
-What does *only* limit in *"Only she gave him the answer"* and *"She gave only him the answer,"* respectively?
+What does *only* limit in *"Only Ben ate the soup"* and *"Ben ate only the soup,"* respectively?
 :::answer
-The answer is **The giver; the recipient**. *Only she* limits who gave it, and *only him* limits who received it.
+The answer is **The eater; the food**. *Only Ben* limits who ate, and *only the soup* limits what Ben ate.
 :::
 
-### Almost, Just, and Nearly Before Verbs vs. Quantities
+### Almost and Nearly Before Verbs vs. Quantities
 
 Putting **almost** or **nearly** before a **verb** means the action came close, yet did **not** happen:
 
@@ -68,9 +68,9 @@ Putting *almost* before the verb (*almost rode*, *almost displayed*) says the ac
 :::
 
 :::check
-Which says Mara nearly missed the train yet caught it: *"Mara missed almost every train"* or *"Mara almost missed the train"*?
+Which says Tess nearly dropped the tray yet held it: *"Tess dropped almost every tray"* or *"Tess almost dropped the tray"*?
 :::answer
-The answer is **"Mara almost missed the train."** *Almost* before *missed* means the miss did not happen.
+The answer is **"Tess almost dropped the tray."** *Almost* before *dropped* means the drop did not happen.
 :::
 
 ## Examples
@@ -87,7 +87,7 @@ A ticket admits a guest on Saturday and no other day. Which states that clearly:
 
 **Check:** Ask "What happens on Sunday?" Only *"on Saturday only"* rules out other days.
 
-### #2: Near Action vs. Partial Frequency
+### #2: Almost and How Often
 
 Which says the cyclists rode on most days, not every day: *"Almost all the cyclists rode to school every day"* or *"The cyclists rode to school almost every day"*?
 
@@ -99,21 +99,20 @@ Which says the cyclists rode on most days, not every day: *"Almost all the cycli
 
 **Check:** Read *"almost every day"* alone: it means most days with some left out.
 
-### #3: Preserving Almost All of a Group
+### #3: Keeping the Meaning of a Quantity
 
-The curator displayed nearly all the vases. Why do (a) *"Almost every curator displayed all the vases"* and (b) *"The curator displayed all the vases for almost the whole evening"* fail? Write the sentence that keeps the meaning.
+The baker sold nearly all the loaves. Why do (a) *"Almost every baker sold all the loaves"* and (b) *"The baker sold all the loaves for almost the whole morning"* fail? Write the sentence that keeps the meaning.
 
 **Solution:**
 
-1. Option (a) puts *almost* on *every curator*, limiting how many curators participated.
-2. Option (b) puts *almost* on *the whole evening*, limiting duration.
+1. Read what *almost* sits beside in each option.
 
 :::try
-Finish the last step: write the sentence that keeps *almost* on the vases, and explain why it works.
+Finish the last step: write the sentence that keeps the meaning, and explain why it works.
 :::answer
-**"The curator displayed almost all the vases."** Putting *almost* directly before *all the vases* limits the number of vases shown, matching "nearly all the vases."
+**"The baker sold almost all the loaves."** Putting *almost* directly before *all the loaves* limits the number of loaves sold. Option (a) limits the bakers and option (b) limits the time.
 
-**Check:** Swap *"almost all"* back to *"nearly all"*: *"The curator displayed nearly all the vases."* Both give the exact same meaning.
+**Check:** Swap *"almost all"* for *"nearly all"*: *"The baker sold nearly all the loaves."* The meaning is the same.
 :::
 
 ## Speed Tricks & Shortcuts

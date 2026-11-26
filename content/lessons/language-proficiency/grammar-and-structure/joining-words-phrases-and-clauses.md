@@ -44,9 +44,9 @@ The answer is **Interjection**. *Oops* expresses a sudden reaction and stands in
 
 A **subject** tells who or what a clause is about. A **clause** has a subject and a verb (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
 
-A **subordinate clause** has a subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting to learn what happened. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
+A **subordinate clause** has a subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
 
-*Before*, *after*, and *until* can do two jobs. Check what follows *before*:
+Words like *before*, *after*, and *until* can do two jobs. Check what follows *before*:
 
 1. Noun phrase only: "We met **before** dinner." (*dinner* has no verb) -> **preposition**.
 2. Subject and verb: "We left **before** we finished dinner." (*we* = subject, *finished* = verb) -> **subordinating conjunction**.

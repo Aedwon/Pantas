@@ -19,7 +19,7 @@ keyPoints:
 
 - **-ing gerunds:** *"Her hobbies include painting, dancing, and singing."* *"The recipe requires chopping onions, mincing garlic, and boiling water."*
 - **Infinitives (*to + verb*):** *"The coach told the team to run faster, to jump higher, and to try harder."*
-- **Nouns or noun phrases:** *"The committee values accuracy, fairness, and transparency."* Topic names are an exception: *-ing* nouns and a plain noun phrase can sit together, as in *"The workshop covers budgeting, marketing, and sales strategy."*
+- **Nouns or noun phrases:** *"The committee values accuracy, fairness, and transparency."* *-ing* words used as ordinary nouns (*budgeting*, *marketing*) count as nouns and can sit beside other noun phrases, as in *"The workshop covers budgeting, marketing, and sales strategy."*
 - **Matching verb tenses in a compound predicate:** *"She opened the folder, checked the total, and signed the form."* Finite verbs sharing a subject keep the same tense when they describe the same time.
 
 Never mix a list item with a full clause (*"tools will be bought"*), a *how-to* clause (*"how to plan sales"*), or a new verb predicate that changes the meaning.
@@ -54,15 +54,15 @@ The answer is **paddling**. *Swimming* and *climbing* are *-ing* forms, so *padd
 
 ### #1: Fixing an Outlier in a List of Infinitives
 
-Find and fix the error: *"The coach told the team to run faster, jumping higher, and to try harder."*
+Find and fix the error: *"The guide told the hikers to bring water, wearing boots, and to stay together."*
 
 **Solution:**
 
-1. List the three actions after *"told the team"*: *to run faster*, *jumping higher*, *to try harder*.
-2. Two items use *to + verb*, while *jumping* uses *-ing*.
-3. Change *jumping* to *to jump*: **"The coach told the team to run faster, to jump higher, and to try harder."**
+1. List the three actions after *"told the hikers"*: *to bring water*, *wearing boots*, *to stay together*.
+2. Two items use *to + verb*, while *wearing* uses *-ing*.
+3. Change *wearing* to *to wear*: **"The guide told the hikers to bring water, to wear boots, and to stay together."**
 
-**Check:** Read each item after *told the team*: all three match.
+**Check:** Read each item after *told the hikers*: all three match.
 
 ### #2: Matching Two Choices After Between
 
@@ -75,21 +75,21 @@ Revise *"We must choose between repairing the roof and a new roof will be instal
 
 **Check:** Read both sides right after *between*: *"between repairing the roof"* and *"between installing a new roof."* Both use *-ing* phrases.
 
-### #3: Catching a Hidden Mismatch in a Long List
+### #3: Catching a Hidden Mismatch
 
-Find the hidden error in *"The brochure lists the hotel's rooms, offering free breakfast, and its prices,"* and explain why changing *"the hotel's rooms"* to *"touring the hotel's rooms"* is wrong.
+Find the hidden error in *"Yesterday the clerk opened the drawer, counts the cash, and locked the safe."*
 
 **Solution:**
 
-1. Separate the three items after *"The brochure lists"*: (1) *the hotel's rooms*, (2) *offering free breakfast*, (3) *its prices*.
-2. Check the form of each item.
+1. Separate the three actions after *"the clerk"*: (1) *opened the drawer*, (2) *counts the cash*, (3) *locked the safe*.
+2. Check the verb tense of each item.
 
 :::try
-Finish the last step: name the item that does not match, explain why changing item (1) fails, and give the fix.
+Finish the last step: name the item that does not match and give the fix.
 :::answer
-**Delete *offering*.** Items (1) and (3) are noun phrases, and item (2) is the outlier. Changing item (1) to *"touring the hotel's rooms"* leaves item (3) (*its prices*) unmatched. Deleting *offering* gives three noun phrases: *"the hotel's rooms,"* *"free breakfast,"* and *"its prices."*
+**Change *counts* to *counted*.** Items (1) and (3) are simple past, and item (2) is the outlier in simple present. Changing item (1) or (3) to present would break *Yesterday*. Changing *counts* gives three matching past verbs: *opened*, *counted*, *locked*.
 
-**Check:** Read *"The brochure lists"* before each repaired item: *"the hotel's rooms,"* *"free breakfast,"* *"its prices."* All three share the noun-phrase form.
+**Check:** Read *"Yesterday the clerk"* before each verb: *opened*, *counted*, *locked*. All three are past.
 :::
 
 ## Speed Tricks & Shortcuts
