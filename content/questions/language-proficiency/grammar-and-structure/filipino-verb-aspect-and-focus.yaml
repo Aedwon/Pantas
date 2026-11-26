@@ -80,7 +80,7 @@ questions:
     type: "tense"
     difficulty: "medium"
     stem: |
-      Sa pangungusap na "Kinain ng bata ang mangga," ano ang pokus (focus) ng pandiwa?
+      Sa pangungusap na "Kinain ng bata ang mangga," ano ang pokus ng pandiwa?
     choices:
       - text: "Pokus sa bagay (ang mangga)"
         correct: true

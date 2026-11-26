@@ -39,7 +39,7 @@ questions:
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
-      Classify this sentence: "She wanted to travel abroad, but she could not afford the airfare."
+      In traditional school grammar, classify this sentence: "She wanted to travel abroad, but she could not afford the airfare."
     choices:
       - text: "Compound"
         correct: true
@@ -53,7 +53,7 @@ questions:
         rationale: |
           This treats "to travel abroad" as an added dependent clause. The phrase names another action. Check: look for a clause with its own subject and verb.
     explanation: |
-      "She wanted to travel abroad" and "she could not afford the airfare" are independent clauses joined by "but." There is no dependent clause, so the sentence is compound.
+      "She wanted to travel abroad" and "she could not afford the airfare" are independent clauses joined by "but." In traditional school grammar, a clause has its own subject and a verb with tense, so "to travel abroad" counts as a phrase, not a clause. There is no dependent clause, so the sentence is compound.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0003"
     lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
@@ -127,7 +127,7 @@ questions:
     type: "sentence-structure-classification"
     difficulty: "medium"
     stem: |
-      Classify this sentence: "The rain stopped, so we went outside to play."
+      In traditional school grammar, classify this sentence: "The rain stopped, so we went outside to play."
     choices:
       - text: "Compound"
         correct: true
@@ -141,7 +141,7 @@ questions:
         rationale: |
           This counts "to play" as a separate dependent clause. It names an extra activity. Check: look for a clause with its own subject and verb.
     explanation: |
-      "The rain stopped" and "we went outside to play" are independent clauses joined by "so." There is no dependent clause, so the sentence is compound.
+      "The rain stopped" and "we went outside to play" are independent clauses joined by "so." In traditional school grammar, a clause has its own subject and a verb with tense, so "to play" counts as a phrase, not a clause. There is no dependent clause, so the sentence is compound.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0007"
     lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences
@@ -339,7 +339,7 @@ questions:
         rationale: |
           This counts multiple dependent clauses as multiple main clauses. The sentence contains more than two clauses. Check: count independent clauses separately.
     explanation: |
-      "We will open the hall" is the only independent clause. "If the rain stops" and "when the guests arrive" are dependent, so the sentence is complex.
+      "We will open the hall" is the only independent clause. The dependent "if" clause is "if the rain stops when the guests arrive," and the dependent "when" clause sits inside it. One independent clause with dependent clauses makes the sentence complex.
     approved: true
   - id: "q-grammar-and-structure-sentence-structure-0016"
     lesson: lesson-grammar-and-structure-complex-and-compound-complex-sentences

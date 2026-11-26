@@ -215,13 +215,13 @@ questions:
     type: "modifier-placement"
     difficulty: "medium"
     stem: |
-      Which sentence says that the cyclists rode on most days, though not every day?
+      Which sentence says most clearly that the cyclists rode on most days, though not every day?
     choices:
       - text: "The cyclists rode to school almost every day."
         correct: true
       - text: "The cyclists almost rode to school every day during the term."
         rationale: |
-          This places "almost" with the act of riding. The same words mention a daily routine. Check: put "almost" beside the frequency being limited.
+          This places "almost" before the verb "rode," so it can also mean they came close to riding and did not. The same words mention a daily routine. Check: put "almost" right before the frequency being limited.
       - text: "Almost all the cyclists rode to school every day during the term."
         rationale: |
           This limits the number of cyclists. The phrase "almost all" sounds like a small exception. Check: check whether the exception concerns people or days.
@@ -413,13 +413,13 @@ questions:
     type: "modifier-placement"
     difficulty: "hard"
     stem: |
-      The curator displayed nearly all the vases. Which sentence preserves that meaning?
+      The curator displayed nearly all the vases. Which sentence states that meaning most clearly?
     choices:
       - text: "The curator displayed almost all the vases."
         correct: true
       - text: "The curator almost displayed all the vases during the evening exhibition."
         rationale: |
-          This makes displaying the collection a near action. The words "almost" and "all" remain in the sentence. Check: place the limit on how many vases.
+          This places "almost" before the verb, so it can also mean the curator came close to displaying the vases and showed none. The words "almost" and "all" remain in the sentence. Check: place the limit right before how many vases.
       - text: "Almost every curator displayed all the vases during the evening exhibition."
         rationale: |
           This limits the number of curators. It keeps the idea of almost all of something. Check: identify the group that has the exception.

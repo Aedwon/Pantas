@@ -13494,9 +13494,9 @@
     "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
   },
   "q-grammar-and-structure-modifiers-0010": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "f40903033637e8ae39ca868b481e21a35a708f68f986afcee8f0756514880165",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "f396bd5e0ad748fcee8b96b408f8e79d9ff731877035853c8379ce6425820990",
     "lesson": "lesson-grammar-and-structure-scope-of-small-modifiers"
   },
   "q-grammar-and-structure-modifiers-0011": {
@@ -13548,9 +13548,9 @@
     "lesson": "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects"
   },
   "q-grammar-and-structure-modifiers-0019": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "a4ba6be4d18a0598a481019091659757deeb5305891ed2976ce4990e2e1cfdd9",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "3e4c89f302f1399b22fc4cd16d70a87bdcaa1d71f09d3474bef11ad19be1d66e",
     "lesson": "lesson-grammar-and-structure-scope-of-small-modifiers"
   },
   "q-grammar-and-structure-modifiers-0020": {
@@ -13788,15 +13788,15 @@
     "lesson": "lesson-grammar-and-structure-english-word-jobs"
   },
   "q-grammar-and-structure-parts-of-speech-0019": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "4b299a254adb57fd8637d29a7d13c4cbe09b2249dbf815b1bee1152c538d0521",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "e80233d0b398ac3b5fbd21c8927d3ebb562114020d876d6a83bd7a31ad3c4643",
     "lesson": "lesson-grammar-and-structure-joining-words-phrases-and-clauses"
   },
   "q-grammar-and-structure-parts-of-speech-0020": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "5c7852f9e75c89ed768cb6f0c08ce899fb5d0b5d816b2ee70c6ac62aef255054",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "4915410a2ebec25df411d9fe404ca446972d90b21e2d76d220424fe162c1d0c9",
     "lesson": "lesson-grammar-and-structure-joining-words-phrases-and-clauses"
   },
   "q-grammar-and-structure-parts-of-speech-0021": {
@@ -14022,9 +14022,9 @@
     "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0011": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "f8f7e8e50f14191359635532129a8e6b24b94d44fa5c2a6f0c0ee260aa98c787",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "9844c158c7a75b4d6b5862cc4c204cab9395bb7dd4a1d5dab504bb6215c36e63",
     "lesson": "lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip"
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0012": {
@@ -14034,9 +14034,9 @@
     "lesson": "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao"
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0013": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/stream-b-audits.md",
-    "hash": "af748a01770bd21690fee4961f244bf20f8e9586faa6a875260c64a1a28af566",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "cd94e2439f8332e36de083523fbcf0b1bd01ad663211f454604995f0f1ffa88a",
     "lesson": "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao"
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0014": {
@@ -14358,9 +14358,9 @@
     "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
   },
   "q-grammar-and-structure-sentence-structure-0002": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "b19bc487be7b45792b0f1a75c6ad47a5f8a8e20b0c0d723fa2e964a65386f00d",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "de7c30f119e469fbc2013a5d99a841104f628fb084c0e457e12da683e40d7113",
     "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
   },
   "q-grammar-and-structure-sentence-structure-0003": {
@@ -14382,9 +14382,9 @@
     "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
   },
   "q-grammar-and-structure-sentence-structure-0006": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "0c00caf8528eb20c8b1ea10a722702c6d87389358c6a626631e796f6779a200a",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "48554e6c110cdcb4f84d294ec73a9b325aa66092dd109bdca97105d057d9748c",
     "lesson": "lesson-grammar-and-structure-simple-and-compound-sentences"
   },
   "q-grammar-and-structure-sentence-structure-0007": {
@@ -14436,9 +14436,9 @@
     "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
   },
   "q-grammar-and-structure-sentence-structure-0015": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "e9a348bd904d7a34c6bd34fd21644c6fc934b84ba40bfd44e2edb2c93d711951",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "6e08442c2a2fcf7bd28d24af7765b2cc1488c86816bccde2a22a1f0b32acea4d",
     "lesson": "lesson-grammar-and-structure-complex-and-compound-complex-sentences"
   },
   "q-grammar-and-structure-sentence-structure-0016": {
@@ -14700,9 +14700,9 @@
     "lesson": "lesson-grammar-and-structure-kalagayan-ng-kilos"
   },
   "q-grammar-and-structure-tenses-and-voice-0011": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-exam-tags.md",
-    "hash": "de3d0cb8818dc5d0d82d48b9e313147407de78a6c6979bec8ab25b539a1821be",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "10edfd1212b0c06f7361dec0d6ebf1034b9755d486fd34d316fd3df50577c3b6",
     "lesson": "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa"
   },
   "q-grammar-and-structure-tenses-and-voice-0012": {
@@ -14826,9 +14826,9 @@
     "lesson": "lesson-grammar-and-structure-modals-requirements-and-possibility"
   },
   "q-grammar-and-structure-tenses-and-voice-0032": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "9576ecbda31449a8d5e37c6851c7ef1516e44781213a18cc363dd448b036d62b",
+    "approvedAt": "2026-11-26",
+    "evidence": "docs/content/verification/fix-grammar-question-findings-r1.md",
+    "hash": "e5794f3693368e41817ff9d830d3abcc0ba0fae66991b774deaa12fea60465e5",
     "lesson": "lesson-grammar-and-structure-present-habits-and-ongoing-actions"
   },
   "q-grammar-and-structure-tenses-and-voice-0033": {

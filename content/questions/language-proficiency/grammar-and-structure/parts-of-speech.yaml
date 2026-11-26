@@ -427,7 +427,7 @@ questions:
         rationale: |
           This treats all clause links as coordinating. Two clauses are joined. Check: ask whether one clause depends on the other.
     explanation: |
-      "Before" introduces the clause "we finished dinner." In traditional school grammar, it links this dependent clause to "We left" as a subordinating conjunction.
+      "Before" is followed by a subject and verb, "we finished." It begins the subordinate clause "before we finished dinner" and links it to "We left," so in traditional school grammar it is a subordinating conjunction.
     approved: true
   - id: "q-grammar-and-structure-parts-of-speech-0020"
     lesson: lesson-grammar-and-structure-joining-words-phrases-and-clauses
@@ -449,7 +449,7 @@ questions:
         rationale: |
           This mistakes modifiers for the words they describe. The words all concern students completing an action. Check: separate the descriptions from the student noun and action verb.
     explanation: |
-      "Extremely" tells how diligent the students were, so it is an adverb. "Diligent" describes the students, so it is an adjective. "Quietly" describes how they finished, so it is an adverb. "Before" joins the dependent clause "the bell rang" to the main clause, so it is a conjunction in traditional school grammar.
+      "Extremely" tells how diligent the students were, so it is an adverb. "Diligent" describes the students, so it is an adjective. "Quietly" describes how they finished, so it is an adverb. "Before" begins the subordinate clause "before the bell rang" and links it to the main clause, so it is a conjunction in traditional school grammar.
     approved: true
 
   - id: q-grammar-and-structure-parts-of-speech-0021

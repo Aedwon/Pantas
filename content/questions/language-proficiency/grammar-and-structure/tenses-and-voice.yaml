@@ -552,13 +552,13 @@ questions:
     type: tense
     difficulty: exam
     stem: |
-      Choose the verb form that expresses a regular duty: "On every working day, the records officer ___ the incoming mail before distribution."
+      Choose the verb form for a regular duty that the officer still performs: "On every working day, the records officer ___ the incoming mail before distribution."
     choices:
       - text: "sorts"
         correct: true
       - text: "sorted"
         rationale: |
-          This puts the duty in past time. The sentence describes a repeated task without a past time frame. Check the words every working day.
+          This puts the duty in past time. Every working day does mark a repeated task, and past habits exist. Check whether the stem says the duty still continues now.
       - text: "is sort"
         rationale: |
           This combines is with a base verb. Is may suggest present time. Use the simple present form for the stated regular duty.
@@ -566,7 +566,7 @@ questions:
         rationale: |
           This leaves an -ing form without a finite helper. Repeated activity may suggest an action word. Check whether the sentence has a complete verb.
     explanation: |
-      Every working day describes a habit. Simple present expresses that regular duty. The singular subject "the records officer" takes sorts.
+      Every working day describes a habit, and the duty continues now. Simple present expresses that regular duty. The singular subject "the records officer" takes sorts.
 
   - id: q-grammar-and-structure-tenses-and-voice-0033
     approved: true

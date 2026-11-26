@@ -243,15 +243,15 @@ questions:
         correct: true
       - text: "Tumutukoy lamang sa babae"
         rationale: |
-          This adds a female-only limit to "siya". English uses a separate form "she". Check: keep Filipino and English pronoun systems separate.
+          Ginawa nitong pambabae lamang ang "siya." May hiwalay na "she" sa Ingles kaya maaaring mapili ito. Huwag ihalo ang panghalip ng Ingles sa panghalip ng Filipino.
       - text: "Tumutukoy lamang sa lalaki"
         rationale: |
-          This adds a male-only limit to "siya". English uses a separate form "he". Check: check whether the Filipino word itself encodes gender.
+          Ginawa nitong panlalaki lamang ang "siya." May hiwalay na "he" sa Ingles kaya maaaring mapili ito. Tingnan kung may kasarian ang mismong salitang Filipino.
       - text: "Ginagamit lamang para sa mga bagay"
         rationale: |
-          This restricts "siya" to objects. English has a separate object-related form "it". Check: check the personal-pronoun use in Filipino.
+          Ginawa nitong para sa bagay lamang ang "siya." May hiwalay na "it" sa Ingles para sa bagay. Tandaan na panghalip panao ang "siya," karaniwang para sa tao.
     explanation: |
-      "Siya" can refer to a person without stating that person's gender. Filipino uses the same pronoun for these personal references.
+      Ang "siya" ay tumutukoy sa isang tao, babae man o lalaki. Hindi nito sinasabi ang kasarian ng taong tinutukoy.
     approved: true
   - id: "q-grammar-and-structure-pronoun-antecedent-agreement-0012"
     lesson: lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao
@@ -281,7 +281,7 @@ questions:
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
-      Alin sa mga sumusunod na panghalip ang kabilang sa "ang" set (para sa taong itinatampok sa pangungusap)?
+      Alin sa mga sumusunod na panghalip ang kabilang sa pangkat ng "ang" (para sa taong itinatampok sa pangungusap)?
     choices:
       - text: "Siya"
         correct: true
