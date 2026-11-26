@@ -4764,3 +4764,10 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Asked (r9 opening plan, `docs/superpowers/plans/2026-11-26-cse-opening-plan.md`):** (1) the homepage words into the app in place of the beta wording; (2) his rule 5 check of the three round 6 passages (change-summary "Round 6" on `legal/publish-r1`): the trial-code deletion schedule (730 days, replacing "It currently has no scheduled expiry."), the line for accounts made before publication, and trial after deletion; (3) the opening hour, proposed Nov 27, 6:00 AM Manila.
 - **Aedwon, verbatim:** "1. change it accordingly / 2. ok / 3. what's this for?"
 - **Result:** (2) round 6 checked; with his Nov 25 "legal is fully approved", the texts on PR #110 (aac45c546) and pantas-web `legal/public-pages-r1` (734096a) are approved for publication. (1) the lead drafts replacement wording for every beta mention on the homepage for his approval; nothing publishes before he approves the exact words. (3) the manager is explaining the hour; the Nov 27 6:00 AM slot is held.
+
+### Nov 26: the opening is Saturday, Nov 28, 6:00 AM Manila (Aedwon, relayed by the operations manager)
+
+- **Asked:** the opening hour, proposed Friday, Nov 27, 6:00 AM Manila (low-use window; the manager explained what it is for).
+- **Aedwon, verbatim:** "make it Saturday 6 AM".
+- **Manager:** "Keep the batched fixes for the opening build (one update, not two); deploy something earlier only if a fix is urgent, and tell me first." The earlier fallback (batch alone at 6 to 7 AM if the opening slipped) is replaced.
+- **Done:** the legal go-live date is 2026-11-28 in the app (`legalTextsVersion`, `legalTextsPublishedAt`), the guardian functions (`LEGAL_TEXTS_VERSION`), their tests and the three signed-off files (PR #110, e5981bd4e; app legal tests 37 of 37, guardian retention test 46 of 46 after a rebuild), and on the website pages (pantas-web `legal/public-pages-r1` e625511, 192 of 192). The opening plan is updated. Homepage wording waits on his approval.

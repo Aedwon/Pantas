@@ -14,19 +14,19 @@ The website footer shows the business details he approved. Anyone can buy Pro (Q
 ride along (Study title height, report message read aloud for screen readers), and the Pro "Free" flicker
 fix and the past-mistakes fix if they are ready and proven.
 
-**Proposed hour: Friday, Nov 27, 6:00 AM Manila** (Nov 26 22:00 UTC). Prod traffic over the last 7 days is
+**Hour: Saturday, Nov 28, 6:00 AM Manila** (Nov 27 22:00 UTC), his words (Nov 26): "make it Saturday 6 AM". Was proposed: Friday, Nov 27, 6:00 AM. Prod traffic over the last 7 days is
 lowest from 5 to 10 AM Manila. Until the new service worker ships, every web update can make a student
 who goes offline right after it see the app fail to start; the morning window keeps that to the fewest
-people. It also leaves this afternoon and evening for the staging proof.
+people. It also leaves Thursday and Friday for the staging proof.
 
 **What only he gives (3):**
 1. The homepage words. www.pantas.study still says "Join the beta" (top bar, phone menu, a lower section)
    and "Beta applications are closed", with no way into the app. Website copy is his: what the button and
    any line should say, and whether the lower beta section goes. We place his words exactly.
-2. His check of the three legal passages changed after his Nov 25 approval (round 6: the trial-code
+2. ~~His check~~ Done ("ok", Nov 26) of the three legal passages changed after his Nov 25 approval (round 6: the trial-code
    deletion schedule, accounts made before publication, trial after deletion), in
    `docs/legal-drafts/2026-11-22-public-launch/change-summary.md`, "Round 6". Skip if already done.
-3. Confirm the hour (or name another).
+3. ~~Confirm the hour~~ Done: Saturday 6 AM.
 
 **Time:** about 3 h of preparation today; the opening itself about 1 h 30 min including a 30-minute watch.
 
@@ -38,20 +38,20 @@ puts the beta gate back by switching the app to today's version (about a minute)
 | # | Precondition | State now |
 |---|---|---|
 | A | His three inputs above. | Waiting on him. |
-| B | Legal PR #110 up to date with main, stray backup file removed, CI green, merged. Go-live stamp set to the opening date in one commit: `legalTextsVersion` and `legalTextsPublishedAt` (app) and `LEGAL_TEXTS_VERSION` (functions/src/guardianConsent.ts), plus the website pages' "Version" lines. | Main merged in, stray file removed (aac45c546); 37 legal tests pass locally; CI running. Stamp change waits for the confirmed date. |
+| B | Legal PR #110 up to date with main, stray backup file removed, CI green, merged. Go-live stamp set to 2026-11-28 in one commit (done: e5981bd4e): `legalTextsVersion` and `legalTextsPublishedAt` (app) and `LEGAL_TEXTS_VERSION` (functions/src/guardianConsent.ts), plus the website pages' "Version" lines. | Main merged in, stray file removed (aac45c546); 37 legal tests pass locally; CI running. Stamp change waits for the confirmed date. |
 | C | Batched fixes on main: PR #147 (Study title, report announcement). | Merged 4b9d7378b, CI green. |
 | D | Security lead's Pro flicker fix (C15): green PR, test fails first, plus an account-switch test (the gateway must not keep the old account's database). | In progress (security lead). Rides only if merged and proven on staging before the proof run. |
 | E | Past-mistakes fix: the 4:10 PM diagnostic run finds the cause. If it is the stale Quiz tab count (cause 1), the fix is built test first and merged. Otherwise it does not ride, and the manager gets the cause and size. | Diagnostic after the 08:00 UTC quota reset. |
 | F | P12 remaining: CSE Sub resume and offline loops; update loop (today's staging build to the candidate). | After the reset. |
-| G | Staging proof of the exact opening candidate (main after B, D, E), built without BETA_GATE: new visitor to Welcome with no beta screen; 17 blocked, 25 continues; onboarding to CSE Home; Free lesson and quiz; mock setup (anonymous visitor gets the sign-up card); Pro page plans; checkout page opens with the tick, the seller line "Sold by Pantas Online Tutorial Services" and the Terms link (staging test keys, no purchase); in-app Terms, Privacy and Teen notice show the new texts and the opening date; guardian page accepts with matching versions (functions stamp deployed to staging together). Rule 7 counted first. | After E and F, same evening. |
-| H | Website: `legal/public-pages-r1` (734096a) plus his homepage words and the date stamp, tests green (192 now), merged to pantas-web main. Not deployed until the opening. | Tests 192 of 192 on 734096a. |
+| G | Staging proof of the exact opening candidate (Thursday evening or Friday) (main after B, D, E), built without BETA_GATE: new visitor to Welcome with no beta screen; 17 blocked, 25 continues; onboarding to CSE Home; Free lesson and quiz; mock setup (anonymous visitor gets the sign-up card); Pro page plans; checkout page opens with the tick, the seller line "Sold by Pantas Online Tutorial Services" and the Terms link (staging test keys, no purchase); in-app Terms, Privacy and Teen notice show the new texts and the opening date; guardian page accepts with matching versions (functions stamp deployed to staging together). Rule 7 counted first. | After E and F, same evening. |
+| H | Website: `legal/public-pages-r1` (e625511, dated Nov 28) plus his homepage words, tests green (192 now), merged to pantas-web main. Not deployed until the opening. | Tests 192 of 192 on e625511. Kept on the branch until the opening (manager, Nov 26); merged to pantas-web main at step 4. |
 | I | Rule 7 for the whole day: staging about 17,000 reads planned (P12 Sub, Pro diagnostic, update loop, candidate proof) against 40,000; prod opening steps under 200 reads. | Staging 30,168 used before the reset (resets 08:00 UTC). |
 
-## The opening, step by step (Nov 27, from 6:00 AM Manila)
+## The opening, step by step (Saturday, Nov 28, from 6:00 AM Manila)
 
 1. **Rollback points, checked right before:** app.pantas.study serves Worker d2a72e17 (build 1774060561);
    www.pantas.study serves version e10acf80; guardian functions' current revisions and createPaymongoCheckout
-   00024-viz recorded in `Pantas-private/releases/2026-11-27-opening/`. If the app does not serve d2a72e17,
+   00024-viz recorded in `Pantas-private/releases/2026-11-28-opening/`. If the app does not serve d2a72e17,
    stop (two-session rule, Nov 25).
 2. **Functions, legal stamp:** deploy the guardian functions that read `LEGAL_TEXTS_VERSION` (pinned CLI,
    `--only` those functions, from the origin/main tip). The app and functions stamps must match, or the
@@ -60,7 +60,7 @@ puts the beta gate back by switching the app to today's version (about a minute)
 3. **App:** prod build from the same main commit, `lib/main_prod.dart`, no BETA_GATE, SCREEN_COUNTS=true,
    SELLER_* loaded privately (lengths only in the record); deploy the Worker; compare 92 of 92; check
    version.json with a cache-busting query.
-4. **Website:** `npx wrangler deploy` from pantas-web main (legal pages, footer, his homepage words).
+4. **Website:** merge `legal/public-pages-r1` into pantas-web main, then `npx wrangler deploy` from main (legal pages, footer, his homepage words).
 5. **Smoke on prod (no money, under 200 reads):** a new visitor reaches Welcome; Terms, Privacy and Teen
    notice in the app and on the website show the opening date; the website button opens the app; a
    throwaway account reaches Home, and its Pro page shows plans with "Payments open soon." (checkout still
