@@ -44,6 +44,14 @@ part 'content_renderer_held.dart';
 // ds-board: Figure README sets no placeholder height; as built
 const double _figurePlaceholderHeight = 223;
 
+/// The width of a solution step's number column and the gap after it. The step
+/// text starts [_stepColumn] + [_stepGap] in; the answer line of a
+/// walk-through solution lines up with it (walk.css `.note` padding-left 31).
+// ds-board: ReaderBlock README has no step column; as built
+const double _stepColumn = 22;
+// ds-board: ReaderBlock README has no step gap; as built
+const double _stepGap = 9;
+
 class ReaderResizedNotification extends Notification {
   const ReaderResizedNotification();
 }
@@ -563,13 +571,13 @@ class ContentRenderer extends StatelessWidget {
             if (step)
               ConstrainedBox(
                 // ds-board: ReaderBlock README has no step column; as built
-                constraints: const BoxConstraints(minWidth: 22),
+                constraints: const BoxConstraints(minWidth: _stepColumn),
                 child: Text(marker, style: markerStyle),
               )
             else
               Text(marker, style: markerStyle),
             // ds-board: ReaderBlock README has no step gap; as built
-            SizedBox(width: readerFigures ? 9 : PantasSpace.s12),
+            SizedBox(width: readerFigures ? _stepGap : PantasSpace.s12),
             Expanded(child: body),
           ],
         ),
@@ -933,12 +941,12 @@ class ContentRenderer extends StatelessWidget {
     for (var i = 0; i < slots.length; i++) {
       if (i > 0) {
         final prev = slots[i - 1];
-        // A negative margin pulls a block up under the margin above it, as
-        // the board's "Why?" does (-10 under an 18 margin).
+        // A negative margin pulls a block up under the board's 18 px
+        // paragraph margin, as "Why?" does (-10, so 8 under its paragraph).
         final gap = prev.list && slots[i].list
             ? PantasSpace.s8
             : slots[i].above < 0
-                ? math.max(PantasSpace.s0, prev.below + slots[i].above)
+                ? math.max(PantasSpace.s0, PantasSpace.s18 + slots[i].above)
                 : math.max(prev.below, slots[i].above);
         if (gap > 0) children.add(SizedBox(height: gap));
       }
@@ -1089,6 +1097,19 @@ class ContentRenderer extends StatelessWidget {
       final anchor = block['anchor'];
       if (style == 'h3' && anchor is String && anchor.isNotEmpty && _walk) {
         child = WalkTarget(slug: anchor, heading: true, child: child);
+      }
+      // The answer line of a walk-through solution lines up with the step text
+      // (walk.css `.note`), not with the step number.
+      if (_walk &&
+          solution &&
+          isBlock &&
+          style == 'normal' &&
+          list.isEmpty &&
+          readerBlockText(block).trimLeft().startsWith('The answer is')) {
+        child = Padding(
+          padding: const EdgeInsets.only(left: _stepColumn + _stepGap),
+          child: child,
+        );
       }
       slots.add(
         _Slot(

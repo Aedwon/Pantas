@@ -536,9 +536,9 @@ void main() {
         final button = tester.getRect(_key('walk-why-button'));
         expect(button.height, 44);
         if (wide) expectWidePlacement(tester);
-        // The 16 the reader puts under a paragraph, less the 10 the board
-        // pulls the button up (`.why` margin -10).
-        expect(button.top - rule.bottom, closeTo(16 - 10, 0.5));
+        // The board's 18 under a paragraph, less the 10 it pulls the button up
+        // (`.why{margin:-10px 0 18px}`).
+        expect(button.top - rule.bottom, closeTo(18 - 10, 0.5));
         await _tap(tester, _key('walk-why-button'));
         await tester.pumpAndSettle();
         expect(find.text('Hide'), findsOneWidget);
@@ -563,6 +563,34 @@ void main() {
           _rich('Because the longer walk decides the side.'),
           findsNothing,
         );
+      });
+    });
+
+    group('answer line, $tier', () {
+      List<Map<String, Object?>> lesson({required bool walk}) => [
+            _p('Examples', style: 'h2'),
+            if (walk) _why('A short reason.'),
+            ..._example(2, tail: [_p('The answer is 12.')]),
+          ];
+
+      testWidgets('lines up with the step text in a walk-through lesson',
+          (tester) async {
+        await _pump(tester, lesson(walk: true), wide: wide);
+        final answer = tester.getRect(_rich('The answer is 12.'));
+        // Board `.note` padding-left 31: the 22 step column and the 9 gap,
+        // where the step text starts. (The test font's number is wider than
+        // the column, so the step text itself is not compared.)
+        final work = tester.getRect(_rich('Work for step 2.'));
+        expect(answer.left - work.left, 31);
+      });
+
+      testWidgets('stays flush in an old-format lesson', (tester) async {
+        await _pump(tester, lesson(walk: false), wide: wide);
+        await _tap(tester, find.text('Show solution'));
+        await tester.pumpAndSettle();
+        final work = tester.getRect(_rich('Work for step 2.'));
+        final answer = tester.getRect(_rich('The answer is 12.'));
+        expect(answer.left, work.left);
       });
     });
 
