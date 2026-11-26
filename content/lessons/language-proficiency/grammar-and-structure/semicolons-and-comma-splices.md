@@ -59,7 +59,7 @@ Why switch to semicolons when inside commas blur the items? Semicolons act as he
 :::pair #semicolons-in-complex-list
 Right: "We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea."
 Wrong: "We visited Manila, Philippines, Tokyo, Japan, and Seoul, Korea." or "We visited Manila; Philippines, Tokyo; Japan, and Seoul; Korea."
-All commas blur the pairs into six places, while semicolons inside each pair split each city from its country. Keep commas inside pairs and put semicolons between pairs.
+All commas blur the pairs into six places, while semicolons inside each pair split each city from its country.
 :::
 
 :::check
@@ -122,7 +122,7 @@ The answer is **(C) "The panel included Dr. Cruz, a surgeon; Ms. Lim, a teacher;
 
 ## Speed Tricks & Shortcuts
 
-For a semicolon between clauses, cover it and test both sides as standalone sentences; if either side needs the other, drop the semicolon. When commas blur the items, bracket each item, then put semicolons between brackets.
+For a semicolon between clauses, cover it and test both sides as standalone sentences. When commas blur the items, bracket each item, then put semicolons between brackets.
 
 ## Traps to Watch For
 

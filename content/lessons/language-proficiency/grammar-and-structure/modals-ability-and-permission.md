@@ -22,8 +22,6 @@ A **modal verb** is a helper such as *can, could, may, might, must, should,* or 
 - "The assistant **can prepare** the minutes without help."
 - "The new clerk **can answer** routine inquiries."
 
-Semi-modals like *have to* and *ought to* include *to*, while the verb a true modal governs takes the bare base form.
-
 :::pair #base-form-after-modal
 Right: The assistant can prepare the minutes without help.
 Wrong: The assistant can prepares (or *can prepared*, or *can preparing*) the minutes without help.
@@ -128,8 +126,7 @@ Finish the job: say who is asked and what is asked in each question, then choose
 
 ## Speed Tricks & Shortcuts
 
-First check form: the verb a modal such as *can, could, may,* or *will* governs uses the bare base form. Then read the full sentence for meaning: ability, permission, or possibility.
-
+First check form: the verb a modal such as *can, could, may,* or *will* governs uses the bare base form.
 ## Traps to Watch For
 
 :::checklist

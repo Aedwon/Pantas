@@ -34,13 +34,13 @@ Why is *"position and context help show what only limits"* better than a rigid n
 :::pair #only-before-wrong-part
 Right: *"The ticket admits a guest on Saturday only."*
 Wrong: Write *"Only the ticket admits a guest on Saturday, according to the notice."* or *"The ticket admits only a guest on Saturday, according to the notice."*
-*Only the ticket* limits what grants entry; *only a guest* limits who may enter. Keep *only* with *on Saturday* to restrict the day.
+*Only the ticket* limits what grants entry; *only a guest* limits who may enter.
 :::
 
 :::pair #rigid-only-rules
 Right: Position and context help show what *only* limits in standard English.
 Wrong: Claim *"It always limits just the next word, regardless of the surrounding context."* or *"It limits nouns alone, even when it appears directly before a verb."*
-Neither rigid claim holds. *Only* limits actions, amounts, or phrases as well as nouns, and context works with placement.
+*Only* limits actions, amounts, or phrases as well as nouns, and context works with placement.
 :::
 
 :::check
@@ -64,7 +64,7 @@ Putting **almost** or **nearly** before a **quantity or frequency** (*every day,
 :::pair #almost-before-verb-vs-quantity
 Right: *"The cyclists rode to school almost every day."* and *"The curator displayed almost all the vases."*
 Wrong: Write *"The cyclists almost rode to school every day during the term."* or *"The curator almost displayed all the vases during the evening exhibition."*
-Putting *almost* before the verb (*almost rode*, *almost displayed*) can say the action did not happen. Put *almost* right before *every day* or *all the vases*.
+Putting *almost* before the verb (*almost rode*, *almost displayed*) can say the action did not happen.
 :::
 
 :::check

@@ -36,7 +36,7 @@ Why does one *to* work for three verbs? Once *how to* opens the list, English ca
 :::pair #mixed-form-under-shared-word
 Right: "The manual explains how to install, update, and repair the software."
 Wrong: "The manual explains how to install, updating, and repairing the software."
-Mixing a base verb (*install*) with *-ing* forms (*updating*, *repairing*) breaks the shared *how to*. Test each verb directly after *how to*.
+Mixing a base verb (*install*) with *-ing* forms (*updating*, *repairing*) breaks the shared *how to*.
 :::
 
 :::check
@@ -114,8 +114,7 @@ The answer is **Change "paying" and "checking" to "pay" and "check."** The finis
 
 ## Speed Tricks & Shortcuts
 
-Read the shared lead-in words separately before every item in the list. Check that each item fits the lead-in and matches the grammatical form of all the other items.
-
+Read the shared lead-in words separately before every item in the list.
 ## Traps to Watch For
 
 :::checklist

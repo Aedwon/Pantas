@@ -27,7 +27,7 @@ A **past participle** is the verb form used after *has, have,* or *had*. Regular
 :::pair #full-verb-group
 Right: In "She has written three letters this week," *has written* is present perfect.
 Wrong: Call *has written* simple past (ignoring *has*) or past perfect (confusing *has* with *had*).
-Read the full verb group, not just *written*. Present *has* or *have* plus a past participle is present perfect, while *had* forms past perfect.
+Present *has* or *have* plus a past participle is present perfect, while *had* forms past perfect.
 :::
 
 :::check
@@ -68,8 +68,7 @@ The answer is **Has worked**. The job continues into the present, so present per
 For one dated event in a finished past time (*yesterday, last week, in 2022*), choose **simple past** over present perfect. Compare:
 
 - "The committee **submitted** its report yesterday afternoon."
-- "The committee **has submitted** its report." (Present result, no finished time.)
-
+- "The committee **has submitted** its report."
 :::pair #finished-past-time
 Right: The committee submitted its report yesterday afternoon.
 Wrong: The committee has submitted (or *has submit*) its report yesterday afternoon.
@@ -124,7 +123,7 @@ The answer is **"Dan joined the club in May and has been a member ever since."**
 
 ## Speed Tricks & Shortcuts
 
-Read the time clue first. For one dated event in a finished past time (*yesterday*, *last month*), choose simple past over present perfect. A link to now (*since June*, *ever since*) takes *has* or *have* plus a past participle once you check that the reference point is now. An open period like *this week* often takes present perfect, but simple past can fit a completed event (*She wrote a letter this week*).
+For one dated event in a finished past time (*yesterday*, *last month*), choose simple past over present perfect. A link to now (*since June*, *ever since*) takes *has* or *have* plus a past participle once you check that the reference point is now. An open period like *this week* often takes present perfect, but simple past can fit a completed event (*She wrote a letter this week*).
 
 ## Traps to Watch For
 

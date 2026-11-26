@@ -57,7 +57,7 @@ Why does a semicolon make a compound sentence without *and* or *but*? A semicolo
 :::pair #but-so-semicolon-are-compound
 Right: *"She wanted to travel abroad, but she could not afford the airfare."* and *"The clinic reopened; appointments resumed."* are **Compound**.
 Wrong: Classify *"She wanted to travel abroad, but she could not afford the airfare."* as **Complex** or **Compound-complex**, or classify *"The clinic reopened; appointments resumed."* as **Simple** or **Complex**.
-*But* is a coordinating connector, not subordinating, and *to travel abroad* is not a finite clause. A semicolon joins two full clauses into a compound sentence. It is not one simple clause or a subordinator.
+A semicolon joins two full clauses into a compound sentence. It is not one simple clause or a subordinator.
 :::
 
 :::pair #compound-subject-not-compound
@@ -117,8 +117,7 @@ The remaining structure is **Compound**: "The truck arrived, and the driver unlo
 
 ## Speed Tricks & Shortcuts
 
-Split at a joining word (*and, but, so*) or a semicolon and test each side alone. If both sides stand as full sentences and neither holds a dependent clause, the sentence is compound. A subordinating word (*although, when, while, because*) is only a clue, so check each side for an embedded clause.
-
+Split at a joining word (*and, but, so*) or a semicolon and test each side alone. If both sides stand as full sentences and neither holds a dependent clause, the sentence is compound.
 ## Traps to Watch For
 
 :::checklist

@@ -21,8 +21,7 @@ First find the **subject** and the whole **verb group**. In **active voice**, th
 
 This lesson covers the common **passive voice**, where the verb group is *be* + a past participle and the subject is the one affected: "The ball **was chased** by the dog." The **agent** (the doer, *the dog*) may follow *by* or be left out. The participle can name an action (*was chased*) or a state (*is loved*).
 
-Judge voice by the whole verb group, not by the object or the doer after *by*. An active subject does not always act: in *The clerk received a pass*, the subject receives, yet the verb group is active.
-
+Judge voice by the whole verb group, not by the object or the doer after *by*.
 :::pair #check-subject-not-by-phrase
 Right: "The dog chased the ball" is active voice, and "The ball was chased by the dog" is passive voice.
 Wrong: Call "The dog chased the ball" passive voice because the ball receives the action, or call "The ball was chased by the dog" active voice because the dog is the actor.
@@ -57,8 +56,7 @@ The answer is **"The package was delivered."** *Delivered* is a past participle 
 
 ### When Passive Voice Fits Best
 
-Use passive voice when the agent is unknown, obvious, or less important than the result: "The access codes **have been changed**." If no one knows who changed them, passive voice states the fact without guessing a doer.
-
+Use passive voice when the agent is unknown, obvious, or less important than the result: "The access codes **have been changed**."
 :::why
 Why do formal notices often use passive voice? When readers need to know what changed rather than who changed it, naming an unverified actor would add false detail.
 :::
@@ -119,7 +117,7 @@ The answer is **"The lobby doors have been locked."** *Have been locked* is pass
 
 ## Speed Tricks & Shortcuts
 
-First find the subject and the whole verb group. Then look for *be* plus a past participle (an action or a state, as in *was chased* or *is loved*), not an adjective such as *calm*.
+Find the whole verb group, then look for *be* plus a past participle (an action or a state, as in *was chased* or *is loved*), not an adjective such as *calm*.
 
 ## Traps to Watch For
 

@@ -26,7 +26,7 @@ The past forms of *be* are *was* (with *I, he, she, it*, or a singular noun) and
 :::pair #keep-stated-past-time
 Right: Yesterday, she walked to the store and bought some bread.
 Wrong: Change *bought* to *buys* while keeping *yesterday*, or change both action verbs to future forms with *will*.
-Matching two verbs in the wrong time breaks the clue *yesterday*. Match every verb to the stated timeline first.
+Matching two verbs in the wrong time breaks the clue *yesterday*.
 :::
 
 :::check
@@ -37,8 +37,7 @@ The answer is **Filed**. *Last Friday* sets a past timeline, so the verb stays i
 
 ### Future Meaning with Will
 
-**Simple future** is the common school label for *will* plus the base form of a verb when it points to the future: "She **will write** a letter tomorrow." Use it for things such as a prediction, a promise, a future fact, or a decision made as you speak.
-
+**Simple future** is the common school label for *will* plus the base form of a verb when it points to the future: "She **will write** a letter tomorrow."
 The verb that *will* governs stays in its plain base form (*will close*, *will help*), with no *-s*, *-ed*, or *-ing*. In longer groups, that verb is *be* or *have* (*will be closing*, *will have closed*).
 
 :::pair #will-is-simple-future
@@ -67,7 +66,7 @@ Why is a tense shift allowed in "I studied yesterday, and I will practice tomorr
 :::pair #justified-tense-shift
 Right: "I studied yesterday, and I will practice tomorrow" is justified because the two time clues set different timelines.
 Wrong: Say no, because every coordinated sentence must use one tense throughout.
-Joining two clauses with *and* does not force them into the same time. Usually keep one tense for parallel completed actions on the same timeline.
+Joining two clauses with *and* does not force them into the same time.
 :::
 
 :::check

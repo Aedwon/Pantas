@@ -17,8 +17,7 @@ keyPoints:
 
 ### Qualified Negatives: "Not Unexpected" and "Not Unreasonable"
 
-Two negatives can give a **qualified** (middle-ground) positive meaning. These are common readings, and context sets how strong the statement is:
-
+Two negatives can give a **qualified** (middle-ground) positive meaning.
 1. *unexpected* = not expected -> *"not unexpected"* = **unsurprising** (not guaranteed).
 2. *unreasonable* = not reasonable -> *"not unreasonable"* = **fairly reasonable** (not perfect).
 3. *uncommon* = rare -> *"not uncommon"* = **fairly common** (not always).
@@ -64,12 +63,11 @@ The answer is **Mia passed, but only just**. *Barely* marks a narrow pass, not a
 
 ### The Word Seldom
 
-**Seldom** means **not often** or **rarely**. Unlike *never*, it still allows the action to happen occasionally.
-
+**Seldom** means **not often** or **rarely**.
 :::pair #seldom-as-never
 Right: *"The employee seldom requests an extension"* means *"The employee rarely requests extra time."*
 Wrong: Read it as *"The employee never requests any extra time."*
-*Seldom* lowers the frequency to rarely, not down to zero. An occasional request is still possible.
+*Seldom* lowers the frequency to rarely, not down to zero.
 :::
 
 :::check
@@ -131,7 +129,7 @@ The answer is **The clerk caught the train, but only just; and no, one cancellat
 
 ## Speed Tricks & Shortcuts
 
-Read *not unexpected* as unsurprising, and *seldom* as *rarely*. Read *hardly*, *scarcely*, and *barely* as *almost not*, and keep just one negative when both words express the same idea.
+Read *not unexpected* as unsurprising, and *seldom* as *rarely*. Read *hardly*, *scarcely*, and *barely* as *almost not*.
 
 ## Traps to Watch For
 

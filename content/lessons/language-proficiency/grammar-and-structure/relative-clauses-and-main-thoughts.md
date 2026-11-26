@@ -39,8 +39,6 @@ The answer is **which**: "The report, which arrived this morning, is on your des
 
 ### Finding the Main Thought Around a Relative Clause
 
-A relative clause often sits in the middle of a sentence, right between the main subject and main verb.
-
 In *"The driver who found the road closed delayed our delivery,"* *who found the road closed* sits inside the subject to tell which driver is meant. The main verb for *the driver* is *delayed*. Because the relative clause sits inside the main frame, **the whole sentence** is the independent clause.
 
 <!-- ILLUSTRATION: the sentence "The driver [who found the road closed] delayed our delivery." with [who found the road closed] bracketed and shaded as "relative clause (dependent)" with an arrow back to "The driver", and a teal arc connecting "The driver" (main subject) over the bracket to "delayed" (main verb) -->

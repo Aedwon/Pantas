@@ -20,8 +20,7 @@ keyPoints:
 A **collective noun** names a group, like *company*, *class*, *team*, or *committee*. Your pronoun depends on whether the group acts as one unit or as separate people.
 
 1. Acting as **one unit** (standard American one-unit reading): use *it* or *its*. "The company announced **its** new policy."
-2. Members acting **individually**: plural *they* or *their* fits, as in "The committee returned to **their** homes." This is more common in British English. Naming the people ("The committee members returned to **their** homes") is clearer.
-
+2. Members acting **individually**: plural *they* or *their* fits, as in "The committee returned to **their** homes." This is more common in British English.
 :::pair #group-unit-vs-members
 Right: Treating the company as one unit, "The company announced its new policy yesterday."
 Wrong: "The company announced their new policy yesterday" under a one-unit reading.
@@ -36,14 +35,13 @@ The answer is **Its**. The crew is treated as one unit, so it takes the singular
 
 ### Antecedents Joined by And
 
-Antecedents joined by *and* normally form a plural pair and take *they*, *them*, *their*, or *theirs*: "Liza and Carlo finished **their** project early." "Sofia and her sister compared **their** schedules" refers to both people, not just the first or nearest name.
-
+Antecedents joined by *and* normally form a plural pair and take *they*, *them*, *their*, or *theirs*: "Liza and Carlo finished **their** project early."
 Use *their* before a noun (*their project*), and *theirs* alone ("The project is **theirs**"). Exception: if *and* joins two titles for one person ("my friend and mentor"), match that single person.
 
 :::pair #joined-by-and-one-person
 Right: In "Sofia and her sister compared their schedules," *their* refers to both Sofia and her sister.
 Wrong: Say *their* refers only to Sofia (first named) or only to her sister (named closest).
-Antecedents joined by *and* form a plural pair. Do not drop either person based on word order.
+Antecedents joined by *and* form a plural pair.
 :::
 
 :::check
@@ -117,8 +115,7 @@ The answer is **its** and **her**: "The clinic opened on Monday. Dr. Sol said th
 
 ## Speed Tricks & Shortcuts
 
-Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names as plural (*their*). In mixed *or/nor* sentences, make the pronoun cover everyone named (*their own*) or rewrite with *the* when one shared set is meant; a formal task may also specify the nearer noun.
-
+Check if a group acts as one unit (*its*) or separate members (*their*). Treat *and*-joined names as plural (*their*).
 ## Traps to Watch For
 
 :::checklist

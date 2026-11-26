@@ -16,14 +16,12 @@ keyPoints:
 
 ### Prepositions, Conjunctions, and Interjections
 
-- **Preposition**: introduces a noun or pronoun phrase to show a relation such as place, time, or direction (*under the table, before dinner, toward home*). In "The cat hid **under** the table," *under* links *the table* to *hid*.
-- **Conjunction**: joins words, phrases, or clauses (*and, but, or, because, before*). A **coordinating conjunction** (*for, and, nor, but, or, yet, so*) joins equal parts, such as two full clauses.
-- **Interjection**: expresses a sudden feeling or reaction and stands apart from the sentence grammar (*Ouch!, Wow!, Hey!*). In "**Ouch!** That really hurt," *Ouch* shows pain on its own.
-
+- **Preposition**: introduces a noun or pronoun phrase to show a relation such as place, time, or direction (*under the table, before dinner, toward home*).- **Conjunction**: joins words, phrases, or clauses (*and, but, or, because, before*). A **coordinating conjunction** (*for, and, nor, but, or, yet, so*) joins equal parts, such as two full clauses.
+- **Interjection**: expresses a sudden feeling or reaction and stands apart from the sentence grammar (*Ouch!, Wow!, Hey!*).
 :::pair #location-phrase-adverb
 Right: In "The cat hid under the table," *under* is a preposition.
 Wrong: Label *under* an adverb because "under the table" tells where the cat hid.
-The full phrase tells where, so test *under* by itself. It takes the noun phrase *the table*, so it is a preposition.
+It takes the noun phrase *the table*, so it is a preposition.
 :::
 
 :::pair #but-linking-clauses
@@ -40,7 +38,7 @@ The answer is **Interjection**. *Oops* expresses a sudden reaction and stands in
 
 ### A Phrase or a Clause After a Joining Word
 
-A **subject** tells who or what a clause is about. In this lesson, a **clause** has a subject and a finite verb, such as a tensed verb or a modal like *must* (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
+In this lesson, a **clause** has a subject and a finite verb, such as a tensed verb or a modal like *must* (commands leave *you* understood). A **phrase** works as one part without a subject-verb pair.
 
 A **subordinate clause** usually has its own subject and verb, yet cannot stand alone: *before we finished dinner* leaves you waiting. A group like *before leaving* has no tense; another lesson covers it. A **subordinating conjunction** (such as *before, after, because, when, until*) introduces a subordinate clause.
 
@@ -111,7 +109,7 @@ The answer is **Conjunction** (a subordinating conjunction): "The very patient g
 
 ## Speed Tricks & Shortcuts
 
-Look past *before*, *after*, *since*, and *until*. In these sentences, a noun phrase alone signals a preposition; a subject and verb signal a subordinating conjunction.
+After *before*, *after*, *since*, or *until*, a noun phrase means preposition; a subject and verb mean subordinating conjunction.
 
 ## Traps to Watch For
 

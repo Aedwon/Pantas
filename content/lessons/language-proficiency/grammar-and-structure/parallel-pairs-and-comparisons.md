@@ -35,7 +35,7 @@ Match *fun*, an adjective: *to educate people* fails, and *enjoyably* leaves the
 :::pair #misplaced-correlative-connector
 Right: *"Applicants may submit either online or by mail."*
 Wrong: *"Applicants may either submit online or a mailed application."*
-*A mailed application* is a noun phrase, so it does not match *submit online*. Make the two choices match: *online* and *by mail*. Moving *either* alone does not fix it.
+*A mailed application* is a noun phrase, so it does not match *submit online*. Make the two choices match: *online* and *by mail*.
 :::
 
 :::check
@@ -59,7 +59,7 @@ Why can you not say *"Her report is longer than him"*? A report is writing, whil
 :::pair #comparing-unlike-things
 Right: *"The cost of a bus trip is lower than the cost of a taxi trip."*
 Wrong: *"The cost of a bus trip is lower than taking a taxi to the same destination."*
-The left side names a cost, while the right switches to an activity (*taking a taxi*). Compare a cost with another cost.
+The left side names a cost, while the right switches to an activity (*taking a taxi*).
 :::
 
 :::check
@@ -115,12 +115,12 @@ Finish the last step: which rewrite of sentence 2 is fair?
 
 ## Speed Tricks & Shortcuts
 
-Compare what follows each half of a paired connector. For *than* and *as*, name the thing on each side (*cost* vs. *cost*).
+For *than* and *as*, name the thing on each side (*cost* vs. *cost*).
 
 ## Traps to Watch For
 
 :::checklist
 - Correlative pairs (*not only...but also*, *both...and*): make the two parts they join match in form. {#mismatched-correlative-pair}
 - Two choices after *either* or *neither*: make them match, such as *online* and *by mail*. Moving the connector can show them more clearly; if they already match (*either to win or to lose*), leave it. {#misplaced-correlative-connector}
-- Comparisons with *than* or *as*: compare like with like, such as two costs, two people, or two *-ing* activities. {#comparing-unlike-things}
+- Comparisons with *than* or *as*: compare like with like, such as two costs. {#comparing-unlike-things}
 :::

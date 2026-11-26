@@ -17,9 +17,7 @@ keyPoints:
 
 ### Tense, Aspect, and Simple Present
 
-English verbs show **tense** (when an action happens) and **aspect** (whether it is a habit, ongoing, or completed).
-
-The **base form** is the plain verb with no ending (*write, sort*). **Simple present** uses the base form (adding *-s* or *-es* for *he, she, it*, or a singular noun; *am, is, are* for *be*). Common uses:
+English verbs show **tense** (when an action happens) and **aspect** (whether it is a habit, ongoing, or completed). **Simple present** uses the base form, the plain verb (adding *-s* or *-es* for *he, she, it*, or a singular noun; *am, is, are* for *be*). Common uses:
 
 1. Regular habits or duties: "On every working day, the records officer **sorts** the mail."
 2. General truths: "Water **boils** at its boiling point."
@@ -47,7 +45,7 @@ The answer is **Checks**. The stem says the habit continues now, so *checked* is
 :::pair #wider-present-project
 Right: "I am writing a novel this month" shows a project ongoing around the present.
 Wrong: Claim *am writing* means I must be writing at this exact second.
-Time clues like *this month* widen the present window.
+*This month* widens the present window.
 :::
 
 :::check
@@ -69,7 +67,7 @@ Why do state verbs like *know* avoid *-ing*? Progressive *-ing* shows an activit
 :::pair #stative-verb-progressive
 Right: "I know how to use the filing system."
 Wrong: "I am knowing how to use the filing system."
-*Know* describes a current state of knowledge, not an action in progress.
+*Know* describes a state, not an action.
 :::
 
 :::check
@@ -122,7 +120,7 @@ The answer is **(D) "The office needs two printers."** *Need* describes a state 
 
 ## Speed Tricks & Shortcuts
 
-Use simple present for habits, truths, and timetables, and usually for a verb in its state sense; use *am/is/are + -ing* for actions going on now or around now.
+Use simple present for habits, truths, timetables, and usually state verbs; use *am/is/are + -ing* for actions now or around now.
 
 ## Traps to Watch For
 

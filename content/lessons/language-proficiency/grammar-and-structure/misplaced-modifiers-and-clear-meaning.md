@@ -38,10 +38,7 @@ The car, not the owner, has a dented door. Which sentence says so: *"The mechani
 
 ### Keeping the Intended Meaning When Revising
 
-A clear revision is still wrong if it moves the modifier onto the **wrong person or object** and changes the intended meaning.
-
-If the student wore the jacket, compare *"The teacher, who wore a blue jacket, spoke to the student after class"* with *"After class, the teacher spoke to the student wearing a blue jacket."* The first sentence is smooth, yet it puts the jacket on the teacher instead of the student.
-
+A clear revision is still wrong if it moves the modifier onto the **wrong person or object**. If the student wore the jacket, compare *"The teacher, who wore a blue jacket, spoke to the student after class"* with *"After class, the teacher spoke to the student wearing a blue jacket."*
 The same rule holds for single-word modifiers like *broken*. When the window is damaged, *"A worker on a ladder repaired the broken window"* keeps *broken* on *window*, while *"A worker repaired the window on a broken ladder"* shifts the damage to the ladder.
 
 :::why
@@ -50,7 +47,7 @@ Why can a smooth sentence still fail? Modifier questions test both clarity and f
 
 :::pair #smooth-but-wrong-target
 Right: *"After class, the teacher spoke to the student wearing a blue jacket."*
-Wrong: Choose *"The teacher wearing a blue jacket spoke to the student after class."* or *"The teacher, who wore a blue jacket, spoke to the student after class."* when the student wore the jacket.
+Wrong: Choose *"The teacher wearing a blue jacket spoke to the student after class."* or *"The teacher, who wore a blue jacket, spoke to the student after class."*
 Both wrong options are clear, yet they put the jacket on *the teacher*.
 :::
 
@@ -81,8 +78,7 @@ Which sentence identifies a chipped glass, not a chipped tray: *"A waiter carrie
 **Solution:**
 
 1. In *"A waiter carried the glass on a chipped tray,"* *chipped* describes *tray*.
-2. In *"A waiter carried the chipped glass on a tray,"* *chipped* sits right before *glass*.
-3. The second sentence keeps the intended meaning: **"A waiter carried the chipped glass on a tray."**
+2. The second sentence, with *chipped* right before *glass*, keeps the intended meaning: **"A waiter carried the chipped glass on a tray."**
 
 **Check:** Ask which noun now gets the detail. *Chipped* belongs to the glass, and the tray is plain.
 
@@ -105,7 +101,7 @@ Finish the last step: which rewrite of sentence 2 makes *"wrapped in foil"* desc
 
 ## Speed Tricks & Shortcuts
 
-For every modifier, ask what word or action it should describe.
+Ask what each modifier should describe.
 
 ## Traps to Watch For
 
