@@ -38,7 +38,7 @@ The answer is alliteration. *Cold*, *crept*, and *closer* start with the same co
 **Onomatopoeia** uses a word that sounds like the sound it names, such as *buzz* or *clang*.
 
 :::check
-Which device is the word *clang*?
+Which device is the word *thud*?
 :::answer
 The answer is onomatopoeia. The word sounds like the noise it names.
 :::

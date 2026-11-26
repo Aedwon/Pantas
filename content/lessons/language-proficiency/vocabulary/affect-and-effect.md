@@ -123,7 +123,7 @@ D) The delay had a serious **affect** on service.
 
 ### #4: Affect as a Noun
 
-The psychologist noted the patient's flat ______ during the interview.
+The nurse recorded the patient's anxious ______ during the visit.
 
 A) affect  
 B) effect  
@@ -132,15 +132,15 @@ D) effected
 
 **Solution:**
 
-1. The word *flat* comes before the gap, and *the patient's* shows a noun is needed. This removes C and D.
-2. The sentence is about the patient's outward signs of emotion.
+1. The word *anxious* comes before the gap, and *the patient's* shows a noun is needed. This removes C and D.
+2. Both A and B can be nouns.
 
 :::try
-Finish the last step: in psychology, which noun names outward signs of emotion?
+Finish the last step: which noun fits a note about the patient's emotion?
 :::answer
 The answer is *affect*, choice **A**. In psychology, *affect* is a noun for outward emotion.
 
-**Check:** "Flat affect" is the set phrase for little visible emotion.
+**Check:** The nurse records visible signs of anxiety, which is outward emotion, so *affect* fits.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -33,9 +33,9 @@ The partner words *extra night* and *fee* point to billing. *Accused* needs a cr
 :::
 
 :::check
-In "file a complaint," does *file* mean submit or smooth?
+In "break a promise," does *break* mean smash or fail to keep?
 :::answer
-The answer is submit. The partner *complaint* is something you hand in.
+The answer is fail to keep. The partner *promise* is something you keep or fail to keep.
 :::
 
 ### Register and Grammar
@@ -60,9 +60,9 @@ The word *only if* shows a limit. *Certified* is a different meaning of *qualifi
 :::
 
 :::check
-In "The residents gave the project qualified support: they favored it only if drainage repairs were completed first," does *qualified* mean *limited* or *certified*?
+In "The editor gave the draft qualified praise, but she listed three problems with it," does *qualified* mean *limited* or *certified*?
 :::answer
-The answer is *limited*. The words *only if* show a condition that limits their support.
+The answer is *limited*. The words *listed three problems* show her praise had limits.
 :::
 
 ## Examples

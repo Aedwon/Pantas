@@ -61,9 +61,9 @@ The words *as if* do not decide it. Ask what the boards are made to do.
 :::
 
 :::check
-“I've told you a million times.” Which figure is this?
+“I could eat a horse.” Which figure is this?
 :::answer
-The answer is hyperbole. A million times greatly overstates the number.
+The answer is hyperbole. Eating a horse greatly overstates how hungry he is.
 :::
 
 ## Examples

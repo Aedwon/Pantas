@@ -15,7 +15,7 @@ keyPoints:
 
 ### Sila at Sina
 
-Ang **sila** ay **panghalip** (pronoun) na pumapalit sa mga pangalan ng dalawa o higit pang tao: "Umalis **sila** nang maaga." Walang kasunod na pangalan ng tao pagkatapos ng *sila*.
+Ang **sila** ay **panghalip** (pronoun) na pumapalit sa mga pangalan ng dalawa o higit pang tao: "Umalis **sila** nang maaga." Karaniwang walang kasunod na pangalan ng tao ang *sila*.
 
 Ang **sina** ay **pananda** (marker) na ginagamit bago ang dalawa o higit pang pangalan ng tao: "**Sina** Ana at Lito ay dumating."
 

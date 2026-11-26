@@ -80,9 +80,9 @@ A public notice calls for formal wording. *Get going* is too casual.
 :::
 
 :::check
-Which fits a formal notice: *commence* or *kick off*?
+Which fits a formal notice: *purchase* or *grab*?
 :::answer
-The answer is *commence*. It is formal. *Kick off* is casual.
+The answer is *purchase*. It is formal. *Grab* is casual.
 :::
 
 ## Examples

@@ -25,13 +25,12 @@ Some word parts come from older languages. They may carry meaning even when they
 - **pseudo-** means false or imitation: *pseudoscience*.
 - **circum-** means around, and **locut-** relates to speaking: *circumlocution* is an indirect, wordy way of speaking.
 
-These parts give clues, not the whole meaning of every word. Do not force a split in a word such as *bench* just because it begins with *ben*. Learn the full word when the rest of the split does not help.
-
+These parts give clues, not the whole meaning of every word. Do not force a split in a word such as *bench* just because it begins with *ben*.
 We split *malicious* and read the first part.
 
 - *Malicious* starts with *mal-*.
 - *Mal-* suggests bad or harmful.
-- So *malicious* means spiteful, or wishing harm.
+- So *malicious* means spiteful, or meant to hurt.
 
 :::pair #mal-versus-bene
 Right: *Malicious* means spiteful.
@@ -52,9 +51,9 @@ Wrong: *Omniscient* means all-powerful.
 :::
 
 :::check
-What does *chronology* mean, using *chron-*?
+Using *chron-*, what does *chronic* mean in *chronic cough*?
 :::answer
-The answer is the order of events in time. *Chron-* relates to time.
+The answer is lasting a long time. *Chron-* relates to time.
 :::
 
 ## Examples

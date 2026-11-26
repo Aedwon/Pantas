@@ -33,9 +33,9 @@ Letters and sounds do not always match one for one.
 - In *manage*, the final *e* has no sound of its own.
 
 :::check
-How many main vowel sounds does *chief* have?
+How many main vowel sounds does *field* have?
 :::answer
-The answer is one. The letters *ie* together make one vowel sound, so *chief* has one syllable.
+The answer is one. The letters *ie* together make one vowel sound, so *field* has one syllable.
 :::
 
 ### The Limited I Before E Rhyme
@@ -82,10 +82,9 @@ D) seize
 
 1. In *chief*, no c comes before the pair, so *ie* is right.
 2. *Neighbor* uses *ei* because the pair makes the long-*a* sound.
-3. *Seize* is an exception, so *ei* is right.
 
 :::try
-Finish the last step: check **B**, *concieve*. Is it spelled right or wrong, and why?
+Finish the checking: which word is misspelled, and why?
 :::answer
 The answer is **B**, *concieve*, which is misspelled. A *c* comes before the pair, so the standard spelling is *conceive*, with *ei*.
 

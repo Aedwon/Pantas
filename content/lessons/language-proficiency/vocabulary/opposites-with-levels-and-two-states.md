@@ -89,7 +89,7 @@ D) The exact size is not given.
 
 **Solution:**
 
-1. *Large* and *tiny* are opposites with middle sizes between them.
+1. *Large* and *small* are opposites with middle sizes between them.
 
 :::try
 Finish the last step: which choice matches what we know from "not large" alone?

@@ -71,7 +71,7 @@ We test four splits and keep the one that explains its word.
 
 A) pretty = pre- + tty  
 B) replay = re- + play  
-C) dismal = dis- + mal  
+C) mother = mo- + ther  
 D) unite = un- + ite
 
 **Solution:**
@@ -81,7 +81,7 @@ D) unite = un- + ite
 :::try
 Finish the last step: check the other three splits. Which one is valid, and why?
 :::answer
-The answer is **B**. In C, *mal* is not a base, and in D, *ite* is not a base, so those splits fail. In B, *play* is a meaningful base, and *re-* changes it to "play again," so the split explains the whole word.
+The answer is **B**. In C, *ther* is not a base, and in D, *ite* is not a base, so those splits fail. In B, *play* is a meaningful base, and *re-* changes it to "play again," so the split explains the whole word.
 
 **Check:** Join the parts of B. *Re-* plus *play* gives *replay*, which means "play again."
 :::

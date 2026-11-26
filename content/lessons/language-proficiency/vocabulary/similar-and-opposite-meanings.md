@@ -29,7 +29,7 @@ The answer is a synonym. Both words mean bold and willing to take risks.
 
 ### Word Pairings
 
-A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. Words with similar meanings do not always fit the same word pairings.
+A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. For a large amount, *heavy* is the usual partner.
 
 :::pair #heavy-rain
 Right: The road closed during heavy rain.
@@ -40,7 +40,7 @@ Wrong: The road closed during powerful rain.
 :::check
 Which pairing sounds natural in standard English: *heavy traffic* or *strong traffic*?
 :::answer
-The answer is *heavy traffic*. English pairs *heavy* with *traffic*.
+The answer is *heavy traffic*. A large amount of traffic takes *heavy*.
 :::
 
 ### Antonyms
@@ -102,21 +102,21 @@ D) isolate
 
 Which phrase sounds most natural in standard English?
 
-A) quick food  
-B) rapid food  
-C) fast food  
-D) speedy food
+A) strong snow  
+B) powerful snow  
+C) mighty snow  
+D) heavy snow
 
 **Solution:**
 
-1. All four choices mean quick, so check which adjective pairs naturally with *food*.
+1. All four mean great in force or amount, so check which pairs naturally with *snow*.
 
 :::try
 Finish the last step: which choice is the natural English pairing?
 :::answer
-The answer is **C**, **fast food**. Standard English pairs *fast* with *food*, not *quick*, *rapid*, or *speedy*.
+The answer is **D**, **heavy snow**. A large amount of snow takes *heavy*, not *strong*, *powerful*, or *mighty*.
 
-**Check:** Read it in a sentence: "We ate fast food on the road." It sounds natural in standard English.
+**Check:** Read it in a sentence: "The road closed during heavy snow." It sounds natural in standard English.
 :::
 
 ## Speed Tricks & Shortcuts

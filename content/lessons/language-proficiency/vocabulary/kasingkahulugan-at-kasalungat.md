@@ -48,7 +48,7 @@ Hanapin natin ang kasalungat ng *matapang*:
 :::pair #kasalungat
 Right: Ang kasalungat ng *maralita* ay *mayaman*.
 Wrong: Ang kasalungat ng *maralita* ay *mahirap*.
-Mahirap ang kahulugan ng *maralita*. Kasingkahulugan ito, hindi kasalungat.
+Ang *mahirap* ay kasingkahulugan ng *maralita*, hindi kasalungat.
 :::
 
 :::check

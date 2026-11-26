@@ -49,9 +49,9 @@ Learn *truly* and *argument* as exceptions. No simple rule covers them, so memor
 :::
 
 :::check
-Spell *care* plus *-ful* and *true* plus *-ly*.
+Spell *hope* plus *-ful* and *safe* plus *-ly*.
 :::answer
-The answers are *careful* and *truly*. *Careful* keeps the *e* before a consonant suffix, while *truly* is an exception that drops *e*.
+The answers are *hopeful* and *safely*. Both suffixes start with a consonant, and neither word is an exception, so both keep the *e*.
 :::
 
 ## Examples

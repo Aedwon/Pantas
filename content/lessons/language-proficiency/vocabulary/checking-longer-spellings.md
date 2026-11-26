@@ -65,27 +65,25 @@ The answer is *separate*. The middle is *p-a-r*, and the unclear vowel needs the
 
 ### #1: A Long Word in Context
 
-Choose the correctly spelled word to complete the sentence: “Flooding is a frequent ______ in the area.”
+Choose the correctly spelled word to complete the sentence: “Yesterday, Ana ______ the window seat.”
 
-A) occurrence  
-B) occurrance  
-C) occurence  
-D) ocurrence
+A) prefered  
+B) preferred  
+C) prefferred  
+D) preferrd
 
 **Solution:**
 
-1. Say the word in beats: *uh-kur-uns*. The middle beat is stressed.
-2. The beats do not give every letter.
-3. Recall the base *occur*, with double *c*.
-4. The last syllable of *occur* is stressed, so its final *r* doubles before the ending.
-5. Recall the ending *-ence*. Its weak vowel sounds like *-ance*, so sound cannot choose.
+1. Say the word in beats: *pri-furd*. The beats do not give every letter.
+2. Recall the base *prefer*.
+3. The last syllable of *prefer* is stressed, so its final *r* doubles before the ending.
 
 :::try
-Finish the last step: put *occur*, the doubled *r*, and *-ence* together and choose the correct option.
+Finish the last step: put *prefer*, the doubled *r*, and *-ed* together and choose the correct option.
 :::answer
-The answer is **A**, *occurrence*.
+The answer is **B**, *preferred*.
 
-**Check:** Start from the base *occur* (double *c*), double the stressed final *r*, and add *-ence* to get *oc-cur-rence*.
+**Check:** Start from the base *prefer*, double the stressed final *r*, and add *-ed* to get *pre-ferred*.
 :::
 
 ## Speed Tricks & Shortcuts

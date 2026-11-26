@@ -32,9 +32,9 @@ The words *taking no food* show the meaning. Use the nearby words, not the famil
 :::
 
 :::check
-In "She sat on the bank and watched the water," what does *bank* mean?
+In "A bat flew from the cave," is *bat* an animal or a club?
 :::answer
-The answer is the land beside a river. The words *watched the water* point to a riverbank.
+The answer is an animal. The words *flew from the cave* point to an animal.
 :::
 
 ### Grammar in Context
