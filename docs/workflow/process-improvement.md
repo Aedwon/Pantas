@@ -130,8 +130,10 @@ pass 15, retire or merge one first.
 
 - His words (about 1:30 PM Manila, wide dark screenshot of app.pantas.study/performance, Lessons tab, plus a phone screenshot of the same page): "i also found a problem screen" and "overall as its own column is a waste of space imo".
 - Wrong: on wide, "10 answered" is clipped to "10 answerec", the accuracy bars run into the card's right edge with no padding, the rows show no percent (phone shows it), and the Overall gauge takes its own right column.
-- Why it got through: not yet known; the CSE release lead r9 reports the cause for each with its fix, and this entry is updated then.
-- Fix (checks, release lead r9): a test that fails on today's code for the clipped count, the bar's right padding and the missing percent on wide; Overall moves into the main column after his look at a before-and-after sheet.
+- Then: "can you remove the X answered labels i don't think it matters", and "then more elegantly i think you could just add (X) as simple as that".
+- Why it got through: one cause made all three row defects: a long lesson name squeezed the count, bar and percent columns out of the card. The only wide golden of this page shows the Subjects tab with two short names; no test or golden had a long name, a large count or the Lessons tab, and the table tests checked that the percent existed, never that it sat inside the card. The Overall column matched the approved board, so every board review passed it; only his use caught it.
+- Fix (checks, release lead r9, shown failing first): the name column takes only the room the other columns leave and wraps; tests hold the percent and chevron inside the card with a long name and a large count on every tab. "N answered" becomes a quiet "(N)" after the name. Overall moves above the tabs as on the phone (his call beats the board; reference boards updated), after his look at a before-and-after sheet.
+- Required step added: every list golden includes a worst-case row (longest real name, largest count) on each tab, at phone and wide.
 
 ### Wordy UI on a board again: pricing small print (Nov 26, repeat)
 

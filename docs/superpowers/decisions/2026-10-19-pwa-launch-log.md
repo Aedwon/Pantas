@@ -4225,6 +4225,7 @@ Expected day total: under 250 reads and 200 writes. Go.
 
 - **Legal sign-off, verbatim:** "legal sign-off: approved". Checklist L1 and L2. The texts publish per the H5 publish gate: with or after the D1, D2, D3 and D7 builds, each claim checked live on prod, with the date and version stamps moved to the go-live day if it is after Nov 24.
 - **BIR Registration Seal Badge, verbatim:** "yes show the BIR badge but only on the landing page pantas-web project in domain www.pantas.study". Not in the app: ruling C9's Pro page and wide placements are dropped; C9's website placement (under the D3 seller details; the verify link on a white plate; no copy; cropped only) stands. Voluntary while BIR RMC 113-2026 suspends the mandatory display. The certificate PDF stays out of every repo. Publishing the website is a prod change and needs his "ship it". Checklist L10.
+  - **Nov 26, reversed (Aedwon, relayed by the operations manager):** on the homepage board he asked "can you clean up the BIR badge please, looks very unprofessional. is it okay to make our own like SVG to make it cleaner?" (answered no: C9 section 5, the badge stays unaltered; only its framing may change). After reading that RMC 113-2026 suspended the mandatory display and that scanning the badge shows the registrant's name and TIN digits, verbatim: "okay take it off". The badge is off the website: removed from the Pantas Website canvas (UX lead); it was never built on the opening branch `web/home-opening-r1` (06dfb0e has no badge). The D3 seller line in the footer stays. The badge asset stays out of pantas-web.
 - **Under-18 sign-up option:** still open with him.
 
 ### Nov 24, main shipped to prod (temporary operations manager)
@@ -4817,3 +4818,9 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Rule 7:** before, prod 9,210 reads and staging 31,158 this quota day; expected about 4,500 each; after, prod 10,500 and 205 writes, staging 34,586 and 2,518 writes.
 - **Rollback:** re-upload the content root at a7cc22b6b (plus the same three main files) from main's tools.
 - **Note for the content lane:** the key "kuwento" is the longest choice by one letter (SUBAGENTS content rule); inherent to this spelling item, not changed here.
+
+### Nov 26: BIR Registration Seal Badge dropped from the website (Aedwon, relayed by the operations manager)
+
+- **Context:** display is voluntary under BIR RMC 113-2026, and scanning the badge shows his name and TIN digits.
+- **Aedwon, verbatim:** "okay take it off".
+- **Effect:** checklist L10 dropped until BIR makes display mandatory again; not in the opening. The UX lead removes it from the homepage branch (`web/home-opening-r1`); the integrator rechecks the new head before publishing.
