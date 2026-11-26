@@ -17,4 +17,10 @@ Manager ruling (Nov 27, about 2 AM Manila): the lesson lane does not edit questi
 | 11 | Minor | pronoun-antecedent-agreement.yaml:234 (q 0011) | Explanation of a Filipino item entirely in English. | Write it in simple Filipino. |
 | 12 | Minor | filipino-verb-aspect-and-focus.yaml:77 (q 0011) | Glosses *pokus* as *focus* in a quiz stem. | Use *pokus* alone. |
 
+## Status: all 12 rows closed (Nov 27)
+
+Settled by the release lead on branch `content/cse-question-fixes-r1`, commit `22b8ccc2f` (based on the content root; on staging; prod after the opening). Record: `docs/content/verification/fix-grammar-question-findings-r1.md` on that branch. Per the commit message: rows 1, 2, 3, 4, 8, 9, 11 and 12 fixed in stems, explanations and notes only (11 questions); rows 5, 6, 7 and 10 need no change. No answer key changed, and every trap choice these lessons cite is unchanged. (The manager's note said 9 real and 3 no change; the commit lists 8 and 4. The commit is the record.)
+
+When these lessons move to the content root, take the root's copies of those 11 questions, never this branch's.
+
 Lead's note: rows 1, 2 and 4 matter most, since a student who learns the lesson's rule could be marked wrong. Each needs the question process (blind solve, `approve.dart`) in its own commit.
