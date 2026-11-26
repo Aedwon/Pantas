@@ -94,6 +94,40 @@ void main() {
     }
   });
 
+  // Aedwon, Nov 26: "can you make the web view ver as green as the mobile
+  // view ver."
+  for (final dark in [false, true]) {
+    testWidgets('wide hero is the phone green, dark=$dark', (tester) async {
+      await pump(tester, width: 1440, dark: dark);
+      final heroFinder = find.byKey(const ValueKey('pro-hero'));
+      final c = tester.element(heroFinder).colors;
+      final box =
+          tester.widget<Container>(heroFinder).decoration! as BoxDecoration;
+      final gradient = box.gradient! as LinearGradient;
+      expect(gradient.colors, [c.heroStart, c.heroMid, c.heroEnd]);
+      expect(gradient.stops, const [0, .4, 1]);
+      expect(gradient.begin, const Alignment(-0.342, -0.94));
+      expect(gradient.end, const Alignment(0.342, 0.94));
+      expect(
+        tester
+            .widget<Text>(
+              find.descendant(
+                of: heroFinder,
+                matching: find.text('Study without limits'),
+              ),
+            )
+            .style!
+            .color,
+        c.onHero,
+      );
+      for (final i in tester.widgetList<Icon>(
+        find.descendant(of: heroFinder, matching: find.byType(Icon)),
+      )) {
+        expect(i.color, c.onHeroSecondary);
+      }
+    });
+  }
+
   for (final width in [1024.0, 1440.0]) {
     for (final dark in [false, true]) {
       for (final scale in [1.0, 2.0]) {

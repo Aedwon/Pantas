@@ -2,6 +2,7 @@ import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/features/settings/presentation/widgets/pro_hero_gradient.dart';
 import 'package:pantas/features/settings/presentation/widgets/pro_perks.dart';
 
 /// The teal hero of the phone Pro page (`.card--hero`, D126): `hero-start`
@@ -22,11 +23,6 @@ class PhoneProHero extends StatelessWidget {
   // ds-board: ST_ProPMA phone hero padding 26 by 22 (Card README)
   static const double _padY = 26;
 
-  // ds-board: `.card--hero` gradient at 160deg, as an alignment pair
-  static const Alignment _from = Alignment(-0.342, -0.94);
-  // ds-board: `.card--hero` gradient at 160deg, as an alignment pair
-  static const Alignment _to = Alignment(0.342, 0.94);
-
   @override
   Widget build(BuildContext context) {
     final c = context.colors;
@@ -35,13 +31,7 @@ class PhoneProHero extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: _padX, vertical: _padY),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(PantasRadius.r2xl),
-        gradient: LinearGradient(
-          // CSS 160deg: down, leaning a little to the right.
-          begin: _from,
-          end: _to,
-          colors: [c.heroStart, c.heroMid, c.heroEnd],
-          stops: const [0, .4, 1],
-        ),
+        gradient: proHeroGradient(c),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
