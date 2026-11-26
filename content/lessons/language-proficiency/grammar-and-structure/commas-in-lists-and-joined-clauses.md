@@ -38,7 +38,7 @@ The answer is **"Bring a pencil, an eraser, and a ruler."** The serial comma bel
 
 An **independent clause** is a group of words with a subject and a finite verb that can stand alone as a sentence. A **coordinating conjunction** is one of seven joining words: *for*, *and*, *nor*, *but*, *or*, *yet*, and *so*.
 
-When one of these seven words joins **two independent clauses**, place a comma right **before** the joining word:
+When one of these seven words joins **two independent clauses**, place a comma right **before** the joining word. Join *"She studied hard"* and *"she passed the exam"* with *and*:
 
 1. First independent clause: *"She studied hard."*
 2. Comma plus joining word: *", and"*

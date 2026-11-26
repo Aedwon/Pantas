@@ -16,7 +16,7 @@ keyPoints:
 
 ### Pang-uri: Naglalarawan sa Pangngalan o Panghalip
 
-Ang **pang-uri** (adjective) ay salitang naglalarawan sa **pangngalan** (noun) o **panghalip** (pronoun). Hanapin muna ang salitang tinutukoy bago pumili ng bahagi ng pananalita.
+Ang **pang-uri** (adjective) ay salitang naglalarawan sa **pangngalan** (noun) o **panghalip** (pronoun). Hanapin muna ang salitang tinutukoy bago pumili ng bahagi ng pananalita. Tingnan kung ano ang inilalarawan ng *masipag* at *matangkad*:
 
 - "Ang **masipag** na guro ay maagang dumating." (Inilalarawan ng *masipag* ang *guro*, na isang pangngalan.)
 - "Matangkad siya." (Inilalarawan ng *matangkad* ang panghalip na *siya*.)
@@ -35,7 +35,7 @@ Ang sagot ay **Pang-uri**. Inilalarawan ng *bago* ang pangngalang *bag*.
 
 ### Pang-abay: Nagbibigay-Linaw sa Pandiwa, Pang-uri, o Pang-abay
 
-Ang **pang-abay** (adverb) ay nagbibigay-linaw sa **pandiwa** (verb), pang-uri, o kapuwa pang-abay. Sinasagot nito ang tanong na *paano*, *kailan*, *saan*, o *gaano*.
+Ang **pang-abay** (adverb) ay nagbibigay-linaw sa **pandiwa** (verb), pang-uri, o kapuwa pang-abay. Sinasagot nito ang tanong na *paano*, *kailan*, *saan*, o *gaano*. Suriin kung ano ang nililinaw ng *mabilis* at *lubhang*:
 
 - "**Mabilis** na tumakbo ang atleta." (Sinasabi ng *mabilis* kung paano tumakbo ang atleta.)
 - "**Lubhang** masaya ang mga bata." (Sinasabi ng *lubhang* kung gaano kasaya, kaya pang-uri ang binibigyang-linaw nito.)

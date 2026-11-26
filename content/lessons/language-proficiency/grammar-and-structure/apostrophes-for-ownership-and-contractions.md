@@ -38,7 +38,7 @@ The answer is **Students'**. The plural owner *students* already ends in *s*, so
 
 ### Apostrophes in Contractions
 
-A **contraction** shortens two words by leaving out letters. Put the apostrophe **right where the letters were removed**:
+A **contraction** shortens two words by leaving out letters. Put the apostrophe **right where the letters were removed** in *do not*, *it is*, and *it has*:
 
 1. *do not* drops *o* -> *don't*.
 2. *it is* drops *i* -> *it's*.

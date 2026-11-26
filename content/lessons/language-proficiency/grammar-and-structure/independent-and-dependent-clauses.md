@@ -56,7 +56,7 @@ The answer is **Since**. It introduces *"the concert ended late"* and makes it d
 
 ### Checking After Words Like After, Before, and Since
 
-Words such as *after, before, since,* and *until* can start either a **prepositional phrase** or a **dependent clause**. Read every word that follows:
+Words such as *after, before, since,* and *until* can start either a **prepositional phrase** or a **dependent clause**. Compare what follows *after* in two groups:
 
 1. Noun group only, no finite verb: *"After the bus trip"* is a prepositional phrase.
 2. Subject paired with a finite verb: *"After the bus arrived"* has subject *the bus* and finite verb *arrived*, so it contains a dependent clause.

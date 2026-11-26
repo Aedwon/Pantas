@@ -16,7 +16,7 @@ keyPoints:
 
 ### Pang-ukol: Nag-uugnay Patungo sa Pangngalan
 
-Ang **pang-ukol** (preposition) ay nag-uugnay ng isang **pangngalan** (noun) o grupo ng mga pangngalan sa ibang bahagi ng pangungusap. Kabilang dito ang *para sa*, *para kay*, *tungkol sa*, *ayon sa*, *laban sa*, at *ukol sa*.
+Ang **pang-ukol** (preposition) ay nag-uugnay ng isang **pangngalan** (noun) o grupo ng mga pangngalan sa ibang bahagi ng pangungusap. Kabilang dito ang *para sa*, *para kay*, *tungkol sa*, *ayon sa*, *laban sa*, at *ukol sa*. Tingnan ang gamit ng *para sa* at *tungkol sa*:
 
 - "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita." (Iniuugnay ng *para sa* ang *mga bisita* sa *mga upuan*.)
 - "Nag-usap sila **tungkol sa** proyekto." (Sinasabi nito kung ano ang paksa ng pag-uusap.)
@@ -35,7 +35,7 @@ Ang sagot ay **Pang-ukol**. Ipinakikilala ng *tungkol sa* ang pangngalang *kalik
 
 ### Pangatnig: Nagdurugtong ng mga Salita o Sugnay
 
-Ang **pangatnig** (conjunction) ay nagdurugtong ng dalawang salita, parirala, o **sugnay** (clause). Kabilang dito ang *at*, *ngunit*, *o*, *dahil*, *sapagkat*, *upang*, at *kung*.
+Ang **pangatnig** (conjunction) ay nagdurugtong ng dalawang salita, parirala, o **sugnay** (clause). Kabilang dito ang *at*, *ngunit*, *o*, *dahil*, *sapagkat*, *upang*, at *kung*. Tingnan kung ano ang pinagdurugtong ng *at* at *dahil*:
 
 - "Nagbasa siya **at** nagsulat." (Pinagdurugtong ng *at* ang dalawang kilos.)
 - "Umuwi siya **dahil** umuulan na." (Pinagdurugtong ng *dahil* ang dalawang sugnay.)
@@ -54,7 +54,7 @@ Ang sagot ay **Pangatnig**. Pinagdurugtong ng *upang* ang dalawang bahaging may 
 
 ### Pandamdam: Tuwirang Pahayag ng Damdamin
 
-Ang **pandamdam** (interjection) ay maikling salita o parirala na tuwirang nagpapahayag ng damdamin o biglaang reaksiyon. Kabilang dito ang *Aray!*, *Naku!*, *Ay!*, *Sayang!*, at *Hoy!*.
+Ang **pandamdam** (interjection) ay maikling salita o parirala na tuwirang nagpapahayag ng damdamin o biglaang reaksiyon. Kabilang dito ang *Aray!*, *Naku!*, *Ay!*, *Sayang!*, at *Hoy!*. Tingnan ang gamit ng *Aray!* sa pangungusap:
 
 - "**Aray!** Masakit ang sugat ko." (Tuwirang pahayag ng sakit.)
 
