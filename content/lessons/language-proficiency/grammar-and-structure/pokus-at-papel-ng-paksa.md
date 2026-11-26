@@ -96,7 +96,7 @@ Tukuyin ang paksa at pokus ng pandiwa sa bawat pangungusap: "Nagbasa ang guro ng
 1. Hanapin ang gumawa. Siya ang paksa, kaya nakapokus sa **tagaganap** ang *nagbasa*: "Nagbasa **ang guro** ng tula."
 2. Hanapin ang binasa. Ito ang paksa, kaya nakapokus sa **layon** ang *binasa*: "Binasa ng guro **ang tula**."
 
-**Check:** Hanapin ang pangkat na may *ang* sa bawat pangungusap: *ang guro* sa una, *ang tula* sa ikalawa.
+**Check:** Palitan ang *ang guro* ng *ng guro* sa una: hindi na ito paksa.
 
 ### #3: Paglipat ng Paksa Nang Walang Bawas sa Kilos
 

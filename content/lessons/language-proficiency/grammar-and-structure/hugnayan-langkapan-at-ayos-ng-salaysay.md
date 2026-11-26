@@ -26,7 +26,7 @@ Pagdugtungin ang isang buong diwa at ang dahilan nito gamit ang *dahil* o *sapag
 :::pair #hugnayan-laban-sa-tambalan
 Right: Ang "Umuwi ang bata dahil umuulan na" ay **Hugnayan**.
 Wrong: Tawaging **Tambalan** o **Payak** ang "Umuwi ang bata dahil umuulan na."
-Ikinakabit ng *dahil* ang dahilan sa pangunahing sugnay.
+Ikinakabit ng *dahil* ang dahilan sa pangunahing sugnay. Hindi tambalan ito dahil di-makapag-iisa ang ikalawang sugnay, at hindi payak dahil may dalawang sugnay.
 :::
 
 :::check
@@ -114,7 +114,7 @@ Pagsamahin sa isang langkapan ang mga diwa, at gamitin ang *dahil* sa dahilan: n
 
 ### #3: Ayos ng mga Pananda sa Salaysay
 
-Lagyan ng pananda ang tatlong pangyayari sa salaysay ng aplikante: kinuha niya ang resibo; nagrehistro siya; ipinasa niya ang mga papel.
+Lagyan ng pananda ang tatlong pangyayari sa salaysay ng aplikante: kinuha niya ang resibo; nagrehistro siya; ipinasa niya ang mga papel. Ang resibo ang patunay na natanggap ang mga papel.
 
 **Solution:**
 
@@ -131,17 +131,17 @@ Tapusin ang salaysay. Alin ang tamang kasunod na dalawang pangungusap?
 :::answer
 Ang sagot ay **B**: "Sa simula, nagrehistro siya. Kasunod, ipinasa niya ang mga papel. Panghuli, kinuha niya ang resibo."
 
-**Check:** Nauna ang pagpasa ng papel sa pagkuha ng resibo, kaya *kasunod* ang una at *panghuli* ang ikalawa.
+**Check:** Patunay ang resibo na natanggap ang papel, kaya nauna ang pagpasa: *kasunod* ang una at *panghuli* ang ikalawa.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Isang makapag-iisa at di-makapag-iisa: hugnayan; dalawa o higit pang makapag-iisa at di-makapag-iisa: langkapan.
+Isang makapag-iisa na may di-makapag-iisa: hugnayan; dalawa o higit pang makapag-iisa na may di-makapag-iisa: langkapan.
 
 ## Traps to Watch For
 
 :::checklist
 - Sugnay na may *dahil* kasama ng isang buong diwa: hugnayan ito, hindi tambalan at hindi payak. {#hugnayan-laban-sa-tambalan}
-- Dalawang buong diwa na may kasamang *dahil* o *kapag*: bilangin lahat ng sugnay para sa langkapan. {#langkapan-bilangin-ang-bawat-sugnay}
+- Dalawang buong diwa na may kasamang *dahil* o *sapagkat*: bilangin lahat ng sugnay para sa langkapan. {#langkapan-bilangin-ang-bawat-sugnay}
 - Mga panandang *una*, *pagkatapos*, at *sa huli*: ilagay ang *una* sa simula at *sa huli* sa wakas. {#ayos-ng-pananda-sa-salaysay}
 :::

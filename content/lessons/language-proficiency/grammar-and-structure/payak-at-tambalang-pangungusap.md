@@ -68,11 +68,11 @@ Sa tambalang pangungusap, ang **pangatnig na magkatimbang** (coordinating conjun
 :::pair #pangatnig-sa-pagpipilian
 Right: Para sa pagpipilian: "Maaari kang magpasa sa tanggapan, **o** maaari kang magpadala sa koreo."
 Wrong: Gamitin ang **at**, **ngunit**, o **dahil** sa pangungusap na humihingi ng pagpipilian.
-Sa pangungusap na ito, ipinakikita ng *o* ang mga pagpipilian.
+Dagdag ang *at*, salungat ang *ngunit*, dahilan ang *dahil*; pagpipilian dito ang hinihingi.
 :::
 
 :::check
-Piliin ang pangatnig para sa salungat na diwa: Gusto niyang sumama, *(at / ngunit / o)* masama ang pakiramdam niya.
+Gusto niyang sumama, *(at / ngunit / o)* masama ang pakiramdam niya. Alin ang angkop?
 :::answer
 Ang sagot ay **Ngunit**. Salungat sa pagnanais niyang sumama ang masamang pakiramdam.
 :::
@@ -99,7 +99,7 @@ Tukuyin ang uri ng pangungusap: "Maaga kaming dumating ngunit sarado ang tindaha
 1. Hatiin sa pangatnig na *ngunit*: unang bahagi ay "Maaga kaming dumating," ikalawa ay "sarado ang tindahan."
 2. Dalawa ang sugnay na makapag-iisa at walang di-makapag-iisa, kaya **Tambalan** ang "[Maaga kaming dumating] **ngunit** [sarado ang tindahan]."
 
-**Check:** Lagyan ng tuldok sa halip ng *ngunit*: "Maaga kaming dumating. Sarado ang tindahan." Parehong buo.
+**Check:** Lagyan ng tuldok bilang kapalit ng *ngunit*: "Maaga kaming dumating. Sarado ang tindahan." Parehong buo.
 
 ### #3: Pagtutugma ng Pangatnig
 

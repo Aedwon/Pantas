@@ -117,7 +117,7 @@ Ang sagot ay **Pandiwaring gamit na pangngalan**: "Sinagot ng guro sa harap ng k
 
 ## Speed Tricks & Shortcuts
 
-Itanong ang kilos para sa pandiwa, at kung tao o bagay ang tinutukoy ng anyong mula sa pandiwa.
+Itanong ang kilos para sa pandiwa, at kung walang pangngalang kasunod, tingnan kung tao o bagay ang tinutukoy ng anyong mula sa pandiwa.
 
 ## Traps to Watch For
 

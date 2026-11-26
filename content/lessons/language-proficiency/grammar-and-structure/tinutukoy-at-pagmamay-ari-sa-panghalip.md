@@ -57,6 +57,7 @@ Ang sagot ay **Tayo**. Kasama sa pupunta ang kausap na si Ben.
 ### Walang Kasarian ang Siya, Niya, at Kaniya
 
 Hindi tulad ng Ingles na may *he*, *she*, at *it*, ang *siya*, *niya*, at *kaniya* sa Filipino ay **hindi nagsasaad ng kasarian**. Pareho ang anyo para sa babae o lalaki, at ginagamit ito para sa tao at kung minsan sa alagang hayop.
+
 :::why
 Bakit iisa ang *siya* para sa babae at lalaki? Sa balarilang Filipino, ang anyo ng panghalip ay sumusunod sa bilang at papel (*ang*, *ng*, o *sa*), hindi sa kasarian ng taong tinutukoy.
 :::
@@ -64,7 +65,7 @@ Bakit iisa ang *siya* para sa babae at lalaki? Sa balarilang Filipino, ang anyo 
 :::pair #walang-kasarian-ang-siya
 Right: Ang salitang *siya* sa Filipino ay hindi nagsasaad ng kasarian.
 Wrong: Sabihing tumutukoy lamang ang *siya* sa babae, sa lalaki, o sa mga bagay.
-Tumutukoy ang *siya* sa sinumang iisang taong pinag-uusapan, babae man o lalaki. Maaaring gamitin ang *ito* para sa bagay.
+Tumutukoy ang *siya* sa sinumang iisang taong pinag-uusapan, babae man o lalaki.
 :::
 
 :::check
@@ -82,7 +83,7 @@ Si Omar ang may-ari ng payong. Piliin ang tamang panghalip sa sasabihin niya: "_
 **Solution:**
 
 1. Tingnan ang ayos: nasa unahan ang patlang para sa may-ari, bago ang *ang payong na nasa upuan*.
-2. Hindi rin maaaring gamitin ang *ako* o *ko* sa puwestong ito, kaya piliin ang **Akin**: "**Akin** ang payong na nasa upuan."
+2. Hindi maaaring gamitin ang *ako* o *ko* sa puwestong ito, kaya piliin ang **Akin**: "**Akin** ang payong na nasa upuan."
 
 **Check:** Ang "*Ako* ang payong na nasa upuan" ay nagsasabing ang nagsasalita ang payong.
 
@@ -107,7 +108,7 @@ Sinabi ni Lea sa kaibigan niya, "Salamat sa tulong mo." Paano niya ito sasabihin
 1. Hanapin ang panghalip sa linya para sa kaibigan: *mo*.
 
 :::try
-Tapusin ang huling hakbang: punan ang patlang para sa guro ng buong magalang na anyong *ng* (hindi pinaikli): "Salamat po sa tulong ___."
+Tapusin ang huling hakbang: punan ang patlang para sa guro ng anyong *ng* para sa guro (hindi pinaikli): "Salamat po sa tulong ___."
 :::answer
 Ang sagot ay **ninyo**: "Salamat po sa tulong ninyo." Magalang na anyo ito para sa iisang kausap.
 

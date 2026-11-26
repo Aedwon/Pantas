@@ -90,7 +90,7 @@ Palitan ang *si Ben* sa "Si Ben ang umalis." Alin sa *siya*, *niya*, *kaniya*, a
 2. *Niya* at *nila* ay nasa pangkat ng *ng*, habang *kaniya* ay nasa pangkat ng *sa*.
 3. Piliin ang **siya**: "**Siya** ang umalis."
 
-**Check:** Paksa ang *si Ben* sa orihinal, kaya paksa rin ang kapalit nito.
+**Check:** Ang *Siya ang umalis* ay kapalit ng *Si Ben ang umalis*; hindi ito *Niya ang umalis*.
 
 ### #2: Pagpili ng Tamang Panauhan at Bilang sa Anyong Ng
 
@@ -102,11 +102,11 @@ Piliin ang tamang panghalip: "Isang kawani lamang ang naglinis ng silid; iniwan 
 2. Tukuyin kung sino at ilan: isang kawaning pinag-uusapan.
 3. Piliin ang isahang anyong *ng* para sa pinag-uusapan: **niya**. "Isang kawani lamang ang naglinis ng silid. Iniwan **niya** ang walis sa sulok."
 
-**Check:** Iisang kawani pa rin ang tinutukoy ng *niya*, hindi marami.
+**Check:** Ang *Iniwan nila ang walis* ay para sa maraming kawani, kaya hindi ito.
 
 ### #3: Paanyaya ng Guro
 
-Sabi ni Lea: "Ipinadala ng guro ang paanyaya kay Lea." Palitan ng panghalip ang "kay Lea."
+Sabi ni Lea tungkol sa paanyaya: "Ipinadala ng guro ang paanyaya kay Lea." Palitan ng panghalip ang "kay Lea."
 
 **Solution:**
 

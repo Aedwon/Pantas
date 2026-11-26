@@ -100,7 +100,7 @@ Tapusin ang huling hakbang: anong tanong ang sinasagot ng *sa nanalo*, at ano an
 :::answer
 Ang sagot ay **Tagatanggap ng gantimpala**: "Ibinigay ng guro ang gantimpala **sa nanalo**." Sinasagot nito ang tanong na "Kanino?", hindi "Saan?"
 
-**Check:** Kung *sa kaibigan* ang ipalit sa *sa nanalo*, tagatanggap pa rin ng gantimpala ang parirala.
+**Check:** Basahin: "Ibinigay ng guro ang gantimpala sa kaibigan." Ang *kaibigan* ang binigyan, kaya *kanino*.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -94,7 +94,7 @@ Baguhin ang "Bumili si Lito ng gulay" upang maging paksa ang *gulay* at manatili
 
 Sagot: **"Binili ni Lito ang gulay."**
 
-**Check:** Si Lito ang bumili bago at pagkatapos ng pagbabago: *si Lito* sa una, *ni Lito* sa ikalawa.
+**Check:** Basahin: "Binili ni Lito ang gulay." Sino ang bumili? Si Lito.
 
 ### #2: Iisang Lugar, Dalawang Papel
 
@@ -109,7 +109,7 @@ Paghambingin ang pokus sa "Pinaglaruan ng mga bata ng taguan ang parke" at "Pinu
 
 ### #3: Dalawang Pandiwa ni Carlo
 
-Suriin ang "Ipinanghiwa ni Carlo ng gulay ang kutsilyo" at "Ikinatuwa ni Carlo ang regalo." Ano ang pokus ng bawat pandiwa?
+Suriin ang "Ipinanghiwa ni Carlo ng gulay ang kutsilyo" at "Ikinabahala ni Carlo ang ulat." Ano ang pokus ng bawat pandiwa?
 
 **Solution:**
 
@@ -118,9 +118,9 @@ Suriin ang "Ipinanghiwa ni Carlo ng gulay ang kutsilyo" at "Ikinatuwa ni Carlo a
 :::try
 Tapusin: ano ang papel ng paksa sa bawat pangungusap, at ano ang pokus ng bawat pandiwa?
 :::answer
-Kagamitan: "Ipinanghiwa ni Carlo ng gulay **ang kutsilyo**," dahil ginamit ito sa paghiwa. Sanhi: "Ikinatuwa ni Carlo **ang regalo**," dahil iyon ang dahilan ng tuwa.
+Kagamitan: "Ipinanghiwa ni Carlo ng gulay **ang kutsilyo**," dahil ginamit ito sa paghiwa. Sanhi: "Ikinabahala ni Carlo **ang ulat**," dahil iyon ang dahilan ng pagkabahala.
 
-**Check:** Itanong: "Bakit natuwa si Carlo?" Ang sagot ay *ang regalo*.
+**Check:** Itanong: "Bakit nabahala si Carlo?" Ang sagot ay *ang ulat*.
 :::
 
 ## Speed Tricks & Shortcuts

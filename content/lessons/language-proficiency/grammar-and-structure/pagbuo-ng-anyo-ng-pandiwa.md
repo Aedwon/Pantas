@@ -85,7 +85,7 @@ Punan ang mga patlang gamit ang anyong kontemplatibo ng *magluto* at *sumayaw*: 
 
 Sagot: "Bukas ay magluluto kami ng sopas. Pagkatapos ay sasayaw kami."
 
-**Check:** Kung ngayon ginagawa, *nagluluto* at *sumasayaw* ang anyo; para sa bukas, *magluluto* at *sasayaw*.
+**Check:** Kung ngayon ginagawa, *nagluluto* at *sumasayaw* ang anyo.
 
 ### #2: Pagwawasto ng Maling Panlapi sa Pangungusap
 

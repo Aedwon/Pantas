@@ -57,7 +57,7 @@ Ang sagot ay **Imperpektibo**. Paulit-ulit at umiiral na ang gawain, kaya hindi 
 
 Hindi sapat ang *kahapon* lamang upang piliin ang **perpektibo** (completed).
 
-Kapag may kilos na nagpapatuloy pa nang pumasok ang isa pang pangyayari sa nakaraan, nananatili sa imperpektibo ang kilos na nagpapatuloy. Tingnan kung ano pa ang ginagawa ni Luis nang dumating ang pinuno:
+Kapag may kilos na hindi pa tapos nang pumasok ang isa pang pangyayari sa nakaraan, imperpektibo pa rin ang kilos na iyon. Tingnan kung ano pa ang ginagawa ni Luis nang dumating ang pinuno:
 
 - "**Nagsusulat pa** ng ulat si Luis nang dumating ang pinuno **kahapon**."
 
@@ -122,7 +122,7 @@ Ang sagot ay **Imperpektibo**: "**Naglalaba** pa si Rita nang tumawag ang kaibig
 
 ## Speed Tricks & Shortcuts
 
-Basahin ang buong pangungusap: hanapin ang *tuwing* para sa dalas ng kilos, at tingnan kung nagpapatuloy pa ang kilos (*nagsusulat pa*, *habang*) sa isang nakaraang tagpo.
+Basahin ang buong pangungusap: hanapin ang *tuwing* para sa dalas ng kilos, at tingnan kung nagpapatuloy pa ang kilos (*nagsusulat pa*) sa isang nakaraang tagpo.
 
 ## Traps to Watch For
 

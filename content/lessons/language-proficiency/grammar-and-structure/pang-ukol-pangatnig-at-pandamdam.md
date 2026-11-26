@@ -96,18 +96,18 @@ Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pan
 
 ### #3: Salita sa Simula ng Pangungusap
 
-Sa "**Salamat!** Naayos na ang gripo," paano gumagana ang *Salamat*?
+Sa "**Hay!** Naayos na ang gripo," paano gumagana ang *Hay*?
 
 **Solution:**
 
-1. Tingnan kung may bagay o taong pinapangalanan ang *Salamat* sa pangungusap.
+1. Tingnan kung may bagay o taong pinapangalanan ang *Hay* sa pangungusap.
 
 :::try
-Tapusin ang huling hakbang: anong bahagi ng pananalita ang *Salamat* batay sa gamit nito?
+Tapusin ang huling hakbang: anong bahagi ng pananalita ang *Hay* batay sa gamit nito?
 :::answer
-Ang sagot ay **Pandamdam**: "**Salamat!** Naayos na ang gripo." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita, at walang pinapangalanan.
+Ang sagot ay **Pandamdam**: "**Hay!** Naayos na ang gripo." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita, at walang pinapangalanan.
 
-**Check:** Basahin nang mag-isa ang *Salamat!*, at kapag inalis ito, buo pa rin ang "Naayos na ang gripo."
+**Check:** Basahin nang mag-isa ang *Hay!*, at kapag inalis ito, buo pa rin ang "Naayos na ang gripo."
 :::
 
 ## Speed Tricks & Shortcuts

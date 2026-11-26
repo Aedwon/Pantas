@@ -74,14 +74,14 @@ Ang sagot ay **A**: "Sumulat ng liham ang mga mag-aaral." Dinagdagan lamang ng *
 
 ### #1: Pagpili ng Aspekto Ayon sa Pangyayari
 
-Kasalukuyang nasa hapag si Nena at hindi pa tapos sa pagkain. Aling anyo ang angkop sa pangungusap: "___ pa si Nena habang hinihintay ang kaniyang kasama"?
+Nasa mesa si Rico at hindi pa tapos sa pagtahi ng kurtina. Aling anyo ang angkop sa pangungusap: "___ pa si Rico ng kurtina habang tumatawag ang kapatid niya"?
 
 **Solution:**
 
-1. Ang pahiwatig ay "hindi pa tapos": nagpapatuloy pa ang pagkain.
-2. Imperpektibo ang anyo: "**Kumakain** pa si Nena habang hinihintay ang kaniyang kasama."
+1. Ang pahiwatig ay "hindi pa tapos": nagpapatuloy pa ang pagtahi.
+2. Imperpektibo ang anyo: "**Tumatahi** pa si Rico ng kurtina habang tumatawag ang kapatid niya."
 
-**Check:** Ang *habang hinihintay* ay sabay sa pagkain, kaya hindi ito tapos o hindi pa nagsisimula.
+**Check:** Ang *habang tumatawag* ay sabay sa pagtahi, kaya hindi ito tapos o hindi pa nagsisimula.
 
 ### #2: Pagbabago ng Bilang ng Paksa
 
@@ -104,11 +104,11 @@ Punan ng angkop na anyo ng *linis* ang bawat patlang: "___ si Lea ng silid kagab
 2. Nagaganap pa ngayon ang ikalawa: "**Naglilinis** pa siya ng bintana ngayon."
 
 :::try
-Hindi pa nagsisimula si Ben. Alin ang akma: *naglinis* o *maglilinis*? Ano ang buong pangungusap?
+Alin ang akma sa ikatlong patlang: *naglilinis* o *maglilinis*? Ano ang buong pangungusap?
 :::answer
 Ang sagot ay **Maglilinis**: "Maglilinis si Ben ng bakuran bukas ng umaga."
 
-**Check:** Hindi pa nagsisimula si Ben, kaya hindi ito *naglinis* (tapos na).
+**Check:** Ang *bukas* ay oras na darating pa, kaya hindi ito *naglilinis*.
 :::
 
 ## Speed Tricks & Shortcuts
