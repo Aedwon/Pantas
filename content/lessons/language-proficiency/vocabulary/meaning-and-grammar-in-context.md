@@ -18,9 +18,37 @@ keyPoints:
 
 A word can have more than one meaning. Read the whole sentence before choosing its synonym or antonym.
 
-For example, *fast* can mean quick. In *to fast*, it means to go without food for a time. *Bank* can mean a business that handles money or the land beside a river.
+Here is one word with two meanings.
 
-Grammar matters too. A replacement must fit how the word is used. *Decide* names an action, while *decision* names a choice, so they cannot simply replace each other.
+- *Fast* can mean quick.
+- In *to fast*, it means to go without food for a time.
+- *Bank* can mean a business that handles money.
+- *Bank* can also mean the land beside a river.
+
+:::pair #fast-meaning
+Right: The monks decided to fast for three days. Here *fast* means to avoid eating.
+Wrong: The monks decided to fast for three days. Here *fast* means to finish a task quickly.
+The words *taking no food* show the meaning. Use the nearby words, not the familiar meaning.
+:::
+
+:::check
+In "She sat on the bank and watched the water," what does *bank* mean?
+:::answer
+The answer is the land beside a river. The words *watched the water* point to a riverbank.
+:::
+
+Grammar matters too. A replacement must fit how the word is used.
+
+- *Decide* names an action.
+- *Decision* names a choice.
+
+So they cannot simply replace each other.
+
+:::pair #decide-grammar
+Right: The panel must choose before releasing its report.
+Wrong: The panel must decision before releasing its report.
+After *must*, the sentence needs a verb. *Decision* is a noun.
+:::
 
 ## Examples
 
@@ -38,6 +66,8 @@ D) vault
 1. The words *of the river* show that **bank** refers to land beside water.
 2. **Shore** has the closest meaning here. The answer is **B**.
 
+**Check:** Read it back: "They rested on the shore of the river." It makes sense.
+
 ### #2: Meaning from Behavior
 
 The manager's **sycophantic** assistant praised every idea, even bad ones, in hopes of gaining favor. Which meaning best fits the word in bold?
@@ -49,8 +79,11 @@ D) avoiding tasks to reduce effort
 
 **Solution:**
 
-1. The assistant praises even bad ideas because he wants the manager to like him.
-2. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
+1. The assistant praises every idea, even bad ones.
+2. He does this to gain favor.
+3. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
+
+**Check:** A, C, and D do not describe praise to gain favor.
 
 ### #3: Keeping the Same Grammar
 
@@ -63,8 +96,20 @@ D) decisive
 
 **Solution:**
 
-1. After *will*, the sentence needs a verb that names the action of making a choice.
-2. **Choose** fits that job and meaning. The answer is **C**.
+1. After *will*, the sentence needs a verb.
+2. This removes A (a noun) and D (an adjective).
+3. *Decide* names the action of making a choice. *Choose* is a verb with that meaning.
+4. B is a noun, so it fails. The answer is **C**.
+
+**Check:** Read it back: "The committee will choose tomorrow." The meaning and grammar stay the same.
+
+:::try
+Which word can replace **decide** in "The panel must **decide** today": *decision*, *choose*, or *decisive*?
+:::answer
+The answer is *choose*. After *must*, the sentence needs a verb with the same meaning.
+
+**Check:** "The panel must choose today" keeps the meaning and the grammar.
+:::
 
 ## Speed Tricks & Shortcuts
 
@@ -72,8 +117,7 @@ Check nearby words. They can show which meaning fits and which word pairing soun
 
 ## Traps to Watch For
 
-### #1: Choosing a Familiar Meaning
-
-> A word's familiar meaning may not fit the sentence.
-
-Choosing a money-related meaning for *bank* fails when the sentence describes a river. Use the nearby words to pick the meaning in use.
+:::checklist
+- A word with more than one meaning: use the nearby words to pick the meaning in use, as with *fast* and *bank*. {#fast-meaning}
+- A replacement word: keep the same job, such as a verb for a verb. {#decide-grammar}
+:::

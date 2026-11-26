@@ -16,7 +16,31 @@ keyPoints:
 
 The suffix **-ly** often makes an adverb. In "She spoke quietly," *quietly* tells how she spoke.
 
+Here it is one step at a time.
+
+- *Quiet* describes a noun.
+- Add *-ly* to make *quietly*.
+- *Quietly* tells how an action happens.
+
+:::pair #ly-adverb
+Right: In "The officer read the instructions quietly," *quietly* tells how the officer read.
+Wrong: In "The officer read the instructions quietly," *quietly* tells which officer was present.
+An adverb tells about the action. It does not pick out a person.
+:::
+
+:::check
+In "He walked slowly," what does *slowly* tell the reader?
+:::answer
+The answer is how he walked. *Slowly* is an adverb.
+:::
+
 These patterns have limits. *Friendly* ends in *-ly*, but it describes a person or thing, so it is an adjective. Check the job the word does in the sentence.
+
+:::pair #friendly-adjective
+Right: In "the friendly receptionist," *friendly* is an adjective.
+Wrong: In "the friendly receptionist," *friendly* is an adverb of manner.
+*Friendly* describes the noun *receptionist*. It does not tell how an action happens.
+:::
 
 ## Examples
 
@@ -32,7 +56,10 @@ D) Helpful means without help; quickly means without speed.
 **Solution:**
 
 1. *-Ful* gives *helpful* the idea of giving help. It describes the clerk, so it is an adjective.
-2. *-Ly* makes *quickly* tell how the clerk answered. It is an adverb. Answer: **B**.
+2. *-Ly* makes *quickly* tell how the clerk answered. It is an adverb.
+3. Only B gives both jobs correctly. Answer: **B**.
+
+**Check:** D reads *-ful* as "without." It means "full of," so D fails.
 
 ### #2: An Ending with a Different Job
 
@@ -48,10 +75,19 @@ D) It names a group of visitors.
 1. **Friendly** tells what the guard is like. It does not tell how an action happens.
 2. It describes the noun *guard*, so it is an adjective despite its *-ly* ending. Answer: **C**.
 
+**Check:** Say "a friendly guard." The word sits before the noun and describes it.
+
+:::try
+In "She smiled warmly," what job does *warmly* do?
+:::answer
+The answer is adverb. *Warmly* tells how she smiled.
+
+**Check:** Ask "smiled how?" The answer is *warmly*.
+:::
+
 ## Traps to Watch For
 
-### #1: Treating Every Ending as a Fixed Rule
-
-> An ending does not always tell you the word's job.
-
-*Quickly* is an adverb in "She answered quickly." *Friendly* is an adjective in "a friendly clerk." Read how the word is used.
+:::checklist
+- A word ending in -ly that tells how an action happens: adverb, as in "read quietly." {#ly-adverb}
+- A word ending in -ly that describes a noun: adjective, as in "a friendly clerk." {#friendly-adjective}
+:::

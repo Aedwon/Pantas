@@ -16,7 +16,20 @@ keyPoints:
 
 A **root** carries a word's main meaning. A **base** is the word or part to which another part is added. In *unhappy*, *happy* is both the root and the base.
 
-An **affix** is a part added to a base to change its meaning or job. A **stem** is the form to which the next affix is added. In *helpfulness*, *helpful* is the stem before *-ness* is added.
+An **affix** is a part added to a base to change its meaning or job. A **stem** is the form to which the next affix is added.
+
+Here is *helpfulness* built one step at a time.
+
+- Start with *help*.
+- Add *-ful* to make *helpful*.
+- Add *-ness* to *helpful* to make *helpfulness*.
+- *Helpful* is the stem before *-ness* is added.
+
+:::pair #stem-before-suffix
+Right: In *helpfulness*, the stem for *-ness* is *helpful*.
+Wrong: In *helpfulness*, the stem for *-ness* is *-ness*.
+A stem is the form that receives the suffix. The suffix is not the stem.
+:::
 
 A **prefix** comes before the base: *un-* in *unhappy*. A **suffix** comes after it: *-less* in *careless*.
 
@@ -24,13 +37,29 @@ To **infer** a meaning is to work it out from clues. Word parts can help you inf
 
 Ask whether your split leaves a meaningful base. Then check whether the parts explain the whole word.
 
-In *unhappy*, *un-* means "not," and *happy* is a real base. In *uncle*, the first letters are also *un*, but *cle* is not its base. The split does not explain the word.
+- In *unhappy*, *un-* means "not."
+- *Happy* is a real base.
+- The split explains the word.
+
+In *uncle*, the first letters are also *un*, but *cle* is not its base. The split does not explain the word.
+
+:::pair #inflammable
+Right: *Inflammable* means easily ignited. Its parts do not mean "not flammable."
+Wrong: *Inflammable* means protected from fire. The *in-* is read as "not."
+Matching letters do not prove that a real prefix is present. Read the sentence, too.
+:::
+
+:::check
+Is *re-* a real prefix in *ready*?
+:::answer
+The answer is no. The rest, *ady*, is not a base with a meaning, so *re-* changes nothing.
+:::
 
 ## Examples
 
 ### #1: False and Valid Splits
 
-Which word analysis is valid?
+We test four splits and keep the one that explains its word.
 
 A) uncle = un- + cle  
 B) unhappy = un- + happy  
@@ -39,9 +68,21 @@ D) ready = re- + ady
 
 **Solution:**
 
-1. *Happy* is a meaningful base, and *un-* changes its meaning to "not happy."
-2. This split explains the whole word. In *uncle*, *cle* is not a base with a meaning that *un-* changes.
-3. The other splits also use letter groups that do not explain the words. For example, *ady* in *ready* is not a word part with a meaning, so *re-* cannot change it. Answer: **B**.
+1. In A, *cle* is not a base with a meaning. The split fails.
+2. In B, *happy* is a meaningful base. *Un-* changes it to "not happy."
+3. In C, *nefit* is not a base. The split fails.
+4. In D, *ady* is not a base, so *re-* cannot change it. The split fails.
+5. Only B explains its whole word. Answer: **B**.
+
+**Check:** Join the parts of B. *Un-* plus *happy* gives *unhappy*, which means "not happy."
+
+:::try
+Which split is valid: *careless* = care + -less, or *carpet* = car + -pet?
+:::answer
+The answer is *care* + *-less*. *Care* is a real base, and *-less* means "without."
+
+**Check:** *Carpet* is not "car" plus a part. *Pet* does not explain the word.
+:::
 
 ## Speed Tricks & Shortcuts
 
@@ -49,14 +90,8 @@ Use word parts to narrow the meaning. Then read the whole sentence to check your
 
 ## Traps to Watch For
 
-### #1: Trusting Familiar Letters
-
-> Matching letters do not prove that a real word part is present.
-
-*Unhappy* contains *un-* meaning "not." *Uncle* does not. The split must help explain the word.
-
-### #2: Assuming Similar Spellings Have One Origin
-
-> Words that look alike may have different roots.
-
-Check known word parts and meaning. Appearance alone cannot prove how a word was formed.
+:::checklist
+- Matching letters: check that the split leaves a real base, as *happy* does and *cle* does not. {#inflammable}
+- Words that look alike may have different roots: check word parts and meaning, not looks.
+- The stem for a suffix: the form before it, so *helpful* for *-ness*. {#stem-before-suffix}
+:::

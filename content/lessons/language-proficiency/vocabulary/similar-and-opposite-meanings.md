@@ -21,7 +21,28 @@ Words with close meanings can differ in strength. They can also sound more forma
 
 A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. Words with similar meanings do not always fit the same word pairings.
 
+:::pair #heavy-rain
+Right: The road closed during heavy rain.
+Wrong: The road closed during powerful rain.
+*Powerful* is close in meaning to *heavy*. English still pairs *heavy* with *rain*.
+:::
+
 An **antonym** is a word with an opposite or contrasting meaning. The right opposite must match the meaning used in the sentence.
+
+- *Mitigate* means to make something less severe.
+- Its antonym makes something worse.
+
+:::pair #mitigate-opposite
+Right: The opposite of *mitigate* is *aggravate*.
+Wrong: The opposite of *mitigate* is *alleviate*.
+*Alleviate* means to ease, so it is a synonym. Check that the task asks for an opposite.
+:::
+
+:::check
+Is *fleeting* a synonym or an antonym of *ephemeral*?
+:::answer
+The answer is a synonym. Both words mean lasting for a very short time.
+:::
 
 ## Examples
 
@@ -37,7 +58,10 @@ D) rigid
 **Solution:**
 
 1. **Ephemeral** means lasting for a very short time.
-2. **Fleeting** has the closest meaning. The answer is **B**.
+2. *Eternal* and *rigid* do not mean that, and *glowing* is about light.
+3. **Fleeting** has the closest meaning. The answer is **B**.
+
+**Check:** "A fleeting moment" and "an ephemeral moment" mean the same.
 
 ### #2: English Antonym
 
@@ -51,7 +75,10 @@ D) isolate
 **Solution:**
 
 1. **Mitigate** means to make something less severe.
-2. **Aggravate** can mean to make it worse or more severe. The answer is **A**.
+2. *Alleviate* and *placate* ease or calm. They are not opposites.
+3. **Aggravate** can mean to make it worse or more severe. The answer is **A**.
+
+**Check:** Mitigate makes a problem smaller. Aggravate makes it bigger.
 
 ### #3: Using a Common Word Pairing
 
@@ -67,14 +94,24 @@ D) powerful rain
 1. English commonly pairs **heavy** with **rain**.
 2. The natural phrase is **heavy rain**. The answer is **C**.
 
+**Check:** A, B, and D all say something about force, but none is the usual pairing.
+
+:::try
+Which sounds natural: *heavy traffic* or *strong traffic*?
+:::answer
+The answer is *heavy traffic*. English pairs *heavy* with *traffic*.
+
+**Check:** *Strong traffic* is not a phrase people use.
+:::
+
 ## Speed Tricks & Shortcuts
 
 Read the task first. Check whether it asks for a similar meaning or an opposite. Then read the whole sentence.
 
 ## Traps to Watch For
 
-### #1: Guessing from Choice Position
-
-> A choice's position does not tell you its meaning.
-
-Do not pick the first choice or the strangest-looking word just because of its position or look. Compare the meanings and use the sentence.
+:::checklist
+- A task that asks for an opposite: pick the word that reverses the meaning, not a synonym. {#mitigate-opposite}
+- A word pairing: use the usual partner, as in *heavy rain*. {#heavy-rain}
+- A choice's position or look: ignore it. Compare meanings and use the sentence.
+:::

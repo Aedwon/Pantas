@@ -48,3 +48,56 @@ Scope: committed lessons in `content/lessons/mathematics/` (algebra, arithmetic-
 ### Not reached
 
 - geometry, precalculus-basic-calculus, statistics-and-probability, trigonometry (outside this lane's CSE scope).
+
+## Vocabulary (Claude)
+
+Nov 26, 12:44 to 1:02 PM Manila. Full walk-through rewrite plus the connection rule, in `content/lessons/language-proficiency/vocabulary/`. Sonnet workers wrote; the lead reviewed.
+
+Lead review on every lesson listed below: each `:::pair` Wrong line was checked against the quiz bank and matches a real non-correct choice of the cited question (63 citations, 0 misses, 0 that hit a correct choice). Frontmatter and keyPoints are byte-identical to HEAD. No em or en dashes and no backticks. Every checklist `{#id}` matches a pair in the same lesson; the lead removed one dangling id in affect-and-effect. No `## Examples` example was dropped; the old `### #` trap headings became one `:::checklist`. Question files were not edited. Trap citations are recorded here only, because `content/walkthrough-trap-evidence.json` holds another lane's uncommitted work.
+
+The lead read affect-and-effect, its-and-it-is-or-it-has, suffixes-for-qualities-and-absence and word-partners-feeling-and-grammar in full or in part. The rest passed the checks above but were not read line by line by the lead.
+
+### Finished and reviewed (22, English)
+
+| Lesson | Pair: question, wrong choice |
+|---|---|
+| affect-and-effect | influence-verb: confusing-words-0001 "Effect"; base-form: 0001 "Affects"; bring-about: 0013 "Affected" |
+| its-and-it-is-or-it-has | owner-apostrophe: confusing-words-0002 "It's"; extra-apostrophe: 0002 "Its'"; has-not-owner: 0015 "Its, its" |
+| doubling-final-consonants | begin-stress: spelling-rules-0003 "Begining"; refer-stress: 0015 "Refered"; visit-stress: 0020 "Visitting, beginning" |
+| silent-e-with-suffixes | truly: spelling-rules-0019 "Truely" (other bank wrong choices are real words, so no second pair) |
+| prefix-clues-in-context | prefix-meaning: synonyms-and-antonyms-0027 "not finished"; real-prefix: 0028 "Every initial un means not." |
+| opposite-roles | same-exchange: synonyms-and-antonyms-0024 "The supplier bought the printer."; borrow-lend: 0020 "Return" |
+| checking-longer-spellings | known-base: spelling-rules-0009 "Definate"; doubled-pairs: 0005 "Acommodate" and 0007 "Comittee" |
+| comparisons-and-human-actions | metaphor-or-simile: idioms-and-figures-of-speech-0005 "Simile"; as-if-personification: 0003 "An explicit comparison" |
+| contrast-and-inference-clues | contrast-target: context-clues-0004 "Talkative"; contrast-other-side: 0014 "Wasteful" |
+| definitions-examples-and-synonyms | restatement-not-reaction: context-clues-0011 "Rude"; sentence-meaning: 0008 "Punishment" |
+| english-word-elements | mal-versus-bene: root-words-prefixes-suffixes-0002 "Benevolent"; omni-all-what: 0007 "All-powerful" |
+| feeling-strength-and-formality | approving-tone: synonyms-and-antonyms-0019 "Stingy" |
+| idioms-and-literal-meanings | start-over: idioms-and-figures-of-speech-0001 "To abandon the attempt"; naghigpit-ng-sinturon: 0019 "Naghanda sa paglalakbay" |
+| letters-sounds-and-vowel-order | belief-order: spelling-rules-0001 "Beleif"; seize-exception: 0017 "Sieze" |
+| meaning-and-grammar-in-context | fast-meaning: synonyms-and-antonyms-0012 "To finish a task quickly"; decide-grammar: 0023 "decision" |
+| opposites-with-levels-and-two-states | two-labels: synonyms-and-antonyms-0025 "partially available"; not-hot: 0026 "It must be cold." |
+| roots-bases-and-valid-splits | stem-before-suffix: root-words-prefixes-suffixes-0021 "-ness"; inflammable: 0014 "Protected from fire" |
+| similar-and-opposite-meanings | heavy-rain: synonyms-and-antonyms-0029 "powerful rain"; mitigate-opposite: 0002 "Alleviate" |
+| sound-and-opposing-words | repeated-sound: idioms-and-figures-of-speech-0007 "Onomatopoeia"; opposing-words: 0009 "Hyperbole" |
+| suffixes-and-word-jobs | ly-adverb: root-words-prefixes-suffixes-0022 "Which officer was present"; friendly-adjective: 0023 "Adverb of manner" |
+| suffixes-for-qualities-and-absence | ful-less: root-words-prefixes-suffixes-0024 "without; full of"; ness-noun: 0025 "Describes a kind person" |
+| word-partners-feeling-and-grammar | charged-partner: context-clues-0016 "Accused"; furnish-grammar: 0021 "furniture"; qualified-meaning: 0019 "Certified" |
+
+### Finished, committed as WIP, not yet reviewed (7, Filipino)
+
+These passed the same mechanical checks, and all 16 pair citations match real wrong choices. The lead did not read them for Filipino wording or Grade 5 level, so a Filipino-language review is still open.
+
+- ng-at-nang (pagmamay-ari: confusing-words-0014 "Nang"; dami: 0016 "Nang"; noong: 0012 "Ng")
+- sila-at-sina (bago-ang-pangalan: confusing-words-0004 "Sila"; pamalit: 0009 "Sina")
+- kasingkahulugan-at-kasalungat (kasingkahulugan: synonyms-and-antonyms-0003 "Natupad"; kasalungat: 0004 "Mahirap"; a Traps section was added)
+- baybay-ng-hiram-na-salita (isingit-ang-w: spelling-rules-0012 "Kwento / kuento")
+- ugat-unlapi-gitlapi-at-hulapi (ugat-hindi-panlapi: root-words-prefixes-suffixes-0003 "Pinag"; ugat-hindi-buo: 0010 "Ginawa")
+- panlaping-kabilaan-at-laguhan (kabilaan-ka-an: root-words-prefixes-suffixes-0011 "Pag- at -an"; laguhan-hindi-kabilaan: 0004 "Kabilaan")
+- paghahambing-pagbibigay-katauhan-at-pagmamalabis (labis-hindi-tulad: idioms-and-figures-of-speech-0011 "Pagtutulad"; tulad-hindi-wangis: 0012 "Pagwawangis"; wangis-hindi-tulad: 0013 "Pagtutulad"; katauhan-hindi-hambing: 0014 "Tahasang paghahambing")
+
+Open content question (existed before this pass): the lesson baybay-ng-hiram-na-salita teaches *kuwento* over *kwento*, but question spelling-rules-0012 uses "Kwento / kuwento" as its correct choice. The new pair avoids that conflict. The question bank owner should check it.
+
+### Not reached
+
+- None of the active lessons. The six retired lessons (confusing-words, context-clues, synonyms-and-antonyms, spelling-rules, idioms-and-figures-of-speech, root-words-prefixes-suffixes) were left unchanged on purpose.

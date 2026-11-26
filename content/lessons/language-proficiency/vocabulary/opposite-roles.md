@@ -13,11 +13,33 @@ keyPoints:
 ---
 ## Core Concept
 
-**Converse opposites** describe the same relationship from different roles. If Ana sells a book to Ben, Ben buys the book from Ana. The book and exchange stay the same, but the person doing the action changes.
+**Converse opposites** describe the same relationship from different roles.
+
+If Ana sells a book to Ben, Ben buys the book from Ana. The book and exchange stay the same. The person doing the action changes.
+
+:::pair #same-exchange
+Right: The supplier sold the printer.
+Wrong: The supplier bought the printer.
+The office bought the printer, so the supplier is on the other side. The supplier sold it.
+:::
+
+The same holds for other pairs. One person borrows what another person lends.
+
+:::pair #borrow-lend
+Right: Lend
+Wrong: Return
+*Borrow* and *lend* are two sides of one exchange. *Return* is a later step, not the other side.
+:::
+
+:::why
+One exchange has two people. Each word names what one of them does.
+:::
 
 ## Examples
 
 ### #1: Opposite Roles
+
+We name what Leo did, using what Mara did.
 
 Mara sold a used book to Leo. From Leo's point of view, what did he do?
 
@@ -28,13 +50,20 @@ D) returned the book to Mara
 
 **Solution:**
 
-1. *Sell* and *buy* describe the same exchange from opposite roles.
-2. Mara sold the book, so Leo **bought the book from Mara**. The answer is **A**.
+1. Mara is the seller.
+2. *Sell* and *buy* describe the same exchange from opposite roles.
+
+:::try
+Finish the last step: what is Leo's role?
+:::answer
+Leo is the buyer. He **bought the book from Mara**. The answer is **A**.
+
+**Check:** Switch back to Mara's view: Mara sold the book to Leo. The exchange is the same.
+:::
 
 ## Traps to Watch For
 
-### #1: Losing Track of Who Does What
-
-> Converse opposites change the role of the person doing the action.
-
-If Mara sells to Leo, Leo buys from Mara. Saying that Leo sells to Mara reverses the exchange itself.
+:::checklist
+- One person sells: the other buys, as in the supplier and the office. {#same-exchange}
+- One person borrows: the other lends. {#borrow-lend}
+:::

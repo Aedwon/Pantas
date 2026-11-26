@@ -17,9 +17,23 @@ keyPoints:
 
 Say the word slowly and listen for its beats. Check the sounds and letters in each part. Then check the base, ending, and any doubled letters.
 
-For *beginning*, listen to *be-gin-ning*. The first vowel may sound weak, so sound alone does not prove its spelling. The known base *begin* supplies the letters *b-e-g-i-n*.
+We split *beginning* into its beats.
 
-The stress on the last syllable of *begin* explains the doubled *n* before *-ing*. The ending *-ing* has the vowel sound heard in *sing*. The spoken parts and the base-plus-suffix parts do not always divide at the same place.
+- Say it: *be-gin-ning*.
+- The first vowel sounds weak, so sound alone does not prove its letters.
+- The known base *begin* gives the letters *b-e-g-i-n*.
+
+Now we check the ending of *beginning*.
+
+- The last syllable of *begin* is stressed.
+- So the final *n* doubles before *-ing*.
+- The ending *-ing* has the vowel sound in *sing*.
+
+:::pair #known-base
+Right: The definite answer is in the report.
+Wrong: The definate answer is in the report.
+The weak vowel sounds the same either way. The base *finite* shows the vowel is *i*.
+:::
 
 Use this process for a long word:
 
@@ -29,11 +43,29 @@ Use this process for a long word:
 4. Check stress, suffix changes, and doubled letters.
 5. Learn any part that sound or a rule cannot predict.
 
-For example, sound can help you hear the parts of *occurrence*. It cannot tell you every letter. You must also know the spelling of *occur* and the ending *-ence*.
+Now we apply the process to *occurrence*.
+
+- Sound helps us hear the parts.
+- Sound does not give every letter.
+- We must know the base *occur* and the ending *-ence*.
+
+:::pair #doubled-pairs
+Right: The committee will accommodate every request.
+Wrong: The comittee will acommodate every request.
+The spoken sound does not show a doubled letter. Check each pair: *cc*, *mm*, *mm*, *tt*.
+:::
+
+:::check
+Which is spelled correctly: *separate* or *seperate*?
+:::answer
+The answer is *separate*. The middle is *p-a-r*, and the unclear vowel needs the standard letters.
+:::
 
 ## Examples
 
 ### #1: A Long Word in Context
+
+We pick the correct spelling to fill the gap, using the base and the ending.
 
 Choose the correctly spelled word to complete the sentence: “Flooding is a frequent ______ in the area.”
 
@@ -44,10 +76,22 @@ D) ocurrence
 
 **Solution:**
 
-1. Say the word in beats that sound like *uh-kur-uns*. The middle beat is stressed. This separates the sounds, but it does not settle every letter.
-2. Recall the base *occur*, with double *c*. Its *cc* stands for the *k* sound here.
-3. The final syllable of *occur* is stressed. Its final *r* doubles before *-ence* in **occurrence**.
-4. Recall the ending *-ence*. Its weak vowel can sound like the vowel in *-ance*, so sound alone cannot choose the spelling. Answer: **A**.
+1. Say the word in beats: *uh-kur-uns*. The middle beat is stressed.
+2. The beats do not give every letter.
+3. Recall the base *occur*, with double *c*.
+4. The last syllable of *occur* is stressed. So its final *r* doubles before the ending.
+5. Recall the ending *-ence*. Its weak vowel sounds like *-ance*, so sound cannot choose.
+6. The full word is *occurrence*. Answer: **A**.
+
+**Check:** Only A has *cc*, *rr*, and *-ence*.
+
+:::try
+Choose the correct spelling: *definite* or *definate*? Use the base *finite*.
+:::answer
+The answer is *definite*. The base *finite* has *i* in its last part.
+
+**Check:** *Finite* is spelled with *i*, and *definite* ends the same way.
+:::
 
 ## Speed Tricks & Shortcuts
 
@@ -57,8 +101,8 @@ Break a long word into spoken parts. Use a known base to check letters that are 
 
 ## Traps to Watch For
 
-### #1: Trusting Sound Alone
-
-> A sound may have more than one possible spelling.
-
-The weak ending of *occurrence* does not clearly reveal *-ence*. Use sound to divide the word, then recall its standard letters.
+:::checklist
+- A weak vowel you cannot hear: check it against a known base, as in *definite* from *finite*. {#known-base}
+- A word with doubled letters: check each pair, as in *accommodate* with *cc* and *mm*. {#doubled-pairs}
+- A long word: use sound to split it, then recall the standard letters.
+:::

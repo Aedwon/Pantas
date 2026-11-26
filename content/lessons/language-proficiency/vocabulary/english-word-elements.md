@@ -27,9 +27,41 @@ Some word parts come from older languages. They may carry meaning even when they
 
 These parts give clues, not the whole meaning of every word. Do not force a split in a word such as *benign* just because it begins with *ben*. Learn the full word when the rest of the split does not help.
 
+We split *malicious* and read the first part.
+
+- *Malicious* starts with *mal-*.
+- *Mal-* suggests bad or harmful.
+- So *malicious* means spiteful, or wishing harm.
+
+:::pair #mal-versus-bene
+Right: *Malicious* means spiteful.
+Wrong: *Malicious* means benevolent.
+*Mal-* is bad. *Bene-* is good. Do not swap them.
+:::
+
+We split *omniscient* and read the first part.
+
+- *Omni-* means all.
+- The rest of the word relates to knowing.
+- So *omniscient* means all-knowing.
+
+:::pair #omni-all-what
+Right: *Omniscient* means all-knowing.
+Wrong: *Omniscient* means all-powerful.
+*Omni-* means all. The rest of the word says all of what: knowing.
+:::
+
+:::check
+What does *chronology* mean, using *chron-*?
+:::answer
+The answer is the order of events in time. *Chron-* relates to time.
+:::
+
 ## Examples
 
 ### #1: A Prefix Clue
+
+We read the prefix of *pseudoscientific* to find what it adds.
 
 What does the prefix add to the meaning of the word in bold, **pseudoscientific**?
 
@@ -43,7 +75,11 @@ D) fast
 1. *Pseudo-* means false or imitation.
 2. **Pseudoscientific** describes something presented as science that is not genuine science. Answer: **B**.
 
+**Check:** *Pseudoscience* is false science. The prefix gives the same idea.
+
 ### #2: Parts and Context Together
+
+We split *circumlocution* and check it against the sentence.
 
 The official's reply was criticized for its **circumlocution**. Which meaning best fits the word in bold?
 
@@ -57,7 +93,11 @@ D) angry shouting
 1. *Circum-* suggests around, and *locut-* relates to speaking.
 2. **Circumlocution** means an indirect, wordy way of speaking. Answer: **B**.
 
+**Check:** A reply that was criticized fits an indirect, wordy style.
+
 ### #3: Contrasting Elements
+
+We read *mal-* and *bene-* in two words.
 
 Which pair best gives the meanings of the words in bold, in order: **malevolent**, **benevolent**?
 
@@ -71,10 +111,20 @@ D) speaking loudly; speaking softly
 1. *Mal-* suggests bad or harmful, while *bene-* suggests good or well.
 2. **Malevolent** means wishing harm, and **benevolent** means wishing good or being kind. Answer: **A**.
 
+**Check:** The two words are opposites, and so are *mal-* and *bene-*.
+
+:::try
+The historian put the events in **chronological** order, from earliest to latest. What does *chronological* mean?
+:::answer
+The answer is ordered by time. *Chron-* relates to time.
+
+**Check:** Earliest to latest is an order of time.
+:::
+
 ## Traps to Watch For
 
-### #1: Guessing the Whole Meaning from One Part
-
-> A prefix gives only part of a word's meaning.
-
-*Malady*, *malign*, and *malpractice* have different meanings. A bad or harmful idea alone does not tell you which meaning the sentence needs.
+:::checklist
+- *Mal-* and *bene-*: bad and good, never swapped. {#mal-versus-bene}
+- *Omni-*: all, then read the rest of the word to see all of what. {#omni-all-what}
+- One part of a word: check the whole meaning in the sentence.
+:::

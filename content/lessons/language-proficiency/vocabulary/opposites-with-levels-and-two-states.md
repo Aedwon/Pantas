@@ -15,11 +15,42 @@ keyPoints:
 
 ### Types of Opposites
 
-**Gradable opposites** have levels between them. *Hot* and *cold* are opposites, but *warm* and *cool* fall between them. Something that is not hot may still be warm, so *not hot* does not always mean *cold*.
+**Gradable opposites** have levels between them. *Hot* and *cold* are opposites, but *warm* and *cool* fall between them.
 
-**Complementary opposites** divide a stated system into two states. If those are the only states allowed, ruling out one leaves the other. In a record that classifies each organism as either alive or dead, *not alive* means *dead*.
+Here is the ladder from top to bottom.
+
+- Hot
+- Warm
+- Cool
+- Cold
+
+Something that is not hot may still be warm. So *not hot* does not always mean *cold*.
+
+:::pair #not-hot
+Right: The water is not hot. It may be warm.
+Wrong: The water is not hot. It must be cold.
+Warm and cool sit between hot and cold. *Not hot* does not pick one of them.
+:::
+
+:::check
+A cup is not cold. Must it be hot?
+:::answer
+The answer is no. It may be cool or warm, because the levels between cold and hot are still possible.
+:::
+
+**Complementary opposites** divide a stated system into two states. If those are the only states allowed, ruling out one leaves the other.
+
+- The record has two labels: alive and dead.
+- A fish is not alive.
+- So the label is dead.
 
 Use that rule only when the stated system allows no middle state. A stone is not alive, but calling it dead would not fit this use.
+
+:::pair #two-labels
+Right: The log has only "available" and "unavailable." A terminal that is not available is "unavailable."
+Wrong: The log has only "available" and "unavailable." A terminal that is not available is "partially available."
+The log allows two labels. A middle label is not one of them.
+:::
 
 ## Examples
 
@@ -37,6 +68,8 @@ D) dead
 1. The record allows only *alive* or *dead*.
 2. Ruling out *alive* leaves **dead**. The answer is **D**.
 
+**Check:** Weak, asleep, and injured are not labels in this record.
+
 ### #2: Opposites with Middle Levels
 
 The soup is not **hot**. Given the meaning of the word in bold, which statement must be true based on this sentence alone?
@@ -49,7 +82,18 @@ D) The exact temperature is not given.
 **Solution:**
 
 1. *Hot* and *cold* have middle levels, such as *warm* and *cool*.
-2. *Not hot* does not tell us which other level applies. The answer is **D**.
+2. *Not hot* does not tell us which other level applies.
+3. A, B, and C each pick one level. The answer is **D**.
+
+**Check:** Test A. A warm soup is also not hot, so A is not forced.
+
+:::try
+A light is not on. The only states allowed are on and off. What state is it in?
+:::answer
+The answer is off. The system has two states, so ruling out one leaves the other.
+
+**Check:** A system with a middle level, such as dim, would change this answer.
+:::
 
 ## Speed Tricks & Shortcuts
 
@@ -57,8 +101,7 @@ For opposites, check the relationship. Are there middle levels, only two allowed
 
 ## Traps to Watch For
 
-### #1: Treating Every Opposite as a Two-State Choice
-
-> “Not hot” does not have to mean “cold.”
-
-Warm and cool are possible middle levels. Use the two-state rule only when the meaning or stated system allows just two states.
+:::checklist
+- Opposites with middle levels: "not hot" does not have to mean "cold." {#not-hot}
+- A system with only two labels: ruling out one leaves the other. {#two-labels}
+:::
