@@ -25,7 +25,7 @@ Some word parts come from older languages. They may carry meaning even when they
 - **pseudo-** means false or imitation: *pseudoscience*.
 - **circum-** means around, and **locut-** relates to speaking: *circumlocution* is an indirect, wordy way of speaking.
 
-These parts give clues, not the whole meaning of every word. Do not force a split in a word such as *benign* just because it begins with *ben*. Learn the full word when the rest of the split does not help.
+These parts give clues, not the whole meaning of every word. Do not force a split in a word such as *bench* just because it begins with *ben*. Learn the full word when the rest of the split does not help.
 
 We split *malicious* and read the first part.
 

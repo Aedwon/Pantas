@@ -55,9 +55,9 @@ Hindi ito tungkol sa totoong sinturon. Ang kahulugan ay ayon sa sitwasyon ng pam
 :::
 
 :::check
-Sumuko na siya at “itinapon na ang tuwalya” matapos ang mahabang laban. Ano ang ibig sabihin ng *itinapon na ang tuwalya*?
+Hindi sumama sa kainan si Ben at sinabing, “Butas ang bulsa ko ngayon.” Ano ang ibig sabihin ng *butas ang bulsa*?
 :::answer
-Ang sagot ay sumuko. Sinasabi ng pangungusap na sumuko na siya sa laban.
+Ang sagot ay walang pera. Hindi siya sumama sa kainan, kaya walang perang pambayad.
 :::
 
 ## Examples
@@ -96,23 +96,23 @@ D) He forgot the rules of the game.
 
 ### #3: Sawikain sa Pangungusap
 
-Dahil kapos sa kita, **naghigpit ng sinturon** ang pamilya. Ano ang ibig sabihin ng pariralang nakaitim?
+Nagalit agad si Tina sa isang simpleng biro dahil **balat-sibuyas** siya. Ano ang ibig sabihin ng salitang nakaitim?
 
-A) Bumili ng sinturon  
-B) Nagtipid sa gastusin  
-C) Naglakad nang mabilis  
-D) Nagpalit ng damit
+A) Madaling masaktan ang damdamin  
+B) Mahilig magluto  
+C) Mabagal kumilos  
+D) Matalino sa klase
 
 **Solution:**
 
-1. Kapos sa kita ang pamilya, kaya kailangan nilang bawasan ang gastos.
+1. Maliit na biro lang ang ikinagalit ni Tina.
 
 :::try
-Tapusin ang huling hakbang: aling pagpipilian ang angkop sa kahulugang iyan?
+Tapusin ang huling hakbang: aling pagpipilian ang angkop sa sitwasyong iyan?
 :::answer
-Ang sagot ay **B**, **nagtipid sa gastusin**. Kapag kulang sa kita at nagbabawas ng gastos, ang ibig sabihin ng *naghigpit ng sinturon* ay nagtipid.
+Ang sagot ay **A**, **madaling masaktan ang damdamin**. Kapag maliit na bagay ang ikinagagalit, ang ibig sabihin ng *balat-sibuyas* ay madaling masaktan ang damdamin.
 
-**Check:** Palitan ang parirala ng *nagtipid sa gastusin*: “Dahil kapos sa kita, nagtipid sa gastusin ang pamilya.” Tugma ito sa sitwasyon.
+**Check:** Palitan ang salita: “Nagalit agad si Tina sa isang simpleng biro dahil madaling masaktan ang damdamin niya.” Tugma ito sa sitwasyon.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -123,6 +123,6 @@ Ang sagot ay **B**, **nagtipid sa gastusin**. Kapag kulang sa kita at nagbabawas
 
 :::checklist
 - An idiom such as *back to square one*: take the meaning from what happens in the sentence. {#start-over}
-- A Filipino idiom: read the family's situation, not the real object. {#naghigpit-ng-sinturon}
+- A Filipino idiom: read the situation, not the real object. {#naghigpit-ng-sinturon}
 - The same phrase in a new setting: check whether the meaning is literal or an idiom. {#idioms-and-literal-meanings}
 :::

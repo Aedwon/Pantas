@@ -15,7 +15,7 @@ keyPoints:
 
 ### Checking Longer Words by Syllable
 
-Say the word slowly and listen for its beats. Check the sounds and letters in each part. Then check the base, ending, and any doubled letters.
+Say the word slowly and listen for its beats. Check the sounds and letters in each part. Then check the base, ending, and doubled letters.
 
 We split *beginning* into its beats.
 
@@ -32,7 +32,7 @@ Now we check the ending of *beginning*.
 :::pair #known-base
 Right: The definite answer is in the report.
 Wrong: The definate answer is in the report.
-The weak vowel sounds the same either way. The base *finite* shows the vowel is *i*.
+The weak vowel sounds the same either way. The related word *finite* shows the vowel is *i*.
 :::
 
 Use this process for a long word:

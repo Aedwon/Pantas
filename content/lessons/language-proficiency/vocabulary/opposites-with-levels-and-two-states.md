@@ -80,24 +80,23 @@ D) dead
 
 ### #2: Opposites with Middle Levels
 
-The soup is not **hot**. Given the meaning of the word in bold, which statement must be true based on this sentence alone?
+The box is not **large**. Given the meaning of the word in bold, which statement must be true based on this sentence alone?
 
-A) The soup is cold.  
-B) The soup is warm.  
-C) The soup is cool.  
-D) The exact temperature is not given.
+A) The box is tiny.  
+B) The box is medium.  
+C) The box is small.  
+D) The exact size is not given.
 
 **Solution:**
 
-1. *Hot* and *cold* have middle levels, such as *warm* and *cool*.
-2. *Not hot* does not tell us which other level applies.
+1. *Large* and *tiny* are opposites with middle sizes between them.
 
 :::try
-Finish the last step: which choice matches what we know from "not hot" alone?
+Finish the last step: which choice matches what we know from "not large" alone?
 :::answer
-The answer is **D**, **the exact temperature is not given**. A, B, and C each force one level, when *warm*, *cool*, or *cold* are all possible.
+The answer is **D**, **the exact size is not given**. A, B, and C each force one size, when *tiny*, *medium*, or *small* are all possible.
 
-**Check:** A warm soup is not hot, and a cold soup is not hot, so no single temperature is forced.
+**Check:** A medium box is not large, and a tiny box is not large, so no single size is forced.
 :::
 
 ## Speed Tricks & Shortcuts

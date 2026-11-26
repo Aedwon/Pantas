@@ -40,7 +40,7 @@ The answer is one. The letters *ie* together make one vowel sound, so *chief* ha
 
 ### The Limited I Before E Rhyme
 
-The rhyme “i before e except after c” helps with words such as *believe*, *receive*, and *conceive*. It does not work for every English word.
+The rhyme “i before e except after c” helps with words such as *believe*, *receive*, and *deceive*. It does not work for every English word.
 
 Here is the rhyme on two words.
 

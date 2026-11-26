@@ -56,9 +56,9 @@ The clerk stayed calm, so the anger is mild. *Enraged* is far too strong.
 :::
 
 :::check
-A customer felt slightly upset by a short wait. Which fits better: *irritated* or *furious*?
+The room felt slightly cool. Which fits better: *chilly* or *freezing*?
 :::answer
-The answer is *irritated*. It matches a mild feeling, while *furious* means extreme anger.
+The answer is *chilly*. It matches a mild feeling, while *freezing* means extreme cold.
 :::
 
 ### Register

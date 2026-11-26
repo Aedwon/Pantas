@@ -25,7 +25,7 @@ Wrong: In "unfair treatment," *unfair* means not finished.
 The prefix *un-* means *not*, and the base is *fair*. *Not finished* is the meaning of *incomplete*, a different word.
 :::
 
-Not every opening group of letters is a prefix. *Uncle* does not mean “not cle.” Word parts help only when they belong to the word and give a meaning that fits.
+Not every opening group of letters is a prefix. *Uncle* does not mean "not cle." Word parts help only when they belong to the word and give a meaning that fits.
 
 :::pair #real-prefix
 Right: *Uncle* has no base *cle*, so *un-* is not a prefix.
@@ -47,7 +47,7 @@ The answer is yes, *not safe*. *Safe* is a real base word, *un-* means *not*, an
 
 ### #1: Checking a Prefix in Context
 
-The report was **incomplete** because it lacked the final page. Which phrase is closest in meaning to the word in bold?
+The answer was **incorrect** because it gave the wrong date. Which phrase is closest in meaning to the word in bold?
 
 A) not finished  
 B) not correct  
@@ -56,16 +56,15 @@ D) not needed
 
 **Solution:**
 
-1. Split the word: *in-* plus *complete*.
-2. Here, *in-* means *not*, and *complete* is a real word.
-3. The word means not complete, or not finished.
+1. Split the word: *in-* plus *correct*.
+2. Here, *in-* means *not*, and *correct* is a real word.
 
 :::try
-Finish the last step: does the sentence agree with that meaning?
+Finish the last step: put the parts together. Which phrase fits, and does the sentence agree?
 :::answer
-Yes. A report that lacks its final page is not finished. The answer is **A**.
+*In-* plus *correct* means not correct. An answer with the wrong date is not correct. The answer is **B**.
 
-**Check:** Put the phrase in the sentence: "The report was not finished because it lacked the final page." It makes sense.
+**Check:** Put the phrase in the sentence: "The answer was not correct because it gave the wrong date." It makes sense.
 :::
 
 ## Speed Tricks & Shortcuts

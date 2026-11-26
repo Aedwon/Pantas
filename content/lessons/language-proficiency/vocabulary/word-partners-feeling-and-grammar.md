@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-When two choices still seem possible, check smaller clues:
+When two choices still seem possible, check smaller clues.
 
 ### Word Partners and Feeling
 
@@ -46,12 +46,12 @@ The answer is submit. The partner *complaint* is something you hand in.
 First guess the meaning from the sentence. Then put a possible answer in place of the target word. It must keep the meaning and fit the grammar.
 
 :::pair #furnish-grammar
-Right: Please provide proof of residence.
+Right: Please send proof of residence.
 Wrong: Please furniture proof of residence.
 After *please*, the sentence needs a verb. *Furniture* is a noun.
 :::
 
-Here is a feeling that is not the whole meaning: *qualified support* in "they favored it only if drainage repairs were completed first."
+*Qualified* has more than one meaning. Look at *qualified support* in "they favored it only if drainage repairs were completed first."
 
 :::pair #qualified-meaning
 Right: *Qualified support* means limited support.
@@ -78,13 +78,13 @@ D) withhold
 
 **Solution:**
 
-1. *Furnish* can mean put furniture in a room or provide something.
+1. *Furnish* has more than one meaning.
 2. Here, its partner is *proof of residence*, a document the office needs.
 
 :::try
 Finish the last step: which choice fits both the partner *proof of residence* and the grammar after *to*?
 :::answer
-The answer is **C**, **provide**. *Provide* is a verb that fits after *to* and matches handing over a document in a formal letter.
+The answer is **C**, **provide**. *Furnish* can mean put furniture in a room or provide something. *Provide* is a verb that fits after *to* and matches handing over a document in a formal letter.
 
 **Check:** Put *provide* back: “asked the applicant to provide proof of residence.” It keeps the meaning, grammar, and formal tone.
 :::

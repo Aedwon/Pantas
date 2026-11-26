@@ -17,7 +17,7 @@ keyPoints:
 
 In many one-syllable words, double the last consonant before *-ing* or *-ed*. The base must end in one vowel letter followed by one consonant letter.
 
-This ending is called the **consonant-vowel-consonant** pattern. Check the letters at the end, not just how the word sounds.
+This ending is called the **consonant-vowel-consonant** pattern. Check the letters at the end, not the sound.
 
 Take *run*.
 
@@ -29,8 +29,8 @@ Take *run*.
 
 Do not double final *w*, *x*, or *y*.
 
-- *Fix* becomes *fixing*.
-- *Play* becomes *playing*.
+- *Mix* becomes *mixing*.
+- *Stay* becomes *staying*.
 
 :::check
 Spell *hop* plus *-ing* and *box* plus *-ing*.
@@ -96,7 +96,7 @@ D) runnning
 
 The spelling is **running**. Answer: **B**.
 
-**Check:** Say *run-ning*. The *n* sounds twice.
+**Check:** Say *run-ning*. The doubled *n* keeps *u* short.
 
 ### #2: A Stressed Final Syllable
 

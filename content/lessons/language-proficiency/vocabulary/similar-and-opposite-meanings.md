@@ -102,21 +102,21 @@ D) isolate
 
 Which phrase sounds most natural in standard English?
 
-A) strong rain  
-B) muscular rain  
-C) heavy rain  
-D) powerful rain
+A) quick food  
+B) rapid food  
+C) fast food  
+D) speedy food
 
 **Solution:**
 
-1. All four choices point to intense rain, so check which adjective pairs naturally with *rain*.
+1. All four choices mean quick, so check which adjective pairs naturally with *food*.
 
 :::try
 Finish the last step: which choice is the natural English pairing?
 :::answer
-The answer is **C**, **heavy rain**. Standard English pairs *heavy* with *rain*, not *strong*, *muscular*, or *powerful*.
+The answer is **C**, **fast food**. Standard English pairs *fast* with *food*, not *quick*, *rapid*, or *speedy*.
 
-**Check:** Read it in a sentence: "The road closed during heavy rain." It sounds natural in standard English.
+**Check:** Read it in a sentence: "We ate fast food on the road." It sounds natural in standard English.
 :::
 
 ## Speed Tricks & Shortcuts

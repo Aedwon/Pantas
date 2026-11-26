@@ -36,7 +36,7 @@ The answer is *believable*. *-able* starts with a vowel and *v* needs no soft so
 Most words keep a final silent *e* before a suffix that starts with a consonant, such as *care* becoming *careful*. Some forms must be learned separately.
 
 - *True* becomes *truly*, even though *-ly* begins with a consonant.
-- *Argue* becomes *argument*, with no final *e* from the base.
+- *Argue* becomes *argument*, which also loses its *e*.
 
 :::pair #truly
 Right: Truly
@@ -113,26 +113,26 @@ The spelling is **truly**. Answer: **C**.
 
 **Check:** *Truly* is one of the exceptions to learn.
 
-### #4: An Exception Before Ment
+### #4: A Consonant Suffix After Silent E
 
-Choose the correctly spelled word to complete the sentence: “The report presents a strong ______ for extending office hours.”
+Choose the correctly spelled word to complete the sentence: "The staff could not hide their ______ about the new office."
 
-A) arguement  
-B) argumant  
-C) argument  
-D) arguemant
+A) excitment  
+B) excitemant  
+C) excitement  
+D) excitmant
 
 **Solution:**
 
-1. Identify the base and suffix: *argue* plus *-ment*.
-2. Notice that *-ment* begins with a consonant, so check whether *argue* follows the usual rule or is an exception.
+1. Identify the base and suffix: *excite* plus *-ment*.
+2. Notice that *-ment* begins with a consonant, so check whether *excite* follows the usual rule or is an exception.
 
 :::try
-Finish the last step: apply the spelling rule for *argue* plus *-ment* and choose the correct option.
+Finish the last step: apply the spelling rule for *excite* plus *-ment* and choose the correct option.
 :::answer
-Choice **C**, **argument**. *Argue* is an exception before *-ment* and drops its silent *e*.
+Choice **C**, **excitement**. *-ment* starts with a consonant, and *excite* is not one of the exceptions, so it keeps its silent *e*.
 
-**Check:** *Argument* is one of the exceptions to learn, like *truly*.
+**Check:** *Excitement* keeps the *e*, as *careful* does. Only learned exceptions such as *argument* and *truly* drop it.
 :::
 
 ## Traps to Watch For

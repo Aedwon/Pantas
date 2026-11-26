@@ -21,7 +21,7 @@ A **figure of speech** uses words to create a comparison, image, sound, or stron
 - **Simile:** compares different things, often with *like* or *as*: “Her voice was like velvet.”
 - **Metaphor:** presents one thing as another to make a comparison: “Time is a thief.”
 
-A simile needs a comparison, not just *like* or *as*. “She works as a teacher” states her job without comparing different things.
+A simile needs a comparison. *Like* or *as* alone is not enough. “She works as a teacher” states her job without comparing different things.
 
 We test this on a line that has no *like* or *as*.
 
@@ -112,7 +112,7 @@ D) Personification
 **Solution:**
 
 1. Look at the words *like a mirror*.
-2. The sentence compares two different things, a calm lake and a mirror, using *like*.
+2. The sentence compares two different things, a calm lake and a mirror.
 
 :::try
 Finish the last step: which device makes a comparison using *like* or *as*?

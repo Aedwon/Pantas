@@ -38,7 +38,7 @@ The answer is how he walked. *Slowly* is an adverb.
 
 ### -ly as an Adjective
 
-These patterns have limits. *Friendly* ends in *-ly*, but it describes a person or thing, so it is an adjective. Check the job the word does in the sentence.
+This does not always hold. *Friendly* ends in *-ly*, but it describes a person or thing, so it is an adjective. Check the job the word does in the sentence.
 
 :::pair #friendly-adjective
 Right: In "the friendly receptionist," *friendly* is an adjective.
@@ -73,23 +73,23 @@ D) Helpful means without help; quickly means without speed.
 
 ### #2: An Ending with a Different Job
 
-In "A **friendly** guard welcomed the visitors," what job does the word in bold do?
+In "A **lovely** garden surrounded the house," what job does the word in bold do?
 
-A) It names the act of welcoming.  
-B) It tells how the visitors arrived.  
-C) It describes the guard.  
-D) It names a group of visitors.
+A) It names the act of surrounding.  
+B) It tells how the house was built.  
+C) It describes the garden.  
+D) It names a group of houses.
 
 **Solution:**
 
-1. **Friendly** sits before the noun *guard* and tells what the guard is like. It does not tell how an action happens.
+1. **Lovely** ends in *-ly*, but it does not tell how an action happens.
 
 :::try
-Finish the last step: which choice names the job *friendly* does in this sentence?
+Finish the last step: which choice names the job *lovely* does in this sentence?
 :::answer
-The answer is **C**, **it describes the guard**. *Friendly* is an adjective despite its *-ly* ending.
+The answer is **C**, **it describes the garden**. *Lovely* sits before the noun *garden*, so it is an adjective despite its *-ly* ending.
 
-**Check:** Say "a friendly guard." The word sits before the noun *guard* and describes it.
+**Check:** Say "a lovely garden." The word describes the noun *garden*.
 :::
 
 ## Traps to Watch For

@@ -43,7 +43,7 @@ The answer is tools. The examples are all tools for preparing food.
 
 - **Synonym or near-synonym:** a nearby word has the same or almost the same meaning.
 
-We find the meaning from the sentence, not from a known meaning.
+We read the meaning from the sentence.
 
 - Sentence: “The committee's **sanction** allowed the policy to proceed, since it had full official approval.”
 - The policy proceeded because of full official approval.

@@ -69,23 +69,21 @@ The answer is no. The rest, *ady*, is not a base with a meaning, so *re-* change
 
 We test four splits and keep the one that explains its word.
 
-A) uncle = un- + cle  
-B) unhappy = un- + happy  
-C) benefit = be- + nefit  
-D) ready = re- + ady
+A) pretty = pre- + tty  
+B) replay = re- + play  
+C) dismal = dis- + mal  
+D) unite = un- + ite
 
 **Solution:**
 
-1. In A, *cle* is not a base with a meaning. The split fails.
-2. In C, *nefit* is not a base. The split fails.
-3. In D, *ady* is not a base, so *re-* cannot change it. The split fails.
+1. In A, *tty* is not a base with a meaning. The split fails.
 
 :::try
-Finish the last step: check **B**, *unhappy* = *un-* + *happy*. Is it valid, and why?
+Finish the last step: check the other three splits. Which one is valid, and why?
 :::answer
-The answer is **B**. *Happy* is a meaningful base, and *un-* changes it to "not happy," so the split explains the whole word.
+The answer is **B**. In C, *mal* is not a base, and in D, *ite* is not a base, so those splits fail. In B, *play* is a meaningful base, and *re-* changes it to "play again," so the split explains the whole word.
 
-**Check:** Join the parts of B. *Un-* plus *happy* gives *unhappy*, which means "not happy."
+**Check:** Join the parts of B. *Re-* plus *play* gives *replay*, which means "play again."
 :::
 
 ## Speed Tricks & Shortcuts

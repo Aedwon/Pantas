@@ -47,24 +47,24 @@ The answer is *borrow*. Mia borrows the ladder from Carlo.
 
 ### #1: Opposite Roles
 
-Mara sold a used book to Leo. From Leo's point of view, what did he do?
+Nina gave a gift to Rico. From Rico's point of view, what did he do?
 
-A) bought the book from Mara  
-B) sold the book to Mara  
-C) lent the book to Mara  
-D) returned the book to Mara
+A) gave the gift to Nina  
+B) received the gift from Nina  
+C) wrapped the gift for Nina  
+D) returned the gift to Nina
 
 **Solution:**
 
-1. Mara is the seller.
-2. *Sell* and *buy* describe the same exchange from opposite roles.
+1. Nina is the giver.
+2. Rico is on the other side of the same exchange.
 
 :::try
-Finish the last step: what is Leo's role?
+Finish the last step: what is Rico's role?
 :::answer
-Leo is the buyer. He **bought the book from Mara**. The answer is **A**.
+Rico is the receiver. He **received the gift from Nina**. The answer is **B**.
 
-**Check:** Switch back to Mara's view: Mara sold the book to Leo. The exchange is the same.
+**Check:** Switch back to Nina's view: Nina gave the gift to Rico. The exchange is the same.
 :::
 
 ## Traps to Watch For

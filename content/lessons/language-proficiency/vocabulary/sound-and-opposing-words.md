@@ -45,9 +45,9 @@ The answer is onomatopoeia. The word sounds like the noise it names.
 
 ### Oxymoron
 
-An **oxymoron** puts words with opposing meanings together, such as *deafening silence*.
+An **oxymoron** puts words with opposing meanings together, such as *jumbo shrimp*.
 
-Here is an oxymoron on one line: *deafening silence*. The two words have opposing meanings.
+Here is an oxymoron on one line: *jumbo shrimp*. The two words have opposing meanings.
 
 :::pair #opposing-words
 Right: "Deafening silence" is an oxymoron.
@@ -97,7 +97,7 @@ D) Oxymoron
 
 ### #3: Oxymoron
 
-“The crowd waited in **deafening silence**.” Which literary device is created by the phrase in bold?
+“The plan was an **open secret**.” Which literary device is created by the phrase in bold?
 
 A) Personification  
 B) Simile  
@@ -106,14 +106,14 @@ D) Onomatopoeia
 
 **Solution:**
 
-1. *Deafening* suggests very loud sound. *Silence* means no sound.
+1. *Open* suggests known to all. *Secret* means hidden.
 
 :::try
 Finish the last step: which device puts two opposing meanings together?
 :::answer
-The answer is **C**, **oxymoron**. Joining opposing meanings like *deafening* and *silence* creates an oxymoron.
+The answer is **C**, **oxymoron**. Joining opposing meanings like *open* and *secret* creates an oxymoron.
 
-**Check:** A loud word and a silent word cannot both be literal here. That clash marks an oxymoron.
+**Check:** Known to all and hidden cannot both be literal here. That clash marks an oxymoron.
 :::
 
 ## Speed Tricks & Shortcuts

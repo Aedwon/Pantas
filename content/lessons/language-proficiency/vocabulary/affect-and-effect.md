@@ -60,7 +60,7 @@ Wrong: The mediator affected an agreement yesterday.
 The mediator made the agreement happen. *Affected* only means influenced.
 :::
 
-In psychology, *affect* can be a noun for the outward signs of emotion. A person's voice and face may show a flat affect, with little visible emotion.
+In psychology, *affect* can be a noun for the outward signs of emotion, such as a person's voice and face.
 
 :::check
 Choose the correct word: During the exam, the patient showed a flat *(affect / effect)* with little facial expression.
@@ -99,8 +99,8 @@ D) effected
 **Solution:**
 
 1. The words *a positive* come before the gap. A noun must follow.
-2. The noun names a result. This removes C and D, which are verbs.
-3. *Effect* means a result. Answer: **B**.
+2. C and D are verbs. A, *affect*, is usually a verb too. This leaves B.
+3. The noun *effect* means a result. Answer: **B**.
 
 **Check:** Read it back: "The schedule had a positive result on attendance." It makes sense.
 

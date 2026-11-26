@@ -47,7 +47,7 @@ Grammar matters too. A replacement must fit how the word is used.
 So they cannot simply replace each other.
 
 :::pair #decide-grammar
-Right: The panel must choose before releasing its report.
+Right: The panel must decide before releasing its report.
 Wrong: The panel must decision before releasing its report.
 After *must*, the sentence needs a verb. *Decision* is a noun.
 :::
@@ -105,7 +105,7 @@ D) decisive
 **Solution:**
 
 1. After *will*, the sentence needs a verb.
-2. *Decide* names the action of making a choice, so the replacement must be a verb with that meaning.
+2. *Decide* names an action, so the replacement must be a verb with the same meaning.
 
 :::try
 Finish the last step: which choice fits both the grammar and the meaning?
