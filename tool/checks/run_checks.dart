@@ -28,6 +28,7 @@ import 'question_id_limits.dart';
 import 'session_stored_order.dart';
 import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
+import 'walkthrough_example_connection_check.dart';
 import 'walkthrough_trap_pair_check.dart';
 
 const allChecks = <Check>[
@@ -36,6 +37,7 @@ const allChecks = <Check>[
   LessonSplitCoverageCheck(),
   LessonPoolCheck(),
   WalkthroughTrapPairCheck(),
+  WalkthroughExampleConnectionCheck(),
   ShellRoutePushCheck(),
   SyncMutationsTypedReadCheck(),
   MockBlueprintTopicsCheck(),

@@ -19,21 +19,29 @@ keyPoints:
 
 To **substitute** means to replace a letter with its number. When the number is negative, put it in parentheses first. The parentheses keep the minus sign attached to its number.
 
-If $x=-2$:
+Let's substitute $x = -2$ into $3x$, $x^2$ and $\dfrac{12}{x}$:
 
-$$3x=3(-2)=-6$$
+$$3x = 3(-2) = -6$$
 
-$$x^2=(-2)^2$$
+$$x^2 = (-2)^2 = 4$$
 
-$$\dfrac{12}{x}=\dfrac{12}{-2}=-6$$
+$$\dfrac{12}{x} = \dfrac{12}{(-2)} = -6$$
 
 Write the parentheses even when they seem extra. They cost nothing, and they stop the mistakes below.
+
+:::check
+If $x=-5$, what is the value of $2x-3$?
+:::answer
+The answer is $-13$. Substitute with parentheses: $2(-5)-3=-10-3=-13$.
+:::
 
 ### What an Exponent Applies To
 
 An exponent applies only to what sits right before it. If that is a closing parenthesis, the exponent applies to everything inside the parentheses. If it is a number, the exponent applies to that number alone.
 
 <!-- ILLUSTRATION: two side-by-side panels. Left: (-3)^2 with a teal outline around "(-3)" joined to the exponent 2, then = (-3) x (-3) = 9. Right: -3^2 with a teal outline around only "3" joined to the exponent 2, the minus sign outside it, then = -(3 x 3) = -9 -->
+
+Compare $(-3)^2$ and $-3^2$:
 
 $$(-3)^2=(-3)\times(-3)=9$$
 
@@ -53,25 +61,31 @@ Wrong: if $x=-3$, then $x^2=-3^2=-9$
 The wrong line left out the parentheses, so the exponent applied to $3$ alone.
 :::
 
+:::check
+If $a=-4$, find $-a^2$.
+:::answer
+The answer is $-16$. Put $-4$ in parentheses to get $-(-4)^2$, square $(-4)^2=16$, then apply the minus sign in front to get $-16$.
+:::
+
+### Powers of Negative Numbers
+
 The count of negative signs tells you the sign of a power, too. A negative number to an even power is positive. To an odd power, it is negative.
+
+Compare $(-2)^2$ and $(-2)^3$:
 
 $$(-2)^2=(-2)\times(-2)=4$$
 
 $$(-2)^3=(-2)\times(-2)\times(-2)=-8$$
 
 :::check
-If $a=-4$, find $a^2$.
+Find $(-3)^3$.
 :::answer
-The answer is $16$. Substitute with parentheses: $(-4)^2=(-4)\times(-4)=16$.
-:::
-
-:::check
-If $a=-4$, find $-a^2$.
-:::answer
-The answer is $-16$. Substitute with parentheses: $-(-4)^2$. Square first: $(-4)^2=16$. The minus sign in front then makes it $-16$.
+The answer is $-27$. Multiply three negative threes: $(-3)\times(-3)\times(-3)=-27$, because an odd power of a negative is negative.
 :::
 
 ## Examples
+
+In exam questions, **evaluate** means find the final number answer.
 
 ### #1: Two Variables, One Negative
 
@@ -79,9 +93,9 @@ If $x=-2$ and $y=3$, evaluate $x^2-3xy+\dfrac{12}{x}$.
 
 **Solution:**
 
-1. Substitute. Put $-2$ in parentheses.
+1. Substitute $x=-2$ and $y=3$ into $x^2-3xy+\dfrac{12}{x}$, putting $-2$ in parentheses.
 
-$$(-2)^2-3(-2)(3)+\dfrac{12}{-2}$$
+$$x^2-3xy+\dfrac{12}{x}=(-2)^2-3(-2)(3)+\dfrac{12}{(-2)}$$
 
 2. Do the power. The exponent applies to $-2$, so multiply two negatives.
 
@@ -93,15 +107,15 @@ $$3(-2)(3)=-18$$
 
 4. Do the division. The signs are different, so the answer is negative.
 
-$$\dfrac{12}{-2}=-6$$
+$$\dfrac{12}{(-2)}=-6$$
 
-5. Put each answer back. Keep the signs between the parts.
+5. Put each answer back into $x^2-3xy+\dfrac{12}{x}$. Keep the signs between the parts.
 
-$$4-(-18)+(-6)$$
+$$x^2-3xy+\dfrac{12}{x}=4-(-18)+(-6)$$
 
 6. Subtracting $-18$ is the same as adding $18$.
 
-$$4+18+(-6)$$
+$$4-(-18)+(-6)=4+18+(-6)$$
 
 :::pair #minus-before-negative
 Right: $4-(-18)+(-6)=4+18+(-6)$
@@ -117,7 +131,7 @@ $$22+(-6)=16$$
 
 The answer is $16$.
 
-**Check:** Without parentheses, $x^2$ becomes $-2^2=-4$, and the whole expression becomes $-4+18-6=8$. If you got $8$, go back to step 1.
+**Check:** Factor $x$ out of the first two terms as a second route: $(-2)(-2-9)+\dfrac{12}{(-2)}=(-2)(-11)-6=22-6=16$, which matches.
 
 ### #2: Two Negative Values
 
@@ -125,9 +139,9 @@ If $a=-3$ and $b=-1$, evaluate $2a^2-ab+b^3$.
 
 **Solution:**
 
-1. Substitute. Put both values in parentheses.
+1. Substitute $a=-3$ and $b=-1$ into $2a^2-ab+b^3$, putting both values in parentheses.
 
-$$2(-3)^2-(-3)(-1)+(-1)^3$$
+$$2a^2-ab+b^3=2(-3)^2-(-3)(-1)+(-1)^3$$
 
 2. Do the powers. An even power of a negative is positive. An odd power is negative.
 
@@ -137,13 +151,13 @@ $$(-1)^3=-1$$
 
 3. Do the products. In $(-3)(-1)$ the signs are the same, so the product is positive.
 
-$$2\times9=18$$
+$$2(-3)^2=2\times9=18$$
 
 $$(-3)(-1)=3$$
 
-4. Put each answer back. Keep the signs between the parts.
+4. Put each answer back into $2a^2-ab+b^3$. Keep the signs between the parts.
 
-$$18-3+(-1)$$
+$$2a^2-ab+b^3=18-3+(-1)$$
 
 :::try
 Finish the last step: $18-3+(-1)$.
