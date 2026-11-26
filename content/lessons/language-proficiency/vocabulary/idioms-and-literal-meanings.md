@@ -14,11 +14,11 @@ keyPoints:
 ---
 ## Core Concept
 
+### Idioms and Literal Meanings
+
 An **idiom** is a familiar expression whose meaning may differ from the meanings of its separate words. For example, *back to square one* means returning to the beginning of a process.
 
 A **literal** meaning is the direct meaning of the words. The same words can be literal in one setting and an idiom in another. Read what happens around the phrase to decide.
-
-Ang **sawikain** (idiom) ay pahayag na may nakasanayang kahulugan. Maaaring iba ito sa tuwirang kahulugan ng bawat salita. Ang *naghigpit ng sinturon* ay maaaring mangahulugang nagtipid.
 
 We read an idiom against its sentence.
 
@@ -31,6 +31,16 @@ Right: *Back to square one* means to start over.
 Wrong: *Back to square one* means to abandon the attempt.
 Maria restarts her review. She does not quit.
 :::
+
+:::check
+“The reporter promised not to spill the beans.” What does *spill the beans* mean?
+:::answer
+The answer is to reveal a secret. *Spill the beans* is an idiom for telling something meant to stay private.
+:::
+
+### Filipino Idioms (Sawikain)
+
+Ang **sawikain** (idiom) ay pahayag na may nakasanayang kahulugan. Maaaring iba ito sa tuwirang kahulugan ng bawat salita. Ang *naghigpit ng sinturon* ay maaaring mangahulugang nagtipid.
 
 Ngayon, basahin natin ang sawikain sa pangungusap nito.
 
@@ -45,16 +55,14 @@ Hindi ito tungkol sa totoong sinturon. Ang kahulugan ay ayon sa sitwasyon ng pam
 :::
 
 :::check
-“The reporter promised not to spill the beans.” What does *spill the beans* mean?
+Sumuko na siya at “itinapon na ang tuwalya” matapos ang mahabang laban. Ano ang ibig sabihin ng *itinapon na ang tuwalya*?
 :::answer
-The answer is to reveal a secret. The reporter will keep the wedding private until it is announced.
+Ang sagot ay sumuko. Sinasabi ng pangungusap na sumuko na siya sa laban.
 :::
 
 ## Examples
 
 ### #1: An English Idiom
-
-We find the meaning of *back to square one* from what happened to Mark.
 
 After losing his unsaved research paper, Mark knew he was **back to square one**. What does the phrase in bold mean?
 
@@ -72,8 +80,6 @@ D) To give up permanently
 
 ### #2: The Same Words Used Literally
 
-We read the same words in a board game.
-
 During a board game, Mark moved his piece **back to square one** after drawing a penalty card. What does the phrase in bold mean in this sentence?
 
 A) He restarted his research.  
@@ -90,9 +96,7 @@ D) He forgot the rules of the game.
 
 ### #3: Sawikain sa Pangungusap
 
-Hahanapin natin ang kahulugan ng *naghigpit ng sinturon*.
-
-Dahil kapos sa kita, **naghigpit ng sinturon** ang pamilya. Ano ang ibig sabihin ng pariralang naka-bold?
+Dahil kapos sa kita, **naghigpit ng sinturon** ang pamilya. Ano ang ibig sabihin ng pariralang nakaitim?
 
 A) Bumili ng sinturon  
 B) Nagtipid sa gastusin  
@@ -102,16 +106,13 @@ D) Nagpalit ng damit
 **Solution:**
 
 1. Kapos sa kita ang pamilya, kaya kailangan nilang bawasan ang gastos.
-2. Ang parirala ay nangangahulugang *nagtipid sa gastusin*. Sagot: **B**.
-
-**Check:** Kapos sa kita, kaya bawas ang gastos.
 
 :::try
-The old family dog “kicked the bucket” after fifteen happy years. What does the phrase mean?
+Tapusin ang huling hakbang: aling pagpipilian ang angkop sa kahulugang iyan?
 :::answer
-The answer is that the dog died. The fifteen years point to the end of its life.
+Ang sagot ay **B**, **nagtipid sa gastusin**. Kapag kulang sa kita at nagbabawas ng gastos, ang ibig sabihin ng *naghigpit ng sinturon* ay nagtipid.
 
-**Check:** A dog that lived fifteen years did not kick a real bucket.
+**Check:** Palitan ang parirala ng *nagtipid sa gastusin*: “Dahil kapos sa kita, nagtipid sa gastusin ang pamilya.” Tugma ito sa sitwasyon.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -123,5 +124,5 @@ The answer is that the dog died. The fifteen years point to the end of its life.
 :::checklist
 - An idiom such as *back to square one*: take the meaning from what happens in the sentence. {#start-over}
 - A Filipino idiom: read the family's situation, not the real object. {#naghigpit-ng-sinturon}
-- The same phrase in a new setting: check whether the meaning is literal or an idiom.
+- The same phrase in a new setting: check whether the meaning is literal or an idiom. {#idioms-and-literal-meanings}
 :::

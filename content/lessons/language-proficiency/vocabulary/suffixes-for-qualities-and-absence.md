@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-### English Suffixes
+### Suffixes -ful and -less
 
 A **noun** names a person, place, thing, or idea. An **adjective** describes a noun. An **adverb** can describe how an action happens, and a **verb** tells an action or state.
 
@@ -34,6 +34,8 @@ What does the suffix in *hopeless* mean?
 The answer is without. *Hopeless* means without hope.
 :::
 
+### Suffix -ness
+
 The suffix **-ness** makes a noun naming a state or quality.
 
 - *Kind* describes a person.
@@ -43,6 +45,12 @@ The suffix **-ness** makes a noun naming a state or quality.
 Right: In "her kindness," the suffix *-ness* names a quality.
 Wrong: In "her kindness," the suffix *-ness* describes a kind person.
 *Kindness* is a noun. It names the quality, and it does not describe a person.
+:::
+
+:::check
+In "her fairness," what job does *fairness* do?
+:::answer
+The answer is a noun naming a quality. *-Ness* changes the adjective *fair* into a noun.
 :::
 
 ## Examples
@@ -74,17 +82,14 @@ D) building a home
 
 **Solution:**
 
-1. The base is *home*, and *-less* means "without."
-2. **Homeless** means without a home. Answer: **A**.
-
-**Check:** "The family was without a home after the fire" keeps the meaning.
+1. Break the word into parts: the base is *home*, and the suffix is *-less*.
 
 :::try
-What does *fearless* mean?
+Finish the last step: what does *-less* mean, and which choice gives the meaning of *homeless*?
 :::answer
-The answer is without fear. The base is *fear*, and *-less* means "without."
+The answer is **A**, **without a home**. *-Less* means "without," so *homeless* means without a home.
 
-**Check:** "A fearless climber" is a climber without fear.
+**Check:** "The family was without a home after the fire" keeps the meaning.
 :::
 
 ## Speed Tricks & Shortcuts

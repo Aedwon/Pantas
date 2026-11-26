@@ -14,9 +14,11 @@ keyPoints:
 ---
 ## Core Concept
 
+### Roots, Bases, Affixes, and Stems
+
 A **root** carries a word's main meaning. A **base** is the word or part to which another part is added. In *unhappy*, *happy* is both the root and the base.
 
-An **affix** is a part added to a base to change its meaning or job. A **stem** is the form to which the next affix is added.
+An **affix** is a part added to a base to change its meaning or job. A **stem** is the form to which the next affix is added. A **prefix** comes before the base: *un-* in *unhappy*. A **suffix** comes after it: *-less* in *careless*.
 
 Here is *helpfulness* built one step at a time.
 
@@ -31,7 +33,13 @@ Wrong: In *helpfulness*, the stem for *-ness* is *-ness*.
 A stem is the form that receives the suffix. The suffix is not the stem.
 :::
 
-A **prefix** comes before the base: *un-* in *unhappy*. A **suffix** comes after it: *-less* in *careless*.
+:::check
+In *carelessness* (built from *care*, then *-less*, then *-ness*), what is the stem before *-ness*?
+:::answer
+The answer is *careless*. *-Ness* is added to *careless*, so *careless* is the stem.
+:::
+
+### Valid Splits and False Prefixes
 
 To **infer** a meaning is to work it out from clues. Word parts can help you infer meaning, but a familiar set of letters is not always a real word part.
 
@@ -41,12 +49,12 @@ Ask whether your split leaves a meaningful base. Then check whether the parts ex
 - *Happy* is a real base.
 - The split explains the word.
 
-In *uncle*, the first letters are also *un*, but *cle* is not its base. The split does not explain the word.
+In *uncle*, the first letters are also *un*, but *cle* is not its base. The split does not explain the word. Even when a real base is left, check which prefix is used.
 
 :::pair #inflammable
-Right: *Inflammable* means easily ignited. Its parts do not mean "not flammable."
+Right: *Inflammable* means easily ignited. Its *in-* comes from *inflame* ("cause to catch fire"), not "not."
 Wrong: *Inflammable* means protected from fire. The *in-* is read as "not."
-Matching letters do not prove that a real prefix is present. Read the sentence, too.
+Here *in-* is not the negative prefix *in-* ("not"). Read the sentence too.
 :::
 
 :::check
@@ -69,19 +77,15 @@ D) ready = re- + ady
 **Solution:**
 
 1. In A, *cle* is not a base with a meaning. The split fails.
-2. In B, *happy* is a meaningful base. *Un-* changes it to "not happy."
-3. In C, *nefit* is not a base. The split fails.
-4. In D, *ady* is not a base, so *re-* cannot change it. The split fails.
-5. Only B explains its whole word. Answer: **B**.
-
-**Check:** Join the parts of B. *Un-* plus *happy* gives *unhappy*, which means "not happy."
+2. In C, *nefit* is not a base. The split fails.
+3. In D, *ady* is not a base, so *re-* cannot change it. The split fails.
 
 :::try
-Which split is valid: *careless* = care + -less, or *carpet* = car + -pet?
+Finish the last step: check **B**, *unhappy* = *un-* + *happy*. Is it valid, and why?
 :::answer
-The answer is *care* + *-less*. *Care* is a real base, and *-less* means "without."
+The answer is **B**. *Happy* is a meaningful base, and *un-* changes it to "not happy," so the split explains the whole word.
 
-**Check:** *Carpet* is not "car" plus a part. *Pet* does not explain the word.
+**Check:** Join the parts of B. *Un-* plus *happy* gives *unhappy*, which means "not happy."
 :::
 
 ## Speed Tricks & Shortcuts
@@ -91,7 +95,7 @@ Use word parts to narrow the meaning. Then read the whole sentence to check your
 ## Traps to Watch For
 
 :::checklist
-- Matching letters: check that the split leaves a real base, as *happy* does and *cle* does not. {#inflammable}
-- Words that look alike may have different roots: check word parts and meaning, not looks.
-- The stem for a suffix: the form before it, so *helpful* for *-ness*. {#stem-before-suffix}
+- The stem for a suffix: take the form before it, such as *helpful* for *-ness*. {#stem-before-suffix}
+- Matching starting letters: check that removing them leaves a real base, as *happy* does and *cle* does not. {#valid-splits-and-false-prefixes}
+- *Inflammable*: the *in-* comes from *inflame* ("cause to catch fire"), not "not." {#inflammable}
 :::

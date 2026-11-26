@@ -23,12 +23,12 @@ When two choices still seem possible, check smaller clues:
 
 Here is *charged* with its partner.
 
-- *Charged the guest for an extra night*: the partner is a fee.
+- *Charged the guest for an extra night, and the fee appeared on the final invoice*: the partner is *fee*.
 - A fee points to *billed*.
 
 :::pair #charged-partner
-Right: The hotel charged the guest for an extra night. Here *charged* means billed.
-Wrong: The hotel charged the guest for an extra night. Here *charged* means accused.
+Right: The hotel charged the guest for an extra night, and the fee appeared on the final invoice. Here *charged* means billed.
+Wrong: The hotel charged the guest for an extra night, and the fee appeared on the final invoice. Here *charged* means accused.
 The partner words *extra night* and *fee* point to billing. *Accused* needs a crime.
 :::
 
@@ -59,6 +59,12 @@ Wrong: *Qualified support* means certified support.
 The word *only if* shows a limit. *Certified* is a different meaning of *qualified*.
 :::
 
+:::check
+In "The residents gave the project qualified support: they favored it only if drainage repairs were completed first," does *qualified* mean *limited* or *certified*?
+:::answer
+The answer is *limited*. The words *only if* show a condition that limits their support.
+:::
+
 ## Examples
 
 ### #1: Formal Wording
@@ -73,19 +79,14 @@ D) withhold
 **Solution:**
 
 1. *Furnish* can mean put furniture in a room or provide something.
-2. Here, its partner is *proof of residence*.
-3. The office needs the applicant to provide a document. This use fits the formal letter.
-4. Put C back: “The official letter asked the applicant to provide proof of residence.”
-5. *Provide* fits after *to* and keeps the meaning. Answer: **C**.
-
-**Check:** A, B, and D fail. *Decorate* needs a room, *inspect* changes the action, and *withhold* means the opposite.
+2. Here, its partner is *proof of residence*, a document the office needs.
 
 :::try
-In "The notice asked residents to **furnish** a valid ID," which word can replace *furnish*: *decorate* or *provide*?
+Finish the last step: which choice fits both the partner *proof of residence* and the grammar after *to*?
 :::answer
-The answer is *provide*. The partner *a valid ID* is a document that someone hands over.
+The answer is **C**, **provide**. *Provide* is a verb that fits after *to* and matches handing over a document in a formal letter.
 
-**Check:** "Asked residents to provide a valid ID" keeps the meaning and the grammar.
+**Check:** Put *provide* back: “asked the applicant to provide proof of residence.” It keeps the meaning, grammar, and formal tone.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -95,8 +96,7 @@ The answer is *provide*. The partner *a valid ID* is a document that someone han
 ## Traps to Watch For
 
 :::checklist
-- A word with a partner: let the partner pick the meaning, as *extra night* picks *billed*. {#charged-partner}
+- A word with a partner: let the partner pick the meaning, as *extra night* and *fee* pick *billed*. {#charged-partner}
 - A replacement word: keep the same job, such as a verb for a verb. {#furnish-grammar}
 - A word with more than one meaning: use the detail around it, as *only if* picks *limited*. {#qualified-meaning}
-- Formality alone: it helps, but the meaning must fit what the sentence says.
 :::

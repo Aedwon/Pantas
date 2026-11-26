@@ -15,11 +15,9 @@ keyPoints:
 ---
 ## Core Concept
 
-- **Alliteration:** repeats the same starting consonant sound in nearby words, as in *busy bees buzzed*.
-- **Onomatopoeia:** uses a word that sounds like the sound it names, such as *buzz* or *clang*.
-- **Oxymoron:** puts words with opposing meanings together, such as *deafening silence*.
+### Alliteration
 
-Sound matters in alliteration, not just spelling.
+**Alliteration** repeats the same starting consonant sound in nearby words, as in *busy bees buzzed*. Sound matters in alliteration, not just spelling.
 
 Here is alliteration on one line: *Peter Piper picked a peck of pickled peppers.* Many nearby words start with the *p* sound.
 
@@ -30,10 +28,24 @@ No word here imitates a noise. A repeated starting sound is alliteration.
 :::
 
 :::check
+In "Cold winds crept closer," which device repeats the *k* sound?
+:::answer
+The answer is alliteration. *Cold*, *crept*, and *closer* start with the same consonant sound.
+:::
+
+### Onomatopoeia
+
+**Onomatopoeia** uses a word that sounds like the sound it names, such as *buzz* or *clang*.
+
+:::check
 Which device is the word *clang*?
 :::answer
 The answer is onomatopoeia. The word sounds like the noise it names.
 :::
+
+### Oxymoron
+
+An **oxymoron** puts words with opposing meanings together, such as *deafening silence*.
 
 Here is an oxymoron on one line: *deafening silence*. The two words have opposing meanings.
 
@@ -41,6 +53,12 @@ Here is an oxymoron on one line: *deafening silence*. The two words have opposin
 Right: "Deafening silence" is an oxymoron.
 Wrong: "Deafening silence" is hyperbole.
 The phrase joins two opposing words. It does not simply stretch the truth.
+:::
+
+:::check
+In "cruel kindness," two opposing words sit side by side. Which device is this?
+:::answer
+The answer is oxymoron. *Cruel* and *kindness* have opposite meanings.
 :::
 
 ## Examples
@@ -89,16 +107,13 @@ D) Onomatopoeia
 **Solution:**
 
 1. *Deafening* suggests very loud sound. *Silence* means no sound.
-2. Putting these opposing meanings together creates an oxymoron. Answer: **C**.
-
-**Check:** A loud word and a silent word cannot both be literal here. That clash marks an oxymoron.
 
 :::try
-Name the device in "The bacon sizzled in the pan."
+Finish the last step: which device puts two opposing meanings together?
 :::answer
-The answer is onomatopoeia. *Sizzled* sounds like the noise it names.
+The answer is **C**, **oxymoron**. Joining opposing meanings like *deafening* and *silence* creates an oxymoron.
 
-**Check:** Say *sizzled* aloud. You can hear the sound.
+**Check:** A loud word and a silent word cannot both be literal here. That clash marks an oxymoron.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -110,5 +125,5 @@ The answer is onomatopoeia. *Sizzled* sounds like the noise it names.
 :::checklist
 - A repeated starting sound: alliteration, not onomatopoeia. {#repeated-sound}
 - Two opposing words together: oxymoron, not hyperbole. {#opposing-words}
-- A line with more than one figure: read the exact phrase the question points to.
+- A sound word such as *clang* or *bang*: check if the word imitates a noise, which is onomatopoeia. {#onomatopoeia}
 :::

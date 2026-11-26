@@ -15,9 +15,19 @@ keyPoints:
 ---
 ## Core Concept
 
+### Synonyms
+
 A **synonym** is a word or phrase with the same or a closely related meaning in a sentence. Synonyms do not fit every sentence in the same way.
 
 Words with close meanings can differ in strength. They can also sound more formal, friendly, or harsh. Choose the word that keeps the meaning and fits the sentence.
+
+:::check
+Is *daring* a synonym or an antonym of *audacious*?
+:::answer
+The answer is a synonym. Both words mean bold and willing to take risks.
+:::
+
+### Word Pairings
 
 A **collocation** is a group of words that people commonly use together. English uses *heavy rain*, not *strong rain*. Words with similar meanings do not always fit the same word pairings.
 
@@ -26,6 +36,14 @@ Right: The road closed during heavy rain.
 Wrong: The road closed during powerful rain.
 *Powerful* is close in meaning to *heavy*. English still pairs *heavy* with *rain*.
 :::
+
+:::check
+Which pairing sounds natural in standard English: *heavy traffic* or *strong traffic*?
+:::answer
+The answer is *heavy traffic*. English pairs *heavy* with *traffic*.
+:::
+
+### Antonyms
 
 An **antonym** is a word with an opposite or contrasting meaning. The right opposite must match the meaning used in the sentence.
 
@@ -91,17 +109,14 @@ D) powerful rain
 
 **Solution:**
 
-1. English commonly pairs **heavy** with **rain**.
-2. The natural phrase is **heavy rain**. The answer is **C**.
-
-**Check:** A, B, and D all say something about force, but none is the usual pairing.
+1. All four choices point to intense rain, so check which adjective pairs naturally with *rain*.
 
 :::try
-Which sounds natural: *heavy traffic* or *strong traffic*?
+Finish the last step: which choice is the natural English pairing?
 :::answer
-The answer is *heavy traffic*. English pairs *heavy* with *traffic*.
+The answer is **C**, **heavy rain**. Standard English pairs *heavy* with *rain*, not *strong*, *muscular*, or *powerful*.
 
-**Check:** *Strong traffic* is not a phrase people use.
+**Check:** Read it in a sentence: "The road closed during heavy rain." It sounds natural in standard English.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -113,5 +128,5 @@ Read the task first. Check whether it asks for a similar meaning or an opposite.
 :::checklist
 - A task that asks for an opposite: pick the word that reverses the meaning, not a synonym. {#mitigate-opposite}
 - A word pairing: use the usual partner, as in *heavy rain*. {#heavy-rain}
-- A choice's position or look: ignore it. Compare meanings and use the sentence.
+- A synonym choice: compare meanings and fit in the sentence, not how a word looks. {#synonyms}
 :::

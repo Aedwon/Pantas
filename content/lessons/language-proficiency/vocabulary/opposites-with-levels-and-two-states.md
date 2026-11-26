@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-### Types of Opposites
+### Gradable Opposites
 
 **Gradable opposites** have levels between them. *Hot* and *cold* are opposites, but *warm* and *cool* fall between them.
 
@@ -38,6 +38,8 @@ A cup is not cold. Must it be hot?
 The answer is no. It may be cool or warm, because the levels between cold and hot are still possible.
 :::
 
+### Complementary Opposites
+
 **Complementary opposites** divide a stated system into two states. If those are the only states allowed, ruling out one leaves the other.
 
 - The record has two labels: alive and dead.
@@ -50,6 +52,12 @@ Use that rule only when the stated system allows no middle state. A stone is not
 Right: The log has only "available" and "unavailable." A terminal that is not available is "unavailable."
 Wrong: The log has only "available" and "unavailable." A terminal that is not available is "partially available."
 The log allows two labels. A middle label is not one of them.
+:::
+
+:::check
+A switch has only two states: on and off. If the switch is not on, what state is it in?
+:::answer
+The answer is off. With only two states allowed, ruling out *on* leaves *off*.
 :::
 
 ## Examples
@@ -68,7 +76,7 @@ D) dead
 1. The record allows only *alive* or *dead*.
 2. Ruling out *alive* leaves **dead**. The answer is **D**.
 
-**Check:** Weak, asleep, and injured are not labels in this record.
+**Check:** The record uses only *alive* and *dead*. Since the fish is not *alive*, *dead* is the only label left.
 
 ### #2: Opposites with Middle Levels
 
@@ -83,16 +91,13 @@ D) The exact temperature is not given.
 
 1. *Hot* and *cold* have middle levels, such as *warm* and *cool*.
 2. *Not hot* does not tell us which other level applies.
-3. A, B, and C each pick one level. The answer is **D**.
-
-**Check:** Test A. A warm soup is also not hot, so A is not forced.
 
 :::try
-A light is not on. The only states allowed are on and off. What state is it in?
+Finish the last step: which choice matches what we know from "not hot" alone?
 :::answer
-The answer is off. The system has two states, so ruling out one leaves the other.
+The answer is **D**, **the exact temperature is not given**. A, B, and C each force one level, when *warm*, *cool*, or *cold* are all possible.
 
-**Check:** A system with a middle level, such as dim, would change this answer.
+**Check:** A warm soup is not hot, and a cold soup is not hot, so no single temperature is forced.
 :::
 
 ## Speed Tricks & Shortcuts

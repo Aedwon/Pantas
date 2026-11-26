@@ -14,6 +14,8 @@ keyPoints:
 ---
 ## Core Concept
 
+### -ly as an Adverb
+
 The suffix **-ly** often makes an adverb. In "She spoke quietly," *quietly* tells how she spoke.
 
 Here it is one step at a time.
@@ -34,12 +36,20 @@ In "He walked slowly," what does *slowly* tell the reader?
 The answer is how he walked. *Slowly* is an adverb.
 :::
 
+### -ly as an Adjective
+
 These patterns have limits. *Friendly* ends in *-ly*, but it describes a person or thing, so it is an adjective. Check the job the word does in the sentence.
 
 :::pair #friendly-adjective
 Right: In "the friendly receptionist," *friendly* is an adjective.
 Wrong: In "the friendly receptionist," *friendly* is an adverb of manner.
 *Friendly* describes the noun *receptionist*. It does not tell how an action happens.
+:::
+
+:::check
+In "the lively crowd," what job does *lively* do?
+:::answer
+The answer is adjective. *Lively* describes the noun *crowd*, not an action.
 :::
 
 ## Examples
@@ -59,7 +69,7 @@ D) Helpful means without help; quickly means without speed.
 2. *-Ly* makes *quickly* tell how the clerk answered. It is an adverb.
 3. Only B gives both jobs correctly. Answer: **B**.
 
-**Check:** D reads *-ful* as "without." It means "full of," so D fails.
+**Check:** Replace the words in bold: "The clerk full of help answered in a quick way." Both meaning and grammar match **B**.
 
 ### #2: An Ending with a Different Job
 
@@ -72,17 +82,14 @@ D) It names a group of visitors.
 
 **Solution:**
 
-1. **Friendly** tells what the guard is like. It does not tell how an action happens.
-2. It describes the noun *guard*, so it is an adjective despite its *-ly* ending. Answer: **C**.
-
-**Check:** Say "a friendly guard." The word sits before the noun and describes it.
+1. **Friendly** sits before the noun *guard* and tells what the guard is like. It does not tell how an action happens.
 
 :::try
-In "She smiled warmly," what job does *warmly* do?
+Finish the last step: which choice names the job *friendly* does in this sentence?
 :::answer
-The answer is adverb. *Warmly* tells how she smiled.
+The answer is **C**, **it describes the guard**. *Friendly* is an adjective despite its *-ly* ending.
 
-**Check:** Ask "smiled how?" The answer is *warmly*.
+**Check:** Say "a friendly guard." The word sits before the noun *guard* and describes it.
 :::
 
 ## Traps to Watch For

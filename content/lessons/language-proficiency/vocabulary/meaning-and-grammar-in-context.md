@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-### Context Matters
+### Meaning in Context
 
 A word can have more than one meaning. Read the whole sentence before choosing its synonym or antonym.
 
@@ -26,8 +26,8 @@ Here is one word with two meanings.
 - *Bank* can also mean the land beside a river.
 
 :::pair #fast-meaning
-Right: The monks decided to fast for three days. Here *fast* means to avoid eating.
-Wrong: The monks decided to fast for three days. Here *fast* means to finish a task quickly.
+Right: The monks decided to fast for three days, taking no food. Here *fast* means to avoid eating.
+Wrong: The monks decided to fast for three days, taking no food. Here *fast* means to finish a task quickly.
 The words *taking no food* show the meaning. Use the nearby words, not the familiar meaning.
 :::
 
@@ -36,6 +36,8 @@ In "She sat on the bank and watched the water," what does *bank* mean?
 :::answer
 The answer is the land beside a river. The words *watched the water* point to a riverbank.
 :::
+
+### Grammar in Context
 
 Grammar matters too. A replacement must fit how the word is used.
 
@@ -48,6 +50,12 @@ So they cannot simply replace each other.
 Right: The panel must choose before releasing its report.
 Wrong: The panel must decision before releasing its report.
 After *must*, the sentence needs a verb. *Decision* is a noun.
+:::
+
+:::check
+In "She made a quick _____," which fits: *decide* or *decision*?
+:::answer
+The answer is *decision*. After *a quick*, the sentence needs a noun, and *decision* is a noun.
 :::
 
 ## Examples
@@ -83,7 +91,7 @@ D) avoiding tasks to reduce effort
 2. He does this to gain favor.
 3. **Giving too much praise to win approval** best fits this behavior. The answer is **B**.
 
-**Check:** A, C, and D do not describe praise to gain favor.
+**Check:** Put B into the sentence: praising every idea to gain favor matches giving too much praise to win approval.
 
 ### #3: Keeping the Same Grammar
 
@@ -97,18 +105,14 @@ D) decisive
 **Solution:**
 
 1. After *will*, the sentence needs a verb.
-2. This removes A (a noun) and D (an adjective).
-3. *Decide* names the action of making a choice. *Choose* is a verb with that meaning.
-4. B is a noun, so it fails. The answer is **C**.
-
-**Check:** Read it back: "The committee will choose tomorrow." The meaning and grammar stay the same.
+2. *Decide* names the action of making a choice, so the replacement must be a verb with that meaning.
 
 :::try
-Which word can replace **decide** in "The panel must **decide** today": *decision*, *choose*, or *decisive*?
+Finish the last step: which choice fits both the grammar and the meaning?
 :::answer
-The answer is *choose*. After *must*, the sentence needs a verb with the same meaning.
+The answer is **C**, **choose**. *Choose* is a verb that means making a choice, while *decision* and *choice* are nouns and *decisive* is an adjective.
 
-**Check:** "The panel must choose today" keeps the meaning and the grammar.
+**Check:** Read it back: "The committee will choose tomorrow." The meaning and grammar stay the same.
 :::
 
 ## Speed Tricks & Shortcuts

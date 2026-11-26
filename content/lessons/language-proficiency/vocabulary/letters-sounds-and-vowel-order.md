@@ -18,7 +18,7 @@ Spelling has patterns, but some words must be learned one by one. Use a pattern 
 
 ### Letters and Sounds
 
-The letters **a, e, i, o, u** are the main **vowel** letters in English. Vowel sounds are made without blocking the flow of air. Sometimes *y* also acts as a vowel, as in *my*.
+The letters **a, e, i, o, u** are the main **vowel** letters in English. Vowel sounds are made without blocking the flow of air. Sometimes *y* also works as a vowel, as in *my*.
 
 The other letters are **consonant** letters. Consonant sounds usually involve blocking or narrowing the flow of air with the lips, tongue, or teeth. Examples include the sounds of *p*, *t*, and *s*.
 
@@ -53,12 +53,18 @@ Wrong: The thief held a beleif.
 There is no c before the pair, so write *ie*. Check the family *believe* and *belief*.
 :::
 
-*Weird*, *seize*, *science*, and *height* do not fit the simple rhyme. Learn these spellings as whole words.
+*Weird*, *seize*, *science*, and *height* do not fit the simple rhyme. Words like *neighbor* and *weigh* also use *ei* when the pair makes the long-*a* sound. Learn these spellings as whole words.
 
 :::pair #seize-exception
 Right: The goalkeeper tried to seize the ball.
 Wrong: The goalkeeper tried to sieze the ball.
 *Seize* is an exception. Write *ei* even though no c comes before it.
+:::
+
+:::check
+Which spelling is correct: *cieling* or *ceiling*?
+:::answer
+The answer is *ceiling*. A *c* comes before the vowel pair, so write *ei*.
 :::
 
 ## Examples
@@ -75,19 +81,15 @@ D) seize
 **Solution:**
 
 1. In *chief*, no c comes before the pair, so *ie* is right.
-2. In *concieve*, a c comes before the pair, so the standard spelling is *conceive*, with *ei*.
-3. *Neighbor* is a standard spelling.
-4. *Seize* is an exception, so *ei* is right.
-5. Only *concieve* is misspelled. Answer: **B**.
-
-**Check:** Spell B as *conceive*. It now matches *receive*.
+2. *Neighbor* uses *ei* because the pair makes the long-*a* sound.
+3. *Seize* is an exception, so *ei* is right.
 
 :::try
-Which spelling is correct: *recieve* or *receive*? Use the rhyme.
+Finish the last step: check **B**, *concieve*. Is it spelled right or wrong, and why?
 :::answer
-The answer is *receive*. A c comes before the pair, so write *ei*.
+The answer is **B**, *concieve*, which is misspelled. A *c* comes before the pair, so the standard spelling is *conceive*, with *ei*.
 
-**Check:** *Receive* matches *conceive*.
+**Check:** Spell B as *conceive*. It now matches *receive*.
 :::
 
 ## Speed Tricks & Shortcuts

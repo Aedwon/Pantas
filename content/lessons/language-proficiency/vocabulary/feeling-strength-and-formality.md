@@ -15,15 +15,9 @@ keyPoints:
 ---
 ## Core Concept
 
-### Feeling, Strength, and Formality
+### Connotation
 
 **Connotation** is the feeling a word carries beyond its basic meaning. *Slim* and *skinny* both describe thinness, but *slim* often sounds more positive. The nearby words help show which feeling fits.
-
-**Intensity** is the strength of a meaning. *Annoyed* means bothered or a little angry. *Furious* means very angry, so it would make a mild complaint sound much stronger.
-
-**Register** is the level of formality that fits a situation. *Commence* is formal, *start* is neutral, and *kick off* is casual. An official notice and a chat with friends may call for different wording.
-
-First ask who will read the sentence and why it was written. Then compare words with the needed meaning. Choose the one that also fits that setting.
 
 We choose between two words for careful spending.
 
@@ -40,6 +34,52 @@ Wrong: She was stingy.
 :::
 
 :::check
+Which describes a thin build with a positive tone: *slender* or *skinny*?
+:::answer
+The answer is *slender*. *Slender* sounds positive, while *skinny* sounds critical.
+:::
+
+### Intensity
+
+**Intensity** is the strength of a meaning. *Annoyed* means bothered or a little angry. *Furious* means very angry, so it would make a mild complaint sound much stronger.
+
+We match the strength in this sentence: “The clerk was annoyed by a minor interruption but resumed work calmly.”
+
+- The clerk resumed work calmly, so the anger is mild.
+- *Bothered* is mild.
+- *Enraged* is extreme anger.
+
+:::pair #mild-intensity
+Right: The clerk was bothered by a minor interruption.
+Wrong: The clerk was enraged by a minor interruption.
+The clerk stayed calm, so the anger is mild. *Enraged* is far too strong.
+:::
+
+:::check
+A customer felt slightly upset by a short wait. Which fits better: *irritated* or *furious*?
+:::answer
+The answer is *irritated*. It matches a mild feeling, while *furious* means extreme anger.
+:::
+
+### Register
+
+**Register** is the level of formality that fits a situation. *Commence* is formal, *start* is neutral, and *kick off* is casual. An official notice and a chat with friends call for different wording.
+
+First ask who will read the sentence and why it was written. Then choose the word whose meaning and setting both fit.
+
+We pick wording for a public notice: “Processing will kick off after the briefing.”
+
+- A public notice is formal.
+- *Commence* is formal.
+- *Get going* is casual.
+
+:::pair #formal-register
+Right: Processing will commence after the briefing.
+Wrong: Processing will get going after the briefing.
+A public notice calls for formal wording. *Get going* is too casual.
+:::
+
+:::check
 Which fits a formal notice: *commence* or *kick off*?
 :::answer
 The answer is *commence*. It is formal. *Kick off* is casual.
@@ -49,11 +89,9 @@ The answer is *commence*. It is formal. *Kick off* is casual.
 
 ### #1: Matching Formality
 
-We pick the word that fits an official notice.
-
 Which word or phrase best completes this formal notice?
 
-“The examination will _____ at $8{:}00$ a.m.”
+“The examination will _____ at 8:00 a.m.”
 
 A) commence  
 B) kick off  
@@ -69,8 +107,6 @@ D) fire up
 
 ### #2: Keeping a Positive Tone
 
-We replace *slim* with a word that keeps its tone.
-
 The article praised the athlete's **slim** build. Which replacement best keeps the positive tone of the word in bold?
 
 A) skinny  
@@ -83,11 +119,9 @@ D) bony
 1. The word *praised* shows that the description is positive.
 2. **Slender** describes a thin build with a positive tone. The answer is **B**.
 
-**Check:** *Skinny*, *frail*, and *bony* all sound negative.
+**Check:** Put *slender* in the sentence: “The article praised the athlete's slender build.” *Praised* and *slender* both sound positive.
 
 ### #3: Matching Intensity
-
-We replace *annoyed* with a word of the same strength.
 
 Rina was **annoyed** by the brief delay, but she soon forgot about it. Which replacement best keeps the strength of the word in bold?
 
@@ -99,16 +133,13 @@ D) furious
 **Solution:**
 
 1. Rina soon forgot the delay, so the sentence describes mild anger.
-2. **Irritated** keeps that strength. The answer is **C**.
-
-**Check:** *Enraged* and *furious* are very strong. *Delighted* is not anger.
 
 :::try
-Her careful spending left enough for essentials and for helping neighbors. Which word keeps the approving tone: *frugal* or *miserly*?
+Finish the last step: which choice matches that mild strength?
 :::answer
-The answer is *frugal*. *Miserly* sounds critical.
+The answer is **C**, **irritated**. *Irritated* means mild anger, while *enraged* and *furious* mean extreme anger and *delighted* is not anger.
 
-**Check:** The sentence praises her, so the word must approve.
+**Check:** Put *irritated* back: “Rina was irritated by the brief delay, but she soon forgot about it.” Mild anger fits forgetting it soon.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -119,6 +150,6 @@ Try a simple replacement. Put the choice in place of the target word. Check mean
 
 :::checklist
 - An approving sentence: pick the approving word, such as *frugal*, not *stingy*. {#approving-tone}
-- A mild feeling: pick a mild word. A stronger word changes the feeling.
-- A formal notice: pick a formal word, not a casual phrase.
+- A mild feeling: pick a mild word such as *bothered*, not *enraged*. {#mild-intensity}
+- A formal notice: pick a formal word such as *commence*, not *get going*. {#formal-register}
 :::
