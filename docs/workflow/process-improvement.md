@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Wordy UI on a board again: pricing small print (Nov 26, repeat)
+
+- His words (about 1:25 PM Manila, quoting the Pro card): "Pay once with QR Ph. Plans don't renew. / New to Pro? Try it once for 7 days before you pick a plan. / remove this as well, remove all unnecessary info, remove reundancies. i hate wordy UI".
+- Wrong: the Free and Pro board carried two lines of small print that a student does not need to choose a plan; checkout shows payment terms anyway.
+- Why it got through: the Nov 25 entry (first-run board, "remove redundancies, remove unnecessary text/info") added a scan for internal terms and repeated sentences, but nothing asked whether each line is needed at all. The board reviewer checked facts and claims, not necessity.
+- Fix (required step, every board and every UI build, moved up from the Nov 25 scan): a cut pass before a board reaches him. For each line on screen, ask whether the reader loses anything needed to act if it goes; if not, delete it. The board note lists what was cut. The same pass applies to lesson text (his Nov 26 lesson note: "connect things better, not explain with more words"). No check can judge necessity.
+
 ### Pricing section drawn from house style, not from pricing-page practice (Nov 26)
 
 - His words (relayed by the manager, on the homepage Free and Pro board): "i like option 2 better, but still this design can be much improved, and make Pro look much more premium i guess, and then i don't like how all the prices are just displayed immediately. there must be a better, more standard way to do this to effectively attract customers".
