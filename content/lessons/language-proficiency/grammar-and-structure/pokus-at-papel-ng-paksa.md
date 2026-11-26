@@ -16,9 +16,9 @@ keyPoints:
 
 ### Paghahanap sa Paksa
 
-Ang **paksa** (subject/topic) ang sentrong pinag-uusapan sa pangungusap. Karaniwan itong minamarkahan ng *ang* o *ang mga* para sa karaniwang ngalan, at *si* o *sina* para sa tiyak na ngalan ng tao.
+Ang **paksa** ang sentrong pinag-uusapan sa pangungusap. Karaniwan itong minamarkahan ng *ang* o *ang mga* para sa karaniwang ngalan, at *si* o *sina* para sa tiyak na ngalan ng tao.
 
-Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya hanapin muna ang **parirala** (phrase) na may *ang*, *si*, *ang mga*, o *sina*.
+Ang ibang **pananda** tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya hanapin muna ang **parirala** na may *ang*, *si*, *ang mga*, o *sina*.
 
 - "Kumain **ang bata** ng tinapay." (*Ang bata* ang paksa, hindi ang tinapay.)
 - "Sumulat **si Mara** ng liham." (*Si Mara* ang paksa, hindi ang liham.)
@@ -31,10 +31,10 @@ Ang sagot ay **Ang liham**. Ito ang may panandang *ang*, habang *ni Mara* ay may
 
 ### Pokus sa Tagaganap at Pokus sa Layon
 
-Ang **pokus** (voice/focus) ay ang ugnayan ng anyo ng **pandiwa** (verb) at ng papel ng paksa sa kilos. Nagbabago ang panlapi ng pandiwa kapag nagbago ang paksa:
+Ang **pokus** ay ang ugnayan ng anyo ng **pandiwa** at ng papel ng paksa sa kilos. Paghambingin ang tagaganap at layon sa iisang kilos (*sulat*, si Mara, liham):
 
-1. Pokus sa **tagaganap** (actor): ang paksa ang gumagawa ng kilos. Madalas itong gumamit ng *-um-*, *mag-*, *ma-*, o *mang-*, gaya ng *kumain*, *sumulat*, at *nagluto*.
-2. Pokus sa **layon** (object): ang paksa ang bagay na ginawan ng kilos. Madalas itong gumamit ng *-in-* o *-in*, *i-*, o *-an*, gaya ng *kinain*, *sinulat*, at *niluto*.
+1. Pokus sa **tagaganap**: ang paksa ang gumagawa (*-um-*, *mag-*, *ma-*, *mang-*): "Sumulat **si Mara** ng liham."
+2. Pokus sa **layon**: ang paksa ang bagay na ginawan (*-in-*, *-in*, *i-*, *-an*): "Sinulat ni Mara **ang liham**."
 
 <!-- ILLUSTRATION: dalawang nakapatong na pangungusap: sa itaas "Sumulat si Mara ng liham." na may palaso mula "Sumulat" patungong "si Mara" na may tatak na "paksa: tagaganap"; sa ibaba "Sinulat ni Mara ang liham." na may palaso mula "Sinulat" patungong "ang liham" na may tatak na "paksa: layon" -->
 
@@ -45,18 +45,18 @@ Bakit sabay na nagbabago ang pandiwa at pananda? Ipinakikita ng panlapi ng pandi
 :::pair #paksa-may-ang-o-si
 Right: Kumain ang bata ng tinapay.
 Wrong: Kumain ng bata ng tinapay.
-Nasa tagaganap ang pandiwang *kumain*, kaya kailangan ng gumagawa ang panandang *ang* (*ang bata*) upang maging paksa.
+Nakapokus sa tagaganap ang pandiwang *kumain*, kaya kailangan ng gumagawa ang panandang *ang* (*ang bata*) upang maging paksa.
 :::
 
 :::check
 Piliin ang tamang pananda: Nagluto *(ang / ng)* kusinero ng sopas.
 :::answer
-Ang sagot ay **Ang**. Ang *nagluto* ay nasa tagaganap, kaya *ang kusinero* ang gumagawa at siyang paksa.
+Ang sagot ay **Ang**. Ang *nagluto* ay nakapokus sa tagaganap, kaya *ang kusinero* ang gumagawa at siyang paksa.
 :::
 
 ### Pagpapanatili ng Aspekto Kapag Nagpalit ng Pokus
 
-Ang **aspekto** (aspect) ng pandiwa ay nagsasabi kung tapos na, ginaganap pa, o gagawin pa lamang ang kilos. Kapag inilipat mo ang paksa mula tagaganap patungong layon, panatilihin ang gumawa at ang parehong aspekto:
+Ang **aspekto** ng pandiwa ay nagsasabi kung tapos na, ginaganap pa, o gagawin pa lamang ang kilos. Kapag inilipat mo ang paksa mula tagaganap patungong layon, panatilihin ang gumawa at ang parehong aspekto:
 
 - Tapos na: "Sumulat si Mara ng liham." -> "Sinulat ni Mara ang liham."
 - Ginaganap pa: "Sumusulat si Mara ng liham." -> "Sinusulat ni Mara ang liham."
@@ -82,8 +82,8 @@ Piliin ang tamang pananda sa patlang: "Kumain ______ bata ng tinapay."
 
 **Solution:**
 
-1. Suriin ang pandiwa: ang *kumain* ay may *-um-*, kaya nasa tagaganap ang pokus nito.
-2. Itanong kung sino ang gumagawa ng pagkain: ang bata.
+1. Suriin ang pandiwa: ang *kumain* ay may *-um-*, kaya nakapokus sa tagaganap ito.
+2. Itanong kung sino ang kumain: ang bata.
 3. Gamitin ang panandang paksa para sa karaniwang ngalan: "Kumain **ang** bata ng tinapay."
 
 **Check:** Tingnan ang papel ng bawat pangngalan: *ang bata* ang paksa (gumawa) at *ng tinapay* ang bagay na kinain, kaya tugma sa *kumain*.
@@ -94,26 +94,26 @@ Tukuyin ang paksa at pokus ng pandiwa sa bawat pangungusap: "Nagluto ang kusiner
 
 **Solution:**
 
-1. Sa unang pangungusap, *ang kusinero* ang may panandang *ang*. Siya ang gumawa ng pagluluto, kaya nasa **tagaganap** ang pokus ng *nagluto*.
-2. Sa ikalawang pangungusap, *ang sopas* ang may panandang *ang*. Ito ang bagay na niluto, kaya nasa **layon** ang pokus ng *niluto*.
+1. Sa unang pangungusap, *ang kusinero* ang may panandang *ang*. Siya ang gumawa ng pagluluto, kaya nakapokus sa **tagaganap** ang *nagluto*.
+2. Sa ikalawang pangungusap, *ang sopas* ang may panandang *ang*. Ito ang bagay na niluto, kaya nakapokus sa **layon** ang *niluto*.
 
 **Check:** Itanong ang sagot ng paksa: sa una, "Sino ang nagluto?" (*ang kusinero*); sa ikalawa, "Ano ang niluto?" (*ang sopas*).
 
 ### #3: Paglipat ng Paksa Nang Walang Bawas sa Kilos
 
-Sa "Sumulat si Mara ng liham," si Mara ang paksa. Aling pangungusap ang ginagawang paksa ang *liham* habang pinananatili ang gumawa at tapos na kilos?
+Sa "Bumili si Marco ng aklat," si Marco ang paksa. Aling pangungusap ang ginagawang paksa ang *aklat* habang pinananatili ang gumawa at tapos na kilos?
 
 **Solution:**
 
-1. Gawing paksa ang bagay na sinulat gamit ang panandang *ang*: *ang liham*.
-2. Panatilihin si Mara bilang gumawa gamit ang panandang *ni*: *ni Mara*.
+1. Gawing paksa ang bagay na binili gamit ang panandang *ang*: *ang aklat*.
+2. Panatilihin si Marco bilang gumawa gamit ang panandang *ni*: *ni Marco*.
 
 :::try
-Tapusin ang huling hakbang: anong anyo ng pandiwa ang katumbas ng *sumulat* na tapos na at nakapokus sa layon?
+Tapusin ang huling hakbang: anong anyo ng pandiwa ang katumbas ng *bumili* na tapos na at nakapokus sa layon, at ano ang buong pangungusap?
 :::answer
-Ang sagot ay **"Sinulat ni Mara ang liham."** Ang *sinulat* ay nakapokus sa layon (*ang liham*) at tapos na ang kilos, hindi ginaganap (*sinusulat*) o gagawin pa (*susulatin*).
+Ang sagot ay **"Binili ni Marco ang aklat."** Ang *binili* ay nakapokus sa layon (*ang aklat*) at tapos na ang kilos, hindi ginaganap (*binibili*) o gagawin pa (*bibilhin*).
 
-**Check:** Suriin ang tatlong bahagi: *ang liham* ang paksa, *ni Mara* pa rin ang gumawa, at tapos na ang *sinulat* tulad ng *sumulat*.
+**Check:** Suriin ang tatlong bahagi: *ang aklat* ang paksa, *ni Marco* pa rin ang gumawa, at tapos na ang *binili* tulad ng *bumili*.
 :::
 
 ## Speed Tricks & Shortcuts

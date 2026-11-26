@@ -46,10 +46,10 @@ The answer is **No**. *The editors* sits right after the comma as the main subje
 
 Fix a dangling opening phrase in two ways:
 
-1. **Change the main subject:** Name the doer right after the comma. *"Rushing to catch the bus, I spilled my coffee everywhere."*
-2. **Turn the phrase into a full clause:** Put the doer inside the opening group with a finite verb (*as, after, before, while* + subject + verb). *"As Liza approached the gate, a dog began barking."* Because the opening clause names *Liza*, the main clause can use *a dog*.
+1. **Change the main subject:** *"Rushing to catch the bus, my coffee spilled"* -> *"Rushing to catch the bus, **I** spilled my coffee."* (Names *I* right after the comma.)
+2. **Turn the phrase into a full clause:** *"While approaching the gate, the barking of a dog startled Liza"* -> *"As **Liza approached** the gate, a dog began barking."* (With *Liza* and finite verb *approached* inside the opening clause, the main clause can use *a dog*.)
 
-Watch out for *while* or *after* before an *-ing* word (*"While approaching the gate, the barking of a dog startled Liza"*). With no stated subject inside the opening group, it is still a phrase and still dangles.
+Watch out for *while* or *after* before an *-ing* word: with no stated subject inside the opening group, it is still a phrase and still dangles.
 
 :::why
 Why can *"As Liza approached the gate, a dog began barking"* use two subjects? *"As Liza approached the gate"* is a full clause with subject *Liza* and verb *approached*, so *a dog* does not take over Liza's action.
@@ -79,7 +79,7 @@ What is the problem in *"Having studied all night, the exam seemed easy"*?
 2. The main subject right after the comma is *the exam*, which cannot study.
 3. So **the opening phrase lacks a matching main subject**.
 
-**Check:** Put a student as the main subject: *"Having studied all night, Carla found the exam easy."* Now *Having studied* matches *Carla*.
+**Check:** Ask "Who studied all night?" The noun right after the comma is *the exam*, which cannot study, confirming the opening phrase dangles.
 
 ### #2: Fixing With the Main Subject
 
@@ -94,19 +94,21 @@ Revise *"Rushing to catch the bus, my coffee spilled everywhere"* so the runner 
 
 ### #3: Naming the Doer Inside the Opening Clause
 
-Which avoids a dangling modifier by naming the observer inside the opening clause: *"While approaching the gate, the barking of a dog startled Liza"* or *"As Liza approached the gate, a dog began barking"*?
+Choose the sentence without a dangling modifier:
+(A) *"While crossing the bridge, the strong wind blew Marco's hat away."*
+(B) *"As Marco crossed the bridge, the strong wind blew his hat away."*
 
 **Solution:**
 
-1. In sentence 1, *While approaching* has no subject inside it, so *the barking* becomes the implied person approaching.
-2. Inspect *"As Liza approached the gate, a dog began barking."*
+1. Compare the openings: *"While crossing the bridge"* (A) vs. *"As Marco crossed the bridge"* (B).
+2. Check which names its own subject and finite verb instead of passing the action to *the strong wind*.
 
 :::try
-Finish the last step: name the subject and verb inside the opening clause of sentence 2, and explain why *a dog* works in the main clause.
+Finish: choose (A) or (B), and prove why it avoids a dangling modifier.
 :::answer
-**"As Liza approached the gate, a dog began barking."** *Liza* is the subject and *approached* is the finite verb inside the opening clause, freeing the main clause to use *a dog*.
+The answer is **(B) "As Marco crossed the bridge, the strong wind blew his hat away."** Inside (B)'s opening clause, *Marco* is the subject and *crossed* is the finite verb, so *the strong wind* can safely serve as the main subject. In (A), *"While crossing the bridge"* lacks a subject, wrongly making *the strong wind* cross the bridge.
 
-**Check:** Ask "Who approached the gate?" The opening clause answers *Liza* before the comma, so *a dog* never takes that action.
+**Check:** Ask "Who crossed the bridge?" Sentence (B) answers *Marco* right inside the opening clause before the comma.
 :::
 
 ## Speed Tricks & Shortcuts

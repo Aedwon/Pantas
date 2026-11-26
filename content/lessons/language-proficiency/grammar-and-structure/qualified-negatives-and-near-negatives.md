@@ -21,9 +21,9 @@ Standard English pairs two negatives for a **qualified** (middle-ground) positiv
 
 1. *unexpected* = not expected -> *"not unexpected"* = **somewhat expected** (not guaranteed).
 2. *unreasonable* = not reasonable -> *"not unreasonable"* = **fairly reasonable** (not perfect).
-3. *uncommon* = rare -> *"not uncommon"* = happens sometimes (not always).
+3. *uncommon* = rare -> *"not uncommon"* = **fairly common** (not always).
 
-<!-- ILLUSTRATION: horizontal strength scale from left to right: "0% (never / none)" -> "just above 0% (hardly, scarcely, barely, seldom)" -> "middle qualified zone (not unexpected, not unreasonable)" -> "100% (guaranteed / perfectly / always)" -->
+<!-- ILLUSTRATION: three stacked contrast bars: (1) Frequency: "never (zero)" -> "seldom (rarely)" -> "not uncommon (fairly common)"; (2) Completion: "not started (zero)" -> "barely started (tiny start)"; (3) Judgment: "unreasonable (negative)" -> "not unreasonable (fairly reasonable)" -> "perfect (extreme)" -->
 
 :::why
 Why write *"not unreasonable"* instead of *"very reasonable"*? Putting *not* before an *un-* word rules out the negative extreme without making an absolute promise.
@@ -43,12 +43,12 @@ The answer is **Somewhat expected**. *Not unexpected* rules out surprise without
 
 ### Near-Negatives: Hardly, Scarcely, and Barely
 
-*Hardly, scarcely,* and *barely* are **near-negatives** meaning **almost not** or **only with great difficulty** (not zero). Read *barely* and *scarcely*:
+*Hardly, scarcely,* and *barely* are **near-negatives** meaning **almost not** or **only with great difficulty** (not zero). See what *barely* and *scarcely* convey:
 
-1. *"She has barely started her homework"* = she has only just begun (a tiny start, not zero and not finished).
-2. *"He could scarcely finish the race"* = he finished, though only with great difficulty.
+1. *"She has barely started her homework"* = only just begun (not zero, not finished).
+2. *"He crossed the line, though he could scarcely finish the race"* = finished, but with great difficulty.
 
-Because these words already carry a near-negative meaning, standard formal English pairs them with a **positive** verb and *any* (never *not*, *can't*, *didn't*, or *no*): *"I can hardly hear you."* and *"Scarcely any supplies remained."*
+Pair them with a **positive** verb (never *not*, *can't*, *didn't*, or *no*), using *any* if a determiner is needed: *"I can hardly hear you."* *"Scarcely any supplies remained."*
 
 :::pair #not-with-near-negative
 Right: *"I can hardly hear you from over here."* and *"Scarcely any supplies remained."*
@@ -113,29 +113,29 @@ Correct sentence: **"I can hardly hear you from over here."**
 
 ### #3: Reading Scarcely and Seldom Accurately
 
-The runner reached the finish line. What does *"He could scarcely finish the race"* convey, and what does *"seldom"* mean in *"The employee seldom requests an extension"*?
+The clerk submitted the forms on time, yet wrote she *"could scarcely finish the audit."* Another memo says *"The branch seldom cancels briefings."* What does each convey?
 
 **Solution:**
 
-1. The runner reached the finish line, so he did finish.
-2. Apply *scarcely* (*almost not / only with great difficulty*) to *could scarcely finish*.
+1. Submitting on time confirms she completed the audit.
+2. Apply *scarcely* (*with great difficulty*) and *seldom*.
 
 :::try
-Finish the last step: state what *"He could scarcely finish the race"* conveys, and give the meaning of *"seldom."*
+Finish the last step: state what *"could scarcely finish the audit"* conveys here, and define *"seldom cancels."*
 :::answer
-The answer is **"He finished, but only with great difficulty," and *seldom* means "rarely."** Neither word drops to zero: *scarcely* allows a hard finish, and *seldom* allows occasional requests.
+The answer is **She finished the audit, though only with great difficulty; and the branch *rarely* cancels briefings (not never).**
 
-**Check:** Test both against zero: he crossed the finish line (so *"could not finish"* fails), and *seldom* means *not often* (so *"never"* fails).
+**Check:** Submitting on time confirms completion while *scarcely* signals great difficulty; replacing *seldom* with *rarely* keeps occasional cancellations possible rather than zero.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Place *not unexpected* in the cautious middle (neither surprising nor guaranteed). Substitute *almost not* for *hardly*, *scarcely*, and *barely* (paired with *any*, never *not* or *no*), and substitute *rarely* for *seldom*.
+Keep *not unexpected* in the middle (not surprising, not guaranteed). Read *hardly*, *scarcely*, and *barely* as *almost not* with a positive verb (*any* when needed), and *seldom* as *rarely*.
 
 ## Traps to Watch For
 
 :::checklist
-- Qualified negative (*not unexpected*, *not unreasonable*): keep the middle meaning, never flip it negative or push it to an extreme. {#qualified-negative-extremes}
-- Near-negative (*hardly*, *scarcely*, *barely*): drop *not* or *no* and pair with *any* (*can hardly*, *scarcely any*). {#not-with-near-negative}
-- Frequency word *seldom*: read it as *rarely*, never *never*. {#seldom-as-never}
+- Qualified negative (*not unexpected*, *not unreasonable*): keep the middle meaning, not negative or extreme. {#qualified-negative-extremes}
+- Near-negative (*hardly*, *scarcely*, *barely*): use a positive verb (never *not* or *no*; *any* when needed). {#not-with-near-negative}
+- *Seldom*: means *rarely*, never *never*. {#seldom-as-never}
 :::

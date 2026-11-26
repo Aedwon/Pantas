@@ -23,7 +23,7 @@ keyPoints:
 
 <!-- ILLUSTRATION: horizontal timeline showing Event 1 marked "had cooked (earlier past, finished first)" before Event 2 marked "guests arrived (later past)", both to the left of "now" -->
 
-*Had* stays the same for every subject (*I had, she had, they had*). Place *had* on the earlier action, never on the later one.
+*Had* stays the same for every subject (*I had, she had, they had*). Place *had* on an action completed before its past reference point, not on the later reference event itself.
 
 :::pair #mark-earlier-past
 Right: By the time the guests arrived, she had cooked the entire meal.
@@ -51,7 +51,7 @@ Why are both sentences right with *before*? The word *before* already tells the 
 :::pair #before-already-orders
 Right: "She finished the report before her boss asked for it" is grammatical because *before* clearly orders the two past events.
 Wrong: Claim that any action that happened first must always use past perfect instead, or that the later event must always use past perfect instead of simple past.
-Time connectors like *before* already show sequence, so simple past is grammatical. And if you do use past perfect, it belongs on the earlier event, never the later one.
+Time connectors like *before* already show sequence, so simple past is grammatical. Past perfect marks completion before a past reference point, not the later reference event.
 :::
 
 :::check
@@ -74,32 +74,32 @@ Choose the past-perfect form to make earlier completion explicit: "By the time t
 
 Correct: "By the time the guests arrived, she had cooked the entire meal."
 
-**Check:** Test *had cooked* against simple past without *had*: "By the time the guests arrived, she had cooked" directly marks cooking as the earlier finished action before arrival, whereas "she cooked" omits that marker and present *cooks* or future *will cook* would clash with past *arrived*.
+**Check:** *The guests arrived* sets the past reference point, and *had cooked* directly marks cooking as finished before that arrival.
 
 ### #2: Checking Order Words with Simple Past
 
-Why is "She finished the report before her boss asked for it" grammatical in standard English?
+Why is "He locked the gate before the guard arrived" grammatical in standard English?
 
 **Solution:**
 
-1. Identify the two past actions: *finished* (Action 1) and *asked* (Action 2).
+1. Identify the two past actions: *locked* (Action 1) and *arrived* (Action 2).
 2. Check the connector between them: *before*.
 
 :::try
-Finish the last step: why does simple past *finished* work here without needing *had finished*?
+Finish the last step: why does simple past *locked* work here without needing *had locked*?
 :::answer
-The answer is **"*Before*" clearly orders the two past events.** Because *before* already shows that finishing came earlier than asking, simple past is clear and grammatical on both verbs.
+The answer is **"*Before*" clearly orders the two past events.** Both verbs stay in the past, and *before* already shows that locking the gate happened earlier than the guard's arrival.
 
-**Check:** Read the sentence aloud with the connector removed or replaced by *when*: "When her boss asked for it, she finished" sounds simultaneous, whereas *before* locks finishing ahead of asking even with simple past.
+**Check:** Point directly to *before* and the two past verbs *locked* and *arrived*: *before* fixes *locked* as the earlier event, so simple past is unambiguous.
 :::
 
 ## Speed Tricks & Shortcuts
 
-When two past events appear together, put them on a mental timeline. Use *had* + past participle on the earlier action to stress it finished before the later past point. If *before* or *after* already makes the order unmistakable, simple past is also valid unless the question asks specifically for past perfect.
+When two past events appear together, put them on a mental timeline. Use *had* + past participle on an action completed before a later past reference point. If *before* or *after* already makes the order unmistakable, simple past is also valid unless the question asks specifically for past perfect.
 
 ## Traps to Watch For
 
 :::checklist
-- Two past events where one finished before the other: use *had* + past participle on the earlier action, not present or future forms. {#mark-earlier-past}
+- Two past events where one finished before the other: use *had* + past participle on the action finished before that past reference point, not present, future, or the later reference event. {#mark-earlier-past}
 - A sentence with *before* or *after* joining two simple past verbs: accept simple past when the connector already makes event order clear. {#before-already-orders}
 :::

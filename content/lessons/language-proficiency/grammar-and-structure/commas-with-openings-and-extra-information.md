@@ -16,11 +16,11 @@ keyPoints:
 
 ### Commas After Opening Clauses and Phrases
 
-A **dependent clause** has a subject and a finite verb, yet it cannot stand alone. Put a comma right after an opening dependent clause: *"Because she was tired, she rested."*
+A **dependent clause** has a subject and finite verb but cannot stand alone. Put a comma right after an opening dependent clause: *"Because she was tired, she rested."*
 
-An **opening phrase** (no subject-verb pair) also takes a comma after the whole phrase: *"After the meeting, we went home."* Very short openings such as *"Yesterday we met"* can skip the comma if clear.
+An **opening phrase** also takes a comma after the whole phrase: *"After the meeting, we went home."* Short openings like *"Yesterday we met"* can skip the comma if clear.
 
-Always put the comma at the **end** of the opening group. Never place a comma inside the phrase (*"After, the meeting"*) or between the main subject and verb (*"we, went home"*).
+Put the comma at the **end** of the opening group, never inside it (*"After, the meeting"*) or between subject and verb (*"we, went home"*).
 
 :::pair #splitting-opening-or-subject
 Right: "After the meeting, we went home."
@@ -36,10 +36,10 @@ The answer is **After *sheets***. *"Before the proctor collected the sheets"* is
 
 ### Extra Information vs. Identifying Information
 
-A clause starting with *who*, *which*, or *that* works in one of two ways:
+Relative clauses work in two ways (use *who* or *which* for extra detail, never *that*):
 
-1. **Nonrestrictive (extra) information:** adds a side detail about someone already known. Put a comma on **both** sides: *"My brother, who lives in Cebu, is visiting this week."* (The writer has only one brother, so *who lives in Cebu* is extra.)
-2. **Restrictive (identifying) information:** tells **which** ones out of a larger group. Use **no commas**: *"The students who missed the test must report today."* (Only those students, not all students.)
+1. **Nonrestrictive (extra):** adds a side detail about someone already known. Use commas (on **both** sides mid-sentence): *"My brother, who lives in Cebu, is visiting this week."* (Only one brother, so *who lives in Cebu* is extra.)
+2. **Restrictive (identifying):** tells **which** ones out of a group (*who*, *which*, or *that*, **no commas**): *"The students who missed the test must report today."* (Only those students.)
 
 <!-- ILLUSTRATION: two stacked sentences comparing comma pairs: top "My brother, who lives in Cebu, is visiting." with "who lives in Cebu" shaded between two teal commas and labeled "only one brother -> extra info"; bottom "The students who missed the test must report." with no commas and a tight bracket from "who missed the test" to "The students" labeled "picks out some students -> identifying" -->
 
@@ -95,32 +95,32 @@ Correct sentence: **"After the meeting, my brother, who lives in Cebu, drove me 
 
 ### #3: Picking Out Part of a Group
 
-Some students missed the test. Only those students must report today. Choose the right sentence:
+Only some applicants submitted incomplete folders, and only they must return on Monday. Choose the right sentence:
 
-(A) "The students, who missed the test, must report today."
-(B) "The students who missed the test must report today."
+(A) "The applicants, who submitted incomplete folders, must return on Monday."
+(B) "The applicants who submitted incomplete folders must return on Monday."
 
 **Solution:**
 
-1. Check the meaning: only the students who missed the test must report, not the whole class.
-2. Decide whether *who missed the test* is extra or identifying.
+1. Check the meaning: only the applicants with incomplete folders must return, not every applicant.
+2. Decide whether *who submitted incomplete folders* adds extra detail about all applicants or identifies which subset must return.
 
 :::try
-Finish the last step: explain why (A) changes the meaning and state which choice is right.
+Finish the last step: choose (A) or (B), and explain how the comma choice matches the intended meaning.
 :::answer
-The answer is **(B) "The students who missed the test must report today."** In (A), the commas say all the students missed the test; omitting commas keeps the rule limited to the ones who missed it.
+The answer is **(B) "The applicants who submitted incomplete folders must return on Monday."** Leaving out the commas locks the clause to *The applicants* so only that subset must return; the commas in (A) would claim every applicant submitted an incomplete folder.
 
-**Check:** Read (B) without commas: *who missed the test* stays locked to *The students* to identify only the subset who missed the test (whereas lifting out the comma-set clause in (A) leaves *"The students must report today,"* meaning all of them).
+**Check:** Read (B) without commas: *who submitted incomplete folders* identifies which applicants must return, matching *"only some applicants"* in the prompt.
 :::
 
 ## Speed Tricks & Shortcuts
 
-For an opening, find where the main subject starts and put one comma before it. For a *who* or *which* clause, ask whether it narrows which one (no commas) or adds a side fact about someone already known (two commas).
+Put one comma after an opening phrase or dependent clause (short, clear openings like *"Yesterday we met"* can skip it). For *who* or *which*, ask: narrows which one (no commas) or adds a side detail (commas)?
 
 ## Traps to Watch For
 
 :::checklist
-- Opening phrase or dependent clause: place one comma after the whole opening, never inside it or after the main subject. {#splitting-opening-or-subject}
-- Extra fact about a unique person or thing: set it off with commas on both sides. {#missing-commas-on-extra-info}
-- Clause picking out part of a group: leave out the commas so the sentence does not claim all members. {#commas-on-identifying-clause}
+- Opening phrase or dependent clause: place one comma after the whole opening when needed (short, clear openings can skip it), never inside it or after the main subject. {#splitting-opening-or-subject}
+- Extra detail about someone already known: set it off with commas (both sides mid-sentence). {#missing-commas-on-extra-info}
+- Identifying clause narrowing a group: omit commas so it does not claim all members. {#commas-on-identifying-clause}
 :::

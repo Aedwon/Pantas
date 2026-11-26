@@ -16,7 +16,7 @@ keyPoints:
 
 ### Pang-ukol: Nag-uugnay Patungo sa Pangngalan
 
-Ang **pang-ukol** (preposition) ay nag-uugnay ng **pangngalan** (noun) o grupo nito sa ibang bahagi ng pangungusap, tulad ng *para sa, para kay, tungkol sa, ayon sa, laban sa,* at *ukol sa*:
+Ang **pang-ukol** ay nag-uugnay ng **pangngalan** o grupo nito sa ibang bahagi ng pangungusap, tulad ng *para sa, para kay, tungkol sa, ayon sa, laban sa,* at *ukol sa*:
 
 - "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita." (Iniuugnay ng *para sa* ang *mga bisita* sa *mga upuan*.)
 - "Nag-usap sila **tungkol sa** proyekto." (Sinasabi nito kung ano ang paksa ng pag-uusap.)
@@ -28,14 +28,14 @@ Laging sinusundan ng pangngalan o pangkat ng pangngalan (*mga bisita*) ang pang-
 :::
 
 :::check
-Sa "Sumulat siya **tungkol sa** kalikasan," anong bahagi ng pananalita ang mga salitang nasa bold?
+Sa "Sumulat siya **tungkol sa** kalikasan," anong bahagi ng pananalita ang mga salitang nakadiin?
 :::answer
 Ang sagot ay **Pang-ukol**. Ipinakikilala ng *tungkol sa* ang pangngalang *kalikasan* at iniuugnay ito sa pagsulat.
 :::
 
 ### Pangatnig: Nagdurugtong ng mga Salita o Sugnay
 
-Ang **pangatnig** (conjunction) ay nagdurugtong ng salita, parirala, o **sugnay** (clause), tulad ng *at, ngunit, o, dahil, sapagkat, upang,* at *kung*:
+Ang **pangatnig** ay nagdurugtong ng salita, parirala, o **sugnay**, tulad ng *at, ngunit, o, dahil, sapagkat, upang,* at *kung*:
 
 - "Nagbasa siya **at** nagsulat." (Pinagdurugtong ng *at* ang dalawang kilos.)
 - "Umuwi siya **dahil** umuulan na." (Pinagdurugtong ng *dahil* ang dalawang sugnay.)
@@ -47,14 +47,14 @@ Paano agad paghiwalayin ang pang-ukol at pangatnig? Tingnan ang kasunod nito. Ku
 :::
 
 :::check
-Sa "Pumunta siya sa palengke **upang** bumili ng gulay," anong bahagi ng pananalita ang salitang nasa bold?
+Sa "Pumunta siya sa palengke **upang** bumili ng gulay," anong bahagi ng pananalita ang salitang nakadiin?
 :::answer
 Ang sagot ay **Pangatnig**. Pinagdurugtong ng *upang* ang dalawang bahaging may kilos (*pumunta* at *bumili*).
 :::
 
 ### Pandamdam: Tuwirang Pahayag ng Damdamin
 
-Ang **pandamdam** (interjection) ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*:
+Ang **pandamdam** ay maikling pahayag ng damdamin o biglaang reaksiyon, tulad ng *Aray!, Naku!, Ay!, Sayang!,* at *Hoy!*:
 
 - "**Aray!** Masakit ang sugat ko." (Tuwirang pahayag ng sakit.)
 
@@ -65,7 +65,7 @@ Hindi pinapangalanan ng *Naku* ang isang damdamin tulad ng salitang *kaba*, hind
 :::
 
 :::check
-Sa "**Sayang!** Nahuli tayo sa biyahe," anong bahagi ng pananalita ang salitang nasa bold?
+Sa "**Sayang!** Nahuli tayo sa biyahe," anong bahagi ng pananalita ang salitang nakadiin?
 :::answer
 Ang sagot ay **Pandamdam**. Nagpapahayag ang *Sayang!* ng panghihinayang o reaksiyon.
 :::
@@ -74,7 +74,7 @@ Ang sagot ay **Pandamdam**. Nagpapahayag ang *Sayang!* ng panghihinayang o reaks
 
 ### #1: Ugnayang Ipinakikita ng Pang-ukol
 
-Sa "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita," anong bahagi ng pananalita ang mga salitang nasa bold batay sa ugnayang ipinakikita nito?
+Sa "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita," anong bahagi ng pananalita ang mga salitang nakadiin batay sa ugnayang ipinakikita nito?
 
 **Solution:**
 
@@ -86,7 +86,7 @@ Sa "Naghanda ang tanggapan ng mga upuan **para sa** mga bisita," anong bahagi ng
 
 ### #2: Pagkilala sa Pangatnig
 
-Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pananalita ang salitang nasa bold?
+Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pananalita ang salitang nakadiin?
 
 **Solution:**
 

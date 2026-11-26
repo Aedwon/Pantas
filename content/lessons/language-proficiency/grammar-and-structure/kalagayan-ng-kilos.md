@@ -16,13 +16,13 @@ keyPoints:
 
 ### Tatlong Pangunahing Aspekto ng Pandiwa
 
-Ang **pandiwa** (verb) ay salitang nagsasaad ng kilos, pangyayari, o kalagayan. Ipinapakita ng **aspekto** (aspect) kung tapos na, nagpapatuloy, o gagawin pa ang kilos, sa halip na oras lamang tulad ng nakaraan o kasalukuyan.
+Ang **pandiwa** ay salitang nagsasaad ng kilos, pangyayari, o kalagayan. Ipinapakita ng **aspekto** kung tapos na, nagpapatuloy, o gagawin pa ang kilos, sa halip na oras lamang tulad ng nakaraan o kasalukuyan.
 
 May tatlong pangunahing aspekto para sa ugat na *linis* at *kain*:
 
-1. **Perpektibo** (completed): tapos na ang kilos: *Naglinis si Carlo.* *Kumain si Carlo.*
-2. **Imperpektibo** (ongoing): nasimulan na at nagpapatuloy o paulit-ulit ang kilos: *Naglilinis si Carlo tuwing Sabado.* *Kumakain siya ngayon.*
-3. **Kontemplatibo** (contemplated): hindi pa nasisimulan at gagawin pa lamang ang kilos: *Maglilinis si Carlo bukas.* *Kakain siya mamaya.*
+1. **Perpektibo**: tapos na ang kilos: *Naglinis si Carlo.* *Kumain si Carlo.*
+2. **Imperpektibo**: nasimulan na at nagpapatuloy o paulit-ulit ang kilos: *Naglilinis si Carlo tuwing Sabado.* *Kumakain siya ngayon.*
+3. **Kontemplatibo**: hindi pa nasisimulan at gagawin pa lamang ang kilos: *Maglilinis si Carlo bukas.* *Kakain siya mamaya.*
 
 Tandaan na ang anyong tulad ng *kainin* ay nakatuon sa bagay o pag-uutos sa iba, hindi sa aspekto ng *kumain*.
 
@@ -40,7 +40,7 @@ Ang sagot ay **Kumakain**. Ipinapakita ng *-um-* kasama ng inulit na *ka* na nas
 
 ### Perpektibo Laban sa Perpektibong Katatapos
 
-Bukod sa tatlong pangunahing aspekto, may **perpektibong katatapos** (recently completed) para sa kilos na kailan lang natapos, na madalas may *ka-* + pag-uulit ng unang pantig at salitang *lang* o *lamang*:
+Bukod sa tatlong pangunahing aspekto, may **perpektibong katatapos** para sa kilos na kailan lang natapos, na madalas may *ka-* + pag-uulit ng unang pantig at salitang *lang* o *lamang*:
 
 - Perpektibo: "*Naglinis* ng silid si Noel noong nakaraang linggo." (Tapos na, ngunit matagal na.)
 - Perpektibong katatapos: "*Kalilinis lang* ni Noel ng silid." (Katatapos lamang ng paglilinis.)
@@ -65,7 +65,7 @@ Ipinapakita ng *kadarating lang* na tapos na ang pagdating at katatapos pa laman
 :::
 
 :::check
-Ano ang aspekto ng pandiwang nasa bold: "**Katatapos** lang maghugas ni Ana ng kamay"?
+Ano ang aspekto ng pandiwang nakadiin: "**Katatapos** lang maghugas ni Ana ng kamay"?
 :::answer
 Ang sagot ay **Perpektibong katatapos**. Ipinapakita ng *ka-* kasama ng inulit na *ta* at *lang* na kailan lang natapos ang kilos.
 :::

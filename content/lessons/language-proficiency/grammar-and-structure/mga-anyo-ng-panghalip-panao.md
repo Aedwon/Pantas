@@ -17,7 +17,7 @@ keyPoints:
 
 ### Anyong Ang: Para sa Taong Itinatampok
 
-Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa papel ng tao sa pangungusap at sa bilang kung isa o marami.
+Ang **panghalip panao** ay salitang pamalit sa ngalan ng tao. Nagbabago ang anyo nito ayon sa papel ng tao sa pangungusap at sa bilang kung isa o marami.
 
 Gamitin ang anyong **ang** para sa paksa: *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila* (*ikaw* sa unahan, gaya ng "Ikaw ang sumulat"; *ka* sa loob, gaya ng "Sumulat ka"). Palitan ang *si Ana*:
 
@@ -26,7 +26,7 @@ Gamitin ang anyong **ang** para sa paksa: *ako, ikaw, ka, siya, kami, tayo, kayo
 :::pair #pangkat-ng-ang
 Right: Kabilang ang *siya* sa pangkat ng *ang* ("Siya ay dumating").
 Wrong: Piliin ang *niya* o *kaniya* bilang anyong *ang*.
-Parehong tumutukoy sa isang taong pinag-uusapan ang *siya, niya,* at *kaniya*, ngunit *siya* lamang ang nasa pangkat ng *ang*.
+Iisang tao ang maaaring tukuyin ng tatlong anyo (*siya, niya, kaniya*), ngunit *siya* lamang ang nasa pangkat ng *ang*.
 :::
 
 :::check
@@ -47,7 +47,7 @@ Tiyakin muna kung sino ang gumawa at kung isa o marami siya.
 :::pair #bilang-at-gumawa-sa-ng
 Right: "Isang estudyante lamang ang nagdala ng proyekto; ipinakita niya ito sa buong klase."
 Wrong: Gamitin ang *nila*, *namin*, o *ninyo* para sa iisang estudyante.
-Kahit binanggit ang *buong klase*, iisang estudyante lamang ang nagpakita. Kailangan ang isahang anyong *ng* para sa pinag-uusapan: *niya*.
+Iisang estudyante ang nagpakita kaya mali ang maramihang *nila*. Binabago rin ng *namin* (unang panauhan, nagsasalita) at *ninyo* (ikalawang panauhan, kausap) ang panauhan; kailangan ang isahang ikatlong panauhang *niya*.
 :::
 
 :::check
@@ -100,27 +100,27 @@ Piliin ang tamang panghalip: "Isang estudyante lamang ang nagdala ng proyekto; i
 
 **Solution:**
 
-1. Suriin ang papel ng patlang: *ito* (ang proyekto) ang paksa, kaya ang gumawa ng pagpapakita ay kailangan ng anyong *ng*.
+1. Suriin ang papel ng patlang: *ito* (ang proyekto) ang paksa, kaya kailangan ng tagaganap ang anyong *ng*.
 2. Tukuyin kung sino at ilan ang nagpakita: isang estudyanteng pinag-uusapan (hindi ang nagsasalita at hindi ang kausap).
 3. Piliin ang isahang anyong *ng* para sa pinag-uusapan: **niya**.
 
-**Check:** Tiyakin ang tatlong bagay: anyong *ng* (gumawa), isa lamang (estudyante), at pinag-uusapan (*niya*), hindi *nila* (marami), *namin* (nagsasalita), o *ninyo* (kausap).
+**Check:** Tiyakin ang tatlong bagay: anyong *ng* (gumawa), isahan (estudyante), at ikatlong panauhan (*niya*).
 
 ### #3: Anyong Sa para sa Maraming Tatanggap
 
-Ang mga boluntaryo ang tatanggap ng mga kagamitan. Palitan ng panghalip ang "sa mga boluntaryo" sa "Ibinigay ng tagapangasiwa sa mga boluntaryo ang mga kagamitan."
+Ang mga magulang ang tatanggap ng paanyaya. Palitan ng panghalip ang "sa mga magulang" sa "Ipinadala ng guro sa mga magulang ang paanyaya."
 
 **Solution:**
 
-1. Tukuyin ang papel ng "sa mga boluntaryo": sila ang tatanggap ng mga kagamitan, kaya kailangan ang anyong **sa**.
-2. Suriin ang bilang: marami ang *mga boluntaryo* at pinag-uusapan sila.
+1. Tukuyin ang papel ng "sa mga magulang": sila ang tatanggap ng paanyaya, kaya kailangan ang anyong **sa**.
+2. Suriin ang bilang at panauhan: marami ang *mga magulang* at pinag-uusapan sila.
 
 :::try
-Tapusin ang huling hakbang: anong anyong *sa* ang ipapalit sa "sa mga boluntaryo"?
+Tapusin ang huling hakbang: anong anyong *sa* ang ipapalit sa "sa mga magulang"?
 :::answer
-Ang sagot ay **Sa kanila**: "Ibinigay ng tagapangasiwa sa kanila ang mga kagamitan."
+Ang sagot ay **Sa kanila**: "Ipinadala ng guro sa kanila ang paanyaya."
 
-**Check:** Suriin ang katumbas ng pinalitang parirala: *sa mga* (panandang *sa*, maramihan) + *boluntaryo* (pinag-uusapan) = *sa kanila*, hindi *sila*, *nila*, o isahang *kaniya*.
+**Check:** Tugma ang *sa kanila* sa pinalitang parirala: anyong *sa* (tatanggap), maramihan (*mga magulang*), at ikatlong panauhan.
 :::
 
 ## Speed Tricks & Shortcuts

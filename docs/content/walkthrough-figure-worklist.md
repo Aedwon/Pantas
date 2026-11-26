@@ -241,7 +241,7 @@ Zero existing `ILLUSTRATION:` or `FIGURE:` markers existed in `a7cc22b6b` across
     `<!-- ILLUSTRATION: three-step timeline left to right: Step 1 "First reading" -> Step 2 "First repeat (already repeated)" -> Step 3 "Late arrival arrives: 'repeat again' = a further repeat" -->`
 
 70. `content/lessons/language-proficiency/grammar-and-structure/qualified-negatives-and-near-negatives.md` (`## Core Concept` -> `### Qualified Negatives: "Not Unexpected" and "Not Unreasonable"`):
-    `<!-- ILLUSTRATION: horizontal strength scale from left to right: "0% (never / none)" -> "just above 0% (hardly, scarcely, barely, seldom)" -> "middle qualified zone (not unexpected, not unreasonable)" -> "100% (guaranteed / perfectly / always)" -->`
+    `<!-- ILLUSTRATION: three stacked contrast bars: (1) Frequency: "never (zero)" -> "seldom (rarely)" -> "not uncommon (fairly common)"; (2) Completion: "not started (zero)" -> "barely started (tiny start)"; (3) Judgment: "unreasonable (negative)" -> "not unreasonable (fairly reasonable)" -> "perfect (extreme)" -->`
 
 71. `content/lessons/language-proficiency/grammar-and-structure/finding-subjects-and-matching-verbs.md` (`## Core Concept` -> `### Finding the Head of the Subject`):
     `<!-- ILLUSTRATION: the sentence "The basket of apples is heavy." with "of apples" grayed and bracketed as "added detail"; a teal arrow from "basket" to "is"; "basket" labeled "head, singular" -->`
@@ -265,4 +265,4 @@ Zero existing `ILLUSTRATION:` or `FIGURE:` markers existed in `a7cc22b6b` across
     `<!-- ILLUSTRATION: dalawang halimbawa: sa itaas "Naglilinis at nag-aayos sina Ana at Ben" na may isang kahon na may tatak na "1 sugnay na makapag-iisa -> Payak"; sa ibaba "[Umuwi ang bata] ngunit [naiwan ang bag niya]" na may dalawang hiwalay na kahon at tatak na "2 sugnay na makapag-iisa -> Tambalan" -->`
 
 78. `content/lessons/language-proficiency/grammar-and-structure/hugnayan-langkapan-at-ayos-ng-salaysay.md` (`## Core Concept` -> `### Langkapang Pangungusap`):
-    `<!-- ILLUSTRATION: dalawang kahon ng bilang ng sugnay: kaliwa "Hugnayan = 1 makapag-iisa + 1 di-makapag-iisa" gamit ang "[Umuwi ang bata] + [dahil umuulan na]"; kanan "Langkapan = 2 makapag-iisa + 1 di-makapag-iisa" gamit ang "[Umuwi ang bata] at [nagsara ang tindahan] + [dahil malakas na ang ulan]" -->`
+    `<!-- ILLUSTRATION: dalawang kahon ng bilang ng sugnay: kaliwa "Hugnayan (halimbawa: 1 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] + [dahil umuulan na]"; kanan "Langkapan (halimbawa: 2 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] at [nagsara ang tindahan] + [dahil malakas na ang ulan]" -->`

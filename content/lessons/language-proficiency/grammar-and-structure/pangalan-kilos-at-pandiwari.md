@@ -19,9 +19,9 @@ keyPoints:
 
 Nagbabago ang tungkulin ng isang salita ayon sa gamit nito sa pangungusap. Suriin muna kung ano ang ginagawa ng salita sa mismong pangungusap.
 
-- Ang **pantukoy** (marker) ay nagpapakilala sa kasunod na pangalan: *ang*, *ang mga*, *si*, at *sina* sa "ang guro" at "si Liza."
-- Ang **pangngalan** (noun) ay ngalan ng tao, bagay, hayop, lugar, o ideya. Itanong kung ano o sino ang pinapangalanan: sa "Masipag ang guro," ang *guro* ay ngalan ng tao.
-- Ang **panghalip** (pronoun) ay pamalit sa pangngalan upang hindi ito ulit-ulitin. Sa "Pumunta siya sa palengke," ang *siya* ay humahalili sa pangalan ng tao.
+- Ang **pantukoy** ay nagpapakilala sa kasunod na pangalan: *ang*, *ang mga*, *si*, at *sina* sa "ang guro" at "si Liza."
+- Ang **pangngalan** ay ngalan ng tao, bagay, hayop, lugar, o ideya. Itanong kung ano o sino ang pinapangalanan: sa "Masipag ang guro," ang *guro* ay ngalan ng tao.
+- Ang **panghalip** ay pamalit sa pangngalan upang hindi ito ulit-ulitin. Sa "Pumunta siya sa palengke," ang *siya* ay humahalili sa pangalan ng tao.
 
 :::pair #bata-pangngalan-hindi-pang-uri
 Right: Sa "Ang bata ay naglaro sa parke kahapon," ang *bata* ay pangngalan dahil ngalan ito ng taong pinag-uusapan pagkatapos ng *ang*.
@@ -30,14 +30,14 @@ Maaaring maging pang-uri ang *bata* kung naglalarawan ng edad (*batang guro*), n
 :::
 
 :::check
-Sa "Nagdala **siya** ng aklat sa silid," anong bahagi ng pananalita ang salitang nasa bold?
+Sa "Nagdala **siya** ng aklat sa silid," anong bahagi ng pananalita ang salitang nakadiin?
 :::answer
 Ang sagot ay **Panghalip**. Humahalili ang *siya* sa pangalan ng taong nagdala ng aklat.
 :::
 
 ### Pandiwa: Kilos, Pangyayari, o Kalagayan
 
-Ang **pandiwa** (verb) ay nagsasaad ng kilos, pangyayari, o kalagayan. Hanapin ang kilos o pangyayari sa dalawang halimbawa:
+Ang **pandiwa** ay nagsasaad ng kilos, pangyayari, o kalagayan. Hanapin ang kilos o pangyayari sa dalawang halimbawa:
 
 - "Kumain ang mga bata ng masarap na hapunan." (*Kumain* ang kilos na ginawa ng mga bata.)
 - "Bumuhos ang malakas na ulan." (*Bumuhos* ang pangyayari.)
@@ -49,14 +49,14 @@ Ang *pagkain* ay pangngalan ng bagay, ngunit ang *kumain* ay kilos mismo ng mga 
 :::
 
 :::check
-Sa "**Sumulat** si Ben ng maikling liham," anong bahagi ng pananalita ang salitang nasa bold?
+Sa "**Sumulat** si Ben ng maikling liham," anong bahagi ng pananalita ang salitang nakadiin?
 :::answer
 Ang sagot ay **Pandiwa**. Sinasabi ng *sumulat* ang kilos na ginawa ni Ben.
 :::
 
 ### Pandiwari sa Tradisyonal na Pag-uuri
 
-Ang **pandiwari** (participle) ay anyong mula sa pandiwa na gumaganap bilang pangngalan o pang-uri sa tradisyonal na balarila. Sundin ang dalawang hakbang sa pagsusuri:
+Ang **pandiwari** ay anyong mula sa pandiwa na gumaganap bilang pangngalan o pang-uri sa tradisyonal na balarila. Sundin ang dalawang hakbang sa pagsusuri:
 
 1. Hanapin muna ang pangunahing kilos na ginawa sa pangungusap.
 2. Tingnan ang anyong mula sa pandiwa: kung kasunod ito ng pantukoy at tumutukoy sa tao o bagay, gumaganap itong pangngalan.
@@ -74,7 +74,7 @@ Ang ginawa ng kawani ay *inihatid*, at ang lugar ay *sa klinika*. Tumutukoy ang 
 :::
 
 :::check
-Sa tradisyonal na pag-uuri, paano ginagamit ang salitang nasa bold sa "Tinulungan ng nars ang **nasugatan**"?
+Sa tradisyonal na pag-uuri, paano ginagamit ang salitang nakadiin sa "Tinulungan ng nars ang **nasugatan**"?
 :::answer
 Ang sagot ay **Pandiwaring gamit na pangngalan**. Mula sa pandiwa ang *nasugatan*, at dito ay tumutukoy ito sa taong tinulungan ng nars.
 :::
@@ -83,7 +83,7 @@ Ang sagot ay **Pandiwaring gamit na pangngalan**. Mula sa pandiwa ang *nasugatan
 
 ### #1: Pangngalan, Pantukoy, at Panghalip
 
-Sa "**Ang** masipag na **guro** ay ngumiti at umupo **siya**," tukuyin ang bahagi ng pananalita ng bawat salitang nasa bold.
+Sa "**Ang** masipag na **guro** ay ngumiti at umupo **siya**," tukuyin ang bahagi ng pananalita ng bawat salitang nakadiin.
 
 **Solution:**
 
@@ -95,7 +95,7 @@ Sa "**Ang** masipag na **guro** ay ngumiti at umupo **siya**," tukuyin ang bahag
 
 ### #2: Pagkilala sa Pandiwa
 
-Tukuyin ang bahagi ng pananalita ng salitang nasa bold: "**Kumain** ang mga bata ng masarap na hapunan."
+Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Kumain** ang mga bata ng masarap na hapunan."
 
 **Solution:**
 
@@ -107,7 +107,7 @@ Tukuyin ang bahagi ng pananalita ng salitang nasa bold: "**Kumain** ang mga bata
 
 ### #3: Tradisyonal na Pandiwari
 
-Sa tradisyunal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitang nasa bold sa "Inihatid ng kawani sa klinika ang **nahimatay**"?
+Sa tradisyonal na pag-uuring gumagamit ng pandiwari, paano ginagamit ang salitang nakadiin sa "Inihatid ng kawani sa klinika ang **nahimatay**"?
 
 **Solution:**
 

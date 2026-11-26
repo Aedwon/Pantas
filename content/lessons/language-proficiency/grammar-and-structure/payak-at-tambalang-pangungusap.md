@@ -17,12 +17,12 @@ keyPoints:
 
 ### Simuno, Panaguri, at Dalawang Uri ng Sugnay
 
-Ang **sugnay** (clause) ay pangkat ng mga salitang may **simuno** (subject) at **panaguri** (predicate). Ang simuno ang pinag-uusapan, at ang panaguri ang nagsasabi tungkol sa simuno. Sa Filipino, maaaring mauna ang panaguri ("Umuwi ang bata.") o mauna ang simuno na may *ay* ("Ang bata ay umuwi.").
+Ang **sugnay** ay pangkat ng mga salitang may **simuno** at **panaguri**. Ang simuno ang pinag-uusapan, at ang panaguri ang nagsasabi tungkol sa simuno. Sa Filipino, maaaring mauna ang panaguri ("Umuwi ang bata.") o mauna ang simuno na may *ay* ("Ang bata ay umuwi.").
 
 May dalawang uri ng sugnay:
 
-1. **Sugnay na makapag-iisa** (independent clause): may simuno at panaguri at buo ang diwa. Halimbawa: "Inayos ng kawani ang pila."
-2. **Sugnay na di-makapag-iisa** (dependent clause): may simuno at panaguri ngunit bitin ang diwa dahil may pang-ugnay sa unahan tulad ng *dahil*, *kapag*, o *habang*. Halimbawa: "dahil inayos ng kawani ang pila."
+1. **Sugnay na makapag-iisa**: may simuno at panaguri at buo ang diwa. Halimbawa: "Inayos ng kawani ang pila."
+2. **Sugnay na di-makapag-iisa**: may simuno at panaguri ngunit bitin ang diwa dahil may pang-ugnay sa unahan tulad ng *dahil*, *kapag*, o *habang*. Halimbawa: "dahil inayos ng kawani ang pila."
 
 :::pair #sugnay-na-makapag-iisa
 Right: "**Inayos ng kawani ang pila.**" ay sugnay na makapag-iisa dahil buo ang diwa nito.
@@ -40,8 +40,8 @@ Ang sagot ay **Nag-aaral si Ben.** Buo ang diwa nito at hindi naghihintay ng kas
 
 Bilangin ang mga sugnay upang matukoy ang kayarian ng pangungusap:
 
-- Ang **payak** (simple sentence) ay may iisang sugnay na makapag-iisa lamang at walang sugnay na di-makapag-iisa: "Umuwi ang bata." Kahit may dalawang tao o dalawang kilos sa iisang sugnay ("Naglilinis at nag-aayos ng silid sina Ana at Ben"), payak pa rin ito.
-- Ang **tambalan** (compound sentence) ay may dalawa o higit pang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa: "Umuwi ang bata **ngunit** naiwan ang bag niya."
+- Ang **payak** ay may iisang sugnay na makapag-iisa lamang at walang sugnay na di-makapag-iisa: "Umuwi ang bata." Kahit may dalawang tao o dalawang kilos sa iisang sugnay ("Naglilinis at nag-aayos ng silid sina Ana at Ben"), payak pa rin ito.
+- Ang **tambalan** ay may dalawa o higit pang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa: "Umuwi ang bata **ngunit** naiwan ang bag niya."
 
 <!-- ILLUSTRATION: dalawang halimbawa: sa itaas "Naglilinis at nag-aayos sina Ana at Ben" na may isang kahon na may tatak na "1 sugnay na makapag-iisa -> Payak"; sa ibaba "[Umuwi ang bata] ngunit [naiwan ang bag niya]" na may dalawang hiwalay na kahon at tatak na "2 sugnay na makapag-iisa -> Tambalan" -->
 
@@ -59,7 +59,7 @@ Ang sagot ay **Tambalan**. Dalawang buong sugnay na makapag-iisa (*Tumunog ang k
 
 ### Pagpili ng At, Ngunit, o O
 
-Sa tambalang pangungusap, ang **pangatnig na magkatimbang** (coordinating conjunction) ay nag-uugnay ng magkapantay na sugnay:
+Sa tambalang pangungusap, ang **pangatnig na magkatimbang** ay nag-uugnay ng magkapantay na sugnay:
 
 - **at**: dagdag na diwa ("Nag-aral si Ana, at naghanda si Ben.")
 - **ngunit**: salungat na diwa ("Maaga siyang umalis, ngunit nahuli siya sa pulong.")

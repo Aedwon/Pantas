@@ -17,7 +17,7 @@ keyPoints:
 
 ### Hugnayang Pangungusap
 
-Ang **hugnayan** (complex sentence) ay binubuo ng isang **sugnay** (clause) na makapag-iisa at isa o higit pang sugnay na di-makapag-iisa.
+Ang **hugnayan** ay binubuo ng isang **sugnay** na makapag-iisa at isa o higit pang sugnay na di-makapag-iisa.
 
 Gamitin ang *dahil* o *sapagkat* upang ipakilala ang dahilan:
 
@@ -37,11 +37,11 @@ Ang sagot ay **Hugnayan**. May isang buong diwa (*Isinara ang tanggapan*) at isa
 
 ### Langkapang Pangungusap
 
-Ang **langkapan** (compound-complex) ay may dalawa o higit pang makapag-iisa at isang di-makapag-iisang sugnay. Tingnan ang *at* at *dahil*:
+Ang **langkapan** ay may dalawa o higit pang sugnay na makapag-iisa at isa o higit pang di-makapag-iisa. Bilangin ang mga sugnay na pinagdugtong ng *at* at ipinakilala ng *dahil*:
 
 - "Umuwi ang bata **at** nagsara ang tindahan **dahil malakas na ang ulan**."
 
-<!-- ILLUSTRATION: dalawang kahon ng bilang ng sugnay: kaliwa "Hugnayan = 1 makapag-iisa + 1 di-makapag-iisa" gamit ang "[Umuwi ang bata] + [dahil umuulan na]"; kanan "Langkapan = 2 makapag-iisa + 1 di-makapag-iisa" gamit ang "[Umuwi ang bata] at [nagsara ang tindahan] + [dahil malakas na ang ulan]" -->
+<!-- ILLUSTRATION: dalawang kahon ng bilang ng sugnay: kaliwa "Hugnayan (halimbawa: 1 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] + [dahil umuulan na]"; kanan "Langkapan (halimbawa: 2 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] at [nagsara ang tindahan] + [dahil malakas na ang ulan]" -->
 
 :::why
 Bakit kailangang bilangin nang hiwalay ang bawat sugnay sa langkapan? Pinagsasama sa langkapan ang tambalan (dalawang buong diwa) at ang hugnayan (may sugnay na di-makapag-iisa). Kapag isa lamang sa dalawa ang nakita mo, nagiging mali ang uri ng pangungusap.
@@ -61,7 +61,7 @@ Ang sagot ay **Langkapan**. Dalawa ang sugnay na makapag-iisa (*Nag-aral si Liza
 
 ### Ayos ng Salaysay at mga Pananda
 
-Sa pagsasalaysay ng mga hakbang o pangyayari, pumili ng **pananda** (marker) na tugma sa pagkakasunod ng oras:
+Sa pagsasalaysay ng mga hakbang o pangyayari, pumili ng **pananda** na tugma sa pagkakasunod ng oras:
 
 1. Simula: *una*, *sa simula*
 2. Kasunod: *pagkatapos*, *kasunod*, *saka*
@@ -91,7 +91,7 @@ Tukuyin ang uri ng pangungusap: "Umuwi ang bata dahil umuulan na."
 2. Suriin ang "dahil umuulan na": may *dahil* sa unahan, kaya sugnay na di-makapag-iisa ito.
 3. May isang makapag-iisa at isang di-makapag-iisa, kaya **Hugnayan** ang pangungusap.
 
-**Check:** Basahin nang mag-isa ang bawat bahagi: buo at nakatatayo ang "Umuwi ang bata" (1 sugnay na makapag-iisa) samantalang bitin ang "dahil umuulan na" (1 sugnay na di-makapag-iisa), kaya **hugnayan** ang pangungusap at hindi tambalan.
+**Check:** Basahin nang mag-isa ang bawat bahagi: buo ang "Umuwi ang bata" (1 makapag-iisa) ngunit bitin ang "dahil umuulan na" (1 di-makapag-iisa), kaya **hugnayan** ito.
 
 ### #2: Pagbuo ng Langkapan
 
@@ -107,19 +107,19 @@ Pagsamahin sa isang langkapan ang mga diwa: nag-aral si Liza; may pagsusulit siy
 
 ### #3: Ayos ng mga Pananda sa Salaysay
 
-Sa salaysay, unang inihanda ang ulat, kasunod itong sinuri, at pangwakas itong ipinasa. Aling hanay ng pananda ang angkop sa pagkakasunod na ito?
+Sa salaysay, unang nagrehistro ang aplikante, kasunod ipinasa ang mga papel, at pangwakas kinuha ang resibo. Aling hanay mula sa *sa simula*, *kasunod*, at *panghuli* ang angkop?
 
 **Solution:**
 
-1. Itugma ang unang pangyayari (paghahanda ng ulat) sa panandang pang-simula: *Una*.
-2. Itugma ang kasunod na pangyayari (pagsusuri) sa panandang pang-gitna: *pagkatapos*.
+1. Unang pangyayari (pagrerehistro) -> *Sa simula*.
+2. Kasunod (pagpasa ng mga papel) -> *kasunod*.
 
 :::try
-Tapusin ang huling hakbang: anong pananda ang tutugma sa pangwakas na pagpasa, at ano ang buong hanay?
+Tapusin ang huling hakbang: anong pananda ang tugma sa pagkuha ng resibo, at ano ang buong hanay?
 :::answer
-Ang sagot ay **Una, pagkatapos, sa huli**.
+Ang sagot ay **Sa simula, kasunod, panghuli**.
 
-**Check:** Tugma ang bawat pananda sa tamang puwesto: *Una* (inihanda), *pagkatapos* (sinuri), at *sa huli* (ipinasa).
+**Check:** Tugma ang bawat pananda sa tamang puwesto: *Sa simula* (nagrehistro), *kasunod* (ipinasa), at *panghuli* (kinuha ang resibo).
 :::
 
 ## Speed Tricks & Shortcuts

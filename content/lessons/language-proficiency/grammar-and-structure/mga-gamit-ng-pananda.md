@@ -16,11 +16,11 @@ keyPoints:
 
 ### Tatlong Gamit ng Panandang Ng
 
-Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod na salita o **parirala** (phrase). May tatlong karaniwang gamit ang panandang *ng* (at *ni* para sa tiyak na ngalan ng tao):
+Ang **pananda** ay salitang nagpapakita ng papel o ugnayan ng kasunod na salita o **parirala**. May tatlong karaniwang gamit ang panandang *ng* (at *ni* para sa tiyak na ngalan ng tao):
 
-1. **Layon** (object) na hindi paksa: "Kumain ang bata **ng mangga**." (Ito ang kinain, habang *ang bata* ang paksa.)
-2. **Tagaganap** (actor) kapag iba ang paksa: "Kinain **ng bata** ang tinapay." (Ang bata ang kumain, habang *ang tinapay* ang paksa.)
-3. **Pagmamay-ari** (possession) o ugnayan: "Malinis ang bahay **ng guro**." (Sinasabi nito kung kanino ang bahay.)
+1. **Layon** na hindi paksa: "Kumain ang bata **ng mangga**." (Ito ang kinain, habang *ang bata* ang paksa.)
+2. **Tagaganap** kapag iba ang paksa: "Kinain **ng bata** ang tinapay." (Ang bata ang kumain, habang *ang tinapay* ang paksa.)
+3. **Pagmamay-ari** o ugnayan: "Malinis ang bahay **ng guro**." (Sinasabi nito kung kanino ang bahay.)
 
 Tandaan na iba ang panandang *ng* sa *nang*: ginagamit ang *nang* sa paraan, oras, o pag-uulit ng kilos, samantalang ang *ng* ang nagmamarka ng pangngalang layon, tagaganap, o may-ari.
 
@@ -46,7 +46,7 @@ Ang panandang *sa* (at *kay* o *kina* para sa tiyak na ngalan ng tao) ay may tat
 
 1. **Lugar** kung saan ginawa ang kilos: "Nagbasa si Ana **sa silid**." (Tanong: Saan nagbasa?)
 2. **Direksiyon** o patutunguhan ng kilos: "Pumunta si Ana **sa tanggapan**." (Tanong: Saan patungo?)
-3. **Tagatanggap** (recipient) o pinaglaanan: "Inihatid ng kawani ang katibayan **sa aplikante**." (Tanong: Kanino inihatid?)
+3. **Tagatanggap** o pinaglaanan: "Inihatid ng kawani ang katibayan **sa aplikante**." (Tanong: Kanino inihatid?)
 
 Huwag ibatay sa salitang *sa* lamang ang sagot. Itanong kung *saan* o *kanino* nakatuon ang kilos sa buong pangungusap.
 

@@ -16,9 +16,9 @@ keyPoints:
 
 ### Paglipat ng Pahiwatig ng Oras
 
-Ang **pang-abay na pamanahon** (time adverb) ay salitang nagsasabi kung kailan nangyari, nangyayari, o mangyayari ang kilos. Ilan sa mga karaniwang pahiwatig ang *kahapon* (nakaraan), *ngayon* (kasalukuyan), *bukas* (hinaharap), at *tuwing* (paulit-ulit).
+Ang **pang-abay na pamanahon** ay salitang nagsasabi kung kailan nangyari, nangyayari, o mangyayari ang kilos. Ilan sa mga karaniwang pahiwatig ang *kahapon* (nakaraan), *ngayon* (kasalukuyan), *bukas* (hinaharap), at *tuwing* (paulit-ulit).
 
-Maaaring ilagay ang pahiwatig ng oras sa unahan ng pangungusap na may *ay*, o ilipat sa hulihan nang walang *ay*. Hindi nagbabago ang oras at **aspekto** (aspect) ng **pandiwa** (verb) kapag inilipat lamang ang puwesto nito:
+Maaaring ilagay ang pahiwatig ng oras sa unahan ng pangungusap na may *ay*, o ilipat sa hulihan nang walang *ay*. Hindi nagbabago ang oras at **aspekto** ng **pandiwa** kapag inilipat lamang ang puwesto nito:
 
 - Unahan: "**Bukas** ay magsusumite si Elena ng ulat."
 - Hulihan: "Magsusumite si Elena ng ulat **bukas**."
@@ -37,7 +37,7 @@ Ang sagot ay **"Nag-aral si Mia kahapon."** Nanatili ang *kahapon* at ang tapos 
 
 ### Paulit-ulit na Kilos at Pahiwatig na Tuwing
 
-Ginagamit ang **imperpektibo** (imperfective aspect) hindi lamang sa kilos na nangyayari sa mismong sandali ng pagsasalita. Ginagamit din ito para sa paulit-ulit o nakatakdang gawain na may pahiwatig na *tuwing*:
+Ginagamit ang **imperpektibo** hindi lamang sa kilos na nangyayari sa mismong sandali ng pagsasalita. Ginagamit din ito para sa paulit-ulit o nakatakdang gawain na may pahiwatig na *tuwing*:
 
 - "Naglilinis ng bulwagan ang mga kawani **tuwing Sabado**." (Lingguhang iskedyul ito, kaya *naglilinis* ang tamang anyo kahit hindi Sabado ngayon.)
 

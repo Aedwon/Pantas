@@ -16,7 +16,7 @@ keyPoints:
 
 ### Pang-uri: Naglalarawan sa Pangngalan o Panghalip
 
-Ang **pang-uri** (adjective) ay naglalarawan sa **pangngalan** (noun) o **panghalip** (pronoun). Tingnan ang inilalarawan ng *masipag* at *matangkad*:
+Ang **pang-uri** ay naglalarawan sa **pangngalan** o **panghalip**. Tingnan ang inilalarawan ng *masipag* at *matangkad*:
 
 - "Ang **masipag** na guro ay maagang dumating." (Inilalarawan ng *masipag* ang *guro*, na isang pangngalan.)
 - "Matangkad siya." (Inilalarawan ng *matangkad* ang panghalip na *siya*.)
@@ -28,14 +28,14 @@ Kahit may kilos na *nagtanggol* sa pangungusap, direktang nakakabit ang *matapan
 :::
 
 :::check
-Sa "Bumili siya ng **bagong** bag," anong bahagi ng pananalita ang salitang nasa bold?
+Sa "Bumili siya ng **bagong** bag," anong bahagi ng pananalita ang salitang nakadiin?
 :::answer
 Ang sagot ay **Pang-uri**. Inilalarawan ng *bago* ang pangngalang *bag*.
 :::
 
 ### Pang-abay: Nagbibigay-Linaw sa Pandiwa, Pang-uri, o Pang-abay
 
-Ang **pang-abay** (adverb) ay nagbibigay-linaw sa **pandiwa** (verb), pang-uri, o kapuwa pang-abay (*paano, kailan, saan, gaano*). Suriin ang *mabilis* at *lubhang*:
+Ang **pang-abay** ay nagbibigay-linaw sa **pandiwa**, pang-uri, o kapuwa pang-abay (*paano, kailan, saan, gaano*). Suriin ang *mabilis* at *lubhang*:
 
 - "**Mabilis** na tumakbo ang atleta." (Sinasabi ng *mabilis* kung paano tumakbo ang atleta.)
 - "**Lubhang** masaya ang mga bata." (Sinasabi ng *lubhang* kung gaano kasaya, kaya pang-uri ang binibigyang-linaw nito.)
@@ -53,14 +53,14 @@ Hindi tao ang direktang inilalarawan dito kundi kung paano ginawa ang kilos na *
 :::
 
 :::check
-Sa "**Maingat** na binilang ng kawani ang salapi," anong bahagi ng pananalita ang salitang nasa bold?
+Sa "**Maingat** na binilang ng kawani ang salapi," anong bahagi ng pananalita ang salitang nakadiin?
 :::answer
 Ang sagot ay **Pang-abay**. Sinasabi ng *maingat* kung paano binilang ang salapi, kaya pandiwa ang binibigyang-linaw nito.
 :::
 
 ### Pang-abay na Panlunan: Salita o Buong Pangkat
 
-Ang **pang-abay na panlunan** (place adverb) ay nagsasabi kung saan ginanap ang kilos. Maaari itong isang salita lamang o isang buong pangkat ng mga salita:
+Ang **pang-abay na panlunan** ay nagsasabi kung saan ginanap ang kilos. Maaari itong isang salita lamang o isang buong pangkat ng mga salita:
 
 - Isang salita: "**Doon** naghintay si Mara." (Tanong: Saan naghintay si Mara? *Doon*.)
 - Buong pangkat: "Nag-aral siya **sa silid-aklatan**." (Tanong: Saan nag-aral? *Sa silid-aklatan*.)
@@ -81,7 +81,7 @@ Ang sagot ay **Sa kusina**. Sinasagot nito ang tanong na "Saan kami kumain?"
 
 ### #1: Pagtukoy sa Pang-uri
 
-Tukuyin ang bahagi ng pananalita ng salitang nasa bold: "Ang **matapang** na sundalo ay nagtanggol sa kaniyang bayan."
+Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "Ang **matapang** na sundalo ay nagtanggol sa kaniyang bayan."
 
 **Solution:**
 
@@ -93,7 +93,7 @@ Tukuyin ang bahagi ng pananalita ng salitang nasa bold: "Ang **matapang** na sun
 
 ### #2: Pagtukoy sa Pang-abay
 
-Tukuyin ang bahagi ng pananalita ng salitang nasa bold: "**Mabilis** na tumakbo ang atleta patungo sa linya ng tapusan."
+Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Mabilis** na tumakbo ang atleta patungo sa linya ng tapusan."
 
 **Solution:**
 

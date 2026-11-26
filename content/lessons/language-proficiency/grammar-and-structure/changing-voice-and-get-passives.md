@@ -20,7 +20,7 @@ To change active to passive, move the **object** (what receives the action) into
 
 <!-- ILLUSTRATION: two stacked sentences showing role swap: top "The committee [actor] approved [simple past] the new budget [receiver]." with crossing arrows to bottom "The new budget [subject] was approved [simple past passive] by the committee [agent]." -->
 
-To switch back, make the agent the subject and drop passive *be*. Verbs need an object for passive ("The child slept" has none). Compare active and passive for *"approved the new budget"*:
+To switch back, make the agent the subject and drop passive *be*. A passive clause needs an object or prepositional object ("The child slept" has none). Compare active and passive for *"approved the new budget"*:
 
 - Active: "The committee **approved** the new budget."
 - Passive: "The new budget **was approved** by the committee."
@@ -39,15 +39,15 @@ The answer is **"The chef cooked the meal."** *The chef* becomes the subject, an
 
 ### Keeping the Same Time and Aspect
 
-Changing voice only swaps the subject role. Keep the same time and keep completed actions simple rather than ongoing:
+Changing voice only swaps the subject role. Keep the source construction's exact tense and aspect:
 
-- Completed past: "The novel **was written** by a famous author." -> "A famous author **wrote** the novel."
-- Completed past: "The committee **approved** the new budget." -> "The new budget **was approved** by the committee."
+- Simple past: "The novel **was written** by a famous author." -> "A famous author **wrote** the novel."
+- Simple past: "The committee **approved** the new budget." -> "The new budget **was approved** by the committee."
 
 :::pair #preserve-tense-and-aspect
 Right: "The committee approved the new budget" becomes "The new budget was approved by the committee."
 Wrong: Shift to present ("The new budget is approved by the committee during its meetings") or ongoing ("A famous author was writing the novel").
-Keep past time in the past (*was approved*, *wrote*), and keep completed actions simple rather than *-ing*.
+Preserve the source tense and aspect: simple past stays simple past (*was approved*, *wrote*) without shifting to present or *-ing*.
 :::
 
 :::check
@@ -111,19 +111,19 @@ Correct: "The new budget was approved by the committee."
 
 ### #3: Spotting a Get-Passive and Rewriting It Formally
 
-In "The window got broken during the storm," classify the action clause, then rewrite it for a formal report.
+In "The wooden fence got damaged during the typhoon," classify the action clause, then rewrite it for a formal report.
 
 **Solution:**
 
-1. Check the subject *the window*: it receives the breaking, so the clause is passive.
-2. Check the verb group: *got* plus the past participle *broken* forms a **get-passive**.
+1. Check the subject *the wooden fence*: it receives the damage, so the clause is passive.
+2. Check the verb group: *got* plus the past participle *damaged* forms a **get-passive**.
 
 :::try
-Finish the last step: how do you rewrite "The window got broken during the storm" as a formal *be*-passive?
+Finish the last step: how do you rewrite "The wooden fence got damaged during the typhoon" as a formal *be*-passive?
 :::answer
-The answer is **"The window was broken during the storm."** Replace past *got* with singular past *was*, keeping *broken* and past time unchanged.
+The answer is **"The wooden fence was damaged during the typhoon."** Replace past *got* with singular past *was*, keeping *damaged* and past time unchanged.
 
-**Check:** Check all three points: *the window* receives the action, *was broken* keeps past time, and *was* replaces informal *got*.
+**Check:** Check all three points: *the wooden fence* receives the action, *was damaged* keeps simple past time, and *was* replaces informal *got*.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -17,16 +17,16 @@ keyPoints:
 
 ### Tagaganap at Layon
 
-Ang **pokus** (focus) ay ang ugnayan ng pandiwa sa **paksa** (topic) ng pangungusap. Hanapin muna ang pariralang may *ang, ang mga, si,* o *sina*: iyon ang paksa, at ang may *ng* o *ni* ay hindi paksa.
+Ang **pokus** ay ang ugnayan ng pandiwa sa **paksa** ng pangungusap. Hanapin ang pariralang may *ang, ang mga, si,* o *sina* (ang may *ng* o *ni* ay hindi paksa), saka tukuyin ang pokus ng pandiwa batay sa papel ng paksa:
 
-1. **Tagaganap** (actor): ang paksa ang gumagawa: "*Nagluto* ng pagkain **si Rosa**."
-2. **Layon** (object): ang paksa ang bagay na ginawan ng kilos: "*Kinain* ng bata **ang mangga**."
+1. **Tagaganap**: ang paksa ang gumagawa: "*Nagluto* ng pagkain **si Rosa**." (Paksa: *si Rosa*; pokus: tagaganap.)
+2. **Layon**: ang paksa ang bagay na ginawan ng kilos: "*Kinain* ng bata **ang mangga**." (Paksa: *ang mangga*; pokus: layon.)
 
 Kapag inilipat ang paksa sa layon, panatilihin ang aspekto: "Nagluto ng sopas si Dina" -> "Niluto ni Dina **ang sopas**."
 
 :::pair #hanapin-ang-may-ang-o-si
-Right: Sa "Kinain ng bata ang mangga," *ang mangga* ang paksa, kaya pokus sa layon (bagay) ang pandiwa.
-Wrong: Sabihing pokus sa tagaganap (*ang bata*) dahil ang bata ang kumain, o gawing paksa ang *ng pagkain* at *ni Mara*.
+Right: Sa "Nagluto ng pagkain si Rosa," *si Rosa* ang paksa (pokus sa tagaganap); sa "Kinain ng bata ang mangga," *ang mangga* ang paksa (pokus sa layon).
+Wrong: Gawing paksa ang *ng pagkain* o *ng bata* at sabihing tagaganap ang "Kinain ng bata ang mangga."
 Ang pariralang may *ang*, *ang mga*, *si*, o *sina* ang paksa. Kahit tao ang gumawa, kung *ng* o *ni* ang pananda nito (*ng bata*, *ni Mara*), hindi ito ang paksa.
 :::
 
@@ -40,8 +40,8 @@ Ang sagot ay **Sina Liza at Omar; pokus sa tagaganap**. May panandang *sina* ang
 
 Huwag ibatay ang sagot sa salitang lugar lamang. Tingnan kung saan ginanap ang kilos o ano ang pinuntahan:
 
-1. **Ganapan** (location): ang paksa ang lugar kung saan ginawa ang kilos: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**."
-2. **Direksiyon** (direction): ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
+1. **Ganapan**: ang paksa ang lugar kung saan ginawa ang kilos: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**."
+2. **Direksiyon**: ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
 
 <!-- ILLUSTRATION: dalawang nakapatong na pangungusap na parehong may "ang bakuran": sa itaas "Pinagtaniman ng mga kawani ng gulay ang bakuran." na may tatak na "lugar ng pagtatanim -> ganapan"; sa ibaba "Pinuntahan ng mga kawani ang bakuran." na may tatak na "patutunguhan ng kilos -> direksiyon" -->
 
@@ -61,9 +61,9 @@ Ang sagot ay **Ganapan**. Sa bulwagan ginanap ang pulong, hindi ito ang pinuntah
 
 Gamitin ang tanong na tugma sa papel ng paksa:
 
-1. **Tagatanggap** (beneficiary): sino ang nakinabang? "*Ipinagluto* ng kusinero ng lugaw **ang mga bata**."
-2. **Kagamitan** (instrument): ano ang ginamit? "*Ipinangsulat* ni Teresa ng pangalan **ang lapis**."
-3. **Sanhi** (cause): ano ang dahilan ng damdamin? "*Ikinatuwa* ng mga kawani **ang balita**."
+1. **Tagatanggap**: sino ang nakinabang? "*Ipinagluto* ng kusinero ng lugaw **ang mga bata**."
+2. **Kagamitan**: ano ang ginamit? "*Ipinangsulat* ni Teresa ng pangalan **ang lapis**."
+3. **Sanhi**: ano ang dahilan ng damdamin? "*Ikinatuwa* ng mga kawani **ang balita**."
 
 :::why
 Bakit kailangang suriin ang papel ng paksa sa *ipinagluto* at *ipinangsulat*? Pareho itong may *ip-* o *ipina-*, kaya alamin kung nakinabang ang paksa (*ang mga bata*) o ginamit ito (*ang lapis*).
@@ -89,7 +89,7 @@ Baguhin ang "Nagluto ng sopas si Dina" upang maging paksa ang *sopas* at manatil
 
 **Solution:**
 
-1. Ilipat ang panandang *ang* sa *sopas* (*ang sopas*), at gawing *ni Dina* ang gumawa.
+1. Gawing *ang sopas* ang *ng sopas* upang ito ang maging paksa, at gawing *ni Dina* ang *si Dina*.
 2. Palitan ang *nagluto* ng katumbas na tapos na at nakapokus sa layon: **niluto**.
 
 Sagot: **"Niluto ni Dina ang sopas."**
@@ -110,19 +110,19 @@ Paghambingin ang pokus sa "Pinagtaniman ng mga kawani ng gulay ang bakuran" at "
 
 ### #3: Tagatanggap Laban sa Kagamitan
 
-Suriin ang "Ipinagluto ni Mara ng lugaw ang mga bisita" at "Ipinangsulat ni Mara ng mga pangalan ang lapis." Ano ang pokus ng dalawang pandiwa?
+Suriin ang "Ipinaghanda ni Carlo ng meryenda ang mga panauhin" at "Ipinampunas ni Carlo sa mesa ang basahan." Ano ang pokus ng bawat pandiwa?
 
 **Solution:**
 
-1. Alisin bilang paksa ang *ni Mara* (may *ni*, hindi *si*), kaya hindi tagaganap ang pokus.
-2. Hanapin ang mga paksang may *ang*: *ang mga bisita* sa una, at *ang lapis* sa ikalawa.
+1. Hindi paksa ang *ni Carlo* (may *ni*, hindi *si*), kaya hindi tagaganap.
+2. Mga paksang may *ang*: *ang mga panauhin* at *ang basahan*.
 
 :::try
-Tapusin ang huling hakbang: ano ang papel ng *ang mga bisita* at *ang lapis*, kaya ano ang pokus ng bawat pandiwa?
+Tapusin: ano ang papel ng *ang mga panauhin* at *ang basahan*, at ano ang pokus ng bawat pandiwa?
 :::answer
-Ang sagot ay **Tagatanggap ang una; kagamitan ang ikalawa.** Nakinabang ang mga bisita sa pagluluto (*tagatanggap*), at ginamit ang lapis sa pagsulat (*kagamitan*).
+Ang sagot ay **Tagatanggap ang una; kagamitan ang ikalawa.** Nakinabang ang mga panauhin sa paghahanda (*tagatanggap*), at ginamit ang basahan sa pagpunas (*kagamitan*).
 
-**Check:** Itugma ang paksa sa pandiwa: *ipinagluto* + *ang mga bisita* = nakinabang (tagatanggap); *ipinangsulat* + *ang lapis* = ginamit (kagamitan).
+**Check:** Itugma ang paksa sa pandiwa: *ipinaghanda* + *ang mga panauhin* = nakinabang (tagatanggap); *ipinampunas* + *ang basahan* = ginamit (kagamitan).
 :::
 
 ## Speed Tricks & Shortcuts
@@ -132,7 +132,7 @@ Bilugan muna ang may *ang, ang mga, si,* o *sina*, saka itanong ang papel nito: 
 ## Traps to Watch For
 
 :::checklist
-- Pandiwang may *ng* o *ni* sa gumagawa gaya ng "Kinain ng bata ang mangga": piliin ang may *ang* o *si* bilang paksa. {#hanapin-ang-may-ang-o-si}
-- Paksang lugar gaya ng *ang bakuran*: alamin kung doon ginanap ang kilos (ganapan) o iyon ang pinuntahan (direksiyon). {#ganapan-laban-sa-direksiyon}
-- Unlaping *ipina-* o *ipang-*: itanong kung nakinabang ang paksa (tagatanggap) o ginamit ito (kagamitan). {#tagatanggap-kagamitan-at-sanhi}
+- Gumagawang may *ng* o *ni* ("Kinain ng bata ang mangga"): ang may *ang* o *si* ang paksa. {#hanapin-ang-may-ang-o-si}
+- Paksang lugar (*ang bakuran*): ginanapan ng kilos (ganapan) o pinuntahan (direksiyon)? {#ganapan-laban-sa-direksiyon}
+- Unlaping *ipina-* o *ipang-*: nakinabang (tagatanggap) o ginamit (kagamitan)? {#tagatanggap-kagamitan-at-sanhi}
 :::

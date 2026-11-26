@@ -38,7 +38,7 @@ The answer is **Is**. Treating the family as one unit making a shared plan takes
 
 ### Indefinite Pronouns
 
-An **indefinite pronoun** refers to people or things without naming them. Words such as *everybody*, *everyone*, *someone*, *somebody*, *anyone*, *nothing*, and *each* take singular verbs. Match *everybody* and *nothing* to singular verbs:
+An **indefinite pronoun** refers to people or things without naming them. Singular pronouns such as *everybody*, *everyone*, *someone*, *somebody*, *anyone*, *nothing*, and *each* take singular verbs:
 
 - "Everybody in the auditorium **is** welcome."
 - "Nothing about the missing files **seems** to make sense."
@@ -50,9 +50,9 @@ Why does *everybody* take a singular verb when it refers to many people? In Engl
 :::
 
 :::pair #indefinite-singular-verb
-Right: "Nothing about the missing files seems to make sense."
-Wrong: "Nothing about the missing files seem to make sense."
-Do not match the plural word *files* in the *about*-phrase. The subject is singular *nothing*, so the verb needs *-s*.
+Right: "Everybody in the room is seated," and "Nothing about the missing files seems to make sense."
+Wrong: "Everybody in the room are seated," or "Nothing about the missing files seem to make sense."
+Do not use *are* just because *everybody* means many people, and do not match the plural word *files* in the *about*-phrase. Both subjects stay singular.
 :::
 
 :::check
@@ -93,7 +93,7 @@ Choose the natural form for each context: (a) Under standard American English tr
 1. In (a), the committee acts as one unit under American English, so choose singular **has**.
 2. In (b), *among themselves* shows members acting separately, so British English uses plural **are**.
 
-**Check:** Read each sentence with a matching substitute: "The committee *it* has reached" (one unit) versus "The team members *they* are arguing" (separate members).
+**Check:** Substitute the matching pronoun: "It has reached a decision" (one unit) versus "They are arguing among themselves" (separate members).
 
 ### #2: Indefinite Pronoun with Singular Their
 
@@ -111,29 +111,29 @@ Correct: "Everybody **has** their own opinion."
 
 ### #3: Amount Versus Countable Items
 
-Choose the correct verbs: Most of the water in the tank *(has / have)* evaporated, and some of the cookies on the tray *(is / are)* already gone.
+Choose the correct verbs: Most of the rice in the sacks *(has / have)* been packed, and some of the apples in the crate *(is / are)* bruised.
 
 **Solution:**
 
-1. In the first clause, set aside *in the tank*. *Most* refers to mass noun *water*, so choose singular **has**.
-2. In the second clause, set aside *on the tray*.
+1. In the first clause, set aside *in the sacks*. *Most* refers to mass noun *rice*, so choose singular **has**.
+2. In the second clause, set aside *in the crate*.
 
 :::try
 Finish the last step: what noun does *some* refer to in the second clause, and which verb matches it?
 :::answer
-The answer is **Are**. *Some* refers to the plural countable noun *cookies*, so the second clause needs plural *are*: "some of the cookies on the tray are already gone."
+The answer is **Are**. *Some* refers to the plural countable noun *apples*, so the second clause needs plural *are*: "some of the apples in the crate are bruised."
 
-**Check:** Test each noun directly with its verb: "The water has evaporated" and "The cookies are already gone." Both agree.
+**Check:** Test each noun directly with its verb: "The rice has been packed" and "The apples are bruised." Both agree.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Check collective nouns for one-unit versus separate-member cues, keep *-body/-one/-thing* pronouns singular, and look past *of* for *all*, *some*, *most*, and *half*.
+Check collective nouns for one-unit vs. separate-member cues, keep *-body/-one/-thing* pronouns singular, and match the noun after *of* for *all*, *some*, *most*, and *half*.
 
 ## Traps to Watch For
 
 :::checklist
-- Collective noun in American English acting as one unit: use a singular verb like *has* or *is*. {#collective-unit-vs-members}
-- *Everybody*, *everyone*, or *nothing* before a plural phrase: ignore the phrase and keep the verb singular. {#indefinite-singular-verb}
-- *All*, *some*, or *most* with *of*: match the noun after *of*, not a fixed rule for *some* or *most*. {#some-most-noun-after-of}
+- Collective noun as one unit in American English: use a singular verb (*has*, *is*). {#collective-unit-vs-members}
+- *Everybody*, *everyone*, or *nothing* before a plural phrase: ignore the phrase; keep the verb singular. {#indefinite-singular-verb}
+- *All*, *some*, or *most* with *of*: match the noun after *of*. {#some-most-noun-after-of}
 :::

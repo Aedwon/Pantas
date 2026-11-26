@@ -15,7 +15,7 @@ keyPoints:
 
 ### Ugat, Panlapi, at Pag-uulit ng Pantig
 
-Ang **ugat** (root) ay ang batayang salita na walang dagdag, gaya ng *linis* at *kain*. Ang **panlapi** (affix) ay ikinakabit sa ugat, gaya ng *mag-*, *nag-*, *ka-*, at *-um-*. Ang **pantig** (syllable) ay bahagi ng salitang binibigkas nang isang bugso, gaya ng *li* sa *linis* o *ka* sa *kain*.
+Ang **ugat** ay ang batayang salita na walang dagdag, gaya ng *linis* at *kain*. Ang **panlapi** ay ikinakabit sa ugat, gaya ng *mag-*, *nag-*, *ka-*, at *-um-*. Ang **pantig** ay bahagi ng salitang binibigkas nang isang bugso, gaya ng *li* sa *linis* o *ka* sa *kain*.
 
 Kapag nagsisimula sa katinig ang ugat, inuulit ang unang katinig at patinig nito (*li-* sa *linis*, *ka-* sa *kain*). Kung nagsisimula sa patinig ang ugat tulad ng *alis*, inuulit ang unang patinig (*aalis*, *umaalis*).
 

@@ -17,7 +17,7 @@ keyPoints:
 
 ### Dalawang Ayos ng Pagmamay-ari
 
-Nagbabago ang panghalip na **paari** (possessive) depende sa puwesto nito sa pangungusap:
+Nagbabago ang panghalip na **paari** depende sa puwesto nito sa pangungusap:
 
 1. Pagkatapos ng pag-aari: anyong *ng* (*ko, mo, niya, namin, natin, ninyo, nila*), gaya sa "Ito ang aklat **ko**."
 2. Nauuna ang may-ari: anyong *sa* (*akin, iyo, kaniya, amin, atin, inyo, kanila*) nang walang *sa*, gaya sa "**Akin** ang aklat na nasa mesa."
@@ -56,7 +56,7 @@ Ang sagot ay **Tayo**. Kasama sa pupunta ang kausap na si Ben.
 
 ### Walang Kasarian ang Panghalip sa Filipino
 
-Hindi tulad ng Ingles na may *he*, *she*, at *it*, ang *siya*, *niya*, at *kaniya* sa Filipino ay **hindi nagsasaad ng kasarian** (gender). Pareho ang anyo para sa babae o lalaki, at ginagamit ito para sa tao, hindi para sa bagay. Piliin sa *siya*, *niya*, at *kaniya* batay sa papel sa pangungusap.
+Hindi tulad ng Ingles na may *he*, *she*, at *it*, ang *siya*, *niya*, at *kaniya* sa Filipino ay **hindi nagsasaad ng kasarian**. Pareho ang anyo para sa babae o lalaki, at ginagamit ito para sa tao, hindi para sa bagay. Piliin sa *siya*, *niya*, at *kaniya* batay sa papel sa pangungusap.
 
 :::why
 Bakit iisa ang *siya* para sa babae at lalaki? Sa balarilang Filipino, ang anyo ng panghalip ay sumusunod sa bilang at papel (*ang*, *ng*, o *sa*), hindi sa kasarian ng taong tinutukoy.
