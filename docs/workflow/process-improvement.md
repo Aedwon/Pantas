@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Pricing section drawn from house style, not from pricing-page practice (Nov 26)
+
+- His words (relayed by the manager, on the homepage Free and Pro board): "i like option 2 better, but still this design can be much improved, and make Pro look much more premium i guess, and then i don't like how all the prices are just displayed immediately. there must be a better, more standard way to do this to effectively attract customers".
+- Wrong: the UX lead drew a new kind of section (plans and prices) from the homepage's own tokens and an older investor-page table, with every price visible at once and Pro styled no differently from Free. No pricing-page guidance was read first.
+- Why it got through: his global rule "Standards before work" (read `~/Documents/Projects/agent-standards`, write a sheet for a field with no sheet, cite it) was not a step in any Pantas brief or board checklist. The library had no pricing sheet, and the board's fresh reviewer checked facts, claims and terms, not whether the pattern follows proven practice.
+- Fix (required step, every lead making a board for a new kind of screen or section): before drawing, name the field, read its agent-standards sheet or write one from primary sources (here `pricing-page-design.md`, NN/g and Baymard first), and put a "Standards applied" line with the rule ids on the board note. The fresh reviewer checks the board against those rules. No check can judge whether a design follows a pattern.
+
 ### Manager ran build and content workers from its own thread (Nov 26)
 
 - His words (about 12:20 PM Manila): "why do I keep approving things here, did you spawn subagents here instead of spawning another claude lead for the CSE content rewrite".
