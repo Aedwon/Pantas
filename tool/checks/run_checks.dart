@@ -30,6 +30,7 @@ import 'shell_route_push.dart';
 import 'sync_mutations_typed_read.dart';
 import 'walkthrough_example_connection_check.dart';
 import 'walkthrough_fresh_instance_check.dart';
+import 'walkthrough_hard_break_check.dart';
 import 'walkthrough_trap_pair_check.dart';
 
 const allChecks = <Check>[
@@ -40,6 +41,7 @@ const allChecks = <Check>[
   WalkthroughTrapPairCheck(),
   WalkthroughExampleConnectionCheck(),
   WalkthroughFreshInstanceCheck(),
+  WalkthroughHardBreakCheck(),
   ShellRoutePushCheck(),
   SyncMutationsTypedReadCheck(),
   MockBlueprintTopicsCheck(),

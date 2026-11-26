@@ -6,6 +6,7 @@ import '../checks/lesson_size_check.dart';
 import '../checks/lesson_split_coverage_check.dart';
 import '../checks/walkthrough_example_connection_check.dart';
 import '../checks/walkthrough_fresh_instance_check.dart';
+import '../checks/walkthrough_hard_break_check.dart';
 import '../checks/walkthrough_trap_pair_check.dart';
 
 List<Violation> runLessonChecks(String contentRoot) => [
@@ -15,6 +16,7 @@ List<Violation> runLessonChecks(String contentRoot) => [
       ...runWalkthroughTrapPairCheck(contentRoot),
       ...runWalkthroughExampleConnectionCheck(contentRoot),
       ...runWalkthroughFreshInstanceCheck(contentRoot),
+      ...runWalkthroughHardBreakCheck(contentRoot),
     ];
 
 void main(List<String> args) {
