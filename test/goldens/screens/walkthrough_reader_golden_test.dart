@@ -103,23 +103,28 @@ Future<Finder> _pump(
             size: Size(width, _surfaceHeight),
             disableAnimations: still,
           ),
-          child: Align(
-            alignment: Alignment.topLeft,
-            child: SingleChildScrollView(
-              // Never scrolls: the surface is taller than the lesson. It only
-              // gives the lesson a height of its own and a Scrollable.
-              physics: const NeverScrollableScrollPhysics(),
-              child: RepaintBoundary(
-                key: sheet,
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    for (final (i, panel) in panels.indexed) ...[
-                      if (i > 0) const SizedBox(width: _gutter),
-                      panel,
+          // The reader sits in a Scaffold in the app; without a Material the
+          // text draws Flutter's yellow no-Material underline.
+          child: Material(
+            type: MaterialType.transparency,
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: SingleChildScrollView(
+                // Never scrolls: the surface is taller than the lesson. It only
+                // gives the lesson a height of its own and a Scrollable.
+                physics: const NeverScrollableScrollPhysics(),
+                child: RepaintBoundary(
+                  key: sheet,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      for (final (i, panel) in panels.indexed) ...[
+                        if (i > 0) const SizedBox(width: _gutter),
+                        panel,
+                      ],
                     ],
-                  ],
+                  ),
                 ),
               ),
             ),
