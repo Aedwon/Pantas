@@ -2149,6 +2149,1510 @@
         }
       ]
     },
+    "lesson-grammar-and-structure-english-word-jobs": {
+      "adjective-vs-adverb": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0004",
+          "wrongChoice": "Adverb"
+        }
+      ],
+      "class-by-habit": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0017",
+          "wrongChoice": "Verb"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0009",
+          "wrongChoice": "Verb"
+        }
+      ],
+      "ly-ending-trap": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0018",
+          "wrongChoice": "Adverb"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-joining-words-phrases-and-clauses": {
+      "location-phrase-adverb": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0006",
+          "wrongChoice": "Adverb"
+        }
+      ],
+      "but-linking-clauses": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0007",
+          "wrongChoice": "Preposition"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0007",
+          "wrongChoice": "Adverb"
+        }
+      ],
+      "phrase-or-clause": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0019",
+          "wrongChoice": "Preposition"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0020",
+          "wrongChoice": "(1) Adverb, (2) Adjective, (3) Adverb, (4) Preposition"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-groups-and-indefinite-pronouns": {
+      "collective-unit-vs-members": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0005",
+          "wrongChoice": "Have"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0006",
+          "wrongChoice": "Are"
+        }
+      ],
+      "indefinite-singular-verb": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0008",
+          "wrongChoice": "Seem"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0007",
+          "wrongChoice": "Are"
+        }
+      ],
+      "some-most-noun-after-of": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0010",
+          "wrongChoice": "Is"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0009",
+          "wrongChoice": "Have"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-agreement-with-joined-subjects": {
+      "joined-by-and-plural": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0011",
+          "wrongChoice": "Is"
+        }
+      ],
+      "proximity-first-subject": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0012",
+          "wrongChoice": "Was"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0020",
+          "wrongChoice": "Was, was"
+        }
+      ],
+      "split-clause-agreement": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0017",
+          "wrongChoice": "The students were not late, and the teacher were not late."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pokus-at-papel-ng-paksa": {
+      "paksa-may-ang-o-si": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0018",
+          "wrongChoice": "Ng"
+        }
+      ],
+      "panatilihin-ang-aspekto": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0024",
+          "wrongChoice": "Sinusulat ni Mara ang mahalagang liham."
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0024",
+          "wrongChoice": "Susulatin ni Mara ang mahalagang liham."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-mga-gamit-ng-pananda": {
+      "ng-para-sa-gumagawa": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0019",
+          "wrongChoice": "Ang"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0019",
+          "wrongChoice": "Sa"
+        }
+      ],
+      "sa-para-sa-tagatanggap": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0023",
+          "wrongChoice": "Lugar na ginanapan ng paghahatid"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0023",
+          "wrongChoice": "Gumagawa ng paghahatid ng katibayan"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they": {
+      "reject-singular-they": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0014",
+          "wrongChoice": "No, because every use of \"their\" requires a plural antecedent."
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0003",
+          "wrongChoice": "His"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0004",
+          "wrongChoice": "Its"
+        }
+      ],
+      "everybody-and-they-verbs": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0017",
+          "wrongChoice": "Everybody have said they are ready for the afternoon activity."
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0017",
+          "wrongChoice": "Everybody has said they is ready for the afternoon activity."
+        }
+      ],
+      "ambiguous-antecedent": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0016",
+          "wrongChoice": "Michelle's, because the nearest name always controls possessives."
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0009",
+          "wrongChoice": "\"She\" must always refer to the woman named closest to it."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents": {
+      "group-unit-vs-members": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0005",
+          "wrongChoice": "Their"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0006",
+          "wrongChoice": "Their"
+        }
+      ],
+      "joined-by-and-one-person": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0010",
+          "wrongChoice": "Sofia alone, because her name comes first"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0010",
+          "wrongChoice": "Her sister alone, because she is named closest"
+        }
+      ],
+      "mixed-nor-forced-gender": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0008",
+          "wrongChoice": "Neither the coach nor the players brought his own required equipment."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao": {
+      "pangkat-ng-ang": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0013",
+          "wrongChoice": "Niya"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0013",
+          "wrongChoice": "Kaniya"
+        }
+      ],
+      "bilang-at-gumawa-sa-ng": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0012",
+          "wrongChoice": "Nila"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0012",
+          "wrongChoice": "Namin"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0012",
+          "wrongChoice": "Ninyo"
+        }
+      ],
+      "anyong-sa-para-sa-tatanggap": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0021",
+          "wrongChoice": "sila"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0021",
+          "wrongChoice": "nila"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0021",
+          "wrongChoice": "para sa kaniya"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip": {
+      "ayos-ng-pagmamay-ari": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0022",
+          "wrongChoice": "Ako"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0022",
+          "wrongChoice": "Ko"
+        }
+      ],
+      "tayo-laban-sa-kami": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0023",
+          "wrongChoice": "Tayo"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0023",
+          "wrongChoice": "Sila"
+        }
+      ],
+      "walang-kasarian-ang-siya": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0011",
+          "wrongChoice": "Tumutukoy lamang sa babae"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0011",
+          "wrongChoice": "Tumutukoy lamang sa lalaki"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0011",
+          "wrongChoice": "Ginagamit lamang para sa mga bagay"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-present-habits-and-ongoing-actions": {
+      "habit-wrong-tense": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0032",
+          "wrongChoice": "sorted"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0032",
+          "wrongChoice": "is sort"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0032",
+          "wrongChoice": "sorting"
+        }
+      ],
+      "wider-present-project": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0020",
+          "wrongChoice": "Writing that must be happening at the exact second she speaks"
+        }
+      ],
+      "stative-verb-progressive": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0022",
+          "wrongChoice": "I am knowing how to use the filing system."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-past-events-and-future-meaning": {
+      "keep-stated-past-time": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0001",
+          "wrongChoice": "Change \"bought\" to \"buys\" while keeping \"yesterday.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0001",
+          "wrongChoice": "Change both action verbs to future forms with \"will.\""
+        }
+      ],
+      "will-is-simple-future": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0015",
+          "wrongChoice": "Present perfect"
+        }
+      ],
+      "justified-tense-shift": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0006",
+          "wrongChoice": "No, because every coordinated sentence must use one tense throughout."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-present-perfect-links-to-now": {
+      "full-verb-group": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0016",
+          "wrongChoice": "Simple past"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0016",
+          "wrongChoice": "Past perfect"
+        }
+      ],
+      "still-true-now": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0012",
+          "wrongChoice": "We had lived here until last month, and then we left."
+        }
+      ],
+      "finished-past-time": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0033",
+          "wrongChoice": "has submitted"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0033",
+          "wrongChoice": "has submit"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-past-perfect-earlier-completion": {
+      "mark-earlier-past": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0005",
+          "wrongChoice": "Cooked"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0005",
+          "wrongChoice": "Cooks"
+        }
+      ],
+      "before-already-orders": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0014",
+          "wrongChoice": "Any action that happened first must always use past perfect instead."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0014",
+          "wrongChoice": "The later event must always use past perfect instead of simple past."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-recognizing-active-and-passive-voice": {
+      "check-subject-not-by-phrase": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0002",
+          "wrongChoice": "Passive voice because the ball receives the action"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0003",
+          "wrongChoice": "Active voice because the dog is the actor"
+        }
+      ],
+      "be-plus-adjective": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0013",
+          "wrongChoice": "\"Happy\" must be a past participle whenever it follows a form of \"be.\""
+        }
+      ],
+      "keep-unknown-agent-passive": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0023",
+          "wrongChoice": "The administrator has changed the access codes."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0023",
+          "wrongChoice": "The access codes were changed."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-changing-voice-and-get-passives": {
+      "swap-roles-correctly": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0004",
+          "wrongChoice": "The novel wrote a famous author."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0007",
+          "wrongChoice": "The committee was approved by the new budget during the meeting."
+        }
+      ],
+      "preserve-tense-and-aspect": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0004",
+          "wrongChoice": "A famous author was writing the novel."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0007",
+          "wrongChoice": "The new budget is approved by the committee during its meetings."
+        }
+      ],
+      "get-plus-participle": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0019",
+          "wrongChoice": "A linking construction with \"got\" meaning ownership of an object"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0019",
+          "wrongChoice": "An active clause with the window as the actor causing the break"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-modals-ability-and-permission": {
+      "base-form-after-modal": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0021",
+          "wrongChoice": "The assistant can prepares the minutes without help."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0021",
+          "wrongChoice": "The assistant can prepared the minutes without help."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0021",
+          "wrongChoice": "The assistant can preparing the minutes without help."
+        }
+      ],
+      "no-to-after-modal": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0028",
+          "wrongChoice": "to answer"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0028",
+          "wrongChoice": "answers"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0028",
+          "wrongChoice": "answering"
+        }
+      ],
+      "could-permission-vs-ability": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0029",
+          "wrongChoice": "I could type before I entered college."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0029",
+          "wrongChoice": "The records could arrive later this afternoon."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-modals-requirements-and-possibility": {
+      "optional-vs-banned": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0030",
+          "wrongChoice": "Applicants must not bring a printed sheet."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0030",
+          "wrongChoice": "Applicants have to bring a printed reference sheet."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0030",
+          "wrongChoice": "Applicants should bring a printed reference sheet."
+        }
+      ],
+      "might-shows-possibility": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0031",
+          "wrongChoice": "A strict requirement"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0031",
+          "wrongChoice": "Permission to enter"
+        }
+      ],
+      "must-conclusion-vs-rule": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0024",
+          "wrongChoice": "A polite request for permission; an obligation to use the room"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0024",
+          "wrongChoice": "General ability in the past; a strong conclusion from evidence"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-kalagayan-ng-kilos": {
+      "piliin-ayon-sa-kalagayan": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0001",
+          "wrongChoice": "Naglilinis"
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0001",
+          "wrongChoice": "Maglilinis"
+        }
+      ],
+      "tapos-laban-sa-katatapos": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0011",
+          "wrongChoice": "Parehong perpektibong katatapos dahil parehong natapos ang kilos."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0011",
+          "wrongChoice": "Kontemplatibo ang ikalawa dahil may salitang lang."
+        }
+      ],
+      "kadarating-ay-katatapos": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0002",
+          "wrongChoice": "Imperpektibo"
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0002",
+          "wrongChoice": "Perpektibo na walang pahiwatig na katatapos lamang"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa": {
+      "huwag-ilipat-ang-mag": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009",
+          "wrongChoice": "Panatilihin ang magkakain dahil lahat ng kontemplatibo ay may mag-."
+        }
+      ],
+      "kumain-kontemplatibo-walang-um": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009",
+          "wrongChoice": "Palitan ang magkakain ng kumakain."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009",
+          "wrongChoice": "Palitan ang magkakain ng kumain."
+        }
+      ],
+      "basahin-ang-buong-pandiwa": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0025",
+          "wrongChoice": "Perpektibo lamang ang una dahil may kahapon; imperpektibo ang ikalawa dahil inuulit ang li."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0025",
+          "wrongChoice": "Imperpektibo ang una; kontemplatibo ang ikalawa."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa": {
+      "hanapin-ang-may-ang-o-si": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0011",
+          "wrongChoice": "Pokus sa tagaganap (ang bata)"
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0003",
+          "wrongChoice": "Ang pagkain ang paksa; pokus sa layon."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0026",
+          "wrongChoice": "Parehong tagaganap dahil si Mara ang gumagawa ng mga kilos."
+        }
+      ],
+      "ganapan-laban-sa-direksiyon": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0012",
+          "wrongChoice": "Parehong ganapan dahil parehong lugar ang bakuran."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0012",
+          "wrongChoice": "Direksiyon ang una; ganapan ang ikalawa."
+        }
+      ],
+      "tagatanggap-kagamitan-at-sanhi": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0006",
+          "wrongChoice": "Tagaganap, dahil ang kusinero ang nagluto."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0026",
+          "wrongChoice": "Kagamitan ang una dahil ginamit ang mga bisita; tagatanggap ang ikalawa dahil nakinabang ang lapis."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-phrases-and-understood-subjects": {
+      "phrase-vs-dependent-clause": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0001",
+          "wrongChoice": "Dependent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0001",
+          "wrongChoice": "Independent clause"
+        }
+      ],
+      "command-has-understood-you": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0011",
+          "wrongChoice": "A dependent clause with a missing main clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0011",
+          "wrongChoice": "A noun phrase because it names an action"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-independent-and-dependent-clauses": {
+      "short-clause-is-complete": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0002",
+          "wrongChoice": "Prepositional phrase"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0002",
+          "wrongChoice": "Dependent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0003",
+          "wrongChoice": "Dependent clause"
+        }
+      ],
+      "subordinator-makes-dependent": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0004",
+          "wrongChoice": "Independent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0008",
+          "wrongChoice": "Independent clause"
+        }
+      ],
+      "event-noun-vs-verb": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0017",
+          "wrongChoice": "After the bus trip"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0017",
+          "wrongChoice": "During the bus journey"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-relative-clauses-and-main-thoughts": {
+      "relative-is-dependent": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0016",
+          "wrongChoice": "Independent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0016",
+          "wrongChoice": "Prepositional phrase"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0016",
+          "wrongChoice": "Noun phrase"
+        }
+      ],
+      "stop-before-main-verb": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0019",
+          "wrongChoice": "Who found the road closed"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0019",
+          "wrongChoice": "The driver who found the road closed"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0019",
+          "wrongChoice": "Delayed our delivery"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-connectors-for-reason-and-contrast": {
+      "comma-by-clause-order": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0009",
+          "wrongChoice": "No: the comma should be removed entirely."
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0010",
+          "wrongChoice": "Yes: a comma is always required regardless of clause order."
+        }
+      ],
+      "fragment-is-not-sentence": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0006",
+          "wrongChoice": "It is a complete independent sentence."
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0006",
+          "wrongChoice": "It is a run-on with two main clauses."
+        }
+      ],
+      "two-dependent-clauses": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0005",
+          "wrongChoice": "Because the store was closed, while we walked back home."
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0015",
+          "wrongChoice": "Although she reviewed it carefully, because the manager still had questions."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-finite-verbs-and-ing-groups": {
+      "ing-is-not-finite": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0021",
+          "wrongChoice": "preparing"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0021",
+          "wrongChoice": "to submit"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0021",
+          "wrongChoice": "closing"
+        }
+      ],
+      "ing-group-not-clause": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0007",
+          "wrongChoice": "Independent finite clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0007",
+          "wrongChoice": "Dependent finite clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0007",
+          "wrongChoice": "Prepositional phrase"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses": {
+      "infinitive-not-finite-clause": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0022",
+          "wrongChoice": "Independent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0022",
+          "wrongChoice": "Finite dependent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0022",
+          "wrongChoice": "Complete formal sentence"
+        }
+      ],
+      "long-infinitive-still-fragment": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0023",
+          "wrongChoice": "To revise the policy before the next inspection."
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0023",
+          "wrongChoice": "To have the policy revised before the inspection."
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0023",
+          "wrongChoice": "To revise the policy and to notify all employees."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-simple-and-compound-sentences": {
+      "compound-parts-still-simple": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0001",
+          "wrongChoice": "Compound"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0001",
+          "wrongChoice": "Compound-complex"
+        }
+      ],
+      "but-so-semicolon-are-compound": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0002",
+          "wrongChoice": "Complex"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0002",
+          "wrongChoice": "Compound-complex"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0017",
+          "wrongChoice": "Simple"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0017",
+          "wrongChoice": "Complex"
+        }
+      ],
+      "compound-subject-not-compound": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0013",
+          "wrongChoice": "The dog and cat played together in the yard."
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0013",
+          "wrongChoice": "The dog played while the cat slept in the yard."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-complex-and-compound-complex-sentences": {
+      "multiple-dependents-still-complex": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0015",
+          "wrongChoice": "Compound-complex"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0003",
+          "wrongChoice": "Compound"
+        }
+      ],
+      "missed-second-main-or-dep": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0004",
+          "wrongChoice": "Compound"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0004",
+          "wrongChoice": "Complex"
+        }
+      ],
+      "after-phrase-vs-clause": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0018",
+          "wrongChoice": "After rehearsal ended, the musicians left the hall."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning": {
+      "wrong-noun-attachment": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0001",
+          "wrongChoice": "The waiter served pasta to the customer covered in cheese."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0001",
+          "wrongChoice": "Covered in cheese, the waiter served pasta to the customer."
+        }
+      ],
+      "smooth-but-wrong-target": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0013",
+          "wrongChoice": "The teacher wearing a blue jacket spoke to the student after class."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0013",
+          "wrongChoice": "The teacher, who wore a blue jacket, spoke to the student after class."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects": {
+      "passive-or-later-pronoun": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0002",
+          "wrongChoice": "After finishing the marathon, a warm bath was enjoyed by her."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0002",
+          "wrongChoice": "After finishing the marathon, the warmth of the bath amazed her."
+        }
+      ],
+      "activity-noun-subject": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0014",
+          "wrongChoice": "Excited about the trip, packing the suitcases was finished a week early."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0007",
+          "wrongChoice": "Exhausted from the long hike, pitching the tents took the campers an hour."
+        }
+      ],
+      "while-ing-no-subject": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0009",
+          "wrongChoice": "While approaching the gate, the barking of a dog startled Liza."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0020",
+          "wrongChoice": "After arriving at the house, dinner was served to the guests in the hall."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-scope-of-small-modifiers": {
+      "only-before-wrong-part": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0011",
+          "wrongChoice": "Only the ticket admits a guest on Saturday, according to the notice."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0011",
+          "wrongChoice": "The ticket admits only a guest on Saturday, according to the notice."
+        }
+      ],
+      "rigid-only-rules": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0008",
+          "wrongChoice": "It always limits just the next word, regardless of the surrounding context."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0008",
+          "wrongChoice": "It limits nouns alone, even when it appears directly before a verb."
+        }
+      ],
+      "almost-before-verb-vs-quantity": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0010",
+          "wrongChoice": "The cyclists almost rode to school every day during the term."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0019",
+          "wrongChoice": "The curator almost displayed all the vases during the evening exhibition."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-matching-forms-in-lists": {
+      "fix-only-two-items": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0005",
+          "wrongChoice": "Change \"painting\" to \"to paint.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0005",
+          "wrongChoice": "Change \"singing\" to \"to sing.\""
+        }
+      ],
+      "changing-meaning-in-pair": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0010",
+          "wrongChoice": "She enjoys hiking and swims in the lake."
+        },
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0010",
+          "wrongChoice": "She enjoys hiking and to swim in the lake."
+        }
+      ],
+      "noun-list-vs-clause": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0009",
+          "wrongChoice": "Change \"its plans for the future\" to \"planning for the future.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0009",
+          "wrongChoice": "Change \"analyzing its financial growth\" to \"it grew financially.\""
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-shared-words-in-parallel-lists": {
+      "mixed-form-under-shared-word": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0003",
+          "wrongChoice": "The manual explains how to install, updating, and repairing the software."
+        }
+      ],
+      "partial-list-fix": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0013",
+          "wrongChoice": "Change \"setting\" to \"set\" but keep \"saving money.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0013",
+          "wrongChoice": "Change only \"track\" to \"tracking\" and keep the rest."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-parallel-pairs-and-comparisons": {
+      "mismatched-correlative-pair": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0002",
+          "wrongChoice": "Change \"it was educational\" to \"to educate people.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0002",
+          "wrongChoice": "Change \"fun\" to \"enjoyably\" while keeping the rest."
+        }
+      ],
+      "misplaced-correlative-connector": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0017",
+          "wrongChoice": "Applicants may either submit online or a mailed application."
+        }
+      ],
+      "comparing-unlike-things": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0008",
+          "wrongChoice": "The cost of a bus trip is lower than taking a taxi to the same destination."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-commas-in-lists-and-joined-clauses": {
+      "comma-between-verb-and-list": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0005",
+          "wrongChoice": "I bought, apples, bananas, and oranges."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0005",
+          "wrongChoice": "I bought apples, bananas and, oranges."
+        }
+      ],
+      "comma-after-joining-word": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0006",
+          "wrongChoice": "She studied hard and, she passed the exam."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0006",
+          "wrongChoice": "She studied hard and she, passed the exam."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-commas-with-openings-and-extra-information": {
+      "splitting-opening-or-subject": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0007",
+          "wrongChoice": "After, the meeting we went home."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0007",
+          "wrongChoice": "After the meeting we, went home."
+        }
+      ],
+      "missing-commas-on-extra-info": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0008",
+          "wrongChoice": "My brother who lives in Cebu is visiting this week."
+        }
+      ],
+      "commas-on-identifying-clause": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0014",
+          "wrongChoice": "The students, who missed the test, must report today."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-semicolons-and-comma-splices": {
+      "comma-splice-same-topic": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0001",
+          "wrongChoice": "Keep the comma because the clauses concern the same concert."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0019",
+          "wrongChoice": "The train was late, the passengers remained calm."
+        }
+      ],
+      "semicolon-before-dependent-part": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0003",
+          "wrongChoice": "She loves reading; because she visits the library every weekend."
+        }
+      ],
+      "semicolons-in-complex-list": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0009",
+          "wrongChoice": "We visited Manila, Philippines, Tokyo, Japan, and Seoul, Korea."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0009",
+          "wrongChoice": "We visited Manila; Philippines, Tokyo; Japan, and Seoul; Korea."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions": {
+      "singular-name-possessive": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0010",
+          "wrongChoice": "Marias book was left on the table."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0010",
+          "wrongChoice": "Marias' book was left on the table."
+        }
+      ],
+      "contraction-apostrophe-spot": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0011",
+          "wrongChoice": "I dont want to go outside today."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0011",
+          "wrongChoice": "I do'nt want to go outside today."
+        }
+      ],
+      "its-vs-its-contraction": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0002",
+          "wrongChoice": "It's"
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0002",
+          "wrongChoice": "Its'"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes": {
+      "title-before-name-vs-role": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0004",
+          "wrongChoice": "We met president Reyes yesterday at the company office."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0017",
+          "wrongChoice": "We met the President yesterday during the afternoon visit."
+        }
+      ],
+      "quoted-word-capitalized": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0018",
+          "wrongChoice": "The word \"Meeting\" appears twice in the short announcement."
+        }
+      ],
+      "quoted-sentence-lowercase": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0013",
+          "wrongChoice": "She said, \"please close the door.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0013",
+          "wrongChoice": "She said, \"Please Close The Door.\""
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-removing-needless-repeated-meaning": {
+      "adding-more-repeated-words": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0012",
+          "wrongChoice": "Please return back again the library books by Friday."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0012",
+          "wrongChoice": "Please keep the library books until Friday and take them home."
+        }
+      ],
+      "blanket-cut-of-timing": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0016",
+          "wrongChoice": "It must be deleted because every warning contains the same timing detail."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0016",
+          "wrongChoice": "It proves every repeated phrase should be removed in formal writing."
+        }
+      ],
+      "blind-deletion-rule": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0019",
+          "wrongChoice": "Whether every pair of words with related meanings must lose one word."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-keeping-needed-repetition": {
+      "cutting-or-changing-first-repeat": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0013",
+          "wrongChoice": "Could you please repeat again once more what you just said?"
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0013",
+          "wrongChoice": "Could you please change what you just said into a new idea?"
+        }
+      ],
+      "missing-prior-repeat": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0021",
+          "wrongChoice": "It says the instruction has never been repeated."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0021",
+          "wrongChoice": "It requires the officer to change the instruction."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-editing-negative-concord": {
+      "keeping-negative-concord-in-formal": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0002",
+          "wrongChoice": "She doesn't want no help with the project."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0002",
+          "wrongChoice": "She wants some help with the project after all."
+        }
+      ],
+      "math-cancellation-on-dialect": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0006",
+          "wrongChoice": "The speaker must have seen something unusual after all."
+        }
+      ],
+      "erasing-or-narrowing-absence": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0014",
+          "wrongChoice": "There is somebody at the office right now, waiting inside."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0014",
+          "wrongChoice": "There isn't somebody specific at the office right now."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-qualified-negatives-and-near-negatives": {
+      "qualified-negative-extremes": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0020",
+          "wrongChoice": "The proposal is unreasonable and should be rejected outright."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0020",
+          "wrongChoice": "The proposal is perfectly reasonable in every respect."
+        }
+      ],
+      "not-with-near-negative": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0004",
+          "wrongChoice": "I can't hardly hear you from over here."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0018",
+          "wrongChoice": "Scarcely no supplies remained after the last group left."
+        }
+      ],
+      "seldom-as-never": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0022",
+          "wrongChoice": "The employee never requests any extra time."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-finding-subjects-and-matching-verbs": {
+      "verb-s": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0001",
+          "wrongChoice": "Bark"
+        }
+      ],
+      "nearest-noun": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0003",
+          "wrongChoice": "Are"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0004",
+          "wrongChoice": "Is"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0014",
+          "wrongChoice": "Tutors"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari": {
+      "bata-pangngalan-hindi-pang-uri": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0013",
+          "wrongChoice": "Pang-uri"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0013",
+          "wrongChoice": "Panghalip"
+        }
+      ],
+      "pandiwa-kilos-hindi-pangngalan": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0015",
+          "wrongChoice": "Pangngalan"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0015",
+          "wrongChoice": "Pang-abay"
+        }
+      ],
+      "pandiwari-bilang-pangngalan": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0024",
+          "wrongChoice": "Pandiwang nagsasaad ng ginawa ng kawani"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0024",
+          "wrongChoice": "Pang-abay na nagsasaad ng lugar ng kilos"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pang-uri-at-pang-abay": {
+      "matapang-pang-uri-hindi-pang-abay": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0012",
+          "wrongChoice": "Pang-abay"
+        }
+      ],
+      "mabilis-pang-abay-hindi-pang-uri": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0016",
+          "wrongChoice": "Pang-uri"
+        }
+      ],
+      "pangkat-na-panlunan": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0023",
+          "wrongChoice": "ng mga kawani"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0023",
+          "wrongChoice": "ang mga kahon"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam": {
+      "pang-ukol-laban-sa-pangatnig": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0021",
+          "wrongChoice": "Pangatnig"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0021",
+          "wrongChoice": "Pang-abay"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0021",
+          "wrongChoice": "Pangngalan"
+        }
+      ],
+      "pandamdam-laban-sa-pangngalan": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0022",
+          "wrongChoice": "Pangngalan"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0022",
+          "wrongChoice": "Pangatnig"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0022",
+          "wrongChoice": "Pandiwa"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino": {
+      "aspekto-ayon-sa-kalagayan": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0021",
+          "wrongChoice": "Kumain"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0021",
+          "wrongChoice": "Kakain"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0021",
+          "wrongChoice": "Kakakain lamang"
+        }
+      ],
+      "bilang-ng-paksa-at-pandiwa": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0022",
+          "wrongChoice": "Kumain na ng tanghalian ang mga kawani."
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0022",
+          "wrongChoice": "Kakain pa lamang ng tanghalian ang mga kawani."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-mga-pahiwatig-ng-oras": {
+      "panatilihin-ang-oras-at-aspekto": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0005",
+          "wrongChoice": "Magsusumite si Elena ng ulat kahapon."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0005",
+          "wrongChoice": "Nagsumite si Elena ng ulat kahapon."
+        }
+      ],
+      "tuwing-paulit-ulit-na-kilos": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0004",
+          "wrongChoice": "Sapagkat natapos na ang lahat ng paglilinis."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0004",
+          "wrongChoice": "Sapagkat katatapos lamang nilang maglinis."
+        }
+      ],
+      "nagpapatuloy-sa-nakaraan": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0010",
+          "wrongChoice": "Perpektibo, dahil kahapon naganap ang pangyayari."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0010",
+          "wrongChoice": "Kontemplatibo, dahil hindi pa tapos ang ulat."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-payak-at-tambalang-pangungusap": {
+      "sugnay-na-makapag-iisa": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0022",
+          "wrongChoice": "Dahil inayos ng kawani ang pila."
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0022",
+          "wrongChoice": "Kapag inayos ng kawani ang pila."
+        }
+      ],
+      "payak-laban-sa-tambalan": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0010",
+          "wrongChoice": "Payak"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0010",
+          "wrongChoice": "Hugnayan"
+        }
+      ],
+      "pangatnig-sa-pagpipilian": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0023",
+          "wrongChoice": "at"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0023",
+          "wrongChoice": "ngunit"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0023",
+          "wrongChoice": "dahil"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay": {
+      "hugnayan-laban-sa-tambalan": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0011",
+          "wrongChoice": "Tambalan"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0011",
+          "wrongChoice": "Payak"
+        }
+      ],
+      "langkapan-bilangin-ang-bawat-sugnay": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0012",
+          "wrongChoice": "Tambalan"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0012",
+          "wrongChoice": "Hugnayan"
+        }
+      ],
+      "ayos-ng-pananda-sa-salaysay": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0021",
+          "wrongChoice": "Una, sa huli, pagkatapos"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0021",
+          "wrongChoice": "Sa huli, pagkatapos nito, una"
+        }
+      ]
+    },
     "lesson-vocabulary-baybay-ng-hiram-na-salita": {
       "isingit-ang-w": [
         {

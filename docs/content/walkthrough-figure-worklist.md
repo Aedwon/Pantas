@@ -170,3 +170,99 @@ Preserved all 38 existing `ILLUSTRATION:` and `FIGURE:` markers byte-for-byte fr
 
 48. `content/lessons/reasoning/spatial-abstract-reasoning/unfolding-cuts-across-a-fold.md` (`## Examples` -> `### #2: Two Folds and an Off-Crease Punch`):
     `<!-- ILLUSTRATION: square folded left half onto right half, then bottom half onto top half; small circular punch near the right outer edge at middle height of the packet, touching no edge or crease; unfolded state not shown -->`
+
+## Batch 3 (Grammar & Structure)
+
+Zero existing `ILLUSTRATION:` or `FIGURE:` markers existed in `a7cc22b6b` across the 52 active CSE Grammar & Structure lessons. Added 30 new `ILLUSTRATION:` placeholders where a structural or timeline diagram teaches faster than prose.
+
+### New Batch 3 Placeholders
+
+49. `content/lessons/language-proficiency/grammar-and-structure/joining-words-phrases-and-clauses.md` (`## Core Concept` -> `### A Phrase or a Clause After a Joining Word`):
+    `<!-- ILLUSTRATION: two stacked sentences comparing "before": top "We met before [dinner]" with [dinner] bracketed and labeled "noun phrase -> preposition"; bottom "We left before [we finished dinner]" with "we" labeled "subject", "finished" labeled "verb", and [we finished dinner] labeled "clause -> subordinating conjunction" -->`
+
+50. `content/lessons/language-proficiency/grammar-and-structure/agreement-with-joined-subjects.md` (`## Core Concept` -> `### Agreement with Or and Nor`):
+    `<!-- ILLUSTRATION: the sentence "Neither the coach nor the players on the visiting team were satisfied." with "the coach" grayed out, "on the visiting team" bracketed as "added detail", and a teal arrow from "players" (labeled "nearer head, plural") to "were" -->`
+
+51. `content/lessons/language-proficiency/grammar-and-structure/pokus-at-papel-ng-paksa.md` (`## Core Concept` -> `### Pokus sa Tagaganap at Pokus sa Layon`):
+    `<!-- ILLUSTRATION: dalawang nakapatong na pangungusap: sa itaas "Sumulat si Mara ng liham." na may palaso mula "Sumulat" patungong "si Mara" na may tatak na "paksa: tagaganap"; sa ibaba "Sinulat ni Mara ang liham." na may palaso mula "Sinulat" patungong "ang liham" na may tatak na "paksa: layon" -->`
+
+52. `content/lessons/language-proficiency/grammar-and-structure/mga-anyo-ng-panghalip-panao.md` (`## Core Concept` -> `### Anyong Sa: Para sa Tumanggap o Pinaglaanan`):
+    `<!-- ILLUSTRATION: tatlong hilera na nagpapakita ng pangkat ng panghalip panao: anyong ang ("Siya ay dumating"), anyong ng ("Ipinakita niya ito"), at anyong sa ("Ibinigay sa kaniya ang resibo"), may palaso sa bawat papel -->`
+
+53. `content/lessons/language-proficiency/grammar-and-structure/present-perfect-links-to-now.md` (`## Core Concept` -> `### Linking the Past to Now`):
+    `<!-- ILLUSTRATION: horizontal timeline showing "last month" with a solid teal arrow extending to "now" labeled "have lived here ever since (present perfect)", below a marked point at "yesterday afternoon" labeled "submitted (simple past)" -->`
+
+54. `content/lessons/language-proficiency/grammar-and-structure/past-perfect-earlier-completion.md` (`## Core Concept` -> `### Marking Earlier Completion in the Past`):
+    `<!-- ILLUSTRATION: horizontal timeline showing Event 1 marked "had cooked (earlier past, finished first)" before Event 2 marked "guests arrived (later past)", both to the left of "now" -->`
+
+55. `content/lessons/language-proficiency/grammar-and-structure/changing-voice-and-get-passives.md` (`## Core Concept` -> `### Switching Between Active and Passive Voice`):
+    `<!-- ILLUSTRATION: two stacked sentences showing role swap: top "The committee [actor] approved [simple past] the new budget [receiver]." with crossing arrows to bottom "The new budget [subject] was approved [simple past passive] by the committee [agent]." -->`
+
+56. `content/lessons/language-proficiency/grammar-and-structure/ugnayan-ng-pandiwa-at-paksa.md` (`## Core Concept` -> `### Ganapan Laban sa Direksiyon`):
+    `<!-- ILLUSTRATION: dalawang nakapatong na pangungusap na parehong may "ang bakuran": sa itaas "Pinagtaniman ng mga kawani ng gulay ang bakuran." na may tatak na "lugar ng pagtatanim -> ganapan"; sa ibaba "Pinuntahan ng mga kawani ang bakuran." na may tatak na "patutunguhan ng kilos -> direksiyon" -->`
+
+57. `content/lessons/language-proficiency/grammar-and-structure/independent-and-dependent-clauses.md` (`## Core Concept` -> `### Checking After Words Like After, Before, and Since`):
+    `<!-- ILLUSTRATION: two stacked groups starting with "After": top "After [the bus trip]" with "the bus trip" bracketed and labeled "noun group, no finite verb -> prepositional phrase"; bottom "After [the bus] [arrived]" with "the bus" labeled "subject", "arrived" labeled "finite verb", and the whole group labeled "dependent clause" -->`
+
+58. `content/lessons/language-proficiency/grammar-and-structure/relative-clauses-and-main-thoughts.md` (`## Core Concept` -> `### Finding the Main Thought Around a Relative Clause`):
+    `<!-- ILLUSTRATION: the sentence "The driver [who found the road closed] delayed our delivery." with [who found the road closed] bracketed and shaded as "relative clause (dependent)" with an arrow back to "The driver", and a teal arc connecting "The driver" (main subject) over the bracket to "delayed" (main verb) -->`
+
+59. `content/lessons/language-proficiency/grammar-and-structure/complex-and-compound-complex-sentences.md` (`## Core Concept` -> `### Complex Sentences: One Main Clause Plus Dependent Clauses`):
+    `<!-- ILLUSTRATION: two-column clause inventory diagram: left column "Complex = 1 independent + 1 or more dependent" with example "If [the rain stops] (dep) + when [the guests arrive] (dep) + [we will open the hall] (1 indep)"; right column "Compound-complex = 2+ independent + 1+ dependent" with example "When [the bell rang] (dep) + [the students grabbed their bags] (indep 1), and [they rushed out] (indep 2)" -->`
+
+60. `content/lessons/language-proficiency/grammar-and-structure/misplaced-modifiers-and-clear-meaning.md` (`## Core Concept` -> `### Placing a Modifier Beside Its True Target`):
+    `<!-- ILLUSTRATION: two stacked sentences: top "The waiter served pasta to the [customer] [covered in cheese]." with an arrow from "covered in cheese" pointing mistakenly to "customer"; bottom "The waiter served the customer [pasta] [covered in cheese]." with a teal arrow from "covered in cheese" pointing to "pasta" -->`
+
+61. `content/lessons/language-proficiency/grammar-and-structure/dangling-modifiers-and-their-subjects.md` (`## Core Concept` -> `### Matching an Opening Phrase to the Main Subject`):
+    `<!-- ILLUSTRATION: two stacked sentences: top "After finishing the marathon, [a warm bath] felt amazing." with a crossed line from "finishing" to "a warm bath" labeled "dangling: bath cannot finish a race"; bottom "After finishing the marathon, [she] enjoyed a warm bath." with a teal arrow from "finishing" to "she" labeled "matching main subject" -->`
+
+62. `content/lessons/language-proficiency/grammar-and-structure/matching-forms-in-lists.md` (`## Core Concept` -> `### Matching Forms in Lists and Pairs`):
+    `<!-- ILLUSTRATION: three-row parallel alignment chart under the shared lead-in "Her hobbies include": row 1 "painting (-ing)", row 2 "dancing (-ing)" with "to dance" crossed out beside it, row 3 "singing (-ing)", each aligned with a teal checkmark -->`
+
+63. `content/lessons/language-proficiency/grammar-and-structure/shared-words-in-parallel-lists.md` (`## Core Concept` -> `### Shared Words Before a List`):
+    `<!-- ILLUSTRATION: branching diagram from a single box "how to" to three aligned rows: "install (base verb)", "update (base verb)", and "repair (base verb)" each with a teal checkmark, with "updating (-ing)" crossed out beside row 2 -->`
+
+64. `content/lessons/language-proficiency/grammar-and-structure/parallel-pairs-and-comparisons.md` (`## Core Concept` -> `### Comparisons: Comparing Like to Like`):
+    `<!-- ILLUSTRATION: two balanced comparison cards joined by "is lower than": left card "The cost of a bus trip" tagged "cost"; right card "the cost of a taxi trip" tagged "cost", with "a taxi driver" and "taking a taxi" crossed out below -->`
+
+65. `content/lessons/language-proficiency/grammar-and-structure/commas-in-lists-and-joined-clauses.md` (`## Core Concept` -> `### Joining Two Independent Clauses`):
+    `<!-- ILLUSTRATION: two stacked sentence diagrams: top "She studied hard, and she passed the exam." with two complete boxes connected by a teal ", and"; bottom "She studied hard and passed the exam." with one subject "She" branching to "studied hard" and "passed the exam" and no comma before "and" -->`
+
+66. `content/lessons/language-proficiency/grammar-and-structure/commas-with-openings-and-extra-information.md` (`## Core Concept` -> `### Extra Information vs. Identifying Information`):
+    `<!-- ILLUSTRATION: two stacked sentences comparing comma pairs: top "My brother, who lives in Cebu, is visiting." with "who lives in Cebu" shaded between two teal commas and labeled "only one brother -> extra info"; bottom "The students who missed the test must report." with no commas and a tight bracket from "who missed the test" to "The students" labeled "picks out some students -> identifying" -->`
+
+67. `content/lessons/language-proficiency/grammar-and-structure/semicolons-and-comma-splices.md` (`## Core Concept` -> `### Separating Complex List Items`):
+    `<!-- ILLUSTRATION: marked-up list "We visited [Manila, Philippines] ; [Tokyo, Japan] ; and [Seoul, Korea]." with each city-country pair bracketed, the internal commas shown in gray, and the boundary semicolons highlighted in teal -->`
+
+68. `content/lessons/language-proficiency/grammar-and-structure/capital-letters-in-names-titles-and-quotes.md` (`## Core Concept` -> `### Titles Before Names vs. Generic Roles`):
+    `<!-- ILLUSTRATION: two stacked sentences: top "We met President Reyes yesterday." with a teal bracket linking capital "President" directly to "Reyes" labeled "title before a name"; bottom "We met the president yesterday." with lowercase "president" after "the" labeled "generic job role, no name" -->`
+
+69. `content/lessons/language-proficiency/grammar-and-structure/keeping-needed-repetition.md` (`## Core Concept` -> `### When "Again" Adds Needed Meaning`):
+    `<!-- ILLUSTRATION: three-step timeline left to right: Step 1 "First reading" -> Step 2 "First repeat (already repeated)" -> Step 3 "Late arrival arrives: 'repeat again' = a further repeat" -->`
+
+70. `content/lessons/language-proficiency/grammar-and-structure/qualified-negatives-and-near-negatives.md` (`## Core Concept` -> `### Qualified Negatives: "Not Unexpected" and "Not Unreasonable"`):
+    `<!-- ILLUSTRATION: horizontal strength scale from left to right: "0% (never / none)" -> "just above 0% (hardly, scarcely, barely, seldom)" -> "middle qualified zone (not unexpected, not unreasonable)" -> "100% (guaranteed / perfectly / always)" -->`
+
+71. `content/lessons/language-proficiency/grammar-and-structure/finding-subjects-and-matching-verbs.md` (`## Core Concept` -> `### Finding the Head of the Subject`):
+    `<!-- ILLUSTRATION: the sentence "The basket of apples is heavy." with "of apples" grayed and bracketed as "added detail"; a teal arrow from "basket" to "is"; "basket" labeled "head, singular" -->`
+
+72. `content/lessons/language-proficiency/grammar-and-structure/pangalan-kilos-at-pandiwari.md` (`## Core Concept` -> `### Pandiwari sa Tradisyunal na Pag-uuri`):
+    `<!-- ILLUSTRATION: ang pangungusap na "Inihatid ng kawani sa klinika ang nahimatay." na may tatak sa ilalim ng "Inihatid" (pandiwa ng kawani), "sa klinika" (lugar), at "ang nahimatay" (taong tinulungan, pandiwaring gamit na pangngalan) -->`
+
+73. `content/lessons/language-proficiency/grammar-and-structure/pang-uri-at-pang-abay.md` (`## Core Concept` -> `### Pang-abay: Nagbibigay-Linaw sa Pandiwa, Pang-uri, o Pang-abay`):
+    `<!-- ILLUSTRATION: dalawang nakapatong na parirala para sa "mabilis": sa itaas "mabilis na atleta" na may palaso mula "mabilis" patungong "atleta (pangngalan)" at tatak na "pang-uri"; sa ibaba "mabilis na tumakbo" na may palaso mula "mabilis" patungong "tumakbo (pandiwa)" at tatak na "pang-abay" -->`
+
+74. `content/lessons/language-proficiency/grammar-and-structure/pang-ukol-pangatnig-at-pandamdam.md` (`## Core Concept` -> `### Pangatnig: Nagdurugtong ng mga Salita o Sugnay`):
+    `<!-- ILLUSTRATION: dalawang halimbawa sa magkatabing kahon: kaliwa "para sa [mga bisita]" na may tatak na "kasunod: pangkat ng pangngalan -> pang-ukol"; kanan "Nagbasa siya at nagsulat" na may tatak na "nagdurugtong ng dalawang kilos -> pangatnig" -->`
+
+75. `content/lessons/language-proficiency/grammar-and-structure/aspekto-at-paksa-sa-filipino.md` (`## Core Concept` -> `### Pagpili ng Aspekto Ayon sa Kalagayan ng Kilos`):
+    `<!-- ILLUSTRATION: guhit ng oras para sa kilos na "kain": sa kaliwa "kumain (perpektibo: tapos na)", kasunod ang maikling tuldok na "kakakain lamang (katatapos lang)", sa gitna "kumakain (imperpektibo: nagaganap pa)", at sa kanan "kakain (kontemplatibo: hindi pa nasisimulan)" -->`
+
+76. `content/lessons/language-proficiency/grammar-and-structure/mga-pahiwatig-ng-oras.md` (`## Core Concept` -> `### Nagpapatuloy na Kilos sa Nakaraan`):
+    `<!-- ILLUSTRATION: guhit ng oras na may tatak na "kahapon": isang mahabang guhit para sa "nagsusulat pa si Luis" at isang patayong tuldok na tumatama rito na may tatak na "nang dumating ang pinuno", na nagpapakitang nagpapatuloy pa ang pagsulat -->`
+
+77. `content/lessons/language-proficiency/grammar-and-structure/payak-at-tambalang-pangungusap.md` (`## Core Concept` -> `### Payak at Tambalang Pangungusap`):
+    `<!-- ILLUSTRATION: dalawang halimbawa: sa itaas "Naglilinis at nag-aayos sina Ana at Ben" na may isang kahon na may tatak na "1 sugnay na makapag-iisa -> Payak"; sa ibaba "[Umuwi ang bata] ngunit [naiwan ang bag niya]" na may dalawang hiwalay na kahon at tatak na "2 sugnay na makapag-iisa -> Tambalan" -->`
+
+78. `content/lessons/language-proficiency/grammar-and-structure/hugnayan-langkapan-at-ayos-ng-salaysay.md` (`## Core Concept` -> `### Langkapang Pangungusap`):
+    `<!-- ILLUSTRATION: dalawang kahon ng bilang ng sugnay: kaliwa "Hugnayan = 1 makapag-iisa + 1 di-makapag-iisa" gamit ang "[Umuwi ang bata] + [dahil umuulan na]"; kanan "Langkapan = 2 makapag-iisa + 1 di-makapag-iisa" gamit ang "[Umuwi ang bata] at [nagsara ang tindahan] + [dahil malakas na ang ulan]" -->`

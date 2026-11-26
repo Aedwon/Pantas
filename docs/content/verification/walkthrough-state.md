@@ -23,7 +23,7 @@
 ## Current Immediate Queue (Nov 26, 13:50 Manila)
 
 1. Run Codex GPT 6.2 Sol High post-connection re-audit on Batch 2 Reasoning (`codex-audit-batch2-r3.brief.md`), then commit `Batch 2 audited: PASS`.
-2. Merge Batch 3 Grammar trap evidence (52 lessons, 141 pairs, 279 citations) into `content/walkthrough-trap-evidence.json`, append Batch 3 figure worklist, write `walkthrough-batch-3-grammar.md`, run Flash mechanical sweep + locked Dart gates + Codex checkpoint audit (`Batch 3 audited: PASS`).
+2. Merge Batch 3 Grammar trap evidence (52 lessons, 142 pairs, 279 citations) into `content/walkthrough-trap-evidence.json`, append Batch 3 figure worklist, write `walkthrough-batch-3-grammar.md`, run Flash mechanical sweep + locked Dart gates + Codex checkpoint audit (`Batch 3 audited: PASS`).
 3. Apply Manager ruling on the non-CSE CET Algebra/Arithmetic files modified by stopgap commits (`133aaae64`..`b9bf77f3b`), verify post-rule CSE Math diffs + unedited Math files, and run Codex Batch 1 post-rule re-audit (`Batch 1 audited: PASS`).
 4. Repair all 19 Blockers, 61 Majors, and 25 Minors on Batch 4a Vocabulary (29 lessons, incl. 7 FIL KWF wording), merge Vocabulary trap evidence into `content/walkthrough-trap-evidence.json`, re-verify, and run Codex audit (`Batch 4a audited: PASS`).
 5. Finish Batches 4b through 8 saving and pushing every chunk under the Nov 26 connection rule.
