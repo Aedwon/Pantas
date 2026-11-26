@@ -93,9 +93,9 @@ The wrong line scaled down when pumping time went up. At a constant rate, more m
 :::
 
 :::check
-Five identical notebooks cost $175$ pesos. At the same price per notebook, how much do $8$ notebooks cost?
+Seven identical pens cost $63$ pesos. At the same price per pen, how much do $12$ pens cost?
 :::answer
-The answer is $280$ pesos. One notebook costs $\dfrac{175}{5}=35$ pesos, and $8$ notebooks cost $35\times8=280$ pesos.
+The answer is $108$ pesos. One pen costs $\dfrac{63}{7}=9$ pesos, and $12$ pens cost $9\times12=108$ pesos.
 :::
 
 ## Examples

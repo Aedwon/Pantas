@@ -105,34 +105,34 @@ The answer is $23$. The LCM of $6$ and $9$ is $18$; $k=0$ gives $5$ (not greater
 
 ### #1: Same-Remainder Problem
 
-What is the smallest integer greater than $10$ that leaves a remainder of $3$ when divided by $6$, $8$, and $10$?
+What is the smallest integer greater than $10$ that leaves a remainder of $1$ when divided by $4$, $6$, and $10$?
 
 **Solution:**
 
-1. The remainder $3$ is smaller than every divisor. Taking away $3$ must leave a common multiple of $6$, $8$, and $10$. Factor each divisor.
+1. The remainder $1$ is smaller than every divisor. Taking away $1$ must leave a common multiple of $4$, $6$, and $10$. Factor each divisor.
+
+$$4=2^2$$
 
 $$6=2\times 3$$
-
-$$8=2^3$$
 
 $$10=2\times 5$$
 
 2. Find the LCM using the largest prime powers.
 
-$$L=2^3\times 3\times 5=8\times 3\times 5=120$$
+$$L=2^2\times 3\times 5=4\times 3\times 5=60$$
 
-3. Write the formula $N=Lk+r$ with $L=120$ and $r=3$.
+3. Write the formula $N=Lk+r$ with $L=60$ and $r=1$.
 
-$$N=120k+3$$
+$$N=60k+1$$
 
-4. Test $k=0$: $120(0)+3=3$, which is not greater than $10$.
+4. Test $k=0$: $60(0)+1=1$, which is not greater than $10$.
 
 :::try
-Finish the last step: use $k=1$ in $N=120k+3$ to find the smallest allowed number.
+Finish the last step: use $k=1$ in $N=60k+1$ to find the smallest allowed number.
 :::answer
-The answer is $123$. Plug in $k=1$ to get $120(1)+3=123$, which is greater than $10$.
+The answer is $61$. Plug in $k=1$ to get $60(1)+1=61$, which is greater than $10$.
 
-**Check:** Divide $123$ by each divisor: $123=6\times 20+3$, $123=8\times 15+3$, and $123=10\times 12+3$. Every division leaves remainder $3$.
+**Check:** Divide $61$ by each divisor: $61=4\times 15+1$, $61=6\times 10+1$, and $61=10\times 6+1$. Every division leaves remainder $1$.
 :::
 
 ## Traps to Watch For

@@ -91,9 +91,9 @@ Zero is its own additive inverse because $0+0=0$. For multiplication, $0\times 0
 :::
 
 :::check
-Can any real number $r$ make $0\times r=1$ true?
+Can any real number $s$ make $0\times s=5$ true?
 :::answer
-The answer is no. Multiplying $0$ by any real number always equals $0$.
+The answer is no. Multiplying $0$ by any real number always equals $0$, never $5$.
 :::
 
 ## Examples

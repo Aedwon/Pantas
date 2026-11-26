@@ -49,9 +49,9 @@ $28$ million pesos is the four-quarter total, not the average. Check whether the
 :::
 
 :::check
-Four quarters list Licenses revenue of $6$, $8$, $5$, and $9$ million pesos. What is the average quarterly Licenses revenue?
+Four quarters list Licenses revenue of $7$, $4$, $10$, and $11$ million pesos. What is the average quarterly Licenses revenue?
 :::answer
-The answer is $7$ million pesos. Add $6+8+5+9=28$, then divide $\dfrac{28}{4}=7$.
+The answer is $8$ million pesos. Add $7+4+10+11=32$, then divide $\dfrac{32}{4}=8$.
 :::
 
 ### Finding a Pie Chart Slice Amount

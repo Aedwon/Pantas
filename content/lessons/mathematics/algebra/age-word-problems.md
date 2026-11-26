@@ -98,9 +98,9 @@ Match your final answer to the exact person and time in the question. Here $m$ s
 :::
 
 :::check
-Ana is $a=12$ years old now, and her mother is $4a$. If a question asks for her mother's age now, what is the answer?
+Rico is $r=9$ years old now, and his uncle is $5r$. If a question asks for his uncle's age now, what is the answer?
 :::answer
-The answer is $48$ years old. Multiply $4(12)=48$.
+The answer is $45$ years old. Multiply $5(9)=45$.
 :::
 
 ## Examples

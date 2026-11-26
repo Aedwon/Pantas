@@ -46,9 +46,9 @@ Alternating signs do not guarantee convergence. In $5-5+5-5+\dots$, $r=-1$, so $
 :::
 
 :::check
-Does the infinite geometric series $3-3+3-3+\dots$ converge or diverge?
+Does the infinite geometric series $2-4+8-16+\dots$ converge or diverge?
 :::answer
-It diverges. The common ratio is $r=-1$, so $|r|=1$, which is not less than $1$.
+It diverges. The common ratio is $r=\dfrac{-4}{2}=-2$, so $|r|=2$, which is not less than $1$.
 :::
 
 ### Finding the Infinite Sum
@@ -123,7 +123,7 @@ The sum is $27$.
 
 **Check:** Add the first four terms: $18+6+2+\dfrac{2}{3}=26\dfrac{2}{3}$. That running total sits right below $27$ and keeps closing the small remaining gap toward $27$.
 
-### #2: An Infinite Geometric Series That Diverges
+### #2: Testing an Infinite Geometric Series
 
 Does the infinite geometric series $3+6+12+24+\dots$ have a finite sum?
 

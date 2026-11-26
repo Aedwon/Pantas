@@ -87,9 +87,9 @@ The wrong line mixed millions with thousands. Always convert both numbers to the
 :::
 
 :::check
-In a class of $30$ students, $12$ are boys and the rest are girls. What is the ratio of boys to girls in lowest terms?
+In a class of $40$ students, $15$ are boys and the rest are girls. What is the ratio of boys to girls in lowest terms?
 :::answer
-The answer is $2:3$. There are $30-12=18$ girls, so boys to girls is $12:18$. Divide both by $6$ to get $2:3$.
+The answer is $3:5$. There are $40-15=25$ girls, so boys to girls is $15:25$. Divide both by $5$ to get $3:5$.
 :::
 
 ## Examples

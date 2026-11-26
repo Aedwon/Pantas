@@ -33,9 +33,9 @@ Whole numbers start at $0$ and never include negatives. Only $0$ is a whole numb
 :::
 
 :::check
-Using $\mathbb{N}=\{1,2,3,\dots\}$ for natural numbers, which number in the list $-3$, $0$, $7$ is a whole number but not a natural number?
+Which number in the list $-8$, $\dfrac{1}{2}$, $11$ is an integer but not a whole number?
 :::answer
-The answer is $0$. The number $-3$ is negative so it is only an integer, $7$ is both natural and whole, and $0$ is whole without being natural.
+The answer is $-8$. It is negative, so it is an integer but not whole. The number $\dfrac{1}{2}$ is not an integer, and $11$ is whole.
 :::
 
 ### Rational, Irrational, and Real Numbers
@@ -94,25 +94,24 @@ Irrational numbers sit inside Real numbers beside Rational numbers, never inside
 
 ### #1: Classifying Number Sets
 
-Using this lesson's convention that natural numbers begin at $1$, which statement is false?
+Which statement is false?
 
 A) Every integer is rational.
-B) Zero is a natural number.
+B) $\sqrt{16}$ is irrational.
 C) Every irrational number is real.
 D) A repeating nonterminating decimal is rational.
 
 **Solution:**
 
 1. Check A: every integer $n$ can be written as $\dfrac{n}{1}$, which is an integer fraction, so A is true.
-2. Check B: under this lesson's convention, natural numbers start at $1$, while $0$ starts the whole numbers. So B is false.
-3. Check C: real numbers consist of rational and irrational numbers together, so C is true.
+2. Check C: real numbers consist of rational and irrational numbers together, so C is true.
 
 :::try
-Finish the last step: check statement D and state which choice is the false statement.
+Finish the last step: check statements B and D, and state which choice is the false statement.
 :::answer
-The answer is B. Statement D is true because a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction, leaving B as the false statement.
+The answer is B. Since $16$ is a perfect square, $\sqrt{16}=4$ is rational, so B is false. Statement D is true because a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction.
 
-**Check:** Re-read the stem's convention: natural numbers start at $1$, so $0$ belongs to whole numbers, not natural numbers.
+**Check:** Re-read B: $\sqrt{16}=4=\dfrac{4}{1}$ is an integer fraction, so it cannot be irrational.
 :::
 
 ## Traps to Watch For

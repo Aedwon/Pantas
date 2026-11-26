@@ -16,7 +16,7 @@ keyPoints:
 
 ### Real Numbers
 
-**Real numbers** include whole numbers, fractions, decimals, and numbers such as $\sqrt{2}$. Every real number sits at a point on a number line. In the rules below, each letter stands for a real number.
+**Real numbers** include whole numbers, fractions, decimals, and numbers such as $\sqrt{2}$. In the rules below, each letter stands for a real number.
 
 In addition, each number being added is an **addend**. In multiplication, each number being multiplied is a **factor**. Writing $ab$ means $a\times b$.
 
@@ -47,9 +47,9 @@ Why does order not change the sum or product? Adding puts two groups into one pi
 :::
 
 :::check
-Does $(5+2x)+6=(2x+5)+6$ show the commutative property?
+Swap the two terms inside the parentheses of $(9+2x)\times 3$.
 :::answer
-The answer is yes. The terms $5$ and $2x$ swapped order inside the parentheses, while the grouping did not move.
+The answer is $(2x+9)\times 3$. The terms $9$ and $2x$ trade places, while the grouping does not move.
 :::
 
 ### Associative Property
@@ -81,9 +81,9 @@ The numbers stayed in the order $3, 5, 4$. Only the parentheses moved, so the gr
 :::
 
 :::check
-Which property turns $1+(2+3)$ into $(1+2)+3$?
+Regroup $(4\times 7)\times 5$ so the last two numbers are multiplied first.
 :::answer
-The answer is the associative property of addition. The order $1, 2, 3$ stayed the same, and only the parentheses moved.
+The answer is $4\times (7\times 5)$. The order $4, 7, 5$ stayed the same, and only the parentheses moved. Both sides equal $140$.
 :::
 
 ### Why Subtraction and Division Fail
@@ -119,9 +119,9 @@ The numbers stayed in the order $12, 4, 2$. Changing which pair you divide first
 :::
 
 :::check
-Do $(10-6)-2$ and $10-(6-2)$ give the same answer?
+Find $(17-9)-4$ and $17-(9-4)$.
 :::answer
-The answer is no. First $(10-6)-2=4-2=2$, while $10-(6-2)=10-4=6$.
+The answer is $4$ and $12$. First $(17-9)-4=8-4=4$, while $17-(9-4)=17-5=12$.
 :::
 
 ## Examples

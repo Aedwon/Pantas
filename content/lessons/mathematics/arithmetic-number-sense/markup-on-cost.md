@@ -136,28 +136,28 @@ The listed price is Php $1,500$.
 
 **Check:** Use the combined percent $100\%+25\%=125\%$, or $1.25$: $1,200\times1.25=1,500$. Both methods agree.
 
-### #2: Finding Markup as a Percent of Selling Price
+### #2: Working Backward from a Listed Price
 
-A shop lists a bag at Php $2,000$ after adding a $25\%$ markup based on its cost. The bag sells at that price with no other expenses. What percent of the selling price is the markup?
+A shop lists a bag at Php $2,000$ after adding a $60\%$ markup based on its cost. The bag sells at that price with no other expenses. What percent of the selling price is the markup?
 
 **Solution:**
 
-1. Cost is $100\%$ and markup is $25\%$ of cost, so the listed price is $125\%$ of cost, or $1.25\times\text{Cost}$.
+1. Cost is $100\%$ and markup is $60\%$ of cost, so the listed price is $160\%$ of cost, or $1.6\times\text{Cost}$.
 
-2. Divide the listed price by $1.25$ to find the cost.
+2. Divide the listed price by $1.6$ to find the cost.
 
-$$\dfrac{2,000}{1.25}=1,600$$
+$$\dfrac{2,000}{1.6}=1,250$$
 
 3. Subtract the cost from the selling price to find the markup amount.
 
-$$2,000-1,600=400$$
+$$2,000-1,250=750$$
 
 :::try
 Finish the last step: divide the markup amount by the selling price and write it as a percent.
 :::answer
-The answer is $20\%$. Dividing the Php $400$ markup by the Php $2,000$ selling price gives $\dfrac{400}{2,000}=0.20=20\%$.
+The answer is $37.5\%$. Dividing the Php $750$ markup by the Php $2,000$ selling price gives $\dfrac{750}{2,000}=0.375=37.5\%$.
 
-**Check:** Notice that $25\%$ of Php $1,600$ is $1,600\times0.25=400$, and $1,600+400=2,000$. Since Php $400$ is divided by the larger Php $2,000$ selling price instead of Php $1,600$, the percent on selling price must be smaller than $25\%$, and $20\%<25\%$ fits.
+**Check:** Notice that $60\%$ of Php $1,250$ is $1,250\times0.60=750$, and $1,250+750=2,000$. Since Php $750$ is divided by the larger Php $2,000$ selling price instead of Php $1,250$, the percent on selling price must be smaller than $60\%$, and $37.5\%<60\%$ fits.
 :::
 
 ## Traps to Watch For

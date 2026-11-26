@@ -87,25 +87,25 @@ When a question asks "how many more" or "decrease," subtract the two readings in
 :::
 
 :::check
-A bar chart reports applications in hundreds, with tick steps of $0.5$. Office A reaches $1$ tick above $3$, and Office B reaches $1$ tick below $3$. How many more applications did Office A process than Office B?
+A bar chart reports applications in hundreds, with tick steps of $0.5$. Office A reaches $2$ ticks above $6$, and Office B reaches $1$ tick below $6$. How many more applications did Office A process than Office B?
 :::answer
-The answer is $100$ applications. Office A is $3+0.5=3.5$, Office B is $3-0.5=2.5$, and $(3.5-2.5)\times100=100$.
+The answer is $150$ applications. Office A is $6+2\times0.5=7$, Office B is $6-0.5=5.5$, and $(7-5.5)\times100=150$.
 :::
 
 ## Examples
 
 ### #1: Reading a Chart Scale and Finding a Difference
 
-<!-- ILLUSTRATION: bar chart titled "Factory Output" with x-axis labels Factory A and Factory B, y-axis labeled "Units produced" from 0 to 500, labeled every 100 with smaller tick marks every 20; Factory A bar reaches 440 and Factory B bar reaches 320 -->
+<!-- ILLUSTRATION: bar chart titled "Factory Output" with x-axis labels Factory A and Factory B, y-axis labeled "Units produced" from 0 to 500, labeled every 100 with smaller tick marks every 20; Factory A bar reaches 460 and Factory B bar reaches 320 -->
 
 Use the bar chart. How many more units did Factory A produce than Factory B?
 
 **Solution:**
 
 1. Check the axis scale. Labeled ticks increase by $100$ units, and each small tick mark is $20$ units.
-2. Read Factory A: the bar is $2$ small ticks above $400$.
+2. Read Factory A: the bar is $3$ small ticks above $400$.
 
-$$400+2\times20=440$$
+$$400+3\times20=460$$
 
 3. Read Factory B: the bar is $1$ small tick above $300$.
 
@@ -114,9 +114,9 @@ $$300+20=320$$
 :::try
 Finish the last step: subtract Factory B's units from Factory A's units.
 :::answer
-The answer is $120$ more units. Subtract $440-320=120$.
+The answer is $140$ more units. Subtract $460-320=140$.
 
-**Check:** Count the $20$-unit tick steps from $320$ up to $440$: $4$ steps reach $400$ and $2$ more reach $440$, making $6$ steps total, and $6\times20=120$ units.
+**Check:** Count the $20$-unit tick steps from $320$ up to $460$: $4$ steps reach $400$ and $3$ more reach $460$, making $7$ steps total, and $7\times20=140$ units.
 :::
 
 ## Speed Tricks & Shortcuts

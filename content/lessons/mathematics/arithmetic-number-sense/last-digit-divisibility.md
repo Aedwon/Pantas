@@ -103,24 +103,24 @@ The digit is $d=5$.
 
 ### #2: Testing the Last Two and Three Digits
 
-A warehouse packs boxes into crates of $4$ or crates of $8$. Can an order of $5,116$ boxes be packed evenly into crates of $4$? Can it be packed evenly into crates of $8$?
+A warehouse packs boxes into crates of $4$ or crates of $8$. Can an order of $6,348$ boxes be packed evenly into crates of $4$? Can it be packed evenly into crates of $8$?
 
 **Solution:**
 
-1. To test $4$, check the number formed by the last $2$ digits of $5,116$, which is $16$.
+1. To test $4$, check the number formed by the last $2$ digits of $6,348$, which is $48$.
 
-$$16\div4=4$$
+$$48\div4=12$$
 
-The division is exact, so $5,116$ can be packed evenly into crates of $4$.
+The division is exact, so $6,348$ can be packed evenly into crates of $4$.
 
-2. To test $8$, check the number formed by the last $3$ digits of $5,116$, which is $116$.
+2. To test $8$, check the number formed by the last $3$ digits of $6,348$, which is $348$.
 
 :::try
-Finish the last step: divide $116$ by $8$ to see if $5,116$ is divisible by $8$.
+Finish the last step: divide $348$ by $8$ to see if $6,348$ is divisible by $8$.
 :::answer
-The answer is no for $8$ (and yes for $4$). Dividing $116=8\times14+4$ leaves a remainder of $4$, so $5,116$ is not divisible by $8$.
+The answer is no for $8$ (and yes for $4$). Dividing $348=8\times43+4$ leaves a remainder of $4$, so $6,348$ is not divisible by $8$.
 
-**Check:** Split $5,116$ into $5,000+116$. Since $1,000$ is divisible by $8$, $5,000$ is $8\times625$, and $116$ is $8\times14+4$. The whole number leaves a remainder of $4$ when divided by $8$.
+**Check:** Split $6,348$ into $6,000+348$. Since $1,000$ is divisible by $8$, $6,000$ is $8\times750$, and $348$ is $8\times43+4$. The whole number leaves a remainder of $4$ when divided by $8$.
 :::
 
 ## Speed Tricks & Shortcuts

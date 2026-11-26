@@ -94,9 +94,9 @@ Never drop the minus signs inside negative roots or use $\sqrt{ab}$ before pulli
 "Simplify" means write an equal expression in a simpler form.
 
 :::check
-Simplify $\sqrt{-16}\cdot\sqrt{-25}$.
+Simplify $\sqrt{-49}\cdot\sqrt{-25}$.
 :::answer
-The answer is $-20$. Rewrite each root first: $(4i)(5i)=20i^2=20(-1)=-20$.
+The answer is $-35$. Rewrite each root first: $(7i)(5i)=35i^2=35(-1)=-35$.
 :::
 
 ## Mnemonics & Memory Aids

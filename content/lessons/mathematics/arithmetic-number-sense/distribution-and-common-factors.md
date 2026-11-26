@@ -55,9 +55,9 @@ Here $-2$ multiplies $-5$. Same signs give $+10$, not $-10$.
 :::
 
 :::check
-Expand $-3(a-4)$.
+Expand $-6(m-3)$.
 :::answer
-The answer is $-3a+12$. First $(-3)(a)=-3a$, then $(-3)(-4)=+12$.
+The answer is $-6m+18$. First $(-6)(m)=-6m$, then $(-6)(-3)=+18$.
 :::
 
 ### Factoring Out a Common Factor

@@ -114,9 +114,9 @@ The rule alternates between two operations. Multiplying by $4$ came last, so sub
 :::
 
 :::check
-What number follows $2,6,4,12,10,30,\dots$?
+What number follows $5,15,11,33,29,87,\dots$?
 :::answer
-The answer is $28$. The pattern alternates $\times3$ and $-2$, so the next step is $30-2=28$.
+The answer is $83$. The pattern alternates $\times3$ and $-4$, so the next step is $87-4=83$.
 :::
 
 ## Examples

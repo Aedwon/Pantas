@@ -34,9 +34,9 @@ $$0.10\times 10=1$$
 There is $1$ liter of pure vinegar.
 
 :::check
-How many liters of pure sugar are in $12$ liters of a $25\%$ sugar solution?
+How many liters of pure sugar are in $40$ liters of a $15\%$ sugar solution?
 :::answer
-The answer is $3$ liters. Multiply $0.25\times 12=3$.
+The answer is $6$ liters. Multiply $0.15\times 40=6$.
 :::
 
 ### Balancing Pure Amounts When Mixing

@@ -66,9 +66,9 @@ The wrong line multiplied $2\times 3=6$. An exponent multiplies the base by itse
 :::
 
 :::check
-Evaluate $\sqrt{36}+3^2$.
+Evaluate $\sqrt{64}+3^2$.
 :::answer
-The answer is $15$. Find the root ($\sqrt{36}=6$) and the power ($3^2=9$) first, then add $6+9=15$.
+The answer is $17$. Find the root ($\sqrt{64}=8$) and the power ($3^2=9$) first, then add $8+9=17$.
 :::
 
 ### Left to Right for Tied Operations

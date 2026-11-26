@@ -49,9 +49,9 @@ The wrong line used simple interest, adding Php $100$ each year. Compound intere
 :::
 
 :::check
-A deposit of Php $2,000$ earns $10\%$ interest compounded annually. What is the balance after $2$ years?
+A deposit of Php $2,000$ earns $5\%$ interest compounded annually. What is the balance after $2$ years?
 :::answer
-The answer is Php $2,420$. Year $1$ gives $2,000\times1.10=2,200$, and Year $2$ gives $2,200\times1.10=2,420$.
+The answer is Php $2,205$. Year $1$ gives $2,000\times1.05=2,100$, and Year $2$ gives $2,100\times1.05=2,205$.
 :::
 
 ### Matching Rate and Periods to Compounding Frequency

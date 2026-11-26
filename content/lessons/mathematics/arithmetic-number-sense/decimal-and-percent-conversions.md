@@ -85,7 +85,7 @@ Moving the decimal point only $1$ place left divides by $10$, not $100$. Always 
 :::check
 Write $0.085$ as a percentage.
 :::answer
-The answer is $8.5\%$. Move the decimal point $2$ places right (multiply by $100$) and attach $\%$.
+The answer is $8.5\%$. Multiply by $100$: $0.085\times 100\%=8.5\%$.
 :::
 
 ## Examples

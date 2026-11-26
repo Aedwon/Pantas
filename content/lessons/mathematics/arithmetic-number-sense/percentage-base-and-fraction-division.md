@@ -53,9 +53,9 @@ Here $72$ is only the $40\%$ part, not the whole set. Find the base before takin
 :::
 
 :::check
-If $25\%$ of a number is $45$, what is the number?
+If $20\%$ of a number is $54$, what is the number?
 :::answer
-The answer is $180$. Divide the part by the decimal rate: $45\div0.25=4,500\div25=180$.
+The answer is $270$. Divide the part by the decimal rate: $54\div0.20=5,400\div20=270$.
 :::
 
 ### Dividing Fractions to Find a Rate
@@ -93,9 +93,9 @@ Why does multiplying by the reciprocal work? Writing $\dfrac{3}{5}\div\dfrac{4}{
 :::
 
 :::check
-What percent of $\dfrac{3}{4}$ is $\dfrac{3}{10}$?
+What percent of $\dfrac{3}{4}$ is $\dfrac{9}{20}$?
 :::answer
-The answer is $40\%$. Divide $\dfrac{3}{10}\div\dfrac{3}{4}=\dfrac{3}{10}\times\dfrac{4}{3}=\dfrac{2}{5}=0.40$, then multiply by $100\%$ to get $40\%$.
+The answer is $60\%$. Divide $\dfrac{9}{20}\div\dfrac{3}{4}=\dfrac{9}{20}\times\dfrac{4}{3}=\dfrac{36}{60}=\dfrac{3}{5}=0.60$, then multiply by $100\%$ to get $60\%$.
 :::
 
 ## Examples

@@ -123,22 +123,22 @@ The equivalent single discount is $40\%$.
 
 ### #2: Percent Of and Percent More Than
 
-An office processed $200$ forms last week. This week's target is $120\%$ of last week's total, while next week's target is $120\%$ more than last week's total. How many forms are in each target?
+An office processed $300$ forms last week. This week's target is $150\%$ of last week's total, while next week's target is $150\%$ more than last week's total. How many forms are in each target?
 
 **Solution:**
 
-1. Both targets compare against last week's $200$ forms, so $200$ is the base for both. For this week, multiply by $1.20$.
+1. Both targets compare against last week's $300$ forms, so $300$ is the base for both. For this week, multiply by $1.50$.
 
-$$1.20\times200=240$$
+$$1.50\times300=450$$
 
-2. For next week, "$120\%$ more than" adds the $120\%$ increase to the base. That multiplier is $1+1.20=2.20$.
+2. For next week, "$150\%$ more than" adds the $150\%$ increase to the base. That multiplier is $1+1.50=2.50$.
 
 :::try
-Finish the last step: find $2.20\times200$.
+Finish the last step: find $2.50\times300$.
 :::answer
-The answer is $240$ forms for this week and $440$ forms for next week. Multiplying $2.20\times200=440$.
+The answer is $450$ forms for this week and $750$ forms for next week. Multiplying $2.50\times300=750$.
 
-**Check:** "$120\%$ more than $200$" means the original $200$ plus an increase of $240$. Adding $200+240=440$, which matches $2.20\times200$.
+**Check:** "$150\%$ more than $300$" means the original $300$ plus an increase of $450$. Adding $300+450=750$, which matches $2.50\times300$.
 :::
 
 ## Speed Tricks & Shortcuts

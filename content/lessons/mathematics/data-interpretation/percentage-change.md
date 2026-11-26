@@ -73,9 +73,9 @@ $$\dfrac{14}{50}\times100\%=28\%$$
 Averaging the two separate rates gives $\dfrac{40\%+20\%}{2}=30\%$, which is wrong because the larger category ($30$) grew more slowly than the smaller category ($20$).
 
 :::check
-A fund rises from $80$ thousand pesos to $100$ thousand pesos. What is the percentage increase?
+A fund rises from $60$ thousand pesos to $69$ thousand pesos. What is the percentage increase?
 :::answer
-The answer is $25\%$. The change is $100-80=20$, and dividing by the original $80$ gives $\dfrac{20}{80}\times100\%=25\%$.
+The answer is $15\%$. The change is $69-60=9$, and dividing by the original $60$ gives $\dfrac{9}{60}\times100\%=15\%$.
 :::
 
 ### When the Original Value Is Zero

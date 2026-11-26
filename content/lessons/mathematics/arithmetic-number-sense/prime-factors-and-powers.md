@@ -37,9 +37,9 @@ A prime must have two positive factors. Counting $1$ as prime puts an extra $1$ 
 :::
 
 :::check
-Which number in the list $9, 11, 15$ is prime?
+Which number in the list $25, 31, 39$ is prime?
 :::answer
-The answer is $11$. Its only positive factors are $1$ and $11$, while $9=3\times 3$ and $15=3\times 5$.
+The answer is $31$. Its only positive factors are $1$ and $31$, while $25=5\times 5$ and $39=3\times 13$.
 :::
 
 ### Prime Factorization and Powers
@@ -73,9 +73,9 @@ The wrong line stopped at composite $9=3\times 3$. Keep splitting until only pri
 :::
 
 :::check
-Write the prime factorization of $45$ using exponents.
+Write the prime factorization of $50$ using exponents.
 :::answer
-The answer is $3^2\times 5$. Split $45=3\times 15=3\times 3\times 5$, and two $3$s become $3^2$.
+The answer is $2\times 5^2$. Split $50=2\times 25=2\times 5\times 5$, and two $5$s become $5^2$.
 :::
 
 ## Examples

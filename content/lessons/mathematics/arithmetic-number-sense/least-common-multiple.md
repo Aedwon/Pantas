@@ -129,24 +129,24 @@ The next shared departure is at $12{:}00$ PM.
 
 ### #2: Using the Product Rule
 
-Two positive integers are $18$ and $24$, and their GCF is $6$. What is their LCM?
+Two positive integers are $16$ and $20$, and their GCF is $4$. What is their LCM?
 
 **Solution:**
 
 1. Use the product rule for two positive integers.
 
-$$6\times\text{LCM}=18\times 24$$
+$$4\times\text{LCM}=16\times 20$$
 
-2. Divide both sides by $6$ to isolate the LCM.
+2. Divide both sides by $4$ to isolate the LCM.
 
-$$\text{LCM}=\dfrac{18\times 24}{6}=3\times 24$$
+$$\text{LCM}=\dfrac{16\times 20}{4}=4\times 20$$
 
 :::try
-Finish the last step: multiply $3\times 24$ to find the LCM.
+Finish the last step: multiply $4\times 20$ to find the LCM.
 :::answer
-The answer is $72$. Multiply $3\times 24=72$.
+The answer is $80$. Multiply $4\times 20=80$.
 
-**Check:** Factor both numbers: $18=2\times 3^2$ and $24=2^3\times 3$. Taking the largest prime powers gives $2^3\times 3^2=8\times 9=72$, which matches.
+**Check:** Factor both numbers: $16=2^4$ and $20=2^2\times 5$. Taking the largest prime powers gives $2^4\times 5=16\times 5=80$, which matches.
 :::
 
 ## Speed Tricks & Shortcuts

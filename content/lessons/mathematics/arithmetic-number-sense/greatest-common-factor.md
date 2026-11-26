@@ -55,9 +55,9 @@ Only $A$ has $5$ and only $B$ has $7$. A common factor can include only primes t
 :::
 
 :::check
-Find the GCF of $24=2^3\times 3$ and $36=2^2\times 3^2$.
+Find the GCF of $40=2^3\times 5$ and $60=2^2\times 3\times 5$.
 :::answer
-The answer is $12$. The shared primes are $2$ and $3$, and their smaller powers give $2^2\times 3=4\times 3=12$.
+The answer is $20$. The shared primes are $2$ and $5$, and their smaller powers give $2^2\times 5=4\times 5=20$.
 :::
 
 ### Using the GCF for Equal Groups
@@ -81,9 +81,9 @@ Here $48$ is the number of boxes, not the number of items inside each box. Alway
 :::
 
 :::check
-You pack $12$ pens and $18$ pencils into the greatest number of identical kits. How many kits can you make?
+You pack $28$ pens and $42$ pencils into the greatest number of identical kits. How many kits can you make?
 :::answer
-The answer is $6$. Since $12=2^2\times 3$ and $18=2\times 3^2$, their GCF is $2\times 3=6$.
+The answer is $14$. Since $28=2^2\times 7$ and $42=2\times 3\times 7$, their GCF is $2\times 7=14$.
 :::
 
 ## Examples
