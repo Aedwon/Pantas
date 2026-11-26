@@ -20,6 +20,8 @@ keyPoints:
 
 To change a percent to a decimal, divide by $100$. That moves the decimal point two places to the left.
 
+Change $20\%$, $5\%$, and $12.5\%$ to decimals:
+
 $$20\%=0.20$$
 
 $$5\%=0.05$$
@@ -40,9 +42,9 @@ Some questions call it the original price or the marked price. The discount rate
 
 $$\text{Discount}=\text{Listed price}\times\text{Discount rate}$$
 
-A bag is listed at Php $800$ with a $25\%$ discount.
+Find the $25\%$ discount on a Php $800$ bag:
 
-$$800\times0.25=200$$
+$$\text{Discount}=800\times0.25=200$$
 
 The discount is Php $200$.
 
@@ -56,15 +58,15 @@ The answer is Php $100$. Multiply the listed price by the rate: $500\times0.20=1
 
 There are two ways. Both give the same answer.
 
-**Way $1$: subtract the discount.**
+**Way $1$: subtract the Php $200$ discount from Php $800$:**
 
-$$800-200=600$$
+$$\text{Price}=800-200=600$$
 
-**Way $2$: find the percent you still pay.** The listed price is the whole, or $100\%$. Take away the $25\%$ discount.
+**Way $2$: find the percent you still pay from $100\%$, then multiply by Php $800$:**
 
-$$100\%-25\%=75\%$$
+$$\text{Percent paid}=100\%-25\%=75\%$$
 
-$$800\times0.75=600$$
+$$\text{Price}=800\times0.75=600$$
 
 <!-- ILLUSTRATION: a horizontal bar labeled "Php 800 = 100%", split into a shaded left part "25%, discount, Php 200" and a right part "75%, you pay, Php 600" -->
 
@@ -93,11 +95,11 @@ The answer is Php $1,020$. You still pay $100\%-15\%=85\%$, and $1,200\times0.85
 1. Find the price after the first discount.
 2. Take the second discount from that new price.
 
-A Php $1,000$ item has successive discounts of $20\%$ and $10\%$.
+Find the final price of a Php $1,000$ item after $20\%$ and $10\%$ off:
 
-$$1,000\times0.80=800$$
+$$\text{After }20\%\text{ off}=1,000\times0.80=800$$
 
-$$800\times0.90=720$$
+$$\text{After }10\%\text{ off}=800\times0.90=720$$
 
 :::pair #successive-discounts
 Right: $1,000\times0.80=800$, then $800\times0.90=720$
@@ -125,7 +127,7 @@ A pair of shoes originally priced at Php $1,500$ is on sale for $20\%$ off. What
 
 1. Find the percent you still pay.
 
-$$100\%-20\%=80\%$$
+$$\text{Percent paid}=100\%-20\%=80\%$$
 
 2. Change $80\%$ to a decimal.
 
@@ -133,7 +135,7 @@ $$80\%=0.80$$
 
 3. Multiply the original price by that decimal.
 
-$$1,500\times0.80=1,200$$
+$$\text{Final price}=1,500\times0.80=1,200$$
 
 The final selling price is Php $1,200$.
 
@@ -149,7 +151,7 @@ The **net price** is the price after every discount.
 
 1. First discount: you still pay $100\%-20\%=80\%$ of the listed price.
 
-$$30,000\times0.80=24,000$$
+$$\text{After }20\%\text{ off}=30,000\times0.80=24,000$$
 
 2. Second discount: you still pay $100\%-10\%=90\%$ of the new price, Php $24,000$.
 
@@ -169,9 +171,9 @@ $$\text{Total discount percent}=a+b-\dfrac{ab}{100}$$
 
 The last part, $\dfrac{ab}{100}$, is why the total is less than $a+b$. The second discount comes off a lower price, so it takes off less money.
 
-For discounts of $20\%$ and $10\%$:
+Find the single discount percent for $20\%$ and $10\%$ off:
 
-$$20+10-\dfrac{20\times10}{100}=28$$
+$$\text{Total discount percent}=20+10-\dfrac{20\times10}{100}=28$$
 
 So the equivalent single discount is $28\%$.
 

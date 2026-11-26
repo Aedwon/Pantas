@@ -18,6 +18,8 @@ keyPoints:
 
 The **subject** tells who or what a sentence is about. The **verb** tells what the subject does or is. **Subject-verb agreement** means choosing the verb form that fits the subject.
 
+Compare a singular subject and a plural subject:
+
 - The dog barks.
 - The dogs bark.
 

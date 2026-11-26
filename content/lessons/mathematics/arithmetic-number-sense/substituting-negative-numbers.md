@@ -25,7 +25,7 @@ $$3x = 3(-2) = -6$$
 
 $$x^2 = (-2)^2 = 4$$
 
-$$\dfrac{12}{x} = \dfrac{12}{-2} = -6$$
+$$\dfrac{12}{x} = \dfrac{12}{(-2)} = -6$$
 
 Write the parentheses even when they seem extra. They cost nothing, and they stop the mistakes below.
 
@@ -40,6 +40,8 @@ The answer is $-13$. Substitute with parentheses: $2(-5)-3=-10-3=-13$.
 An exponent applies only to what sits right before it. If that is a closing parenthesis, the exponent applies to everything inside the parentheses. If it is a number, the exponent applies to that number alone.
 
 <!-- ILLUSTRATION: two side-by-side panels. Left: (-3)^2 with a teal outline around "(-3)" joined to the exponent 2, then = (-3) x (-3) = 9. Right: -3^2 with a teal outline around only "3" joined to the exponent 2, the minus sign outside it, then = -(3 x 3) = -9 -->
+
+Compare $(-3)^2$ and $-3^2$:
 
 $$(-3)^2=(-3)\times(-3)=9$$
 
@@ -69,6 +71,8 @@ The answer is $-16$. Put $-4$ in parentheses to get $-(-4)^2$, square $(-4)^2=16
 
 The count of negative signs tells you the sign of a power, too. A negative number to an even power is positive. To an odd power, it is negative.
 
+Compare $(-2)^2$ and $(-2)^3$:
+
 $$(-2)^2=(-2)\times(-2)=4$$
 
 $$(-2)^3=(-2)\times(-2)\times(-2)=-8$$
@@ -89,9 +93,9 @@ If $x=-2$ and $y=3$, evaluate $x^2-3xy+\dfrac{12}{x}$.
 
 **Solution:**
 
-1. Substitute. Put $-2$ in parentheses.
+1. Substitute $x=-2$ and $y=3$ into $x^2-3xy+\dfrac{12}{x}$, putting $-2$ in parentheses.
 
-$$(-2)^2-3(-2)(3)+\dfrac{12}{(-2)}$$
+$$x^2-3xy+\dfrac{12}{x}=(-2)^2-3(-2)(3)+\dfrac{12}{(-2)}$$
 
 2. Do the power. The exponent applies to $-2$, so multiply two negatives.
 
@@ -105,13 +109,13 @@ $$3(-2)(3)=-18$$
 
 $$\dfrac{12}{(-2)}=-6$$
 
-5. Put each answer back. Keep the signs between the parts.
+5. Put each answer back into $x^2-3xy+\dfrac{12}{x}$. Keep the signs between the parts.
 
-$$4-(-18)+(-6)$$
+$$x^2-3xy+\dfrac{12}{x}=4-(-18)+(-6)$$
 
 6. Subtracting $-18$ is the same as adding $18$.
 
-$$4+18+(-6)$$
+$$4-(-18)+(-6)=4+18+(-6)$$
 
 :::pair #minus-before-negative
 Right: $4-(-18)+(-6)=4+18+(-6)$
@@ -135,9 +139,9 @@ If $a=-3$ and $b=-1$, evaluate $2a^2-ab+b^3$.
 
 **Solution:**
 
-1. Substitute. Put both values in parentheses.
+1. Substitute $a=-3$ and $b=-1$ into $2a^2-ab+b^3$, putting both values in parentheses.
 
-$$2(-3)^2-(-3)(-1)+(-1)^3$$
+$$2a^2-ab+b^3=2(-3)^2-(-3)(-1)+(-1)^3$$
 
 2. Do the powers. An even power of a negative is positive. An odd power is negative.
 
@@ -147,13 +151,13 @@ $$(-1)^3=-1$$
 
 3. Do the products. In $(-3)(-1)$ the signs are the same, so the product is positive.
 
-$$2\times9=18$$
+$$2(-3)^2=2\times9=18$$
 
 $$(-3)(-1)=3$$
 
-4. Put each answer back. Keep the signs between the parts.
+4. Put each answer back into $2a^2-ab+b^3$. Keep the signs between the parts.
 
-$$18-3+(-1)$$
+$$2a^2-ab+b^3=18-3+(-1)$$
 
 :::try
 Finish the last step: $18-3+(-1)$.
