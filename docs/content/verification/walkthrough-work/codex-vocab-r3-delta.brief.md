@@ -6,7 +6,7 @@ Hard rules:
 - READ-ONLY on the repository. Never edit, stage or commit anything under `/Users/aedwon/.t3/worktrees/Pantas/`. Do not run dart or flutter.
 - Write findings to `v-r3.md` in your working directory, appending as you go. No em dashes.
 
-This is a delta round (manager ruling, Nov 27): it does NOT count as a pass. A batch passes only after a later full read with 0 Blockers and 0 Majors. Its job is to confirm that your round 6 findings are closed and that the fixes did not create new defects, so the full read can converge.
+This is a delta round (manager ruling, Nov 27): it does NOT count as a pass. A batch passes only after a later full read with 0 Blockers and 0 Majors. Its job is to confirm that your round 2 findings are closed and that the fixes did not create new defects, so the full read can converge.
 
 Target: worktree `/Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1`, branch `content/lesson-walkthrough-cse-r1`, commit `9785415c0`, the 29 lessons in `content/lessons/language-proficiency/vocabulary/` with `:::` blocks. Your round 2 report (target `f130a5510`; Vocabulary unchanged since `44d38877f`) is `docs/content/verification/walkthrough-work/codex-vocab-r2.md`. The changes since: `git diff 44d38877f 9785415c0 -- content/lessons/language-proficiency/vocabulary/`. Questions: `content/questions/language-proficiency/vocabulary/`.
 
