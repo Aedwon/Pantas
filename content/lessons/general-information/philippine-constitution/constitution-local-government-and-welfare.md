@@ -28,7 +28,7 @@ Public-officer accountability belongs strictly to Article XI. Never file it unde
 
 Route two governance issues between Articles X and XI:
 
-1. Checking how a province forms a new municipality by plebiscite belongs to **Article X** (Local Government).
+1. Checking how an act of Congress creates a new municipality, subject to a plebiscite in the affected units, belongs to **Article X** (Local Government).
 2. Checking which $5$ officer categories face impeachment belongs to **Article XI** (Accountability of Public Officers).
 
 :::pair #local-gov-article-x
@@ -38,9 +38,9 @@ Local units sit in Article X right after the Commissions (IX) and before Account
 :::
 
 :::pair #accountability-in-xi-not-xvi
-Right: Place public-officer accountability under Article XI, never under General Provisions (Article XVI) or Amendments (Article XVII).
-Wrong: Keeping accountability under Article XVI because "general" covers everything, or moving it to Article XVII or XVIII.
-A broad label like General Provisions never replaces a dedicated article like Article XI.
+Right: Place public-officer accountability in its dedicated Article XI, not under General Provisions (Article XVI).
+Wrong: Filing public-officer accountability under Article XVI as though "general" replaced every specific article.
+A broad catch-all title like General Provisions never replaces a dedicated subject article like Article XI.
 :::
 
 :::check
@@ -54,7 +54,7 @@ The answer is **No**. Local autonomy lets local units manage local affairs withi
 Articles XII and XIII move from national wealth to social protection and human rights:
 
 1. **Article XII: National Economy and Patrimony** governs the economy and national resources. Natural resources belong to the State, so check the exact section for land, mines, or corporations.
-2. **Article XIII: Social Justice and Human Rights** covers labor, land reform, urban housing, health, women, people's organizations, and human rights. It also creates the **Commission on Human Rights (CHR)** to investigate civil and political rights violations (Section $18(1)$).
+2. **Article XIII: Social Justice and Human Rights** covers labor, land reform, urban housing, health, women, people's organizations, and human rights. Section $17(1)$ creates the **Commission on Human Rights (CHR)**, and Section $18(1)$ empowers it to investigate civil and political rights violations.
 
 :::why
 Why separate Article XII from Article XIII? Article XII focuses on national resources and economic rules, while Article XIII protects workers, farmers, disadvantaged groups, and human rights.
@@ -92,18 +92,18 @@ Answer: Question A belongs to Article X, and Question B belongs to Article XI.
 
 **Check:** Match territorial local units to X and public-trust oversight to XI.
 
-### #2: Why General Provisions Never Replaces Article XI
+### #2: Checking Specific Limits Inside Article XII
 
-A reviewer places "Ombudsman Remedies" under Article XVI because "General Provisions" sounds broad enough to hold everything about staff. Correct the index and explain why.
+A student reads the title "Article XII: National Economy and Patrimony." She concludes private foreign corporations may freely own Philippine mineral mines because the article promotes economic growth. Explain how the title-versus-section rule corrects this error.
 
 **Solution:**
 
-1. Article XI carries the title Accountability of Public Officers, covering public trust, impeachment, and the Ombudsman.
-2. Article XVI (General Provisions) collects miscellaneous subjects not given their own article, never replacing Article XI.
+1. Locate the subject: national economy and natural resources sit under Article XII.
+2. Check the specific text: Article XII, Section $2$, declares natural resources like minerals owned by the State and restricts their use.
 
-Answer: Move Ombudsman Remedies to Article XI because specific subject articles govern their own topics.
+Answer: Article XII's title only locates economic and resource rules; the student must read Section $2$'s limits on State-owned natural resources.
 
-**Check:** Always prefer the exact dedicated article (XI) over a broad catch-all title (XVI).
+**Check:** Use an article title to locate the subject, then verify the exact section rule inside Article XII.
 
 ### #3: Routing Local Units, Resources, and Organizations
 
@@ -126,6 +126,6 @@ The answer is **Assign item (c) to Article XIII, because Article XIII covers soc
 
 :::checklist
 - Local Government: locate provinces, cities, municipalities, barangays, and local autonomy in Article X. {#local-gov-article-x}
-- Accountability placement: put public-officer accountability in Article XI, never Article XVI or XVII. {#accountability-in-xi-not-xvi}
+- Accountability placement: put public-officer accountability in its dedicated Article XI, never under Article XVI (General Provisions). {#accountability-in-xi-not-xvi}
 - Economy vs. rights: keep resources and economy in Article XII, and social justice and CHR in Article XIII. {#economy-xii-vs-rights-xiii}
 :::

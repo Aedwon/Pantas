@@ -30,9 +30,9 @@ Check a $7$-member COMELEC slate with a $12$-year lawyer Chair and $3$ Commissio
 2. Because the Chair joins that majority, the other $3$ Commissioners need not be lawyers.
 
 :::pair #comelec-chair-in-majority
-Right: COMELEC has $7$ members, and at least $4$, including the Chair, must be $10$-year lawyers.
-Wrong: Requiring all $7$ members to be $10$-year lawyers, or claiming $4$ is not a majority of $7$.
-Four of $7$ is a majority, and Section $1(1)$ places the Chair inside it.
+Right: COMELEC has $7$ members, and at least a majority ($4$), including the Chair, must be $10$-year lawyers.
+Wrong: Requiring all $7$ COMELEC members to have $10$ years of law practice.
+Article IX-C, Section $1(1)$ requires a majority of $4$ qualified lawyers including the Chair, not all $7$ members.
 :::
 
 :::check
@@ -49,10 +49,10 @@ Each COA member must be a **CPA** (certified public accountant) with $10$ auditi
 
 The **Ombudsman** investigates complaints against public officials (Article XI, Section $13(1)$). Under Article XI, Section $8$, the Ombudsman must be natural-born, at least $40$ at appointment, and of recognized probity and independence. The Ombudsman must be a Philippine Bar member with $10$ years as a judge or lawyer here. Prior candidates in the immediately preceding election are barred.
 
-Fill a COA vacancy when both sitting members are $10$-year CPAs:
+Screen a CPA nominee with $8$ years of auditing experience for a COA seat while both sitting members are $10$-year lawyers:
 
-1. Adding a third CPA puts all $3$ in one profession, breaking Section $1(1)$.
-2. The seat needs a Philippine Bar member with $10$ years of law practice.
+1. Adding a CPA avoids putting all $3$ COA members in the same profession.
+2. Eight years of auditing falls short of the $10$-year minimum under Section $1(1)$, so the nominee fails.
 
 :::why
 Why mix professions on COA? Having both CPAs and lawyers prevents blind spots when auditing government funds.
@@ -66,8 +66,8 @@ With two CPAs serving, the third seat must go to a $10$-year lawyer to keep prof
 
 :::pair #ombudsman-prior-candidacy
 Right: Any candidate in the immediately preceding election is barred from COMELEC, COA, and Ombudsman posts.
-Wrong: Limiting the candidacy bar to losers, or letting legal experience override prior candidacy.
-Winning or losing does not matter; prior-election candidacy disqualifies the nominee.
+Wrong: Limiting the prior-candidacy bar to losing candidates only.
+Winning or losing does not matter; running in the immediately preceding election disqualifies the nominee.
 :::
 
 :::check
@@ -106,7 +106,7 @@ Answer: The Chair lacks $10$ practice years, leaving $3$ qualified lawyers inste
 
 ### #3: Checking an Ombudsman and a COMELEC Nominee
 
-Nominee X is a $39$-year-old natural-born Philippine Bar member with $12$ years of practice, nominated as Ombudsman. Nominee Y is a $37$-year-old non-lawyer graduate nominated as a fourth non-lawyer on the $7$-member COMELEC. Do either qualify?
+Nominee X is a $39$-year-old natural-born Philippine Bar member with $12$ years of practice, nominated as Ombudsman. Nominee Y is a $37$-year-old non-lawyer graduate nominated as a fourth non-lawyer on the $7$-member COMELEC. Does either qualify?
 
 **Solution:**
 

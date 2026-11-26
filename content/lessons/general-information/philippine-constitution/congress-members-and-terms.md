@@ -66,9 +66,9 @@ Article VI, Section $5(2)$ includes party-list seats in the total before applyin
 :::
 
 :::check
-Suppose a law sets total House membership at $300$ seats, including party-list seats. What is the maximum number of party-list seats?
+A new law sets the House at $260$ district seats and $65$ party-list seats ($325$ total). Which seat count serves as the denominator for the $20\%$ cap under Section $5(2)$?
 :::answer
-The answer is **$60$ party-list seats**. Take $20\%$ of the total $300$ House seats: $0.20 \times 300 = 60$.
+The answer is **All $325$ House seats**. Article VI, Section $5(2)$ computes $20\%$ from total House membership, including party-list seats, not the $260$ district seats alone.
 :::
 
 ## Examples
@@ -101,19 +101,19 @@ Answer: No, she cannot run right away because the resignation does not break her
 
 ### #3: House Size Beyond $250$
 
-Congress passes a law increasing total House membership to $350$ seats, including party-list seats. Does the Constitution forbid exceeding $250$, and what is the maximum number of party-list seats?
+A law sets total House membership at $350$ seats ($280$ district and $70$ party-list). An aide claims Congress cannot exceed $250$ seats and that $20\%$ of $280$ district seats ($56$) caps party-list seats. Test both claims.
 
 **Solution:**
 
-1. Check Article VI, Section $5(1)$: the House has not more than $250$ Members unless a law provides otherwise.
-2. Check Article VI, Section $5(2)$: party-list seats equal $20\%$ of total House membership, including party-list seats.
+1. Check Article VI, Section $5(1)$: test whether a statute may raise total House membership beyond $250$.
+2. Check Article VI, Section $5(2)$: test whether the aide used the right base to compute the $20\%$ party-list cap.
 
 :::try
-Finish the last step: state whether $350$ seats is allowed and compute the maximum number of party-list seats.
+Finish the last step: rule on both of the aide's claims and state the true party-list cap for $350$ total seats.
 :::answer
-The answer is **Yes, a law may set $350$ seats, giving at most $70$ party-list seats.** Take $20\%$ of total House membership: $0.20 \times 350 = 70$.
+The answer is **Both claims fail: a law may set $350$ seats, and the party-list cap is $70$, not $56$.** Section $5(1)$ allows another total by law. Section $5(2)$ applies $20\%$ to all $350$ seats ($0.20 \times 350 = 70$), not $280$ district seats alone.
 
-**Check:** Section $5(1)$ expressly permits a different total by law, and Section $5(2)$ applies $20\%$ to total House seats ($70$ of $350$ leaves $280$).
+**Check:** Section $5(1)$ lets a statute pass $250$, and $70$ is $20\%$ of $350$ ($280 + 70 = 350$).
 :::
 
 ## Traps to Watch For

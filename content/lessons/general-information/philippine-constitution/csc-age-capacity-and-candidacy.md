@@ -87,9 +87,9 @@ Screen two former candidates for a $2026$ CSC seat after $2025$ elections:
 2. Candidate D ran in $2016$ and skipped $2019$, $2022$, and $2025$, so D is clear.
 
 :::pair #immediately-preceding-candidacy
-Right: Bar anyone who ran for any national or local office, win or lose, in the immediately preceding election.
-Wrong: Limiting the CSC candidacy bar to losing candidates or to national elective races.
-Section $1(1)$ bars all candidates in any elective race immediately before appointment.
+Right: Bar every candidate, winner or loser, from the immediately preceding election.
+Wrong: Limiting the CSC candidacy bar only to losing candidates in the immediately preceding election.
+Section $1(1)$ uses the word candidates without separating winners from losers.
 :::
 
 :::check
@@ -100,18 +100,18 @@ The answer is **No**. Article IX-B, Section $1(1)$, bars only candidates in the 
 
 ## Examples
 
-### #1: Checking the Birthday Cutoff
+### #1: Picking the Controlling Date
 
-Elena is $34$ on March $1$, her appointment date, and turns $35$ on March $2$. Officials argue a $1$-day gap can be waived. Does Elena meet the age rule?
+Elena is $34$ when she submits her resume to the search committee in February. She turns $35$ on April $15$, and the President appoints her on May $1$. Officials ask whether her February age bars her. Which date controls under Article IX-B?
 
 **Solution:**
 
-1. Article IX-B, Section $1(1)$, requires at least age $35$ on the exact appointment date.
-2. On March $1$, Elena is $34$, and neither the President nor the Commission on Appointments can waive the cutoff.
+1. Identify the controlling event in Article IX-B, Section $1(1)$: minimum age $35$ is measured **at the time of appointment**, not during earlier screening.
+2. Check Elena's age on May $1$: having turned $35$ on April $15$, she is already $35$ on appointment day.
 
-Answer: No, Elena fails because she is $34$ on March $1$ and turning $35$ on March $2$ cannot cure it.
+Answer: May $1$ (appointment day) controls, so Elena meets the $35$-year minimum.
 
-**Check:** Measure age strictly on appointment day; a later birthday never applies retroactively.
+**Check:** Measure age strictly at appointment; neither an earlier screening date nor a later birthday replaces appointment day.
 
 ### #2: Screening Administrative Proof
 
@@ -119,9 +119,9 @@ Applicant X directed regional agency offices for $10$ years. Applicant Y holds a
 
 **Solution:**
 
-1. Proven capacity requires a shown record of managing public work.
-2. Applicant X's $10$-year agency leadership proves that capacity.
-3. Applicant Y's private title and Applicant Z's promise show zero proven public administration.
+1. Test all three applicants against Section $1(1)$'s rule requiring a shown record of managing public work.
+2. Check Applicant X: $10$ years directing regional agency offices proves public-administration capacity.
+3. Check Applicants Y and Z: a private cafe title and a future promise show zero proven public administration.
 
 Answer: Only Applicant X meets the proven-capacity requirement.
 
@@ -149,5 +149,5 @@ The answer is **No, she is disqualified because she was a candidate in the immed
 :::checklist
 - Age cutoff: verify age $35$ on appointment day, not after. {#age-at-appointment}
 - Capacity proof: require real public-administration work, never a promise or private title. {#proven-public-administration}
-- Prior candidacy: bar winners and losers from any race in the immediately preceding election. {#immediately-preceding-candidacy}
+- Prior candidacy: bar winners as well as losers from the immediately preceding election. {#immediately-preceding-candidacy}
 :::

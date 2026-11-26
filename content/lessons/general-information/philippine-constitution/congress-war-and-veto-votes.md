@@ -108,7 +108,7 @@ $$
 
 Answer: At least $220$ House votes and $16$ Senate votes.
 
-**Check:** Both Houses count two-thirds of full membership separately, and missing the $30$-day veto deadline makes the bill law as if signed.
+**Check:** Both Houses count two-thirds of full membership separately: $220$ of $330$ in the House and $16$ of $24$ in the Senate.
 
 ### #3: Present vs. Full Membership
 

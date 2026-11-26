@@ -23,7 +23,7 @@ Article IX-A, Section $1$, creates three **independent Constitutional Commission
 2. The **Commission on Elections (COMELEC)**.
 3. The **Commission on Audit (COA)**.
 
-Statutory bodies and executive offices are not Article IX Commissions. Examples include the Securities and Exchange Commission (SEC), the National Economic and Development Authority (NEDA), and the Department of Budget and Management (DBM).
+Statutory bodies and executive offices are not Article IX Commissions. Examples include the Securities and Exchange Commission (SEC) and the Department of Budget and Management (DBM). The Department of Economy, Planning, and Development (DEPDev, formerly NEDA) is also an executive agency, not an Article IX Commission.
 
 Two financial shields protect the CSC from outside control:
 
@@ -34,14 +34,14 @@ Two financial shields protect the CSC from outside control:
 Why protect salaries and annual fund releases? If budget officials could freeze funds or cut pay, they could pressure CSC rulings.
 :::
 
-Test a budget memo holding back the CSC's approved office-supply release until an appeal is reconsidered:
+Test a CSC unit claiming fiscal autonomy lets it spend a **proposed** budget request before Congress approves the annual appropriation:
 
-1. Article IX-A, Section $5$, requires automatic and regular release of approved annual CSC appropriations.
-2. Attaching conditions or delaying approved releases breaks fiscal autonomy.
+1. Article IX-A, Section $5$, mandates automatic and regular release of **approved** annual appropriations.
+2. Until Congress approves the appropriation, fiscal autonomy does not let an agency spend unapproved requests.
 
 :::pair #only-three-commissions
 Right: Treat only CSC, COMELEC, and COA as Article IX Constitutional Commissions.
-Wrong: Assuming bodies like the Securities and Exchange Commission or NEDA are Article IX Commissions.
+Wrong: Assuming bodies like the Securities and Exchange Commission or the former NEDA are Article IX Commissions.
 A statutory agency or department does not become an Article IX Commission from having Commission in its name.
 :::
 
@@ -115,19 +115,19 @@ Answer: Both plans violate Article IX-A, Section $2$.
 
 ### #3: Salary Cuts and Provincial Contracts
 
-During a revenue drop, a statute lowers sitting CSC Commissioners' monthly salaries by $5\%$ for one year. Meanwhile, a sitting Commissioner holds a silent $15\%$ stake in a contractor bidding on a provincial bridge project. Rule on both.
+During a revenue drop, a statute lowers sitting CSC Commissioners' monthly salaries by $5\%$ for one year. Meanwhile, a sitting Commissioner holds a silent $15\%$ stake in a contractor that holds an awarded provincial bridge contract. Rule on both.
 
 **Solution:**
 
 1. Check the salary cut against Article IX-A, Section $3$: test whether a revenue drop allows reducing sitting members' pay.
-2. Check the silent $15\%$ stake against Section $2$: test whether local subdivisions like provinces are covered by the financial-interest ban.
+2. Check the silent $15\%$ stake against Section $2$: test whether an awarded contract with a local subdivision like a province falls under the financial-interest ban.
 
 :::try
 Finish the last step: state the constitutional ruling for both the salary cut and the silent contractor stake.
 :::answer
-The answer is **Both the $5\%$ salary cut and the silent contractor stake violate Article IX-A.** Section $3$ forbids reducing member salaries during tenure, even in a revenue drop. Section $2$ bars any direct or indirect financial interest in contracts with local subdivisions like provinces.
+The answer is **Both the $5\%$ salary cut and the silent contractor stake violate Article IX-A.** Section $3$ forbids reducing member salaries during tenure, even in a revenue drop. Section $2$ bars any direct or indirect financial interest in contracts awarded by local subdivisions like provinces.
 
-**Check:** Match salary cuts during tenure to Section $3$, and indirect stakes in provincial contracts to Section $2$.
+**Check:** Match salary cuts during tenure to Section $3$, and indirect stakes in awarded provincial contracts to Section $2$.
 :::
 
 ## Traps to Watch For

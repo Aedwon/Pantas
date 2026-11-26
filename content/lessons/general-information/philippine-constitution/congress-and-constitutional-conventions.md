@@ -35,7 +35,7 @@ Sort three actions: lawmakers draft a change, a special elected assembly writes 
 
 :::pair #three-proposal-routes
 Right: Article XVII gives $3$ proposal routes: Congress, a constitutional convention, and people's initiative (amendments only).
-Wrong: Counting $2$ routes without initiative, or counting $4$ routes by treating voter referral for a convention as an extra route.
+Wrong: Counting $4$ proposal routes by treating voter referral for a convention as a separate route.
 Asking voters whether to call a convention is part of forming the convention route, not a fourth route.
 :::
 
@@ -65,9 +65,9 @@ Why count all Members instead of Members present? High supermajorities stop a sm
 :::
 
 :::pair #match-congressional-fractions
-Right: Use $\dfrac{3}{4}$ to propose changes, $\dfrac{2}{3}$ to call a convention directly, and a majority to ask voters whether to call one.
-Wrong: Using $\dfrac{2}{3}$ to propose changes, or using a simple majority to call a convention directly.
-Each congressional threshold in Sections $1$ and $3$ has a distinct job.
+Right: Congress needs $\dfrac{3}{4}$ of all Members to propose constitutional changes, whereas $\dfrac{2}{3}$ calls a convention directly.
+Wrong: Using $\dfrac{2}{3}$ of all Members when Congress itself proposes an amendment or revision.
+Section $1$ requires $\dfrac{3}{4}$ for congressional proposals; $\dfrac{2}{3}$ belongs to calling a convention under Section $3$.
 :::
 
 :::pair #count-all-members
@@ -97,22 +97,23 @@ Answer: Only the lawmakers' proposal fits; the overhaul requires Congress or a c
 
 **Check:** Only Congress and a constitutional convention may propose revisions.
 
-### #2: Congress Proposes
+### #2: Checking Whether a Proposal Vote Passed
 
-For a hypothetical congressional voting body with $320$ Members, how many votes are required to propose a constitutional change?
+In a hypothetical body of $280$ total Members, $220$ attend and $190$ vote yes to propose an amendment. Supporters note that $190$ exceeds $\dfrac{3}{4}$ of the $220$ present. Did the vote pass Article XVII, Section $1$?
 
 **Solution:**
 
-1. Under Article XVII, Section $1$, Congress needs $\dfrac{3}{4}$ of all Members to propose a change.
-2. Multiply $\dfrac{3}{4}$ by all $320$ Members:
+1. Identify the proper base under Article XVII, Section $1$: compute $\dfrac{3}{4}$ of all $280$ Members, not the $220$ present:
 
 $$
-\dfrac{3}{4}\times320=240
+\dfrac{3}{4}\times280=210
 $$
 
-Answer: At least $240$ votes are needed. This hypothetical calculation does not decide whether the Houses vote jointly or separately.
+2. Compare the $190$ yes votes with the $210$-vote threshold: $190 < 210$.
 
-**Check:** Three-fourths of $320$ is $240$, whereas two-thirds would only suffice to call a convention.
+Answer: No, the proposal failed by $20$ votes. This hypothetical calculation does not decide whether the Houses vote jointly or separately.
+
+**Check:** Using only the $220$ present gives $165$, yet Section $1$ requires $210$ out of all $280$ Members.
 
 ### #3: Calling a Convention
 
@@ -144,6 +145,6 @@ Remember the descending ladder of **all** Members: $\dfrac{3}{4}$ proposes chang
 
 :::checklist
 - Counting proposal routes: count $3$ routes (Congress, convention, initiative), not the ways to call a convention. {#three-proposal-routes}
-- Mixing congressional fractions: match $\dfrac{3}{4}$ to proposing, $\dfrac{2}{3}$ to calling a convention, and a majority to asking voters. {#match-congressional-fractions}
+- Mixing congressional fractions: use $\dfrac{3}{4}$ for congressional proposals, not the $\dfrac{2}{3}$ convention-call vote. {#match-congressional-fractions}
 - Counting only Members present: always use **all** Members as the base in Article XVII votes. {#count-all-members}
 :::

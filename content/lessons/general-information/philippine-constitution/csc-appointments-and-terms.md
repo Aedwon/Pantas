@@ -23,12 +23,12 @@ Article IX-B, Section $1(2)$, sets how CSC members enter office and how long the
 2. Appointments require the consent of the **Commission on Appointments (CA)**.
 3. The regular term is **$7$ years without reappointment**.
 
-The Judicial and Bar Council (JBC) screens judges and Ombudsman nominees, never CSC members. Neither the President nor a unanimous CA vote can grant a second term after a full $7$-year term.
+In regular appointments while Congress is in session, CA consent comes first. During a congressional recess, the President may issue a permanent *ad interim* appointment effective until CA disapproval or the next adjournment of Congress. The Judicial and Bar Council (JBC) screens judges and Ombudsman nominees, never CSC members.
 
-Test a proposed appointment after a Commissioner finishes $7$ years:
+Test an executive order naming a bureau director as Acting CSC Commissioner for $6$ months during a vacancy:
 
-1. A completed $7$-year term leaves zero room for reappointment under Section $1(2)$.
-2. Relabeling the post or gaining unanimous CA support cannot create another term.
+1. Article IX-B, Section $1(2)$, bars appointing or designating any CSC member in a temporary or acting capacity.
+2. A $6$-month acting label violates that ban. By contrast, a permanent *ad interim* recess appointment under Article VII, Section $16$, is allowed when Congress is in recess.
 
 :::pair #president-with-ca-consent
 Right: The President appoints CSC members only with the consent of the Commission on Appointments.
@@ -37,13 +37,13 @@ The JBC screens judicial and Ombudsman posts, while Article IX-B requires presid
 :::
 
 :::pair #seven-years-no-reappointment
-Right: Every regular CSC term is $7$ years without reappointment, regardless of performance or consent.
-Wrong: Treating the regular CSC term as $5$ years or allowing reappointment for strong performance.
-Section $1(2)$ fixes regular terms at $7$ years and bars reappointment once a full term ends.
+Right: After finishing a full $7$-year CSC term, a member cannot be reappointed, regardless of job performance.
+Wrong: Allowing a President to grant a second CSC term because the member performed well.
+Section $1(2)$ fixes regular terms at $7$ years without reappointment, leaving no performance exception.
 :::
 
 :::check
-A senator proposes skipping Commission on Appointments consent if the President and the CSC nominee both sign a written agreement. Does that process follow Article IX-B?
+While Congress is in session, a senator proposes skipping Commission on Appointments consent if the President and the CSC nominee both sign a written agreement. Does that process follow Article IX-B?
 :::answer
 The answer is **No**. Article IX-B, Section $1(2)$, requires both presidential appointment and Commission on Appointments consent.
 :::
@@ -121,25 +121,25 @@ Answer: The successor serves only the $4$ unexpired years, not a fresh $7$-year 
 
 ### #3: Filling an Early Vacancy Under Article IX-B
 
-A CSC Commissioner starts a regular $7$-year term in February $2022$ and resigns in February $2027$ after $5$ full years. The President appoints Director Santos to a fresh $7$-year term without submitting her name to the Commission on Appointments. Identify both constitutional defects.
+A CSC Commissioner starts a regular $7$-year term in February $2022$ and resigns in February $2027$ after $5$ full years. While Congress is in session, the President appoints Director Santos to a fresh $7$-year term without submitting her name to the Commission on Appointments. Identify both constitutional defects.
 
 **Solution:**
 
-1. Check the appointment process under Article IX-B, Section $1(2)$: identify who must consent to every CSC appointment.
+1. Check the appointment process under Article IX-B, Section $1(2)$: identify who must consent to a regular CSC appointment while Congress is in session.
 2. Compute the predecessor's remaining years from $2022$ to $2029$ after $5$ years served.
 
 :::try
 Finish the last step: state both constitutional defects and calculate how many years Director Santos may serve once properly appointed.
 :::answer
-The answer is **The appointment lacks Commission on Appointments consent, and Director Santos can serve only the $2$ unexpired years, not $7$.** Article IX-B, Section $1(2)$, requires CA consent for every CSC appointment and limits vacancy replacements to $7 - 5 = 2$ remaining years.
+The answer is **The regular appointment lacks Commission on Appointments consent, and Director Santos can serve only the $2$ unexpired years, not $7$.** While Congress is in session, a regular appointment requires CA consent before taking effect. Vacancy replacements are also limited to $7 - 5 = 2$ remaining years.
 
-**Check:** $5 + 2 = 7$ keeps the staggered exit in $2029$, and CA consent is mandatory before permanent appointment.
+**Check:** $5 + 2 = 7$ keeps the staggered exit in $2029$. Regular appointments need prior CA consent, while a valid recess appointment takes effect subject to CA disapproval or next adjournment.
 :::
 
 ## Traps to Watch For
 
 :::checklist
 - Appointing route: require the President plus Commission on Appointments consent, never the JBC. {#president-with-ca-consent}
-- Regular term limit: keep regular terms at $7$ years without reappointment, even with CA support. {#seven-years-no-reappointment}
-- Staggered and unexpired terms: initial $7$-, $5$-, and $3$-year terms staggered exits, and replacements finish only the unexpired balance with no acting seats. {#staggered-and-unexpired-terms}
+- No reappointment: a completed $7$-year term bars reappointment regardless of performance. {#seven-years-no-reappointment}
+- Staggered initial terms: initial $7$-, $5$-, and $3$-year lengths staggered CSC exits instead of ending together. {#staggered-and-unexpired-terms}
 :::

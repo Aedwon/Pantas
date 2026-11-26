@@ -18,9 +18,9 @@ keyPoints:
 
 Under Article XI, Section $3(6)$, the **Senate** has the sole power to try and decide all cases of impeachment. Senators sit on oath or affirmation.
 
-Conviction requires the concurrence of at least **$\dfrac{2}{3}$ of all Members of the Senate**. With $24$ Senators, $\dfrac{2}{3} \times 24 = 16$ Senator votes are needed, never just $\dfrac{2}{3}$ of those present.
+Conviction requires the concurrence of at least **$\dfrac{2}{3}$ of all Members of the Senate**. When all $24$ Senators are legally and actually able to participate, $\dfrac{2}{3} \times 24 = 16$ Senator votes are needed, not $\dfrac{2}{3}$ of those present. In September $2026$, the Senate Impeachment Court read "all the Members of the Senate" as Senators legally and actually able to participate. The Supreme Court dismissed petitions challenging that interpretation on procedural grounds.
 
-When the **President** is on trial, the **Chief Justice of the Supreme Court presides, but shall not vote**. For other impeachable officers, the Senate President presides.
+When the **President** is on trial, the **Chief Justice of the Supreme Court presides, but shall not vote**. Under Section $3(8)$, the Senate promulgates its own rules on impeachment, including who presides in trials of other impeachable officers.
 
 Check a presidential impeachment trial where all $24$ Senators sit on oath:
 
@@ -34,9 +34,9 @@ Only Senators vote on conviction, and the Chief Justice presides without a vote.
 :::
 
 :::check
-During the Vice-President's impeachment trial, $21$ of the $24$ Senators attend, and $15$ vote to convict. Is the Vice-President convicted?
+All $24$ Senators are legally and actually able to participate in the Vice-President's impeachment trial. Only $21$ attend the vote, and $15$ vote to convict. Is the Vice-President convicted?
 :::answer
-The answer is **No**. Section $3(6)$ requires $\dfrac{2}{3}$ of all Members of the Senate, which is $16$ out of $24$ Senators.
+The answer is **No**. Section $3(6)$ requires $\dfrac{2}{3}$ of all Members of the Senate. With all $24$ Senators able to participate, $\dfrac{2}{3} \times 24 = 16$ votes are required, not $\dfrac{2}{3}$ of the $21$ present.
 :::
 
 ### Judgment Limits, Criminal Cases, and the One-Year Bar
@@ -48,21 +48,21 @@ Under Article XI, Section $3(7)$, judgment in impeachment extends **no further**
 
 Impeachment judgment imposes no prison sentence or criminal fine. However, a convicted official remains liable to separate **prosecution, trial, and punishment according to law** in regular courts. Under Article VII, Section $19$, presidential pardon also cannot undo impeachment.
 
-Under Article XI, Section $3(5)$, no impeachment proceedings may be initiated against the same official more than once within **$1$ year** (the **$1$-year bar**). Disputed timing rules in specific filings may require legal rulings.
+Under Article XI, Section $3(5)$, no impeachment proceedings may be initiated against the same official more than once within **$1$ year**. Under *Duterte v. House*, the $1$-year clock starts when a valid regular-route complaint is dismissed or archived, or on a valid $\dfrac{1}{3}$ direct filing.
 
 :::why
 Why keep impeachment judgment separate from criminal prison sentences? Impeachment protects public office quickly, while ordinary courts protect full trial rights before imprisonment.
 :::
 
-Apply Sections $3(5)$ and $3(7)$ when an official is cleared in April and another complaint arrives in November, or when a commissioner is convicted:
+Apply Sections $3(5)$ and $3(7)$ to two cases. On April $10$, $2025$, the House dismisses a valid regular-route complaint against an official, and a second complaint is filed on November $10$, $2025$. Separately, the Senate convicts a commissioner:
 
-1. November sits within $1$ year of April, so Section $3(5)$ bars initiating a second impeachment proceeding.
-2. If the Senate convicts, Section $3(7)$ caps judgment at removal and disqualification, with no Senate prison sentence.
+1. Dismissal of the valid regular-route complaint on April $10$, $2025$, triggers the $1$-year bar through April $10$, $2026$, blocking November $10$, $2025$.
+2. On conviction, Section $3(7)$ caps judgment at removal and disqualification, with no Senate prison sentence.
 
 :::pair #judgment-not-criminal-end
 Right: Impeachment stops at removal and disqualification, leaving the convicted officer open to separate criminal prosecution in court.
-Wrong: Treating impeachment conviction as imposing a prison sentence or blocking any later criminal case under law.
-The Senate decides removal and disqualification, while ordinary courts try and punish crimes.
+Wrong: Treating removal and disqualification as replacing all further liability under criminal law.
+Section $3(7)$ expressly preserves separate prosecution, trial, and punishment according to law in regular courts.
 :::
 
 :::check
@@ -88,16 +88,16 @@ Answer: Conviction succeeds with $16$ Senator votes, and the Chief Justice casts
 
 ### #2: Checking the One-Year Bar
 
-Valid impeachment proceedings begin against an Ombudsman on May $10$, $2025$, and end without conviction. May a House bloc initiate a second impeachment proceeding against that same official on January $15$, $2026$?
+On May $10$, $2025$, over $\dfrac{1}{3}$ of all House Members file validly verified Section $3(4)$ Articles against an Ombudsman with evidence access. The Senate later acquits the Ombudsman. May a House bloc initiate a second impeachment proceeding on January $15$, $2026$?
 
 **Solution:**
 
-1. Under Article XI, Section $3(5)$, no impeachment proceedings may be initiated against the same official more than once within $1$ year.
-2. January $15$, $2026$, is roughly $8$ months after May $10$, $2025$, still inside the $1$-year window.
+1. Find the triggering event in the Ombudsman's first case: the valid $\dfrac{1}{3}$ direct filing on May $10$, $2025$, started the $1$-year bar.
+2. Count $1$ year from May $10$, $2025$: the bar runs until May $10$, $2026$, so January $15$, $2026$, falls inside it.
 
-Answer: No, the $1$-year bar prohibits initiating a second proceeding before May $2026$.
+Answer: No, Section $3(5)$ bars initiating a second proceeding until after May $10$, $2026$.
 
-**Check:** Compare the two dates against the $1$-year rule under Section $3(5)$.
+**Check:** Identify the filing route and triggering event under *Duterte v. House* before counting $1$ full year.
 
 ### #3: Post-Conviction Prosecution and Pardon
 
@@ -105,20 +105,20 @@ The Senate convicts an official of graft, removing and disqualifying her. A pros
 
 **Solution:**
 
-1. Under Article XI, Section $3(7)$, impeachment judgment reaches only removal and disqualification, preserving liability to criminal prosecution according to law.
-2. Under Article VII, Section $19$, presidential pardon excludes cases of impeachment.
+1. Check the prosecutor's criminal case against Article XI, Section $3(7)$, on post-conviction liability.
+2. Check the pardon request against Article VII, Section $19$'s limit on executive clemency.
 
 :::try
-Finish the last step: rule on both the prosecutor's criminal case and the requested pardon.
+Finish the last step: state which constitutional limit governs each action and rule on both.
 :::answer
-The answer is **The criminal prosecution may proceed in court, and the President cannot pardon the impeachment verdict.** Impeachment removal neither jails the official nor blocks separate criminal trials, and Article VII bars impeachment pardons.
+The answer is **The criminal prosecution may proceed in court, and the President cannot pardon the impeachment verdict.** Under Article XI, Section $3(7)$, impeachment judgment reaches only removal and disqualification while preserving criminal prosecution according to law. Under Article VII, Section $19$, presidential pardon excludes cases of impeachment.
 
-**Check:** Confirm both limits: courts handle criminal punishment after impeachment, and presidential pardon cannot reverse impeachment.
+**Check:** Confirm both limits: regular courts handle criminal punishment after impeachment, and presidential pardon cannot reverse impeachment.
 :::
 
 ## Traps to Watch For
 
 :::checklist
 - Chief Justice role: presides at a presidential trial without voting, leaving conviction to $\dfrac{2}{3}$ of all Senators. {#chief-justice-no-vote}
-- Judgment limits: stops at removal and disqualification, while separate criminal prosecution may still follow. {#judgment-not-criminal-end}
+- Criminal liability after conviction: removal and disqualification never block separate criminal prosecution in court. {#judgment-not-criminal-end}
 :::

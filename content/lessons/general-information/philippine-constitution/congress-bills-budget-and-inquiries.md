@@ -17,7 +17,7 @@ keyPoints:
 
 ### Bills Starting in the House and the Budget Limit
 
-A **bill** is a proposed law, and to **originate** means to start. Article VI, Section $24$ requires six bills to start in the House:
+A **bill** is a proposed law, and to **originate** means to start. Article VI, Section $24$ requires six kinds of bills to start in the House:
 
 1. **Appropriation bills** authorize spending public money.
 2. **Revenue bills** raise government income, and **tariff bills** set customs duties on goods.
@@ -67,9 +67,9 @@ Test Section $21$ on a House committee studying food safety before drafting a la
 2. The committee must publish its rules in advance and respect every witness's constitutional rights.
 
 :::pair #inquiry-rules-and-rights
-Right: Legislative inquiries require duly published rules and respect for witnesses' rights.
-Wrong: Ignoring witnesses' rights or published rules because an inquiry supports lawmaking.
-Lawmaking opens the inquiry, yet Section $21$ still enforces published rules and personal rights.
+Right: Legislative inquiries must respect the rights of people appearing in or affected by them.
+Wrong: Ignoring witnesses' rights because an inquiry supports lawmaking.
+Lawmaking authorizes the inquiry, yet Section $21$ still requires respecting every witness's constitutional rights.
 :::
 
 :::check
@@ -99,8 +99,8 @@ A Senate committee investigates a problem to help draft a law. It uses unpublish
 
 **Solution:**
 
-1. The goal supports an inquiry in aid of legislation.
-2. Section $21$ still requires duly published rules and respect for people's rights.
+1. Test the committee's goal: studying a problem to draft a law authorizes an inquiry in aid of legislation.
+2. Apply Section $21$'s two safeguards: duly published rules and respect for people's rights still bind the committee.
 
 Answer: No, both published rules and respect for rights are required.
 
@@ -108,19 +108,19 @@ Answer: No, both published rules and respect for rights are required.
 
 ### #3: Changing the Operating Budget
 
-The President submits a budget recommending $10$ billion pesos for an agency's operations. One House panel proposes cutting it to $9$ billion pesos, while a Senate amendment proposes raising it to $11$ billion pesos. Which proposal does Article VI, Section $25(1)$ allow?
+The President's budget recommends $500$ billion pesos total for government operations, including $10$ billion pesos for one agency. Keeping all other items fixed, a House panel cuts that agency to $9$ billion ($499$ billion total). A Senate amendment raises it to $11$ billion ($501$ billion total). Which proposal does Section $25(1)$ allow?
 
 **Solution:**
 
-1. Check the House proposal: lowering $10$ billion pesos to $9$ billion pesos reduces recommended operating appropriations.
-2. Check the Senate proposal: raising $10$ billion pesos to $11$ billion pesos exceeds the President's recommendation.
+1. Check the House proposal: cutting the agency item reduces total recommended operating appropriations from $500$ billion to $499$ billion pesos.
+2. Check the Senate proposal: raising the agency item pushes total recommended operating appropriations from $500$ billion to $501$ billion pesos.
 
 :::try
 Finish the last step: state which proposal Section $25(1)$ allows and explain why the other fails.
 :::answer
-The answer is **Only the $9$-billion-peso cut is allowed, while the $11$-billion-peso increase is barred.** Article VI, Section $25(1)$ bars Congress from increasing the President's recommended appropriations for government operations.
+The answer is **Only the $9$-billion-peso cut ($499$ billion total) is allowed, while the $11$-billion-peso increase ($501$ billion total) is barred.** Article VI, Section $25(1)$ bars Congress from increasing the President's recommended appropriations for government operations as specified in the budget.
 
-**Check:** Section $25(1)$ permits keeping or cutting recommended operating appropriations ($9 < 10$), never raising them ($11 > 10$).
+**Check:** Section $25(1)$ allows keeping or reducing total recommended operating appropriations ($499 < 500$), never increasing them ($501 > 500$).
 :::
 
 ## Traps to Watch For

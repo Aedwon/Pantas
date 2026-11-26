@@ -36,9 +36,9 @@ Why treat Section $1(3)$ electors as natural-born? Section $2$ protects pre-$197
 :::
 
 :::pair #naturalized-not-natural-born
-Right: Naturalized citizens are full citizens, yet lack natural-born status required for offices like Senator or Civil Service Commissioner.
-Wrong: Assuming any Philippine citizen qualifies for every office, or treating naturalization as granting natural-born status.
-Years of citizenship or other qualifications never convert naturalized status into natural-born status.
+Right: Naturalized citizens are full citizens, yet naturalization never grants natural-born status.
+Wrong: Treating a person who completes naturalization as a natural-born citizen.
+Offices like Senator and Civil Service Commissioner require natural-born status, not citizenship by naturalization.
 :::
 
 :::pair #proper-election-is-natural-born
@@ -48,9 +48,9 @@ Section $2$ expressly places valid Section $1(3)$ electors inside natural-born c
 :::
 
 :::check
-A naturalized citizen has lived in Cebu for $20$ years and holds a law degree. May she be appointed as a Civil Service Commission member?
+Dante was born in Manila to two foreign citizens and became Filipino through naturalization at age $24$. Maya was born in Rome in $1992$ to a Filipino mother and a foreign father. Which one meets the natural-born requirement to run for Representative?
 :::answer
-The answer is **No**. Civil Service Commission members must be natural-born citizens under Article IX-B, Section $1$, and naturalization does not grant natural-born status.
+The answer is **Only Maya**. Maya was Filipino from birth without any act, while Dante is naturalized despite his Manila birthplace.
 :::
 
 ### Judicial vs. Administrative Naturalization
@@ -81,18 +81,18 @@ The answer is **Yes**. Commonwealth Act $473$, Section $2$, generally requires a
 
 ## Examples
 
-### #1: Election of Citizenship
+### #1: Whether Election Was Needed
 
-Lina was born in $1970$. Her mother was a Filipino citizen when Lina was born. Her father was an alien. She validly elected Philippine citizenship upon majority. Is she natural-born?
+Ramon was born in March $1973$ to a Filipino mother and a foreign father. He never filed an election of citizenship at majority. Is he still a natural-born citizen?
 
 **Solution:**
 
-1. Check her route: born before January $17$, $1973$, to a Filipino mother and alien father, she elected under Section $1(3)$.
-2. Apply Article IV, Section $2$: valid Section $1(3)$ electors are deemed natural-born.
+1. Compare his birth date with January $17$, $1973$: March $1973$ is after the cutoff, so Section $1(3)$ election did not apply.
+2. Apply Article IV, Section $2$: because his mother was Filipino at birth, he became Filipino from birth with no act required.
 
-Answer: Yes, Lina is natural-born because Section $2$ expressly includes Section $1(3)$ electors.
+Answer: Yes, Ramon is natural-born because no election was required after January $17$, $1973$.
 
-**Check:** Proper Section $1(3)$ election gives natural-born status, not naturalized status.
+**Check:** Check the January $17$, $1973$ cutoff before assuming a child of a Filipino mother needed Section $1(3)$ election.
 
 ### #2: Senate Qualification
 
@@ -109,19 +109,19 @@ Answer: Ana meets the requirement because Senators must be natural-born.
 
 ### #3: Screening Two Naturalization Paths
 
-Rosa was born in Bacolod to foreign parents, lived there since birth, and files under RA $9139$ at age $17$. Tomas was born in Seoul, has lived in Davao for $11$ years, and files under RA $9139$ at age $23$. Why do both fail RA $9139$, and which law fits Tomas's age and residence?
+Rosa was born in Bacolod to foreign parents, lived there since birth, and files under RA $9139$ at age $17$. Tomas was born in Seoul, has lived in Davao for $11$ years, and files under RA $9139$ at age $23$. Does either applicant qualify under RA $9139$, and does either fit Commonwealth Act $473$'s age and residence minimums?
 
 **Solution:**
 
-1. Check Rosa under RA $9139$: Philippine birth and lifelong residence match, yet Section $3$ requires age $18$ at filing.
-2. Check Tomas under RA $9139$: foreign birth bars administrative naturalization, while Commonwealth Act $473$ covers judicial naturalization.
+1. Check Rosa's birthplace, lifelong residence, and filing age against RA $9139$, Section $3$.
+2. Check Tomas's birthplace against RA $9139$, then compare his age and continuous residence with Commonwealth Act $473$, Section $2$.
 
 :::try
-Finish the last step: explain why both fail RA $9139$ and state which law fits Tomas's age and $11$-year residence.
+Finish the last step: decide whether either applicant qualifies under RA $9139$, and test Tomas against Commonwealth Act $473$'s age and residence minimums.
 :::answer
-The answer is **Rosa is under $18$, Tomas was born abroad, and Tomas fits Commonwealth Act $473$.** Neither qualifies under RA $9139$. At age $23$ with $11$ continuous years in the Philippines, Tomas clears Commonwealth Act $473$'s $21$-at-hearing and $10$-year minimums.
+The answer is **Neither qualifies under RA $9139$, and Tomas fits Commonwealth Act $473$'s age and residence minimums.** Rosa was born and raised in Bacolod, yet age $17$ is under RA $9139$'s age $18$ minimum at filing. Foreign birth bars Tomas from RA $9139$, while age $23$ and $11$ continuous years clear Commonwealth Act $473$'s age $21$ and $10$-year minimums.
 
-**Check:** Use age $18$ at filing for Philippine-born lifelong residents under RA $9139$. Use age $21$ at the hearing under Commonwealth Act $473$.
+**Check:** Match RA $9139$ to Philippine-born lifelong residents at age $18$ at filing, and Commonwealth Act $473$ to age $21$ at the hearing.
 :::
 
 ## Traps to Watch For

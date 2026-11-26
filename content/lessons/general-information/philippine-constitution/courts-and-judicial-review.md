@@ -24,15 +24,15 @@ Article VIII, Section $1$ gives **judicial power** two core duties:
 
 **Judicial review** checks whether a law or government act follows the Constitution. Courts need a proper case, not an advisory request. Policy disagreement alone does not make a law unconstitutional.
 
-Test Section $1$ when a board cancels a permit without legal power and calls it policy:
+Test Section $1$ when a mayor asks a trial court to approve a draft ordinance before anyone is affected:
 
-1. The holder brings a proper case over a legally enforceable right.
-2. Acting beyond legal authority can be grave abuse, so the court may review it.
+1. No person faces an actual dispute over a legally demandable and enforceable right yet.
+2. Without an actual controversy, the court declines to give an advisory opinion.
 
 :::pair #grave-abuse-review
-Right: In a proper case, courts settle legal disputes and review grave abuse of discretion by government bodies.
-Wrong: Limiting courts to private disputes, or letting a policy label block review of unlawful abuse.
-Section $1$ lets courts check government acts that lack or exceed legal authority.
+Right: In a proper case, courts may review grave abuse of discretion by government bodies even when labeled policy.
+Wrong: Letting a policy label shield acts beyond legal authority from judicial review.
+Section $1$ authorizes courts to check government acts that lack or exceed legal authority despite a policy label.
 :::
 
 :::check
@@ -90,18 +90,18 @@ Answer: $15$ Members; divisions of $3$, $5$, or $7$; the judicial branch (consti
 
 **Check:** $1 + 14 = 15$ Members total, and Section $4(2)$ sends constitutional challenges en banc.
 
-### #2: Grave Abuse vs. Policy Choice
+### #2: Lawful Policy Choice vs. Legal Limit
 
-A water agency fines a factory without legal power and claims courts cannot touch agency policy. May a court review the fine in a proper case?
+A city council passes a valid curfew ordinance within its legal powers. A business group sues asking the court to void it solely because members prefer a later closing hour. Should the court strike it down?
 
 **Solution:**
 
-1. The factory brings a proper case challenging an act beyond legal authority.
-2. Under Section $1$, judicial power covers grave abuse of discretion by any government body.
+1. Test the challenge: the group raises a policy preference, not an act beyond legal authority.
+2. Apply Section $1$: courts review grave abuse of discretion, not lawful policy choices they dislike.
 
-Answer: Yes, the court may examine grave abuse, though it never replaces valid policy choices.
+Answer: No, policy disagreement alone does not allow a court to strike down a lawful ordinance.
 
-**Check:** Calling an unauthorized act policy cannot block review under Section $1$.
+**Check:** Separate acting beyond legal authority from lawful policy choices.
 
 ### #3: Advisory Requests and Division Appeals
 

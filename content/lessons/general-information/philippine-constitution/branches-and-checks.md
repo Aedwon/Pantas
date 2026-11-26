@@ -33,14 +33,14 @@ Match each branch role when Congress passes a clean-water law, an agency enforce
 
 :::pair #execute-vs-decide
 Right: The President executes laws, while the courts settle actual disputes over legal rights.
-Wrong: Giving law execution to Congress or the courts, or letting the President settle legal disputes alone.
-Carrying out a law is executive work, and deciding cases over legal rights is judicial work.
+Wrong: Letting the President alone settle actual disputes over legal rights.
+Carrying out a law is executive work, while deciding actual disputes over legal rights belongs to the courts.
 :::
 
 :::check
-The President directs the Department of Health to carry out a new immunization statute nationwide. Which branch exercises this power?
+A town councilor asks the President to settle a private boundary dispute between two landowners instead of filing in court. Can the President exercise that power?
 :::answer
-The answer is **The executive branch (the President)**. Under Article VII, Section $1$, carrying out and enforcing statutes is executive power.
+The answer is **No**. Settling actual disputes over legal rights belongs to the courts under Article VIII, Section $1$, not the President.
 :::
 
 ### Checks and Balances
@@ -55,19 +55,19 @@ A **check and balance** lets one branch limit another branch's use of power.
 
 <!-- ILLUSTRATION: Congress, President, Courts connected by arrows President to Congress: veto; Congress to President: override; Commission on Appointments to presidential appointments: consent; Congress to impeachable officers: impeachment; Courts to Congress and President: judicial review -->
 
-Trace the checks when the President rejects a tariff bill and Congress repasses it anyway:
+Trace two checks when the Commission on Appointments rejects an ambassador nominee and the Supreme Court strikes down a statute:
 
-1. Rejecting the bill is the President's veto under Article VI, Section $27(1)$.
-2. Repassing the bill despite that rejection is Congress's veto override.
+1. Rejecting the ambassador nominee uses Commission on Appointments consent under Article VII, Section $16$.
+2. Striking down an unconstitutional statute in a proper case uses judicial review under Article VIII, Section $1$.
 
 :::why
 Why give each branch specific checks on the others? Separated powers prevent abuse by forcing branches to answer to constitutional limits.
 :::
 
 :::pair #veto-and-override-check
-Right: Rejecting a bill is a veto, and repassing it over that rejection is a veto override.
-Wrong: Calling a bill rejection judicial review, or pairing a veto with appointment consent.
-Check what is blocked: bills use veto and override, appointees use consent, and courts use judicial review.
+Right: The President rejects a bill by veto, and Congress repasses it by veto override.
+Wrong: Calling the President's rejection of a bill judicial review.
+Check which branch acts: rejecting a bill is a presidential veto, while judicial review belongs to the courts.
 :::
 
 :::check
@@ -126,5 +126,5 @@ The answer is **The high official faces impeachment, and the government board fa
 
 :::checklist
 - Execution vs. dispute settlement: the President carries out laws, while courts settle actual disputes over legal rights. {#execute-vs-decide}
-- Bill rejected and repassed: match that pair to veto and veto override, not judicial review or appointment consent. {#veto-and-override-check}
+- Bill rejected and repassed: match the rejection to a presidential veto and repassage to override, not judicial review. {#veto-and-override-check}
 :::

@@ -38,9 +38,9 @@ Laws are made first (VI), carried out second (VII), and judged in court third (V
 :::
 
 :::pair #department-headings-distinct
-Right: Match the Executive Department to Article VII and the Judicial Department to Article VIII.
-Wrong: Assigning the Executive Department to Article VIII or the Judicial Department to Article XIII.
-Each branch sits in VI to VIII, separate from Social Justice in XIII.
+Right: Match the Judicial Department to Article VIII, separate from Social Justice and Human Rights in Article XIII.
+Wrong: Assigning the Judicial Department to Article XIII because rights disputes reach the courts.
+Courts and judicial power sit in Article VIII, whereas Article XIII covers Social Justice and Human Rights.
 :::
 
 :::check
@@ -107,25 +107,25 @@ Answer: The title is only a topic label and never overrides specific appointment
 
 ### #3: Heading vs. Specific Rule in Article VI
 
-A legislator argues Article VI's title lets Congress increase the President's recommended national budget during deliberation. Apply the title-versus-section rule (Article VI, Section $25(1)$).
+The President recommends a ₱$5.0$-trillion national budget for the operation of the Government. A legislator proposes raising the total recommended appropriations to ₱$5.2$ trillion, arguing Article VI's heading ("The Legislative Department") gives Congress unlimited budget power. Apply the title-versus-section rule using Article VI, Section $25(1)$.
 
 **Solution:**
 
-1. Locate the topic: legislative power and budget rules sit in Article VI.
-2. Check Section $25(1)$: it bars Congress from increasing appropriations recommended by the President.
+1. Locate the topic: identify what Article VI's heading tells you about where legislative budget rules sit.
+2. Check the specific text: test the proposed ₱$5.2$-trillion total against Section $25(1)$'s limit on appropriations for government operations.
 
 :::try
-Finish the last step: rule on the legislator's claim and explain what Article VI's heading actually does.
+Finish the last step: apply Article VI, Section $25(1)$, to the ₱$5.2$-trillion proposal and explain what Article VI's heading actually does.
 :::answer
-The answer is **The legislator's claim fails because Article VI's heading only locates legislative rules, while Section $25(1)$ sets the budget limit.** A title never lets Congress ignore a specific constitutional restriction inside the article.
+The answer is **The legislator's proposal fails under Article VI, Section $25(1)$.** Article VI's heading only locates legislative rules. Section $25(1)$ bars Congress from increasing the appropriations recommended by the President for the operation of the Government, blocking the ₱$5.2$-trillion total.
 
-**Check:** Separate locating the topic (Article VI heading) from applying the binding rule (Section $25(1)$).
+**Check:** Separate locating the topic (Article VI heading) from applying the specific rule (Section $25(1)$'s cap on appropriations for government operations).
 :::
 
 ## Traps to Watch For
 
 :::checklist
 - Branch sequence: remember VI is Legislative, VII is Executive, and VIII is Judicial in order. {#branch-article-sequence}
-- Department match: keep Executive in Article VII and Judicial in Article VIII, separate from XIII. {#department-headings-distinct}
+- Judicial Department placement: place the Judicial Department in Article VIII, not Article XIII (Social Justice). {#department-headings-distinct}
 - Title vs. rule: use an article heading only to locate the branch, then check the exact section limit. {#heading-not-unlimited-power}
 :::

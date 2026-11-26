@@ -33,9 +33,9 @@ The Preamble carries no article number, so Article I through Article XVIII total
 :::
 
 :::check
-A reviewer counts Article I through Article XVII and adds the Preamble, getting $18$ articles for the wrong reasons. What did the reviewer miscount?
+A study table counts Article IX-A, IX-B, IX-C, and IX-D as $4$ separate numbered articles, reporting $21$ total articles in the $1987$ Constitution. What mistake did the table make?
 :::answer
-The answer is **Both ends were miscounted**. The Preamble is not an article, while Article XVIII (Transitory Provisions) is the $18$th article.
+The answer is **It counted subdivisions as extra articles**. Lettered subdivisions sit inside $1$ numbered Article IX, so the $1987$ Constitution still has $18$ Articles (Article I through Article XVIII).
 :::
 
 ### Broad Aims Stated in the Preamble
@@ -60,9 +60,9 @@ Match two civic examples to Preamble ideals:
 2. Requiring mayors and police to follow written statutes instead of personal preferences reflects the **rule of law**.
 
 :::pair #preamble-states-aims
-Right: The Preamble states the Filipino people's purposes and aims, without acting as a commission part or transition rule.
-Wrong: Treating the Preamble as a subdivision of Article IX or as a replacement for Article XVIII's transition rules.
-Article IX-A through IX-D hold the commissions, Article XVIII holds transitions, and the Preamble sets broad national aims.
+Right: The Preamble states the Filipino people's purposes and aims, without replacing the specific rules or transition provisions in the $18$ Articles.
+Wrong: Treating the Preamble as replacing every article's detailed subject with a single set of transition rules.
+The Preamble sets broad national aims, while Article XVIII holds transition rules and each Article sets its own detailed rules.
 :::
 
 :::check
@@ -121,5 +121,5 @@ The answer is **The watershed reflects patrimony, the clinics reflect a just and
 
 :::checklist
 - Article count: count $18$ Articles from I to XVIII, excluding the unnumbered Preamble. {#preamble-not-nineteenth-article}
-- Preamble role: treat the Preamble as broad national aims, not a commission sub-part or transition rule. {#preamble-states-aims}
+- Preamble role: treat the Preamble as broad national aims, never as a replacement for Article XVIII's transition rules. {#preamble-states-aims}
 :::

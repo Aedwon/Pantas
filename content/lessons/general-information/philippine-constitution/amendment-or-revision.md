@@ -40,9 +40,9 @@ Replacing the basic plan of government is a revision, not an amendment.
 :::
 
 :::check
-A proposal raises the minimum age for Senators from $35$ to $38$ while keeping the Senate's structure intact. Is this an amendment or a revision?
+A proposal moves Congress's opening date from late July to early August while keeping every branch's powers intact. Is this an amendment or a revision?
 :::answer
-The answer is **An amendment**. Changing one office's minimum age adjusts a specific rule without altering basic principles or governmental structure.
+The answer is **An amendment**. Shifting one calendar date edits a specific provision without changing basic principles or governmental structure.
 :::
 
 ### The Quantitative and Qualitative Tests
@@ -111,15 +111,15 @@ A draft edits only $2$ sections of Article VI to replace elected district seats 
 
 **Solution:**
 
-1. Test their count argument: provision count never overrides a qualitative change to the basic structure of government.
-2. Test their timing argument: a proposal is classified before ratification to verify its proposal route.
+1. Test the count argument: weigh the $2$-section count against the qualitative effect of replacing elected seats with appointed governors.
+2. Test the timing argument: check whether classification waits for a plebiscite or occurs before ratification.
 
 :::try
-Finish the last step: state whether the proposal is an amendment or a revision and explain why both arguments fail.
+Finish the last step: state what effect the appointment change has under *Lambino v. COMELEC*, classify the draft, and say whether either argument holds.
 :::answer
-The answer is **The proposal is a revision, and both arguments fail.** Under *Lambino v. COMELEC*, replacing elected representatives with appointed governors changes basic governmental structure even across $2$ sections, and classification occurs before ratification, not after.
+The answer is **The draft is a revision, and neither argument holds.** Replacing elected representatives with appointed governors alters the basic structure of government under the qualitative test, even across $2$ sections. Classification also occurs before ratification to verify the proposal route, not after voters vote.
 
-**Check:** Check the qualitative effect on government structure first, and classify before the plebiscite.
+**Check:** Test qualitative structural effect alongside section count, and classify the draft before any plebiscite.
 :::
 
 ## Traps to Watch For

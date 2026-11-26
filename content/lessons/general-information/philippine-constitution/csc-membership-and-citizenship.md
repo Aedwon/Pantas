@@ -57,11 +57,11 @@ Under Article IX-B, Section $1(1)$, every CSC member must be a **natural-born ci
 
 Under Article IV, Section $2$, a **natural-born citizen** is a Philippine citizen from birth who needs no act to acquire or complete citizenship.
 
-1. A child born to at least one Filipino parent at birth is natural-born.
+1. A child born after January $17$, $1973$, to at least one Filipino parent at birth is natural-born.
 2. Becoming a citizen later through naturalization never makes someone natural-born.
 3. Permanent residency or voter registration without natural-born status never meets this rule.
 
-Article IV also gives one narrow exception. People born before January $17$, $1973$, to Filipino mothers who **elect** Philippine citizenship upon reaching the **age of majority** are deemed natural-born. Here, **elect** means formally choose Philippine citizenship, and **age of majority** means legal adulthood.
+Article IV also gives one historical rule for births before January $17$, $1973$. Under the $1935$ Constitution, marital children of a Filipino mother and an alien father had to **elect** citizenship at the **age of majority**. Those who validly elect under Section $1(3)$ are deemed natural-born. A child born outside marriage to a Filipino mother acquired citizenship at birth without electing it. Here, **elect** means formally choose Philippine citizenship, and **age of majority** means legal adulthood.
 
 :::why
 Why require natural-born citizenship for CSC leaders? Top constitutional posts require lifelong, undivided ties to the Philippines from birth.
@@ -86,22 +86,18 @@ The answer is **No**. Article IX-B, Section $1(1)$, requires natural-born citize
 
 ## Examples
 
-### #1: Counting a Full CSC Slate
+### #1: Checking an Extra Seat Proposal
 
-A chart lists the CSC as having $2$ Commissioners and asks for total membership. How many seats are on the Commission, and what are their titles?
+The CSC already has $1$ sitting Chairman and $2$ sitting Commissioners. A new order proposes appointing a third associate Commissioner to speed up case appeals. Does Article IX-B, Section $1(1)$, allow that appointment?
 
 **Solution:**
 
-1. Article IX-B, Section $1(1)$, names $1$ Chairman and $2$ Commissioners.
-2. Add the Chairman and the Commissioners:
+1. Check the constitutional cap in Article IX-B, Section $1(1)$: the CSC consists of $1$ Chairman and $2$ Commissioners ($3$ seats in total).
+2. Compare the sitting slate ($1 + 2 = 3$) with the proposal: all $3$ constitutional seats are already filled, leaving zero vacancy.
 
-$$
-1 + 2 = 3
-$$
+Answer: No, appointing a third associate Commissioner would exceed the $3$-member composition fixed by Article IX-B, Section $1(1)$.
 
-Answer: The CSC has $3$ members in total: $1$ Chairman and $2$ Commissioners.
-
-**Check:** Contrast $3$ seats for the CSC with $7$ seats for COMELEC.
+**Check:** Count $1$ Chairman plus $2$ Commissioners; neither a $2$-seat nor a $4$-seat CSC matches Section $1(1)$.
 
 ### #2: Residency and Naturalization
 
@@ -109,9 +105,9 @@ Tomas lived in Quezon City for $30$ years as a permanent resident and later gain
 
 **Solution:**
 
-1. Article IX-B, Section $1(1)$, requires every CSC member to be a natural-born citizen.
-2. Permanent residency without natural-born status does not qualify.
-3. Naturalization grants citizenship after birth, so Tomas is not natural-born under Article IV, Section $2$.
+1. Test Tomas's citizenship path against Article IX-B, Section $1(1)$, which requires natural-born status.
+2. Check his $30$-year permanent residency: residency alone never confers natural-born citizenship.
+3. Check his naturalization: citizenship granted after birth does not make Tomas natural-born under Article IV, Section $2$.
 
 Answer: No, because neither permanent residency nor naturalization makes a person natural-born.
 
@@ -119,19 +115,19 @@ Answer: No, because neither permanent residency nor naturalization makes a perso
 
 ### #3: Comparing Two Citizenship Paths
 
-Nominee X became a Philippine citizen by naturalization after $15$ years of residency. Nominee Y was born in $1970$ to a Filipino mother and a foreign father. Upon reaching majority, Nominee Y elected Philippine citizenship under Article IV, Section $1(3)$. Which nominee meets the CSC citizenship rule?
+Nominee X became a Philippine citizen by naturalization after $15$ years of residency. Nominee Y was born in $1970$ to married parents: a Filipino mother and a foreign father. Upon reaching majority, Nominee Y validly elected Philippine citizenship under Article IV, Section $1(3)$. Which nominee meets the CSC citizenship rule?
 
 **Solution:**
 
-1. Check Nominee X: naturalization grants citizenship after birth, not natural-born status.
-2. Check Nominee Y: birth before January $17$, $1973$, to a Filipino mother with proper election at majority falls under Article IV, Section $1(3)$.
+1. Classify Nominee X's route: check whether naturalization grants natural-born status under Article IV, Section $2$.
+2. Classify Nominee Y's route: check how Article IV, Section $2$, classifies a pre-$1973$ marital child who validly elected under Section $1(3)$.
 
 :::try
-Finish the last step: name which nominee meets the CSC citizenship rule and explain why.
+Finish the last step: state the citizenship status each route gives and name which nominee meets the CSC citizenship rule.
 :::answer
-The answer is **Nominee Y meets the rule, while Nominee X does not.** Article IV, Section $2$, expressly deems Section $1(3)$ electors natural-born, while naturalized citizens do not qualify.
+The answer is **Nominee Y is deemed natural-born and meets the rule, while Nominee X is naturalized and does not.** Article IV, Section $2$, expressly deems valid Section $1(3)$ electors natural-born, whereas naturalization never grants natural-born status for Article IX-B, Section $1(1)$.
 
-**Check:** Do not reject every person who elected citizenship; check the pre-$1973$ birth date, Filipino mother, and election at majority.
+**Check:** Verify natural-born status for each route; valid Section $1(3)$ electors qualify while naturalized citizens do not.
 :::
 
 ## Traps to Watch For

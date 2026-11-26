@@ -31,9 +31,9 @@ Screen two applicants for a Supreme Court seat:
 2. A natural-born judge, age $47$, with $17$ years on the bench who took bribes fails Section $7(3)$'s integrity rule.
 
 :::pair #supreme-court-all-three
-Right: A Supreme Court Member must meet all three rules: natural-born, age $40$, and $15$ years of Philippine judicial or law practice.
-Wrong: Letting extra practice years excuse an age under $40$, or letting $20$ years of practice excuse naturalized citizenship.
-All three requirements apply together, so extra years never waive age or natural-born citizenship.
+Right: A Supreme Court Member must meet age $40$ alongside natural-born citizenship and $15$ years of Philippine judicial or law practice.
+Wrong: Letting extra years of Philippine law practice excuse an age under $40$.
+All three Section $7(1)$ requirements apply together, so extra practice years never waive minimum age.
 :::
 
 :::check
@@ -70,9 +70,9 @@ Section $7(3)$ requires proven character and independence from every judge witho
 :::
 
 :::check
-A candidate is a citizen and Bar member, yet has a record of taking bribes. Does Bar membership satisfy Section $7$?
+A citizen and Bar member applying for a trial bench promises to clear major rulings with a political patron. Does Bar membership satisfy Section $7$?
 :::answer
-The answer is **No**. Section $7(3)$ requires proven competence, integrity, probity, and independence for every judge.
+The answer is **No**. Section $7(3)$ requires proven independence alongside competence, integrity, and probity for every judge.
 :::
 
 ## Examples
@@ -109,11 +109,11 @@ Candidate A is natural-born, age $38$, with $15$ years of Philippine law practic
 
 **Solution:**
 
-1. Check Candidate A against Section $7(1)$: $15$ years passes, yet compare age $38$ to the minimum age.
+1. Check Candidate A against Section $7(1)$: test natural-born status, age $38$, and $15$ years of Philippine law practice.
 2. Check Candidate B against Section $7(1)$: test natural-born status, age $49$, and $18$ years of Philippine law practice.
 
 :::try
-Finish the last step: identify the qualified candidate and explain why Candidate A's $15$ years of practice do not cure age $38$.
+Finish the last step: state which Section $7(1)$ requirements each candidate meets and who qualifies.
 :::answer
 The answer is **Candidate B qualifies for the Supreme Court, while Candidate A fails the $40$-year age rule.** Under Article VIII, Section $7(1)$, citizenship, age $40$, and $15$ years of experience must all pass together. Fifteen years of practice cannot waive age $38$.
 

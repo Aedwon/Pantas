@@ -35,8 +35,8 @@ Test how Section $1$ judges two acts by a municipal treasurer:
 
 :::pair #public-trust-duty
 Right: Public office is a public trust requiring responsible service to the people and modest living at all times.
-Wrong: Treating public office as a private entitlement after winning an election, or putting family interests first.
-Winning an election grants a temporary public duty, never private ownership or family preference.
+Wrong: Treating public office as a private entitlement once an official wins an election.
+Winning an election grants a temporary public duty to serve the people, never private ownership.
 :::
 
 :::check
@@ -95,9 +95,9 @@ An agency head hides bidding schedules, uses official vans for weekend resorts, 
 
 **Solution:**
 
-1. Under Section $1$, officers must answer to the people and serve with integrity and responsibility.
-2. Using government vans for personal resorts breaks modest-living standards.
-3. Favoring friends breaks integrity and justice, which efficiency cannot excuse.
+1. Match the agency head's hidden bids to Section $1$'s rules on accountability, integrity, and responsibility.
+2. Match using government vans for personal resorts to the duty to lead modest lives.
+3. Match favoring friends to integrity and justice, which efficiency cannot excuse.
 
 Answer: The official violates integrity, justice, accountability, and modest living under Section $1$.
 
@@ -119,25 +119,25 @@ Answer: The student is wrong because CSC Members are expressly listed in Section
 
 ### #3: Checking Office Before Ground
 
-Bribery complaints are filed against a Sandiganbayan Justice and the Ombudsman. Decide who may be impeached under Section $2$.
+Verified bribery complaints are filed against a House Representative and the Ombudsman. Decide who may be impeached under Section $2$.
 
 **Solution:**
 
-1. Under Section $2$, both a listed office and a listed ground are required.
-2. A Sandiganbayan Justice sits on a special lower court, not the Supreme Court.
+1. Check the two threshold requirements under Article XI, Section $2$: both a listed office category and a listed ground must apply.
+2. Test both titles (House Representative and Ombudsman) against Section $2$'s closed $5$-office list.
 
 :::try
-Finish the last step: rule on the Ombudsman and explain how the Sandiganbayan Justice can still be removed.
+Finish the last step: rule on both officials and explain how the excluded official can still be removed.
 :::answer
-The answer is **Only the Ombudsman may be impeached, while the Sandiganbayan Justice faces removal as provided by law.** Alleging bribery never adds a lower-court judge to Section $2$'s closed office list.
+The answer is **Only the Ombudsman may be impeached, while the House Representative faces removal as provided by law.** Alleging bribery never adds a legislator to Section $2$'s closed $5$-office list, whereas the Ombudsman is expressly listed.
 
-**Check:** Match the Sandiganbayan Justice to non-Supreme Court judges and the Ombudsman to Section $2$'s fifth listed category.
+**Check:** Match the House Representative to offices outside the closed list and the Ombudsman to Section $2$'s fifth listed category.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Public trust: treat office as service to the people at all times, not private or family gain. {#public-trust-duty}
+- Public trust: treat office as service to the people at all times, not a private entitlement after winning. {#public-trust-duty}
 - Closed office list: check all $5$ listed categories, and exclude lower-court judges and legislators. {#closed-office-list}
 - Outside the list: officers not on the list still face lawful removal under other statutes. {#outside-list-lawful-removal}
 :::

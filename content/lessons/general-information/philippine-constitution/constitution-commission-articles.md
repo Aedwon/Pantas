@@ -88,19 +88,18 @@ Answer: CSC, COMELEC, and COA sit in Article IX, while CHR sits in Article XIII.
 
 **Check:** Only the three commissions in IX-B, IX-C, and IX-D belong to Article IX.
 
-### #2: Counting Articles With Subdivisions
+### #2: Checking "Commission" Titles Outside Article IX
 
-A study guide lists IX-A, IX-B, IX-C, and IX-D as "Articles $9$, $10$, $11$, and $12$" and pushes Local Government to Article $13$. Fix the error and explain why.
+A study sheet files both the **Commission on Appointments** and the **Commission on Audit** under Article IX because both names start with "Commission." Test both entries against the constitutional outline.
 
 **Solution:**
 
-1. Subdivisions IX-A through IX-D are four parts inside the single Article IX.
-2. Sub-parts never add new numbered articles to the $18$-Article total.
-3. Local Government remains Article X, right after Article IX.
+1. Check the Commission on Appointments: it is a congressional body under Article VI, not one of the three Article IX Commissions.
+2. Check the Commission on Audit against Article IX's subdivisions: it is expressly placed in Article IX-D.
 
-Answer: Keep IX-A through IX-D inside Article IX so Local Government stays Article X and the total remains $18$.
+Answer: Keep the Commission on Audit in Article IX-D, and move the Commission on Appointments to Article VI.
 
-**Check:** Remember that lettered parts divide $1$ Article rather than creating extra Articles.
+**Check:** Never treat the word "Commission" alone as proof of Article IX status; only CSC, COMELEC, and COA sit in Article IX.
 
 ### #3: Routing Shared vs. Specific Rules
 
@@ -109,7 +108,8 @@ Which Article IX part covers (a) salary protection for all three commissions, (b
 **Solution:**
 
 1. Check item (a): a shared protection binding all three commissions sits in Article IX-A (Common Provisions).
-2. Check items (b) and (c): match election-law enforcement and government property examination to their specific commissions.
+2. Check item (b): match enforcing election-day precinct rules to the commission in Article IX that administers election laws.
+3. Check item (c): match examining government agency property records to the commission in Article IX that audits public property.
 
 :::try
 Finish the last step: assign items (b) and (c) to their subdivisions and verify the full sequence A-B-C-D.

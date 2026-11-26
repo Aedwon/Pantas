@@ -31,9 +31,9 @@ Check three public offices for coverage:
 3. A regional health bureau nurse works in a government agency, so the civil service covers the post.
 
 :::pair #all-branches-and-subdivisions
-Right: Civil service coverage includes all three branches and local subdivisions like cities and provinces.
-Wrong: Limiting the civil service to executive agencies or leaving out cities and provinces.
-Article IX-B, Section $2(1)$, names all branches, subdivisions, instrumentalities, and agencies together.
+Right: Civil service coverage reaches government subdivisions like cities and provinces, not national agencies alone.
+Wrong: Covering national agencies while excluding cities and provinces from the civil service.
+Article IX-B, Section $2(1)$, expressly lists subdivisions alongside branches, instrumentalities, and agencies.
 :::
 
 :::check
@@ -74,9 +74,9 @@ Ownership share and daily work never create a special statutory charter.
 :::
 
 :::check
-Metro Ferry Inc. formed under general corporation law, and a state bank owns $90\%$ of its shares. Does Article IX-B cover it under the corporation clause?
+An audit file for Luzon Waterworks Corp. lists public utility tasks and government board seats, yet omits its founding document. Can an auditor classify its workers under Article IX-B without checking how it was formed?
 :::answer
-The answer is **No**. General incorporation leaves Metro Ferry Inc. without an original charter, despite $90\%$ state ownership.
+The answer is **No**. Under Section $2(1)$, the auditor must investigate whether a special statute created it with an original charter.
 :::
 
 ## Examples
@@ -128,7 +128,7 @@ The answer is **The barangay office and the chartered housing authority are cove
 ## Traps to Watch For
 
 :::checklist
-- Scope across government: include all three branches plus local subdivisions like cities and provinces. {#all-branches-and-subdivisions}
+- Local subdivisions: include cities, provinces, municipalities, and barangays inside civil service coverage. {#all-branches-and-subdivisions}
 - General incorporation: registration under general corporation law never counts as an original charter. {#original-charter-test}
 - Ownership and tasks: $100\%$ state ownership or public-style work never substitutes for a special creating law. {#ownership-not-charter}
 :::

@@ -40,9 +40,9 @@ Years elsewhere in the Philippines never cure fewer than $6$ months in the votin
 :::
 
 :::check
-A registered $25$-year-old Filipino lived in Manila for $8$ years, then moved to Cebu City $5$ months before election day. May she vote in Cebu City?
+A voter has lived continuously in Dumaguete for $13$ months. A clerk insists she needs $18$ months ($1$ national year plus $6$ separate local months). Is the clerk right?
 :::answer
-The answer is **No**. Five months in Cebu City falls short of the $6$-month local rule under Article V, Section $1$, despite $8$ years in the Philippines.
+The answer is **No**. Under Article V, Section $1$, the two residence periods may overlap, so $13$ continuous months in Dumaguete meets both minimums.
 :::
 
 ### Registration, Disqualifications, and Banned Tests
@@ -114,15 +114,15 @@ Two registered $30$-year-old Filipinos have lived in one city for $3$ years. Vot
 
 **Solution:**
 
-1. Check Voter A: constitutional minimums and registration pass, and Article V, Section $1$ bars literacy and property tests.
-2. Check Voter B: owning property never cures a lawful disqualification under RA $8189$, Section $11$.
+1. Check Voter A's age, residence, registration, land status, and reading ability against Article V, Section $1$.
+2. Check Voter B's property ownership and final criminal judgment against Article V, Section $1$ and RA $8189$, Section $11$.
 
 :::try
-Finish the last step: state who may vote and explain why Voter A passes while Voter B fails.
+Finish the last step: determine whether Voter A and Voter B may vote, and state the rule deciding each case.
 :::answer
-The answer is **Only Voter A may vote, while Voter B is barred.** Article V, Section $1$ forbids literacy and property requirements, so neither renting nor inability to read blocks Voter A. Voter B is disqualified by a final criminal judgment under RA $8189$, Section $11$.
+The answer is **Only Voter A may vote, while Voter B is barred.** Article V, Section $1$ forbids literacy and property requirements, so neither renting nor inability to read blocks Voter A. Voter B is disqualified by a final criminal judgment under RA $8189$, Section $11$, which owning a house cannot cure.
 
-**Check:** Only constitutional qualifications, registration, and lawful disqualifications apply; reading and property tests are barred.
+**Check:** Apply only constitutional qualifications, registration, and lawful disqualifications; reject any reading or property test.
 :::
 
 ## Traps to Watch For

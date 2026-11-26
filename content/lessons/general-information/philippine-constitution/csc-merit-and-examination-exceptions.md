@@ -42,9 +42,9 @@ Section $2(2)$ requires merit and fitness for the specific duties, not an exam s
 :::
 
 :::check
-A candidate passes a general civil service exam and demands automatic hiring as a specialized budget analyst without a skills check. Must the agency appoint him?
+A city driver with $15$ years of service brings a mayor's endorsement for chief civil engineer, skipping credential review. Does that follow Section $2(2)$?
 :::answer
-The answer is **No**. Passing an exam helps show merit, yet the agency must still verify fitness for the job's duties.
+The answer is **No**. Section $2(2)$ requires appointments based on merit and fitness for the post's duties, which seniority in another job and endorsements cannot replace.
 :::
 
 ### The Three Competitive-Exam Exceptions
@@ -95,8 +95,9 @@ Applicant M passed a general civil service exam and seeks a regional language tr
 
 **Solution:**
 
-1. Article IX-B, Section $2(2)$, requires merit and fitness for the job's duties.
-2. Passing a general exam does not prove translation skill, and family ties never replace ability.
+1. Apply Article IX-B, Section $2(2)$, to both applicants: hiring requires merit and fitness for the job's duties.
+2. Check Applicant M: passing a general exam alone does not prove translation skill.
+3. Check Applicant N: family ties never substitute for required merit and fitness.
 
 Answer: Neither applicant may skip a check of merit and fitness for translation duties.
 
@@ -118,17 +119,17 @@ Answer: Policy-determining (undersecretary), primarily confidential (personal se
 
 ### #3: Merit Inside Exempt Appointments
 
-An agency labels a toxicologist post highly technical under Section $2(2)$. Because no competitive exam applies, a board member proposes hiring an unqualified relative trained only in sales. Is that appointment valid?
+An agency classifies a senior toxicologist post as highly technical under Section $2(2)$. Because no competitive exam applies, a board member nominates a relative trained only in retail sales, with no toxicology background. Is that appointment valid?
 
 **Solution:**
 
-1. Highly technical posts are exempt from competitive examination.
-2. Exemption from a competitive exam never waives merit and fitness.
+1. Identify what Section $2(2)$ waives for a highly technical post and what hiring standard remains in force.
+2. Compare the toxicologist post's scientific duties with the candidate's retail-sales background.
 
 :::try
-Finish the last step: rule on the relative's appointment and explain why.
+Finish the last step: assess whether the candidate's background fits the post and rule on the appointment.
 :::answer
-The answer is **No, the appointment fails merit and fitness.** Even when a highly technical post skips a competitive exam, Article IX-B, Section $2(2)$, still requires qualifications suited to the duties.
+The answer is **No, the appointment fails merit and fitness.** Classifying a toxicologist post as highly technical waives only the competitive examination under Article IX-B, Section $2(2)$. Retail-sales work does not show merit and fitness for specialized toxicology duties.
 
 **Check:** Three posts waive the competitive exam, while zero posts waive merit and fitness.
 :::

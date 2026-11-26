@@ -31,10 +31,10 @@ Wrong: Labeling an unlawful domestic contract favor as treason through aid to a 
 Domestic contract favoritism misuses public power for private gain, whereas treason involves aiding a wartime enemy.
 :::
 
-:::pair #no-overlooking-named-grounds
-Right: Keep all $6$ Section $2$ grounds in view, including culpable constitutional violation, treason, bribery, graft, high crimes, and betrayal of public trust.
-Wrong: Rejecting culpable violation of the Constitution or betrayal of public trust as outside Section $2$'s list.
-Both phrases appear expressly in Section $2$, while mere unpopularity is left out.
+:::pair #graft-vs-culpable-contract
+Right: Match an unlawful private contract advantage in bad faith to graft and corruption, not automatic constitutional violation.
+Wrong: Calling every contract error a culpable constitutional violation as though every error were deliberate.
+Check what happened: bad-faith favoritism for a private party points to graft and corruption, and not every contract mistake is deliberate.
 :::
 
 :::check
@@ -72,31 +72,31 @@ The answer is **No**. Other high crimes covers grave wrongdoing bearing on fitne
 
 ## Examples
 
-### #1: Checking What the Closed List Names
+### #1: Screening a Real Complaint Against Section $2$
 
-Review four claims about Section $2$. They say (a) culpable violation of the Constitution, (b) betrayal of public trust, (c) treason, and (d) any unpopular ruling are listed. Which claim fails?
-
-**Solution:**
-
-1. Claims (a), (b), and (c) name real grounds listed in Section $2$.
-2. Claim (d) fails because ordinary unpopularity is not one of the $6$ named grounds.
-
-Answer: Claim (d) misunderstands the list because unpopularity alone is not a named ground.
-
-**Check:** Recall all $6$ named grounds so you neither drop one nor add unpopularity.
-
-### #2: Favoritism in Public Procurement
-
-An impeachable official alters bid specs overnight so only an ally's firm qualifies for a port contract. Name the ground and explain why impeachment differs from a criminal trial.
+A petition against an impeachable commissioner lists two counts. Count $1$ cites rude remarks during a budget briefing. Count $2$ alleges he steered a no-bid public warehouse lease to a shell firm he secretly owns. Which count invokes a Section $2$ ground?
 
 **Solution:**
 
-1. Using public power in bad faith for an ally's contract advantage points to graft and corruption.
-2. Anti-graft law explains the conduct, yet Congress holds impeachment for removal rather than criminal imprisonment.
+1. Test Count $1$ against Section $2$'s $6$ named grounds: rude remarks are not a listed constitutional ground.
+2. Test Count $2$ against Section $2$: misusing office for an unlawful personal lease benefit raises **graft and corruption**.
+
+Answer: Only Count $2$ invokes a named Section $2$ ground (graft and corruption); Count $1$ is outside the list.
+
+**Check:** Match concrete facts against Section $2$'s $6$ named grounds instead of treating every complaint as listed.
+
+### #2: Bad-Faith Tax Exemption for a Partner
+
+An impeachable official knowingly signs an illegal tax-exemption certificate in bad faith so a close business partner avoids millions in lawful dues. Name the ground and explain why impeachment differs from a criminal trial.
+
+**Solution:**
+
+1. Test the conduct under RA $3019$, Section $3(e)$: misusing tax power in bad faith for a partner's benefit points to **graft and corruption**.
+2. Separate the forums: anti-graft law helps explain the conduct, yet Congress holds impeachment for removal and disqualification rather than criminal imprisonment.
 
 Answer: Graft and corruption fits the accusation, while impeachment remains a constitutional trial in Congress.
 
-**Check:** Match domestic contract favors to graft and corruption, and keep Congress separate from criminal courts.
+**Check:** Match bad-faith misuse of office for a private tax benefit to graft and corruption, and keep Congress separate from criminal courts.
 
 ### #3: Grave Offenses vs. Minor Lapses
 
@@ -104,13 +104,13 @@ Two claims hit an impeachable official: missing a vehicle inspection deadline an
 
 **Solution:**
 
-1. Minor regulatory lapses like a missed vehicle inspection lack the gravity for other high crimes.
-2. Ordering an unlawful killing is a grave offense bearing on fitness for office.
+1. Compare the missed vehicle inspection deadline with Section $2$'s gravity standard for "other high crimes."
+2. Compare ordering an unlawful killing with that same gravity standard, then check what remains before removal.
 
 :::try
-Finish the last step: state whether ordering a killing fits other high crimes and whether the claim alone removes the officer.
+Finish the last step: classify both acts under "other high crimes" and state whether either claim alone removes the official.
 :::answer
-The answer is **Ordering a killing may fit other high crimes, while the missed inspection cannot, and Senate trial proof is still needed.** Not every offense qualifies, and no accusation removes an officer before conviction.
+The answer is **Ordering an unlawful killing may fit other high crimes, the missed inspection does not, and Senate trial proof is still required.** Other high crimes covers grave offenses bearing on fitness for office, not minor lapses, and removal requires Senate conviction.
 
 **Check:** Test gravity first under other high crimes, then confirm proof and Senate conviction remain mandatory.
 :::
@@ -119,6 +119,6 @@ The answer is **Ordering a killing may fit other high crimes, while the missed i
 
 :::checklist
 - Graft vs. treason: match domestic contract favoritism to graft and corruption, not wartime treason. {#graft-vs-treason-contract}
-- Named grounds: keep all $6$ listed grounds, and reject claims that ordinary unpopularity is one. {#no-overlooking-named-grounds}
+- Graft vs. culpable violation: match bad-faith private contract favors to graft and corruption, and never treat every contract error as deliberate. {#graft-vs-culpable-contract}
 - Other high crimes: require grave offenses bearing on high office, not every minor unlawful act. {#high-crimes-not-every-offense}
 :::

@@ -18,7 +18,7 @@ keyPoints:
 
 **Betrayal of public trust** is the $6$th named ground in Article XI, Section $2$. It can cover serious abuse of power or favoritism even when no criminal law is broken.
 
-The Supreme Court explained in *Gonzales III v. Office of the President* that non-criminal conduct needs **bad faith** and gravity matching the other grounds. An honest mistake or ordinary policy disagreement is never enough. One set of facts may also raise more than one ground.
+In *Gonzales III v. Office of the President*, the Supreme Court explained that non-criminal conduct needs **bad faith** and gravity matching the other grounds. Ordinary negligence is not a named ground, though inexcusable neglect can support betrayal of public trust with bad faith and comparable gravity. An honest mistake or ordinary policy disagreement is never enough. One set of facts may also raise more than one ground.
 
 Compare two non-criminal acts by an impeachable official:
 
@@ -26,9 +26,9 @@ Compare two non-criminal acts by an impeachable official:
 2. Supporting an unpopular tax rate after open public hearings shows a policy choice, not bad-faith abuse.
 
 :::pair #betrayal-is-named-ground
-Right: Betrayal of public trust is expressly listed in Section $2$, covering serious bad-faith abuse rather than ordinary policy disagreements.
-Wrong: Confusing betrayal of public trust with general negligence, insubordination, or mere dissatisfaction with an official's policy.
-Section $2$ names betrayal of public trust specifically, while excluding negligence, insubordination, and policy dissatisfaction.
+Right: Section $2$ expressly names betrayal of public trust, not general negligence. Inexcusable neglect can support betrayal of public trust only with bad faith and comparable gravity.
+Wrong: Treating "negligence in public duties" as one of Section $2$'s six expressly named grounds.
+Ordinary negligence is unlisted; inexcusable neglect reaches betrayal of public trust only when bad faith and comparable gravity are shown.
 :::
 
 :::check
@@ -72,8 +72,8 @@ Without breaking a specific penal statute, an impeachable official repeatedly ca
 
 **Solution:**
 
-1. Under Supreme Court guidance, non-criminal abuse involving bad faith and grave harm can raise betrayal of public trust.
-2. Repeatedly blocking clinic aid out of bad faith fits that standard.
+1. Test the official's repeated bad-faith delivery cancellations against Supreme Court guidance on non-criminal betrayal of public trust.
+2. Repeatedly blocking clinic aid out of bad faith shows the grave harm and bad faith required to raise that ground.
 3. The House must still initiate charges and the Senate must hear proof before any conviction.
 
 Answer: Betrayal of public trust may apply, and House action plus Senate proof and decision are still needed.
@@ -87,8 +87,8 @@ A civic group dislikes an official's lawful decision to adjust ferry routes. The
 **Solution:**
 
 1. Compare "dissatisfaction with policy" with Section $2$'s $6$ named grounds.
-2. Section $2$ lists betrayal of public trust, not policy dissatisfaction, negligence, or insubordination.
-3. Policy disagreement without bad-faith abuse states no constitutional ground.
+2. Section $2$ names betrayal of public trust, not policy dissatisfaction, insubordination, or ordinary negligence.
+3. Inexcusable neglect can support betrayal of public trust only with bad faith and comparable gravity, whereas lawful policy disagreement states no ground.
 
 Answer: The draft fails because Section $2$ does not list policy dissatisfaction as an impeachment ground.
 
@@ -114,6 +114,6 @@ The answer is **Both claims are wrong: one set of facts may raise multiple groun
 ## Traps to Watch For
 
 :::checklist
-- Betrayal of public trust: match serious bad-faith abuse to this named ground, not policy dissatisfaction or negligence. {#betrayal-is-named-ground}
+- Betrayal of public trust: ordinary negligence is unlisted, while inexcusable neglect needs bad faith and comparable gravity to support betrayal. {#betrayal-is-named-ground}
 - Ground vs. verdict: naming a valid ground still requires evidence, House charges, and a Senate conviction. {#ground-not-conviction}
 :::

@@ -68,21 +68,22 @@ Article VII, Section $21$ counts two-thirds of full Senate membership, not atten
 :::
 
 :::check
-Suppose $15$ of $24$ Senators attend a treaty vote and $12$ vote in favor. Does the treaty meet Section $21$?
+Suppose $20$ of $24$ Senators attend a treaty vote and $16$ vote in favor. A critic claims $4$ absences void the vote because unanimity is required. Is the critic right?
 :::answer
-The answer is **No**. Although $12$ exceeds two-thirds of the $15$ present, Section $21$ requires at least $\dfrac{2}{3} \times 24 = 16$ votes of all Senators.
+The answer is **No**. Article VII, Section $21$ requires at least two-thirds of all $24$ Senators ($16$ votes), not unanimity, so $16$ yes votes pass.
 :::
 
 ## Examples
 
 ### #1: Pardon, Amnesty, and Election Offenses
 
-A convicted officer faces impeachment, a mayor convicted of vote-buying seeks a pardon without COMELEC backing, and the President plans an amnesty without Congress. Are any of these clemency acts valid?
+An impeached officer asks for a pardon to undo an impeachment judgment. A mayor convicted of vote-buying seeks a pardon without COMELEC backing, and the President plans an amnesty without Congress. Are any of these clemency acts valid?
 
 **Solution:**
 
-1. Check Article VII, Section $19$: pardons never cover impeachment, and amnesty needs concurrence of a majority of all Congress Members.
-2. Check Article IX-C, Section $5$: pardoning an election offense requires a favorable COMELEC recommendation.
+1. Check the impeachment request: Article VII, Section $19$ bars presidential pardons in cases of impeachment.
+2. Check the vote-buying pardon: Article IX-C, Section $5$ requires a favorable COMELEC recommendation for election offenses.
+3. Check the amnesty plan: Article VII, Section $19$ requires concurrence of a majority of all Members of Congress.
 
 Answer: None of the three clemency acts is valid.
 
@@ -112,11 +113,11 @@ The President proclaims amnesty for election-code offenders without COMELEC's re
 
 **Solution:**
 
-1. Check Article IX-C, Section $5$: election-offense amnesty requires a favorable COMELEC recommendation.
-2. Check Article VII, Section $21$: two-thirds of all $24$ Senators is $16$, whereas $\dfrac{2}{3} \times 21 = 14$ counts attendance only.
+1. Check the amnesty: test whether election-offense amnesty passes Article IX-C, Section $5$ without a favorable COMELEC recommendation.
+2. Check the treaty vote: compare $14$ yes votes against two-thirds of all $24$ Senators under Article VII, Section $21$.
 
 :::try
-Finish the last step: rule on both acts and explain why congressional concurrence and $14$ of $21$ present fall short.
+Finish the last step: rule on both the amnesty and the treaty vote and give the constitutional basis for each.
 :::answer
 The answer is **Neither is valid: the amnesty lacks a favorable COMELEC recommendation, and the treaty needs $16$ of all $24$ Senators.** Under Article IX-C, Section $5$, congressional concurrence cannot skip COMELEC's recommendation. Under Article VII, Section $21$, $14$ is two-thirds of $21$ present, not all $24$ Senators.
 

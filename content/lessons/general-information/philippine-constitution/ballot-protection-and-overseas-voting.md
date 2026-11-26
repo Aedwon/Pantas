@@ -22,10 +22,10 @@ Article V, Section $2$, directs Congress to secure the **secrecy and sanctity of
 
 Congress must also design unassisted voting for voters with disabilities and those who cannot read. Until then, they vote under existing laws and **COMELEC** (Commission on Elections) rules protecting ballot secrecy.
 
-Test a town plan requiring voters to show their marked ballots to a booth clerk for verification before dropping them:
+Test a precinct layout where voters must mark their ballots at an open table in full view of party watchers:
 
-1. Check secrecy: showing marked choices exposes a voter's private ballot.
-2. Result: the plan violates Article V, Section $2$'s mandate to secure ballot secrecy and sanctity.
+1. Check secrecy: marking ballots in open view lets others see each voter's private choices.
+2. Result: the layout violates Article V, Section $2$'s mandate to secure ballot secrecy and sanctity.
 
 :::why
 Why require unassisted voting while keeping interim rules? Helpers risk exposing votes or swaying choices, yet interim secrecy rules prevent excluding voters meantime.
@@ -80,9 +80,9 @@ What must Congress provide under Article V, Section $2$?
 
 **Solution:**
 
-1. Secure the secrecy and sanctity of the ballot.
-2. Provide absentee voting for qualified Filipinos abroad.
-3. Design unassisted voting for disabled and non-reading voters, while allowing interim voting under existing laws and COMELEC secrecy rules.
+1. List the first Article V, Section $2$ duty: secure the secrecy and sanctity of the ballot.
+2. List the overseas duty: provide absentee voting for qualified Filipinos abroad.
+3. List the access duty: design unassisted voting for disabled and non-reading voters, with interim COMELEC secrecy rules meanwhile.
 
 Answer: Ballot secrecy and sanctity, overseas absentee voting, and unassisted voting (with interim COMELEC secrecy rules meanwhile).
 

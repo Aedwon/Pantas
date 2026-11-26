@@ -59,11 +59,11 @@ Under Section $1(3)$, **elect** means formally choose citizenship under law, not
 
 RA $6809$, Section $1$, lowered the general age from $21$ to $18$; older cases require the law that applied then.
 
-For pre-$1973$ births, check the father first. A child already Filipino through a Filipino father needs no election. Section $1(3)$ covers children born before January $17$, $1973$, to Filipino mothers and alien fathers.
+For pre-$1973$ births, check the father first. A child already Filipino through a Filipino father needs no election. Under the $1935$ Constitution, Section $1(3)$ election applies to marital children born before January $17$, $1973$, to a Filipino mother and an alien father. A child born outside marriage to a Filipino mother acquired citizenship at birth without electing it.
 
-Screen two people born abroad to a Filipino mother and an alien father, Marco in $1968$ and Liza in $1996$:
+Screen two marital children born abroad to a Filipino mother and an alien father, Marco in $1968$ and Liza in $1996$:
 
-1. Check Marco ($1968$, before January $17$, $1973$): his father was an alien, so Marco must elect citizenship upon reaching majority.
+1. Check Marco ($1968$, before January $17$, $1973$): born to married parents with an alien father, he must elect citizenship at majority.
 2. Check Liza ($1996$, after January $17$, $1973$): her mother's citizenship makes her Filipino from birth with no election needed.
 
 :::why
@@ -84,18 +84,18 @@ The answer is **No**. Mateo was already Filipino from birth through his Filipino
 
 ## Examples
 
-### #1: Filipino Mother
+### #1: Parent's Citizenship at Birth
 
-A child was born in $2005$. The mother was a Filipino citizen when the child was born. The father was an alien. Is the child Filipino from birth?
+A child was born in $2005$ to two foreign parents. In $2012$, the mother became a naturalized Philippine citizen. Does Article IV, Section $1(2)$ make the child Filipino from birth?
 
 **Solution:**
 
-1. Check the birth date: $2005$ falls after January $17$, $1973$, so either Filipino parent suffices.
-2. Check the parents at birth: the mother was a Filipino citizen.
+1. Check the parents when the child was born in $2005$: neither parent was a Philippine citizen at birth.
+2. Check the $2012$ naturalization: a parent's later naturalization does not turn the child into a citizen from birth under Section $1(2)$.
 
-Answer: Yes, under Article IV, Section $1(2)$, because the mother was Filipino at birth.
+Answer: No, because neither parent was a Philippine citizen at the time of birth.
 
-**Check:** Under Section $1(2)$, a Filipino mother passes citizenship from birth even when the father is an alien.
+**Check:** Section $1(2)$ checks each parent's citizenship at birth, not citizenship acquired years later.
 
 ### #2: Birth Abroad
 
@@ -108,7 +108,7 @@ Both parents were Filipino when their child was born abroad in $1970$. Must the 
 
 Answer: No, the child was already Filipino from birth through the father and needs no election.
 
-**Check:** Section $1(3)$ election applies only when a pre-$1973$ child needs citizenship through a Filipino mother because the father was an alien.
+**Check:** Section $1(3)$ election applies to a pre-$1973$ marital child of a Filipino mother and an alien father.
 
 ### #3: Boundary Date and Birthplace
 

@@ -118,21 +118,21 @@ Answer: Yes, the proposal is ratified because more than half of the votes cast f
 
 **Check:** Section $4$ compares favorable votes against the $700$ votes cast ($360 > 350$), not the $1,500$ registered voters.
 
-### #3: Checking a Statute and a Plebiscite Date
+### #3: Checking Ratification and a Plebiscite Date
 
-Congress passes an ordinary statute changing a constitutional age limit without submitting it to voters. Separately, COMELEC certifies an initiative petition sufficient on May $1$ and sets the plebiscite on day $60$ after certification. Which action follows Article XVII, Section $4$?
+After a convention approves a revision, the President signs a proclamation declaring it ratified without a plebiscite. Separately, COMELEC certifies an initiative petition sufficient on May $1$ and sets the plebiscite on day $60$ after certification. Which action follows Article XVII, Section $4$?
 
 **Solution:**
 
-1. Check the ordinary statute: test whether Congress can alter the Constitution without a plebiscite under Section $4$.
+1. Check the presidential proclamation: test whether any official can ratify a constitutional revision without a voter plebiscite under Section $4$.
 2. Check day $60$ after May $1$ certification: test both the starting event and whether day $60$ sits inside the permitted window.
 
 :::try
-Finish the last step: rule on both the ordinary statute and the day-$60$ plebiscite schedule.
+Finish the last step: rule on both the presidential proclamation and the day-$60$ plebiscite schedule.
 :::answer
-The answer is **The ordinary statute fails without voter ratification, while the day-$60$ plebiscite follows Section $4$.** An ordinary law cannot bypass Article XVII ratification by a majority of votes cast. For an initiative, the $60$-to-$90$-day clock starts at COMELEC certification, and both day $60$ and day $90$ are included.
+The answer is **The presidential proclamation fails without a plebiscite, while the day-$60$ plebiscite follows Section $4$.** Under Article XVII, Section $4$, only a majority of votes cast in a plebiscite can ratify a revision. For an initiative, the $60$-to-$90$-day clock starts at COMELEC certification, and day $60$ sits on the valid opening boundary.
 
-**Check:** Voter ratification is mandatory for every constitutional change, and day $60$ from COMELEC certification sits on the valid opening boundary.
+**Check:** Only voter ratification in a plebiscite validates a constitutional change, and day $60$ from COMELEC certification is included in the window.
 :::
 
 ## Traps to Watch For

@@ -35,14 +35,14 @@ Screen three claims against Section $2$'s closed $6$-ground list:
 
 :::pair #six-grounds-closed-count
 Right: Section $2$ names $6$ impeachment grounds, counting graft and corruption as one combined item.
-Wrong: Splitting graft and corruption into two grounds to count $7$, or using the $5$-office count as the ground count.
-Section $2$ has $5$ office categories and $6$ grounds, with graft and corruption listed together.
+Wrong: Splitting graft and corruption into two separate grounds to count $7$ impeachment grounds.
+Even though the phrase has two nouns, Section $2$ lists graft and corruption as one combined ground.
 :::
 
 :::check
-A review outline lists graft as ground $4$ and corruption as ground $5$, counting $7$ impeachment grounds in Article XI, Section $2$. What mistake did the outline make?
+A study sheet says Article XI, Section $2$, lists $5$ impeachment grounds because there are $5$ categories of impeachable officers. Is that ground count accurate?
 :::answer
-The answer is **It split one combined ground into two**. Section $2$ lists "graft and corruption" as one combined item, giving $6$ named grounds total.
+The answer is **No**. Section $2$ names $5$ impeachable office categories, yet it lists $6$ distinct impeachment grounds.
 :::
 
 ### Constitutional Breach, Treason, and Bribery
@@ -50,8 +50,8 @@ The answer is **It split one combined ground into two**. Section $2$ lists "graf
 Three grounds cover deliberate constitutional defiance, wartime betrayal, and paid favors:
 
 1. **Culpable violation of the Constitution** means a willful, intentional breach of a constitutional command, separate from an honest mistake.
-2. **Treason** means wartime betrayal of the country. Under Revised Penal Code Article $114$, it covers levying war against the Philippines or aiding enemies.
-3. **Bribery** means accepting money, gifts, or promises (Revised Penal Code Article $210$) to influence an official act.
+2. **Treason** means wartime betrayal of the country. Under Revised Penal Code Article $114$, it covers levying war against the Philippines or adhering to enemies while giving them aid or comfort.
+3. **Bribery** (Revised Penal Code Article $210$) means accepting money, gifts, or promises in exchange for an official bargain. That bargain covers an unlawful or unjust official act, or failing to perform a required duty.
 
 :::why
 Why separate culpable violation from honest errors? Officials can make paperwork mistakes, whereas impeachment targets deliberate defiance of constitutional duties.
@@ -60,7 +60,7 @@ Why separate culpable violation from honest errors? Officials can make paperwork
 Match two acts by impeachable officials to their closest Section $2$ ground:
 
 1. Knowingly banning lawful speech despite an explicit constitutional bar shows deliberate defiance, raising **culpable violation of the Constitution**.
-2. Taking cash from a shipper to drop customs penalties ties payment to an official act, raising **bribery**.
+2. Taking cash from a shipper in exchange for unlawfully dropping valid customs penalties raises **bribery**.
 
 :::pair #culpable-means-willful
 Right: Culpable violation requires a willful, intentional breach of a constitutional rule, never a minor clerical slip.
@@ -69,9 +69,9 @@ Honest mistakes lack willful intent to disobey the Constitution.
 :::
 
 :::pair #treason-vs-bribery
-Right: Match wartime aid to an enemy to treason, and match paid official favors to bribery.
+Right: Match wartime war-levying or enemy adherence with aid to treason, and match paid official favors to bribery.
 Wrong: Calling a paid official favor treason, or calling wartime enemy aid bribery.
-Ask what happened: enemy war aid is treason, while an exchange for an official act is bribery.
+Ask what happened: wartime enemy adherence with aid is treason, while an exchange for an official act is bribery.
 :::
 
 :::check
@@ -88,43 +88,43 @@ A commissioner misprints a date on a notice and fixes it that day. Another knowi
 
 **Solution:**
 
-1. Under Section $2$, culpable violation requires a willful breach of a constitutional command.
-2. The date misprint is an honest clerical slip, not deliberate defiance.
-3. Knowingly defying a constitutional ban shows intentional breach.
+1. Test both commissioners' actions against Section $2$'s rule that culpable violation requires a willful constitutional breach.
+2. The date misprint fixed the same day is an honest clerical slip, not deliberate defiance.
+3. Knowingly defying a clear constitutional term-limit ban shows willful breach.
 
 Answer: Only the deliberate refusal to obey the constitutional rule raises culpable violation.
 
 **Check:** Look for willful intent to break a constitutional rule, not an office slip.
 
-### #2: Gift Tied to an Official Decision
+### #2: Explicit Gift Bargain for an Unlawful Act
 
-A port operator buys an impeachable official's luxury car right before the official drops a major fine against that operator. Name the ground and what remains.
+A port operator agrees to give an impeachable official a luxury car in exchange for unlawfully canceling a valid safety fine. Name the ground and state what remains.
 
 **Solution:**
 
-1. Accepting a valuable gift for an official decision ties a benefit to an official duty.
-2. That conduct directly matches bribery under Section $2$.
-3. Matching conduct to bribery does not prove the facts or convict the official.
+1. Check the bargain under Revised Penal Code Article $210$: accepting a valuable gift in exchange for an unlawful official act fits bribery.
+2. Check the constitutional list: bribery is one of the $6$ grounds named in Article XI, Section $2$.
+3. Separate accusation from verdict: matching the conduct to bribery does not prove the facts or convict the official.
 
 Answer: Bribery matches the accusation, while proof and a Senate decision remain required.
 
-**Check:** Separate identifying the payment-for-favor ground from proving guilt at trial.
+**Check:** Require an explicit bargain for an unlawful or unjust act (or duty failure), and separate accusation from proof.
 
 ### #3: Promises and Deliberate Breaches Under Section $2$
 
-Complaint A accuses an impeachable official of accepting a written promise of future land shares in exchange for approving a telecom permit. Complaint B accuses another official of deliberately ignoring an explicit constitutional ban on appointing relatives to his commission. Match each complaint to Section $2$ and state what Congress must still do.
+Complaint A accuses an impeachable official of accepting a written promise of land shares in exchange for unlawfully approving a failed telecom permit. Complaint B accuses a President of knowingly appointing his spouse to a Constitutional Commission despite Article VII, Section $13$. Match each complaint to Section $2$ and state what Congress must still do.
 
 **Solution:**
 
-1. Check Complaint A: test whether a promise of future value tied to an official act fits Revised Penal Code Article $210$.
-2. Check Complaint B: test whether intentionally disobeying an explicit constitutional rule fits Section $2$.
+1. Check Complaint A: test whether a promise of future value in exchange for an unlawful official act fits Revised Penal Code Article $210$.
+2. Check Complaint B: test whether a President intentionally defying Article VII, Section $13$'s ban on appointing a spouse fits Section $2$.
 
 :::try
 Finish the last step: name the Section $2$ ground for each complaint and state whether naming them proves guilt.
 :::answer
-The answer is **Complaint A raises bribery, Complaint B raises culpable violation of the Constitution, and neither proves guilt without proof and a Senate trial.** Accepting a promise tied to an official act fits bribery. Willful defiance of a constitutional command fits culpable violation, while proof stays with Congress.
+The answer is **Complaint A raises bribery, Complaint B raises culpable violation of the Constitution, and neither proves guilt without proof and a Senate trial.** Accepting a promise in exchange for an unlawful official act fits bribery. A President knowingly defying Article VII, Section $13$, fits culpable violation, while proof stays with Congress.
 
-**Check:** Confirm both grounds (promise for official act = bribery; willful constitutional breach = culpable violation) and separate accusation from proof.
+**Check:** Confirm both grounds (unlawful bargain = bribery; willful breach of Article VII, Section $13$ = culpable violation) and separate charge from proof.
 :::
 
 ## Traps to Watch For

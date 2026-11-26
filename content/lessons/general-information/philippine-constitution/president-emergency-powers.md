@@ -21,20 +21,20 @@ As **Commander-in-Chief**, the President heads the armed forces. **Martial law**
 
 Under Article VII, Section $18$, the President may proclaim martial law or suspend the **privilege of the writ of habeas corpus**. Both require **invasion or rebellion**, when **public safety requires it**. That writ lets a court check whether custody is lawful.
 
-Three strict clocks limit both measures:
+Two strict clocks limit both measures:
 
 1. Initial duration cannot exceed $60$ days.
 2. The President must report to Congress in person or in writing within $48$ hours.
-3. Anyone detained under writ suspension must be judicially charged within $3$ days, or released.
 
-Suspension covers only people judicially charged with rebellion or offenses inherent in or directly connected with invasion.
+Separately, during suspension of the writ privilege, anyone arrested or detained must be judicially charged within $3$ days, or released. Suspension covers only people judicially charged with rebellion or offenses inherent in or directly connected with invasion.
 
 <!-- ILLUSTRATION: timeline Day 0: proclamation or suspension; Within 48 hours: report to Congress; Day 60: initial limit; separate note Detained under suspension: charge in court within 3 days or release; notes Congress may revoke and Supreme Court may review -->
 
 Check the clocks when the President suspends the writ during rebellion on April $1$:
 
-1. The report to Congress is due within $48$ hours (April $3$), and the initial suspension ends at $60$ days.
-2. Anyone arrested under suspension on April $2$ must be charged by April $5$ ($3$ days) or released.
+1. The report to Congress is due within $48$ hours (April $3$).
+2. The initial suspension cannot run past $60$ days without congressional extension.
+3. Anyone arrested under suspension on April $2$ must be charged by April $5$ ($3$ days) or released.
 
 :::pair #sixty-day-initial-limit
 Right: Martial law or writ suspension lasts at most $60$ days initially under Article VII, Section $18$.
@@ -72,9 +72,9 @@ Separate two-thirds votes apply to war and vetoes; revocation needs a joint majo
 :::
 
 :::pair #court-review-never-waits
-Right: Any citizen may seek immediate Supreme Court review of the factual basis, and civil courts stay open.
-Wrong: Saying only Congress reviews the factual basis, or that courts must wait until martial law ends.
-Section $18$ opens immediate Supreme Court review while civil courts keep operating.
+Right: Any citizen may seek immediate Supreme Court review of the factual basis while martial law is in effect.
+Wrong: Claiming courts must wait until martial law ends before reviewing its factual basis.
+Section $18$ opens immediate Supreme Court review on a citizen's petition instead of waiting for martial law to end.
 :::
 
 :::check
@@ -91,25 +91,26 @@ A typhoon cuts island power. A governor urges martial law for $75$ days with a r
 
 **Solution:**
 
-1. Martial law requires invasion or rebellion plus public safety, not a typhoon.
-2. $75$ days exceeds $60$ days initially, and $5$ days exceeds $48$ hours.
+1. Check the ground: martial law requires invasion or rebellion plus public safety, not a typhoon.
+2. Check the duration: $75$ days exceeds the $60$-day initial limit.
+3. Check the report clock: $5$ days exceeds the $48$-hour reporting deadline.
 
-Answer: No, both the ground and the $60$-day and $48$-hour clocks fail.
+Answer: No, the ground, the $60$-day cap, and the $48$-hour report clock all fail.
 
 **Check:** Section $18$ requires invasion or rebellion, a $60$-day initial limit, and a $48$-hour report.
 
 ### #2: Scope of Writ Suspension
 
-During rebellion, the President validly suspends the writ privilege. Police arrest a vendor for unpaid taxes and hold him uncharged for $4$ days. Identify two violations.
+During rebellion, the President validly suspends the writ privilege. Relying solely on that suspension, police arrest a vendor for unpaid taxes and hold him uncharged for $4$ days. Identify two violations.
 
 **Solution:**
 
-1. Suspension covers only rebellion or invasion-linked charges, not tax cases.
-2. Holding him $4$ days passes the $3$-day limit to charge or release.
+1. Check coverage: suspension applies only to rebellion or invasion-linked charges, not unpaid taxes.
+2. Check detention length: holding him uncharged for $4$ days passes the $3$-day limit to charge or release.
 
-Answer: Suspension excludes tax charges, and detention past $3$ days requires release.
+Answer: Suspension excludes tax charges, and detention past $3$ days under suspension requires release.
 
-**Check:** Section $18$ limits suspension to rebellion or invasion charges and sets a $3$-day deadline.
+**Check:** Section $18$ limits writ suspension to rebellion or invasion charges and sets a $3$-day charging deadline.
 
 ### #3: Joint Revocation and Court Review
 
@@ -117,8 +118,8 @@ Suppose Congress has $324$ total Members ($24$ Senators and $300$ Representative
 
 **Solution:**
 
-1. A majority of $324$ total Members voting jointly is $163$.
-2. Section $18$ bars presidential reversal and opens citizen review right away.
+1. Check the joint vote: compare $163$ votes against a majority of all $324$ Members voting jointly.
+2. Check Section $18$ safeguards: check whether the President can block revocation and when a citizen may petition the Supreme Court.
 
 :::try
 Finish the last step: rule on revocation, presidential interference, and review timing.

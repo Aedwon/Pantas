@@ -1015,13 +1015,8 @@
       "execute-vs-decide": [
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0021",
-          "wrongChoice": "Congress executes laws; the President settles legal disputes.",
-          "mistakeNote": "Swaps lawmaking with execution and assigns court dispute settlement to the President."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0021",
           "wrongChoice": "The President executes laws and alone settles actual legal disputes.",
-          "mistakeNote": "Places judicial power inside the executive branch instead of reserving dispute settlement to the courts."
+          "mistakeNote": "Places judicial power inside the executive branch instead of reserving actual dispute settlement to the courts."
         }
       ],
       "veto-and-override-check": [
@@ -1029,11 +1024,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0022",
           "wrongChoice": "Judicial review and veto override",
           "mistakeNote": "Labels the President's rejection of a bill as judicial review instead of a veto."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0022",
-          "wrongChoice": "Veto and Commission on Appointments consent",
-          "mistakeNote": "Pairs a bill veto with an appointment check instead of a congressional veto override."
         }
       ]
     },
@@ -1115,11 +1105,6 @@
       "vp-succeeds-permanently": [
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0004",
-          "wrongChoice": "The Senate President becomes President immediately upon the death.",
-          "mistakeNote": "Skips the Vice-President in the constitutional line of succession."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0004",
           "wrongChoice": "The Vice-President only acts as President until Congress selects a permanent President.",
           "mistakeNote": "Treats permanent presidential succession as temporary instead of serving the unexpired term."
         }
@@ -1136,11 +1121,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0025",
           "wrongChoice": "Consent is required because all Cabinet appointments follow the same rule.",
           "mistakeNote": "Overlooks Article VII, Section 3's express confirmation exemption for a Vice-President named to the Cabinet."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0025",
-          "wrongChoice": "The Judicial and Bar Council must first recommend the Vice-President.",
-          "mistakeNote": "Applies the judicial nomination process to a Cabinet appointment."
         }
       ]
     },
@@ -1163,7 +1143,7 @@
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0016",
           "wrongChoice": "Only Congress may review the factual basis, and courts must wait until martial law ends.",
-          "mistakeNote": "Denies citizens immediate Supreme Court review of the factual basis under Article VII, Section 18."
+          "mistakeNote": "Delays Supreme Court review until after martial law ends instead of allowing immediate citizen petitions under Article VII, Section 18."
         }
       ]
     },
@@ -1194,11 +1174,6 @@
       "grave-abuse-review": [
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0023",
-          "wrongChoice": "They may review only private disputes, never government actions.",
-          "mistakeNote": "Omits the courts' duty under Article VIII, Section 1 to examine grave abuse by government bodies."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0023",
           "wrongChoice": "They must accept the act whenever the body calls it a policy decision.",
           "mistakeNote": "Treats a policy label as shielding acts beyond legal authority from judicial review."
         }
@@ -1222,11 +1197,6 @@
       "district-one-year-residence": [
         {
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0006",
-          "wrongChoice": "She meets the district residence rule because voter registration replaces it.",
-          "mistakeNote": "Treats district voter registration as substituting for one full year of district residence."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0006",
           "wrongChoice": "She meets the district residence rule because only six months are required.",
           "mistakeNote": "Confuses the six-month local voting residence rule with the one-year requirement for district Representatives."
         }
@@ -1243,11 +1213,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0008",
           "wrongChoice": "She meets the residence requirement because the Vice-President needs only two years.",
           "mistakeNote": "Applies the Senate's two-year residence rule to the Vice-Presidency."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0008",
-          "wrongChoice": "She meets the residence requirement because it applies only to presidential candidates.",
-          "mistakeNote": "Overlooks that Article VII, Section 3 gives the Vice-President the same ten-year residence rule as the President."
         }
       ]
     },
@@ -1257,11 +1222,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0010",
           "wrongChoice": "A natural-born citizen, age 39, with 16 years of Philippine law practice",
           "mistakeNote": "Allows extra years of law practice to excuse failing the 40-year minimum age."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0010",
-          "wrongChoice": "A naturalized citizen, age 45, with 20 years of Philippine law practice",
-          "mistakeNote": "Allows naturalized citizenship with long experience despite the natural-born requirement."
         }
       ],
       "congress-sets-lower-court-rules": [
@@ -1285,11 +1245,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0011",
           "wrongChoice": "Every COMELEC member must have ten years of law practice.",
           "mistakeNote": "Applies the ten-year lawyer requirement to all seven COMELEC members instead of a majority including the Chair."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0011",
-          "wrongChoice": "Four qualified lawyers cannot form a majority of seven members.",
-          "mistakeNote": "Miscounts four out of seven as not a majority while missing that the Chair must be in that majority."
         }
       ],
       "coa-no-same-profession": [
@@ -1304,11 +1259,6 @@
           "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0013",
           "wrongChoice": "She may be appointed because only losing candidates are barred from this office.",
           "mistakeNote": "Narrows Article XI, Section 8's prior-candidacy bar to losing candidates only."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-three-branches-and-their-powers-0013",
-          "wrongChoice": "She may be appointed because legal experience cancels the candidacy restriction.",
-          "mistakeNote": "Treats meeting the legal-experience rule as waiving the separate bar on prior candidacy."
         }
       ]
     },
@@ -1337,11 +1287,6 @@
     },
     "lesson-philippine-constitution-natural-born-and-naturalized-citizens": {
       "naturalized-not-natural-born": [
-        {
-          "questionId": "q-philippine-constitution-citizenship-and-suffrage-0008",
-          "wrongChoice": "Yes, because every Philippine citizen meets the citizenship requirement for every public office.",
-          "mistakeNote": "Assumes any Philippine citizen qualifies for offices like Civil Service Commissioner that require natural-born status."
-        },
         {
           "questionId": "q-philippine-constitution-citizenship-and-suffrage-0002",
           "wrongChoice": "A person who becomes a citizen after completing naturalization",
@@ -1474,11 +1419,6 @@
       "three-proposal-routes": [
         {
           "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0001",
-          "wrongChoice": "Two",
-          "mistakeNote": "Omits people's initiative when counting Article XVII proposal routes."
-        },
-        {
-          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0001",
           "wrongChoice": "Four",
           "mistakeNote": "Counts asking voters whether to call a convention as a fourth proposal route."
         }
@@ -1488,11 +1428,6 @@
           "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0004",
           "wrongChoice": "Two-thirds of all its Members",
           "mistakeNote": "Substitutes the two-thirds convention-call threshold for the three-fourths proposal threshold."
-        },
-        {
-          "questionId": "q-philippine-constitution-amending-and-revising-the-constitution-0005",
-          "wrongChoice": "A majority of all its Members",
-          "mistakeNote": "Substitutes the majority voter-referral vote for the two-thirds vote to call a convention directly."
         }
       ],
       "count-all-members": [
@@ -1580,23 +1515,13 @@
           "questionId": "q-philippine-constitution-the-civil-service-commission-0007",
           "wrongChoice": "Article IX-A, the common provisions for the commissions",
           "mistakeNote": "Assigns the CSC specifically to Article IX-A instead of its dedicated part in Article IX-B."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0007",
-          "wrongChoice": "Article IX-C, the Commission on Elections provisions",
-          "mistakeNote": "Confuses the CSC's Article IX-B subdivision with COMELEC's Article IX-C subdivision."
         }
       ],
       "personnel-role-scope": [
         {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0010",
-          "wrongChoice": "The central judicial tribunal for all criminal cases",
-          "mistakeNote": "Substitutes criminal judicial authority for the CSC's role as central personnel agency."
-        },
-        {
           "questionId": "q-philippine-constitution-the-civil-service-commission-0020",
           "wrongChoice": "The claim is correct because central means all other government functions are included.",
-          "mistakeNote": "Treats the word central as granting legislative, monetary, and criminal judicial powers beyond personnel management."
+          "mistakeNote": "Treats the word central as granting all other government functions beyond personnel management."
         }
       ],
       "accountability-not-criminal-trial": [
@@ -1613,11 +1538,6 @@
           "questionId": "q-philippine-constitution-the-civil-service-commission-0016",
           "wrongChoice": "2",
           "mistakeNote": "Counts only the two associate Commissioners and leaves out the Chairman."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0001",
-          "wrongChoice": "A chairman and only one other commissioner",
-          "mistakeNote": "Reduces the two associate Commissioners to one, giving two total seats instead of three."
         }
       ],
       "csc-not-seven-members": [
@@ -1665,11 +1585,6 @@
           "questionId": "q-philippine-constitution-the-civil-service-commission-0006",
           "wrongChoice": "Only losing candidates in the immediately prior election are disqualified.",
           "mistakeNote": "Restricts the CSC candidacy bar to election losers instead of covering all candidates, winners and losers alike."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0006",
-          "wrongChoice": "Only candidates for national office are disqualified, while local candidates are always eligible.",
-          "mistakeNote": "Exempts local candidates despite Article IX-B, Section 1(1) barring candidates for any elective position."
         }
       ]
     },
@@ -1688,11 +1603,6 @@
       ],
       "seven-years-no-reappointment": [
         {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0005",
-          "wrongChoice": "Five years with one additional appointment automatically allowed",
-          "mistakeNote": "Mistakes an initial staggered five-year length for the regular term and allows prohibited reappointment."
-        },
-        {
           "questionId": "q-philippine-constitution-the-civil-service-commission-0008",
           "wrongChoice": "Yes, if the President remains satisfied with the member's performance.",
           "mistakeNote": "Lets satisfactory job performance override the absolute constitutional ban on reappointment."
@@ -1708,11 +1618,6 @@
     },
     "lesson-philippine-constitution-csc-civil-service-coverage": {
       "all-branches-and-subdivisions": [
-        {
-          "questionId": "q-philippine-constitution-the-civil-service-commission-0022",
-          "wrongChoice": "It covers executive agencies but excludes offices of the other branches.",
-          "mistakeNote": "Limits civil service coverage to executive agencies instead of all three branches of government."
-        },
         {
           "questionId": "q-philippine-constitution-the-civil-service-commission-0022",
           "wrongChoice": "It covers national agencies but excludes cities and provinces entirely.",
@@ -1839,11 +1744,6 @@
           "questionId": "q-philippine-constitution-accountability-and-impeachment-0002",
           "wrongChoice": "It is a private entitlement once the official wins an election.",
           "mistakeNote": "Treats winning an election as turning public office into private ownership instead of a continuing public trust."
-        },
-        {
-          "questionId": "q-philippine-constitution-accountability-and-impeachment-0009",
-          "wrongChoice": "Giving family interests priority over the people whenever interests compete",
-          "mistakeNote": "Places private family benefit ahead of the people despite Article XI, Section 1."
         }
       ],
       "closed-office-list": [
@@ -1872,11 +1772,6 @@
           "questionId": "q-philippine-constitution-accountability-and-impeachment-0013",
           "wrongChoice": "7",
           "mistakeNote": "Splits graft and corruption into two separate grounds instead of counting six total grounds in Section 2."
-        },
-        {
-          "questionId": "q-philippine-constitution-accountability-and-impeachment-0013",
-          "wrongChoice": "5",
-          "mistakeNote": "Confuses Section 2's five impeachable office categories with its six listed grounds."
         }
       ],
       "culpable-means-willful": [
@@ -1907,16 +1802,11 @@
           "mistakeNote": "Misclassifies an unlawful domestic contract favor as wartime treason instead of graft and corruption."
         }
       ],
-      "no-overlooking-named-grounds": [
+      "graft-vs-culpable-contract": [
         {
-          "questionId": "q-philippine-constitution-accountability-and-impeachment-0017",
-          "wrongChoice": "Culpable violation of the Constitution is expressly named in the list.",
-          "mistakeNote": "Rejects an expressly named Section 2 ground when asked which claim misunderstands the closed list."
-        },
-        {
-          "questionId": "q-philippine-constitution-accountability-and-impeachment-0017",
-          "wrongChoice": "Betrayal of public trust is expressly named in the list.",
-          "mistakeNote": "Rejects betrayal of public trust as an expressly named Section 2 ground."
+          "questionId": "q-philippine-constitution-accountability-and-impeachment-0022",
+          "wrongChoice": "Culpable constitutional violation solely because every contract error is deliberate",
+          "mistakeNote": "Treats every contract error as a deliberate constitutional breach instead of matching an improper private benefit to graft and corruption."
         }
       ],
       "high-crimes-not-every-offense": [
@@ -1933,11 +1823,6 @@
           "questionId": "q-philippine-constitution-accountability-and-impeachment-0005",
           "wrongChoice": "Negligence in public duties",
           "mistakeNote": "Substitutes general negligence for the expressly listed ground of betrayal of public trust."
-        },
-        {
-          "questionId": "q-philippine-constitution-accountability-and-impeachment-0005",
-          "wrongChoice": "Any dissatisfaction with an official's policy",
-          "mistakeNote": "Treats policy dissatisfaction as one of the six named grounds in Article XI, Section 2."
         }
       ],
       "ground-not-conviction": [
@@ -1985,11 +1870,6 @@
       "judgment-not-criminal-end": [
         {
           "questionId": "q-philippine-constitution-accountability-and-impeachment-0026",
-          "wrongChoice": "Impeachment conviction automatically imposes any required prison sentence.",
-          "mistakeNote": "Assumes impeachment imposes criminal imprisonment instead of stopping at removal and disqualification."
-        },
-        {
-          "questionId": "q-philippine-constitution-accountability-and-impeachment-0026",
           "wrongChoice": "Removal and disqualification replace all further liability under criminal law.",
           "mistakeNote": "Treats impeachment removal as ending criminal liability despite Section 3(7) preserving prosecution according to law."
         }
@@ -2001,11 +1881,6 @@
           "questionId": "q-philippine-constitution-accountability-and-impeachment-0027",
           "wrongChoice": "No, a citizen’s complaint is always required before an investigation begins.",
           "mistakeNote": "Overlooks Article XI, Section 13(1), letting the Ombudsman investigate on its own initiative."
-        },
-        {
-          "questionId": "q-philippine-constitution-accountability-and-impeachment-0027",
-          "wrongChoice": "No, only an act already proved criminal can be investigated.",
-          "mistakeNote": "Restricts Ombudsman inquiries to proved crimes instead of apparently illegal, unjust, improper, or inefficient conduct."
         }
       ],
       "ombudsman-direct-vs-remove": [
@@ -2032,11 +1907,6 @@
         }
       ],
       "preamble-states-aims": [
-        {
-          "questionId": "q-philippine-constitution-the-articles-in-outline-0017",
-          "wrongChoice": "It is the subdivision of Article IX that creates a fourth constitutional commission.",
-          "mistakeNote": "Confuses the Preamble with an Article IX commission subdivision."
-        },
         {
           "questionId": "q-philippine-constitution-the-articles-in-outline-0017",
           "wrongChoice": "It replaces every article's detailed subject with a single set of transition rules.",
@@ -2074,11 +1944,6 @@
           "questionId": "q-philippine-constitution-the-articles-in-outline-0002",
           "wrongChoice": "Keep it in Article IV because citizenship and the Bill of Rights have identical titles.",
           "mistakeNote": "Merges Article III (Bill of Rights) into Article IV (Citizenship)."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-articles-in-outline-0004",
-          "wrongChoice": "Citizenship",
-          "mistakeNote": "Confuses Article V (Suffrage) with the neighboring Article IV (Citizenship)."
         }
       ]
     },
@@ -2096,11 +1961,6 @@
         }
       ],
       "department-headings-distinct": [
-        {
-          "questionId": "q-philippine-constitution-the-articles-in-outline-0005",
-          "wrongChoice": "Article VIII",
-          "mistakeNote": "Assigns The Executive Department to Article VIII (Judicial Department) instead of Article VII."
-        },
         {
           "questionId": "q-philippine-constitution-the-articles-in-outline-0011",
           "wrongChoice": "Article XIII",
@@ -2164,11 +2024,6 @@
           "questionId": "q-philippine-constitution-the-articles-in-outline-0008",
           "wrongChoice": "Keep Article XVI because general means it replaces every specific article.",
           "mistakeNote": "Lets General Provisions (Article XVI) override the dedicated Article XI entry for accountability."
-        },
-        {
-          "questionId": "q-philippine-constitution-the-articles-in-outline-0008",
-          "wrongChoice": "Use Article XVII because misconduct automatically amends the Constitution.",
-          "mistakeNote": "Confuses Article XI (Accountability of Public Officers) with Article XVII (Amendments or Revisions)."
         }
       ],
       "economy-xii-vs-rights-xiii": [
@@ -2186,11 +2041,6 @@
     },
     "lesson-philippine-constitution-constitution-other-fields-and-change": {
       "xiv-xv-titles-distinct": [
-        {
-          "questionId": "q-philippine-constitution-the-articles-in-outline-0009",
-          "wrongChoice": "Article XIII",
-          "mistakeNote": "Confuses Article XIV (Education, Science, Arts, Culture, Sports) with Article XIII (Social Justice and Human Rights)."
-        },
         {
           "questionId": "q-philippine-constitution-the-articles-in-outline-0013",
           "wrongChoice": "Article XIV",

@@ -51,7 +51,7 @@ Under Article IX-B, Section $3$, the CSC's duties go far beyond giving civil ser
 2. It strengthens the merit and rewards system so personal ties never replace proof of ability.
 3. It integrates human resources development programs for all levels and ranks through training.
 4. It adopts measures to promote morale, efficiency, integrity, responsiveness, progressiveness, and courtesy.
-5. It institutionalizes a management climate conducive to **public accountability**, meaning officials answer for how they work.
+5. It builds a workplace for **public accountability**, where officials answer for how they work.
 
 :::why
 Why put one agency in charge of government personnel systems? One shared merit and training system stops individual offices from hiring on personal favors.
@@ -64,8 +64,8 @@ Review a proposal asking the CSC to run cross-rank ethics workshops and try a cl
 
 :::pair #personnel-role-scope
 Right: The CSC leads government personnel work, including merit hiring, rewards, training, and workplace standards.
-Wrong: Treating the word central as giving the CSC legislative, monetary, or criminal judicial powers.
-The CSC is central only for government personnel management, never for lawmaking or currency control.
+Wrong: Treating the word central as giving the CSC every government function beyond personnel work.
+The CSC is central only for government personnel systems, not for lawmaking or currency control.
 :::
 
 :::pair #accountability-not-criminal-trial
@@ -115,13 +115,13 @@ A memo asks the CSC to audit a city's road contracts, negotiate a foreign trade 
 
 **Solution:**
 
-1. Auditing public contracts belongs to the Commission on Audit, not the CSC.
-2. Negotiating foreign treaties belongs to the President, not the CSC.
+1. Match each of the three tasks in the memo to the constitutional body that holds that power.
+2. Check which task fits Article IX-B, Section $3$'s mandate as the central personnel agency.
 
 :::try
-Finish the last step: rule on the merit-promotion task and explain why the other two fall outside the CSC's Section $3$ role.
+Finish the last step: name the one task that belongs to the CSC and explain why the other two fall outside Section $3$.
 :::answer
-The answer is **Only setting merit-promotion rules across national bureaus belongs to the CSC.** Under Article IX-B, Section $3$, the CSC is the central personnel agency for government workers. Auditing contracts and negotiating treaties belong to other constitutional bodies.
+The answer is **Only setting merit-promotion rules across national bureaus belongs to the CSC.** Under Article IX-B, Section $3$, the CSC is the central personnel agency for government workers. Auditing public contracts belongs to the Commission on Audit, and negotiating treaties belongs to the President.
 
 **Check:** Tie CSC duties to government personnel systems like merit hiring, promotion, rewards, and training.
 :::
@@ -130,6 +130,6 @@ The answer is **Only setting merit-promotion rules across national bureaus belon
 
 :::checklist
 - Article IX subdivisions: match the CSC specifically to Article IX-B, and keep Article IX-A for shared rules. {#csc-article-ix-b}
-- Central personnel scope: limit CSC work to hiring, merit, training, and standards, not lawmaking or banking. {#personnel-role-scope}
+- Central personnel scope: the word central covers personnel work only, not other government functions. {#personnel-role-scope}
 - Accountability climate: promote responsible office management without turning the CSC into a criminal court. {#accountability-not-criminal-trial}
 :::

@@ -43,9 +43,9 @@ Broad aims set direction, while statutes supply detailed procedures.
 :::
 
 :::check
-An official cites Article II's youth policy to run a school-meal program without checking procurement statutes or nutrition rules. Is that valid?
+A town official argues that Article II's broad principle of local autonomy lets the town lower its local voting age to $16$. Why must you check another source of authority, and which Article sets the voting age?
 :::answer
-The answer is **No**. An Article II policy sets a goal, not a complete procedure, so statutes still govern.
+The answer is **Article II states broad principles rather than specific voting rules, so Article V (Suffrage) controls and sets the voting age at $18$.**
 :::
 
 ### Articles III, IV, and V: Rights, Citizenship, and Suffrage
@@ -67,9 +67,9 @@ Route three legal questions to Articles III, IV, or V:
 3. Property-test bans for voters go to **Article V** (Suffrage).
 
 :::pair #articles-iii-iv-v-order
-Right: Keep Article III (Bill of Rights), Article IV (Citizenship), and Article V (Suffrage) separate in order.
-Wrong: Placing the Bill of Rights in Article IV, Citizenship in Article II, or Suffrage under Citizenship.
-Rights sit in III, citizenship in IV, and voting rules in V.
+Right: Place the Bill of Rights in Article III, separate from Citizenship in Article IV.
+Wrong: Assigning the Bill of Rights to Article IV as though citizenship and the Bill of Rights shared one heading.
+Individual liberties sit in Article III (Bill of Rights), while citizenship rules sit in Article IV.
 :::
 
 :::check
@@ -128,5 +128,5 @@ The answer is **Move the $18$-year rule to Article V (Suffrage), giving III (Bil
 :::checklist
 - Articles I and II: match geographic territory to Article I and principles or policies to Article II. {#article-i-vs-ii}
 - Policy vs. procedure: treat Article II State policies as broad goals, never complete operating rules. {#policy-not-full-procedure}
-- Articles III to V: keep Bill of Rights (III), Citizenship (IV), and Suffrage (V) distinct in order. {#articles-iii-iv-v-order}
+- Bill of Rights vs. Citizenship: place the Bill of Rights in Article III, not Article IV (Citizenship). {#articles-iii-iv-v-order}
 :::

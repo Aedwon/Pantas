@@ -22,7 +22,7 @@ Articles XIV through XVI cover learning and culture, family, and general nationa
 
 1. **Article XIV: Education, Science and Technology, Arts, Culture and Sports** protects quality education at all levels. It also covers science, the national language, arts, culture, and sports.
 2. **Article XV: The Family** recognizes the Filipino family as the nation's foundation and protects marriage.
-3. **Article XVI: General Provisions** gathers miscellaneous subjects. Section $1$ describes the **Philippine flag** (red, white, blue, sun, three stars), alongside armed forces, police, mass media, and consumers.
+3. **Article XVI: General Provisions** gathers miscellaneous subjects. Section $1$ describes the **Philippine flag** (red, white, blue, sun, three stars). Other sections of Article XVI cover the armed forces, police, mass media, and consumers.
 
 Route three topics across Articles XIV, XV, and XVI:
 
@@ -31,9 +31,9 @@ Route three topics across Articles XIV, XV, and XVI:
 3. Foreign-ownership limits for mass media belong to **Article XVI** (General Provisions).
 
 :::pair #xiv-xv-titles-distinct
-Right: Keep Education, Science, Arts, Culture, and Sports in Article XIV, and The Family in Article XV.
-Wrong: Mixing up Article XIV with Article XIII, or placing The Family under Article XIV instead of Article XV.
-Read each title: XIV groups learning, science, culture, and sports, while XV covers The Family.
+Right: Keep Education, Science, Arts, Culture, and Sports in Article XIV, and place The Family in Article XV.
+Wrong: Placing The Family under Article XIV instead of its dedicated Article XV.
+Article XIV covers education, science, arts, culture, and sports, while Article XV is titled The Family.
 :::
 
 :::pair #flag-and-symbols-in-xvi
@@ -92,19 +92,18 @@ Answer: Scientific research is in Article XIV, marriage in Article XV, and media
 
 **Check:** Match learning, science, and sports to XIV, family to XV, and general rules to XVI.
 
-### #2: Why General Provisions Holds the Flag
+### #2: Why General Provisions Holds Consumer Protection
 
-A student guesses the Philippine flag's red, white, blue, sun, and three stars sit in Article XIV or Article XV. Correct that guess and explain why.
+A reviewer looks for constitutional consumer protection against trade malpractices in Article XII (National Economy) or Article XIII (Social Justice). Correct that lookup using the outline.
 
 **Solution:**
 
-1. Article XIV covers learning, science, culture, and sports, not the national flag design.
-2. Article XV protects the Filipino family, not national symbols.
-3. Article XVI (General Provisions), Section $1$, expressly describes the Philippine flag.
+1. Check Articles XII and XIII: Article XII governs national resources and economic structure, while Article XIII covers labor, land reform, and human rights.
+2. Check Article XVI (General Provisions): Article XVI collects miscellaneous national provisions, including consumer protection alongside the flag, armed forces, police, and mass media.
 
-Answer: Open Article XVI (General Provisions) for the flag, because Section $1$ places specific symbols there.
+Answer: Open Article XVI (General Provisions) for consumer protection because the outline places that subject there.
 
-**Check:** Remember that Article XVI's short title hides specific topics like the flag, armed forces, and mass media.
+**Check:** Remember that Article XVI's short heading holds specific topics like consumer protection, the flag, armed forces, police, and mass media.
 
 ### #3: Future Change vs. Transition Rules
 
@@ -112,13 +111,13 @@ One clause sets the schedule for the first elections of Congress and local offic
 
 **Solution:**
 
-1. Check the $1987$ election schedule: bridging into the first Congress under the $1987$ Constitution belongs to the transition rules.
-2. Check the plebiscite window: voter ratification of future proposed amendments belongs to constitutional change.
+1. Examine the $1987$ first-election schedule: ask whether it handled a one-time shift or sets permanent rules for future change.
+2. Compare the purpose of the $60$-to-$90$-day plebiscite window against the same two closing articles.
 
 :::try
-Finish the last step: name both Articles in order and explain why Article XVII and Article XVIII do not overlap.
+Finish the last step: distinguish the two purposes, assign each clause to its Article, and explain why XVII and XVIII do not overlap.
 :::answer
-The answer is **The first $1987$ election schedule sits in Article XVIII, and the plebiscite window sits in Article XVII.** Article XVIII handled the one-time $1987$ transition (including Section $1$'s first elections), whereas Article XVII governs all future constitutional amendments and revisions.
+The answer is **The first $1987$ election schedule sits in Article XVIII, and the plebiscite window sits in Article XVII.** Article XVIII (Transitory Provisions) handled the one-time $1987$ shift into the new Constitution, including Section $1$'s first elections. Article XVII (Amendments or Revisions) sets the permanent rules for all future constitutional changes.
 
 **Check:** Verify XVII = Amendments or Revisions (future change) and XVIII = Transitory Provisions ($1987$ shift).
 :::
@@ -126,7 +125,7 @@ The answer is **The first $1987$ election schedule sits in Article XVIII, and th
 ## Traps to Watch For
 
 :::checklist
-- Articles XIV and XV: keep Education, Science, Culture, and Sports in XIV, and The Family in XV. {#xiv-xv-titles-distinct}
+- Family placement: place The Family in Article XV, never inside Article XIV (Education, Science, Culture, and Sports). {#xiv-xv-titles-distinct}
 - Flag and symbols: look in Article XVI (General Provisions) for the flag, armed forces, and mass media. {#flag-and-symbols-in-xvi}
 - Change vs. transition: put Amendments or Revisions in Article XVII, and Transitory Provisions in Article XVIII. {#amendments-xvii-vs-transitory-xviii}
 :::

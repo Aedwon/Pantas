@@ -34,8 +34,8 @@ Why set the cutoff at more than $4$ years? Serving over two-thirds of a term cou
 
 :::pair #vp-succeeds-permanently
 Right: When the presidency becomes vacant, the Vice-President becomes President for the unexpired term.
-Wrong: Passing the presidency to the Senate President, or making the Vice-President temporary until Congress chooses someone.
-Section $8$ makes an occupied Vice-Presidency the permanent successor right away.
+Wrong: Treating the Vice-President as only an acting President until Congress chooses someone else.
+Section $8$ makes an occupied Vice-Presidency the permanent successor for the rest of the term.
 :::
 
 :::pair #four-year-succession-bar
@@ -68,7 +68,7 @@ Sort two appointments made on the same day:
 
 :::pair #vp-cabinet-no-confirmation
 Right: Appointing the Vice-President to the Cabinet requires no Commission on Appointments confirmation.
-Wrong: Requiring Commission on Appointments consent or Judicial and Bar Council nomination for the Vice-President's Cabinet post.
+Wrong: Requiring Commission on Appointments consent for the Vice-President's Cabinet post.
 Article VII, Section $3$ expressly exempts the Vice-President's Cabinet appointment from confirmation.
 :::
 
@@ -93,18 +93,18 @@ Answer: The ambassador needs Commission on Appointments consent; the Supreme Cou
 
 **Check:** Ambassadors require Commission consent, while judicial posts follow the Council list without confirmation.
 
-### #2: Succession Over Four Years
+### #2: Succession at the Four-Year Boundary
 
-The President suffers permanent disability with $4$ years and $6$ months remaining. The Vice-President succeeds and serves the rest of the term. Who becomes President, and can that person later be elected President?
+The President resigns with exactly $4$ years remaining. The Vice-President succeeds and serves those $4$ years. Who becomes President, and may that successor later run for President?
 
 **Solution:**
 
 1. Under Article VII, Section $8$, the Vice-President becomes President for the unexpired term.
-2. Under Section $4$, serving $4$ years and $6$ months exceeds the $4$-year cutoff.
+2. Under Section $4$, the bar hits only service of more than $4$ years, and exactly $4$ years is not over $4$.
 
-Answer: The Vice-President becomes President for the rest of the term and is barred from later presidential election.
+Answer: The Vice-President becomes President for the rest of the term and may still run for President later.
 
-**Check:** Any succession service beyond $4$ years bars later election as President.
+**Check:** Section $4$ bars reelection only after more than $4$ years of succession service, not exactly $4$.
 
 ### #3: Vice-President in the Cabinet
 
@@ -112,13 +112,13 @@ The President appoints the Vice-President as Secretary of Education and names a 
 
 **Solution:**
 
-1. Check the Commission on Audit Chair: Constitutional Commission members require Commission on Appointments consent under Article VII, Section $16$.
-2. Check the Vice-President's Cabinet post: evaluate it under Article VII, Section $3$.
+1. Check the Commission on Audit Chair: test whether Constitutional Commission members fall under Article VII, Section $16$.
+2. Check the Vice-President's Cabinet post: test which Article VII rule governs appointing the Vice-President to the Cabinet.
 
 :::try
-Finish the last step: state which appointee needs consent and explain why the general Cabinet rule skips the Vice-President.
+Finish the last step: state which rule applies to each nominee and whether either needs confirmation.
 :::answer
-The answer is **Only the Commission on Audit Chair needs Commission consent, while the Vice-President needs no confirmation.** Article VII, Section $3$ expressly exempts the Vice-President when appointed to the Cabinet.
+The answer is **Only the Commission on Audit Chair needs Commission consent, while the Vice-President needs no confirmation.** Section $16$ covers Constitutional Commission members, whereas Article VII, Section $3$ expressly exempts the Vice-President when appointed to the Cabinet.
 
 **Check:** Section $16$ covers Constitutional Commission chairs and ordinary Cabinet heads, whereas Section $3$ exempts the Vice-President.
 :::
