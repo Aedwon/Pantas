@@ -91,7 +91,7 @@ These passed the same mechanical checks, and all 16 pair citations match real wr
 - ng-at-nang (pagmamay-ari: confusing-words-0014 "Nang"; dami: 0016 "Nang"; noong: 0012 "Ng")
 - sila-at-sina (bago-ang-pangalan: confusing-words-0004 "Sila"; pamalit: 0009 "Sina")
 - kasingkahulugan-at-kasalungat (kasingkahulugan: synonyms-and-antonyms-0003 "Natupad"; kasalungat: 0004 "Mahirap"; a Traps section was added)
-- baybay-ng-hiram-na-salita (isingit-ang-w: spelling-rules-0012 "Kwento / kuento")
+- baybay-ng-hiram-na-salita (isingit-ang-w: spelling-rules-0012 "kuento")
 - ugat-unlapi-gitlapi-at-hulapi (ugat-hindi-panlapi: root-words-prefixes-suffixes-0003 "Pinag"; ugat-hindi-buo: 0010 "Ginawa")
 - panlaping-kabilaan-at-laguhan (kabilaan-ka-an: root-words-prefixes-suffixes-0011 "Pag- at -an"; laguhan-hindi-kabilaan: 0004 "Kabilaan")
 - paghahambing-pagbibigay-katauhan-at-pagmamalabis (labis-hindi-tulad: idioms-and-figures-of-speech-0011 "Pagtutulad"; tulad-hindi-wangis: 0012 "Pagwawangis"; wangis-hindi-tulad: 0013 "Pagtutulad"; katauhan-hindi-hambing: 0014 "Tahasang paghahambing")

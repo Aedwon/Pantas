@@ -263,21 +263,21 @@ questions:
     type: spelling-correction
     difficulty: hard
     stem: |
-      Aling pares ang nakalista sa Ortograpiyang Pambansa ng KWF bilang mga adaptasyong Filipino ng salitang Espanyol na "cuento"?
+      Alin ang wastong baybay sa Filipino ng salitang hiram na "cuento"?
     choices:
-      - text: "Kwento / kuwento"
+      - text: "kuwento"
         correct: true
-      - text: "Kuwento / cuento"
+      - text: "kwento"
         rationale: |
-          Itinuturing nitong adaptasyong Filipino ang orihinal na baybay sa Espanyol. Nasa tabi ito ng mga adaptasyon sa sanggunian. Suriin kung alin ang tinukoy na mga inangkop na salita.
-      - text: "Kwento / kuento"
+          Inaalis nito ang titik u sa unang pantig. Karaniwan itong nakikita sa di-pormal na pagsulat kaya mukhang tama. Suriin na nasa unang pantig pagkatapos ng katinig ang pares na u at e kaya dapat panatilihin ang u at magsingit ng w.
+      - text: "kuento"
         rationale: |
-          Inaalis nito ang w sa isang anyo. Maaaring isipin na puwedeng basta magbawas ng titik dahil maikli ang "kwento." Tingnan ang eksaktong pares sa KWF.
-      - text: "Kwento / kuwuento"
+          Pinananatili nito ang u ngunit hindi nagsisingit ng w bago ang e. Kahawig ito ng "cuento" na pinalitan lamang ng k ang c. Suriin kung may w sa pagitan ng u at e sa baybay na Filipino.
+      - text: "cuento"
         rationale: |
-          Nagdaragdag ito ng u pagkatapos ng w. May u ang mas mahabang anyo, kaya maaaring mukhang kailangan ng dagdag na patinig. Suriin ang ayos na k-u-w-e.
+          Pinananatili nito ang orihinal na baybay sa Espanyol sa halip na iangkop sa Filipino. Pamilyar ang anyong ito dahil dito nagmula ang salita. Suriin kung pinalitan na ng k ang c at may u at w ang unang pantig.
     explanation: |
-      Nakalista sa ortograpiya ng KWF ang "kwento" at "kuwento" bilang mga adaptasyong Filipino ng Espanyol na "cuento." Tinatanggap ang parehong anyo.
+      Sa "cuento," nasa unang pantig pagkatapos ng katinig ang pares na u at e. Ayon sa Ortograpiyang Pambansa ng KWF, panatilihin ang u at magsingit ng w bago ang e, kaya "kuwento" ang wastong baybay sa Filipino.
     approved: true
 
   - id: q-vocabulary-spelling-rules-0013
