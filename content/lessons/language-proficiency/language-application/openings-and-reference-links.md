@@ -13,19 +13,67 @@ keyPoints:
 ---
 ## Core Concept
 
-**Paragraph organization** means putting sentences in an order that makes the ideas easy to follow. Read every sentence before choosing an order. Look for links that make one sentence depend on another.
+### Choosing the Opening Sentence
 
-### Clues to Order
+**Paragraph organization** means putting sentences in an order that makes the ideas easy to follow. Read every sentence before choosing an order.
 
-An **opening sentence** often names the topic or situation. It should make sense before the reader sees the other sentences. Still, a story can open with an event or question instead of a broad statement.
+An **opening sentence** often names the topic or situation. It should make sense before the reader sees the other sentences. A sentence with *this*, *that* or *these* points back to an earlier sentence, so it rarely opens a scrambled set.
 
-**Reference words**, such as *it, this, these,* and *they*, often point to something already named. If a sentence says *this problem*, ask what problem it means. In a scrambled set with no other context, the sentence naming that problem usually comes earlier.
+Which sentence opens?
+
+(A) "Their boots were covered in mud by the time they reached the camp."
+(B) "A group of hikers set out before sunrise to climb the ridge."
+
+1. (A) says "Their boots." Whose boots? No earlier sentence says.
+2. (B) names the hikers and what they do. It makes sense alone.
+3. (B) opens, and (A) follows.
+
+:::pair #reference-before-source
+Right: "The shop's water bill doubled. After that increase, the owner checked the pipes."
+Wrong: "After that increase, the owner checked the pipes. The shop's water bill doubled."
+*That increase* points back to the bill. If the pointing sentence comes first, nothing is there to point to.
+:::
+
+A story or a set of steps can still open with an event or action, not a broad statement. A pronoun can open a paragraph when its meaning is already known.
+
+:::check
+Which sentence opens? (A) "Those boxes were stacked by the window." (B) "The new teacher unpacked six boxes of books."
+:::answer
+The answer is (B). It names the boxes. *Those boxes* in (A) needs an earlier sentence that names them.
+:::
+
+### Following Reference Words
+
+**Reference words**, such as *it, this, these* and *they*, point to something already named. A noun with *the*, *that* or *those* can point back too, as in *the study* or *those replies*. If a sentence says *this problem*, ask what problem. The sentence that names it comes earlier.
+
+Put in order:
+
+(A) "This water then flows into the village tank."
+(B) "Rain collects on the school roof and runs into a pipe."
+(C) "The tank holds enough for the dry months."
+
+1. (B) names the rain, the roof and the pipe. It needs no earlier sentence.
+2. *This water* in (A) points to the rain water in (B).
+3. *The tank* in (C) points to the village tank in (A).
+4. The order is B, A, C.
+
+:::pair #the-noun-link
+Right: "A student began a study of park birds. The study counted forty kinds."
+Wrong: "The study counted forty kinds. A student began a study of park birds."
+*The study* is a link even without *this* or *it*. The sentence that first names the study comes first.
+:::
+
+:::check
+Put in order: (A) "That change saved the school money." (B) "The school switched to solar panels last year."
+:::answer
+The answer is B, then A. *That change* in (A) points to the switch to solar panels in (B).
+:::
 
 ## Examples
 
 ### #1: Building a Reference Chain
 
-Arrange the sentences into a coherent paragraph. **Coherent** means the ideas connect clearly.
+Arrange the sentences into a coherent paragraph. **Arrange** means put the sentences in order. **Coherent** means the ideas connect clearly.
 
 (A) This competition led to conflicts between the groups.
 (B) As the settlements grew, competition for these resources increased.
@@ -34,28 +82,60 @@ Arrange the sentences into a coherent paragraph. **Coherent** means the ideas co
 
 **Solution:**
 
-1. (C) names the groups, river, and resources without needing an earlier sentence.
+1. (C) "The groups settled near a river for water and fertile soil." names the groups and resources. It needs no earlier sentence.
 2. *These resources* in (B) points to the water and soil in (C).
 3. *This competition* in (A) points to the competition in (B).
 4. *These conflicts* in (D) points to the conflicts in (A).
-5. The order is **C → B → A → D**.
+5. The order is C, B, A, D.
+
+**Check:** Read the paragraph in that order. Each pointing phrase now follows the sentence it points to.
+
+### #2: A Short Story
+
+Arrange the sentences in the best order.
+
+(A) Her heart sank when she saw the empty shelf.
+(B) Rosa had saved all week to buy the last copy of a book.
+(C) The clerk said it had sold an hour earlier.
+
+**Solution:**
+
+1. (A) says "Her heart." Whose? It needs an earlier sentence.
+2. (B) names Rosa and the book, so it opens.
+3. (C) explains the empty shelf in (A), so it follows (A).
+4. The order is B, A, C.
+
+**Check:** Read it aloud: Rosa saves, finds the shelf empty, and hears why. The story flows.
+
+### #3: A Set of Three
+
+Arrange the sentences in the best order.
+
+(A) These grants let schools buy new lab equipment.
+(B) Last year the district set aside money for science grants.
+(C) Teachers said the equipment made experiments safer.
+
+**Solution:**
+
+1. (A) says "These grants." Which grants? It needs an earlier sentence.
+2. (B) names "science grants" and makes sense alone, so it opens.
+
+:::try
+Finish the last step: which sentence does *the equipment* in (C) point to, and what is the full order?
+:::answer
+The answer is B, A, C. *The equipment* in (C) points to "new lab equipment" in (A), so (C) comes after (A).
+
+**Check:** Read the order aloud. The grants come first, then what they buy, then what teachers said about it.
+:::
 
 ## Speed Tricks & Shortcuts
 
-Find strong links first. A phrase such as *these cancellations* needs the sentence that names the cancellations.
-
-Read the whole order once more. A good pair can still be in the wrong place in the full paragraph.
+Find the sentence that needs no other sentence. Then follow each pointing phrase back to the sentence that names it. Read the whole order once more.
 
 ## Traps to Watch For
 
-### #1: Banning Pronouns from Openings
-
-> A pronoun can begin a paragraph when its meaning is already known.
-
-In a scrambled set with no outside context, an unexplained pronoun is a clue to look for an earlier sentence. It is not a rule for every kind of writing.
-
-### #2: Forcing a General Opening
-
-> Not every paragraph starts with a broad topic sentence.
-
-Stories and instructions can begin with an event or action. Follow the kind of text and the links it provides.
+:::checklist
+- A sentence that starts with *this*, *that* or *these*: put the sentence that names the thing first (name, then pointer). {#reference-before-source}
+- A phrase such as *the study* or *those replies*: treat it as a link, and put the first mention before it (first mention, then phrase). {#the-noun-link}
+- No pointing word and no broad statement: a story or steps may open with an event, and a pronoun may open when its meaning is known (follow the links the text gives). {#choosing-the-opening-sentence}
+:::
