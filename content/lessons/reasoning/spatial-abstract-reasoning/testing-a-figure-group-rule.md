@@ -13,11 +13,55 @@ keyPoints:
 ---
 ## Core Concept
 
-A good rule fits every figure in the main group. Exactly one figure should break it. A rule that leaves out several figures does not solve the question.
+### Testing a Rule Against Every Figure
 
-**Orientation** means which way a figure points or faces. A large figure or a turned figure may catch your eye. It can still share the rule followed by the others.
+A valid grouping rule fits **every** figure in the main group and excludes **exactly one** figure. If a rule leaves out two or more figures, reject it and test another feature.
 
-Test a possible rule against every figure before choosing. If it fails, check another feature. Sometimes more than one simple rule gives a different answer, so the figures alone may not settle the question.
+**Orientation** means which way a figure faces. Large or turned figures stand out, so test every figure before keeping a rule.
+
+1. Five figures A to E: A small triangle ($2$ dots), B large square ($2$ dots), C small pentagon ($2$ dots), D large hexagon ($2$ dots), E small rectangle ($3$ dots).
+2. Test "has a small outline": A, C, E pass, while B and D fail ($2$ excluded). Rejected.
+3. Test "contains $2$ dots": A, B, C, D pass, while only E fails ($1$ excluded). Valid.
+
+:::why
+Why must a rule leave out only one figure? Odd-one-out items need one single outlier, so a $3$-to-$2$ split gives no answer.
+:::
+
+:::pair #rule-excludes-more-than-one
+Right: for $4$ two-dot figures (two small, two large) and $1$ three-dot figure, pick **Contains two dots**.
+Wrong: pick **Has a small outline** because small figures stand out.
+Three small figures and two large figures leave two figures out, not one. Count how many fail your rule.
+:::
+
+:::check
+Four figures are shown: a small circle ($1$ dot), large square ($1$ dot), small triangle ($1$ dot), and large pentagon ($2$ dots). Why does "small outline" fail, and which rule works?
+:::answer
+The answer is **contains $1$ dot**. "Small outline" excludes $2$ figures (square and pentagon), while "contains $1$ dot" excludes only the pentagon.
+:::
+
+### Narrowing a Too-Broad Rule
+
+A rule that fits the main group and also fits the odd figure leaves out **zero** figures. Narrow a too-broad rule until only the odd figure fails.
+
+1. Look at three equilateral triangles and one rhombus.
+2. "Uses only straight sides" and "at least three sides" fit all $4$ figures ($0$ excluded). Both are too broad.
+3. "Three sides" fits the $3$ triangles and excludes only the $4$-sided rhombus ($1$ excluded).
+
+:::pair #rule-too-broad
+Right: for three triangles and one rhombus, narrow the rule to **Three sides**.
+Wrong: pick **At least three sides** because all triangles fit it.
+A rhombus has $4$ sides, which is also at least $3$. Make sure the odd figure breaks your rule.
+:::
+
+:::why
+Why do phrases like "at least" or "closed boundary" trap learners? They describe the main figures accurately, yet the odd figure passes them too.
+:::
+
+:::check
+Four figures are shown: a square, a rectangle, a rhombus, and a circle. "Has a closed boundary" fits all four. What rule groups three and excludes the circle?
+:::answer
+The answer is **four straight sides** (or **uses only straight sides**). The first three are $4$-sided polygons, while the circle is curved.
+:::
 
 ## Examples
 
@@ -33,22 +77,42 @@ Which figure does not belong?
 
 **Solution:**
 
-1. Try size first. A, C, and E are small. B and D are large. Size leaves out $2$ figures, so it does not give one odd-one-out.
-2. Try the dot count. A, B, C, and D each have $1$ dot. This rule includes both large figures.
-3. E has $2$ dots, so E is the odd-one-out.
+1. Test size first: A, C, and E are small, while B and D are large. That leaves out $2$ figures, so reject size.
+2. Test dot count: A, B, C, and D each have $1$ dot, while E has $2$ dots. That leaves out only E.
 
-The large figures stand out, but both follow the dot rule. Checking every figure helped us reject the first guess.
+The odd-one-out is **E**.
+
+**Check:** Size catches the eye because B and D are twice as tall, yet dot count is the only tested rule that includes both large figures and excludes just one.
+
+### #2: Narrowing a Rule That Includes Everything
+
+Four figures are shown: three equilateral triangles and one rhombus. The rule "all outlines have straight sides" includes every shown figure. Which more specific rule groups exactly three and excludes one?
+
+- A. At least three sides
+- B. Three sides
+- C. At least one reflection axis
+- D. A closed boundary
+
+<!-- ILLUSTRATION: four unshaded outlines in one row, three identical equilateral triangles followed by one rhombus -->
+
+**Solution:**
+
+1. Test choice A ("at least three sides"): $3$ and $4$ are both at least $3$, so $0$ figures are excluded.
+2. Test choice C ("at least one reflection axis"): equilateral triangles ($3$ axes) and a rhombus ($2$ axes) all pass, so $0$ figures are excluded.
+3. Test choice D ("a closed boundary"): all $4$ shapes are closed, so $0$ figures are excluded.
+
+:::try
+Finish the last step: test choice B ("three sides") against all four figures to confirm it excludes only one.
+:::answer
+The answer is **B (Three sides)**. The three triangles have $3$ sides and pass, while the $4$-sided rhombus is the single excluded figure.
+
+**Check:** Choices A, C, and D are true of all four figures ($0$ excluded); only B leaves out exactly $1$ figure.
+:::
 
 ## Traps to Watch For
 
-### #1: Keeping a Rule That Fails
-
-> A shared rule must fit every figure in the main group.
-
-A size rule that leaves out both large figures does not give one answer. Try another feature when a rule leaves several figures out.
-
-### #2: Forcing an Answer from Competing Rules
-
-> More than one simple rule can make a question unclear.
-
-Test each rule against all the figures. Answer choices may help you reject a rule, but they do not prove that a rule is unique. If two equally clear rules still select different figures, the question needs more information.
+:::checklist
+- A rule that excludes two or more figures: reject it and test another feature until one figure fails. {#rule-excludes-more-than-one}
+- A rule that fits every figure including the outlier: narrow it until the single odd figure breaks it. {#rule-too-broad}
+- Eye-catching size or tilt: test the rule on all figures before locking in an answer. {#testing-a-rule-against-every-figure}
+:::

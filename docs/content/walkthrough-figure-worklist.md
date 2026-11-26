@@ -85,3 +85,88 @@ New `<!-- ILLUSTRATION: ... -->` placeholders added during the Batch 1 Mathemati
 
 24. `content/lessons/mathematics/arithmetic-number-sense/discounted-prices.md` (`## Core Concept` -> `### Finding the Price After a Discount`):
     `<!-- ILLUSTRATION: a horizontal bar labeled "Php 800 = 100%", split into a shaded left part "25%, discount, Php 200" and a right part "75%, you pay, Php 600" -->`
+
+## Batch 2 (Reasoning)
+
+Preserved all 38 existing `ILLUSTRATION:` and `FIGURE:` markers byte-for-byte from `a7cc22b6b`. Added 24 new `ILLUSTRATION:` placeholders where a diagram teaches better than text.
+
+### Preserved-Marker Defect & Rendering Notes (kept byte-for-byte per rule)
+
+- `content/lessons/reasoning/spatial-abstract-reasoning/figure-turns-and-positions.md` (`## Examples` -> `### #3: Growing Turns`): Preserved `HEAD` marker has two mismatches: (1) it lists the fourth arrow as `lower-left` (225 deg) instead of `left` (270 deg) for a +135 deg clockwise step from `lower-right` (135 deg), and (2) its answer options omit `right` (270 + 180 = 90 deg) and show `upper-right` instead. Lesson prose teaches the geometrically accurate path (`up -> upper-right -> lower-right -> left -> right`); illustration lane should fix both the fourth arrow and the `right` option.
+- `content/lessons/reasoning/spatial-abstract-reasoning/grouping-regions-and-inside-details.md` (`## Examples` -> `### #1`): Preserved `HEAD` marker shows shaded polygon outlines without internal region cuts; bridged in prose as a contrast to outline grouping.
+- Folding lessons (`unfolding-cuts-across-a-fold.md` #1, `cuts-at-two-fold-lines.md` #1, `folded-layers-and-separate-holes.md` #1-#2, `uneven-folds-and-cut-layers.md` #1): Five preserved `HEAD` markers describe the unfolded answer inside the comment text; render only the folded-and-punched question state before the solution.
+- `content/lessons/reasoning/spatial-abstract-reasoning/parallel-light-and-solid-shadows.md` (#1-#2): Preserved `HEAD` `FIGURE:` JSON blocks retain their original shadow labels after the solution paragraphs.
+
+### New Batch 2 Placeholders
+
+25. `content/lessons/reasoning/logical-verbal-reasoning/deductive-group-arguments.md` (`## Core Concept` -> `### Drawing Group Statements with Circles`):
+    `<!-- ILLUSTRATION: three side-by-side circle diagrams: "All A are B" (circle A inside circle B), "No A are B" (separate circles A and B), and "Some A are B" (overlapping circles A and B with an X mark in the overlap) -->`
+
+26. `content/lessons/reasoning/spatial-abstract-reasoning/combined-and-mixed-figure-patterns.md` (`## Core Concept` -> `### Interleaved Odd and Even Patterns`):
+    `<!-- ILLUSTRATION: five labeled frames in one row, 1 circle with 1 dot, 2 square with 4 dots, 3 circle with 2 dots, 4 square with 4 dots, 5 blank; bracket odd frames 1 3 5 above and even frames 2 4 below -->`
+
+27. `content/lessons/reasoning/spatial-abstract-reasoning/cuts-at-two-fold-lines.md` (`## Core Concept` -> `### Cuts on One Fold Line in a Multi-Fold Packet`):
+    `<!-- ILLUSTRATION: square folded vertically left onto right, then horizontally bottom onto top, with a small semicircular notch centered on the vertical folded edge away from the horizontal crease; arrow opens horizontal fold first showing 2 notches on the vertical crease, arrow opens vertical fold next showing 2 separate circular openings centered on the vertical crease -->`
+
+28. `content/lessons/reasoning/spatial-abstract-reasoning/cuts-at-two-fold-lines.md` (`## Examples` -> `### #2: Cut on One of Two Fold Lines`):
+    `<!-- ILLUSTRATION: square folded vertically left onto right, then horizontally bottom onto top; small semicircular notch centered on the vertical folded edge halfway up, away from the horizontal crease and outer edges; unfolded state not shown -->`
+
+29. `content/lessons/reasoning/spatial-abstract-reasoning/figure-counts-and-fills.md` (`## Core Concept` -> `### Counting Sides and Dots`):
+    `<!-- ILLUSTRATION: three equal square frames containing circles with 1 dot, 2 dots, and 3 dots, followed by a blank fourth frame -->`
+
+30. `content/lessons/reasoning/spatial-abstract-reasoning/figure-counts-and-fills.md` (`## Examples` -> `### #3: Multi-Step Fill Cycle`):
+    `<!-- ILLUSTRATION: five equal square frames shaded from the bottom to 1/4, 1/2, 3/4, 1/4, and 1/2, followed by two blank frames -->`
+
+31. `content/lessons/reasoning/spatial-abstract-reasoning/figure-turns-and-positions.md` (`## Core Concept` -> `### Turn Direction and Angle Size`):
+    `<!-- ILLUSTRATION: a compass-style circle showing 8 directions every 45 degrees clockwise from up (0 degrees) through upper-right (45 degrees) and right (90 degrees) back to up (360 degrees) -->`
+
+32. `content/lessons/reasoning/spatial-abstract-reasoning/figure-turns-and-positions.md` (`## Examples` -> `### #4: Alternating Turns`):
+    `<!-- ILLUSTRATION: four equal square frames containing arrows pointing up, right, up, and right, followed by a blank fifth frame; choices arrows pointing up, down, right, and left -->`
+
+33. `content/lessons/reasoning/spatial-abstract-reasoning/folding-and-checking-cube-nets.md` (`## Examples` -> `### #3: Three Faces Meeting at One Corner`):
+    `<!-- ILLUSTRATION: flat net of six labeled squares with B, C, D, E in one horizontal row, A directly above B, and F directly below E -->`
+
+34. `content/lessons/reasoning/spatial-abstract-reasoning/grouping-outlines-and-symmetry.md` (`## Core Concept` -> `### Testing Reflection Symmetry`):
+    `<!-- ILLUSTRATION: four equal square frames in one row: first square with an internal line at 30 degrees from vertical, second square with one top-center dot, third square with one top-left corner dot and a dashed diagonal reflection axis, fourth square with two dots mirrored across the vertical center line -->`
+
+35. `content/lessons/reasoning/spatial-abstract-reasoning/grouping-regions-and-inside-details.md` (`## Examples` -> `### #3: Comparing Side Count and Dot Count`):
+    `<!-- ILLUSTRATION: four unshaded outlines in one row, a square with 2 shaded dots, a rectangle with 2 shaded dots, a hexagon with 3 shaded dots, and a triangle with 2 shaded dots -->`
+
+36. `content/lessons/reasoning/spatial-abstract-reasoning/matrix-keeping-all-features.md` (`## Examples` -> `### #2: Combining Shaded Halves`):
+    `<!-- ILLUSTRATION: a 2 by 3 grid of squares: row 1 small bottom-half black square, small top-half black square, small fully black square; row 2 large bottom-half black square, large top-half black square, blank -->`
+
+37. `content/lessons/reasoning/spatial-abstract-reasoning/matrix-keeping-shared-features.md` (`## Core Concept` -> `### Checking Every Feature Position`):
+    `<!-- ILLUSTRATION: three rows of three squares with corner dots: row 1 (top-left and top-right), (top-right and bottom-left), (top-right); row 2 (bottom-left and bottom-right), (top-left and bottom-left), (bottom-left); row 3 (top-left, top-right, bottom-right), (top-left, bottom-left, bottom-right), blank -->`
+
+38. `content/lessons/reasoning/spatial-abstract-reasoning/matrix-keeping-shared-features.md` (`## Examples` -> `### #2: Keeping Shared Corner Dots`):
+    `<!-- ILLUSTRATION: a 3 by 3 grid of equal squares with large corner dots: row 1 has (top-left, top-right), (top-right, bottom-left), (top-right); row 2 has (bottom-left, bottom-right), (top-left, bottom-left), (bottom-left); row 3 has (top-left, top-right, bottom-right), (top-left, bottom-left, bottom-right), blank -->`
+
+39. `content/lessons/reasoning/spatial-abstract-reasoning/matrix-row-and-column-rules.md` (`## Examples` -> `### #2: One of Each Shape Per Row and Column`):
+    `<!-- ILLUSTRATION: a 3 by 3 grid of plain unshaded outlines: row 1 circle, triangle, square; row 2 triangle, square, circle; row 3 square, circle, blank -->`
+
+40. `content/lessons/reasoning/spatial-abstract-reasoning/matrix-turns-and-counts.md` (`## Examples` -> `### #3: Growing Turn Steps Down Rows`):
+    `<!-- ILLUSTRATION: a 3 by 3 grid of equal squares each with one radial line from the center: row 1 up, upper-right, right; row 2 up, right, down; row 3 up, lower-right, blank -->`
+
+41. `content/lessons/reasoning/spatial-abstract-reasoning/parallel-light-and-solid-shadows.md` (`## Core Concept` -> `### Projections Along Parallel Light Rays`):
+    `<!-- ILLUSTRATION: upright cone shown twice: left panel with vertical downward parallel rays casting a circle shadow on a horizontal floor; right panel with horizontal parallel rays casting an isosceles triangle shadow on a vertical wall -->`
+
+42. `content/lessons/reasoning/spatial-abstract-reasoning/parallel-light-and-solid-shadows.md` (`## Examples` -> `### #3: Turning a Sphere Under Parallel Light`):
+    `<!-- ILLUSTRATION: opaque sphere between horizontal parallel light arrows on the left and a vertical screen on the right casting a circular shadow, with a curved turn arrow around the sphere -->`
+
+43. `content/lessons/reasoning/spatial-abstract-reasoning/testing-a-figure-group-rule.md` (`## Examples` -> `### #2: Narrowing a Rule That Includes Everything`):
+    `<!-- ILLUSTRATION: four unshaded outlines in one row, three identical equilateral triangles followed by one rhombus -->`
+
+44. `content/lessons/reasoning/spatial-abstract-reasoning/turning-solids-without-mirror-flips.md` (`## Core Concept` -> `### Tracking Faces During a Turn`):
+    `<!-- ILLUSTRATION: cube with star on top, triangle on front, square on right, cross on back, dot on left, and circle on bottom; vertical axis arrow through top and bottom shows a quarter-turn moving square to front and triangle to left while star stays on top -->`
+
+45. `content/lessons/reasoning/spatial-abstract-reasoning/turning-solids-without-mirror-flips.md` (`## Examples` -> `### #2: Tracking a Quarter-Turn and a Corner`):
+    `<!-- ILLUSTRATION: starting cube with star on top, triangle on front, square on right, cross on back, and dot on left; curved arrow around vertical axis moves front to right, tracking the starting top-front-left corner into the new top-front-right corner highlighted by a dashed circle on a second turned cube -->`
+
+46. `content/lessons/reasoning/spatial-abstract-reasoning/uneven-folds-and-cut-layers.md` (`## Examples` -> `### #2: Finding Hole Coordinates Inside an Uneven Overlap`):
+    `<!-- ILLUSTRATION: rectangle 16 cm wide and 8 cm tall with vertical fold line at x=6 cm; leftmost 6 cm strip folded right onto region x=6 to x=12 cm; punch marked at (10, 3) inside the 2-layer overlap; unfolded state not shown -->`
+
+47. `content/lessons/reasoning/spatial-abstract-reasoning/unfolding-cuts-across-a-fold.md` (`## Core Concept` -> `### Reflecting Distance and Direction Across Each Fold`):
+    `<!-- ILLUSTRATION: square folded vertically left onto right, then horizontally bottom onto top, with a punch near the corner where both creases meet (touching neither crease); arrow opens horizontal fold first to show 2 holes near the vertical crease, then arrow opens vertical fold to show 4 holes clustered near the center of the full square -->`
+
+48. `content/lessons/reasoning/spatial-abstract-reasoning/unfolding-cuts-across-a-fold.md` (`## Examples` -> `### #2: Two Folds and an Off-Crease Punch`):
+    `<!-- ILLUSTRATION: square folded left half onto right half, then bottom half onto top half; small circular punch near the right outer edge at middle height of the packet, touching no edge or crease; unfolded state not shown -->`

@@ -11,36 +11,141 @@ ordering: 3
 keyPoints:
   - "Negate compound statements by testing their parts."
 ---
+
 ## Core Concept
 
-- "A and B are true" becomes "At least one of A or B is false."
-- "A or B is true" becomes "Both A and B are false." Here, "or" allows either part or both parts to be true.
+### Negating an And Statement
 
-An **and** statement needs both parts to be true. To make it false, only one part needs to fail. Do not change "and" to "neither" when testing an assumption.
+A **compound statement** joins parts with *and* or *or*. In logic, **or** is inclusive: one part, the other, or both.
 
-For a choice with several parts, separate the parts first. Find the smallest change that makes the whole choice false. Then check what that change does to the stated reason.
+An **and** claim ("$A$ and $B$") holds only when both hold, so it fails if *either* part fails:
+
+- **"$A$ and $B$"** negates to **"Not $A$ or not $B$."**
+
+Test: "The loading gate is open and the delivery vehicle is available."
+
+1. Parts: gate is open; vehicle is available.
+2. Negate each: gate is closed; vehicle is unavailable.
+3. Join with **or**: **The gate is closed or the vehicle is unavailable.**
+
+:::why
+Why does *and* turn into *or* when negated? If the gate is closed while the vehicle is ready, dispatch still stops. Both parts do not need to fail together.
+:::
+
+:::pair #negate-and-with-and
+Right: negating "The loading gate is open and the delivery vehicle is available" gives **The gate is closed or the vehicle is unavailable.**
+Wrong: The gate is closed and the vehicle is unavailable.
+Requiring both failures misses cases where just one part breaks. One failed part already breaks an *and* claim.
+:::
+
+:::check
+Rice passes only if its seal is intact and its code is legible. With a torn seal and clear code, does it pass?
+:::answer
+The answer is **no**. An *and* rule requires both parts, so one torn seal makes the sack fail.
+:::
+
+### Negating an Or Statement
+
+An **inclusive or** ("$A$ or $B$") holds if $A$, $B$, or both hold. It fails only when *both* fail:
+
+- **"$A$ or $B$"** negates to **"Neither $A$ nor $B$."**
+
+Test: "The request was submitted online or delivered in person."
+
+1. Options: submitted online; delivered in person.
+2. If submitted in person alone, the notice stays true.
+3. Exact negation: **It was neither submitted online nor delivered in person.**
+
+:::pair #negate-or-with-or
+Right: negating "The request was submitted online or delivered in person" gives **It was neither submitted online nor delivered in person.**
+Wrong: It was not submitted online, or it was not delivered in person.
+Keeping *or* lets one original option stay true, such as delivery in person. An *or* claim fails only when *both* options fail.
+:::
+
+:::check
+"The water came from the barrel or cistern (or both)." If false, what holds?
+:::answer
+The answer is **The sample came from neither source.** Ruling out one source or ruling out a mix still leaves *or* true.
+:::
+
+### Negating Combined Parts Inside And/Or
+
+When *at least one* sits inside *and*, flip the outer connector and negate each inner part completely.
+
+Test: "The station has a working battery and at least one of its two memory cards has room."
+
+1. Flip **and** to **or**.
+2. Negate Part $1$: "the battery fails."
+3. Negate Part $2$ (*at least one* $\to$ zero): "neither card has room."
+4. Result: **The battery fails or neither card has room.**
+
+:::pair #mix-at-least-one-part
+Right: negating "working battery and at least one of its two memory cards has room" gives **The battery fails or neither card has room.**
+Wrong: The battery fails or at least one memory card is full.
+With a good battery, one full card, and one card with room, the original still holds. Negate "at least one has room" all the way to "neither has room."
+:::
+
+:::check
+What is the negation of "The backup generator starts or both solar batteries are charged"?
+:::answer
+The answer is **The backup generator does not start, and at least one solar battery is not charged.** Flip *or* to *and*, and negate "both are charged" to "at least one is not charged."
+:::
 
 ## Examples
 
-### #1: Testing a Compound Assumption
+### #1: Testing an And Assumption
 
-Argument: "The office will send every application through its only scanner and then through the network today. This will let the office submit all applications today."
-
-Consider this proposed assumption: "The scanner works and the network is available."
-
-How should the whole assumption be negated, and what does the test show?
+Argument: "The office will send every form through its scanner and network today, submitting all forms today." Negate "The scanner works and the network is available" and explain.
 
 **Solution:**
 
-1. Split the assumption into its parts: the scanner works; the network is available.
-2. Negate the whole statement: **the scanner does not work or the network is not available**. Either failure makes the original statement false.
-3. If either part fails, the office cannot send every application through the stated route today. The argument needs both parts of this assumption.
-4. Saying that both parts fail is too strong as a negation. One failure is enough.
+1. Split the parts: scanner works; network is available.
+2. Flip *and* to *or* and negate both parts: **the scanner does not work or the network is not available**.
+3. If either fails, forms cannot finish both steps, so the reason fails.
+
+**Check:** Either a broken scanner alone or a down network alone stops submissions today.
+
+### #2: Testing an And Claim with One Part False
+
+A claim says a footbridge crosses the creek and meets the school path. It crosses the creek yet ends at a fenced lot with no path access. What follows?
+
+**Solution:**
+
+1. Connector: **and** (crosses creek *and* connects to path).
+2. Check parts: crossing holds; path access fails.
+3. One failed link makes the *and* claim false.
+
+**Check:** Failing one required link already falsifies an *and* claim without disproving the crossing.
+
+### #3: Negating a Nested Compound Assumption
+
+A buoy report assumes, "The radio transmitter is active, and at least one of the two depth sensors is calibrated." Which is the exact negation?
+
+(A) The radio transmitter is off, and both depth sensors are uncalibrated.
+(B) The radio transmitter is off, or at least one depth sensor is uncalibrated.
+(C) The radio transmitter is off, or neither depth sensor is calibrated.
+
+**Solution:**
+
+1. Flip **and** to **or**, ruling out (A).
+2. Negate "radio transmitter is active" to "radio transmitter is off."
+
+:::try
+Finish the last step: negate "at least one of the two depth sensors is calibrated" and choose (B) or (C).
+:::answer
+The answer is **(C) The radio transmitter is off, or neither depth sensor is calibrated.** "At least one calibrated" becomes false only when zero sensors are calibrated (*neither*), while (B) leaves the other sensor calibrated.
+
+**Check:** With an active transmitter, one calibrated sensor, and one uncalibrated sensor, the original holds and (C) is false, whereas (B) would wrongly mark it false.
+:::
+
+## Speed Tricks & Shortcuts
+
+**Flip the connector and negate every part.** *And* flips to *or*; *or* flips to *neither-nor*.
 
 ## Traps to Watch For
 
-### #1: Negating Too Much
-
-> To negate all, find one exception. To negate and, allow one part to fail.
-
-"Not all offices are ready" does not mean no offices are ready. "The scanner and network are not both working" does not mean both have failed.
+:::checklist
+- Negating an *and* claim: use *or* so one failure breaks the claim. {#negate-and-with-and}
+- Negating an *or* claim: use *neither-nor* so both options must fail. {#negate-or-with-or}
+- *At least one* inside a compound claim: negate it to *neither* or *none*. {#mix-at-least-one-part}
+:::

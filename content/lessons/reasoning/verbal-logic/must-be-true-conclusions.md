@@ -12,47 +12,141 @@ keyPoints:
   - "Draw only conclusions that must follow from the premises."
   - "Read all and some without adding facts."
 ---
+
 ## Core Concept
 
-### Drawing conclusions
+### Reading One-Way Rules and Requirements
 
-A **deductive** question asks what must be true if the premises are true. "Infer" means draw a conclusion from the given facts. Do not add a new fact, even if it seems likely in real life.
+**Infer** means draw a conclusion forced by the given premises. **Must be true** means no case can obey every premise while making the conclusion false. Never add outside guesses.
 
-Watch these words:
+Watch what a one-way rule states:
 
-- **All** means every member of the group.
-- **Some** means at least one. It can include all members.
-- **Must** means the conclusion has to be true if the premises are true.
+- **One required step:** Passing an ethics exam is *one* required condition, and Maria passed. She met that ethics-exam requirement, not necessarily *every* requirement or final hiring.
+- **Conditional promise:** Promising a bonus to completers does not prove anyone can complete it.
+- **Observed result:** "If heavy rain, move indoors" plus "moved indoors" does not prove heavy rain occurred, since another cause could move it indoors.
+
+:::pair #one-requirement-to-all
+Right: from one required condition met, conclude **Maria has met the ethics-exam requirement.**
+Wrong: Maria has met every hiring requirement.
+Passing one required exam finishes only that single requirement, not unmentioned hiring steps. Stick strictly to what the premise covers.
+:::
+
+:::check
+"If it rains heavily, the outdoor assembly will move indoors. The assembly was held indoors." Must heavy rain have occurred?
+:::answer
+The answer is **no (undetermined)**. The rule runs from rain to moving indoors, never backward; wind or heat could move it indoors too.
+:::
+
+### Reading "All" Without Reversing It
+
+**All** or **every** applies to $100\%$ of the named group, yet says nothing about anyone outside that group and never runs backward:
+
+- "All supervisors hold a master's degree" plus "Elena is not a supervisor" leaves Elena's degree status undetermined.
+- Watch exact cutoffs: "above $80\%$" excludes $80\%$ itself and says nothing about $79\%$.
+
+:::why
+Why does "All $A$ are $B$" tell us nothing outside $A$? Picture $A$ inside a larger group $B$. Someone outside $A$ could sit in the outer part of $B$ or completely outside $B$. Both obey the rule.
+:::
+
+:::pair #reverse-or-deny-rule
+Right: from "All department supervisors must hold a master's degree" and "Elena is not a department supervisor," conclude **Elena's degree status is undetermined.**
+Wrong: Elena definitely lacks a master's degree.
+Being outside the supervisor group does not deny the degree. The rule places no limit on non-supervisors.
+:::
+
+:::check
+"All candidates who score above $80\%$ pass. Juan scored $85\%$." Must everyone scoring exactly $80\%$ pass?
+:::answer
+The answer is **no**. The rule covers scores strictly *above* $80\%$, leaving $80\%$ outside the guarantee.
+:::
+
+### Reading "Some" Without Adding Exceptions
+
+In formal logic, **some** means *at least one*, which allows *all*.
+
+- **"Some $A$ are $B$"** forces **"Some $B$ are $A$"** (the shared member belongs to both).
+- It **never** forces "Some $A$ are not $B$" or "All $B$ are $A$."
+
+Test: "Some inspectors are certified auditors."
+
+1. At least $1$ person is both an inspector and a certified auditor.
+2. That person proves **Some auditors are inspectors.**
+3. Every inspector could be an auditor, so "some inspectors are not auditors" is not forced.
+
+:::pair #some-means-some-not
+Right: from "Some inspectors are certified auditors," conclude **Some auditors are inspectors.**
+Wrong: Some inspectors are not auditors.
+Everyday speech hints "only some," yet logic's *some* allows *all*. Never add an unstated exception.
+:::
+
+:::check
+"Some books on the top shelf are dictionaries." Must at least one book on the top shelf not be a dictionary?
+:::answer
+The answer is **no**. *Some* means at least one, so every book on that shelf could be a dictionary.
+:::
 
 ## Examples
 
-### #1: Following an All Statement
+### #1: Following an "Only" Rule
 
-Premises: "All administrative officers are full-time employees. Maria is an administrative officer."
+An agency permits only licensed engineers to approve building plans. Mark approved Project A in full compliance with that rule. Which conclusion follows?
 
-Which conclusion must be true?
-
-**Solution:**
-
-1. Every administrative officer is a full-time employee.
-2. Maria belongs to that group. Therefore, **Maria is a full-time employee**.
-
-### #2: Avoiding Overreach from Some
-
-Premise: "Some inspectors are certified auditors."
-
-Does it follow that some inspectors are not certified auditors?
+(A) Every licensed engineer approved Project A.
+(B) Mark owns the building in Project A.
+(C) Mark is a licensed engineer.
 
 **Solution:**
 
-1. The premise tells us that at least one inspector is a certified auditor.
-2. It says nothing about inspectors who are not certified auditors. Every inspector could be certified.
-3. The answer is **no**. The proposed conclusion does not have to be true.
+1. Read "only licensed engineers": valid approver $\to$ licensed engineer.
+2. Mark validly approved Project A.
+3. Drop (A): eligibility does not force every other engineer to approve.
+4. Drop (B): ownership is unstated.
+5. Choose **(C)**: Mark must be a licensed engineer.
+
+**Check:** If Mark were not a licensed engineer, his approval would break the compliance premise.
+
+### #2: Combining a Cutoff with a Score
+
+Statement: "All candidates who score above $80\%$ pass the exam. Juan scored $85\%$." What is certain?
+
+**Solution:**
+
+1. Rule: score $> 80\% \to$ pass.
+2. Check Juan: $85\% > 80\%$, so Juan meets the cutoff.
+3. Conclusion: **Juan passed the examination.**
+
+**Check:** Plugging Juan's $85\%$ into "score $> 80\% \to$ pass" satisfies the rule directly ($85 > 80$), proving he passed.
+
+### #3: Combining "Every" and "Some"
+
+Every specimen in an exhibit tray is cataloged. Some specimens in the tray are shells. What must also be true?
+
+(A) Every cataloged shell is in the exhibit tray.
+(B) At least one specimen in the tray is not a shell.
+(C) Some cataloged specimens are shells.
+
+**Solution:**
+
+1. Premise $1$: every specimen in the tray is cataloged.
+2. Premise $2$: at least $1$ specimen in the tray is a shell.
+3. Drop (B): *some* allows all specimens in the tray to be shells.
+
+:::try
+Finish the last step: trace the shell in the tray through Premise $1$ and pick (A) or (C).
+:::answer
+The answer is **(C) Some cataloged specimens are shells.** Since that shell sits in the tray, Premise $1$ forces it to be cataloged too, giving at least one cataloged shell. Choice (A) wrongly sweeps in shells outside the tray.
+
+**Check:** Picture $1$ cataloged shell in the tray and $1$ cataloged shell in storage: both premises hold, (A) and (B) fail, and (C) holds.
+:::
+
+## Speed Tricks & Shortcuts
+
+**Try to break the choice.** Keep every premise true and try to picture one simple counter-case where the choice fails.
 
 ## Traps to Watch For
 
-### #1: Turning Some into Some but Not All
-
-> Some means at least one, and it can include all.
-
-"Some inspectors are auditors" does not show that any inspector is not an auditor. Do not add an exception that the premise never gives.
+:::checklist
+- One stated requirement met: conclude only that step, never all requirements. {#one-requirement-to-all}
+- Outside an *all* group (or after the result): leave status undetermined. {#reverse-or-deny-rule}
+- Seeing *some*: read it as *at least one* (allowing *all*), never *some not*. {#some-means-some-not}
+:::

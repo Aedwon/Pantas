@@ -12,16 +12,71 @@ keyPoints:
   - "Match functions and user-tool relationships."
   - "Match roles and work in the stated direction."
 ---
-
 ## Core Concept
 
-Direction matters. *Author : book* is not the same relationship as *book : author*.
+### Tool and Function
 
-When two choices seem related, use a more exact sentence. "Is related to" is too broad, but "is part of" or "is used to" can separate the choices.
+A **function** analogy links a tool or instrument to what it does or measures. Keep the same direction and word role (for example, matching a verb with a verb).
 
-- **Function:** *knife : cut*. A knife is used to cut.
-- **User and tool:** *carpenter : hammer*. The first word names a person who commonly uses the second thing.
-- **Role and work:** *author : book*. An author writes a book.
+1. Look at *knife : cut* and *broom : ______*.
+2. Sentence: "A knife is used to cut."
+3. Test it: "A broom is used to **sweep**."
+
+For instruments, link the tool to its reading: *compass : direction* matches *clock : **time***.
+
+:::pair #property-not-function
+Right: "Pen is to write" matches **scissors : cut**.
+Wrong: "Pen is to write" matches **scissors : sharp**.
+*Sharp* is a trait, not an action. Check that the second word tells what the tool does.
+:::
+
+:::check
+Complete *thermometer : temperature* as *scale : ______* (*heavy*, *metal*, *weight*, *balance*).
+:::answer
+The answer is **weight**. A thermometer measures temperature, and a scale measures weight.
+:::
+
+### User and Tool
+
+A **user-and-tool** pair links a worker to a tool they use, or a tool to its worker. Direction sets the sentence.
+
+1. For *carpenter : hammer* and *painter : ______*: a carpenter uses a hammer, so a painter uses a **brush**.
+2. For *microscope : biologist* and *chisel : ______*: a microscope is used by a biologist, so a chisel is used by a **sculptor**.
+
+:::why
+Why check order first? *Carpenter : hammer* starts with the worker, while *microscope : biologist* starts with the tool. Reversing the order fails.
+:::
+
+:::pair #material-not-tool
+Right: "Carpenter is to hammer" matches **painter : brush**.
+Wrong: "Carpenter is to hammer" matches **painter : canvas**.
+A painter paints on canvas, just as a carpenter works on wood. Canvas is a surface, not the hand tool.
+:::
+
+:::check
+Complete *telescope : astronomer* as *stethoscope : ______* (*heartbeat*, *hospital*, *doctor*, *clinic*).
+:::answer
+The answer is **doctor**. A telescope is used by an astronomer, and a stethoscope is used by a doctor.
+:::
+
+### Creator and Work
+
+A **role-and-work** pair links a creator to their work, or a work back to its creator.
+
+1. For *author : book* and *director : ______*: an author creates a book, so a director creates a **movie**.
+2. For *novel : author* and *symphony : ______*: a novel is written by an author, so a symphony is written by a **composer**.
+
+:::pair #performer-not-creator
+Right: "Novel is to author" matches **symphony : composer**.
+Wrong: "Novel is to author" matches **symphony : conductor**.
+A conductor leads the performance, while a composer writes the music. Match the creator role.
+:::
+
+:::check
+Complete *poet : poem* as *architect : ______* (*blueprint*, *brick*, *builder*, *city*).
+:::answer
+The answer is **blueprint**. A poet creates a poem, and an architect creates a blueprint.
+:::
 
 ## Examples
 
@@ -29,42 +84,78 @@ When two choices seem related, use a more exact sentence. "Is related to" is too
 
 Pen is to write as scissors is to ______.
 
-(A) sharp (B) cut (C) paper (D) blade
+(A) Sharp (B) Cut (C) Paper (D) Blade
 
 **Solution:**
 
-"A pen is used to write" matches "scissors are used to cut." The answer is **B**.
+1. Sentence: "A pen is used to write."
+2. Test choices: scissors are used to **cut**.
+3. Sharp is a trait, paper is the material, and blade is a part.
+
+The answer is **(B) Cut**.
+
+**Check:** Both *write* and *cut* are action verbs naming the tool's job.
 
 ### #2: Role and Product
 
 Author is to book as director is to ______.
 
-(A) actor (B) movie (C) theater (D) camera
+(A) Actor (B) Movie (C) Theater (D) Camera
 
 **Solution:**
 
-An author writes a book. In the same way, a director directs a movie. The answer is **B**.
+1. Sentence: "An author creates a book."
+2. Test choices: a director creates a **movie**.
+3. Actor is a coworker, theater is a place, and camera is a tool.
+
+The answer is **(B) Movie**.
+
+**Check:** Both pairs go from creator (*author*, *director*) to finished work (*book*, *movie*).
 
 ### #3: User and Tool
 
 Painter is to brush as carpenter is to ______.
 
-(A) hammer (B) wood (C) house (D) paint
+(A) Hammer (B) Wood (C) House (D) Paint
 
 **Solution:**
 
-A painter commonly uses a brush. A carpenter commonly uses a hammer, so the answer is **A**.
+1. Sentence: "A painter uses a brush."
+2. Test choices: a carpenter uses a **hammer**.
+3. Wood is material, house is the product, and paint belongs to the painter.
+
+The answer is **(A) Hammer**.
+
+**Check:** Both *brush* and *hammer* are hand tools used by the worker named first.
+
+### #4: Reversed Direction
+
+Novel is to author as symphony is to ______.
+
+(A) Conductor (B) Orchestra (C) Composer (D) Concert
+
+**Solution:**
+
+1. Sentence: "A novel is written by an author."
+2. Drop (D): a concert is an event, not a creator.
+3. Drop (A) and (B): a conductor leads musicians and an orchestra performs, without writing the work.
+
+:::try
+Finish the last step: match *author* to the creator in choice (C).
+:::answer
+The answer is **(C) Composer**. A symphony is written by a composer, matching the work-to-creator direction.
+
+**Check:** Both pairs place the finished work first (*novel*, *symphony*) and the writer second (*author*, *composer*).
+:::
 
 ## Speed Tricks & Shortcuts
 
-**Keep the direction.** "Part of" and "contains" point in opposite directions. "Uses" and "is used by" do too.
-
-**Use the choices to settle a close call.** If more than one relationship is true, choose the specific one that one option matches cleanly.
+Check two fast filters: match the direction ("uses" vs "is used by") and match the word role (person, tool, material, or action verb).
 
 ## Traps to Watch For
 
-### #1: Reversing Direction
-
-> Keep the first word and second word in the same roles.
-
-If the first pair is user to tool, do not choose a tool-to-user pair. Direction is part of the answer.
+:::checklist
+- Picking a trait instead of a function: match the action verb, so *scissors* pairs with *cut*, not *sharp*. {#property-not-function}
+- Picking a work surface instead of a tool: ask what the worker holds, so *painter* pairs with *brush*, not *canvas*. {#material-not-tool}
+- Mixing up a performer with the creator: ask who wrote the work, so *symphony* pairs with *composer*, not *conductor*. {#performer-not-creator}
+:::

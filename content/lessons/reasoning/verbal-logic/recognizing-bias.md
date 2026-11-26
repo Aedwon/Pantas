@@ -11,36 +11,136 @@ ordering: 8
 keyPoints:
   - "Recognize bias from words and evidence."
 ---
+
 ## Core Concept
 
-### Recognizing bias
+### Loaded Labels and Unequal Wording
 
-**Bias** means favoring one side in a way that can shape how facts are presented. Look for unfair praise or blame, facts chosen to show only one side, or claims accepted without support.
+**Bias** means favoring one side unfairly through the words chosen or how evidence is handled.
 
-Having an opinion does not by itself prove bias. Check the words and the evidence used to support it. A short passage may leave things out simply because it is short.
+Look for two wording signs:
+
+1. **Insults or praise with no proof:** calling opponents "lazy" and supporters "responsible" without evidence ("Only lazy employees oppose the new attendance policy. Responsible workers naturally support it."), or saying clubs do "the real work" while the council "stalls again."
+2. **Unequal terms for equal groups:** calling traders near Site $1$ "experienced vendors" while calling equal-tenure traders near Site $2$ "people protecting their turf."
+
+Having an opinion, recommending a choice from fair facts, or keeping a note brief is **not** bias by itself. Check *how* the writer treats each side.
+
+:::pair #opinion-as-bias
+Right: the attendance commentary shows bias because **It labels opponents as lazy without evidence.**
+Wrong: It expresses a position on a workplace policy under discussion.
+Taking a side can still be fair when backed by facts. Bias appears in unsupported name-calling ("lazy" vs "responsible").
+:::
+
+:::check
+A newsletter calls longtime traders near Site $1$ "experienced vendors" and equally longtime traders near Site $2$ "people protecting their turf." What shows bias?
+:::answer
+The answer is **Similar groups are described in unequal terms.** Praising one group's skill while painting the equal group as selfish favors Site $1$ unfairly.
+:::
+
+### One-Sided Evidence and One-Sided Sources
+
+Bias also shows up in *which* facts or speakers are kept or left out:
+
+1. **Selective evidence:** listing a favored supplier's timely deliveries while hiding its failures, then listing a rival's failures while hiding its timely deliveries.
+2. **One-sided sources:** inviting only members of an anti-fee club to speak in an article claiming to show "student views."
+
+:::why
+Why can an article with $100\%$ accurate quotes still be biased? Quoting speakers accurately avoids misquoting, yet inviting only one side leaves readers with half the story. Check *who* was asked as well as *how* they were quoted.
+:::
+
+:::pair #missing-detail-as-bias
+Right: the supplier report shows bias because **It selects evidence to favor one supplier.**
+Wrong: It compares the delivery records of competing suppliers.
+Comparing records can support a fair choice. Bias comes from showing only wins for one supplier and only losses for the rival.
+:::
+
+:::check
+A campus article claims to present student views on a parking fee. It invites only anti-fee club members and quotes them accurately. What creates the bias?
+:::answer
+The answer is **The invitations favored one viewpoint.** Accurate quotes cannot balance an article that excluded every other student voice.
+:::
+
+### Rewriting a Biased Phrase into Neutral Words
+
+To make a phrase neutral, cut judgment words that tell readers who is wise or foolish, while keeping the topic and audience intact.
+
+Test: "a gift for sensible residents" (for a barangay drainage plan).
+
+1. Cut "gift" (forces praise) and "sensible" (insults critics).
+2. Keep the subject ("drainage plan") and audience ("residents").
+3. Neutral revision: **A proposed drainage plan for residents**.
+
+:::pair #softened-loaded-phrase
+Right: a neutral revision of "a gift for sensible residents" is **A proposed drainage plan for residents**
+Wrong: A drainage plan for residents who understand the problem
+"Who understand the problem" sounds calmer than "sensible," yet still praises supporters as smart and critics as clueless. Cut judgment completely.
+:::
+
+:::check
+Which headline is neutral: "Council Stalls Again While Clubs Do the Real Work" or "Council Delays Decision on Fair Schedule"?
+:::answer
+The answer is **"Council Delays Decision on Fair Schedule."** It states the event without belittling the council or praising clubs for "real work."
+:::
 
 ## Examples
 
-### #1: Recognizing Bias
+### #1: Spotting Unfair Labels Without Evidence
 
-Passage: "Only a careless manager would reject our plan. It is clearly the sensible choice." The writer offers no facts about the plan's benefits or drawbacks.
+Passage: "Only a careless manager would reject our plan. It is clearly the sensible choice." The writer offers zero facts about benefits or drawbacks. Which feature suggests bias?
 
-Which feature most strongly suggests bias?
-
-(A) The passage states a conclusion.  
-(B) The writer insults those who disagree instead of supporting the plan.  
+(A) The passage states a conclusion.
+(B) The writer insults those who disagree instead of supporting the plan.
 (C) The passage discusses a manager's decision.
 
 **Solution:**
 
-1. The word "careless" blames anyone who rejects the plan. It gives no reason to believe the plan is good.
-2. Calling the plan "clearly" sensible also takes its value for granted.
-3. Choose **(B)**. The unfair blame and lack of supporting facts suggest bias.
+1. Drop (A): stating a conclusion is normal.
+2. Drop (C): the topic does not create bias.
+3. "Careless" attacks opponents and "clearly" takes the plan's value for granted without facts. Choose **(B)**.
+
+**Check:** Replacing "careless" and "clearly" with real evidence removes the bias while keeping the same conclusion.
+
+### #2: Spotting Selective Evidence
+
+A report states, "Our favored supplier is clearly the only sensible choice." It lists that supplier's timely deliveries while omitting its failures, and lists a rival's failures while omitting its timely deliveries. What most strongly shows bias?
+
+**Solution:**
+
+1. Comparing suppliers or making a recommendation is fair on its own.
+2. Here, wins appear only for the favored supplier and losses only for the rival.
+3. Conclusion: **It selects evidence to favor one supplier.**
+
+**Check:** Check whether both sides got equal treatment (wins and losses shown for each): the opposite record was hidden for both.
+
+### #3: Fixing a Biased Notice
+
+A barangay bulletin calls a drainage project "a gift for sensible residents." Which revision best removes bias while keeping the subject?
+
+(A) A long-awaited drainage plan for the neighborhood
+(B) A drainage plan that even its critics should welcome
+(C) A proposed drainage plan for residents
+
+**Solution:**
+
+1. Biased words: "gift" pushes praise, and "sensible" flatters supporters.
+2. Drop (A): "long-awaited" adds an unsupported positive claim.
+
+:::try
+Finish the last step: compare (B) and (C) to choose the revision with no judgment about what readers ought to think.
+:::answer
+The answer is **(C) A proposed drainage plan for residents.** Choice (B) still tells critics what to welcome, whereas (C) states only what the plan is and whom it serves.
+
+**Check:** Both supporters and critics can agree on (C) as a factual description.
+:::
+
+## Speed Tricks & Shortcuts
+
+**Test the swap.** Check whether Side A gets warm words and wins while Side B gets harsh words and losses.
 
 ## Traps to Watch For
 
-### #1: Calling Every Opinion Biased
-
-> An opinion alone is not proof of bias.
-
-Look for unfair words or unfair use of evidence. A writer can support a view with clear facts and still consider the other side.
+:::checklist
+- An opinion or brief note: look for loaded labels or missing facts instead of calling every stand biased. {#opinion-as-bias}
+- Comparing two sides: check that the same kind of facts and speakers appear for both sides. {#missing-detail-as-bias}
+- Softening harsh praise: remove all judgment words so readers decide for themselves. {#softened-loaded-phrase}
+:::

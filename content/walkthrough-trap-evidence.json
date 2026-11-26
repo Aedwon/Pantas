@@ -1118,6 +1118,1036 @@
           "wrongChoice": "The equivalent discount is $30\\%$."
         }
       ]
+    },
+    "lesson-clerical-ability-character-string-filing": {
+      "whole-number-in-string": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0021",
+          "wrongChoice": "PR-21"
+        },
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0022",
+          "wrongChoice": "M-4, M-5, M-40"
+        }
+      ],
+      "longer-prefix-first": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0022",
+          "wrongChoice": "M-40, M-4, M-5"
+        }
+      ]
+    },
+    "lesson-clerical-ability-filing-patterns-and-surname-particles": {
+      "wrong-convention": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0019",
+          "wrongChoice": "Santos, Cora"
+        }
+      ],
+      "drop-particle": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0004",
+          "wrongChoice": "Rosa as the only surname unit"
+        }
+      ],
+      "rewrite-surname": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0004",
+          "wrongChoice": "Delarosa as a replacement surname"
+        }
+      ]
+    },
+    "lesson-clerical-ability-integer-subcode-filing": {
+      "dot-as-decimal": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0016",
+          "wrongChoice": "31.015"
+        }
+      ],
+      "early-prefix-carry": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0005",
+          "wrongChoice": "11-000"
+        }
+      ]
+    },
+    "lesson-clerical-ability-oldest-and-newest-date-order": {
+      "wrong-date-direction": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0010",
+          "wrongChoice": "Earliest historical date"
+        },
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0020",
+          "wrongChoice": "File 12, 2024-12-20"
+        }
+      ],
+      "month-beats-year": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0017",
+          "wrongChoice": "2024-12-31"
+        },
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0002",
+          "wrongChoice": "2025-01-10"
+        }
+      ],
+      "day-beats-month": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0006",
+          "wrongChoice": "2025-07-01"
+        }
+      ]
+    },
+    "lesson-clerical-ability-personal-name-filing-units": {
+      "reading-order": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0001",
+          "wrongChoice": "Juan, Carlos Dela Cruz"
+        },
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0006",
+          "wrongChoice": "First name"
+        }
+      ],
+      "skip-tie-breaker": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0002",
+          "wrongChoice": "Adams, Benjamin"
+        },
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0014",
+          "wrongChoice": "Reyes, Alina R."
+        }
+      ],
+      "later-unit-first": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0002",
+          "wrongChoice": "Adamson, Albert"
+        },
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0013",
+          "wrongChoice": "Caballero, Ana"
+        }
+      ]
+    },
+    "lesson-clerical-ability-suffixes-titles-and-filing-ties": {
+      "suffix-too-early": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0018",
+          "wrongChoice": "Santos, Leon, Jr."
+        },
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0007",
+          "wrongChoice": "Placed as the first unit"
+        }
+      ],
+      "city-before-initial": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0020",
+          "wrongChoice": "De la Vega, Ana M., Baguio"
+        }
+      ],
+      "guessed-tie-breaker": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0015",
+          "wrongChoice": "A universal rule for identical names"
+        }
+      ]
+    },
+    "lesson-clerical-ability-terminal-digit-filing-order": {
+      "leftmost-first": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0009",
+          "wrongChoice": "Leftmost primary digits"
+        },
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0023",
+          "wrongChoice": "01-01-13"
+        }
+      ],
+      "wrong-secondary-order": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0023",
+          "wrongChoice": "09-02-12"
+        }
+      ]
+    },
+    "lesson-clerical-ability-whole-number-and-decimal-filing": {
+      "text-sort-numbers": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0013",
+          "wrongChoice": "10, 11, 2, 3"
+        }
+      ],
+      "leading-zero-size": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0014",
+          "wrongChoice": "007 is greatest"
+        }
+      ],
+      "decimal-as-integer": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0015",
+          "wrongChoice": "7.1"
+        }
+      ]
+    },
+    "lesson-clerical-ability-year-first-and-stated-date-formats": {
+      "swap-month-day": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0024",
+          "wrongChoice": "2024-05-03"
+        }
+      ],
+      "display-order-slash": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0018",
+          "wrongChoice": "01/03/2025"
+        },
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0018",
+          "wrongChoice": "12/01/2025"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-analogy-functions-users-and-work": {
+      "property-not-function": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0001",
+          "wrongChoice": "Sharp"
+        }
+      ],
+      "material-not-tool": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0009",
+          "wrongChoice": "Canvas"
+        }
+      ],
+      "performer-not-creator": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0012",
+          "wrongChoice": "Conductor"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs": {
+      "synonym-instead-of-opposite": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0007",
+          "wrongChoice": "Quick"
+        }
+      ],
+      "wrong-degree-direction": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0008",
+          "wrongChoice": "Mild"
+        }
+      ],
+      "half-double-analogy": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0015",
+          "wrongChoice": "Cow, forest"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-analogy-parts-types-and-products": {
+      "reverse-part-whole": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0020",
+          "wrongChoice": "Pages is to novel"
+        }
+      ],
+      "material-not-category": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0003",
+          "wrongChoice": "Wood"
+        }
+      ],
+      "nearby-event-not-product": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0005",
+          "wrongChoice": "Downpour"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-combined-truth-values": {
+      "skip-second-negation": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0003",
+          "wrongChoice": "(T, T)"
+        }
+      ],
+      "ignore-parentheses": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0012",
+          "wrongChoice": "(F, F)"
+        }
+      ],
+      "negate-wrong-scope": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0013",
+          "wrongChoice": "(T, T)"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-conditional-truth-values": {
+      "false-if-gives-false": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0006",
+          "wrongChoice": "(F, F)"
+        }
+      ],
+      "reversed-conditional-values": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0007",
+          "wrongChoice": "(T, F)"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-deductive-group-arguments": {
+      "reverse-all-group": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001",
+          "wrongChoice": "All warm-blooded animals are mammals."
+        },
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002",
+          "wrongChoice": "All rectangles are squares."
+        }
+      ],
+      "true-conclusion-valid": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008",
+          "wrongChoice": "Valid, true conclusion"
+        }
+      ],
+      "valid-not-sound": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007",
+          "wrongChoice": "Valid, sound"
+        },
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007",
+          "wrongChoice": "Invalid, unsound"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-invalid-conditional-forms": {
+      "confirm-result-trap": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003",
+          "wrongChoice": "Valid: condition confirmed"
+        }
+      ],
+      "deny-condition-trap": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004",
+          "wrongChoice": "Valid: result denied"
+        },
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004",
+          "wrongChoice": "Invalid: premise contradicted"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-sequence-earlier-terms": {
+      "too-few-earlier-terms": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0018",
+          "wrongChoice": "11"
+        }
+      ],
+      "double-last-term": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0008",
+          "wrongChoice": "16"
+        }
+      ],
+      "skip-to-next-blank": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0008",
+          "wrongChoice": "21"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-sequence-letter-patterns": {
+      "off-by-one-position": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0013",
+          "wrongChoice": "V"
+        }
+      ],
+      "wraparound-miscount": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0016",
+          "wrongChoice": "H"
+        },
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0016",
+          "wrongChoice": "J"
+        }
+      ],
+      "force-letter-jump": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0019",
+          "wrongChoice": "J"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-sequence-moves": {
+      "wrong-step-size": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0002",
+          "wrongChoice": "7"
+        }
+      ],
+      "add-last-gap-in-ratio": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0003",
+          "wrongChoice": "90"
+        }
+      ],
+      "repeat-last-gap": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0005",
+          "wrongChoice": "16"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-sequence-positions-and-operations": {
+      "wrong-position-track": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0007",
+          "wrongChoice": "4"
+        }
+      ],
+      "repeat-wrong-step": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0017",
+          "wrongChoice": "14"
+        }
+      ],
+      "drop-second-operation": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0012",
+          "wrongChoice": "94"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-truth-tables-and-connectives": {
+      "missing-table-case": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0021",
+          "wrongChoice": "Keep every row as written."
+        }
+      ],
+      "one-true-for-and": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0002",
+          "wrongChoice": "(T, T)"
+        }
+      ],
+      "exclusive-or-mistake": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0001",
+          "wrongChoice": "(T, F)"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-valid-conditional-forms": {
+      "real-world-doubt": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005",
+          "wrongChoice": "Invalid: another cause is possible"
+        },
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013",
+          "wrongChoice": "Nothing can be concluded about this shape."
+        }
+      ],
+      "reverse-chain": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0017",
+          "wrongChoice": "Every acknowledged parcel was scanned."
+        }
+      ],
+      "rule-out-both": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0018",
+          "wrongChoice": "The original is in neither place."
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns": {
+      "freeze-one-feature": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0004",
+          "wrongChoice": "Large black triangle"
+        }
+      ],
+      "repeat-neighbor-track": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0017",
+          "wrongChoice": "Square with four dots"
+        }
+      ],
+      "count-across-tracks": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0017",
+          "wrongChoice": "Circle with five dots"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines": {
+      "split-a-crease-cut": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0012",
+          "wrongChoice": "Four separate interior openings"
+        }
+      ],
+      "merge-across-untouched-crease": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0008",
+          "wrongChoice": "One connected opening"
+        }
+      ],
+      "ignore-fold-join-in-three-folds": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0010",
+          "wrongChoice": "Eight separate openings"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-figure-counts-and-fills": {
+      "skip-a-count": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0002",
+          "wrongChoice": "Heptagon with seven sides"
+        }
+      ],
+      "repeat-last-fill": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0015",
+          "wrongChoice": "Black pentagon"
+        }
+      ],
+      "skip-cycle-restart": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0011",
+          "wrongChoice": "Fully filled square"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-figure-turns-and-positions": {
+      "double-turn-angle": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0001",
+          "wrongChoice": "Line pointing down"
+        }
+      ],
+      "assume-continuous-turn": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0010",
+          "wrongChoice": "Arrow pointing down"
+        }
+      ],
+      "skip-fourth-corner": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0005",
+          "wrongChoice": "Dot at top-left"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes": {
+      "multiply-folds-by-two": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0003",
+          "wrongChoice": "Six holes"
+        }
+      ],
+      "count-uncut-layers": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0007",
+          "wrongChoice": "It cuts only the uppermost layer"
+        }
+      ],
+      "open-all-folds-early": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0015",
+          "wrongChoice": "Four locations"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets": {
+      "stop-at-neighbor": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001",
+          "wrongChoice": "E"
+        },
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014",
+          "wrongChoice": "D; a square"
+        }
+      ],
+      "flat-distance-opposite": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013",
+          "wrongChoice": "A and F; B and C; D and E"
+        },
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011",
+          "wrongChoice": "A"
+        }
+      ],
+      "count-guarantees-cube": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002",
+          "wrongChoice": "Six connected squares must form a cube."
+        },
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009",
+          "wrongChoice": "Check only whether six squares are present."
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry": {
+      "slant-changes-count": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0006",
+          "wrongChoice": "Parallelogram"
+        }
+      ],
+      "require-exact-four-sides": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0013",
+          "wrongChoice": "Hexagon"
+        }
+      ],
+      "ignore-diagonal-axis": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0007",
+          "wrongChoice": "Third square from the left"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details": {
+      "lines-not-regions": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0012",
+          "wrongChoice": "Third circle from the left"
+        }
+      ],
+      "outer-shape-over-inside-detail": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0004",
+          "wrongChoice": "Circle"
+        }
+      ],
+      "largest-count-over-relation": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0018",
+          "wrongChoice": "Hexagon"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-matrix-keeping-all-features": {
+      "keep-only-one-input": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0005",
+          "wrongChoice": "Square with only the upper-right ray"
+        }
+      ],
+      "copy-first-row-parts": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0005",
+          "wrongChoice": "Square with rays up and right"
+        }
+      ],
+      "erase-when-combining": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0006",
+          "wrongChoice": "Fully white square"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features": {
+      "keep-all-instead-of-shared": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0009",
+          "wrongChoice": "Square with all three diagonal rays"
+        }
+      ],
+      "copy-second-cell-instead": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0009",
+          "wrongChoice": "Square with the lower-right and lower-left rays"
+        }
+      ],
+      "stop-after-one-shared-mark": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0021",
+          "wrongChoice": "Top-left corner only"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules": {
+      "copy-row-above": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0008",
+          "wrongChoice": "Medium triangle with three dots"
+        }
+      ],
+      "repeat-in-latin-row": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0015",
+          "wrongChoice": "Circle"
+        }
+      ],
+      "copy-cell-above-blank": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0019",
+          "wrongChoice": "Square with dot at top-right"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-matrix-turns-and-counts": {
+      "copy-first-row-direction": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0001",
+          "wrongChoice": "Square with line pointing right"
+        }
+      ],
+      "change-turn-step-in-row": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0018",
+          "wrongChoice": "Line pointing down"
+        }
+      ],
+      "add-row-and-column-twice": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0002",
+          "wrongChoice": "Circle with six dots"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows": {
+      "wrong-view-direction": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004",
+          "wrongChoice": "A circle"
+        },
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012",
+          "wrongChoice": "A triangle from above; a circle from the side"
+        }
+      ],
+      "base-shape-always": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010",
+          "wrongChoice": "They always retain the shape of the object's base."
+        }
+      ],
+      "slant-ellipse-error": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003",
+          "wrongChoice": "An ellipse"
+        },
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012",
+          "wrongChoice": "An ellipse from above; a triangle from the side"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule": {
+      "rule-excludes-more-than-one": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0021",
+          "wrongChoice": "Has a small outline"
+        }
+      ],
+      "rule-too-broad": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0010",
+          "wrongChoice": "At least three sides"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips": {
+      "axis-faces-stay": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0021",
+          "wrongChoice": "Circle, square, triangle"
+        }
+      ],
+      "move-all-faces-together": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0021",
+          "wrongChoice": "Star, square, cross"
+        }
+      ],
+      "reversed-corner-order": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0022",
+          "wrongChoice": "II only"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers": {
+      "guess-overlap-without-measuring": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0021",
+          "wrongChoice": "(10, 3) only, with no second hole"
+        }
+      ],
+      "assume-all-layers-cut": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0001",
+          "wrongChoice": "Two holes"
+        }
+      ],
+      "flip-both-directions-on-one-fold": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0021",
+          "wrongChoice": "(2, 5) and (10, 3)"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold": {
+      "unfold-in-forward-order": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0009",
+          "wrongChoice": "Vertical first, then horizontal"
+        }
+      ],
+      "forget-to-flip-direction": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0017",
+          "wrongChoice": "Upward"
+        }
+      ],
+      "confuse-folded-corner-with-outer": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0004",
+          "wrongChoice": "Near the four original outer corners"
+        }
+      ]
+    },
+    "lesson-verbal-logic-best-supported-conclusions": {
+      "generalize-sample-to-all": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0016",
+          "wrongChoice": "Every employee favored the proposal."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0014",
+          "wrongChoice": "Every library visitor needs the building after dark."
+        }
+      ],
+      "most-vs-plurality": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0045",
+          "wrongChoice": "Most residents who submitted maps marked the bakery junction."
+        }
+      ],
+      "silence-or-equal-guess": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0044",
+          "wrongChoice": "Given equal access, students would still choose print more often."
+        }
+      ]
+    },
+    "lesson-verbal-logic-compound-assumptions": {
+      "negate-and-with-and": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0023",
+          "wrongChoice": "The gate is closed and the vehicle is unavailable."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0051",
+          "wrongChoice": "The battery fails and both memory cards are full."
+        }
+      ],
+      "negate-or-with-or": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0024",
+          "wrongChoice": "It was not submitted online, or it was not delivered in person."
+        }
+      ],
+      "mix-at-least-one-part": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0051",
+          "wrongChoice": "The battery fails or at least one memory card is full."
+        }
+      ]
+    },
+    "lesson-verbal-logic-must-be-true-conclusions": {
+      "one-requirement-to-all": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0003",
+          "wrongChoice": "Maria has met every hiring requirement."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0003",
+          "wrongChoice": "Maria has already been appointed to civil service."
+        }
+      ],
+      "reverse-or-deny-rule": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0007",
+          "wrongChoice": "Elena definitely lacks a master's degree."
+        }
+      ],
+      "some-means-some-not": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0013",
+          "wrongChoice": "Some inspectors are not auditors."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0039",
+          "wrongChoice": "At least one specimen in the tray is something other than a shell."
+        }
+      ]
+    },
+    "lesson-verbal-logic-needed-assumptions": {
+      "premise-as-conclusion": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0019",
+          "wrongChoice": "Some workers cannot visit on weekdays."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0019",
+          "wrongChoice": "Saturday reading rooms are often full."
+        }
+      ],
+      "helpful-not-needed": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0017",
+          "wrongChoice": "Replacement lamps will be more energy-efficient."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0005",
+          "wrongChoice": "Every customer prefers a digital invoice."
+        }
+      ],
+      "extreme-universal-claim": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0002",
+          "wrongChoice": "Every car user will stop driving at peak hours."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0012",
+          "wrongChoice": "Solar panels must meet every school power need."
+        }
+      ]
+    },
+    "lesson-verbal-logic-negating-assumptions": {
+      "all-to-none-overnegation": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0022",
+          "wrongChoice": "Every temporary employee has access to the archive."
+        }
+      ],
+      "some-to-not-all": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0021",
+          "wrongChoice": "Not all branch offices can do so."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0021",
+          "wrongChoice": "Some branch offices cannot do so."
+        }
+      ],
+      "flip-wrong-group": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0040",
+          "wrongChoice": "A sample accepted at intake was listed as rejected in the final log."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0022",
+          "wrongChoice": "No permanent employee has access to the archive."
+        }
+      ]
+    },
+    "lesson-verbal-logic-none-and-may": {
+      "reverse-none-rule": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0006",
+          "wrongChoice": "Every registered vehicle is inside the compound."
+        }
+      ],
+      "stretch-some-to-none": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0052",
+          "wrongChoice": "No observer can appear on the speakers' list at this meet."
+        }
+      ],
+      "may-to-must-certainty": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0025",
+          "wrongChoice": "A lack of quorum guarantees that the interview is postponed."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0034",
+          "wrongChoice": "School Confirms Shift to Online Classes Next Week"
+        }
+      ]
+    },
+    "lesson-verbal-logic-recognizing-bias": {
+      "opinion-as-bias": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0026",
+          "wrongChoice": "It expresses a position on a workplace policy under discussion."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0027",
+          "wrongChoice": "It recommends a supplier instead of leaving the choice open."
+        }
+      ],
+      "missing-detail-as-bias": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0027",
+          "wrongChoice": "It compares the delivery records of competing suppliers."
+        }
+      ],
+      "softened-loaded-phrase": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0038",
+          "wrongChoice": "A drainage plan for residents who understand the problem"
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0038",
+          "wrongChoice": "A drainage plan that even its critics should welcome"
+        }
+      ]
+    },
+    "lesson-verbal-logic-unsupported-causes-and-motives": {
+      "timing-as-cause": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0028",
+          "wrongChoice": "She approved it because reviewing the request forced agreement."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0018",
+          "wrongChoice": "Every delay is caused only by a busy period."
+        }
+      ],
+      "confounded-two-changes": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0046",
+          "wrongChoice": "The move proves that sunlight was the only cause of the increase."
+        }
+      ],
+      "guessed-motive": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0028",
+          "wrongChoice": "She approved it because she feared losing experienced staff."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0047",
+          "wrongChoice": "The proposal faced strong opposition during the town hall meeting."
+        }
+      ]
     }
   }
 }

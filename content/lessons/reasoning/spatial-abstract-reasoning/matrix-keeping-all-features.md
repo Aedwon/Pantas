@@ -13,9 +13,57 @@ keyPoints:
 ---
 ## Core Concept
 
-A **combination rule** builds a later cell from features in earlier cells. One rule keeps every feature found in either of the first two cells. Another keeps only features found in both cells at the same position.
+### Combining Lines and Marks Into the Third Cell
 
-For example, joining a horizontal line and a vertical line can give a cross. Keeping only shared lines gives a different result: a line stays only if both starting figures have it. Use a completed row or column to find which rule applies.
+A **combination rule** builds the third cell from the marks in the first two cells. Under a **keep-all rule**, every line, dot, or shaded piece in cell $1$ or cell $2$ stays in cell $3$.
+
+1. In row $1$ of a $2 \times 3$ grid, a circle with a right ray and a circle with an up ray combine into a circle with **both** rays.
+2. In row $2$, a square has an upper-right ray in cell $1$ and a lower-right ray in cell $2$.
+3. Keep both rays on the square: the blank shows a **square with both diagonal rays**.
+
+:::why
+Why check row $1$ first? A shared-only rule keeps only matching marks, so row $1$'s third cell tells you which rule is active.
+:::
+
+:::pair #keep-only-one-input
+Right: combining an upper-right ray and a lower-right ray gives **Square with both diagonal rays**.
+Wrong: pick **Square with only the upper-right ray**.
+Keeping one input drops the second cell's ray. Lay both starting cells together so every mark stays.
+:::
+
+:::pair #copy-first-row-parts
+Right: combine row $2$'s diagonal rays to get **Square with both diagonal rays**.
+Wrong: pick **Square with rays up and right** by copying row $1$.
+Row $2$ uses diagonal rays, not up and right. Apply the rule to the blank row's own inputs.
+:::
+
+:::check
+In a $2 \times 3$ grid, row $1$ shows a triangle with a top dot, a triangle with a left dot, and a triangle with both dots. Row $2$ shows a square with a top-left dot and a square with a bottom-right dot. What belongs in the blank?
+:::answer
+The answer is a **square with dots at top-left and bottom-right**. Keep the square outline and place both input dots into cell $3$.
+:::
+
+### Combining Shaded Areas and Dot Counts
+
+The keep-all rule also adds shaded areas and dot counts together.
+
+1. In a $2 \times 3$ grid, row $1$ has bottom-half black, top-half black, and a fully black square.
+2. Row $2$ has a large bottom-half black square, a large top-half black square, and a blank.
+3. Combine bottom half and top half: together they make a **fully black square**.
+
+With dot counts ($1, 2, 3$ in row $1$; $2, 2, 4$ in row $2$), row $3$ starting with $1$ dot and $3$ dots gives $1+3=4$ dots.
+
+:::pair #erase-when-combining
+Right: combining a bottom-half black square and a top-half black square makes a **Fully black square**.
+Wrong: pick **Fully white square** by erasing the fill.
+Shaded pieces stay shaded when combined. Imagine stacking two clear films so every shaded part stays dark.
+:::
+
+:::check
+A $3 \times 3$ matrix adds dot counts across each row: row $1$ has $1, 2, 3$ dots and row $2$ has $2, 2, 4$ dots. If row $3$ starts with $1$ dot and $3$ dots, how many dots belong in the third cell?
+:::answer
+The answer is **$4$ dots**. Add the first two counts in row $3$: $1+3=4$.
+:::
 
 ## Examples
 
@@ -29,14 +77,38 @@ The bottom row shows a square with a diagonal from top-left to bottom-right, a s
 
 **Solution:**
 
-1. In the top row, the third circle keeps both lines from the first two circles.
-2. Check the middle row. The third triangle also keeps all the details from the first two triangles.
-3. Apply that rule to the bottom row. Keep both diagonals. The blank should show a square with an X inside.
+1. Row $1$ combines both lines into a cross, and row $2$ combines both dots.
+2. Apply the keep-all rule to row $3$: combine both opposite diagonals inside the square.
+
+The blank shows a **square with both diagonals (an X inside)**.
+
+**Check:** Each completed row keeps every mark from cells $1$ and $2$ without dropping anything, so the blank keeps both diagonals.
+
+### #2: Combining Shaded Halves
+
+A $2 \times 3$ matrix uses squares. Row $1$ shows a small bottom-half black square, a small top-half black square, and a small fully black square.
+
+Row $2$ shows a large bottom-half black square, a large top-half black square, and a blank. What should the blank show?
+
+<!-- ILLUSTRATION: a 2 by 3 grid of squares: row 1 small bottom-half black square, small top-half black square, small fully black square; row 2 large bottom-half black square, large top-half black square, blank -->
+
+**Solution:**
+
+1. Row $1$ combines the bottom half and top half into one fully black small square.
+2. Row $2$ uses large squares, so the blank stays large.
+
+:::try
+Finish the last step: combine row $2$'s bottom-half black shading and top-half black shading to describe the blank square.
+:::answer
+The answer is a **large fully black square**. The bottom half and top half join to cover the entire large square.
+
+**Check:** Do not erase the fill to white or keep only one half; all shaded pieces from both starting cells stay filled.
+:::
 
 ## Traps to Watch For
 
-### #1: Guessing How to Combine Features
-
-> A completed row or column must show what stays.
-
-Some rules keep all features. Others keep only shared features. Check the completed cells before using either rule.
+:::checklist
+- Two different marks in one row: keep both inputs in the third cell instead of dropping one. {#keep-only-one-input}
+- Row $1$'s picture: combine row $2$'s own marks instead of copying row $1$. {#copy-first-row-parts}
+- Combining shaded halves: keep all shaded areas filled instead of erasing them to white. {#erase-when-combining}
+:::

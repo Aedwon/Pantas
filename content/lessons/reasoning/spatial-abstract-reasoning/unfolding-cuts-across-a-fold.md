@@ -13,13 +13,59 @@ keyPoints:
 ---
 ## Core Concept
 
-**Paper folding and cutting** questions show folded paper with a cut or punch. Predict the open sheet by undoing the folds in reverse order. Open the last fold first.
+### Unfolding in Reverse Order
 
-To **reflect** a cut means to make a mirror copy across a fold line. Put the copy on the opposite side, at the same distance from the line. A cut close to the fold stays close to it after reflection.
+**Paper folding and cutting** questions fold a sheet, cut or punch it, and ask what the open sheet looks like. Always unfold in **reverse order**: open the **last** fold first, then work backward to the first fold.
 
-A reflection also flips the cut's direction. Across a vertical fold, a right-pointing cut becomes a left-pointing copy. Across a horizontal fold, an upward-pointing cut becomes a downward-pointing copy.
+1. A rectangle is folded vertically, then horizontally, then vertically again.
+2. Open the **last vertical fold** first, then the **horizontal fold**, then the **first vertical fold**.
 
-Keep the existing cut when you add its copy. After opening the last fold, open the earlier fold and reflect every cut on the part that unfolds. Repeat until the sheet is flat.
+:::why
+Why open the last fold first? A later fold locks the earlier crease underneath, so you must undo the newest fold to free the older layers.
+:::
+
+:::pair #unfold-in-forward-order
+Right: when folded vertically first and horizontally second, unfold **Horizontal first, then vertical**.
+Wrong: unfold **Vertical first, then horizontal** by repeating the folding order.
+The first fold made is buried under the second fold. Always reverse the folding steps from end to start.
+:::
+
+:::check
+A square is folded horizontally, then vertically, then horizontally again. In what order do you open the three folds?
+:::answer
+The answer is **last horizontal, then vertical, then first horizontal**. Work backward from the newest fold to the oldest fold.
+:::
+
+### Reflecting Distance and Direction Across Each Fold
+
+To **reflect** a cut means to add a mirror copy on the other side of the fold line, at the **exact same distance** from that line.
+
+Reflection also flips direction across the crease:
+
+- Across a **horizontal fold**, an **upward** cut reflects into a **downward** cut, keeping sideways position unchanged.
+- Across a **vertical fold**, a **rightward** cut reflects into a **leftward** cut, keeping height unchanged.
+
+Check where the **folded corner** (where two perpendicular creases meet) lies on the open sheet: it is the **center** of the paper, not the outer corners. A punch near that corner opens into $4$ holes clustered near the **center**.
+
+<!-- ILLUSTRATION: square folded vertically left onto right, then horizontally bottom onto top, with a punch near the corner where both creases meet (touching neither crease); arrow opens horizontal fold first to show 2 holes near the vertical crease, then arrow opens vertical fold to show 4 holes clustered near the center of the full square -->
+
+:::pair #forget-to-flip-direction
+Right: an upward triangle in the lower half reflects across a horizontal fold to point **Downward** in the upper half.
+Wrong: keep the reflected triangle pointing **Upward**.
+Reflecting across a crease flips the cut like a mirror. Flip up/down across horizontal folds and left/right across vertical folds.
+:::
+
+:::pair #confuse-folded-corner-with-outer
+Right: a punch near the corner where both creases meet unfolds **Near the center, in all four quadrants**.
+Wrong: place the holes **Near the four original outer corners**.
+The meeting corner of the two creases is the center of the flat sheet. Check which corner holds the creases before unfolding.
+:::
+
+:::check
+A square is folded vertically, left onto right. An arrow cut in the right half points right and sits $2$ centimeters from the fold. When opened, which way does its copy point, and how far is it from the fold?
+:::answer
+The answer is **leftward, $2$ centimeters from the fold**. A vertical fold flips right to left and keeps the $2$-centimeter distance unchanged.
+:::
 
 ## Examples
 
@@ -33,20 +79,35 @@ The triangle's two sloping sides have equal length. What opening appears when th
 
 **Solution:**
 
-1. The triangle touches the folded edge along its base. Its tip is directly across from the middle of that base.
-2. Opening the fold adds a left-pointing mirror copy. Its tip is the same distance from the fold as the right-pointing tip.
-3. The copies join along their bases. They form one diamond-shaped opening with $4$ equal sides.
+1. Only $1$ fold (vertical) exists, so reflect the cut across the vertical fold line.
+2. The triangle's base sits on the fold, and its tip points right at a fixed distance from the fold.
+3. Its mirror copy on the left points **left** at that same distance, joining along the base to make **one diamond-shaped opening with $4$ equal sides**.
+
+**Check:** The right tip points right and the mirror tip points left, confirming the direction flip while keeping all $4$ sloping sides equal.
+
+### #2: Two Folds and an Off-Crease Punch
+
+A square is folded vertically in half (left onto right), then horizontally in half (bottom onto top). A small circular punch passes through all $4$ layers near the right outer edge, touching no edge or crease. Where do the holes appear when the square is fully opened?
+
+<!-- ILLUSTRATION: square folded left half onto right half, then bottom half onto top half; small circular punch near the right outer edge at middle height of the packet, touching no edge or crease; unfolded state not shown -->
+
+**Solution:**
+
+1. Unfold in reverse order: open the **horizontal fold** first, then the **vertical fold**.
+2. Opening the horizontal fold reflects the punch across the horizontal crease, leaving **two** holes near the right edge (top and bottom).
+
+:::try
+Finish the last step: open the vertical fold to reflect those two right-edge holes across the vertical crease.
+:::answer
+The answer is **two holes near the right edge and two holes near the left edge** (four holes total). Reflecting across the vertical crease places two matching holes at the same heights near the left edge.
+
+**Check:** Because the punch touched neither crease, all $4$ holes stay separate, and because it sat near the outer edge, they stay near the left and right edges instead of the center.
+:::
 
 ## Traps to Watch For
 
-### #1: Counting Joined Pieces as Separate Holes
-
-> Cuts that share a folded edge can join when the sheet opens.
-
-A triangular notch on a fold makes one opening in Example $1$. Count the connected opening after unfolding, not each half of it.
-
-### #2: Getting the Count Right but the Position Wrong
-
-> Place each mirror copy at the same distance across the fold.
-
-Two choices may show the same hole count in different places. Open the folds in reverse order and check each hole's distance and direction from the fold.
+:::checklist
+- Two or more folds: unfold from the last fold backward to the first fold. {#unfold-in-forward-order}
+- Pointed cuts: flip the direction across the fold line (up/down across horizontal, left/right across vertical). {#forget-to-flip-direction}
+- Packet corners: check whether the punch sits near the crease-meeting corner (center) or an outer corner. {#confuse-folded-corner-with-outer}
+:::
