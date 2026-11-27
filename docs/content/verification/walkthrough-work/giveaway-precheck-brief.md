@@ -18,6 +18,8 @@ Method, for every `:::check` and every `:::try` in each lesson of your task:
 4. Open the `:::answer`. If your answer differs from the key, or a second choice is also defensible, flag it as a Blocker too (wrong or ambiguous key).
 5. Also check every worked example's last visible step does not already state the result its `:::try` asks for.
 
+6. Rule scope (manager, Nov 27, added to the process-improvement entry after the Language Application Codex read found 18 over-broad rules): list every rule the lesson states with *every*, *all*, *always*, *never*, *only*, *no*, or a bare "X means Y" / "X takes Y" (in Core Concept, pair notes, Why blocks, Speed Tricks, shortcuts and checklists). For each, name a case where it fails, if one exists (check Cambridge, British Council, Purdue OWL, Merriam-Webster; for Filipino, KWF and Schachter and Otanes; for math and logic, a counterexample). A rule with a known exception is a Blocker until it is scoped to the cases it covers. Write it as `Blocker | file:line | rule | failing case | scope fix`.
+
 Severity: Blocker for a giveaway or a wrong or ambiguous key; Major for a partial cue that narrows to one choice without the rule.
 
 Output, written with the Write tool to the findings file your task names:
