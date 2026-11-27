@@ -1156,9 +1156,8 @@ void main() {
       expect(boldOf(tester.widget<RichText>(plain.first)), isEmpty);
     });
 
-    // The board's `.dm` has margin-bottom 22, so a part under display maths
-    // sits about 27 under the ink. The math box ends about 4 above its ink, so
-    // the box-to-part gap is 24.
+    // A part under display maths sits 28 under the maths box, the same as the
+    // space above the formula (Aedwon, Nov 27).
     final latex = {'_type': 'latex', 'body': r'x = \dfrac{1}{2}'};
     final parts = <String, (Map<String, Object?>, String)>{
       'Quick Check': (_check('Q?', 'A.'), 'walk-card'),
@@ -1171,7 +1170,7 @@ void main() {
       ),
     };
     for (final MapEntry(key: name, value: (part, key)) in parts.entries) {
-      testWidgets('a $name after display maths sits 24 under the maths box',
+      testWidgets('a $name after display maths sits 28 under the maths box',
           (tester) async {
         await _pump(tester, [
           _p('Core Concept', style: 'h2'),
@@ -1181,7 +1180,74 @@ void main() {
         ]);
         final math = tester.getRect(find.byType(MathExpression).last);
         final below = tester.getRect(_key(key).last);
-        expect(below.top - math.bottom, closeTo(24, 0.5));
+        expect(below.top - math.bottom, closeTo(28, 0.5));
+      });
+    }
+
+    // Aedwon on staging (Nov 27): the space after a Wrong line and after a
+    // display formula looked smaller than the space before it. The gap below
+    // must equal the gap above, measured between the rendered boxes.
+    for (final dark in [false, true]) {
+      testWidgets(
+          'space after a display formula equals the space before it, '
+          '${dark ? 'dark' : 'light'}', (tester) async {
+        await _pump(
+          tester,
+          [
+            _p('Core Concept', style: 'h2'),
+            _p('Rearrange the rate formula to get the time.'),
+            {'_type': 'latex', 'body': r't = \dfrac{1}{r}'},
+            _p('Now put the rate in and divide.'),
+          ],
+          dark: dark,
+        );
+        final before = tester.getRect(
+          _rich('Rearrange the rate formula to get the time.'),
+        );
+        final math = tester.getRect(find.byType(MathExpression).last);
+        final after = tester.getRect(_rich('Now put the rate in and divide.'));
+        final above = math.top - before.bottom;
+        final below = after.top - math.bottom;
+        expect(below, closeTo(above, 1));
+      });
+
+      testWidgets(
+          'space after a Wrong line equals the space before it, '
+          '${dark ? 'dark' : 'light'}', (tester) async {
+        await _pump(
+          tester,
+          [
+            _p('Core Concept', style: 'h2'),
+            {
+              '_type': 'walkPair',
+              'id': 'p1',
+              'right': [
+                _run(r't = \dfrac{25}{60}', ['latex']),
+                _run(' hour'),
+              ],
+              'wrong': [
+                _run(r't = \dfrac{5}{24}', ['latex']),
+                _run(' hour'),
+              ],
+              'note': [_p('The note under both.')],
+            },
+          ],
+          dark: dark,
+        );
+        final card = tester.getRect(_key('walk-pair-right'));
+        final label = tester.getRect(find.text('WRONG'));
+        final line = tester.getRect(
+          find
+              .descendant(
+                of: _key('walk-pair-wrong'),
+                matching: find.byType(RichText),
+              )
+              .last,
+        );
+        final note = tester.getRect(_rich('The note under both.'));
+        final above = label.top - card.bottom;
+        final below = note.top - line.bottom;
+        expect(below, closeTo(above, 1));
       });
     }
 
@@ -1200,7 +1266,7 @@ void main() {
       expect(card.top - paragraph.bottom, 16);
       final math = tester.getRect(find.byType(MathExpression).last);
       final after = tester.getRect(_rich('After the maths.'));
-      expect(after.top - math.bottom, 8);
+      expect(after.top - math.bottom, 28);
     });
 
     for (final wide in [false, true]) {

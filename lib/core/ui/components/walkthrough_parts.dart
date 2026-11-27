@@ -1145,7 +1145,10 @@ class WalkPair extends StatelessWidget {
             ),
           ),
           if (note.isNotEmpty) ...[
-            const SizedBox(height: PantasSpace.s12),
+            // The Wrong row sits 12 under the card, and its label box adds
+            // about 2 more. The note gets 16 so the space after the Wrong
+            // line looks the same as the space before it.
+            const SizedBox(height: PantasSpace.s16),
             _content(context, note),
           ],
         ],

@@ -1075,9 +1075,9 @@ class ContentRenderer extends StatelessWidget {
       }
       final style = isBlock ? string(block['style']) : '';
       final type = string(block['_type']);
-      // A walk-through part under display maths keeps the board's space after
-      // a formula (`.dm` margin-bottom 22, about 27 under the ink): 24 under
-      // the formula's box. Other blocks keep their rhythm.
+      // A walk-through part under display maths gets the same 28 under the
+      // formula's box as any block does (Aedwon, Nov 27: it must match the
+      // space above). Other blocks keep their rhythm.
       final afterMath = type.startsWith('walk') &&
           index > 0 &&
           items[index - 1] is ReaderPlain &&
@@ -1097,11 +1097,13 @@ class ContentRenderer extends StatelessWidget {
             PantasSpace.s16,
           ),
         _ when type.startsWith('walk') => (PantasSpace.s0, PantasSpace.s18),
-        _ when block['_type'] == 'latex' => (PantasSpace.s28, PantasSpace.s8),
+        // The space under display maths equals the space above it (28), so
+        // the formula sits evenly between its neighbors.
+        _ when block['_type'] == 'latex' => (PantasSpace.s28, PantasSpace.s28),
         _ when list.isNotEmpty && solution => (PantasSpace.s0, PantasSpace.s8),
         _ => (PantasSpace.s0, PantasSpace.s16),
       };
-      final above = afterMath ? PantasSpace.s24 : rhythmAbove;
+      final above = afterMath ? PantasSpace.s28 : rhythmAbove;
       var child = dispatch(
         context,
         block,
