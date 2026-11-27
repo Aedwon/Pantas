@@ -18,7 +18,7 @@ keyPoints:
 
 When you multiply two decimals, ignore the decimal points at first. Multiply the digits as whole numbers. Then count all the digits after the decimal point in both factors, and put that same count of decimal places in your answer.
 
-Try $2.4\times0.35$. Multiply without the points first.
+Find $2.4\times0.35$. Multiply without the points first.
 
 $$24\times35=840$$
 
@@ -26,7 +26,9 @@ Count the decimal places in both factors. The number $2.4$ has $1$ place, and $0
 
 Start at the right end of $840$ and count $3$ places left.
 
-$$2.4\times0.35=0.840=0.84$$
+$$2.4\times0.35=0.840$$
+
+$$0.840=0.84$$
 
 :::pair #count-both-decimal-places
 Right: $2.4\times0.35=0.84$
@@ -36,13 +38,15 @@ The wrong answer used only $2$ decimal places instead of $3$. Count the decimal 
 
 Keep any trailing zeros in the whole-number product until after you place the decimal point. If you run out of digits while counting left, fill the empty spots with zeros on the left.
 
-Try $0.16\times0.05$. First multiply the whole numbers.
+Find $0.16\times0.05$. First multiply the whole numbers.
 
 $$16\times5=80$$
 
 The factors have $2+2=4$ decimal places in all. Count $4$ places left from the right end of $80$. You need two extra zeros on the left.
 
-$$0.16\times0.05=0.0080=0.008$$
+$$0.16\times0.05=0.0080$$
+
+$$0.0080=0.008$$
 
 :::pair #extra-leading-zero
 Right: $0.16\times0.05=0.008$
@@ -52,12 +56,6 @@ The wrong answer put one too many zeros after the decimal point. Keep the $0$ in
 
 :::why
 Why does counting decimal places work? Writing $0.16=\dfrac{16}{100}$ and $0.05=\dfrac{5}{100}$ gives $\dfrac{16\times5}{100\times100}=\dfrac{80}{10,000}$. Dividing by $10,000$ shifts the point $4$ places left.
-:::
-
-:::check
-Find $0.45\times0.3$.
-:::answer
-The answer is $0.135$. Multiply $45\times3=135$, then place $2+1=3$ decimal places from the right.
 :::
 
 ### Dividing by a Decimal
@@ -72,9 +70,11 @@ To divide by a nonzero decimal, turn the divisor into a whole number first.
 
 <!-- FIGURE WANTED: two stacked number cards showing 0.72 / 0.015 becoming 720 / 15; three curved hop arrows move the point 3 places right on 0.015 to 15, and three curved hop arrows move the point 3 places right on 0.72 with a highlighted 0 added at the end to make 720 -->
 
-Try $0.72\div0.015$. The divisor $0.015$ needs $3$ places right to become $15$. Move the point $3$ places right in $0.72$ as well, adding one zero at the end.
+Find $0.72\div0.015$. The divisor $0.015$ needs $3$ places right to become $15$. Move the point $3$ places right in $0.72$ as well, adding one zero at the end.
 
-$$0.72\div0.015=720\div15=48$$
+$$0.72\div0.015=720\div15$$
+
+$$720\div15=48$$
 
 Never divide by $0$. An expression such as $4.8\div0$ has no answer and is **undefined**.
 
@@ -83,16 +83,16 @@ Why does moving both points give the same answer? Shifting both points $3$ place
 :::
 
 :::check
-Find $3.6\div0.09$.
+Find $0.5\times0.35$, then divide that product by $0.007$.
 :::answer
-The answer is $40$. Move both decimal points $2$ places right to get $360\div9=40$.
+The answer is $25$. First $5\times35=175$ with $1+2=3$ places gives $0.175$. Then move both points $3$ places right: $0.175\div0.007=175\div7=25$.
 :::
 
 ## Examples
 
 ### #1: Area with Small Decimals
 
-A rectangular metal plate measures $0.64$ meter by $0.075$ meter. What is its area in square meters?
+Find the area of a rectangular metal plate that measures $0.64$ meter by $0.075$ meter, in square meters.
 
 **Solution:**
 
@@ -114,11 +114,9 @@ $$0.04800=0.048$$
 
 The area is $0.048$ square meter.
 
-**Check:** Estimate with simpler numbers. Since $0.64$ is close to $0.6$ and $0.075$ is close to $0.08$, the area should be near $0.6\times0.08=0.048$. An answer like $0.48$ or $0.0048$ is far from that estimate.
-
 ### #2: Cutting Equal Lengths
 
-A roll of wire is $5.4$ meters long. How many pieces of length $0.15$ meter can be cut from the roll?
+A roll of wire is $5.4$ meters long. Find how many pieces of length $0.15$ meter can be cut from the roll.
 
 **Solution:**
 
@@ -132,8 +130,6 @@ $$5.4\div0.15=540\div15$$
 Finish the last step: divide $540$ by $15$.
 :::answer
 The answer is $36$ pieces. Divide $540\div15=36$.
-
-**Check:** Multiply back: $36\times0.15$. Multiply $36\times15=540$, then count $2$ decimal places left to get $5.40=5.4$ meters, which matches the roll.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -16,9 +16,9 @@ keyPoints:
 
 ### Additive Inverse
 
-The **additive inverse** (or **opposite**) of a number has the opposite sign and adds with it to $0$, the additive identity.
+The **additive inverse** (or **opposite**) of a number adds with it to $0$, the additive identity. A nonzero number's opposite has the opposite sign.
 
-Add $5$ and $-8$ to their opposites:
+Find the opposite of $5$ and of $-8$, then add each pair:
 
 $$5+(-5)=0$$
 
@@ -30,15 +30,9 @@ $$a+(-a)=0$$
 
 Notice that $0$ is its own additive inverse, because $0+0=0$.
 
-:::check
-What is the additive inverse of $-\dfrac{5}{6}$?
-:::answer
-The answer is $\dfrac{5}{6}$. Adding $-\dfrac{5}{6}+\dfrac{5}{6}$ gives $0$.
-:::
-
 ### Multiplicative Inverse
 
-For any nonzero number, the **multiplicative inverse** (or **reciprocal**) multiplies with it to give $1$.
+For any nonzero real number, the **multiplicative inverse** (or **reciprocal**) multiplies with it to give $1$.
 
 For a nonzero whole number $a$, flip $\dfrac{a}{1}$ to $\dfrac{1}{a}$. For a nonzero fraction, swap numerator and denominator and keep the sign.
 
@@ -46,18 +40,22 @@ Multiply $4$, $\dfrac{2}{5}$, and $-\dfrac{4}{7}$ by their reciprocals:
 
 $$4\times \dfrac{1}{4}=1$$
 
-$$\left(\dfrac{2}{5}\right)\times \left(\dfrac{5}{2}\right)=\dfrac{10}{10}=1$$
+$$\left(\dfrac{2}{5}\right)\times \left(\dfrac{5}{2}\right)=\dfrac{10}{10}$$
 
-$$\left(-\dfrac{4}{7}\right)\times \left(-\dfrac{7}{4}\right)=\dfrac{28}{28}=1$$
+$$\dfrac{10}{10}=1$$
 
-Only two numbers are their own reciprocals: $1\times 1=1$ and $(-1)\times(-1)=1$.
+$$\left(-\dfrac{4}{7}\right)\times \left(-\dfrac{7}{4}\right)=\dfrac{28}{28}$$
+
+$$\dfrac{28}{28}=1$$
+
+Only two real numbers are their own reciprocals: $1\times 1=1$ and $(-1)\times(-1)=1$.
 
 In symbols, for $a\ne 0$:
 
 $$a\times \dfrac{1}{a}=1$$
 
 :::why
-Why does the reciprocal of a negative number stay negative? To get positive $1$ from multiplication, both numbers must share the same sign. Multiplying a negative number by a positive number gives $-1$, not $1$.
+Why does the reciprocal of a negative number stay negative? To get positive $1$ from multiplication, both numbers must share the same sign. A negative number times a positive number always gives a negative product, never $1$.
 :::
 
 :::pair #reciprocal-sign
@@ -69,13 +67,13 @@ Flipping the fraction is right, but dropping the minus sign gives $\left(-\dfrac
 :::pair #opposite-vs-reciprocal
 Right: the multiplicative inverse of $-\dfrac{4}{7}$ is $-\dfrac{7}{4}$
 Wrong: the multiplicative inverse of $-\dfrac{4}{7}$ is $\dfrac{4}{7}$
-Changing the sign without flipping gives the additive inverse. Always check that the product is $1$.
+Changing the sign without flipping gives the additive inverse. Check that the product is $1$.
 :::
 
 :::check
-What is the multiplicative inverse of $-5$?
+The multiplicative inverse of a number is $-\dfrac{1}{9}$. What is the number?
 :::answer
-The answer is $-\dfrac{1}{5}$. Write $-5$ as $-\dfrac{5}{1}$, flip it, and keep the minus sign: $(-5)\left(-\dfrac{1}{5}\right)=1$.
+The answer is $-9$. Flip $-\dfrac{1}{9}$ and keep the minus sign to get $-\dfrac{9}{1}=-9$. The product $(-9)\left(-\dfrac{1}{9}\right)$ is $1$.
 :::
 
 ### Why Zero Has No Multiplicative Inverse
@@ -88,14 +86,6 @@ That is why $0$ has no multiplicative inverse. Division by $0$ is **undefined** 
 Right: $0$ has no multiplicative inverse
 Wrong: the multiplicative inverse of $0$ is $0$
 Zero is its own additive inverse because $0+0=0$. For multiplication, $0\times 0=0$, not $1$.
-:::
-
-:::check
-How many real numbers $s$ make $0\times s+3=3$ true?
-:::answer
-The answer is every real number. Since $0\times s=0$ for any $s$, the left side is always $0+3=3$.
-
-**Check:** Try $s=-7$: $0\times(-7)+3=0+3=3$.
 :::
 
 ## Examples
@@ -125,28 +115,24 @@ $$0\times (-1)=0$$
 
 The answer is D.
 
-**Check:** Finding a multiplicative inverse of $0$ is the same as trying to compute $\dfrac{1}{0}$, which is undefined.
-
 ### #2: Two Kinds of Inverse
 
 What is the additive inverse of the multiplicative inverse of $-\dfrac{5}{8}$?
 
 **Solution:**
 
-1. Start with the inner request: find the multiplicative inverse of $-\dfrac{5}{8}$. Flip the numerator and denominator and keep the minus sign.
+1. Start with the inner request: find the multiplicative inverse of $-\dfrac{5}{8}$. Flip the numerator and denominator and keep the minus sign to get $-\dfrac{8}{5}$.
 
-$$1\div\left(-\dfrac{5}{8}\right)=-\dfrac{8}{5}$$
+2. Check that the product of $-\dfrac{5}{8}$ and $-\dfrac{8}{5}$ is $1$:
 
-2. Check that the product with $-\dfrac{5}{8}$ is $1$:
+$$\left(-\dfrac{5}{8}\right)\left(-\dfrac{8}{5}\right)=\dfrac{40}{40}$$
 
-$$\left(-\dfrac{5}{8}\right)\left(-\dfrac{8}{5}\right)=1$$
+$$\dfrac{40}{40}=1$$
 
 :::try
 Finish the last step: find the additive inverse of $-\dfrac{8}{5}$.
 :::answer
 The answer is $\dfrac{8}{5}$. Change the sign of $-\dfrac{8}{5}$ to get its opposite, $\dfrac{8}{5}$.
-
-**Check:** Add the two numbers from the last step: $-\dfrac{8}{5}+\dfrac{8}{5}=0$. Both inverses hold: the product is $1$, and the sum is $0$.
 :::
 
 ## Speed Tricks & Shortcuts

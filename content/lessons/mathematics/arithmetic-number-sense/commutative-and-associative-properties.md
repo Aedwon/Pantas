@@ -24,13 +24,13 @@ In addition, each number being added is an **addend**. In multiplication, each n
 
 The **commutative property** lets you swap order in addition and multiplication. Walking $3$ blocks east then $4$ blocks east reaches $7$ blocks either way.
 
-Swap $7$ and $12$:
+Add $7$ and $12$ in both orders:
 
 $$7+12=19$$
 
 $$12+7=19$$
 
-The same holds when you multiply two numbers.
+Multiply $3$ and $4$ in both orders:
 
 $$3\times 4=12$$
 
@@ -46,27 +46,31 @@ $$ab=ba$$
 Why does order not change the sum or product? Adding puts two groups into one pile, and multiplying counts the tiles in a rectangle turned on its side. Neither action changes how many items you have.
 :::
 
-:::check
-Swap the two terms inside the parentheses of $(9+2x)\times 3$.
-:::answer
-The answer is $(2x+9)\times 3$. The terms $9$ and $2x$ trade places, while the grouping does not move.
-:::
-
 ### Associative Property
 
 The **associative property** lets you change grouping in repeated addition or multiplication. Parentheses show which pair goes first; order stays the same.
 
-Regroup $3$, $5$, and $4$:
+Work out $(3+5)+4$:
 
-$$(3+5)+4=8+4=12$$
+$$3+5=8$$
 
-$$3+(5+4)=3+9=12$$
+$$8+4=12$$
 
-Multiplication works the same way when you move parentheses.
+Work out $3+(5+4)$:
 
-$$(2\times 3)\times 5=6\times 5=30$$
+$$5+4=9$$
 
-$$2\times (3\times 5)=2\times 15=30$$
+$$3+9=12$$
+
+Work out $(2\times 3)\times 5$ and $2\times (3\times 5)$ the same way:
+
+$$2\times 3=6$$
+
+$$6\times 5=30$$
+
+$$3\times 5=15$$
+
+$$2\times 15=30$$
 
 In symbols:
 
@@ -81,16 +85,16 @@ The numbers stayed in the order $3, 5, 4$. Only the parentheses moved, so the gr
 :::
 
 :::check
-Regroup $(4\times 7)\times 5$ so the last two numbers are multiplied first.
+$(6\times 2)\times 9$ becomes $(2\times 6)\times 9$. Was that a change of order or of grouping, and what value do both have?
 :::answer
-The answer is $4\times (7\times 5)$. The order $4, 7, 5$ stayed the same, and only the parentheses moved. Both sides equal $140$.
+The answer is a change of order, and both equal $108$. The $6$ and $2$ swapped places while the parentheses stayed. $2\times 6=12$, and $12\times 9=108$.
 :::
 
 ### Why Subtraction and Division Fail
 
 Subtraction and division are not commutative or associative in general. Swapping order or moving parentheses usually changes the answer.
 
-Try swapping order in subtraction:
+Swap the order of $5$ and $3$ in a subtraction:
 
 $$5-3=2$$
 
@@ -104,11 +108,17 @@ Wrong: $5-3$ and $3-5$ both equal $2$, so subtraction is commutative
 Ignoring the minus sign gives $2$ both times. Because $2$ and $-2$ sit on opposite sides of $0$, swapping order changes the answer.
 :::
 
-Try moving parentheses in division:
+Work out $(12\div 4)\div 2$:
 
-$$(12\div 4)\div 2=3\div 2=1.5$$
+$$12\div 4=3$$
 
-$$12\div (4\div 2)=12\div 2=6$$
+$$3\div 2=1.5$$
+
+Work out $12\div (4\div 2)$:
+
+$$4\div 2=2$$
+
+$$12\div 2=6$$
 
 The two groupings give $1.5$ and $6$, so division is not associative. Subtraction fails regrouping too: $(8-4)-2=2$, while $8-(4-2)=6$.
 
@@ -116,12 +126,6 @@ The two groupings give $1.5$ and $6$, so division is not associative. Subtractio
 Right: $(12\div 4)\div 2=1.5$ and $12\div (4\div 2)=6$ show division is not associative
 Wrong: $(12\div 4)\div 2$ and $12\div (4\div 2)$ differ because division is not commutative
 The numbers stayed in the order $12, 4, 2$. Changing which pair you divide first is a grouping change, not an order change.
-:::
-
-:::check
-Find $(17-9)-4$ and $17-(9-4)$.
-:::answer
-The answer is $4$ and $12$. First $(17-9)-4=8-4=4$, while $17-(9-4)=17-5=12$.
 :::
 
 ## Examples
@@ -138,15 +142,13 @@ $$3+(8+x)=(3+8)+x$$
 
 This uses the associative property of addition.
 
-2. Now compare $(3+8)+x$ with $(8+3)+x$. The parentheses stay around the first two terms, and $3$ swaps places with $8$.
+2. Now compare $(3+8)+x$ with $(8+3)+x$. The parentheses stay, and $3$ swaps places with $8$.
 
 $$(3+8)+x=(8+3)+x$$
 
 This uses the commutative property of addition.
 
 The sequence is associative, then commutative.
-
-**Check:** Plug in $x=4$ to check both ends. The start gives $3+(8+4)=3+12=15$, and the end gives $(8+3)+4=11+4=15$.
 
 ### #2: Regrouping a Product
 
@@ -169,11 +171,9 @@ $$25\times 4=100$$
 $$100\times 17+15$$
 
 :::try
-Finish the last step: multiply $100\times 17$, then add $15$.
+Finish the last step: find the value of $100\times 17+15$.
 :::answer
 The answer is $1,715$. First $100\times 17=1,700$, and then $1,700+15=1,715$.
-
-**Check:** Multiply the original order instead: $4\times 17=68$, then $25\times 68=1,700$, and $1,700+15=1,715$. Both ways give $1,715$.
 :::
 
 ## Traps to Watch For
@@ -181,5 +181,5 @@ The answer is $1,715$. First $100\times 17=1,700$, and then $1,700+15=1,715$.
 :::checklist
 - Parentheses move while order stays the same: that is the associative property, not commutative. {#order-vs-grouping}
 - Subtraction swaps order: check the signs, since $5-3=2$ and $3-5=-2$. {#subtraction-order}
-- Parentheses move in subtraction or division: do not regroup, because $(12\div 4)\div 2=1.5$ while $12\div (4\div 2)=6$. {#division-grouping}
+- Parentheses move in subtraction or division: the answer usually changes, so do not regroup. $(12\div 4)\div 2=1.5$ but $12\div (4\div 2)=6$. {#division-grouping}
 :::

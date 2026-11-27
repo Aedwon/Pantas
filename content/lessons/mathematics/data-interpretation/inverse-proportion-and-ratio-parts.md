@@ -20,13 +20,13 @@ In an **inverse proportion**, one quantity goes up while the other goes down so 
 
 $$\text{workers}\times\text{time}=\text{total work}$$
 
-Suppose $9$ identical machines finish a fixed scanning job in $8$ hours.
+$9$ identical machines finish a fixed scanning job in $8$ hours. Find how many machines finish the same job in $6$ hours.
 
 1. Multiply to find the fixed total work in machine-hours:
 
 $$9\times8=72$$
 
-2. To finish the same $72$-machine-hour job in $6$ hours, divide by $6$:
+2. Divide the total work by the new time, $6$ hours:
 
 $$\dfrac{72}{6}=12\text{ machines}$$
 
@@ -40,13 +40,23 @@ $12$ is the total number of machines required. When a question asks for addition
 
 Sometimes part of the job finishes before the team size changes. Subtract the completed work from the total work first, then divide the remaining work by the remaining workers.
 
-Suppose $8$ clerks can finish a batch in $15$ hours ($8\times15=120$ clerk-hours). After all $8$ work for $5$ hours ($8\times5=40$ clerk-hours done), $120-40=80$ clerk-hours remain, and $2$ clerks leave ($6$ left).
+$8$ clerks can finish a batch in $15$ hours. After all $8$ work for $5$ hours, $2$ clerks leave. Find the hours the $6$ remaining clerks need.
+
+$$8\times15=120$$
+
+$$8\times5=40$$
+
+$$120-40=80$$
 
 $$\dfrac{80}{6}=13\dfrac{1}{3}\text{ hours}$$
+
+The $120$, $40$ and $80$ are clerk-hours of work.
 
 :::why
 Why does losing $2$ clerks make the remaining time go up instead of down? Those $80$ clerk-hours of work now get shared by $6$ clerks instead of $8$, so each hour accomplishes less and the remaining job takes longer.
 :::
+
+The $8$ clerks would need $15-5=10$ more hours. Find the time for $6$ clerks.
 
 :::pair #scale-time-like-direct
 Right: $\dfrac{80\text{ clerk-hours}}{6\text{ clerks}}=13\dfrac{1}{3}\text{ hours}$
@@ -55,9 +65,9 @@ The wrong line reduced the time when the team shrank. With fewer equal workers o
 :::
 
 :::check
-Six workers can finish a fixed job in $10$ hours at the same work rate. How many hours will $15$ workers take for the same job?
+Seven workers can finish a fixed job in $12$ hours, all at the same steady rate. How many more workers are needed to finish it in $4$ hours?
 :::answer
-The answer is $4$ hours. Total work is $6\times10=60$ worker-hours, and $\dfrac{60}{15}=4$ hours.
+The answer is $14$ more workers. Total work is $7\times12=84$ worker-hours, and $\dfrac{84}{4}=21$ workers are needed, so $21-7=14$ more.
 :::
 
 ### Dividing a Total into Ratio Parts
@@ -72,7 +82,7 @@ To divide a total in a ratio such as $2:3:4$:
 2. Divide the total amount by the number of parts to find $1$ part.
 3. Multiply $1$ part by the requested term or difference of terms.
 
-Suppose $360$ folders are divided among Units A, B, and C in the ratio $2:3:4$.
+$360$ folders are divided among Units A, B, and C in the ratio $2:3:4$. Find how many more folders Unit C gets than Unit A.
 
 $$2+3+4=9\text{ parts}$$
 
@@ -83,13 +93,7 @@ Unit A gets $2\times40=80$, Unit B gets $3\times40=120$, and Unit C gets $4\time
 :::pair #divide-equally-instead-of-ratio
 Right: $2+3+4=9\text{ parts}$, so $1\text{ part}=\dfrac{360}{9}=40$ and $C-A=2\times40=80\text{ folders}$
 Wrong: $\dfrac{360}{3}=120\text{ folders}$
-The wrong line divided $360$ equally among the $3$ units. Ratio shares are unequal, so add the ratio terms ($9$) to find the number of parts.
-:::
-
-:::check
-An office reserves $12,000$ pesos from a $96,000$-peso fund and divides the rest between training and travel in the ratio $3:4$. How much goes to travel?
-:::answer
-The answer is $48,000$ pesos. The remainder is $96,000-12,000=84,000$. Divide by $3+4=7$ parts to get $12,000$ per part, so travel gets $4\times12,000=48,000$ pesos.
+The wrong line divided $360$ equally among the $3$ units. These ratio shares are unequal, so add the ratio terms ($9$) to find the number of parts.
 :::
 
 ## Examples
@@ -110,8 +114,6 @@ $$\dfrac{48}{12}=4$$
 
 The job will take $4$ hours.
 
-**Check:** The team doubled from $6$ to $12$ workers at the same rate. Doubling the team cuts the time in half, and half of $8$ hours is $4$ hours.
-
 ### #2: Dividing a Total in a Ratio
 
 A fund of $45,000$ pesos is divided between Program A and Program B in the ratio $2:3$. How much does Program B receive?
@@ -130,8 +132,6 @@ $$\dfrac{45,000}{5}=9,000$$
 Finish the last step: find the amount for Program B's $3$ parts.
 :::answer
 The answer is $27,000$ pesos. Multiply $3\times9,000=27,000$.
-
-**Check:** Program A gets $2\times9,000=18,000$ pesos. Adding both shares gives $18,000+27,000=45,000$ pesos, which matches the total fund.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -141,7 +141,7 @@ Check direction first: if both quantities move together by the same factor, use 
 ## Traps to Watch For
 
 :::checklist
-- Fewer workers on a fixed remaining job: keep total worker-hours constant so time goes up, not down. {#scale-time-like-direct}
+- Fewer equal workers on a fixed remaining job: keep total worker-hours constant so time goes up, not down. {#scale-time-like-direct}
 - Asked for "additional" machines or workers: subtract the starting count from the new total needed. {#total-instead-of-additional-machines}
-- Splitting a total in a ratio: add all ratio terms to find total parts, never divide equally by the number of groups. {#divide-equally-instead-of-ratio}
+- Splitting a total in a ratio: add all ratio terms to find total parts, then divide by that count, not by the number of groups. {#divide-equally-instead-of-ratio}
 :::

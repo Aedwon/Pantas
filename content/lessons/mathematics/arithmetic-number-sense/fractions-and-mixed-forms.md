@@ -25,47 +25,43 @@ So to turn a fraction into a percentage:
 1. Divide the numerator by the denominator to get a decimal.
 2. Multiply that decimal by $100$ and attach $\%$.
 
-Try converting $\dfrac{3}{8}$:
+Convert $\dfrac{3}{8}$ to a percentage:
 
 $$3\div 8=0.375$$
 
-$$0.375\times 100\%=37.5\%$$
+$$0.375\times 100=37.5$$
 
-Try converting $\dfrac{3}{5}$ as well:
+That is $37.5\%$. Now $\dfrac{3}{5}$:
 
 $$3\div 5=0.6$$
 
-$$0.6\times 100\%=60\%$$
+$$0.6\times 100=60$$
+
+That is $60\%$.
 
 :::why
 Why divide top by bottom? A fraction bar means division: $\dfrac{3}{8}$ means $3$ wholes shared among $8$ equal parts, which is $3\div 8$.
 :::
 
 :::pair #divide-upside-down
-Right: $\dfrac{3}{8}=3\div 8=0.375=37.5\%$
-Wrong: $\dfrac{3}{8}=8\div 3\approx 2.67=266.7\%$
-Always divide the top number by the bottom number. Because $3$ is smaller than $8$, $\dfrac{3}{8}$ must be less than $1$, or less than $100\%$.
+Right: $\dfrac{3}{8}=3\div 8=0.375$, which is $37.5\%$
+Wrong: $\dfrac{3}{8}=8\div 3\approx 2.67$, which is $266.7\%$
+Divide the top number by the bottom number. Because $3$ is smaller than $8$, $\dfrac{3}{8}$ is less than $1$, so under $100\%$.
 :::
+
+Next, $0.4375$ as a percentage.
 
 :::pair #one-shift-to-percent
-Right: $0.4375\times 100\%=43.75\%$
-Wrong: $0.4375=4.375\%$
+Right: $0.4375\times 100=43.75$, which is $43.75\%$
+Wrong: $0.4375$ is $4.375\%$
 Multiplying by $100$ moves the decimal point $2$ places right, not $1$. Notice $0.4375$ is close to $0.5$, which is $50\%$.
-:::
-
-"Express" means write the same value in the form named by the question.
-
-:::check
-Express $\dfrac{7}{20}$ as a decimal and a percentage.
-:::answer
-The answer is $0.35$ and $35\%$. Divide $7\div 20=0.35$, then multiply by $100\%$ to get $35\%$.
 :::
 
 ### Calculating with Mixed Forms
 
 When an expression mixes fractions, decimals, and percentages, convert every number into the **same form** before adding or subtracting. Changing everything to decimals is usually quickest.
 
-Try simplifying $0.5+\dfrac{1}{4}+10\%$:
+Find $0.5+\dfrac{1}{4}+10\%$:
 
 1. Convert the fraction and the percent to decimals.
 
@@ -81,18 +77,20 @@ $$0.75+0.10=0.85$$
 
 In a word problem, convert each part to the same form before finding how much is left. For example, if $0.35$ and $\dfrac{1}{4}$ ($0.25$) of a book are read, then $0.35+0.25=0.60$ ($60\%$) is read and $1-0.60=0.40$ ($40\%$) is unread.
 
+Next, $12.5\%$ as a decimal.
+
 :::pair #forget-percent-divide
 Right: $12.5\%=12.5\div 100=0.125$
 Wrong: $12.5\%=12.5$
-A percent sign means divide by $100$. Adding $12.5$ without dividing treats $12.5\%$ as more than $12$ wholes instead of $0.125$.
+A percentage is out of $100$, so divide by $100$ before calculating. Adding $12.5$ without dividing treats $12.5\%$ as $12.5$ wholes.
 :::
 
-"Evaluate" means find the final number answer.
+"Express" means write the same value in the form the question names. "Evaluate" means find the final number answer.
 
 :::check
-Evaluate $\dfrac{1}{5}+0.30-15\%$ as a decimal.
+Express $\dfrac{3}{20}+0.30$ as a percentage.
 :::answer
-The answer is $0.35$. Convert $\dfrac{1}{5}=0.20$ and $15\%=0.15$, then compute $0.20+0.30-0.15=0.35$.
+The answer is $45\%$. Convert $\dfrac{3}{20}=0.15$, add $0.15+0.30=0.45$, then multiply by $100$ to get $45$.
 :::
 
 ## Examples
@@ -107,13 +105,11 @@ Express $\dfrac{5}{16}$ as a decimal and a percentage.
 
 $$5\div 16=0.3125$$
 
-2. Multiply by $100$ (move the decimal point $2$ places right) and attach $\%$.
+2. Multiply by $100$ (move the decimal point $2$ places right).
 
-$$0.3125\times 100\%=31.25\%$$
+$$0.3125\times 100=31.25$$
 
 The answers are $0.3125$ and $31.25\%$.
-
-**Check:** Compare with $\dfrac{1}{4}=\dfrac{4}{16}=25\%$. Since $\dfrac{5}{16}$ is one-sixteenth more than $\dfrac{4}{16}$, $31.25\%$ makes sense.
 
 ### #2: Mixed Forms
 
@@ -129,7 +125,7 @@ $$3\div 4=0.75$$
 
 $$25\div 100=0.25$$
 
-3. Put both decimals back in order, keeping the signs between parts.
+3. Put decimals back with their signs.
 
 $$0.75+0.50-0.25$$
 
@@ -137,8 +133,6 @@ $$0.75+0.50-0.25$$
 Finish the last step: add and subtract from left to right.
 :::answer
 The answer is $1.00$. First $0.75+0.50=1.25$, and then $1.25-0.25=1.00$.
-
-**Check:** Convert every term to percentages instead: $75\%+50\%-25\%=100\%$, which equals $1.00$.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -151,12 +145,12 @@ The answer is $1.00$. First $0.75+0.50=1.25$, and then $1.25-0.25=1.00$.
 - $\dfrac{1}{5}=0.20=20\%$
 - $\dfrac{1}{8}=0.125=12.5\%$
 
-The symbol $\approx$ means "is about equal to." Keep the exact fraction whenever a decimal repeats forever.
+The symbol $\approx$ means "is about equal to." If a decimal repeats forever, keep the exact fraction when a question wants an exact value.
 
 ## Traps to Watch For
 
 :::checklist
-- Turning a fraction into a decimal: divide numerator by denominator, never denominator by numerator. {#divide-upside-down}
-- Changing a decimal to a percentage: move the decimal point $2$ places right, so $0.4375=43.75\%$. {#one-shift-to-percent}
-- Combining a percentage with decimals: divide the percentage by $100$ first, so $12.5\%=0.125$. {#forget-percent-divide}
+- Turning a fraction into a decimal: divide the numerator by the denominator. {#divide-upside-down}
+- Changing a decimal to a percentage: move the decimal point $2$ places right, so $0.4375$ is $43.75\%$. {#one-shift-to-percent}
+- Combining a percentage with decimals: divide the percentage by $100$ first, so $12.5\%$ is $0.125$. {#forget-percent-divide}
 :::

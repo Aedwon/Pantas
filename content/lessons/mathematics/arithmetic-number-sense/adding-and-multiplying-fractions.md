@@ -22,7 +22,11 @@ To add or subtract fractions, their pieces must be the same size. That means the
 
 "Simplify" means write an equal fraction in lowest terms. When denominators match, add or subtract only the numerators, keep the denominator, and simplify.
 
-$$\dfrac{4}{9}+\dfrac{2}{9}=\dfrac{6}{9}=\dfrac{2}{3}$$
+Add $\dfrac{4}{9}$ and $\dfrac{2}{9}$:
+
+$$\dfrac{4}{9}+\dfrac{2}{9}=\dfrac{6}{9}$$
+
+$$\dfrac{6}{9}=\dfrac{2}{3}$$
 
 When denominators differ, find a common multiple of the denominators. Multiply both numerator and denominator of each fraction by the same nonzero number so both fractions have pieces of the same size.
 
@@ -34,7 +38,7 @@ $$\dfrac{1}{3}=\dfrac{1\times 5}{3\times 5}=\dfrac{5}{15}$$
 
 $$\dfrac{2}{5}+\dfrac{1}{3}=\dfrac{6}{15}+\dfrac{5}{15}=\dfrac{11}{15}$$
 
-Subtraction works the same way. Try $\dfrac{5}{6}-\dfrac{1}{4}$ with common denominator $12$:
+Subtraction works the same way. Find $\dfrac{5}{6}-\dfrac{1}{4}$ with common denominator $12$:
 
 $$\dfrac{5}{6}=\dfrac{10}{12}$$
 
@@ -49,13 +53,13 @@ Why do we keep the denominator unchanged when adding? The denominator names the 
 :::pair #leave-unsimplified
 Right: $\dfrac{4}{9}+\dfrac{2}{9}=\dfrac{6}{9}=\dfrac{2}{3}$
 Wrong: $\dfrac{4}{9}+\dfrac{2}{9}=\dfrac{6}{9}$
-Although $\dfrac{6}{9}$ has the right value, both $6$ and $9$ divide by $3$. Always reduce your final fraction to simplest form.
+Although $\dfrac{6}{9}$ has the right value, both $6$ and $9$ divide by $3$. When a question asks for simplest form, reduce until no common factor is left.
 :::
 
 :::check
-Find $\dfrac{1}{4}+\dfrac{1}{6}$ in simplest form.
+Find $\dfrac{1}{6}+\dfrac{1}{10}$ in simplest form.
 :::answer
-The answer is $\dfrac{5}{12}$. Use common denominator $12$: $\dfrac{3}{12}+\dfrac{2}{12}=\dfrac{5}{12}$.
+The answer is $\dfrac{4}{15}$. Use common denominator $30$: $\dfrac{5}{30}+\dfrac{3}{30}=\dfrac{8}{30}$, then divide top and bottom by $2$.
 :::
 
 ### Multiplying Fractions
@@ -64,11 +68,13 @@ To multiply fractions, multiply straight across: numerators together, and denomi
 
 $$\dfrac{a}{b}\times\dfrac{c}{d}=\dfrac{ac}{bd}$$
 
-The denominators $b$ and $d$ must not be $0$. Multiplying by a fraction finds a "fraction of" an amount. You can simplify common factors between any top and any bottom before or after multiplying.
+The denominators $b$ and $d$ must not be $0$. Multiplying by a fraction finds that fraction of an amount. You can cancel a common factor between a numerator and a denominator before or after multiplying.
 
-Try $\dfrac{3}{5}\times\dfrac{7}{12}$:
+Find $\dfrac{3}{5}\times\dfrac{7}{12}$:
 
-$$\dfrac{3}{5}\times\dfrac{7}{12}=\dfrac{3\times 7}{5\times 12}=\dfrac{21}{60}=\dfrac{7}{20}$$
+$$\dfrac{3}{5}\times\dfrac{7}{12}=\dfrac{3\times 7}{5\times 12}=\dfrac{21}{60}$$
+
+$$\dfrac{21}{60}=\dfrac{7}{20}$$
 
 Notice that $3$ in the numerator and $12$ in the denominator both divide by $3$, giving $1$ and $4$. Simplifying first gives $\dfrac{1\times 7}{5\times 4}=\dfrac{7}{20}$ right away.
 
@@ -85,13 +91,7 @@ The wrong line multiplied the tops ($3\times 7=21$) but added the bottoms ($5+12
 :::pair #add-instead-of-multiply
 Right: $\dfrac{7}{12}$ of $\dfrac{3}{5}$ is $\dfrac{3}{5}\times\dfrac{7}{12}=\dfrac{7}{20}$
 Wrong: $\dfrac{7}{12}$ of $\dfrac{3}{5}$ is $\dfrac{3}{5}+\dfrac{7}{12}=\dfrac{71}{60}$
-Finding a part of a part means multiplication, not addition. Also $\dfrac{71}{60}$ is larger than $1$ whole, which cannot be a fraction of a fraction.
-:::
-
-:::check
-Find $\dfrac{2}{5}\times\dfrac{5}{8}$ in simplest form.
-:::answer
-The answer is $\dfrac{1}{4}$. Multiply across to get $\dfrac{10}{40}$, then divide top and bottom by $10$ to get $\dfrac{1}{4}$.
+Finding a fraction of an amount means multiplying, not adding. Also $\dfrac{71}{60}$ is more than $1$, but a part of $\dfrac{3}{5}$ must be less than $\dfrac{3}{5}$.
 :::
 
 ## Examples
@@ -112,7 +112,7 @@ $$\dfrac{1}{6}=\dfrac{1\times 2}{6\times 2}=\dfrac{2}{12}$$
 
 2. Combine the numerators and keep the denominator $12$.
 
-$$\dfrac{3}{4}+\dfrac{2}{3}-\dfrac{1}{6}=\dfrac{9+8-2}{12}=\dfrac{15}{12}$$
+$$\dfrac{9}{12}+\dfrac{8}{12}-\dfrac{2}{12}=\dfrac{15}{12}$$
 
 3. Divide both $15$ and $12$ by $3$.
 
@@ -120,17 +120,13 @@ $$\dfrac{15}{12}=\dfrac{5}{4}$$
 
 The answer is $\dfrac{5}{4}$.
 
-**Check:** Convert to decimals to check size: $0.75+0.67-0.17=1.25$, and $\dfrac{5}{4}=1.25$. Both match.
-
 ### #2: Fraction Multiplication
 
 A recipe uses $\dfrac{3}{4}$ cup of an ingredient per batch. How much is needed for $\dfrac{2}{3}$ of a batch?
 
 **Solution:**
 
-1. Finding $\dfrac{2}{3}$ of $\dfrac{3}{4}$ cup means multiplying the two fractions.
-
-$$\dfrac{3}{4}\times\dfrac{2}{3}$$
+1. Finding $\dfrac{2}{3}$ of $\dfrac{3}{4}$ cup means multiplying the two fractions, $\dfrac{3}{4}\times\dfrac{2}{3}$.
 
 2. Multiply numerators together and denominators together.
 
@@ -140,8 +136,6 @@ $$\dfrac{3}{4}\times\dfrac{2}{3}=\dfrac{3\times 2}{4\times 3}=\dfrac{6}{12}$$
 Finish the last step: simplify $\dfrac{6}{12}$ to lowest terms.
 :::answer
 The answer is $\dfrac{1}{2}$ cup. Divide top and bottom by $6$ to get $\dfrac{1}{2}$.
-
-**Check:** You are making less than $1$ full batch, so you need less than $\dfrac{3}{4}$ cup. Since $\dfrac{1}{2}<\dfrac{3}{4}$, the answer makes sense.
 :::
 
 ## Traps to Watch For
@@ -149,5 +143,5 @@ The answer is $\dfrac{1}{2}$ cup. Divide top and bottom by $6$ to get $\dfrac{1}
 :::checklist
 - Adding fractions with matching denominators: keep the denominator and add only the numerators, so $\dfrac{1}{3}+\dfrac{1}{3}=\dfrac{2}{3}$. {#adding-and-subtracting-fractions}
 - Stopping before reducing a fraction: divide top and bottom by common factors, so $\dfrac{6}{9}=\dfrac{2}{3}$. {#leave-unsimplified}
-- Multiplying two fractions: multiply both numerators and denominators, never add denominators. {#multiply-top-add-bottom}
+- Multiplying two fractions: multiply the numerators, then multiply the denominators. {#multiply-top-add-bottom}
 :::

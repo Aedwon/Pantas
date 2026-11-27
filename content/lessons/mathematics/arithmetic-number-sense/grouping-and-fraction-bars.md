@@ -22,7 +22,7 @@ In exam questions, **simplify** means write an equal expression in a simpler for
 
 When one group sits inside another, work from the innermost group outward. Inside each group, still follow the order of operations: powers and roots, then multiplication and division, then addition and subtraction.
 
-Try a two-layer example: evaluate $50-2\times[3+2\times(4-7)^2]$.
+Evaluate the two-layer expression $50-2\times[3+2\times(4-7)^2]$.
 
 Start with the inner parentheses, then apply the exponent:
 
@@ -51,9 +51,9 @@ The exponent $2$ applies only to the parentheses right before it, not to the $4$
 :::
 
 :::check
-Evaluate $3\times [2+(9-5)]$.
+Evaluate $5\times [30-(1+3)^2]$.
 :::answer
-The answer is $18$. Do the inner parentheses first ($9-5=4$), add inside the brackets ($2+4=6$), then multiply ($3\times 6=18$).
+The answer is $70$. Do the inner parentheses ($1+3=4$), then the power ($4^2=16$). Subtract inside the brackets ($30-16=14$), then multiply ($5\times 14=70$).
 :::
 
 ### Fraction Bars as Grouping Symbols
@@ -64,15 +64,21 @@ $$\dfrac{\text{numerator}}{\text{denominator}}=(\text{numerator})\div(\text{deno
 
 Work out the whole numerator and the whole denominator before dividing. Inside each part, powers and multiplication still go before addition and subtraction.
 
-Try this example: evaluate $\dfrac{4^2+6\times 2}{10-3\times 2}$.
+Evaluate $\dfrac{4^2+6\times 2}{10-3\times 2}$.
 
 First evaluate the numerator:
 
-$$4^2+6\times 2=16+12=28$$
+$$4^2=16$$
+
+$$6\times 2=12$$
+
+$$16+12=28$$
 
 Next evaluate the denominator:
 
-$$10-3\times 2=10-6=4$$
+$$3\times 2=6$$
+
+$$10-6=4$$
 
 Now divide:
 
@@ -81,6 +87,8 @@ $$\dfrac{28}{4}=7$$
 :::why
 Why can you not divide $48$ by $6$ first in $\dfrac{48}{6+2}$? The bar sits under all of $6+2$, so the whole sum $8$ is the divisor. Dividing by $6$ first breaks the group apart.
 :::
+
+Next, a fraction with a sum on the bottom, $\dfrac{48}{6+2}$.
 
 :::pair #fraction-bar-not-grouped
 Right: $\dfrac{48}{6+2}=48\div 8=6$
@@ -92,12 +100,6 @@ The wrong line treated the fraction bar like an ordinary division sign without p
 Right: $10-3\times 2=10-6=4$, so $\dfrac{28}{4}=7$
 Wrong: $10-3\times 2=7\times 2=14$, so $\dfrac{28}{14}=2$
 Order of operations still applies inside a grouped denominator. Multiply $3\times 2=6$ before subtracting from $10$.
-:::
-
-:::check
-Evaluate $\dfrac{30}{3+2}-1$.
-:::answer
-The answer is $5$. Finish the denominator first ($3+2=5$), divide ($30\div 5=6$), then subtract ($6-1=5$).
 :::
 
 ## Examples
@@ -124,13 +126,15 @@ $$3\times 4=12$$
 
 $$5+12=17$$
 
-5. Multiply by the $2$ outside the brackets, then subtract $10$.
+5. Multiply by the $2$ outside the brackets.
 
-$$2(17)-10=34-10=24$$
+$$2(17)=34$$
+
+6. Subtract $10$ last.
+
+$$34-10=24$$
 
 The answer is $24$.
-
-**Check:** Work backward from $24$: adding $10$ gives $34$, dividing by $2$ gives $17$, subtracting $5$ gives $12$, and dividing by $3$ gives $4=2^2=(4-2)^2$.
 
 ### #2: Fraction Bars as Grouping Symbols
 
@@ -152,19 +156,19 @@ $$9+20=29$$
 
 4. Evaluate the denominator as one group: power first, then add and subtract from left to right.
 
-$$6-2^3+4=6-8+4=-2+4=2$$
+$$2^3=8$$
+
+$$6-8+4=-2+4=2$$
 
 :::try
-Finish the last step: divide the numerator $29$ by the denominator $2$.
+Finish the last step: write the value of the fraction $\dfrac{29}{2}$ as a decimal.
 :::answer
-The answer is $\dfrac{29}{2}$ (or $14.5$). Putting $29$ over $2$ gives the fraction $\dfrac{29}{2}$.
-
-**Check:** Multiplying $14.5\times 2$ gives $29$, which matches the numerator $9+20=29$.
+The answer is $14.5$. Divide the numerator by the denominator: $29\div 2=14.5$.
 :::
 
 ## Speed Tricks & Shortcuts
 
-When there are no grouping symbols around them, plus and minus signs split a long line into separate pieces. In $5\times 4-3^2+20\div 5$, you can work out the three pieces at once:
+When there are no grouping symbols around them, plus and minus signs split a long line into separate pieces. In $5\times 4-3^2+20\div 5$, you can work out the three pieces at once: $5\times 4=20$, $3^2=9$, and $20\div 5=4$.
 
 $$20-9+4=15$$
 

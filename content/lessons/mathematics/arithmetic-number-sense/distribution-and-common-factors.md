@@ -18,9 +18,11 @@ keyPoints:
 
 The **distributive property** lets you multiply a sum or difference one term at a time. Think of $4$ gift bags, each holding $3$ pens and $7$ stickers. Together, you have $4\times 3=12$ pens and $4\times 7=28$ stickers.
 
-Multiply the outside factor by *every* term inside the parentheses.
+Multiply the outside factor by *every* term inside the parentheses, as in $4(3x+7)$:
 
-$$4(3x+7)=4(3x)+4(7)=12x+28$$
+$$4(3x+7)=4(3x)+4(7)$$
+
+$$4(3x)+4(7)=12x+28$$
 
 In symbols:
 
@@ -34,19 +36,21 @@ Wrong: $4(3x+7)=12x+7$
 The wrong line multiplied only $3x$ by $4$ and left $7$ alone. Multiply every term inside the parentheses by the outside factor.
 :::
 
-:::check
-Expand $5(2x-3)$.
-:::answer
-The answer is $10x-15$. Multiply both terms by $5$: $5(2x)=10x$ and $5(-3)=-15$.
-:::
-
 ### Distributing a Negative Factor
 
 When the outside factor is negative, keep its minus sign for every product inside. Multiplying two negative numbers gives a positive product, and multiplying a negative by a positive gives a negative product.
 
-$$-2(x-5)=(-2)(x)+(-2)(-5)=-2x+10$$
+Find $-2(x-5)$:
 
-$$-3(2x-4y)=(-3)(2x)+(-3)(-4y)=-6x+12y$$
+$$-2(x-5)=(-2)(x)+(-2)(-5)$$
+
+$$(-2)(x)+(-2)(-5)=-2x+10$$
+
+Find $-3(2x-4y)$:
+
+$$-3(2x-4y)=(-3)(2x)+(-3)(-4y)$$
+
+$$(-3)(2x)+(-3)(-4y)=-6x+12y$$
 
 :::pair #negative-times-negative
 Right: $-2(x-5)=-2x+10$
@@ -54,10 +58,12 @@ Wrong: $-2(x-5)=-2x-10$
 Here $-2$ multiplies $-5$. Same signs give $+10$, not $-10$.
 :::
 
+"Expand" means multiply out the parentheses.
+
 :::check
-Expand $-6(m-3)$.
+Expand $-4(3a-2b+5)$.
 :::answer
-The answer is $-6m+18$. First $(-6)(m)=-6m$, then $(-6)(-3)=+18$.
+The answer is $-12a+8b-20$. Multiply all three terms by $-4$: $(-4)(3a)=-12a$, $(-4)(-2b)=+8b$, and $(-4)(5)=-20$.
 :::
 
 ### Factoring Out a Common Factor
@@ -68,13 +74,17 @@ To **factor out** a common factor, write it once outside parentheses and place t
 
 $$ab+ac=a(b+c)$$
 
-For example, $17$ appears in both parts of $17\times 99+17\times 1$:
+Find $17\times 99+17\times 1$. The factor $17$ appears in both parts, so $17\times 99+17\times 1=17(99+1)$.
 
-$$17\times 99+17\times 1=17(99+1)=17(100)=1,700$$
+$$99+1=100$$
 
-This works with three or more products too. Pull out $87$ from every part:
+$$17\times 100=1,700$$
 
-$$87\times (-14)+87\times 114-87\times 100=87(-14+114-100)=87(0)=0$$
+This works with three or more products too. Pull out $87$ from every part: $87\times (-14)+87\times 114-87\times 100=87(-14+114-100)$.
+
+$$-14+114-100=0$$
+
+$$87\times 0=0$$
 
 :::why
 Why does pulling out $17$ work? Buying $99$ notebooks at $17$ pesos each, plus $1$ more at $17$ pesos, costs the same as buying $99+1=100$ notebooks at $17$ pesos each.
@@ -86,17 +96,9 @@ Wrong: $17(99)+17(1)=17(99)+1$
 Both purchases use the $17$-peso price. Leaving $1$ outside forgets that the extra notebook also costs $17$ pesos.
 :::
 
-"Evaluate" means find the final number answer.
-
-:::check
-Evaluate $35\times 18+35\times 82$.
-:::answer
-The answer is $3,500$. Factor out $35$: $35(18+82)=35\times 100=3,500$.
-:::
-
 ## Examples
 
-"Simplify" means write an equal expression in a simpler form.
+In exam questions, "simplify" means write an equal expression in a simpler form, and "evaluate" means find the final number answer.
 
 ### #1: Simplifying with the Distributive Property
 
@@ -118,11 +120,9 @@ $$8x-12y-2x-10y=(8x-2x)+(-12y-10y)$$
 
 4. Combine each pair of like terms.
 
-$$(8-2)x+(-12-10)y=6x-22y$$
+$$(8x-2x)+(-12y-10y)=6x-22y$$
 
 The answer is $6x-22y$.
-
-**Check:** Plug in $x=1$ and $y=1$. The original gives $4(2-3)-2(1+5)=4(-1)-2(6)=-4-12=-16$. The answer gives $6(1)-22(1)=-16$. Both give $-16$.
 
 ### #2: Reverse Distribution
 
@@ -142,13 +142,11 @@ $$63+37=100$$
 Finish the last step: multiply $847\times 100$.
 :::answer
 The answer is $84,700$. Multiplying by $100$ appends two zeros.
-
-**Check:** Estimate each original product: $850\times 60=51,000$ and $850\times 40=34,000$, and $51,000+34,000=85,000$, which is close to $84,700$.
 :::
 
 ## Speed Tricks & Shortcuts
 
-When products share a common factor, factor it out before multiplying whenever the leftover numbers add or subtract to $10$, $100$, or $0$. That turns hard two-digit multiplication into one quick mental step.
+When products share a common factor, factor it out before multiplying if the leftover numbers add or subtract to $10$, $100$, or $0$. That makes the multiplication quick.
 
 ## Traps to Watch For
 
