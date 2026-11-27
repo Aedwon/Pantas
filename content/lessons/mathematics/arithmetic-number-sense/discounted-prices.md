@@ -70,6 +70,12 @@ $$800\times0.75$$
 
 $$=600$$
 
+:::pair #price-not-discount
+Right: price after the discount $=$ Php $600$
+Wrong: price after the discount $=$ Php $200$
+Php $200$ is the money taken off. The question asks what you pay.
+:::
+
 <!-- FIGURE WANTED: a horizontal bar labeled "Php 800 = 100%", split into a shaded left part "25%, discount, Php 200" and a right part "75%, you pay, Php 600" -->
 
 To go back from a sale price to the listed price, divide the sale price by the fraction you still pay. That fraction must be greater than $0$. Find the listed price of a shirt that costs Php $340$ after $15\%$ off. You still pay $85\%$:
@@ -77,12 +83,6 @@ To go back from a sale price to the listed price, divide the sale price by the f
 $$340\div0.85$$
 
 $$=400$$
-
-:::pair #price-not-discount
-Right: price after the discount $=$ Php $600$
-Wrong: price after the discount $=$ Php $200$
-Php $200$ is the money taken off. The question asks what you pay.
-:::
 
 :::why
 Why do both ways agree? The $25\%$ you take off and the $75\%$ you keep make up the whole $100\%$. Way $2$ just skips finding the Php $200$ first.
@@ -174,6 +174,8 @@ The last part, $\dfrac{ab}{100}$, is why the total is less than $a+b$. The secon
 Find the single discount percent for $20\%$ and $10\%$ off:
 
 $$20+10-\dfrac{20\times10}{100}$$
+
+$$=30-\dfrac{20\times10}{100}$$
 
 $$=30-\dfrac{200}{100}$$
 

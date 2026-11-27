@@ -64,7 +64,7 @@ $$20\times0.40=8$$
 
 $$30\times0.20=6$$
 
-Add each gain to its starting amount to get the new amount, such as $20+8=28$. Then add the gains and the starting amounts:
+Add the gains, then add the starting amounts:
 
 $$8+6=14$$
 
@@ -92,9 +92,11 @@ If the starting value is $0$, the formula tries to divide by $0$. You can never 
 
 Report the actual change in counts or pesos instead, unless the question states a special rule.
 
-Find the percentage change in volunteers when an office has $0$ in January and $12$ in February.
+Find the percentage change in volunteers when an office has $0$ in January and $12$ in February. First find the change.
 
-$$\text{Change}=12-0=12$$
+$$12-0$$
+
+$$=12$$
 
 Because the original value is $0$, $\dfrac{12}{0}$ is undefined. You cannot report a percentage increase.
 

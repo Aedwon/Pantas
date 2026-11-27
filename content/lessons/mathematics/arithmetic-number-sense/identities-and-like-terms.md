@@ -90,11 +90,15 @@ Why does the exponent stay the same when you add $8x$ and $-3x$? Think of $x$ as
 
 Terms with different letters, such as $8x$ and $3y$, are unlike terms. Terms with the same letter but different exponents, such as $3x$ and $2x^2$, are also unlike terms and cannot be combined.
 
+Simplify $9a^2-4a+7-6a^2+a-12$.
+
 :::pair #unlike-exponents
 Right: $9a^2-4a+7-6a^2+a-12=3a^2-3a-5$
 Wrong: $9a^2-4a+7-6a^2+a-12=-5$
 The wrong line combined the $a^2$ terms with the $a$ terms. Because $a^2$ and $a$ have different exponents, they stay separate.
 :::
+
+Simplify $6xy+5yx$.
 
 :::pair #swapped-letters
 Right: $6xy+5yx=(6+5)xy=11xy$
@@ -114,15 +118,17 @@ Evaluate $(48+0)\times 1+25$.
 
 1. Use the additive identity inside the parentheses.
 
-$$48+0=48$$
+$$(48+0)\times 1+25$$
 
-2. Put $48$ back and use the multiplicative identity.
+$$=48\times 1+25$$
 
-$$48\times 1=48$$
+2. Use the multiplicative identity.
 
-3. Add the remaining number.
+$$=48+25$$
 
-$$48+25=73$$
+3. Add the remaining numbers.
+
+$$=73$$
 
 The answer is $73$.
 

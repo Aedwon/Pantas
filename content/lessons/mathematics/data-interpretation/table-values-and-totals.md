@@ -62,7 +62,7 @@ Wrong: $12,000+15,000+19,000=46,000$
 The wrong sum grabbed $19,000$ from the neighboring Ink column instead of $11,000$ from Paper. Trace the column heading down for every single entry.
 :::
 
-For a gap ("how many more" or "by how much does X exceed Y"), find each group total first if needed, then subtract the smaller value from the larger one. For an increase over time, subtract the earlier value from the later one. A negative result shows a fall, so skip it when you look for an increase.
+For "how many more X than Y" or "by how much does X exceed Y", find each group total first if needed, subtract Y from X, and check that X is larger. For a gap with no stated order, subtract the smaller value from the larger one. For an increase over time, subtract the earlier value from the later one. A negative result shows a fall, so skip it when you look for an increase.
 
 Find how many more female than male applicants there are. Three centers list Female applicants as $1,500$, $950$, and $750$, and Male applicants as $1,200$, $800$, and $650$.
 
@@ -77,7 +77,7 @@ There are $550$ more female applicants than male applicants.
 :::pair #reverse-difference-order
 Right: $3,200-2,650=550$
 Wrong: $2,650-3,200=-550$
-The wrong line reversed the subtraction order. When a question asks how many more, subtract the smaller count from the larger count to get a positive answer.
+The wrong line subtracted female from male, the reverse order. For how many more female than male, subtract male from female and check that the result is positive.
 :::
 
 If the total is known and one entry is missing, subtract the known entries from the total. Find the missing entry when a total of $88$ has known entries $19$ and $33$:
@@ -134,5 +134,5 @@ Read the title, row labels, column labels, and unit note before calculating anyt
 :::checklist
 - Table unit in thousands or millions, answer asked in pesos: multiply your sum or cell reading by the stated unit. {#missing-unit-scale}
 - Summing down a column or across a row: double-check the label on every entry so an adjacent column does not slip in. {#wrong-column-entry}
-- "How many more" or "exceed" questions: subtract the smaller total from the larger total. {#reverse-difference-order}
+- "How many more X than Y" or "exceed" questions: subtract Y from X and check that X is larger. {#reverse-difference-order}
 :::

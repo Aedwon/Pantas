@@ -13,11 +13,6 @@
           "questionId": "q-algebra-word-problems-0001",
           "wrongChoice": "$14\\text{ years old}$",
           "mistakeNote": "Reports Ben's age (m + 4 = 14) instead of Maya's age (m = 10)."
-        },
-        {
-          "questionId": "q-algebra-word-problems-0011",
-          "wrongChoice": "$12\\text{ years old}$",
-          "mistakeNote": "Reports Carlo's age four years ago instead of his current age."
         }
       ]
     },

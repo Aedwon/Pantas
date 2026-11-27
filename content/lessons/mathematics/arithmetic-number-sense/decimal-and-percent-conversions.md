@@ -72,7 +72,11 @@ $$p\%=\dfrac{p}{100}$$
 
 Write $5\%$ as a decimal:
 
-$$5\%=5\div 100=0.05$$
+$$5\%$$
+
+$$=5\div 100$$
+
+$$=0.05$$
 
 Write $0.045$ as a percent:
 
@@ -87,6 +91,8 @@ $$\dfrac{40}{100}=\dfrac{2}{5}$$
 :::why
 Why does dividing by $100$ move the decimal point two places left? Each place left divides by $10$, so two places divide by $10\times 10=100$.
 :::
+
+Write $2.5\%$ as a decimal.
 
 :::pair #one-place-shift
 Right: $2.5\%=2.5\div 100=0.025$

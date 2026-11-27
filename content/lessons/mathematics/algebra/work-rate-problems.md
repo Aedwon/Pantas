@@ -54,7 +54,7 @@ Why must the shared time be less than $4$ hours? Pipe A alone takes $4$ hours, a
 :::
 
 :::check
-Three workers can each build the same fence alone in $20$, $30$ and $60$ hours. What is their combined rate, and how many hours will they take together?
+Three workers can each build the same fence alone in $20$, $30$ and $60$ hours. They start together, and each keeps the same steady rate as when working alone. What is their combined rate, and how many hours will they take together?
 :::answer
 The answer is $\dfrac{1}{10}$ fence per hour, and $10$ hours. Add $\dfrac{1}{20}+\dfrac{1}{30}+\dfrac{1}{60}=\dfrac{3}{60}+\dfrac{2}{60}+\dfrac{1}{60}=\dfrac{6}{60}=\dfrac{1}{10}$, then flip it: $1\div\dfrac{1}{10}=10$.
 :::
@@ -68,6 +68,8 @@ $$r_2=r_{\text{together}}-r_1$$
 Try this example: find Bea's solo time from the shared time and Ana's solo time. Ana and Bea finish a report together in $3$ hours. Ana alone takes $8$ hours. Their shared rate is $\dfrac{1}{3}$ and Ana's rate is $\dfrac{1}{8}$ report per hour. Subtract Ana's rate:
 
 $$\dfrac{1}{3}-\dfrac{1}{8}$$
+
+$$=\dfrac{8}{24}-\dfrac{1}{8}$$
 
 $$=\dfrac{8}{24}-\dfrac{3}{24}$$
 
@@ -92,7 +94,7 @@ $\dfrac{5}{24}$ is the fraction of the report Bea finishes in $1$ hour, not her 
 :::pair #subtract-solo-times
 Right: $\dfrac{1}{3}-\dfrac{1}{8}=\dfrac{5}{24}$, so $t=4.8$ hours
 Wrong: $8-3=5$ hours
-Subtracting solo times gives the wrong answer here. Turn the shared time and the known solo time into rates before subtracting.
+Subtracting the two times gives the wrong answer here. Turn the shared time and the known solo time into rates before subtracting.
 :::
 
 ## Examples
@@ -139,6 +141,8 @@ Pump A and Pump B together can fill an empty tank in $6$ hours, each keeping the
 
 $$\dfrac{1}{6}-\dfrac{1}{10}$$
 
+$$=\dfrac{5}{30}-\dfrac{1}{10}$$
+
 $$=\dfrac{5}{30}-\dfrac{3}{30}$$
 
 $$=\dfrac{2}{30}$$
@@ -151,13 +155,15 @@ The answer is $15$ hours. Dividing $1\div\dfrac{2}{30}=\dfrac{30}{2}=15$ flips t
 
 ## Speed Tricks & Shortcuts
 
-For two workers sharing $1$ whole job, let $a$ and $b$ be the hours each takes alone. If each keeps a steady rate from start to finish, use the product-over-sum shortcut:
+For two workers sharing $1$ whole job, let $a$ and $b$ be the hours each takes alone. If both work together from start to finish at their steady solo rates, use the product-over-sum shortcut:
 
 $$t=\dfrac{ab}{a+b}$$
 
 Find the time for Marco ($6$ hours alone) and Liza ($3$ hours alone):
 
 $$\dfrac{6(3)}{6+3}$$
+
+$$=\dfrac{18}{6+3}$$
 
 $$=\dfrac{18}{9}$$
 

@@ -64,7 +64,7 @@ Here $b$, $c$, and $d$ cannot be $0$.
 
 Suppose a problem asks: what percent of $\dfrac{4}{5}$ is $\dfrac{3}{5}$? In this question, the number after "of" is the base, so the base is $\dfrac{4}{5}$ and the part is $\dfrac{3}{5}$.
 
-1. Divide the part by the base to find the rate. Multiply by the reciprocal of $\dfrac{4}{5}$, multiply across, simplify, and write the decimal.
+1. Find the rate: divide the part $\dfrac{3}{5}$ by the base $\dfrac{4}{5}$.
 
 $$\dfrac{3}{5}\div\dfrac{4}{5}$$
 
@@ -139,7 +139,7 @@ What percent of $\dfrac{2}{5}$ is $\dfrac{7}{20}$?
 **Solution:**
 
 1. Identify the base after "of." The base is $\dfrac{2}{5}$ and the part is $\dfrac{7}{20}$.
-2. Divide the part by the base. Multiply by the reciprocal of $\dfrac{2}{5}$, multiply across, simplify, and write the decimal.
+2. Find the rate: divide the part $\dfrac{7}{20}$ by the base $\dfrac{2}{5}$.
 
 $$\dfrac{7}{20}\div\dfrac{2}{5}$$
 
@@ -161,11 +161,33 @@ The answer is $87.5\%$. Multiply $0.875\times100\%=87.5\%$.
 
 ### Switch the Percent and the Base
 
-For any two numbers $x$ and $y$, $x\%$ of $y$ equals $y\%$ of $x$. For example, $16\%$ of $25$ equals $25\%$ of $16$. Since $25\%$ is one-fourth, $16\div4=4$.
+For any two numbers $x$ and $y$, $x\%$ of $y$ equals $y\%$ of $x$. Find $16\%$ of $25$ by switching to $25\%$ of $16$:
+
+$$25\%\text{ of }16$$
+
+$$=\dfrac{1}{4}\times16$$
+
+$$=4$$
 
 ### Find $10\%$ First
 
-To find $15\%$ mentally, find $10\%$, take half of it for $5\%$, and add them. For $240$, $10\%$ is $24$ and $5\%$ is $12$, so $15\%$ is $24+12=36$.
+To find $15\%$ mentally, find $10\%$, take half of it for $5\%$, and add them. Find $15\%$ of $240$. Take $10\%$ by dividing by $10$:
+
+$$240\div10$$
+
+$$=24$$
+
+Take $5\%$ as half of that:
+
+$$24\div2$$
+
+$$=12$$
+
+Add the two parts:
+
+$$24+12$$
+
+$$=36$$
 
 ## Traps to Watch For
 
