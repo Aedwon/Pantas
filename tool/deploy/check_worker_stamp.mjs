@@ -49,6 +49,9 @@ export const PINNED_ROOT_FILES = {
 // Every flavor's code is in every build, so the flavor shows only in what the build step
 // passes in: the App Check site key. This is staging's public key (tool/deploy/staging_web.sh).
 const STAGING_SITE_KEY = '6Lcp8xUuAAAAAICQRMX8-J2JYzU5dxKsj8Qp3sQa';
+// A reCAPTCHA Enterprise site key is 40 characters starting 6L. In a build it is a quoted string
+// (Dart folds the define in as a literal); quotes keep it apart from tables of numbers and ids.
+const SITE_KEY = /["']6L[\w-]{38}["']/;
 // Files a page loads. None may sit at the root of a release.
 const LOADED_AT_ROOT = /^(main\.dart\.[\w.]+|flutter(_bootstrap)?\.js|sqlite3\.wasm|pantas_(?!sw\.js$)[\w-]+\.js|assets\/.*|canvaskit\/.*)$/;
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -193,9 +196,16 @@ function runtimeProblems(dir, build) {
 function targetProblems(dir, build, target) {
   const main = join(dir, build.base, 'main.dart.js');
   if (!existsSync(main)) return [];
-  const forStaging = readFileSync(main, 'utf8').includes(STAGING_SITE_KEY);
+  const text = readFileSync(main, 'utf8');
+  const forStaging = text.includes(STAGING_SITE_KEY);
   if (target === 'staging' && !forStaging) return ['this build was not built for staging (it lacks staging\'s App Check site key): rebuild with tool/deploy/staging_web.sh'];
   if (target === 'prod' && forStaging) return ['this build was built for staging, not prod (it carries staging\'s App Check site key)'];
+  // This repository does not hold prod's key, so a prod build must carry some key. A release web
+  // build with none throws before storage opens (lib/core/platform/app_check.dart), and the app
+  // would show a failure to every student.
+  if (target === 'prod' && !SITE_KEY.test(text)) {
+    return ['this build carries no App Check site key (a release web build without one cannot start): rebuild with --dart-define=APP_CHECK_WEB_SITE_KEY=<prod public site key>'];
+  }
   return [];
 }
 

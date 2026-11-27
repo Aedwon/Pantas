@@ -196,7 +196,7 @@ worker that shipped before (it has no build constant). Roll back by deploying an
 The Cloudflare Worker serves the app (section 14). Firebase Hosting serves only the tiny page in
 `hosting/retired`, so a release never deploys Hosting.
 
-A build without the site key compiles but refuses to start in release mode.
+A build without the site key compiles but refuses to start in release mode, so the guard refuses it for prod and for staging.
 A public build (no `BETA_GATE=true`) also refuses to start while any `SELLER_*` fact above is missing. The seller line beside Pay shows them (ruling D3). Staging and beta builds start with brackets.
 Do not deploy that artifact. Do not use staging's key or entry point.
 

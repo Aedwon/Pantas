@@ -6,7 +6,7 @@ import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 import {createHash} from 'node:crypto';
 import {FIXED_ADDRESS, fingerprints, listHash, stamp, workerBuild} from '../web/stamp_worker_version.mjs';
-import {constantOf, sdkStandIn, writeBuild} from '../../test/web/fixtures/sw_fixture_build.mjs';
+import {buildFiles, constantOf, sdkStandIn, writeBuild} from '../../test/web/fixtures/sw_fixture_build.mjs';
 import {SDK_FILES, SDK_FOLDER, SDK_PATHS} from '../web/firebase_sdk.mjs';
 import {PINNED_ROOT_FILES, stampProblems as realProblems} from './check_worker_stamp.mjs';
 
@@ -30,10 +30,13 @@ writeFileSync(pinsFile, JSON.stringify(pins));
 const stampProblems = (dir, options = {}) => realProblems(dir, {pins, ...options});
 
 // A release build as the staging and prod steps make it: CanvasKit is local.
-function stamped({canvaskit = true} = {}) {
+// `key` is the App Check site key the build step passed: a prod build carries one that is not staging's.
+const PROD_KEY = '6L' + 'p'.repeat(38);
+function stamped({canvaskit = true, key = PROD_KEY} = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'stamp-check-'));
   const files = Object.fromEntries(canvasKit.map(name => [`canvaskit/${name}`, `renderer ${name}`]));
   files[PURCHASES] = FIXTURE_PURCHASES;
+  files['main.dart.js'] = buildFiles('A')['main.dart.js'] + (key ? `var siteKey = "${key}";\n` : '');
   const served = writeBuild(dir, 'A', {files: canvaskit ? files : {[PURCHASES]: FIXTURE_PURCHASES}, localCanvasKit: canvaskit});
   return {dir, base: constantOf(served).base};
 }
@@ -264,6 +267,32 @@ test('High 6: the target flavor is checked, so a staging build cannot go to prod
   assert.deepEqual(stampProblems(stagingBuild.dir, {target: 'staging'}), []);
   assert.match(stampProblems(stagingBuild.dir, {target: 'prod'}).join('\n'), /built for staging, not prod/);
   done(stagingBuild);
+});
+
+// Audit 3, High: a release web build with no site key throws before storage opens
+// (lib/core/platform/app_check.dart), yet the guard passed one for prod.
+test('audit 3 High: a build with no App Check site key is refused for prod and for staging', () => {
+  const keyless = stamped({key: null});
+  for (const target of ['prod', 'staging']) {
+    const problems = stampProblems(keyless.dir, {target}).join('\n');
+    assert.match(problems, /App Check site key/, `${target}: ${problems}`);
+  }
+  const run = spawnSync('node', [script, keyless.dir, '--pins', pinsFile, '--target', 'prod']);
+  assert.equal(run.status, 1);
+  assert.match(run.stderr.toString(), /no App Check site key/);
+  done(keyless);
+});
+
+test('audit 3 High: a prod build with its own site key passes, and a text that only looks like a key does not count', () => {
+  const build = stamped();
+  assert.deepEqual(stampProblems(build.dir, {target: 'prod'}), []);
+  done(build);
+  const lookalike = stamped({key: null});
+  // Unquoted, as it appears in a table of numbers, or the wrong length: not a site key.
+  edit(lookalike.dir, `${lookalike.base}main.dart.js`, text => text + `\nB120Oa8BEa79V206${PROD_KEY.slice(0, 39)}74W\nvar short = "6Lshort";\n`);
+  stamp(lookalike.dir);
+  assert.match(stampProblems(lookalike.dir, {target: 'prod'}).join('\n'), /no App Check site key/);
+  done(lookalike);
 });
 
 test('High 6: the command line needs a target, and only staging or prod', () => {
