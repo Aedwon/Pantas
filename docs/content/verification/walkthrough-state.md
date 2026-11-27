@@ -40,6 +40,14 @@
 - Major fix round (2 writers, `pilot-r2-fix-brief.md`), lead check of every diff. Lead rulings: (1) age pair `wrong-person-or-time`: its second citation (`q-algebra-word-problems-0011`, "12 years old", the right person at the wrong time) shows a different mistake, so it is removed from `content/walkthrough-trap-evidence.json`; the pair keeps `0001` ("14 years old"), which matches. (2) Decimal Quick Check: a writer changed it to "Write 9/25 as a decimal", a step the lesson never works; the lead restored the read-2-audited "Write 3.06 as a fraction in simplest form" (153/50). Read 2's Major on it (same steps as the pair above) is rejected under spec revision point 3: same-kind practice with new numbers is allowed. Result `99feedd99`: lesson checks 0 findings, parser 9/9, pre-tap words 515 to 787.
 - Export (lead): scratch root = `content/cse-question-fixes-r1` `64b45d168` (the 9 lessons there equal the branch base `a7cc22b6b`, so nothing live is overwritten; Math questions unchanged) plus the 9 lessons and this branch's `content/walkthrough-trap-evidence.json`; main `7802b7ae4` tools with `tools/walkthrough-checks-r1` `9cd88773b` `tool/checks/` and `tool/content/lesson_checks.dart` laid on top. `build_content_export.dart` exit 0 (warnings only, all from existing gap tags); `lesson_checks.dart --root` exit 0. Pilot PASS for the 9 lessons under the Nov 27 gate (0 Blockers in their last Codex read; Majors fixed once and lead-checked). Not verified: the walk-through blocks rendering in the app build (renderer branch), and Aedwon's read.
 
+## Math batch 2 (Nov 27, from about 11:00 PM Manila, E-206)
+
+- Lead: walk-through Math lead, batch 2 (fresh session). Policy main `1bceef609`; velocity row `18eaf30ed`, timer E-206 started 15:03 UTC. Plan `docs/superpowers/plans/2026-11-27-walkthrough-math-batch-2.md`.
+- Scope: the other 46 CSE Math drafts, including simple interest (read 2 Blocker open), in batches 2a to 2d (12, 12, 11, 11); pictures for all 55 lessons under spec revision point 5, Percentage Base bar and triangle first.
+- Survey: all 45 non-pilot drafts are still in the old format (1 to 5 Quick Checks, 0 to 4 Check lines each); 23 have a hidden figure note.
+- Pause: 11:40 PM for the 12:05 AM opening (task `scheduled-task:6913067b-ced2-4fdd-a31e-89de5994d83c`, 11:35 PM). Resume on the manager's message.
+- Status: plan written, sent to the manager; no lesson or figure writes yet.
+
 ## Session 5 (Nov 27, from 2:20 PM Manila, E-198)
 
 - Policy read: `origin/main` `3fd9fdf0e`. Manager thread now `c517ddef-dfdb-4aa6-9f0a-401e7c34873d`. The planned 6:45 AM restart never came; the lane was idle from 3 AM. No worker was running and the worktree was clean at `f898f6967`, so there were no partial changes.
