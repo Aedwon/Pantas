@@ -11,7 +11,9 @@
 // default is build/pw/node_modules/playwright. Not a *.test.mjs file, so
 // `node --test` does not need a browser.
 import assert from 'node:assert/strict';
-import {bootOf, controlled, oneBuild, open, pause, settle, start, waitFor, workerState} from './fixtures/browser_harness.mjs';
+import {
+  bootOf, coldHttpCache, controlled, controlledById, controllerId, oneBuild, open, pause, settle, start, waitFor, workerState,
+} from './fixtures/browser_harness.mjs';
 
 // Today's production worker, helper and bootstrap (A, and the rollback target), and new builds.
 const t = await start({
@@ -30,9 +32,14 @@ async function visit(page, name, expected) {
   await controlled(page);
   await pause(500);
   oneBuild(await open(page, base, `second load of ${name}`, {reload: true}), `second load of ${name}`, expected);
+  // The exact worker in charge: today's worker has no build id to report, a new one reports its own.
+  if (name === 'A-prod') assert.equal(await controllerId(page), null, 'today\'s worker controls the page');
+  else await controlledById(page, t.constant(name).id);
 }
 const reload = async (page, label, expected) => oneBuild(await open(page, base, label, {reload: true}), label, expected);
 async function offline(page, label, expected) {
+  // Cold HTTP cache: only the service worker's own storage can answer from here on.
+  await coldHttpCache(page);
   state.down = true;
   try {
     return await reload(page, `${label} (offline)`, expected);

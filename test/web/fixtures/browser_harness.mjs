@@ -125,16 +125,52 @@ export async function bootOf(page, {timeout = 15000} = {}) {
   return {booted, log, builds: [...new Set(log.map(entry => entry.split(':')[0]))]};
 }
 
-/** Asserts a load is all one build, or did not boot; returns the load. */
+/**
+ * Asserts a load is all one build, or did not boot; returns the load. With an expected
+ * build it must have booted: the page's own marker alone is not a boot (audit 2, Medium 9).
+ */
 export function oneBuild(load, label, expected) {
   assert.ok(load.builds.length <= 1, `${label}: boot files from ${load.builds.join(' and ')}: ${load.log.join(' ')}`);
   if (load.booted) assert.equal(load.log.length, 5, `${label}: expected 5 boot files, got ${load.log.join(' ')}`);
   if (expected === null) assert.equal(load.booted, false, `${label}: expected no boot, got ${load.log.join(' ')}`);
-  else if (expected !== undefined) assert.deepEqual(load.builds, [expected], `${label}: ${load.log.join(' ')}`);
+  else if (expected !== undefined) {
+    assert.equal(load.booted, true, `${label}: expected a full boot of ${expected}, got ${load.log.join(' ')}`);
+    assert.deepEqual(load.builds, [expected], `${label}: ${load.log.join(' ')}`);
+  }
   return load;
 }
 
 export const controlled = page => page.waitForFunction(() => navigator.serviceWorker.controller !== null, null, {timeout: 20000});
+
+/** The build id the controlling worker reports, or null (no controller, or today's worker, which has no such message). */
+export const controllerId = page => page.evaluate(() => new Promise(resolve => {
+  const controller = navigator.serviceWorker.controller;
+  if (!controller) return resolve(null);
+  const timer = setTimeout(() => resolve(null), 3000);
+  const channel = new MessageChannel();
+  channel.port1.onmessage = event => {
+    clearTimeout(timer);
+    resolve((event.data && event.data.id) || null);
+  };
+  controller.postMessage({type: 'pantas-build-id'}, [channel.port2]);
+}));
+
+/** Waits until the worker that controls the page reports exactly this build id. */
+export const controlledById = (page, id, timeout = 20000) =>
+  waitFor(async () => (await controllerId(page)) === id, `the controller to be ${id}`, {timeout, every: 300});
+
+/**
+ * Empties the browser's HTTP cache, so an offline load can only be answered by the service worker
+ * (the server being down does not do that: a warm HTTP cache still answers) (audit 2, Medium 9).
+ */
+export async function coldHttpCache(page) {
+  const session = await page.context().newCDPSession(page);
+  try {
+    await session.send('Network.clearBrowserCache');
+  } finally {
+    await session.detach();
+  }
+}
 export const settle = page => page.evaluate(() => navigator.serviceWorker.ready.then(() => true));
 
 /** Goes to the page, tolerating a network that is down (no boot, no error). */
