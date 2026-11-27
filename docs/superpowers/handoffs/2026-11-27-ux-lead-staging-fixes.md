@@ -40,6 +40,16 @@ Proposal (lead):
 - Exam picker, exam date, study days, name: Pro already restores them. For Free, the smallest path is a server copy of those four answers in the same record (native included), read by the same callable; also a privacy-policy-listed collection.
 - Recommendation: build terms skip plus the age record and the Free settings copy together, so a returning student sees no onboarding step at all (only Reminders on a new phone, which is a device permission). Estimate: about 1 day build and tests, plus the legal sentence and its Codex critique.
 
+Manager's middle option (Nov 28, about 1:30 AM, for his answer): skip Terms from the account record; save exam, date, days and name on the account only if the Privacy Policy already covers it; keep asking age on each new device, nothing stored (age is sensitive personal information under RA 10173 s3(l), and the policy says the age never leaves the device).
+
+Privacy Policy coverage check (shipped text, `lib/features/legal/domain/legal_document.dart`, version 2026-11-28):
+- "What we collect" lists "Study records: your study settings, answers, results, study times, bookmarked lessons and flagged questions." So the data is a disclosed category.
+- Where it is kept: "Some records stay in your browser or on your phone. On the web, your answers and study activity also go to our servers, including on Free. ... Pro adds backup and syncing across devices."
+- Covered: web (Free and Pro), where `server/settings` already holds exam, date and days; and Pro on any device, which sync already restores.
+- Not covered: Free on a phone. The text says those records stay on the phone and that syncing across devices is a Pro feature. Storing and restoring them would need a policy change (rule 5, then the rule 9 email once public) and gives Free part of what Pro sells.
+- Name: the Google sign-in name is listed under Account; the name typed in onboarding is a study setting, same coverage as above.
+- Not checked: the "How we use" purposes section line by line for a restore purpose.
+
 ## Next
 
 1. Copy the CI goldens, push, full CI green.
