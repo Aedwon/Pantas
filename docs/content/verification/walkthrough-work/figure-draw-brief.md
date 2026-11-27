@@ -103,6 +103,18 @@ Same rules as rounds 2 to 4. One worker. Rows in `batch-2-figure-list.md` for th
 `infinite-geometric-series.md`, `harmonic-sequence-terms.md` (4 pictures). A picture with a positive-only drawing (lengths,
 areas) says what it assumes in the lesson text beside it, in one short line, if the lesson's numbers could be negative.
 
+## Round 6 (batch 2d, second half; after `a0df70bbd`)
+
+Same rules as rounds 2 to 5. Rows in `batch-2-figure-list.md` for these lessons under
+`content/lessons/mathematics/arithmetic-number-sense/`. Replace each `FIGURE WANTED` note with the ILLUSTRATION marker, and
+place it after the text that introduces its numbers. The signed pair are the approved samples from Nov 25; their notes
+describe the pictures Neon proposed (number line with absolute value, the jump for $(-7)+4$, exponent scope). Keep those
+pictures as described, with numbers equal to the text beside them.
+
+- Figure worker 1: `signed-integer-operations.md` (2), `substituting-negative-numbers.md` (1).
+- Figure worker 2: `odd-and-even-position-patterns.md` (1), `fibonacci-type-sequence-terms.md` (1),
+  `finding-number-patterns.md` (1).
+
 ## Checks
 
 1. SVG validator, no Flutter: `python3 -I <maintools>/tools/check_lesson_svgs.py <root> --validate-only`, where `<root>` is
