@@ -13,7 +13,7 @@ keyPoints:
 ---
 ## Core Concept
 
-A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence. The dots at the end of a list mean that it continues.
+A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence. The dots at the end of a list mean that it continues. Term $n$ means the term in position $n$, counting from $1$.
 
 ### How Fibonacci-Type Sequences Work
 
@@ -48,13 +48,13 @@ Write the position number next to each new term so you do not stop at term $4$ w
 :::pair #double-instead-of-add-prior-two
 Right: Term $5$ is $7+12=19$.
 Wrong: Term $5$ is $2\times12=24$.
-Do not double the previous term. Always add the two terms right before the one you want.
+Do not double the previous term. In a Fibonacci-type sequence, add the two terms right before the one you want.
 :::
 
 :::check
-A Fibonacci-type sequence starts $3,4$. What is its sixth term?
+A Fibonacci-type sequence starts $3,4$. What is the sum of its first five terms?
 :::answer
-The answer is $29$. Write the terms in order: $3,4,7,11,18,29$.
+The answer is $43$. The first five terms are $3,4,7,11,18$, and $3+4+7+11+18=43$.
 :::
 
 ### Working Backward by Subtraction
@@ -83,33 +83,23 @@ Wrong: $29+47=76$
 Adding $29+47$ moves forward to term $6$. When the question asks for an earlier term, subtract instead of adding.
 :::
 
-:::check
-In a Fibonacci-type sequence, the third term is $10$ and the fourth term is $16$. What is the first term?
-:::answer
-The answer is $4$. Subtract to get the second term ($16-10=6$), then subtract again to get the first term ($10-6=4$).
-:::
-
 ### Combining Like Terms with Variables
 
-Sometimes the terms of a Fibonacci-type sequence contain a letter such as $a$. A **coefficient** is the number multiplying a variable. In $2a$, the coefficient of $a$ is $2$.
+Sometimes the terms of a Fibonacci-type sequence contain a letter such as $a$. A **coefficient** is the number multiplying a variable. In $2a$, the coefficient of $a$ is $2$. The $a$ alone has coefficient $1$.
 
 To add two expressions with the same variable, add their coefficients together and add their plain numbers together.
 
 Add $2a+3$ and $a+5$:
 
-$$(2a+3)+(a+5)=(2+1)a+(3+5)=3a+8$$
+$$(2a+3)+(a+5)=(2+1)a+(3+5)$$
 
-:::check
-If $x=a+4$ and $y=2a-1$ are two consecutive terms of a Fibonacci-type sequence, what is the next term?
-:::answer
-The answer is $3a+3$. Combine coefficients and plain numbers: $(1+2)a+(4-1)=3a+3$.
-:::
+$$(2+1)a+(3+5)=3a+8$$
 
 ## Examples
 
 ### #1: Fibonacci-Type Sequence with Variables
 
-If $x,y,z$ are three consecutive terms of a Fibonacci-type sequence in that order, $x=2a+1$, and $y=3a-2$, what is $z$ in terms of $a$?
+If $x,y,z$ are three consecutive terms of a Fibonacci-type sequence in that order, $x=2a+1$, and $y=3a-2$, find $z$ in terms of $a$.
 
 **Solution:**
 
@@ -126,15 +116,13 @@ $$z=(2a+1)+(3a-2)$$
 :::try
 Finish the last step: add the coefficients of $a$ and combine the plain numbers to find $z$.
 :::answer
-The answer is $5a-1$. Combining gives $z=(2+3)a+(1-2)=5a-1$.
-
-**Check:** Test with a sample number, such as $a=3$. Then $x=2(3)+1=7$ and $y=3(3)-2=7$, so $z=7+7=14$. Plug $a=3$ into $5a-1$: $5(3)-1=14$. Both match.
+The answer is $5a-1$. The $a$-terms give $2+3=5$, so $5a$. The plain numbers give $1-2=-1$.
 :::
 
 ## Traps to Watch For
 
 :::checklist
 - Counting forward to a requested position: label each position ($3,4,5$) so you do not stop one term early. {#stop-at-earlier-term}
-- Finding the next Fibonacci-type term: add the previous two terms, never double the last term ($7+12=19$). {#double-instead-of-add-prior-two}
+- Finding the next Fibonacci-type term: add the previous two terms, do not double the last term ($7+12=19$). {#double-instead-of-add-prior-two}
 - Asked for an earlier term when given later terms: step backward by subtracting, not adding ($47-29=18$). {#add-instead-of-work-backward}
 :::

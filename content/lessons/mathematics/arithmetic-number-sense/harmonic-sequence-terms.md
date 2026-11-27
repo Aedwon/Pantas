@@ -37,6 +37,8 @@ $$11-7=4$$
 
 The reciprocals form an arithmetic sequence with common difference $d=4$.
 
+<!-- ILLUSTRATION: Two rows of three boxes. The top row holds the harmonic terms 1/3, 1/7 and 1/11. The bottom row holds their reciprocals 3, 7 and 11. A two-way arrow labeled "flip" joins each top box to the box below it. Under the bottom row, two arcs labeled +4 join 3 to 7 and 7 to 11, showing that the steady step lives in the flipped row. -->
+
 Not every harmonic sequence starts with $1$ in the numerator. Check $6,3,2,\dots$:
 
 1. Take the reciprocal of each term.

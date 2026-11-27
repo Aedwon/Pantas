@@ -91,9 +91,9 @@ Adding $5$ equal terms of $18$ means multiplying $5\times18$, not adding $5+18$.
 :::
 
 :::check
-A geometric sequence has $9$ terms, a first term of $7$, and a common ratio of $1$. What is the sum of its middle $3$ terms?
+A geometric sequence starts $2,8,\dots$. What is the sum of its first $5$ terms?
 :::answer
-The answer is $21$. Because $r=1$, every term is $7$, so the middle $3$ terms (the $4$th, $5$th and $6$th) sum to $3\times7=21$.
+The answer is $682$. The ratio is $r=8\div2=4$, which is not $1$. So $S_5=\dfrac{2(4^5-1)}{4-1}=\dfrac{2(1023)}{3}=682$.
 :::
 
 ## Examples

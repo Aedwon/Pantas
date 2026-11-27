@@ -28,6 +28,8 @@ $$10+13=23$$
 
 In this arithmetic series, every pair has the same sum, $23$. There are $6$ terms, which make $\dfrac{6}{2}=3$ pairs, so the sum is $3\times23=69$.
 
+<!-- ILLUSTRATION: Six boxes in a row hold the terms 4, 7, 10, 13, 16 and 19. Three nested brackets under the row join the outside pairs moving inward: 10 + 13 = 23 for the inner pair, 7 + 16 = 23 for the middle pair, and 4 + 19 = 23 for the outer pair. Below them, "3 pairs × 23 = 69" gives the total. -->
+
 For an arithmetic series with $n$ terms, the sum is:
 
 $$S_n=\dfrac{n}{2}(a_1+a_n)$$

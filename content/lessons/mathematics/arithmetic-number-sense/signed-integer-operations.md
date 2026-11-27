@@ -31,12 +31,6 @@ $$|6|=6$$
 
 Both numbers are $6$ steps from $0$. They only sit on different sides.
 
-:::check
-What is $|-15|$?
-:::answer
-The answer is $15$. The number $-15$ is $15$ steps from $0$.
-:::
-
 ### Adding Two Numbers with the Same Sign
 
 Think of each number as a walk on the number line. A positive number walks right, and a negative number walks left.
@@ -53,12 +47,6 @@ $$5+3=8$$
 Both numbers are negative, so keep the minus sign:
 
 $$(-5)+(-3)=-8$$
-
-:::check
-Find $(-9)+(-6)$.
-:::answer
-The answer is $-15$. Add $9+6=15$. Both numbers are negative, so keep the minus sign.
-:::
 
 ### Adding Two Numbers with Different Signs
 
@@ -82,7 +70,11 @@ The number $-7$ is farther from $0$ than $4$, so the answer is negative:
 
 $$(-7)+4=-3$$
 
-Find $9+(-2)$. Subtract $9-2=7$; $9$ is farther from $0$, so the answer is positive:
+Find $9+(-2)$. Subtract the smaller absolute value from the larger one:
+
+$$9-2=7$$
+
+The number $9$ is farther from $0$, so the answer is positive:
 
 $$9+(-2)=7$$
 
@@ -92,12 +84,6 @@ $$(-6)+6=0$$
 
 :::why
 Why keep the sign of the number farther from $0$? The longer walk decides which side of $0$ you end on. The shorter walk only undoes part of it.
-:::
-
-:::check
-Find $(-11)+5$.
-:::answer
-The answer is $-6$. Subtract $11-5=6$. The number $-11$ is farther from $0$, so the answer is negative.
 :::
 
 ### Subtracting a Signed Integer
@@ -118,7 +104,7 @@ $$(-4)-(-9)=(-4)+9=5$$
 :::pair #subtract-negative
 Right: $5-(-2)=5+2=7$
 Wrong: $5-(-2)=5-2=3$
-The wrong line made only one change. It kept the minus sign between the numbers and dropped the minus sign on $2$. Always make both changes.
+The wrong line made only one change. It kept the minus sign between the numbers and dropped the minus sign on $2$. When you turn a subtraction into an addition, make both changes.
 :::
 
 :::why
@@ -126,9 +112,9 @@ Look at the pattern: $5-2=3$, then $5-1=4$, then $5-0=5$. Each time you take awa
 :::
 
 :::check
-Find $(-3)-7$.
+Find $(-8)-(-5)+(-10)$.
 :::answer
-The answer is $-10$. Change it to $(-3)+(-7)$. Both numbers are negative, so add $3+7=10$ and keep the minus sign.
+The answer is $-13$. Change the subtraction first: $(-8)+5=-3$. Then $(-3)+(-10)$ has two negative numbers, so add $3+10=13$ and keep the minus sign.
 :::
 
 ### Multiplying and Dividing
@@ -157,12 +143,6 @@ Look at the pattern: $2\times(-4)=-8$, then $1\times(-4)=-4$, then $0\times(-4)=
 :::
 
 One more rule: you can never divide by $0$. An expression such as $5\div0$ has no answer. We say it is **undefined**.
-
-:::check
-Find $(-36)\div4$.
-:::answer
-The answer is $-9$. First $36\div4=9$. The signs are different, so the answer is negative.
-:::
 
 ## Examples
 
@@ -200,8 +180,6 @@ $$36+(-4)=32$$
 
 The answer is $32$.
 
-**Check:** Taking away a negative number must make $18$ go up, and it did: $36$. Adding $-4$ then takes $4$ away, so $32$ makes sense. If you got $-4$, you subtracted $18$ instead of adding it.
-
 ### #2: A Negative Start
 
 Evaluate $-15-(-4)\times3+(-24)\div(-6)$.
@@ -226,7 +204,11 @@ $$-15-(-4)\times3+(-24)\div(-6)=-15-(-12)+4$$
 
 $$-15-(-12)+4=-15+12+4$$
 
-4. Add $-15+12$. The signs are different, so subtract $15-12=3$. The number $-15$ is farther from $0$, so the answer is negative.
+4. Add $-15+12$. The signs are different, so subtract the smaller absolute value from the larger one.
+
+$$15-12=3$$
+
+The number $-15$ is farther from $0$, so the answer is negative.
 
 $$-15+12=-3$$
 
@@ -234,14 +216,12 @@ $$-15+12=-3$$
 Finish the last step: $-3+4$.
 :::answer
 The answer is $1$. The signs are different, so subtract $4-3=1$. The number $4$ is farther from $0$, so the answer is positive.
-
-**Check:** The answer $1$ is small and positive. That fits, because $-15$ and the $+16$ that follows it ($12+4$) almost cancel.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- A minus sign right before a negative number: change both signs to plus, so $18-(-18)=18+18=36$. {#subtract-negative}
+- A minus sign right before a negative number: change the minus to a plus and the number to its opposite, so $18-(-18)=18+18=36$. {#subtract-negative}
 - Different signs in a product or quotient: the answer is negative, so $(-28)\div7=-4$. {#quotient-sign}
 - Adding numbers with different signs: take the sign of the number farther from $0$, so $(-7)+4=-3$. {#adding-two-numbers-with-different-signs}
 :::

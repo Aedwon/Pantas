@@ -28,7 +28,7 @@ $$13-9=4$$
 
 Each step adds $4$.
 
-<!-- FIGURE WANTED: number track of five boxes labeled a1=5, a2=9, a3=13, a4=17, a5=21 with four curved "+4" jump arcs between neighboring boxes, bracketed underneath as "4 steps (n - 1), not 5" -->
+<!-- ILLUSTRATION: Five boxes in a row labeled a1 = 5, a2 = 9, a3 = 13, a4 = 17 and a5 = 21. A curved arc labeled +4 joins each box to the next, four arcs in all. A bracket under the row spans from the first box to the fifth and reads "4 steps (n - 1), not 5", showing that reaching position 5 takes 4 steps. -->
 
 To reach the fifth term from $a_1=5$, you take $4$ steps of $+4$, not $5$ steps. In an arithmetic sequence, reaching position $n$ takes $n-1$ equal steps from $a_1$:
 

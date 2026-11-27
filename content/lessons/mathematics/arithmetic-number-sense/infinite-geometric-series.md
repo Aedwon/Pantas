@@ -18,8 +18,6 @@ keyPoints:
 
 An **infinite series** keeps adding terms forever without stopping. It **converges** when the running total gets closer and closer to one finite number. It **diverges** when the running total does not settle toward any finite sum.
 
-<!-- FIGURE WANTED: horizontal bar of total length 2; left half labeled "1", next quarter labeled "1/2", next eighth labeled "1/4", next sixteenth labeled "1/8", with a dashed remaining gap pointing to "approaches 2" -->
-
 Look at $1+\dfrac{1}{2}+\dfrac{1}{4}+\dfrac{1}{8}+\dots$, where the common ratio is $r=\dfrac{1}{2}$. Watch the running totals grow:
 
 $$1$$
@@ -31,6 +29,10 @@ $$1.5+\dfrac{1}{4}=1.75$$
 $$1.75+\dfrac{1}{8}=1.875$$
 
 Each new term cuts the gap to $2$ in half, so the running total approaches $2$.
+
+<!-- ILLUSTRATION: A horizontal bar of total length 2, drawn to scale and marked "Total 2". It is cut into pieces labeled 1, 1/2, 1/4 and 1/8, each half the length of the one before. The pieces fill 1.875 of the bar. A dashed gap of 1/8 is left at the right end and is labeled "approaches 2". -->
+
+The bar draws positive terms only, so a negative ratio cannot be shown this way.
 
 The symbol $|r|$ means the absolute value of $r$, or its distance from $0$. For an infinite geometric series with a nonzero first term $a_1$:
 

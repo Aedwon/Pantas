@@ -29,15 +29,9 @@ $$\dfrac{12}{x} = \dfrac{12}{(-2)} = -6$$
 
 Write the parentheses even when they seem extra. They cost nothing, and they stop the mistakes below.
 
-:::check
-If $x=-5$, what is the value of $2x-3$?
-:::answer
-The answer is $-13$. Substitute with parentheses: $2(-5)-3=-10-3=-13$.
-:::
-
 ### What an Exponent Applies To
 
-An exponent applies only to what sits right before it. If that is a closing parenthesis, the exponent applies to everything inside the parentheses. If it is a number, the exponent applies to that number alone.
+An exponent applies only to what sits right before it. If that is a closing parenthesis, the exponent applies to everything inside the parentheses. If it is a number or a letter, the exponent applies to that number or letter alone.
 
 <!-- FIGURE WANTED: two side-by-side panels. Left: (-3)^2 with a teal outline around "(-3)" joined to the exponent 2, then = (-3) x (-3) = 9. Right: -3^2 with a teal outline around only "3" joined to the exponent 2, the minus sign outside it, then = -(3 x 3) = -9 -->
 
@@ -64,24 +58,18 @@ The wrong line left out the parentheses, so the exponent applied to $3$ alone.
 :::check
 If $a=-4$, find $-a^2$.
 :::answer
-The answer is $-16$. Put $-4$ in parentheses to get $-(-4)^2$, square $(-4)^2=16$, then apply the minus sign in front to get $-16$.
+The answer is $-16$. Put $-4$ in parentheses to get $-(-4)^2$. Square first: $(-4)^2=16$. Then the minus sign in front gives $-16$.
 :::
 
 ### Powers of Negative Numbers
 
-The count of negative signs tells you the sign of a power, too. A negative number to an even power is positive. To an odd power, it is negative.
+The count of negative signs tells you the sign of a power, too. When a negative number sits in parentheses, an even power is positive and an odd power is negative.
 
 Compare $(-2)^2$ and $(-2)^3$:
 
 $$(-2)^2=(-2)\times(-2)=4$$
 
 $$(-2)^3=(-2)\times(-2)\times(-2)=-8$$
-
-:::check
-Find $(-3)^3$.
-:::answer
-The answer is $-27$. Multiply three negative threes: $(-3)\times(-3)\times(-3)=-27$, because an odd power of a negative is negative.
-:::
 
 ## Examples
 
@@ -101,7 +89,11 @@ $$x^2-3xy+\dfrac{12}{x}=(-2)^2-3(-2)(3)+\dfrac{12}{(-2)}$$
 
 $$(-2)^2=4$$
 
-3. Do the product. Work out the number: $3\times2\times3=18$. There is one negative sign, which is odd, so the product is negative.
+3. Do the product. Work out the number first.
+
+$$3\times2\times3=18$$
+
+There is one negative sign, which is odd, so the product is negative.
 
 $$3(-2)(3)=-18$$
 
@@ -129,8 +121,6 @@ $$22+(-6)=16$$
 
 The answer is $16$.
 
-**Check:** Check each part's sign and size in $x^2-3xy+\dfrac{12}{x}$: $(-2)^2=+4$, $-3(-2)(3)=+18$, and $\dfrac{12}{(-2)}=-6$. Putting them together gives $4+18-6=16$, which matches.
-
 ### #2: Two Negative Values
 
 If $a=-3$ and $b=-1$, evaluate $2a^2-ab+b^3$.
@@ -149,7 +139,9 @@ $$(-1)^3=-1$$
 
 3. Do the products. In $(-3)(-1)$ the signs are the same, so the product is positive.
 
-$$2(-3)^2=2\times9=18$$
+$$2(-3)^2=2\times9$$
+
+$$2\times9=18$$
 
 $$(-3)(-1)=3$$
 
@@ -161,8 +153,6 @@ $$2a^2-ab+b^3=18-3+(-1)$$
 Finish the last step: $18-3+(-1)$.
 :::answer
 The answer is $14$. First $18-3=15$. Then $15+(-1)=14$.
-
-**Check:** $b^3$ had to be negative, because $-1$ was raised to an odd power. The middle part had to be taken away, because $ab$ is positive when both values are negative.
 :::
 
 ## Traps to Watch For
