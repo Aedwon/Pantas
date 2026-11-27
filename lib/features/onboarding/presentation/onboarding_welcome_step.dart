@@ -1,13 +1,14 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
-import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -27,10 +28,15 @@ const double _phoneLogoTop = 180;
 class OnboardingWelcomeStep extends StatelessWidget {
   const OnboardingWelcomeStep({
     required this.onAdvance,
+    this.onSignIn,
     this.underCover = false,
     super.key,
   });
   final VoidCallback onAdvance;
+
+  /// Opens the sign-in page for a returning student. Null hides the
+  /// "Already have an account? Sign in" line (a named account is signed in).
+  final VoidCallback? onSignIn;
 
   /// The HTML Welcome screen is still up over this step. It is the page, so
   /// this step draws only the background and the tap that removes the screen
@@ -95,6 +101,13 @@ class OnboardingWelcomeStep extends StatelessWidget {
                     keyHint: 'Enter',
                     onPressed: onAdvance,
                   ),
+                  if (onSignIn case final signIn?) ...[
+                    const SizedBox(height: PantasSpace.s12),
+                    _SignInLine(
+                      onSignIn: signIn,
+                      color: t.colors.textSecondary,
+                    ),
+                  ],
                 ],
               ),
             ),
@@ -156,14 +169,70 @@ class OnboardingWelcomeStep extends StatelessWidget {
                     PantasSpace.s20,
                     PantasSpace.s32,
                   ),
-                  child:
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
                       PantasButton(label: 'Get Started', onPressed: onAdvance),
+                      if (onSignIn case final signIn?) ...[
+                        const SizedBox(height: PantasSpace.s12),
+                        _SignInLine(
+                          onSignIn: signIn,
+                          color: context.colors.textSecondary,
+                        ),
+                      ],
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+/// "Already have an account? Sign in": a returning student signs in before
+/// onboarding. "Sign in" is the link; its tap target is 44 px.
+class _SignInLine extends StatelessWidget {
+  const _SignInLine({required this.onSignIn, required this.color});
+  final VoidCallback onSignIn;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = PantasType.webSub.copyWith(color: color);
+    return Wrap(
+      alignment: WrapAlignment.center,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        Text('Already have an account?', style: style),
+        // ds-raw: PantasButton is a full-width action; this is an inline link
+        TextButton(
+          onPressed: onSignIn,
+          style: ButtonStyle(
+            minimumSize: const WidgetStatePropertyAll(
+              // 48 high: the Android tap-target guideline, above the 44 floor.
+              Size(PantasSize.targetTouch, PantasSize.field),
+            ),
+            padding: const WidgetStatePropertyAll(
+              EdgeInsets.symmetric(horizontal: PantasSpace.s8),
+            ),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            visualDensity: VisualDensity.standard,
+            foregroundColor: WidgetStatePropertyAll(context.colors.accent),
+            overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+          ),
+          child: Text(
+            'Sign in',
+            style: style.copyWith(
+              color: context.colors.accent,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

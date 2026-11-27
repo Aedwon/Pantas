@@ -162,6 +162,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       : step != OnboardingStep.welcome && step != OnboardingStep.launch;
 
   OnboardingStep? get _step => _flow?.step;
+
+  /// A named account is signed in on this device.
+  bool get _signedIn =>
+      ref.read(authStateProvider).valueOrNull is SignedInAuthState;
   final Set<OnboardingStep> _loggedSteps = {};
 
   void _logStep(OnboardingStep step) {
@@ -250,8 +254,13 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     final progress = ref.watch(onboardingProgressProvider);
+    final auth = ref.watch(authStateProvider);
     if (_flow == null) {
-      if (progress.isLoading) return Scaffold(body: loadingFor(progress));
+      // Wait for the first sign-in state, so a signed-in student never sees
+      // Welcome flash before the age step.
+      if (progress.isLoading || auth.isLoading) {
+        return Scaffold(body: loadingFor(const AsyncLoading<void>()));
+      }
       if (progress.hasError) {
         firstScreenReady(context, ref);
         return Scaffold(
@@ -264,6 +273,11 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       var first = ref.read(studyNeedsExamSettingsProvider)
           ? OnboardingStep.picker
           : progress.requireValue.resumeStep;
+      // A student who signed in from Welcome has no use for it again. The age
+      // step stays: it is a per-device legal check.
+      if (first == OnboardingStep.welcome && _signedIn) {
+        first = OnboardingStep.age;
+      }
       final handover = ref.read(welcomeHandoverProvider);
       if (handover.shownThisVisit) {
         // The HTML Welcome screen covers the app until the learner taps Get
@@ -427,6 +441,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           child: OnboardingWelcomeStep(
             underCover: _underCover,
             onAdvance: () => _setStep(OnboardingStep.age),
+            onSignIn:
+                ref.watch(authStateProvider).valueOrNull is SignedInAuthState
+                    ? null
+                    : () => unawaited(context.push<void>('/auth/email-link')),
           ),
         );
       case OnboardingStep.age:
