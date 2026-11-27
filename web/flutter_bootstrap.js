@@ -27,7 +27,15 @@
     performance.mark('page.loader');
   } catch (_) {}
   var base = window.pantasBuildBase;
-  _flutter.loader.load(
-    base ? {config: {entrypointBaseUrl: base, assetBase: base, canvasKitBaseUrl: base + 'canvaskit'}} : {}
-  );
+  // Full CanvasKit in every browser. Left alone, Flutter picks the smaller chromium variant on
+  // Chrome and Edge, on checks the service worker cannot make, so the worker would have to store
+  // both. With the pin it stores one, and an update downloads half the renderer. Safari and
+  // Firefox already run this variant (E-210, audit 2 High 5).
+  var config = {canvasKitVariant: 'full'};
+  if (base) {
+    config.entrypointBaseUrl = base;
+    config.assetBase = base;
+    config.canvasKitBaseUrl = base + 'canvaskit';
+  }
+  _flutter.loader.load({config: config});
 })();
