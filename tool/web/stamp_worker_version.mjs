@@ -219,11 +219,24 @@ export function stamp(dir) {
   const moved = files(dir).filter(name => !atRoot(name));
   const movedSet = new Set(moved);
   const pagePath = join(dir, PAGE);
-  const follow = target => (movedSet.has(target) ? folder + target : target);
+  // Every local reference in the page, in any valid form (spaces, a ./ prefix, either quote),
+  // follows its file into the folder. One that names nothing is refused: it would be left
+  // pointing at the root, where the file no longer is.
+  const isLocal = target => target !== '' && !/^([a-z][a-z0-9+.-]*:|\/|#)/i.test(target);
+  // The folder goes in after any ./ prefix and the rest of the text stays as written, so
+  // removing the folder gives the page back exactly (stamping again keeps the same id).
+  const follow = reference => {
+    const [, path, suffix] = /^([^?#]*)(.*)$/s.exec(reference);
+    if (!isLocal(path)) return reference;
+    const [, prefix, name] = /^((?:\.\/)*)(.*)$/s.exec(path);
+    if (movedSet.has(name)) return prefix + folder + name + suffix;
+    if (existsSync(join(dir, name)) && statSync(join(dir, name)).isFile()) return reference;
+    throw new Error(`${PAGE} names ${name}, which is not in the build.`);
+  };
   // Scripts and links, and url() in the page's own styles (the welcome and splash fonts).
   writeFileSync(pagePath, readFileSync(pagePath, 'utf8')
-    .replace(/\b(src|href)="([^"#?]+)"/g, (all, attribute, target) => `${attribute}="${follow(target)}"`)
-    .replace(/\burl\((['"]?)([^'")#?]+)\1\)/g, (all, quote, target) => `url(${quote}${follow(target)}${quote})`));
+    .replace(/\b(src|href)=(["'])([^"']*)\2/g, (all, attribute, quote, target) => `${attribute}=${quote}${follow(target)}${quote}`)
+    .replace(/\burl\((\s*)(["']?)([^"')]*?)\2(\s*)\)/g, (all, before, quote, target, after) => `url(${before}${quote}${follow(target)}${quote}${after})`));
   for (const name of moved) move(dir, name, folder + name);
   // Last: every file is final, so these are the hashes the worker verifies.
   const list = fingerprints(dir);

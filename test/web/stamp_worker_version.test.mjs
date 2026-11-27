@@ -190,6 +190,65 @@ test('a font url() in the page styles follows the folder, so the welcome screen 
   assert.ok(read(dir, 'index.html').includes(`url('b/${version}/assets/assets/fonts/Geist-Regular.ttf')`));
 });
 
+// ---- Local references in the page, in any valid form (audit 2, new Medium) ----
+
+function pageWith(html) {
+  const dir = build('code');
+  mkdirSync(join(dir, 'assets/assets/fonts'), {recursive: true});
+  writeFileSync(join(dir, 'assets/assets/fonts/Geist-Regular.ttf'), 'ttf');
+  writeFileSync(join(dir, 'assets/assets/fonts/Geist Bold.ttf'), 'ttf');
+  writeFileSync(join(dir, 'index.html'), html);
+  return dir;
+}
+
+test('url() with spaces, a ./ prefix, either quote or none follows the folder', () => {
+  const dir = pageWith(
+    '<style>@font-face { src: url( ./assets/assets/fonts/Geist-Regular.ttf ) }' +
+    '@font-face { src: url( "./assets/assets/fonts/Geist-Regular.ttf" ) }' +
+    "@font-face { src: url(  './assets/assets/fonts/Geist-Regular.ttf'  ) format('truetype') }" +
+    '.x { background: url( ./icons/Icon-192.png ) }</style>' +
+    '<script src="./flutter_bootstrap.js"></script><script src=\'pantas_pwa.js\'></script>' +
+    '<link rel="manifest" href="./manifest.json">');
+  const version = stamp(dir);
+  const page = read(dir, 'index.html');
+  const font = `b/${version}/assets/assets/fonts/Geist-Regular.ttf`;
+  assert.equal(page.split(font).length - 1, 3, page);
+  assert.ok(!page.includes('./assets/'), 'no reference still points at the root');
+  assert.ok(page.includes(`src="./b/${version}/flutter_bootstrap.js"`), page);
+  assert.ok(page.includes(`src='b/${version}/pantas_pwa.js'`), page);
+  assert.ok(page.includes('href="./manifest.json"'), 'a root file keeps resolving');
+  assert.ok(page.includes('icons/Icon-192.png'), 'a file at the root keeps its address');
+  assert.equal(stamp(dir), version, 'stamping again is stable');
+  assert.equal(read(dir, 'index.html'), page);
+});
+
+test('a query or fragment after a local file is kept', () => {
+  const dir = pageWith('<script src="flutter_bootstrap.js?x=1"></script><link href="manifest.json#a" rel="manifest">');
+  const version = stamp(dir);
+  const page = read(dir, 'index.html');
+  assert.ok(page.includes(`src="b/${version}/flutter_bootstrap.js?x=1"`), page);
+  assert.ok(page.includes('manifest.json#a'));
+});
+
+test('external addresses, data URIs, absolute paths and fragments are left alone', () => {
+  const html = '<link rel="preconnect" href="https://www.gstatic.com"><link href="//cdn.test/x.css" rel="stylesheet">' +
+    '<base href="/"><a href="#top">x</a><style>.a { background: url(data:image/png;base64,AAAA) } .b { fill: url(#clip) }</style>' +
+    '<script src="flutter_bootstrap.js"></script>';
+  const dir = pageWith(html);
+  const version = stamp(dir);
+  assert.equal(read(dir, 'index.html'), html.replace('src="flutter_bootstrap.js"', `src="b/${version}/flutter_bootstrap.js"`));
+});
+
+test('a local reference that points at nothing is refused, by name, instead of left to break at the root', () => {
+  for (const html of [
+    '<script src="flutter_bootstrap.js"></script><script src="missing.js"></script>',
+    '<script src="flutter_bootstrap.js"></script><style>@font-face { src: url( ./assets/nothing.ttf ) }</style>',
+    '<script src="flutter_bootstrap.js"></script><link href="icons/Nope.png" rel="icon">',
+  ]) {
+    assert.throws(() => stamp(pageWith(html)), /index\.html names .*, which is not in the build/, html);
+  }
+});
+
 const PURCHASES = 'assets/packages/purchases_flutter/assets/web/purchases_js_hybrid_mappings.js';
 
 test('the one file a package asks for by a fixed root address stays there, and is in the startup set', () => {

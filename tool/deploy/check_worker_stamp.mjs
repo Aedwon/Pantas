@@ -111,11 +111,11 @@ export function stampProblems(dir, {pins = PINNED_ROOT_FILES, target = null} = {
   }
   if (existsSync(join(dir, 'index.html'))) {
     const page = readFileSync(join(dir, 'index.html'), 'utf8');
-    for (const [, name] of page.matchAll(/<script[^>]*\bsrc="([^"]+)"/g)) {
-      if (!name.startsWith(build.base)) problems.push(`index.html loads ${name} from outside ${build.base}`);
+    for (const [, name] of page.matchAll(/<script[^>]*\bsrc=["']([^"']+)["']/g)) {
+      if (!name.replace(/^(\.\/)+/, '').startsWith(build.base)) problems.push(`index.html loads ${name} from outside ${build.base}`);
     }
     for (const name of ['pantas_pwa.js', 'flutter_bootstrap.js']) {
-      if (!page.includes(`"${build.base}${name}"`)) problems.push(`index.html does not load ${build.base}${name}`);
+      if (!new RegExp(`["'](\\./)*${build.base}${name.replace('.', '\\.')}["']`).test(page)) problems.push(`index.html does not load ${build.base}${name}`);
     }
   }
   const metadata = join(dir, 'version.json');
