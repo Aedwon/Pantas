@@ -1,0 +1,27 @@
+# Mathematics audit, round 4: FULL read after the connection rule and fresh-instance sweep (Codex GPT 6.2 Sol high, read-only)
+
+Startup: Work on `Aedwon/Pantas`. Read `AGENTS.md` (including "Maths in content"), `WORKFLOW.md` and `docs/workflow/process-improvement.md` from `origin/main` (`git -C <worktree> show origin/main:<path>`). Read the spec `git show origin/main:docs/superpowers/specs/2026-11-25-lesson-walkthrough-standard.md` (Part B), the lane's rules `docs/content/verification/walkthrough-work/worker-rules.md` and `docs/content/verification/walkthrough-work/pattern-checklist.md` in the worktree, and the approved samples `git show origin/tools/walkthrough-checks-r1:docs/content/walkthrough-samples/<name>.md` for `substituting-negative-numbers`, `signed-integer-operations` and `discounted-prices`.
+
+Hard rules:
+- READ-ONLY on the repository. Never edit, stage or commit anything under `/Users/aedwon/.t3/worktrees/Pantas/`. Do not run dart or flutter.
+- Write findings to `m-r4.md` in your working directory (this folder), appending after each lesson you finish, so a stopped run keeps its work. No em dashes.
+- This is the full read that decides PASS (manager ruling, Nov 27: only a full Codex read with 0 Blockers and 0 Majors counts). Read every lesson once, fully, with its questions. Recompute every number yourself.
+
+Target: worktree `/Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1`, branch `content/lesson-walkthrough-cse-r1`, commit `<TARGET>` (set by the lead at launch). Every lesson that contains a `:::` block in `content/lessons/mathematics/algebra/` (6), `arithmetic-number-sense/` (42) and `data-interpretation/` (7): 55. Lessons without a `:::` block are out of scope. Questions: grep `lesson: <_id>` under `content/questions/mathematics/`.
+
+History: `docs/content/verification/walkthrough-batch-1-math.md` (pre-rule PASS at `25842f38e`). After it: the Nov 26 connection rule was applied to the CSE Algebra and Arithmetic lessons, the `discounted-prices` sample was fixed to a fresh instance, and a fresh-instance sweep changed checks and tries that reused an earlier number set, re-solved by independent workers. No Codex read has covered these changes. Question files are not changed in this lane; report a question-file defect only if it is a Blocker, in a separate section at the end.
+
+Figures: an `<!-- ILLUSTRATION: ... -->` marker shows a drawn figure (files in `content/illustrations/mathematics/<topic>/<lesson>/`, in marker order). A `<!-- FIGURE WANTED: ... -->` comment is a figure not yet drawn and is NOT shown to the student. The text must make sense and be solvable without it. An item that needs a picture the student cannot see is a Blocker if it cannot be solved, a Major if it only reads oddly.
+
+Lead's checks at the target (already run, do not rerun): the app's walk-through parser passes every walk-through lesson; `lesson_checks.dart` from `tools/walkthrough-checks-r1` passes (size, split coverage, pool, trap-pair evidence for every pair, example connection, fresh instance, example Check line, closing fences, line breaks, block spacing); main's content export passes.
+
+Standard to audit against (all of these):
+1. Aedwon's example rule (verbatim, Nov 26): "notice what's missing here? there was not enough context given here. where's the expression from? ... the lessons should be clearly assisting the user to understand logic" / "for example: you could say, Let's substitute x=-2 to the terms 3x x^2 and 12/x, and that would be clearer" / "no that's too wordy now, you just made it wordy. i wanted you to connect things better, not explain with more words. those are entirely different asks" / on the target "Let's substitute x = -2 into 3x, x^2 and 12/x:" followed by each chain to its value: "yes that's it!". Each worked example opens with one short lead-in naming what we find and from what; every display chain starts from its expression and ends at its value; one move per line; no narration. Flag missing connections AND added wordiness.
+2. Every number, step, rule and answer correct and scoped (recompute; check units, rounding and signs; "farther from 0", never "bigger", for negatives). A rule with an unstated exception or precondition is a finding.
+3. Fresh instances: every `:::check` and `:::try` tests a rule the lesson taught, on a number set not already worked or stated earlier in the lesson. It has exactly one defensible answer. No visible step, stem phrase or heading gives the answer away. Each try's `**Check:**` is inside its `:::answer`. Every worked example ends with a `**Check:**` (a second method or a sense check).
+4. Every `:::pair` Wrong line shows the mistake of a non-correct choice cited for that pair in `content/walkthrough-trap-evidence.json`, from a question whose `lesson:` is that lesson.
+5. Grade 5 English in lesson prose, American spelling, no em or en dashes, `\dfrac` not top-level `\frac` (nested fractions may use `\frac`), math between single dollars.
+
+Format: `Severity | file:line | problem | fix`, Blocker (wrong number or false rule, unsolvable or ambiguous item, answer given away, broken structure), Major (missing connection, citation mismatch, misleading wording, wordiness, reused instance), Minor (style).
+
+End `m-r4.md` with `MATH VERDICT: PASS` or `MATH VERDICT: FAIL (N Blockers, M Majors, K Minors)`, then `STAGE-DONE`. PASS means zero Blockers and zero Majors.

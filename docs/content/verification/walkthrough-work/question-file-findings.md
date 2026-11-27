@@ -24,3 +24,11 @@ Settled by the release lead on branch `content/cse-question-fixes-r1`, commit `2
 When these lessons move to the content root, take the root's copies of those 11 questions, never this branch's.
 
 Lead's note: rows 1, 2 and 4 matter most, since a student who learns the lesson's rule could be marked wrong. Each needs the question process (blind solve, `approve.dart`) in its own commit.
+
+## Round 8 full read (Nov 27, session 5): one new row, open
+
+| # | Severity | File:line | Problem | Fix |
+|---|---|---|---|---|
+| 13 | Blocker | pronoun-antecedent-agreement.yaml:108 (q 0005) | The stem says "Choose the pronoun referring to its policy", which prints the keyed form *its* before the student answers. Still present at `22b8ccc2f`. | Say "referring to the company's policy." |
+
+Sent to the manager for the release lead (question owner). This lane does not edit it.
