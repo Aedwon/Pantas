@@ -75,7 +75,19 @@
           .register('pantas_sw.js?v=' + encodeURIComponent(version))
           .catch(function () {});
       } catch (_) {}
-      swapping = withTimeout(registration().then(swap), STARTUP_SWAP_MS, false);
+      // A takeover asked for here belongs to this start. When the page stops waiting
+      // and starts Flutter, the request expires: a late answer must not reload the app.
+      var startup = {expired: false};
+      swapping = withTimeout(
+        registration().then(function (found) {
+          return swap(found, startup);
+        }),
+        STARTUP_SWAP_MS,
+        false
+      ).then(function (result) {
+        if (!result) startup.expired = true;
+        return result;
+      });
     }
     return swapping.then(function (result) {
       mark('page.worker');
@@ -156,28 +168,53 @@
     });
   }
 
+  // True when the worker that controls this page is the build `id`.
+  function controlledBy(id) {
+    var controller = navigator.serviceWorker.controller;
+    if (!controller) return Promise.resolve(false);
+    return ask(controller, {type: 'pantas-build-id'}).then(function (reply) {
+      return !!reply && reply.id === id;
+    });
+  }
+
   // Asks the waiting worker to take over and reloads into the new build. The
-  // worker agrees only when this is the only window of the app, because it
-  // deletes the older build's files when it activates. Resolves true when a
-  // reload is under way.
-  function swap(found) {
+  // worker agrees only when this is the only window of the app: a window of the
+  // older build then never meets a page of the newer one. Resolves true when the
+  // worker took over (the reload follows once it controls this page), false when
+  // nothing was waiting, the worker refused or did not answer, or `gate` (a start
+  // that has stopped waiting) expired.
+  function swap(found, gate) {
     return readyBuild(found).then(function (id) {
-      if (!id) return false;
+      if (!id || (gate && gate.expired)) return false;
       var reloading = false;
       function reload() {
         if (reloading) return;
         reloading = true;
         window.location.reload();
       }
-      navigator.serviceWorker.addEventListener('controllerchange', reload);
+      // Reload only when the asked worker controls the page: another worker taking
+      // control is not this update.
+      function reloadIfControlled() {
+        return controlledBy(id).then(function (yes) {
+          if (yes) reload();
+        });
+      }
+      function onChange() {
+        if (gate && gate.expired) {
+          navigator.serviceWorker.removeEventListener('controllerchange', onChange);
+          return;
+        }
+        reloadIfControlled();
+      }
+      navigator.serviceWorker.addEventListener('controllerchange', onChange);
       return ask(found.waiting, {type: 'pantas-take-over'}).then(function (reply) {
-        if (!reply || reply.ok !== true) {
-          navigator.serviceWorker.removeEventListener('controllerchange', reload);
+        if (!reply || reply.ok !== true || (gate && gate.expired)) {
+          navigator.serviceWorker.removeEventListener('controllerchange', onChange);
           return false;
         }
-        // The worker is activating. Reload when it controls this page, or anyway if
-        // that takes too long.
-        setTimeout(reload, 5000);
+        // The worker is activating. Check once more after a while, in case the
+        // change of controller was missed.
+        setTimeout(reloadIfControlled, 5000);
         return true;
       });
     });

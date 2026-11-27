@@ -110,9 +110,10 @@ class UpdateCoordinator {
       if (!_safe || _epoch != epoch) return;
       _applying = true;
       try {
-        await _bridge.apply();
-        // Failed checks or apply calls remain eligible at the next safe point.
-        _attempted.add(version);
+        final applied = await _bridge.apply();
+        // Failed checks, refused applies (another window is open) and applies
+        // with nothing to switch to remain eligible at the next safe point.
+        if (applied) _attempted.add(version);
       } finally {
         _applying = false;
       }

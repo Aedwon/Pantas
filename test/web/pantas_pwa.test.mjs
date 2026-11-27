@@ -92,8 +92,9 @@ test('an update already installed and waiting takes over before Flutter starts, 
     controller: 'https://app.example/pantas_sw.js?v=old', waiting: { id: 'next' }, waitingAtLoad: true,
   });
   assert.equal(await pwa.registerWorker('old'), true, 'the caller must not start Flutter');
-  assert.deepEqual(page.posted.map((m) => m.type), ['pantas-build-id', 'pantas-take-over']);
-  await Promise.resolve();
+  assert.deepEqual(page.posted.map((m) => m.type).slice(0, 2), ['pantas-build-id', 'pantas-take-over']);
+  // The reload waits for the answer to "who controls the page now".
+  await new Promise((done) => setImmediate(done));
   assert.equal(page.reloads(), 1);
 });
 

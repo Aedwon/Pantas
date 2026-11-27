@@ -81,38 +81,53 @@ test('checks before bootstrap do not claim a running version', async () => {
   assert.equal(p.update.currentVersion, null);
 });
 
+const tick = () => new Promise((done) => setImmediate(done));
+
 test('apply asks the waiting worker to take over and reloads when it controls the page', async () => {
   const p = await started({waiting: {id: 'next'}});
-  const applying = p.update.apply();
-  await applying;
-  assert.deepEqual(p.posted.map((m) => m.type), ['pantas-build-id', 'pantas-take-over']);
-  await Promise.resolve();
+  const applied = await p.update.apply();
+  assert.equal(applied, true, 'apply reports the takeover');
+  assert.deepEqual(p.posted.map((m) => m.type).slice(0, 2), ['pantas-build-id', 'pantas-take-over']);
+  await tick();
   assert.equal(p.reloads(), 1, 'reloaded once the worker took control');
 });
 
-test('apply does nothing when another window is open: the worker refuses', async () => {
+test('apply does nothing when another window is open: the worker refuses, and apply says so', async () => {
   const p = await started({waiting: {id: 'next', windowsOk: false}});
-  await p.update.apply();
+  assert.equal(await p.update.apply(), false, 'a refusal is not an applied update (audit 2, Medium 7)');
   assert.equal(p.reloads(), 0);
   assert.equal(p.listening(), 0, 'the page stopped waiting for a takeover that will not come');
   p.controllerChange();
+  await tick();
   assert.equal(p.reloads(), 0);
 });
 
-test('apply with nothing waiting does not reload', async () => {
+test('apply with nothing waiting does not reload, and says nothing was applied', async () => {
   const p = await started();
-  await p.update.apply();
+  assert.equal(await p.update.apply(), false);
   assert.equal(p.reloads(), 0);
   assert.deepEqual(p.posted, []);
 });
 
-test('a takeover that never reports control still reloads, after five seconds', async () => {
+test('a takeover that never reports control still reloads after five seconds, once the target controls the page', async () => {
   const p = await started({waiting: {id: 'next'}});
   p.sw.addEventListener = () => {};
   await p.update.apply();
+  await tick();
   assert.equal(p.reloads(), 0);
   p.fire(5000);
+  await tick();
   assert.equal(p.reloads(), 1);
+});
+
+test('the page reloads only when the worker that controls it is the one it asked, not another worker', async () => {
+  const p = await started({waiting: {id: 'next', controls: false}});
+  assert.equal(await p.update.apply(), true, 'the worker accepted');
+  await tick();
+  assert.equal(p.reloads(), 0, 'a controllerchange to some other worker is not the update');
+  p.fire(5000);
+  await tick();
+  assert.equal(p.reloads(), 0, 'nor is the five second check, while another worker controls the page');
 });
 
 test('a reload happens once even if the worker reports control twice', async () => {
@@ -120,6 +135,32 @@ test('a reload happens once even if the worker reports control twice', async () 
   await p.update.apply();
   p.controllerChange();
   p.controllerChange();
+  await tick();
+  assert.equal(p.reloads(), 1);
+});
+
+// ---- A takeover asked for at startup expires with the startup (audit 2, Medium 7) ----
+
+test('a startup takeover that answers after the page stopped waiting does not reload the running app', async () => {
+  const p = loadPage({controller: 'https://app.test/pantas_sw.js?v=running', waitingAtLoad: true, waiting: {id: 'next', holdTakeOver: true}});
+  const startup = p.pwa.registerWorker('running');
+  await tick();
+  p.fire(2500); // the page gives up waiting and starts Flutter
+  assert.equal(await startup, false);
+  p.releaseTakeOver(); // the worker answers late: it did take over
+  await tick();
+  await tick();
+  assert.equal(p.reloads(), 0, 'no reload under a running app');
+  assert.equal(p.listening(), 0, 'and nothing is left listening');
+  p.fire(5000);
+  await tick();
+  assert.equal(p.reloads(), 0);
+});
+
+test('a startup takeover that answers in time still reloads into the new build before Flutter starts', async () => {
+  const p = loadPage({controller: 'https://app.test/pantas_sw.js?v=running', waitingAtLoad: true, waiting: {id: 'next'}});
+  assert.equal(await p.pwa.registerWorker('running'), true);
+  await tick();
   assert.equal(p.reloads(), 1);
 });
 

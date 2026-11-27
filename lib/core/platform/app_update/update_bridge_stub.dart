@@ -8,5 +8,5 @@ class _NativeUpdateBridge implements UpdateBridge {
   Future<UpdateStatus> check() async =>
       const UpdateStatus(available: false, version: null);
   @override
-  Future<void> apply() async {}
+  Future<bool> apply() async => false;
 }

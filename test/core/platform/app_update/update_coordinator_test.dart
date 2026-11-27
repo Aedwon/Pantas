@@ -11,6 +11,10 @@ class FakeBridge implements UpdateBridge {
   Future<void>? applyWait;
   Exception? failure;
   Exception? checkFailure;
+
+  /// What the browser answers: false when the worker refused (another window
+  /// is open) or nothing was waiting.
+  bool applied = true;
   @override
   Future<UpdateStatus> check() async {
     if (checkFailure != null) throw checkFailure!;
@@ -18,10 +22,11 @@ class FakeBridge implements UpdateBridge {
   }
 
   @override
-  Future<void> apply() async {
+  Future<bool> apply() async {
     applies++;
     await applyWait;
     if (failure != null) throw failure!;
+    return applied;
   }
 }
 
@@ -106,6 +111,23 @@ void main() {
     bridge.version = 'another';
     await coordinator.check();
     expect(bridge.applies, 2);
+  });
+
+  test(
+      'a refused apply is not recorded as attempted, so the next safe point '
+      'tries again', () async {
+    // A second window made the worker refuse. Closing it must let the update
+    // through, not leave this version marked as done (audit 2, Medium 7).
+    bridge.applied = false;
+    coordinator.routeChanged('/home');
+    await coordinator.check();
+    await coordinator.check();
+    expect(bridge.applies, 2);
+    bridge.applied = true;
+    await coordinator.check();
+    expect(bridge.applies, 3);
+    await coordinator.check();
+    expect(bridge.applies, 3, reason: 'applied once, then no more');
   });
 
   test('failed apply does not consume the reload attempt', () async {
@@ -296,6 +318,6 @@ void main() {
   test('native bridge is a no-op', () async {
     final native = createUpdateBridge();
     expect((await native.check()).available, isFalse);
-    await native.apply();
+    expect(await native.apply(), isFalse);
   });
 }

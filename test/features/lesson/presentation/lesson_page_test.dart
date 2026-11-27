@@ -1103,7 +1103,8 @@ class _LessonUpdateBridge implements UpdateBridge {
   Future<UpdateStatus> check() async =>
       const UpdateStatus(available: true, version: 'next');
   @override
-  Future<void> apply() async {
+  Future<bool> apply() async {
     applies++;
+    return true;
   }
 }

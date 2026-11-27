@@ -24,6 +24,8 @@ class FakeChannel {
  *  waitingAtLoad true when it is already waiting as the page loads; otherwise a test
  *                attaches it with page.arrive(), like an install that finishes later
  *  silentWaiting true when the waiting worker never answers
+ *  waiting.holdTakeOver  the take-over reply waits until page.releaseTakeOver()
+ *  waiting.controls      false when, after the take-over, another worker controls the page
  *  updateFails   true when registration.update() rejects
  *  noPerformance true for a page with no performance API
  */
@@ -40,6 +42,8 @@ export function loadPage({
   const registered = [];
   const events = {};
 
+  // `held` is the reply to a take-over request that the test releases by hand (holdTakeOver).
+  let held = null;
   const waitingWorker = waiting && {
     state: 'installed',
     postMessage(message, ports = []) {
@@ -48,9 +52,17 @@ export function loadPage({
       const [port] = ports;
       if (message.type === 'pantas-build-id') port.postMessage({id: waiting.id});
       if (message.type === 'pantas-take-over') {
-        port.postMessage({ok: waiting.windowsOk !== false});
-        // The real worker skips waiting and claims the page: a controllerchange follows.
-        if (waiting.windowsOk !== false) Promise.resolve().then(() => (events.controllerchange || []).slice().forEach((fn) => fn()));
+        const ok = waiting.windowsOk !== false;
+        const answer = () => {
+          port.postMessage({ok});
+          if (!ok) return;
+          // The real worker skips waiting and claims the page: it becomes the controller, and
+          // a controllerchange follows. `controls: false` is a claim by some other worker.
+          if (waiting.controls !== false) sw.controller = waitingWorker;
+          Promise.resolve().then(() => (events.controllerchange || []).slice().forEach((fn) => fn()));
+        };
+        if (waiting.holdTakeOver) held = answer;
+        else answer();
       }
     },
   };
@@ -63,7 +75,11 @@ export function loadPage({
     },
   };
   const sw = {
-    controller: controller ? {scriptURL: controller} : null,
+    // The worker running the page's build answers like the real one.
+    controller: controller ? {
+      scriptURL: controller,
+      postMessage: (message, [port]) => message.type === 'pantas-build-id' && port.postMessage({id: 'running'}),
+    } : null,
     register(script) {
       registered.push(script);
       if (registerFails) return Promise.reject(new Error('blocked'));
@@ -95,6 +111,7 @@ export function loadPage({
   return {
     window, pwa: window.pantasPwa, update: window.pantasUpdate, document, marks, timers, listeners, posted, registered, sw, registration,
     arrive: () => (registration.waiting = waitingWorker),
+    releaseTakeOver: () => held && held(),
     reloads: () => reloads, updates: () => updates,
     // Fires the first timer waiting at `ms` that has not been cleared.
     fire: (ms) => timers.find((t) => t.ms === ms && !t.cleared)?.fn(),

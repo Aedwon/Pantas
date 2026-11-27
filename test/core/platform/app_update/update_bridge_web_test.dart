@@ -35,8 +35,21 @@ void main() {
     final status = await bridge.check();
     expect(status.available, isTrue);
     expect(status.version, 'new-build');
-    await bridge.apply();
+    // An older page script returns nothing and reloads on its own.
+    expect(await bridge.apply(), isTrue);
     expect(reloads, 1);
+  });
+
+  test("apply reports the worker's answer: taken over, or refused", () async {
+    for (final answer in [true, false]) {
+      _update = _Api(
+        check: (() => Future.value(
+              _Status(available: true, version: 'new-build'),
+            ).toJS).toJS,
+        apply: (() => Future.value(answer.toJS).toJS).toJS,
+      );
+      expect(await createUpdateBridge().apply(), answer);
+    }
   });
 
   test('old pages without the bridge are a no-op', () async {
@@ -45,7 +58,7 @@ void main() {
     final status = await bridge.check();
     expect(status.available, isFalse);
     expect(status.version, isNull);
-    await bridge.apply();
+    expect(await bridge.apply(), isFalse);
   });
 
   test('reload errors propagate so the coordinator can retry', () async {
