@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Final staging proof held to a cutoff that had already passed (Nov 27)
+
+- His words (about 4:35 PM Manila Nov 27): "what's the reason we had to wait for tonight? couldn't it be done yesterday?"
+- Wrong: the final staging proof of the opening build was set for Friday 8:00 PM, "after the renderer cutoff", with homepage heads accepted until Friday 9 PM. Both late items landed Thursday: the renderer merged, and the homepage head stayed at 179613d from Thursday 2:57 PM. The opening build was complete with CI green Thursday about 7 PM. The proof could have run Thursday night or Friday morning, leaving a full day to fix a defect before the 6 AM opening instead of ten hours overnight.
+- Why it got through: the schedule was set when the late items were still open, and nobody rechecked it when they landed. The manager takeover carried the times forward from the handoff without asking whether their reason still held.
+- Fix (required step, manager and release lead): when the last item a scheduled step waits for lands, the owner moves the step to the earliest slot the free tier and his checks allow, and tells the manager. At each takeover and heartbeat, the manager checks every timed release step against the reason it was given, and moves it if the reason is gone. Applied now: the rebuild and final proof moved from 7:30 and 8:00 PM to about 4:40 PM Friday.
+
 ### Walk-through lessons loop through rewrites and re-audits (Nov 27, repeat)
 
 - His words (about 3:50 PM Manila Nov 27): "i'm afraid we might be in a endless loop of poor writes and repeating audits. please rethink this whole process through. i do not want to waste any more usage than necessary".
