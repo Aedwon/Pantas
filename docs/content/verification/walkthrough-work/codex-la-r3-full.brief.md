@@ -7,7 +7,7 @@ Hard rules:
 - Write findings to `la-r3.md` in your working directory (this folder), appending after each lesson you finish, so a stopped run keeps its work. No em dashes.
 - This is the full read that decides PASS (manager ruling, Nov 27: only a full Codex read with 0 Blockers and 0 Majors counts). Read every lesson once, fully, with its questions.
 
-Target: worktree `/Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1`, branch `content/lesson-walkthrough-cse-r1`, commit `<TARGET>` (set by the lead at launch). Every lesson in `content/lessons/language-proficiency/language-application/` that contains a `:::` block (24; 19 English, 5 Filipino). Questions: grep `lesson: <_id>` under `content/questions/language-proficiency/language-application/`.
+Target: worktree `/Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1`, branch `content/lesson-walkthrough-cse-r1`, commit `3cf5cf08e` (the files in scope are unchanged in the worktree after it). Every lesson in `content/lessons/language-proficiency/language-application/` that contains a `:::` block (24; 19 English, 5 Filipino). Questions: grep `lesson: <_id>` under `content/questions/language-proficiency/language-application/`.
 
 History: Fable 5.2 high round 1 (`fable-la-r1.md`: 0 Blockers, 3 Majors, 35 Minors) and round 2 (`fable-la-r2.md`: PASS, 0 Blockers, 0 Majors, 11 Minors, at `2985cdcd9`) are in `docs/content/verification/walkthrough-work/`. The 11 Minors were fixed after round 2. Fable is a pre-check only; this is the first Codex read since the Nov 26 rules. Question files are not changed in this lane; report a question-file defect only if it is a Blocker, in a separate section at the end.
 
