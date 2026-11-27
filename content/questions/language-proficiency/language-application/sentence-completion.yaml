@@ -609,7 +609,7 @@ questions:
     type: fill-in-the-blank
     difficulty: exam
     stem: |
-      Piliin ang angkop na pang-ugnay: "Ipinagpatuloy ang pagpupulong ___ hindi pa dumarating ang hinihintay na ulat; taliwas ito sa inaasahang pagpapaliban."
+      Inaasahang ipagpapaliban ang pagpupulong kapag wala pa ang ulat. Piliin ang pang-ugnay na nagpapakitang itinuloy ang pulong sa kabila nito: "Ipinagpatuloy ang pagpupulong ___ hindi pa dumarating ang hinihintay na ulat."
     choices:
       - text: "ngunit"
         correct: true

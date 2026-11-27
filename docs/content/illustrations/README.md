@@ -78,3 +78,13 @@ sequence before importing.
   figures in Reasoning especially — there the image IS the question.)
 - English text only in labels, Grade-5-simple wording, consistent with the
   lesson voice.
+
+## Removed figures
+
+Figures whose marker was deleted with its example. They are not in the
+generated worklist. Do not draw or reuse one until a corrected example needs
+it; the old file stays in git history.
+
+| Lesson | Was | Marker text | Why removed |
+|---|---|---|---|
+| reasoning/spatial-abstract-reasoning/figure-turns-and-positions | marker 4, `04-arrows-pointing-up-upper-right.svg` | arrows pointing up, upper-right, lower-right, and lower-left in four equal frames, followed by a blank; choices arrows pointing down, up, upper-right, and upper-left; do not label turn angles | Nov 27, 2026: its Example 3 "Growing Turns" taught a false rule (the turns are 45, 90 and 90 degrees, not 45, 90 and 135). Record: `docs/content/verification/fix-cse-content-r10.md`. |

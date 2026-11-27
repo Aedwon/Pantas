@@ -13986,9 +13986,9 @@
     "lesson": "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they"
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0005": {
-    "approvedAt": "2026-11-15",
-    "evidence": "docs/content/verification/grammar-and-structure.md",
-    "hash": "5edc89e826cb01a685b8d91902c85ab6061f6d4d127c11800af8dad3808e8151",
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/fix-cse-content-r10.md",
+    "hash": "a37b72f579c043a2c409b4d592450e75cb3b716da4ce088730696041078bc30a",
     "lesson": "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents"
   },
   "q-grammar-and-structure-pronoun-antecedent-agreement-0006": {
@@ -15342,9 +15342,9 @@
     "lesson": "lesson-language-application-pagkumpleto-ng-pangungusap"
   },
   "q-language-application-sentence-completion-0028": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-exam-tags.md",
-    "hash": "6ba52c97ef1ac6b27003d40d06feed1bc3dee4a6f2eabe426ea02d9dfa1eaecf",
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/fix-cse-content-r10.md",
+    "hash": "b3dc4256d63c0edf8c2e9ed017b1e599a6528c58a2e417b6c22150aba6d8f51d",
     "lesson": "lesson-language-application-pagkumpleto-ng-pangungusap"
   },
   "q-language-application-sentence-completion-0029": {

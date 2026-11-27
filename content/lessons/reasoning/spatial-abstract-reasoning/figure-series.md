@@ -101,22 +101,7 @@ A dot appears at the top-left, top-right, bottom-right, then bottom-left corner 
 1. The dot moves to the next corner clockwise at each step.
 2. After bottom-left, the next corner clockwise is top-left. The dot returns there.
 
-### #6: Growing Turns
-
-The arrows in a series point up, upper-right, lower-right, then lower-left. Which direction completes the series: down, up, upper-right, or upper-left?
-
-<!-- ILLUSTRATION: arrows pointing up, upper-right, lower-right, and lower-left in four equal frames, followed by a blank; choices arrows pointing down, up, upper-right, and upper-left; do not label turn angles -->
-
-**Solution:**
-
-1. Compare each arrow with the next. The clockwise turns are $45^\circ$, $90^\circ$, and $135^\circ$.
-2. These turns grow by $45^\circ$. The next turn is:
-
-$$135^\circ+45^\circ=180^\circ$$
-
-3. A $180^\circ$ turn takes the lower-left arrow halfway around. It will point upper-right.
-
-### #7: Two Mixed Patterns
+### #6: Two Mixed Patterns
 
 The series shows a circle with $1$ dot, a white square, a circle with $2$ dots, and a black square. These are followed by a circle with $3$ dots, a white square, a circle with $4$ dots, and a blank. What belongs in the blank?
 
@@ -148,7 +133,7 @@ A choice may have the right fill but the wrong size. Combine the results after c
 
 > Check the direction and size of each turn.
 
-Some series use equal turns. Others use growing turns, as in Example $6$. Repeating the first turn would give the wrong direction there.
+Some series use equal turns, as in Example $1$. Others use growing turns. Repeating the first turn would give the wrong direction there.
 
 ### #4: Inventing a Size
 

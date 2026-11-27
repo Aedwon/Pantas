@@ -105,7 +105,7 @@ questions:
     type: "pronoun-reference"
     difficulty: "medium"
     stem: |
-      Treat the company as one organization, not its individual members. Choose the pronoun referring to its policy: "The company announced ___ new policy yesterday."
+      Treat the company as one organization acting as a unit. Choose the pronoun that refers to the company: "The company announced ___ new policy yesterday."
     choices:
       - text: "Its"
         correct: true
