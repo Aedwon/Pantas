@@ -135,6 +135,7 @@ pass 15, retire or merge one first.
   1. Required step (every content upload, staging and prod, now): read the upload's exit code; if it is not 0, rerun the same upload at once until it exits 0. The re-plan after it must say both "update":0 and "exam summaries: unchanged"; anything else is not done.
   2. Tool fix proposed to the manager (needs his yes; changes the shared upload tool, about 30 min): write summary documents in small batches and retry a batch that times out, with a test that fails on the current single 400-document batch.
   Cost of this instance: prod 17,914 reads for the quota day after it (9,668 before; most of the rise is the uploads' own plans), no errors.
+- Repeat (Nov 28, 1:43 to 1:47 AM Manila): the mixture-question prod upload timed out three times on the summaries before a fourth run passed; four failures in one night across staging and prod. The manager gave the yes for the tool fix (item 2 above), which the CSE release lead r10 builds next.
 
 ### Walk-through lesson spacing and nesting found by Aedwon on staging (Nov 27)
 
