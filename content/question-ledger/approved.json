@@ -1806,9 +1806,9 @@
     "lesson": "lesson-algebra-motion-chase-problems"
   },
   "q-algebra-word-problems-0022": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "00e4a344c9c70dbf4ff1f66cca605c720162557d1513d6e64bb8fc95b471c9df",
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/fix-math-2b-questions-r1.md",
+    "hash": "50ede9e7ee213787a7d6d7f5abb413ca7aba2d5632086040c0b7bd2341aa09a6",
     "lesson": "lesson-algebra-motion-meeting-and-separation"
   },
   "q-arithmetic-number-sense-business-math-0001": {
@@ -2598,9 +2598,9 @@
     "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
   },
   "q-arithmetic-number-sense-order-of-operations-0019": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-exam-tags.md",
-    "hash": "6243364393548d24c32a99145df3ef5be59fe95d5010b52b61fc51b1ee583cf4",
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/fix-math-2b-questions-r1.md",
+    "hash": "c75ff468bb659d90e379f87fca97efcba2f5f928004de37046d7289a277ce23a",
     "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
   },
   "q-arithmetic-number-sense-order-of-operations-0020": {

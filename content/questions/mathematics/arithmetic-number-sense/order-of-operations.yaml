@@ -437,7 +437,7 @@ questions:
     type: which-is-true
     difficulty: hard
     stem: |
-      Which rule is valid when evaluating an expression with no grouping symbols?
+      Which rule is valid when evaluating an expression that uses only addition, subtraction, multiplication and division, with no grouping symbols?
     choices:
       - text: 'Evaluate equal-priority operations from left to right.'
         correct: true
