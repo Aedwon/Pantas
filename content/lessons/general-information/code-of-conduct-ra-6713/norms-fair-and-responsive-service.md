@@ -29,7 +29,7 @@ Evaluate a clerk who speaks politely to wealthy landowners yet ignores an elderl
 
 :::pair #justness-vs-party-bias
 Right: Match truth to the people, respect for rights, and fairness toward the poor to Justness and sincerity.
-Wrong: Picking Political neutrality when an employee mistreats poor applicants or violates someone's rights.
+Wrong: Picking Political neutrality when an employee discriminates against poor applicants.
 Political neutrality specifically covers party affiliation, while Justness and sincerity governs fairness, rights, and protecting the poor.
 :::
 
@@ -79,7 +79,7 @@ Review a city housing office posting plain-language checklists online and cuttin
 
 :::pair #responsiveness-beyond-courtesy
 Right: Match prompt service, clear rules, open information, public hearings, and cutting red tape to Responsiveness to the public.
-Wrong: Assigning prompt, courteous, and adequate public service to Professionalism or Commitment to democracy.
+Wrong: Assigning prompt, courteous, and adequate public service to Professionalism.
 Responsiveness goes beyond politeness to cover service speed, clear rules, open information, hearings, and simpler steps.
 :::
 
@@ -123,8 +123,8 @@ A transport board plans new jeepney rules. It hosts a public consultation, posts
 
 **Solution:**
 
-1. Identify the actions: hosting a hearing, explaining rules clearly, and removing extra stamps speed up and simplify access.
-2. Rule out narrower views: politeness alone does not cover hearings, open rules, or cutting red tape.
+1. Separate the board's actions: list the steps it took on rules, public input, and permit stamps.
+2. Test scope: check whether those actions fit politeness alone or broader duties under Section $4$(A).
 
 :::try
 Finish the last step: name the Section $4$(A) norm and state two duties beyond courtesy shown by the board.
@@ -137,7 +137,7 @@ The answer is **Responsiveness to the public.** Beyond courtesy, the board gives
 ## Traps to Watch For
 
 :::checklist
-- Poverty or rights bias: match unfair treatment of the poor and rights violations to Justness and sincerity. {#justness-vs-party-bias}
+- Poverty discrimination: match unfair treatment of the poor to Justness and sincerity instead of Political neutrality. {#justness-vs-party-bias}
 - Party-based service: assign equal service across party lines to Political neutrality. {#political-neutrality-party}
 - Politeness versus full responsiveness: include clear rules, open records, hearings, and cutting red tape under Responsiveness to the public. {#responsiveness-beyond-courtesy}
 :::

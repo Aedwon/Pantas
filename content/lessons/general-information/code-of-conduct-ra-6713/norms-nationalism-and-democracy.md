@@ -28,7 +28,7 @@ Examine a public hospital director choosing Philippine-developed diagnostic soft
 
 :::pair #nationalism-local-goods
 Right: Match loyalty to the Republic, local goods and technology, pride of country, and defending sovereignty to Nationalism and patriotism.
-Wrong: Assigning promotion of locally produced goods or loyalty to the Filipino people to Commitment to public interest.
+Wrong: Assigning promotion of locally produced goods and technology to Commitment to public interest.
 Commitment to public interest guards funds and property, while Section $4$(A)(f) specifically names local products and national sovereignty.
 :::
 
@@ -105,8 +105,8 @@ A health bureau equips rural clinics with Philippine-made solar vaccine coolers 
 
 **Solution:**
 
-1. Analyze the first action: choosing Philippine-made solar coolers promotes locally produced goods and technology.
-2. Analyze the second action: publishing spending and repair logs lets the public hold officials accountable for public resources.
+1. Check the first action: identify what choosing Philippine-made solar coolers supports under Section $4$(A).
+2. Check the second action: identify what letting citizens track public spending upholds under Section $4$(A).
 
 :::try
 Finish the last step: match both actions to their exact Section $4$(A) norms and state why neither switches places.
@@ -119,7 +119,7 @@ The answer is **Nationalism and patriotism for the local coolers, and Commitment
 ## Traps to Watch For
 
 :::checklist
-- Local goods and sovereignty: assign them to Nationalism and patriotism even without the word loyalty. {#nationalism-local-goods}
+- Local goods and technology: assign them to Nationalism and patriotism instead of Commitment to public interest. {#nationalism-local-goods}
 - Constitution and country over party: match them to Commitment to democracy, not Nationalism and patriotism. {#democracy-vs-nationalism}
 - Answering to the people: keep public accountability and equal service above personal or party power. {#accountability-to-people}
 :::

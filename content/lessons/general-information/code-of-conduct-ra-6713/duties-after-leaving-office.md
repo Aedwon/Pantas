@@ -50,9 +50,9 @@ Section $7(b)$ carries the recommendation ban forward for the full $1$-year peri
 :::
 
 :::check
-Eight months after retiring, a former port collector recommends her nephew to a shipping firm with a pending tariff refund before her former port. Is that allowed?
+Fourteen months after retiring, a former collector recommends her nephew to a shipping firm with a pending refund before her former port. Is that allowed under Section $7(b)$?
 :::answer
-The answer is **No**. At $8$ months, the $1$-year Section $7(b)(3)$ recommendation ban still covers firms with pending former-office matters.
+The answer is **Yes**. The post-separation recommendation ban under Section $7(b)$ lasts $1$ year, so it expired after $12$ months.
 :::
 
 ### Former-Office Practice Versus All Private Work
@@ -116,7 +116,7 @@ Eight months after leaving a labor department, a former arbiter accepts a factor
 
 **Solution:**
 
-1. Check the wage appeal: arguing before her former department involves a matter before her former office inside the $1$-year window.
+1. Check the wage appeal: test whether $8$ months and arguing before the former department trigger Section $7(b)(2)$.
 2. Check evening teaching: test whether teaching at a private college involves a regulated firm or former-office matter.
 
 :::try

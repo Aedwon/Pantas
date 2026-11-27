@@ -121,7 +121,7 @@ An officer asks a bidder with a pending contract for free lunch vouchers. Separa
 
 **Solution:**
 
-1. Check the vouchers: Section $7(d)$ bars soliciting anything of value from a firm affected by the office.
+1. Check the vouchers: test whether asking a pending bidder for lunch vouchers triggers Section $7(d)$.
 2. Check the cost sheet: test if giving confidential cost figures for free breaks Section $7(c)$.
 
 :::try

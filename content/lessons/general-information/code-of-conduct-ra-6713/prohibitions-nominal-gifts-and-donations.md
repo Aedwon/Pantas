@@ -34,7 +34,7 @@ Evaluate a clerk receiving an unrequested cheap keychain from a community worksh
 
 :::pair #small-gift-no-favor
 Right: An unsolicited nominal gift fits Section $3(c)$ only when no favor is expected or exchanged.
-Wrong: Accepting a requested small token for quick permit approval, or treating low price alone as a complete exemption.
+Wrong: Accepting a small token requested in return for promptly approving a permit.
 Check three points together: unsolicited, nominal under the circumstances, and unrelated to any expected or exchanged favor.
 :::
 
@@ -72,7 +72,7 @@ Why bar expected transactions on personal donations? Someone planning a bid or p
 
 :::pair #expected-transaction-bars-donation
 Right: Personal nominal donations require no regular, pending, and no expected transaction with the agency.
-Wrong: Checking only already-pending transactions, or thinking nominal value removes all conditions about agency dealings.
+Wrong: Checking only already-pending transactions while ignoring planned future applications.
 Check all three time frames for the donor's dealings: regular, pending, and expected transactions.
 :::
 
@@ -130,7 +130,7 @@ The answer is **Citizen A meets the personal-donation exception, while Citizen B
 ## Traps to Watch For
 
 :::checklist
-- Solicited or favor-linked small gifts: reject any requested or favor-tied gift regardless of low price. {#small-gift-no-favor}
+- Solicited small tokens: reject any requested token tied to a permit favor regardless of low price. {#small-gift-no-favor}
 - Polite notes or early thanks: check expected official favors beyond wording and timing. {#post-service-or-courtesy-note}
-- Nominal personal donations: bar the donation whenever a regular, pending, or expected agency transaction exists. {#expected-transaction-bars-donation}
+- Expected personal donations: check planned future applications alongside pending and regular dealings. {#expected-transaction-bars-donation}
 :::

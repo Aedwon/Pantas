@@ -45,7 +45,7 @@ Why memorize the exact count and order? Exams often test how many norms Section 
 
 :::pair #eight-named-norms
 Right: Section $4$(A) names $8$ norms in order, and duties like efficiency sit inside those norms.
-Wrong: Counting sub-duties inside Section $4$(A) as extra norms, giving $10$ or $12$ norms.
+Wrong: Counting sub-duties inside Section $4$(A) as extra norms, giving $10$ norms.
 Count only the $8$ lettered headings from Commitment to public interest through Simple living.
 :::
 
@@ -135,8 +135,8 @@ A clerk finishes safety audits accurately and tells walk-in friends that persona
 
 **Solution:**
 
-1. Match both acts: accurate audits show skill and devotion, while refusing shortcuts rejects undue patronage.
-2. Rule out Commitment to public interest: these facts do not center on saving public funds.
+1. Inspect both acts: identify what accurate audits and refusing personal shortcuts test under Section $4$(A).
+2. Compare norms: check whether the facts center on saving public funds or on how the clerk performs her duties.
 
 :::try
 Finish the last step: name the norm, state its position in Section $4$(A), and link both acts to it.

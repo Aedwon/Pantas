@@ -118,7 +118,7 @@ A retired teacher serves unpaid at a provincial library under a written order. S
 
 **Solution:**
 
-1. Check SALN filing: Rule XII exempts properly designated free-service volunteers from filing a SALN.
+1. Check SALN filing: test whether a written unpaid volunteer order qualifies for Rule XII's filing exemption.
 2. Check the gift card: test whether Rule XII's filing exemption changes Section $3(b)$ gift rules.
 
 :::try

@@ -117,7 +117,7 @@ A retired nurse mails a pension adjustment request to the labor department inste
 
 **Solution:**
 
-1. Check the transfer: forwarding the file to the proper agency completes half of Rule VI.
+1. Check the transfer: inspect whether the clerk sent the file to the agency with authority over pensions.
 2. Check sender notice: test whether silent forwarding satisfies the receiving office's referral duty.
 
 :::try

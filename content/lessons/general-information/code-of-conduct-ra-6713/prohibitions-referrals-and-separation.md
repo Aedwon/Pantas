@@ -28,7 +28,7 @@ Evaluate a city engineering chief emailing an endorsement from home for a survey
 
 :::pair #referral-merit-not-exception
 Right: Only referrals required by law, international commitments, or assigned duties escape the Section $7(b)(3)$ ban.
-Wrong: Thinking strong job qualifications, off-duty hours, or using a personal email account removes the recommendation ban.
+Wrong: Thinking strong job qualifications remove Section $7(b)(3)$'s ban on recommending to a transacting firm.
 Check the firm's transactions with the office and whether a legal mandate or assigned duty requires the referral.
 :::
 
@@ -60,7 +60,7 @@ Why keep these limits for $1$ year after separation? A $1$-year cooling-off wind
 
 :::pair #one-year-cooling-off
 Right: The post-separation limits under Section $7(b)$ last exactly $1$ year after resignation, retirement, or separation.
-Wrong: Using $6$ months, $2$ years, or $3$ years as the Section $7(b)$ post-separation cooling-off period.
+Wrong: Shortening the Section $7(b)$ post-separation cooling-off period to $6$ months.
 Remember one rule across all three Section $7(b)$ paragraphs: the statutory cooling-off period is $1$ year.
 :::
 
@@ -110,7 +110,7 @@ Nine months after leaving a power board, an engineer recommends her cousin to a 
 
 **Solution:**
 
-1. Check the referral: the supplier has regular board dealings, and $9$ months sits inside the $1$-year Section $7(b)(3)$ ban.
+1. Check the referral: test the supplier's regular board dealings and the $9$-month gap against Section $7(b)(3)$.
 2. Check software work: test whether it involves a board-regulated firm or a matter before her former board.
 
 :::try
@@ -124,7 +124,7 @@ The answer is **The referral violates Section $7(b)$, while the software consult
 ## Traps to Watch For
 
 :::checklist
-- Qualified applicants or private emails: require law, treaty, or assigned duty for referrals instead of merit or timing. {#referral-merit-not-exception}
-- Cooling-off duration: apply $1$ year after separation, never $6$ months, $2$ years, or $3$ years. {#one-year-cooling-off}
+- Qualified applicants: require law, treaty, or assigned duty for referrals instead of applicant qualifications. {#referral-merit-not-exception}
+- Cooling-off duration: apply $1$ full year after separation, never shortening it to $6$ months. {#one-year-cooling-off}
 - Former-office practice scope: bar any matter before the former office for $1$ year without banning unrelated practice. {#former-office-matter-scope}
 :::

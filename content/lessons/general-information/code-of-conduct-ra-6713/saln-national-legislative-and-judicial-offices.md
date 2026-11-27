@@ -71,9 +71,9 @@ Trial-court judges have their own named repository under Section $8(A)(2)$, the 
 :::
 
 :::check
-A Sandiganbayan associate justice and a Regional Trial Court judge submit their annual SALNs. Which statutory repository receives each filing?
+A Municipal Trial Court judge submits his annual SALN, and his clerk mails it to the Clerk of Court of the Supreme Court. Did the clerk pick the right statutory repository?
 :::answer
-The answer is **The Clerk of Court of the Supreme Court for the justice, and the Court Administrator for the judge.** Section $8(A)(2)$ routes justices to the Supreme Court Clerk and judges to the Court Administrator.
+The answer is **No**. Section $8(A)(2)$ routes justices to the Supreme Court Clerk, while trial-court judges file with the Court Administrator.
 :::
 
 ## Examples
@@ -127,5 +127,5 @@ The answer is **The Clerk of Court of the Supreme Court.** Section $8(A)(2)$ cre
 :::checklist
 - Legislative chambers: route Senators to the Secretary of the Senate and House members to the House Secretary. {#each-chamber-own-secretary}
 - Supreme Court and appellate justices: route them to the Clerk of Court of the Supreme Court, not the Ombudsman. {#justices-clerk-not-ombudsman}
-- Trial-court judges: route them to the Court Administrator, not the Ombudsman or President. {#judges-court-administrator}
+- Trial-court judges: route them to the Court Administrator, not the Ombudsman. {#judges-court-administrator}
 :::

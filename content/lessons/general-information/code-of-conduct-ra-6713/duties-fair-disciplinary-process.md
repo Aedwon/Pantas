@@ -115,7 +115,7 @@ A building office halts permit release under a court restraining order. Still, t
 
 **Solution:**
 
-1. Check the clerk's silence: the court order delayed final release, yet never excused skipping a timely written reply.
+1. Check the clerk's silence: test whether a court order halting permit release excuses skipping a $15$-working-day reply.
 2. Check the chief's fine: test whether an apparent Section $5(a)$ lapse lets a chief skip notice and hearing under Section $11(a)$.
 
 :::try

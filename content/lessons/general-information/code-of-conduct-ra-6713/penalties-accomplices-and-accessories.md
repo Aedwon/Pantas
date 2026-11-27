@@ -102,7 +102,7 @@ Answer: The facts fit an accomplice role, subject to proving Section $11(c)$ con
 
 ### #2: Burning Records After the Violation
 
-A manager had zero part before or during a Section $7$ offense. After learning of it, the manager shreds signed receipts to stop investigators from discovering the crime. Which role applies?
+A manager had no prior part in a Section $7$ offense. Later, the manager shreds signed receipts to hide the crime from investigators. Which role applies?
 
 **Solution:**
 
@@ -110,13 +110,13 @@ A manager had zero part before or during a Section $7$ offense. After learning o
 2. Article $19$: destroying instruments to prevent discovery is an accessory act.
 3. Limits: check Article $20$ relative rules and Section $11(c)$ conspiracy proof.
 
-Answer: The conduct fits an accessory under Article $19$, while Section $11(c)$ requirements still apply.
+Answer: Accessory under Article $19$, subject to Section $11(c)$ conditions.
 
 **Check:** Verify knowledge of the completed crime and post-crime action for accessory status.
 
 ### #3: Sorting Lawful Clients From Post-Crime Helpers
 
-Investigators examine two outsiders tied to a Section $7(d)$ gift scheme. First, a courier paid normal counter fees for a permit. Second, a cousin took no prior part, then hid gifted watches later to block discovery. Check both under Section $11(c)$.
+Investigators examine two outsiders in a Section $7(d)$ gift case. A courier paid normal permit fees. A cousin took no prior part, then hid gifted watches to block discovery. Check both under Section $11(c)$.
 
 **Solution:**
 

@@ -54,7 +54,7 @@ Under Section $3$(j), **divestment** means transferring title or disposing of an
 Two strict rules govern valid divestment:
 
 1. **Disallowed recipients**: never transfer to a **spouse** or covered **relatives** (within the fourth civil degree of consanguinity or affinity, plus bilas, inso, and balae).
-2. **No retained control**: give up actual control, not just paper title or a board seat alone.
+2. **No retained control**: give up actual control as well as paper title and any board seat.
 
 Compare selling $100\%$ of conflicting telecom shares to a first cousin versus selling $100\%$ outright to an unrelated buyer with zero retained control:
 
@@ -113,7 +113,7 @@ A maritime regulator must divest voting shares in a shipping line. Proposal A tr
 
 **Solution:**
 
-1. Proposal A: although the investor is unrelated, the voting side contract keeps the regulator in control.
+1. Proposal A: check both the buyer's relation and the voting side contract under Section $3$(j).
 2. Rule check: Section $3$(j) requires complete, actual disposal with zero retained control.
 
 :::try
@@ -129,5 +129,5 @@ The answer is **Only Proposal B satisfies Section $3$(j).** Proposal B transfers
 :::checklist
 - Indirect stockholding: count shares held indirectly if they can elect a corporate director. {#indirect-shares-and-potential-clash}
 - Spouse and relative transfers: never count a transfer to a spouse or fourth-degree relative as valid divestment. {#no-transfer-to-spouse-or-relatives}
-- Retained control: give up both title and control, not just paper title or a board seat alone. {#must-give-up-control-and-shares}
+- Retained control: give up both title and control instead of paper title or a board seat alone. {#must-give-up-control-and-shares}
 :::

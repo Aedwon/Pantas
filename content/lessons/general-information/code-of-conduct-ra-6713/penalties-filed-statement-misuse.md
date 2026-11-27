@@ -16,7 +16,7 @@ keyPoints:
 
 ### Prohibited Uses Under Section $8(D)$
 
-A **SALN** is a Statement of Assets, Liabilities, and Net Worth. Assets are things owned, liabilities are debts, and net worth is assets minus debts.
+A **SALN** is a Statement of Assets, Liabilities, and Net Worth, listing things owned, debts, and net worth.
 
 Public inspection rules let citizens read and copy filed statements, yet public access never permits every use.
 
@@ -91,20 +91,20 @@ The answer is **The clerk concerned, for up to ₱$25{,}000$**. Section $11(d)$ 
 
 ### #1: Newspaper Story Versus Commercial Mailing List
 
-A daily newspaper prints a factual comparison of governors' disclosed debts to inform voters. Meanwhile, a marketing firm uses the same SALNs to sell mailing lists to resorts. Rule on both uses under Section $8(D)$.
+A newspaper prints a factual comparison of governors' debts to inform voters. A marketing firm uses the same SALNs to sell resort mailing lists. Rule on both.
 
 **Solution:**
 
 1. Newspaper: informing the public through news media fits Section $8(D)$'s exception.
 2. Marketing firm: selling mailing lists is commercial use outside news media and violates Section $8(D)$.
 
-Answer: The newspaper story is allowed, whereas the marketing firm's mailing list is prohibited.
+Answer: The newspaper story is allowed, while the mailing list is prohibited.
 
 **Check:** Separate public news reporting from commercial data sales under Section $8(D)$.
 
 ### #2: Standing and Ceiling for Statement Resale
 
-A startup pays copying fees and sells a paid online wealth directory of bureau directors. One director sues under Section $11(d)$. The startup claims only statement buyers can sue and damages stop at ₱$5{,}000$. Is that right?
+A startup buys copies and sells an online wealth directory of bureau directors. One director sues under Section $11(d)$. The startup claims only buyers can sue and damages cap at ₱$5{,}000$. Is that right?
 
 **Solution:**
 

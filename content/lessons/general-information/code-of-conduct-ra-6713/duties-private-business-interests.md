@@ -117,7 +117,7 @@ A hospital supply chief works as a **broker** for a device firm licensed by his 
 
 **Solution:**
 
-1. Check the broker role: the department licenses the device firm, and broker is barred unless expressly allowed by law.
+1. Check the broker role: test the licensed firm, the broker role, and the director's note against Section $7(b)(1)$.
 2. Check the film shares: test whether shares held by his wife for him violate Section $7(a)$.
 
 :::try

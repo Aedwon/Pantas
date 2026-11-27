@@ -98,18 +98,18 @@ Answer: Secretary of Justice for Executive offices, and Chief Justice for Judici
 
 **Check:** Congress needs chamber majority votes, Executive needs the Secretary of Justice, and Judicial needs the Chief Justice.
 
-### #2: Timing and Fact Match on an Opinion
+### #2: Unapproved Draft and Differing Facts
 
-A Senate committee issues an opinion approved by majority Senate vote on June $10$. Officer A relies on it honestly in August with matching facts. Officer B cites it for a different act done in March. Who is protected?
+An Executive office head writes an ethics opinion without Secretary of Justice approval, and Worker A relies on it. Meanwhile, Worker B relies on a Chief Justice-approved Judicial opinion for materially different business facts. Is either worker protected?
 
 **Solution:**
 
-1. Officer A: majority approval, matching facts, and reliance after June $10$ all hold.
-2. Officer B: the March act came before issuance, and the facts differed.
+1. Worker A: Executive office-head opinions carry zero protection until approved by the Secretary of Justice.
+2. Worker B: an approved opinion protects only similar facts, never materially different conduct.
 
-Answer: Only Officer A is protected from RA $6713$ sanctions.
+Answer: Neither Worker A nor Worker B is protected from RA $6713$ sanctions.
 
-**Check:** Protection requires proper approval, honest reliance after issuance, and matching facts.
+**Check:** Protection requires branch-head or chamber approval, matching facts, and honest reliance after issuance.
 
 ### #3: Review Defect and Co-Worker Reliance
 

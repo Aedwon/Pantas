@@ -44,9 +44,9 @@ Section $261(a)$ bars any valuable benefit offered to sway votes, in cash or goo
 :::
 
 :::check
-During the election period, a volunteer hands out prepaid phone cards to voters who pledge support for a council candidate. Does Section $261(a)$ cover this?
+During the election period, a voter accepts bus fare and rice for promising to vote for a mayor. Does Section $261(a)$ cover the voter?
 :::answer
-The answer is **Yes**. Prepaid phone cards are valuable benefits offered to influence votes, and private campaign workers are covered under Section $261(a)$.
+The answer is **Yes**. Section $261(a)$ bans vote selling too, covering any voter who accepts money, food, or goods for a vote.
 :::
 
 ### Classifying and Evaluating Mixed Effects

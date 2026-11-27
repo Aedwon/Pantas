@@ -30,7 +30,7 @@ Evaluate an analyst whose sibling holds silent shares for him in a printer vendo
 
 :::pair #office-approval-interest
 Right: Section $7(a)$ bans any direct or indirect money or property stake in a transaction requiring office approval.
-Wrong: Focusing on document signatory limits or annual-report deadlines while ignoring a worker's private financial stake.
+Wrong: Focusing on document signatory limits while ignoring a worker's private financial stake.
 Trace who gains or loses money from the transaction and whether the worker's office must approve it.
 :::
 
@@ -64,7 +64,7 @@ Why require express law instead of supervisor consent? A statute sets a public r
 
 :::pair #express-law-only
 Right: Only express authorization in a law lifts the Section $7(b)(1)$ ban on roles in office-regulated businesses.
-Wrong: Treating a supervisor's informal verbal approval, department custom, or promising not to sign papers as legal authority.
+Wrong: Treating a supervisor's informal verbal approval as express legal authority under Section $7(b)(1)$.
 Check whether a statute expressly allows the role; office customs and verbal assurances never count.
 :::
 
@@ -104,17 +104,17 @@ Answer: Yes, Section $7(b)(1)$ prohibits the corporate post.
 
 ### #3: Indirect Gain Versus Statutory Board Seats
 
-An airport planner lets an uncle hold shares for him in a lighting vendor bidding on an authority-approved contract. Meanwhile, a transport director sits on a ferry operator's board because the ferry charter law expressly assigns an agency seat. How does Section $7$ treat each official?
+An airport planner accepts a supplier's promise of a post-award consulting payout if his authority approves its baggage-scanner bid. Meanwhile, a transport director sits on a ferry operator's board because the ferry charter law expressly assigns an agency seat. How does Section $7$ treat each official?
 
 **Solution:**
 
-1. Analyze the planner: holding shares via an uncle creates an indirect interest in an authority-approved bid.
+1. Check the planner: test whether a promised post-award consulting payout on an authority-approved bid triggers Section $7(a)$.
 2. Analyze the board seat: managing a regulated firm triggers Section $7(b)(1)$, so check whether the charter law gives express permission.
 
 :::try
 Finish the last step: rule on both the planner and the director under Section $7(a)$ and Section $7(b)(1)$.
 :::answer
-The answer is **The planner violates Section $7(a)$, while the director meets Section $7(b)(1)$'s express-law exception.** Indirect shares in an office-approved bid are barred, while a statutory mandate expressly allows the board seat.
+The answer is **The planner violates Section $7(a)$, while the director meets Section $7(b)(1)$'s express-law exception.** A promised payout tied to an office-approved bid is an indirect financial interest, while a statute expressly allows the board seat.
 
 **Check:** Separate Section $7(a)$ office-approved financial interests from Section $7(b)(1)$ roles permitted expressly by law.
 :::
@@ -122,6 +122,6 @@ The answer is **The planner violates Section $7(a)$, while the director meets Se
 ## Traps to Watch For
 
 :::checklist
-- Office-approved financial stake: check for direct or indirect money interests instead of paperwork rules. {#office-approval-interest}
-- Regulated business exceptions: require express permission in a law, never verbal supervisor consent, custom, or recusal promises. {#express-law-only}
+- Office-approved financial stake: check for direct or indirect money interests instead of document signatory limits. {#office-approval-interest}
+- Regulated business exceptions: require express permission in a law, never informal verbal consent from a supervisor. {#express-law-only}
 :::

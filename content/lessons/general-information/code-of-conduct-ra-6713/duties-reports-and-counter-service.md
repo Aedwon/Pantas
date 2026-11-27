@@ -41,9 +41,9 @@ Section $5(a)$ sets $15$ working days for letters, while Section $5(b)$ gives $4
 :::
 
 :::check
-A provincial hospital submits its annual performance report $52$ working days after year-end, citing heavy patient loads. Does that meet Section $5(b)$?
+A provincial library files its annual performance report $44$ working days after year-end, leaving lobby copies open. An aide objects that $45$ calendar days passed. Did it meet Section $5(b)$?
 :::answer
-The answer is **No**. Section $5(b)$ requires heads or responsible officers to submit the annual performance report within $45$ working days from year-end.
+The answer is **Yes**. Section $5(b)$ counts $45$ working days, not calendar days, and lobby copies stayed open during regular office hours.
 :::
 
 ### Prompt Service at the Counter
@@ -107,7 +107,7 @@ A municipal treasurer submits the annual report $42$ working days after year-end
 
 **Solution:**
 
-1. Check the report: $42$ working days is timely, yet locking the report breaks Section $5(b)$'s inspection duty.
+1. Check the report: test both the $42$-working-day filing date and locking the copy under Section $5(b)$.
 2. Check the counter clerk: test if Section $5(a)$'s $15$-day rule excuses delaying a walk-in vendor.
 
 :::try

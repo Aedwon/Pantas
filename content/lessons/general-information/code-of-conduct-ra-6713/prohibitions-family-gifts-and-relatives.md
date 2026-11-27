@@ -118,8 +118,8 @@ Three anniversary guests give gifts with no gain expected: the employee's father
 
 **Solution:**
 
-1. Father's first cousin: $3$ steps up to great-grandparents plus $2$ down equals $5$ degrees, past the fourth-degree cap.
-2. Neighbor: neighborhood friendship creates no blood, affinity, or named tie.
+1. Count steps: compute the civil degree for her father's first cousin and for her husband's sister.
+2. Check relationship status: test whether a neighbor has a blood degree, marriage degree, or named tie.
 
 :::try
 Finish the last step: rule on all three gifts under Section $3(k)$ and Rule X, Section $1(f)(2)$.

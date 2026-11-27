@@ -69,7 +69,7 @@ Why cap routine papers at $3$ signatories and name substitutes? Long sign-off ch
 
 :::pair #three-signatory-limit
 Right: Written actions should carry at most $3$ initials or signatures as far as practicable.
-Wrong: Routing routine papers through $4$ or $5$ approving officers as a general office habit.
+Wrong: Routing routine papers through $4$ approving officers as a general office habit.
 Section $5(c)$ caps signatories at $3$ as far as practicable unless law requires more.
 :::
 
@@ -119,7 +119,7 @@ A supply office has no statutory deadline for clearing bonds. When the chief tra
 
 **Solution:**
 
-1. Check the deadline claim: Rule VI requires the agency head, not clerks, to set a reasonable period by rules.
+1. Check the deadline claim: test who must set a reasonable period under Rule VI when no statute names one.
 2. Check the signature: test whether verbal permission lets a non-OIC aide sign under Section $5(c)$.
 
 :::try

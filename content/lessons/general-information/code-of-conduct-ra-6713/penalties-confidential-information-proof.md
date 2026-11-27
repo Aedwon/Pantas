@@ -98,26 +98,26 @@ Answer: Only sending the unapproved internal fraud audit violates Section $7(c)$
 
 **Check:** Require both confidential status and a prohibited purpose for Section $7(c)$.
 
-### #2: Coexisting Administrative Discipline and Acquittal
+### #2: Substantial Evidence Cannot Bind a Criminal Court
 
-A hospital buyer's account downloads competitor prices minutes before a vendor alters its bid. After notice and hearing, the agency suspends the buyer on substantial evidence. At trial, an unlocked terminal leaves reasonable doubt. How do both rulings stand?
-
-**Solution:**
-
-1. Criminal verdict: reasonable doubt under Rule $133$, Section $2$ requires acquittal.
-2. Suspension: substantial evidence under Rule $133$, Section $6$ still supports administrative discipline.
-
-Answer: Both outcomes stand because each case applies its own proof standard.
-
-**Check:** Match substantial evidence to administrative discipline and reasonable doubt to criminal trials.
-
-### #3: Disputed Tablet Access and Dual Proceedings
-
-A port inspector's office tablet sends sealed cargo schedules to an importer. The inspector shows evidence that a trainee used the unlocked tablet. After notice and hearing, the board removes the inspector on substantial evidence. The criminal court retains reasonable doubt on intent. Rule on both cases.
+An agency board finds substantial evidence that a clerk leaked sealed bid estimates to a supplier and dismisses him. The board then demands a Section $7(c)$ criminal conviction without extra proof. Must the criminal court convict?
 
 **Solution:**
 
-1. Check Section $7(c)$ elements: confirm the schedules were non-public and check prohibited-purpose evidence.
+1. Administrative standard: substantial evidence under Rule $133$, Section $6$ supports dismissal after notice and hearing.
+2. Criminal standard: Rule $133$, Section $2$ requires proof beyond reasonable doubt, so substantial evidence alone cannot convict.
+
+Answer: No, the criminal court must acquit unless the evidence removes reasonable doubt.
+
+**Check:** Match substantial evidence to agency discipline and proof beyond reasonable doubt to criminal conviction.
+
+### #3: Disputed Intent in Dual Proceedings
+
+A mining officer attaches an unredacted inspection memo in an email to a trade reporter, claiming a clerical attachment mistake. After notice and hearing, the board removes the officer on substantial evidence of careless disclosure. The criminal court retains reasonable doubt on intent to give undue advantage. Rule on both cases.
+
+**Solution:**
+
+1. Check Section $7(c)$ elements: confirm the memo was non-public and check disputed intent under prohibited purposes.
 2. Check proof standards: compare Rule $133$, Section $6$ removal against Rule $133$, Section $2$ trial proof.
 
 :::try

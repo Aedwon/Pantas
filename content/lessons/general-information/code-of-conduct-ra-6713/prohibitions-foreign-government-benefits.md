@@ -111,8 +111,8 @@ A foreign ministry awards a meteorologist a $1$-year graduate scholarship abroad
 
 **Solution:**
 
-1. Check scholarship: foreign scholarships sit in their own listed group with fellowships and treatment, without a nominal cap.
-2. Check Geneva trip: travel stays entirely outside the Philippines, fits Philippine interests, and carries agency-head permission.
+1. Check scholarship: test whether a foreign graduate scholarship belongs to the souvenir cap or its own Section $7(d)$ group.
+2. Check Geneva trip: test location, Philippine interests, and agency-head permission under Section $7(d)$.
 
 :::try
 Finish the last step: rule on both the scholarship and the approved Geneva trip under Section $7(d)$, noting remaining duties.

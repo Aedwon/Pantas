@@ -107,8 +107,8 @@ A budget officer lives modestly within her salary for $10$ clean audit years. He
 
 **Solution:**
 
-1. Match the lifestyle rule: modest living suited to position and income follows Simple living, the eighth norm under Section $4$(A)(h).
-2. Match the awards program: annual review by the Committee on Awards falls under Section $6$.
+1. Check the lifestyle facts: test her $10$ years of living within salary against the Section $4$(A) norms.
+2. Check the nomination facts: identify the Code section governing annual awards and the proposed promotion.
 
 :::try
 Finish the last step: state both applicable provisions and explain what rule governs the proposed promotion.

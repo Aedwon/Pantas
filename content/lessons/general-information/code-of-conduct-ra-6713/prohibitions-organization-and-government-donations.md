@@ -110,8 +110,8 @@ An international NGO awaiting registration donates $100$ solar lanterns for typh
 
 **Solution:**
 
-1. Check solar lanterns: evacuee aid meets Rule X, Section $1(f)(4)$'s humanitarian mission despite pending registration.
-2. Check rescue boats: a transfer between public entities fits Rule X, Section $1(f)(5)$ without a nominal-value limit.
+1. Check solar lanterns: test the donor type, evacuee purpose, and pending registration under Rule X.
+2. Check rescue boats: test the donor and recipient entities and the boats' value under Rule X.
 
 :::try
 Finish the last step: name both exceptions and state the limits still governing the registration and the boats.

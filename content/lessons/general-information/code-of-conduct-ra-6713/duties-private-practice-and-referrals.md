@@ -118,7 +118,7 @@ A vocational center's placement officer is assigned to refer graduating machinis
 
 **Solution:**
 
-1. Check the graduates' referral: referring trainees belongs to her assigned duties, fitting Rule X despite the pending accreditation.
+1. Check the graduates' referral: test whether assigned placement duties trigger Rule X despite pending accreditation.
 2. Check the brother-in-law's referral: test whether law, treaty, or assigned duty covers a relative's hiring request.
 
 :::try

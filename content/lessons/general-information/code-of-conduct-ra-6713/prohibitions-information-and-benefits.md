@@ -33,7 +33,7 @@ Review a port inspector checking an unannounced raid schedule and texting his br
 
 :::pair #confidential-info-section
 Right: Place the ban on misusing or disclosing confidential official information in Section $7$ (specifically Section $7(c)$).
-Wrong: Assigning the confidential-information ban to Section $2$, Section $8$, or Section $9$ of RA $6713$.
+Wrong: Assigning the confidential-information ban to Section $2$ of RA $6713$.
 Section $2$ states policy, Section $8$ covers financial statements, Section $9$ covers divestment, and Section $7$ covers prohibited acts.
 :::
 
@@ -112,8 +112,8 @@ An officer copies an unreleased penalty draft to warn a relative's plant manager
 
 **Solution:**
 
-1. Check the draft leak: warning the manager misuses confidential records for undue advantage under Section $7(c)$.
-2. Check catering: asking a licensed hauler for catering solicits a valuable non-cash benefit under Section $7(d)$.
+1. Check the draft leak: test whether sharing an unreleased penalty draft for zero pay triggers Section $7(c)$.
+2. Check catering: test whether asking a licensed hauler while on leave triggers Section $7(d)$ even if refused.
 
 :::try
 Finish the last step: rule on both acts under Sections $7(c)$ and $7(d)$, and explain why zero pay, leave, and refusal fail.
@@ -126,7 +126,7 @@ The answer is **Both acts violate Section $7$: Section $7(c)$ for the penalty le
 ## Traps to Watch For
 
 :::checklist
-- Statutory section for leaks: assign confidential-information misuse to Section $7$, never Section $2$, $8$, or $9$. {#confidential-info-section}
+- Statutory section for leaks: assign confidential-information misuse to Section $7$, never Section $2$. {#confidential-info-section}
 - Protected records versus public access: keep nonpublic work records confidential instead of releasing them for private advantage. {#confidential-not-public-release}
 - Unfulfilled or non-cash requests: treat soliciting any valuable service, loan, or perk as a Section $7(d)$ violation even when refused. {#solicitation-needs-no-delivery}
 :::

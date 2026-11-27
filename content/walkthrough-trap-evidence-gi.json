@@ -1843,11 +1843,6 @@
           "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0001",
           "wrongChoice": "10",
           "mistakeNote": "Counts sub-duties inside Section 4 norms as extra named norms beyond the eight listed."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0001",
-          "wrongChoice": "12",
-          "mistakeNote": "Substitutes a longer ethics list for the eight named norms in Section 4(A)."
         }
       ],
       "public-interest-first": [
@@ -1871,11 +1866,6 @@
           "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0019",
           "wrongChoice": "Political neutrality",
           "mistakeNote": "Confuses poverty-based discrimination with political party bias instead of Justness and sincerity."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0010",
-          "wrongChoice": "Political neutrality",
-          "mistakeNote": "Assigns remaining true to the people and respecting others' rights to Political neutrality."
         }
       ],
       "political-neutrality-party": [
@@ -1890,11 +1880,6 @@
           "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0009",
           "wrongChoice": "Professionalism",
           "mistakeNote": "Substitutes technical skill for prompt, courteous, and adequate public service."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0009",
-          "wrongChoice": "Commitment to democracy",
-          "mistakeNote": "Confuses prompt and courteous public service with constitutional accountability."
         }
       ]
     },
@@ -1904,11 +1889,6 @@
           "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0018",
           "wrongChoice": "Commitment to public interest",
           "mistakeNote": "Assigns promoting locally produced goods and technology to public-resource efficiency instead of Nationalism and patriotism."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-norms-of-conduct-0007",
-          "wrongChoice": "Commitment to public interest",
-          "mistakeNote": "Substitutes public-interest stewardship for loyalty to the Republic and Filipino people."
         }
       ],
       "democracy-vs-nationalism": [
@@ -1955,11 +1935,6 @@
           "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0001",
           "wrongChoice": "The practical limit on the number of document signatories alone",
           "mistakeNote": "Mistakes a conflicted financial interest in an office-approved deal for a signatory-count rule."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0001",
-          "wrongChoice": "The obligation to write an annual report within the stated period",
-          "mistakeNote": "Substitutes an administrative reporting duty for Section 7(a)'s ban on financial interests."
         }
       ],
       "express-law-only": [
@@ -1967,11 +1942,6 @@
           "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014",
           "wrongChoice": "The supervisor's informal verbal approval",
           "mistakeNote": "Treats informal verbal permission from a supervisor as express statutory authority under Section 7(b)(1)."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0014",
-          "wrongChoice": "A longstanding custom within the government department",
-          "mistakeNote": "Treats department custom as replacing express authorization by law."
         }
       ]
     },
@@ -2002,11 +1972,6 @@
       ],
       "unpaid-still-barred": [
         {
-          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0010",
-          "wrongChoice": "It is allowed if the private client offers no direct cash payment.",
-          "mistakeNote": "Assumes unpaid private work cannot conflict with official duties."
-        },
-        {
           "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0003",
           "wrongChoice": "Absence of a cash payment permits work even without legal authorization for it.",
           "mistakeNote": "Treats lack of cash payment as substituting for constitutional, statutory, or regulatory authority."
@@ -2019,11 +1984,6 @@
           "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0015",
           "wrongChoice": "The friend has qualifications that match the vacant position.",
           "mistakeNote": "Treats an applicant's qualifications as lifting Section 7(b)(3)'s ban on recommending to a transacting firm."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0007",
-          "wrongChoice": "The officer sends the referral from a personal email account.",
-          "mistakeNote": "Treats personal email as creating or defeating a referral exception."
         }
       ],
       "one-year-cooling-off": [
@@ -2031,11 +1991,6 @@
           "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0004",
           "wrongChoice": "6 months",
           "mistakeNote": "Halves the statutory 1-year post-separation period under Section 7(b)."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0004",
-          "wrongChoice": "2 years",
-          "mistakeNote": "Doubles the statutory 1-year post-separation period under Section 7(b)."
         }
       ],
       "former-office-matter-scope": [
@@ -2052,11 +2007,6 @@
           "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013",
           "wrongChoice": "Section 2",
           "mistakeNote": "Misplaces Section 7(c)'s confidential-information ban in Section 2's declaration of policy."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0013",
-          "wrongChoice": "Section 8",
-          "mistakeNote": "Misplaces Section 7(c)'s confidential-information ban in Section 8's SALN rules."
         }
       ],
       "confidential-not-public-release": [
@@ -2080,11 +2030,6 @@
           "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0005",
           "wrongChoice": "A small token requested in return for promptly approving a permit",
           "mistakeNote": "Treats small value as allowing a gift that was solicited and exchanged for a permit favor."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0008",
-          "wrongChoice": "Its low price alone, regardless of an expected official favor",
-          "mistakeNote": "Relies on low price alone instead of Rule X's salary, frequency, and expected-benefit factors."
         }
       ],
       "post-service-or-courtesy-note": [
@@ -2099,11 +2044,6 @@
           "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0008",
           "wrongChoice": "Yes, because only transactions already pending must be checked.",
           "mistakeNote": "Ignores that Rule X, Section 1(f)(3) bars expected transactions alongside regular and pending ones."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-prohibited-acts-and-gift-rules-0008",
-          "wrongChoice": "Yes, because nominal value removes every condition about agency transactions.",
-          "mistakeNote": "Drops the separate no-transaction requirement on nominal personal donations."
         }
       ]
     },
@@ -2261,11 +2201,6 @@
           "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002",
           "wrongChoice": "At most four official signatories",
           "mistakeNote": "Raises Section 5(c)'s practical limit from three signatories to four."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-duties-and-prohibited-acts-0002",
-          "wrongChoice": "At most five official signatories",
-          "mistakeNote": "Raises Section 5(c)'s practical limit from three signatories to five."
         }
       ],
       "designated-substitute-signer": [
@@ -2460,11 +2395,6 @@
           "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0018",
           "wrongChoice": "An unmarried twenty-year-old child living in the same household",
           "mistakeNote": "Includes an adult child age 18 or older instead of applying the under-18 cutoff."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012",
-          "wrongChoice": "Only children under twenty-one and all immediate siblings",
-          "mistakeNote": "Raises the child age cutoff above 18 and adds siblings outside Section 8(A)."
         }
       ],
       "no-extended-family-finances": [
@@ -2472,11 +2402,6 @@
           "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012",
           "wrongChoice": "Spouse, parents, adult children, and business partners",
           "mistakeNote": "Extends SALN household asset and debt coverage to parents, adult children, and business partners."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0012",
-          "wrongChoice": "Spouse and all financially dependent extended family members",
-          "mistakeNote": "Replaces Section 8(A)'s spouse-and-minor-child limits with financial dependency of extended relatives."
         }
       ]
     },
@@ -2486,11 +2411,6 @@
           "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004",
           "wrongChoice": "Third civil degree",
           "mistakeNote": "Cuts off relative-in-government disclosure at the third degree instead of the fourth civil degree."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0004",
-          "wrongChoice": "Second civil degree",
-          "mistakeNote": "Narrows relative-in-government disclosure to the second degree instead of the fourth civil degree."
         }
       ],
       "affinity-uses-spouse-degree": [
@@ -2556,11 +2476,6 @@
           "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015",
           "wrongChoice": "Office of the Ombudsman",
           "mistakeNote": "Routes trial-court judges to the Office of the Ombudsman instead of the Court Administrator."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0015",
-          "wrongChoice": "Office of the President",
-          "mistakeNote": "Routes trial-court judges to the Office of the President instead of the Court Administrator."
         }
       ]
     },
@@ -2639,11 +2554,6 @@
           "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0019",
           "wrongChoice": "Resign within 60 days; divest within 30 days",
           "mistakeNote": "Reverses Section 9's two deadlines by giving 60 days for resignation and 30 days for divestment."
-        },
-        {
-          "questionId": "q-code-of-conduct-ra-6713-statements-of-assets-and-divestment-0005",
-          "wrongChoice": "30 days",
-          "mistakeNote": "Applies the 30-day resignation deadline to share divestment instead of 60 days."
         }
       ],
       "calendar-days-section-nine": [

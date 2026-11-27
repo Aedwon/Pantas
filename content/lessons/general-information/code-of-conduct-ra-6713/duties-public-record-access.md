@@ -117,7 +117,7 @@ At $2$:$00$ p.m. on Tuesday, a citizen asks a financial board for an unsigned dr
 
 **Solution:**
 
-1. Check the draft order: Rule IV expressly covers draft decisions and orders before issuance.
+1. Check the draft order: test whether an unsigned pre-decisional draft matches a listed Rule IV ground.
 2. Check the currency rule: test whether early release triggers Rule IV's financial-market harm exception.
 
 :::try

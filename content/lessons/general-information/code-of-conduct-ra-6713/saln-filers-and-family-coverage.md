@@ -27,7 +27,7 @@ Under Rule VII, Section $1$ of the implementing rules, **honorary capacity** mea
 
 Unpaid work alone is not honorary if it earns service credit.
 
-Section $3$(b) covers permanent and temporary appointees as public officials. Check the worker's actual category, not just an appointment label.
+Section $3$(b) covers permanent and temporary appointees as public officials. Check the worker's actual category instead of relying on an appointment label.
 
 Classify a retired doctor on a city board with zero pay and zero service credit, alongside an unpaid museum adviser earning service credit:
 
@@ -80,7 +80,7 @@ All three tests must pass together, so turning $18$ ends household coverage.
 
 :::pair #no-extended-family-finances
 Right: Limit SALN asset and debt coverage to the filer, the spouse, and qualifying minor children.
-Wrong: Adding parents, adult children, or dependent cousins to the filer's own asset and debt schedule.
+Wrong: Adding parents, adult children, and business partners to the filer's own asset and debt schedule.
 Extended family and business partners sit outside Section $8$(A)'s household coverage rule.
 :::
 
@@ -126,8 +126,8 @@ Two public teachers are married under complete separation of property by premari
 
 **Solution:**
 
-1. Spousal filing: both work in government, so they may file jointly or separately, excluding each other's separate property.
-2. Daughter age $15$: living elsewhere fails the household condition.
+1. Spousal filing: check joint versus separate filing rules and how complete separation affects separate property.
+2. Daughter age $15$: test whether living full-time in a relative's household meets all three child tests.
 
 :::try
 Finish the last step: rule on the $13$-year-old son and state whose finances each teacher reports if filing separately.

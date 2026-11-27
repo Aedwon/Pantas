@@ -136,7 +136,7 @@ A panel director steers a software deal to a startup through clear favoritism at
 
 **Solution:**
 
-1. Shares: owning part of a firm while reviewing its deal breaks Section $3(h)$.
+1. Shares: identify which RA $3019$ clause covers secret ownership in a firm whose deal the director reviews.
 2. Award: test whether steering the award at a matching price triggers Section $3(e)$.
 
 :::try

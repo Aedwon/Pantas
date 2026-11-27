@@ -84,22 +84,26 @@ The answer is **No**. Fifteen days from March $3$ notice to counsel ended on Mar
 
 ## Examples
 
-### #1: Counting From Counsel's Receipt
+### #1: Crossing a Month Boundary on an Initial Decision
 
-The CSC denies a timely motion for reconsideration. The employee's lawyer receives the denial on April $4$. The employee reads a copy on April $9$. Find the ordinary Rule $43$ deadline.
+An unrepresented clerk files no reconsideration motion and receives a final CSC decision on November $21$ ($30$ days in November). Find the ordinary Rule $43$ deadline.
 
 **Solution:**
 
-1. Trigger date: counsel represents the employee, so April $4$ starts the period.
-2. Add $15$ days to April $4$.
+1. Trigger date: with no counsel and no reconsideration motion, direct notice on November $21$ starts the $15$-day count.
+2. Count across November $30$ into December.
 
 $$
-4 + 15 = 19
+30 - 21 = 9 \text{ days in November}
 $$
 
-Answer: The ordinary Rule $43$ deadline is April $19$, subject to filing and extension rules.
+$$
+15 - 9 = 6 \text{ days in December}
+$$
 
-**Check:** Subtract $4$ from $19$ to confirm $15$ days from counsel's receipt.
+Answer: The ordinary Rule $43$ deadline is December $6$, subject to filing and extension rules.
+
+**Check:** $9$ days left in November plus $6$ days in December equals $15$ days from direct notice.
 
 ### #2: Choosing the Proper Review Forum
 

@@ -65,7 +65,7 @@ Always test legal authority and duty conflicts even when the private work happen
 
 :::pair #unpaid-still-barred
 Right: Free private work still requires legal authority and freedom from official conflict under Section $7(b)(2)$.
-Wrong: Treating absence of cash payment as legal permission for unauthorized or conflicting private practice.
+Wrong: Treating absence of cash payment as legal authorization for private professional practice.
 Unpaid work can still pull against official duties and never replaces constitutional, statutory, or regulatory authorization.
 :::
 
@@ -110,7 +110,7 @@ A state university professor has statutory permission to consult privately. A br
 **Solution:**
 
 1. Check legal authority: the professor holds statutory permission to consult privately.
-2. Check timing and pay: Saturday work for free never shields a conflict with his committee duty.
+2. Check conflict and excuses: test whether Saturday timing or zero pay cures a grading-committee conflict.
 
 :::try
 Finish the last step: rule on the Saturday review under Section $7(b)(2)$ and explain why each excuse fails.
@@ -125,5 +125,5 @@ The answer is **The Saturday review is prohibited.** The professor has permissio
 :::checklist
 - Permission with conflict: require both legal authority and zero actual or potential conflict. {#permission-alone-insufficient}
 - After-hours practice: test authority and conflict even for evening or weekend work. {#after-hours-still-barred}
-- Unpaid private service: never treat free work as replacing legal authority or curing a conflict. {#unpaid-still-barred}
+- Unpaid private service: never treat free work as replacing legal authorization. {#unpaid-still-barred}
 :::
