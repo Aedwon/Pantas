@@ -309,6 +309,46 @@ export function summaryItems(items: ContentItem[]): {id: string; data: Record<st
 
 export type SummaryResult = 'written' | 'unchanged' | 'partial' | 'not touched';
 
+// A batch is capped by bytes as well as by count. Summary parts run up to SUMMARY_SPLIT_BYTES each, so a
+// count-only cap of 400 sent several megabytes in one commit, which missed Firestore's 60 s deadline on
+// a slow link four times on Nov 28, 2026, after the lessons were live.
+export const BATCH_MAX_BYTES = 2_000_000;
+export const BATCH_MAX_WRITES = 400;
+const COMMIT_ATTEMPTS = 4;
+// gRPC DEADLINE_EXCEEDED and UNAVAILABLE. A set is idempotent, so resending a whole batch is safe.
+const RETRYABLE_CODES = new Set([4, 14]);
+
+/** Groups writes in order into batches of at most BATCH_MAX_WRITES and BATCH_MAX_BYTES (a single larger write goes alone). */
+export function groupWrites<T extends {data?: unknown}>(writes: T[]): T[][] {
+  const groups: T[][] = [];
+  let current: T[] = [];
+  let bytes = 0;
+  for (const write of writes) {
+    const size = Buffer.byteLength(JSON.stringify(write.data ?? null), 'utf8');
+    if (current.length && (current.length >= BATCH_MAX_WRITES || bytes + size > BATCH_MAX_BYTES)) {
+      groups.push(current);
+      current = [];
+      bytes = 0;
+    }
+    current.push(write);
+    bytes += size;
+  }
+  if (current.length) groups.push(current);
+  return groups;
+}
+
+/** Commits one batch, building it afresh for each attempt (a committed batch cannot be reused). */
+async function commitWithRetry(commit: () => Promise<unknown>): Promise<void> {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      await commit();
+      return;
+    } catch (error) {
+      if (attempt >= COMMIT_ATTEMPTS || !RETRYABLE_CODES.has(Number((error as {code?: unknown}).code))) throw error;
+    }
+  }
+}
+
 /**
  * Idempotent upload to `content/{kind}/items/{id}` and `contentPro/{id}`. A dry run reads and
  * plans but writes nothing. The caller chooses the target; the CLI points it at the emulator
@@ -342,10 +382,12 @@ export async function writeContent(db: Firestore, items: ContentItem[], pros: Pr
   const summaryDocs = summariesDue ? summaryItems(items) : [];
   const summaries: SummaryResult = summariesDue ? 'written' : covered && inputBank.size > 0 ? 'unchanged' : bankChanging ? 'partial' : 'not touched';
   const commitAll = async (writes: {ref: FirebaseFirestore.DocumentReference; data: Record<string, unknown>}[]): Promise<void> => {
-    for (let start = 0; start < writes.length; start += 400) {
-      const batch = db.batch();
-      for (const write of writes.slice(start, start + 400)) batch.set(write.ref, write.data);
-      await batch.commit();
+    for (const group of groupWrites(writes)) {
+      await commitWithRetry(() => {
+        const batch = db.batch();
+        for (const write of group) batch.set(write.ref, write.data);
+        return batch.commit();
+      });
     }
   };
   if (!options.dryRun) {
@@ -360,15 +402,13 @@ export async function writeContent(db: Firestore, items: ContentItem[], pros: Pr
     // A set that lost its notes must not keep a stale Pro document.
     const proIds = new Set(pros.map((pro) => pro.id));
     const staleIds = [...changedQuestionIds].filter((id) => !proIds.has(id));
-    for (let start = 0; start < writes.length; start += 400) {
-      const batch = db.batch();
-      for (const write of writes.slice(start, start + 400)) batch.set(write.ref, write.data);
-      await batch.commit();
-    }
-    for (let start = 0; start < staleIds.length; start += 400) {
-      const batch = db.batch();
-      for (const id of staleIds.slice(start, start + 400)) batch.delete(db.doc(`contentPro/${id}`));
-      await batch.commit();
+    await commitAll(writes);
+    for (const group of groupWrites(staleIds.map((id) => ({id, data: null})))) {
+      await commitWithRetry(() => {
+        const batch = db.batch();
+        for (const {id} of group) batch.delete(db.doc(`contentPro/${id}`));
+        return batch.commit();
+      });
     }
     if (summariesDue) {
       await commitAll(summaryDocs.map((summary) => ({ref: db.doc(`${SUMMARY_COLLECTION}/${summary.id}`), data: summary.data})));
