@@ -48,6 +48,9 @@ export function buildFiles(id, prod = false) {
     'main.dart.js': `${base}${push(id, 'main')}\n` +
       `var p = document.createElement('script'); p.src = document.currentScript.src.replace(/main\\.dart\\.js.*$/, '') + 'main.dart.js_1.part.js'; document.head.appendChild(p);\n`,
     'main.dart.js_1.part.js': `${base}${push(id, 'part')}\n`,
+    // A second deferred part that no page requests while it boots, so a test can ask
+    // for one that was genuinely never loaded (audit 2, Medium 9).
+    'main.dart.js_2.part.js': `${base}${push(id, 'part2')}\n`,
     'pantas_pwa.js': `${readFileSync(prod ? join(here, 'pantas_pwa_prod_a.js') : join(repo, 'web/pantas_pwa.js'), 'utf8')}\n// ${m}\n${push(id, 'pwa')}\n`,
     'pantas_history.js': base,
     'pantas_splash.js': base,

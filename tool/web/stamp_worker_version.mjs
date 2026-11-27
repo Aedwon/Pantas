@@ -74,8 +74,8 @@ const ROOT_SET = new Set([PAGE, 'manifest.json', 'favicon.png', 'drift_worker.js
 const PARTS = /^main\.dart\.(js|mjs)_\d+\.part\.(js|mjs)$|^main\.dart\.wasm_\d+\.part\.wasm$/;
 const HELPERS = /^pantas_(?!sw\.js$)[\w-]+\.js$/;
 const EXCLUDED = new Set(['assets/NOTICES']);
-// The two CanvasKit builds Flutter picks from. A browser that runs Chromium's
-// engine uses the smaller one; the worker installs only the one its browser uses.
+// The two CanvasKit builds Flutter picks from. Flutter's choice rests on checks a service
+// worker cannot all make, so the worker installs both in every browser.
 const VARIANTS = {
   standard: ['canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm'],
   chromium: ['canvaskit/chromium/canvaskit.js', 'canvaskit/chromium/canvaskit.wasm'],
@@ -104,13 +104,6 @@ export function startupSet(dir) {
     if (EXCLUDED.has(name) || name.endsWith('.map')) return false;
     return EXACT.has(name) || PARTS.test(name) || HELPERS.test(name) || name.startsWith('assets/') || canvasKit.has(name);
   });
-}
-
-/** The renderer files of each variant as final paths, or null when the build has none. */
-export function variantPaths(dir) {
-  const folder = buildFolder(dir);
-  if (!folder || !localCanvasKit(dir, folder)) return null;
-  return Object.fromEntries(Object.entries(VARIANTS).map(([name, list]) => [name, list.map(file => folder + file)]));
 }
 
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -216,8 +209,6 @@ export function stamp(dir) {
   // Last: every file is final, so these are the hashes the worker verifies.
   const list = fingerprints(dir);
   const constant = {id: version, base: folder, list: listHash(list), files: list};
-  const variants = variantPaths(dir);
-  if (variants) constant.variants = variants;
   writeFileSync(workerPath, worker.replace(BUILD, () => `/*pantas-build*/ ${JSON.stringify(constant)} /*end-pantas-build*/`));
   return version;
 }
@@ -227,6 +218,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   console.log(`Service worker version: ${stamp(dir)}`);
   const inSet = new Set(startupSet(dir));
   const bytes = [...inSet].reduce((sum, name) => sum + statSync(join(dir, name)).size, 0);
-  console.log(`Startup set: ${inSet.size} files, ${(bytes / 1048576).toFixed(1)} MB (both renderer variants; one is installed)`);
+  console.log(`Startup set: ${inSet.size} files, ${(bytes / 1048576).toFixed(1)} MB (both renderer variants, installed in every browser)`);
   console.log(`Left out: ${files(dir).filter(name => !inSet.has(name)).join(', ')}`);
 }

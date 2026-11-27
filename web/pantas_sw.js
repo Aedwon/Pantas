@@ -26,7 +26,14 @@
 // when no other build is installed (the first visit, or the move from the worker
 // that shipped before build folders). Otherwise it waits, so a window that runs
 // the older build keeps its own cache. The page asks a waiting worker to take over
-// when it is the only window, at a safe point. Activation deletes the other caches.
+// when it is the only window, at a safe point.
+//
+// Caches. Activation deletes nothing: a window may still run the older build, and
+// the worker serves any b/<id>/ file from whichever build cache holds it (the
+// address carries the build). Each successful install prunes at its end and keeps
+// only its own cache and the one of the build in charge. While the worker that
+// shipped before build folders is in charge, its caches stay too, and its root
+// deferred parts are served from them to tabs that still run that build.
 //
 // Unstamped (dev, where the constant is null): the older network-first and
 // cache-first behavior below, kept so a local run needs no stamp. Release scripts
@@ -46,6 +53,11 @@ const CACHE_PREFIX = 'pantas-shell-';
 const CACHE = BUILD ? 'pantas-build-' + BUILD.id + '-' + BUILD.list : CACHE_PREFIX + VERSION;
 // Written last, with the list's hash, so a cache that has it holds this whole list.
 const COMPLETE = 'pantas-build-complete';
+// Which stamped build's cache is in charge. Written at activation, before anything
+// else, so a later install never prunes the cache a window is running on.
+const META = 'pantas-meta';
+const ACTIVE = 'pantas-active-build';
+const BUILD_PREFIX = 'pantas-build-';
 const SCOPE = self.registration.scope;
 const NETWORK_TIMEOUT_MS = 4000;
 
@@ -218,26 +230,9 @@ async function sha256(bytes) {
 
 const INSTALL_PARALLEL = 6;
 
-// Chromium's engine uses the smaller CanvasKit; every other browser uses the full
-// one. A service worker cannot see every feature Flutter checks (ImageDecoder is
-// not exposed to it), so this asks for the two that are V8's own. A browser this
-// guesses wrong for still boots online: the file is read from the network and
-// checked against its hash. It would not boot offline until the next update.
-function usesChromiumRenderer() {
-  return typeof Intl.v8BreakIterator !== 'undefined' && typeof Intl.Segmenter !== 'undefined';
-}
-
-// Every file of the set, minus the renderer variant this browser does not use.
-function installPaths() {
-  const skipped = new Set();
-  if (BUILD.variants) {
-    const use = usesChromiumRenderer() ? 'chromium' : 'standard';
-    for (const [name, paths] of Object.entries(BUILD.variants)) {
-      if (name !== use) paths.forEach((path) => skipped.add(path));
-    }
-  }
-  return Object.keys(BUILD.files).filter((path) => !skipped.has(path));
-}
+// Every file of the set. Both CanvasKit variants are in it: Flutter picks one with
+// checks a service worker cannot all make (ImageDecoder is not exposed to it), so
+// guessing could skip the one Flutter asks for and the app would not start offline.
 
 // Files in a build folder never change under their address, and the hash guards
 // them, so any cached copy will do. The few files at the root are read past every
@@ -289,7 +284,7 @@ async function hasCompleteCache() {
 // worker it has and tries again at the next update check.
 async function installBuild() {
   if (!(await hasCompleteCache())) {
-    const paths = installPaths();
+    const paths = Object.keys(BUILD.files);
     const verified = [];
     let next = 0;
     let failed = false;
@@ -316,12 +311,33 @@ async function installBuild() {
       throw error;
     }
   }
+  await prune();
   // With no other build installed (first visit, or the worker that shipped before
   // build folders) nothing can be mixed, so take over at once. Otherwise wait: a
   // window of the other build may be open. The page asks when it is safe.
   const names = await caches.keys();
-  if (!names.some((name) => name.startsWith('pantas-build-') && name !== CACHE)) {
+  if (!names.some((name) => name.startsWith(BUILD_PREFIX) && name !== CACHE)) {
     await self.skipWaiting();
+  }
+}
+
+async function activeCache() {
+  if (!(await caches.has(META))) return null;
+  const stored = await (await caches.open(META)).match(SCOPE + ACTIVE);
+  return stored ? stored.text() : null;
+}
+
+// Runs only after this build's whole set is stored. Keeps this build and the one in
+// charge. The worker that shipped before build folders keeps its caches until a
+// stamped build is in charge: its tabs may still ask for their root deferred parts.
+async function prune() {
+  const active = await activeCache();
+  for (const name of await caches.keys()) {
+    const stamped = name.startsWith(BUILD_PREFIX);
+    const earlier = name.startsWith(CACHE_PREFIX);
+    if ((!stamped && !earlier) || name === CACHE || name === active) continue;
+    if (earlier && !active) continue;
+    await caches.delete(name);
   }
 }
 
@@ -337,12 +353,11 @@ async function takeOver(reply) {
   reply({ ok: true });
 }
 
+// Deletes nothing: a window may still run the older build and needs its cache.
+// The note comes first, so no install can prune this build's cache once it is in charge.
 async function activateBuild() {
+  await (await caches.open(META)).put(SCOPE + ACTIVE, new Response(CACHE));
   await self.clients.claim();
-  const names = await caches.keys();
-  await Promise.all(
-    names.filter((name) => name.startsWith('pantas-') && name !== CACHE).map((name) => caches.delete(name))
-  );
 }
 
 function hasOwn(path) {
@@ -356,12 +371,37 @@ function handleBuild(event, request, path) {
     request.mode === 'navigate' &&
     (path === '' || path === 'index.html' || !/\.[A-Za-z0-9]+$/.test(path));
   if (page) {
-    event.respondWith(fromBuild(request, ''));
+    event.respondWith(fromBuild(event, request, ''));
     return;
   }
-  if (!hasOwn(path)) return;
-  const served = { cached: false };
-  event.respondWith(withProgress(event, path, served, fromBuild(request, path, served)));
+  if (hasOwn(path)) {
+    const served = { cached: false };
+    event.respondWith(withProgress(event, path, served, fromBuild(event, request, path, served)));
+    return;
+  }
+  // A window still on another build, or on the build that shipped before build
+  // folders, asks for files that are not in this build's set.
+  const folder = /^b\/([^/]+)\//.exec(path);
+  if (folder && folder[1] !== BUILD.id) {
+    event.respondWith(fromKeptCaches(request, path, BUILD_PREFIX + folder[1] + '-'));
+  } else if (!folder && PART_PATTERN.test(path)) {
+    event.respondWith(fromKeptCaches(request, path, CACHE_PREFIX));
+  }
+}
+
+// The file from a kept cache of an older build (the address names the build, so
+// its bytes are that build's), else from the network, else the secured 503.
+async function fromKeptCaches(request, path, prefix) {
+  for (const name of await caches.keys()) {
+    if (!name.startsWith(prefix)) continue;
+    const stored = await (await caches.open(name)).match(SCOPE + path);
+    if (stored) return stored;
+  }
+  try {
+    return await fetch(request);
+  } catch (_) {
+    return unavailable();
+  }
 }
 
 // What the edge sends with every file, so the worker's own answer is as safe.
@@ -374,25 +414,34 @@ const FAILURE_HEADERS = {
   'Permissions-Policy': 'camera=(), microphone=(), geolocation=(), payment=(), usb=()',
 };
 
-async function fromBuild(request, path, served = {}) {
+function unavailable() {
+  return new Response('The app changed. Reload this page.', { status: 503, headers: FAILURE_HEADERS });
+}
+
+async function fromBuild(event, request, path, served = {}) {
   const cache = await caches.open(CACHE);
   const stored = await cache.match(SCOPE + path);
   if (stored) {
     served.cached = true;
     return stored;
   }
-  // Not stored: a renderer variant this browser was not expected to use, or a file
-  // lost from the cache. Answer from the network only when the bytes are this
-  // build's, and store nothing.
-  const response = await fetch(sourceRequest(path));
-  if (
-    response.status === 200 &&
-    response.type === 'basic' &&
-    (await sha256(await response.clone().arrayBuffer())) === BUILD.files[path]
-  ) {
-    return response;
+  // Not stored: a file lost from the cache. Answer from the network only when the
+  // bytes are this build's, and keep them for next time. A network that fails gets
+  // the same secured answer as bytes that do not match.
+  let response;
+  try {
+    response = await fetch(sourceRequest(path));
+  } catch (_) {
+    return unavailable();
   }
-  return new Response('The app changed. Reload this page.', { status: 503, headers: FAILURE_HEADERS });
+  if (response.status !== 200 || response.type !== 'basic') return unavailable();
+  const bytes = await response.arrayBuffer();
+  if ((await sha256(bytes)) !== BUILD.files[path]) return unavailable();
+  const headers = storedHeaders(response.headers);
+  if (!isUncacheable(response.headers)) {
+    event.waitUntil(cache.put(SCOPE + path, new Response(bytes, { status: 200, headers })).catch(() => undefined));
+  }
+  return new Response(bytes, { status: 200, headers });
 }
 
 function withTimeout(promise, ms) {

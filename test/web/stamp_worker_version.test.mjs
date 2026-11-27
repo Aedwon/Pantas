@@ -263,16 +263,15 @@ test('canvaskit joins the set, both variants, only when the build serves it itse
   const cdn = withCanvasKit({local: false});
   stamp(cdn);
   assert.ok(!Object.keys(stampedOf(cdn).files).some(path => path.includes('canvaskit/')));
-  assert.equal(stampedOf(cdn).variants, undefined);
   const local = withCanvasKit({local: true});
   const version = stamp(local);
   const folder = `b/${version}/canvaskit/`;
-  const {files, variants} = stampedOf(local);
-  assert.deepEqual(variants, {
-    standard: [`${folder}canvaskit.js`, `${folder}canvaskit.wasm`],
-    chromium: [`${folder}chromium/canvaskit.js`, `${folder}chromium/canvaskit.wasm`],
-  });
-  for (const path of [...variants.standard, ...variants.chromium]) assert.ok(path in files, path);
+  const {files} = stampedOf(local);
+  // Every browser installs both (audit 2, High 5), so the constant carries no variant list.
+  assert.equal(stampedOf(local).variants, undefined);
+  for (const path of ['canvaskit.js', 'canvaskit.wasm', 'chromium/canvaskit.js', 'chromium/canvaskit.wasm']) {
+    assert.ok(folder + path in files, path);
+  }
   for (const left of ['canvaskit.js.symbols', 'skwasm.wasm', 'chromium/canvaskit.js.symbols']) {
     assert.ok(!(folder + left in files), `${left} is not in the set`);
   }

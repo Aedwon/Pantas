@@ -222,6 +222,8 @@ function deploy(w, id, options) {
   w.build = options?.prod ? `${id}-prod` : id;
 }
 const skips = (w, version) => w.events.filter((e) => e.event === 'skipWaiting' && (!version || e.version === version));
+// The stamped build caches that exist (not today's worker's caches, not the active-build note).
+const buildCaches = (w) => [...w.stores.keys()].filter((name) => name.startsWith('pantas-build-')).sort();
 
 // Build A is installed and used, then B is deployed and the page loads under A.
 async function deployedBUnderA(options = {}) {
@@ -364,7 +366,9 @@ test('rollout: B installs next to prod A, takes over at once, and the app boots 
   const b = await install(w, 'B');
   assert.equal(skips(w, 'B').length, 1, 'no other stamped build is installed, so B takes over at once');
   await takeOver(w, b);
-  assert.deepEqual([...w.stores.keys()], [cacheOf('B')], 'A\'s cache is gone');
+  // Nothing is deleted at activation: tabs still on A keep the cache they need (fix list item 3).
+  assert.deepEqual(buildCaches(w), [cacheOf('B')]);
+  assert.ok(w.stores.has('pantas-shell-A'), 'A\'s cache is kept for tabs still on A');
   let r = await offlineSet(w);
   assert.equal(r.mixed, false, JSON.stringify(r.ids));
   assert.deepEqual(r.builds, ['B']);
@@ -512,7 +516,7 @@ test('the waiting worker takes over when its page asks and is the only window', 
   assert.deepEqual(await c.message({type: 'pantas-take-over'}), {ok: true});
   assert.equal(skips(w, 'C').length, 1);
   await takeOver(w, c);
-  assert.deepEqual([...w.stores.keys()], [cacheOf('C')], 'B\'s cache goes when C activates');
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C')].sort(), 'nothing is deleted when C activates: a B window may still be open');
   const r = await offlineSet(w);
   assert.deepEqual(r.builds, ['C']);
   assert.deepEqual(r.misses, []);
@@ -566,7 +570,8 @@ test('B to C to B: a rollback never mixes builds', async () => {
   const after = await offlineSet(w);
   assert.deepEqual(after.builds, ['B'], JSON.stringify(after.ids));
   assert.deepEqual(after.misses, []);
-  assert.deepEqual([...w.stores.keys()], [cacheOf('B')]);
+  // The install of the rolled-back B pruned everything but B (the new build) and C (in charge until now).
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C')].sort());
 });
 
 test('a response outside the set is never stored', async () => {
@@ -593,16 +598,15 @@ test('an app route is the cached page of this build, online and offline', async 
   assert.equal((await get(w, 'index.html', {navigate: true})).id, 'B');
 });
 
-test('a set file missing from the cache is checked against its hash and not stored', async () => {
+test('a set file missing from the cache is checked against its hash', async () => {
   const w = world();
   deploy(w, 'B');
   await takeOver(w, await install(w, 'B'));
   const path = inFolder('B', 'sqlite3.wasm');
   w.stores.get(cacheOf('B')).delete(ORIGIN + path);
-  const sizeBefore = w.stores.get(cacheOf('B')).size;
   assert.equal((await get(w, path)).id, 'B');
-  assert.equal(w.stores.get(cacheOf('B')).size, sizeBefore, 'not stored');
   // The server moved to another build: the immutable address no longer holds B's bytes, so the answer is refused.
+  w.stores.get(cacheOf('B')).delete(ORIGIN + path);
   deploy(w, 'C');
   w.tamper[path] = build('C').served[inFolder('C', 'sqlite3.wasm')];
   assert.equal((await get(w, path)).id, 'miss');
@@ -651,32 +655,147 @@ function rendererBuild(id) {
   return files;
 }
 
-test('both renderer variants are in the list, and the worker installs only the one its browser uses', async () => {
+// Audit 2, High 5: a service worker cannot see every feature Flutter checks to choose a
+// renderer (ImageDecoder is not exposed to it), so it could skip the variant Flutter then
+// asks for, and an offline start would fail. Both variants are installed in every browser.
+test('both renderer variants are installed in every browser, so Flutter\'s own choice is always there offline', async () => {
   for (const chromium of [true, false]) {
     const w = world();
     w.chromium = chromium;
-    const b = build('R', {files: rendererBuild('R'), localCanvasKit: true});
+    build('R', {files: rendererBuild('R'), localCanvasKit: true});
     deploy(w, 'R');
-    await install(w, 'R');
-    const constant = constantOf(b.served);
-    assert.deepEqual(Object.keys(constant.variants).sort(), ['chromium', 'standard']);
+    await takeOver(w, await install(w, 'R'));
     const cached = [...w.stores.get(cacheOf('R')).keys()].map((url) => url.replace(ORIGIN, ''));
-    const [use, other] = chromium ? ['chromium', 'standard'] : ['standard', 'chromium'];
-    for (const path of constant.variants[use]) assert.ok(cached.includes(path), `${use}: ${path}`);
-    for (const path of constant.variants[other]) assert.ok(!cached.includes(path), `${other}: ${path} is not installed`);
+    for (const name of ['canvaskit.js', 'canvaskit.wasm', 'chromium/canvaskit.js', 'chromium/canvaskit.wasm']) {
+      assert.ok(cached.includes(`${folderOf('R')}canvaskit/${name}`), `${name} (chromium browser: ${chromium})`);
+    }
+    w.offline = true;
+    for (const name of ['canvaskit/chromium/canvaskit.wasm', 'canvaskit/canvaskit.wasm']) {
+      assert.equal((await get(w, inFolder('R', name))).id, 'R', `${name} offline (chromium browser: ${chromium})`);
+    }
   }
 });
 
-test('a renderer file this browser was not expected to use still loads online, checked against its hash', async () => {
-  const w = world();
-  w.chromium = false;
+test('the build constant no longer carries a renderer variant list', () => {
   const b = build('R', {files: rendererBuild('R'), localCanvasKit: true});
-  deploy(w, 'R');
-  await takeOver(w, await install(w, 'R'));
-  const path = constantOf(b.served).variants.chromium[1];
-  assert.equal((await get(w, path)).id, 'R');
+  assert.equal(constantOf(b.served).variants, undefined);
+});
+
+// ---- Fix list items 2, 3, 4 and 6 (service worker option A, Nov 26) ----
+
+const part = (id, n) => inFolder(id, `main.dart.js_${n}.part.js`);
+
+test('item 3: activation deletes nothing, so a window still on B keeps every file of B after C takes over', async () => {
+  const {w, c} = await waitingC();
+  w.windows = 1;
+  await c.message({type: 'pantas-take-over'});
+  await takeOver(w, c);
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C')].sort());
   w.offline = true;
-  assert.equal((await get(w, path)).id, 'miss', 'not stored, so not available offline');
+  // B's window asks for a deferred part it never loaded: C is in charge, B's cache answers.
+  assert.equal((await get(w, part('B', 2))).id, 'B');
+});
+
+test('item 2: any b/<id>/ path is served from whichever build cache holds it', async () => {
+  const {w, c} = await waitingC();
+  await c.message({type: 'pantas-take-over'});
+  await takeOver(w, c);
+  w.offline = true;
+  for (const name of ['main.dart.js', 'main.dart.js_1.part.js', 'main.dart.js_2.part.js', 'sqlite3.wasm', 'assets/FontManifest.json']) {
+    assert.equal((await get(w, inFolder('B', name))).id, 'B', `B ${name}`);
+    assert.equal((await get(w, inFolder('C', name))).id, 'C', `C ${name}`);
+  }
+  // A build nobody holds is not invented: the network answers, and offline that is a miss.
+  assert.equal((await get(w, 'b/other-123456789abc/main.dart.js')).id, 'miss');
+});
+
+test('item 3: installs prune at their end and keep only the new build and the one in charge', async () => {
+  const w = world();
+  deploy(w, 'B');
+  await takeOver(w, await install(w, 'B'));
+  await pageLoad(w);
+  // B stays in charge (a window is open). C, D and E install one after the other, none takes over.
+  for (const id of ['C', 'D', 'E']) {
+    deploy(w, id);
+    await install(w, id);
+    assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf(id)].sort(), `after installing ${id}`);
+  }
+});
+
+test('item 3: an activation cannot delete a successor\'s cache that is being filled', async () => {
+  const {w, c} = await waitingC();
+  const partial = await w.caches.open(`pantas-build-D-${'0'.repeat(12)}`);
+  await partial.put(ORIGIN + 'b/D/main.dart.js', new Response('half of D'));
+  await c.message({type: 'pantas-take-over'});
+  await takeOver(w, c);
+  assert.ok(w.stores.has(`pantas-build-D-${'0'.repeat(12)}`), 'D\'s cache survived C\'s activation');
+});
+
+test('item 3: the install that makes B the older build removes the oldest, and today\'s worker\'s cache goes with it', async () => {
+  const w = await deployedBUnderA({prod: true});
+  await takeOver(w, await install(w, 'B')); // B in charge: A's cache is kept for tabs still on A
+  assert.ok(w.stores.has('pantas-shell-A'));
+  deploy(w, 'C');
+  await install(w, 'C');
+  assert.equal(w.stores.has('pantas-shell-A'), false, 'A\'s cache is pruned when C installs');
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C')].sort());
+});
+
+test('item 4: a tab still on today\'s build gets its root deferred parts from today\'s cache after the new worker took over', async () => {
+  const w = await deployedBUnderA({prod: true});
+  const a = await w.controller.fetch('main.dart.js_1.part.js');
+  assert.ok(a, 'today\'s worker had stored the part');
+  await takeOver(w, await install(w, 'B'));
+  w.offline = true;
+  const answer = await get(w, 'main.dart.js_1.part.js');
+  assert.equal(answer.id, 'A', 'the part is A\'s, from A\'s cache');
+  // The same worker never stores a root file in B's cache.
+  assert.ok(![...w.stores.get(cacheOf('B')).keys()].some((url) => url.endsWith('main.dart.js_1.part.js') && !url.includes('/b/')));
+});
+
+test('item 4: a root part today\'s cache does not hold is left to the network', async () => {
+  const w = await deployedBUnderA({prod: true});
+  await takeOver(w, await install(w, 'B'));
+  w.offline = true;
+  assert.equal((await get(w, 'main.dart.js_9.part.js')).id, 'miss');
+});
+
+test('item 6: a file that is not in the cache and cannot be fetched gets the worker\'s secured 503, not a thrown error', async () => {
+  const w = world();
+  deploy(w, 'B');
+  await takeOver(w, await install(w, 'B'));
+  const path = inFolder('B', 'sqlite3.wasm');
+  w.stores.get(cacheOf('B')).delete(ORIGIN + path);
+  w.offline = true;
+  const failure = await w.controller.fetch(path);
+  assert.equal(failure.status, 503);
+  assert.equal(failure.headers.get('cache-control'), 'no-store');
+  assert.equal(failure.headers.get('x-content-type-options'), 'nosniff');
+  assert.equal(failure.headers.get('content-security-policy'), edge.expected('/x')['content-security-policy']);
+  // The page too: no stored page and no network.
+  w.stores.get(cacheOf('B')).delete(ORIGIN);
+  assert.equal((await w.controller.fetch('', {navigate: true})).status, 503);
+  // And another build's file nobody holds.
+  assert.equal((await w.controller.fetch('b/other-123456789abc/main.dart.js')).status, 503);
+});
+
+test('item 6: a verified miss is stored, so the next offline request is served', async () => {
+  const w = world();
+  deploy(w, 'B');
+  await takeOver(w, await install(w, 'B'));
+  const path = inFolder('B', 'sqlite3.wasm');
+  const store = w.stores.get(cacheOf('B'));
+  store.delete(ORIGIN + path);
+  assert.equal((await get(w, path)).id, 'B');
+  assert.ok(store.has(ORIGIN + path), 'stored after its hash matched');
+  w.offline = true;
+  assert.equal((await get(w, path)).id, 'B');
+  // Bytes that do not match the list are never stored.
+  w.offline = false;
+  store.delete(ORIGIN + path);
+  w.tamper[path] = 'something else';
+  assert.equal((await get(w, path)).id, 'miss');
+  assert.equal(store.has(ORIGIN + path), false);
 });
 
 // ---- Headers ----
