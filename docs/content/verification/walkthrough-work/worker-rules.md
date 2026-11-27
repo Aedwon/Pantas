@@ -1,6 +1,6 @@
 # Worker rules: CSE lesson walk-through rewrite (lead: Claude lesson lead, E-198)
 
-Startup: Work on `Aedwon/Pantas`. Retrieve `AGENTS.md`, `WORKFLOW.md` and `SUBAGENTS.md` from the current GitHub `main` branch (`git fetch origin -q; git show origin/main:<path>`) and follow them, regardless of the code branch. These shared rules supersede older project workflow instructions. Policy commit read by the lead: `a5888282f` (session 2, Nov 26 5:25 PM Manila). Record the policy commit you read in your report.
+Startup: Work on `Aedwon/Pantas`. Retrieve `AGENTS.md`, `WORKFLOW.md` and `SUBAGENTS.md` from the current GitHub `main` branch (`git fetch origin -q; git show origin/main:<path>`) and follow them, regardless of the code branch. These shared rules supersede older project workflow instructions. Policy commit read by the lead: `3fd9fdf0e` (session 5, Nov 27 2:20 PM Manila). Record the policy commit you read in your report.
 
 Worktree (shared with the lead and one other worker; touch ONLY your assigned files):
 `/Users/aedwon/.t3/worktrees/Pantas/content-lesson-walkthro-85719f9d9f054ca1` (branch `content/lesson-walkthrough-cse-r1`).
