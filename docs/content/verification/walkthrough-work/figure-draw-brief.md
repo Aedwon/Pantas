@@ -96,6 +96,13 @@ paragraph's worked lines and remove the old note at line 56), `last-digit-divisi
 `real-number-sets.md` keeps its code figure; do not touch it. If a lesson already has a drawn ILLUSTRATION and the new
 marker would come before it, stop for that lesson and report it.
 
+## Round 5 (batch 2d, first half; after `e48944521`)
+
+Same rules as rounds 2 to 4. One worker. Rows in `batch-2-figure-list.md` for these lessons under
+`content/lessons/mathematics/arithmetic-number-sense/`: `arithmetic-sequence-terms.md`, `arithmetic-series-sums.md`,
+`infinite-geometric-series.md`, `harmonic-sequence-terms.md` (4 pictures). A picture with a positive-only drawing (lengths,
+areas) says what it assumes in the lesson text beside it, in one short line, if the lesson's numbers could be negative.
+
 ## Checks
 
 1. SVG validator, no Flutter: `python3 -I <maintools>/tools/check_lesson_svgs.py <root> --validate-only`, where `<root>` is

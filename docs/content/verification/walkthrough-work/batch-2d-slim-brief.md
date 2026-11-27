@@ -29,3 +29,6 @@ rows to the end of `docs/content/verification/walkthrough-work/batch-2-figure-li
   `finite-geometric-series.md`, `infinite-geometric-series.md`, `harmonic-sequence-terms.md`.
 - Writer B (next round): `fibonacci-type-sequence-terms.md`, `finding-number-patterns.md`,
   `odd-and-even-position-patterns.md`, `signed-integer-operations.md`, `substituting-negative-numbers.md`.
+  Also, lead ruling on Writer A's `finite-geometric-series.md`: its kept Quick Check (the sum of the middle 3 of 9 terms of
+  $7$ with $r=1$) does not test the lesson's main skill. Replace it with one that uses the sum rule for $r\ne1$, with fresh
+  numbers, key not printed above or in its stem, one answer, re-solved by you. Change nothing else in that lesson.
