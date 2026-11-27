@@ -26,6 +26,8 @@ class FakeChannel {
  *  silentWaiting true when the waiting worker never answers
  *  waiting.holdTakeOver  the take-over reply waits until page.releaseTakeOver()
  *  waiting.controls      false when, after the take-over, another worker controls the page
+ *  waiting.holdControllerReply  once the worker controls the page, its build id answer waits until
+ *                        page.releaseControllerReply()
  *  updateFails   true when registration.update() rejects
  *  noPerformance true for a page with no performance API
  */
@@ -43,14 +45,20 @@ export function loadPage({
   const events = {};
 
   // `held` is the reply to a take-over request that the test releases by hand (holdTakeOver).
+  // `heldId` is the worker's answer to "which build are you?" once it has taken over, held the
+  // same way (holdControllerReply): the page asks it before it reloads.
   let held = null;
+  let heldId = null;
   const waitingWorker = waiting && {
     state: 'installed',
     postMessage(message, ports = []) {
       posted.push(message);
       if (silentWaiting) return;
       const [port] = ports;
-      if (message.type === 'pantas-build-id') port.postMessage({id: waiting.id});
+      if (message.type === 'pantas-build-id') {
+        if (waiting.holdControllerReply && sw.controller === waitingWorker) heldId = () => port.postMessage({id: waiting.id});
+        else port.postMessage({id: waiting.id});
+      }
       if (message.type === 'pantas-take-over') {
         const ok = waiting.windowsOk !== false;
         const answer = () => {
@@ -112,6 +120,9 @@ export function loadPage({
     window, pwa: window.pantasPwa, update: window.pantasUpdate, document, marks, timers, listeners, posted, registered, sw, registration,
     arrive: () => (registration.waiting = waitingWorker),
     releaseTakeOver: () => held && held(),
+    waitingWorker,
+    releaseControllerReply: () => heldId && heldId(),
+    context,
     reloads: () => reloads, updates: () => updates,
     // Fires the first timer waiting at `ms` that has not been cleared.
     fire: (ms) => timers.find((t) => t.ms === ms && !t.cleared)?.fn(),

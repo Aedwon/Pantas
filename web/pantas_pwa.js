@@ -85,7 +85,10 @@
         STARTUP_SWAP_MS,
         false
       ).then(function (result) {
-        if (!result) startup.expired = true;
+        if (!result) {
+          startup.expired = true;
+          if (startup.release) startup.release();
+        }
         return result;
       });
     }
@@ -183,13 +186,21 @@
   // worker took over (the reload follows once it controls this page), false when
   // nothing was waiting, the worker refused or did not answer, or `gate` (a start
   // that has stopped waiting) expired.
+  // With a `gate` (the start of the page) it resolves true only once the reload is under
+  // way, and never reloads after the gate expired: a start that is not released by then
+  // runs Flutter on the build it has (the caller's limit expires the gate and ends the wait).
   function swap(found, gate) {
     return readyBuild(found).then(function (id) {
       if (!id || (gate && gate.expired)) return false;
       var reloading = false;
+      var reloaded;
+      var reloadStarted = new Promise(function (resolve) {
+        reloaded = resolve;
+      });
       function reload() {
-        if (reloading) return;
+        if (reloading || (gate && gate.expired)) return;
         reloading = true;
+        reloaded(true);
         window.location.reload();
       }
       // Reload only when the asked worker controls the page: another worker taking
@@ -207,6 +218,12 @@
         reloadIfControlled();
       }
       navigator.serviceWorker.addEventListener('controllerchange', onChange);
+      // When the start gives up waiting, nothing may stay listening for a reload.
+      if (gate) {
+        gate.release = function () {
+          navigator.serviceWorker.removeEventListener('controllerchange', onChange);
+        };
+      }
       return ask(found.waiting, {type: 'pantas-take-over'}).then(function (reply) {
         if (!reply || reply.ok !== true || (gate && gate.expired)) {
           navigator.serviceWorker.removeEventListener('controllerchange', onChange);
@@ -215,7 +232,7 @@
         // The worker is activating. Check once more after a while, in case the
         // change of controller was missed.
         setTimeout(reloadIfControlled, 5000);
-        return true;
+        return gate ? reloadStarted : true;
       });
     });
   }

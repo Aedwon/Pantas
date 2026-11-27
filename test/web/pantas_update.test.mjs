@@ -4,6 +4,8 @@
 // it only when this is the only window; nothing here deletes a cache or unregisters.
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+import vm from 'node:vm';
 import {loadPage} from './fixtures/fake_page.mjs';
 
 // A page that started on build 'running'. The update, if any, finishes installing after the start.
@@ -162,6 +164,58 @@ test('a startup takeover that answers in time still reloads into the new build b
   assert.equal(await p.pwa.registerWorker('running'), true);
   await tick();
   assert.equal(p.reloads(), 1);
+});
+
+// ---- Audit 3, Medium: never a late reload, never a stuck splash ----
+
+test('audit 3: a controller that answers "which build?" after the page started Flutter does not reload the running app', async () => {
+  const p = loadPage({
+    controller: 'https://app.test/pantas_sw.js?v=running', waitingAtLoad: true,
+    waiting: {id: 'next', holdTakeOver: true, holdControllerReply: true},
+  });
+  const startup = p.pwa.registerWorker('running');
+  await tick(); // the take-over request is out, its answer held
+  // The new worker controls the page: the page asks it who it is, and the answer is slow.
+  p.sw.controller = p.waitingWorker;
+  p.controllerChange();
+  await tick();
+  p.fire(2500); // the page stops waiting and starts Flutter
+  assert.equal(await startup, false);
+  p.releaseControllerReply(); // the slow answer arrives: it is the asked build
+  await tick();
+  await tick();
+  assert.equal(p.reloads(), 0, 'a reload after startup would tear the running app down');
+  p.releaseTakeOver();
+  await tick();
+  p.fire(5000);
+  await tick();
+  assert.equal(p.reloads(), 0);
+});
+
+test('audit 3: a takeover the worker accepted but that never gives the page the asked controller starts Flutter at the limit', async () => {
+  const p = loadPage({controller: 'https://app.test/pantas_sw.js?v=running', waitingAtLoad: true, waiting: {id: 'next', controls: false}});
+  const startup = p.pwa.registerWorker('running');
+  await tick();
+  p.fire(2500);
+  assert.equal(await startup, false, 'the splash must not wait for a reload that no controller change will trigger');
+  assert.equal(p.reloads(), 0);
+  assert.equal(p.listening(), 0, 'and nothing is left listening');
+});
+
+test('audit 3: the bootstrap starts Flutter when the takeover it waited for does not come', async () => {
+  const p = loadPage({controller: 'https://app.test/pantas_sw.js?v=running', waitingAtLoad: true, waiting: {id: 'next', controls: false}});
+  const loads = [];
+  p.context._flutter = {loader: {load: (options) => loads.push(options)}};
+  p.context.performance = {mark() {}};
+  const bootstrap = readFileSync(new URL('../../web/flutter_bootstrap.js', import.meta.url), 'utf8')
+    .replace('{{flutter_js}}', '').replace('{{flutter_build_config}}', '').replace('{{flutter_service_worker_version}}', '"running"');
+  vm.runInContext(bootstrap, p.context);
+  await tick();
+  assert.equal(loads.length, 0, 'still waiting for the takeover');
+  p.fire(2500);
+  await tick();
+  await tick();
+  assert.equal(loads.length, 1, 'the splash must end: Flutter starts on the build the page has');
 });
 
 test('visibility return and five-minute polling check without reloading', async () => {
