@@ -134,7 +134,7 @@ pass 15, retire or merge one first.
 - Fix:
   1. Required step (manager, now): both lesson lanes paused (Nov 27, about 3:55 PM); no writes, fixers, pre-checks or Codex runs until Aedwon picks a redesign.
   2. Required step (all lesson work from now on): no batch gets more than 2 Codex full reads. A batch that fails its second read stops, keeps its live lessons, and goes to the manager with the findings; it gets no third read without a changed plan. The manager checks the read count before relaying any Codex start.
-  3. The redesign he picks is recorded here and in the launch log before any lane resumes.
+  3. The redesign he picks is recorded here and in the launch log before any lane resumes. Picked Nov 27 about 4:10 PM ("okay go ahead with your reco"): the format is scoped to step-solving subjects and slimmed, a Math pilot of about 10 lessons runs first with automatic checks built before writing, and Blockers gate each read while Majors are fixed once (spec revision of Nov 27 in `docs/superpowers/specs/2026-11-25-lesson-walkthrough-standard.md`). The General Information lane is closed.
 
 ### Grammar walk-through lessons fail every Codex audit round (Nov 27)
 

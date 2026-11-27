@@ -52,16 +52,15 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Get a written brief, do one job, return a short summary (pass or fail, errors, files touched).
 - Never talk to Aedwon, never merge, and never start work outside their brief.
 
-## Lanes (current as of November 27, 2:30 PM Manila)
+## Lanes (current as of November 27, 4:15 PM Manila)
 
 Manager: `c517ddef-dfdb-4aa6-9f0a-401e7c34873d` ("Operations Manager Handoff", opened by Aedwon Nov 27 1:28 PM). It took over because every heartbeat of the previous manager timed out from 6:33 AM to 1:17 PM Nov 27, so the 6:45 AM lesson lead restart never ran. The 8 future bound schedules were rebound to it; the Fri 7:00 PM r10 restart now names it as the report target.
 Old managers, retired (do not message): `mcp:launch:aec6f0b94357a6bdd55f540c8424f611aeda70dba0b2000f468126a93604918c`, `mcp:launch:00976645432b2f793e42bfeeea73583c727484762376837beea722b8a3c65b8d`, `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926`.
 Active: CSE release lead r9 (same thread), integrator, service worker fix, P12 loop runs, payment PR merges, then the opening ship `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
 UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (idle; guided first run handed to the release lead Nov 26);
 security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (alert email confirmed 1:22 AM; live PayMongo key Nov 26 9 AM, first real payment).
-Lesson walk-through, Claude lead (takeover Nov 26, Gemini weekly quota spent): `mcp:launch:d0b92d05876bd9854657cafae346820c99095f72f43494be336846fad3ba9c63`, branch `content/lesson-walkthrough-cse-r1`: Grammar, Vocabulary, Math recheck, Language Application, Reading Comprehension; Codex b first.
-Lesson walk-through, General Information, Gemini 4 Neon xhigh lead (after Gemini's weekly reset): `mcp:launch:b0df58086776a5a77d6f3512e73088175546b9de53242fd3645752a166cae361`, branch `content/lesson-walkthrough-cse-gi-r1`, only `content/lessons/general-information/`; runs no Codex.
-UX lead also builds the walk-through renderer and importer (E-196) after the homepage hand-off.
+Walk-through Math pilot, Claude lead: `mcp:launch:d0b92d05876bd9854657cafae346820c99095f72f43494be336846fad3ba9c63`, branch `content/lesson-walkthrough-cse-r1` (WIP ca590443b). Paused since Nov 27 3:55 PM; restarts fresh Sat Nov 28 8:30 AM for the Math pilot under the Nov 27 spec revision (scheduled). Its other subjects stop: their drafts stay on the branch, unused.
+Closed Nov 27 (do not message): General Information Gemini lead `mcp:launch:b0df58086776a5a77d6f3512e73088175546b9de53242fd3645752a166cae361` (drafts on `content/lesson-walkthrough-cse-gi-r1` WIP 15cd3a90a; General Information keeps its live lessons).
 Retired (do not message): first Gemini walk-through lead `mcp:launch:b7636146c2e66e268cb6e853fade6c2d585c3fa734c80ae1f6ecaaec1648308c`, Claude stopgap lead `mcp:launch:9311c7e2af7f6722e8eefce7355936436161d5ed206f07d80f15c3fb95927ab9`, old Claude lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd`.
 Paused by him: under-13 (keep 13 to 17 closed), PSHS-NCE (go/no-go Dec 8), QG Phase 2, dots.
 Retired for length (do not message): CSE release lead r2 to r5 `mcp:launch:89c734558b...`, old CSE release lead `mcp:launch:b14e5d0e...`, old security lead `mcp:bc3317cf...`.
