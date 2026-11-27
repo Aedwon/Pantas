@@ -70,6 +70,22 @@ the same `assets/seed/content.db` reason as round 1.
 
 Each worker touches only its own lessons and their SVG folders.
 
+## Round 3 (batch 2b; after `4dd7e1e48`)
+
+Same rules as round 2, plus what Codex read 1 of batch 2a found about pictures:
+- A picture sits after the text that introduces its numbers, never before the story or values appear. Put the marker right
+  after the setup line or the worked line whose numbers it shows.
+- If a picture draws amounts as lengths, heights or areas, they are to scale, or the shapes carry no implied size (no
+  waterlines, equal boxes only where the amounts are equal).
+
+One worker. Rows in `batch-2-figure-list.md` for these lessons under `content/lessons/mathematics/` (7 pictures):
+`arithmetic-number-sense/adding-and-multiplying-fractions.md` (move the existing note to Example #1 step 1, beside
+"3/4 = 9/12", as its row says), `arithmetic-number-sense/multiplying-and-dividing-decimals.md`,
+`arithmetic-number-sense/distribution-and-common-factors.md`, `data-interpretation/chart-scales-and-differences.md` (the new
+row at line 51 only; the existing bar chart stays as it is, and the new marker's NN follows marker order in the lesson, so
+rename nothing that exists: if the new marker comes first, report it and stop for the lead), `data-interpretation/inverse-proportion-and-ratio-parts.md` (2),
+`data-interpretation/percentages-and-ratios-of-groups.md`.
+
 ## Checks
 
 1. SVG validator, no Flutter: `python3 -I <maintools>/tools/check_lesson_svgs.py <root> --validate-only`, where `<root>` is
