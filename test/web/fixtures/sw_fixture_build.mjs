@@ -12,13 +12,15 @@
 import {mkdirSync, readFileSync, readdirSync, statSync, writeFileSync} from 'node:fs';
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {stamp} from '../../../tool/web/stamp_worker_version.mjs';
+import {ROBOTO, stamp} from '../../../tool/web/stamp_worker_version.mjs';
 import {SDK_FILES, SDK_FOLDER, importMap} from '../../../tool/web/firebase_sdk.mjs';
 
 // The bytes a fixture build holds for each Firebase SDK file (the real files are 1.2 MB; the
 // deploy guard test pins these stand-ins). Like the database worker they sit at a root address
 // and carry no build marker: the address names the SDK version, so every build shares them.
 export const sdkStandIn = name => `// firebase sdk stand-in ${name}\n`;
+
+export const robotoStandIn = '// roboto stand-in\n';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repo = join(here, '..', '..', '..');
@@ -77,6 +79,9 @@ export function buildFiles(id, prod = false) {
       {family: 'MaterialIcons', note: m, fonts: [{asset: 'fonts/MaterialIcons-Regular.otf'}]},
       {family: 'Geist', fonts: [{asset: 'assets/fonts/Geist-Regular.ttf'}]},
     ]),
+    // Where web/ puts the Roboto file; the stamp moves it into assets/ and registers it. Text, like
+    // every fixture body (the real file is binary); the guard test pins these stand-in bytes.
+    [ROBOTO.file]: robotoStandIn,
     'assets/fonts/MaterialIcons-Regular.otf': `otf ${m}`,
     'assets/assets/fonts/Geist-Regular.ttf': `ttf ${m}`,
     // In the build output, not in the startup set.

@@ -164,6 +164,27 @@ export function buildHash(dir) {
   return hash.digest('hex').slice(0, 12);
 }
 
+// The Roboto file the Flutter web engine fetches from fonts.gstatic.com at every start, unless the
+// font manifest already has a Roboto family (canvaskit/fonts.dart, loadAssetFonts). web/fonts holds
+// the same bytes; the stamp registers them as an asset of the build, so cold start asks no font host
+// and the file is verified and stored like every other. Web only: pubspec.yaml is not touched.
+export const ROBOTO = {
+  file: 'fonts/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2',
+  sha256: '35b02ca266b79eb4996590f15817425a1ce9ebf48f84471843233ff614656bf2',
+};
+
+// Moves the font from the root (where web/ puts it) into assets/, where the engine looks for a
+// manifest font, and adds the family to assets/FontManifest.json. Safe to run again.
+function registerRoboto(dir) {
+  const manifestPath = join(dir, 'assets/FontManifest.json');
+  if (existsSync(join(dir, ROBOTO.file))) move(dir, ROBOTO.file, `assets/${ROBOTO.file}`);
+  if (!existsSync(join(dir, 'assets', ROBOTO.file)) || !existsSync(manifestPath)) return;
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8'));
+  if (manifest.some(family => family.family === 'Roboto')) return;
+  manifest.push({family: 'Roboto', fonts: [{asset: ROBOTO.file}]});
+  writeFileSync(manifestPath, JSON.stringify(manifest));
+}
+
 /** True for a reference to a file of this build: not a scheme address, a path from the root or a fragment. */
 export const isLocal = target => target !== '' && !/^([a-z][a-z0-9+.-]*:|\/|#)/i.test(target);
 
@@ -255,6 +276,7 @@ export function stamp(dir) {
     if (!existsSync(join(dir, name))) throw new Error(`No ${name} in ${dir}.`);
   }
   unstamp(dir);
+  registerRoboto(dir);
   const workerPath = join(dir, WORKER);
   const worker = readFileSync(workerPath, 'utf8');
   workerBuild(worker); // throws when the markers are missing

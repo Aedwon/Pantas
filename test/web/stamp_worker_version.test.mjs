@@ -270,6 +270,44 @@ test('audit 3: an unresolved reference in any spelling is refused, by name', () 
   }
 });
 
+// E-210: the engine fetches this Roboto file from fonts.gstatic.com at every start, unless the font
+// manifest already has a Roboto family. web/fonts holds the same bytes; the stamp registers them.
+const ROBOTO = 'fonts/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2';
+const ROBOTO_BYTES = readFileSync(new URL(`../../web/${ROBOTO}`, import.meta.url));
+function withRoboto(manifest = '[{"family":"Geist","fonts":[{"asset":"assets/fonts/Geist-Regular.ttf"}]}]') {
+  const dir = build('code');
+  mkdirSync(join(dir, 'fonts/roboto/v32'), {recursive: true});
+  writeFileSync(join(dir, ROBOTO), ROBOTO_BYTES);
+  mkdirSync(join(dir, 'assets'), {recursive: true});
+  writeFileSync(join(dir, 'assets/FontManifest.json'), manifest);
+  return dir;
+}
+
+test('the web build registers Roboto from its own folder, in the manifest, the set and the id', () => {
+  const dir = withRoboto();
+  const version = stamp(dir);
+  const folder = `b/${version}/`;
+  const manifest = JSON.parse(read(dir, `${folder}assets/FontManifest.json`));
+  assert.deepEqual(manifest.find(family => family.family === 'Roboto'), {family: 'Roboto', fonts: [{asset: ROBOTO}]});
+  assert.equal(manifest.length, 2, 'the other families stay');
+  assert.ok(existsSync(join(dir, `${folder}assets/${ROBOTO}`)), 'the font is where the engine asks for it');
+  assert.ok(!existsSync(join(dir, 'fonts')), 'nothing is left at the root');
+  assert.equal(stampedOf(dir).files[`${folder}assets/${ROBOTO}`], sha(ROBOTO_BYTES), 'in the startup set, with its hash');
+  assert.equal(stamp(dir), version, 'stamping again is stable');
+  assert.equal(manifest.filter(family => family.family === 'Roboto').length, 1);
+  // The manifest is part of the id: another font file gives another build.
+  const other = withRoboto();
+  writeFileSync(join(other, ROBOTO), 'other bytes');
+  assert.notEqual(stamp(other), version);
+});
+
+test('a manifest that already has a Roboto family is left as it is', () => {
+  const own = '[{"family":"Roboto","fonts":[{"asset":"fonts/own.ttf"}]}]';
+  const dir = withRoboto(own);
+  const version = stamp(dir);
+  assert.equal(read(dir, `b/${version}/assets/FontManifest.json`), own);
+});
+
 test('a query or fragment after a local file is kept', () => {
   const dir = pageWith('<script src="flutter_bootstrap.js?x=1"></script><link href="manifest.json#a" rel="manifest">');
   const version = stamp(dir);

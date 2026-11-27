@@ -7,6 +7,8 @@ void registerBundledFontLicenses() {
     for (final notice in {
       'Geist': 'assets/fonts/OFL-Geist.txt',
       'Source Serif 4': 'assets/fonts/OFL-SourceSerif4.txt',
+      // The web build ships Roboto, the engine's own fallback file.
+      'Roboto': 'assets/fonts/OFL-Roboto.txt',
       'Phosphor': 'assets/fonts/phosphor/LICENSE',
     }.entries) {
       yield LicenseEntryWithLineBreaks(

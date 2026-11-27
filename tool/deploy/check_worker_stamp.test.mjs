@@ -5,8 +5,8 @@ import {join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 import {createHash} from 'node:crypto';
-import {FIXED_ADDRESS, fingerprints, listHash, stamp, workerBuild} from '../web/stamp_worker_version.mjs';
-import {buildFiles, constantOf, sdkStandIn, writeBuild} from '../../test/web/fixtures/sw_fixture_build.mjs';
+import {FIXED_ADDRESS, fingerprints, listHash, ROBOTO, stamp, workerBuild} from '../web/stamp_worker_version.mjs';
+import {buildFiles, constantOf, robotoStandIn, sdkStandIn, writeBuild} from '../../test/web/fixtures/sw_fixture_build.mjs';
 import {SDK_FILES, SDK_FOLDER, SDK_PATHS} from '../web/firebase_sdk.mjs';
 import {PINNED_ROOT_FILES, stampProblems as realProblems} from './check_worker_stamp.mjs';
 
@@ -24,7 +24,11 @@ const PURCHASES = FIXED_ADDRESS[0];
 const FIXTURE_PURCHASES = 'purchases script as prod serves it';
 // The Firebase SDK files are 1.2 MB of Google's bytes: a fixture build carries stand-ins too.
 const standInPins = Object.fromEntries(Object.keys(SDK_FILES).map(name => [SDK_FOLDER + name, sha(sdkStandIn(name))]));
-const pins = {...PINNED_ROOT_FILES, ...standInPins, [PURCHASES]: sha(FIXTURE_PURCHASES)};
+const pins = {
+  ...PINNED_ROOT_FILES, ...standInPins, [PURCHASES]: sha(FIXTURE_PURCHASES),
+  // The fixture's Roboto is a text stand-in; the real bytes are checked against web/fonts below.
+  [`assets/${ROBOTO.file}`]: sha(robotoStandIn),
+};
 const pinsFile = join(mkdtempSync(join(tmpdir(), 'stamp-pins-')), 'pins.json');
 writeFileSync(pinsFile, JSON.stringify(pins));
 const stampProblems = (dir, options = {}) => realProblems(dir, {pins, ...options});
@@ -118,7 +122,7 @@ test('restamping a changed build makes it pass again', () => {
 const required = base => [
   'index.html', 'pantas_sw.js', 'version.json', 'manifest.json', 'drift_worker.js', PURCHASES, ...SDK_PATHS,
   ...['flutter_bootstrap.js', 'main.dart.js', 'pantas_pwa.js', 'pantas_history.js', 'pantas_welcome.js', 'pantas_splash.js',
-    'sqlite3.wasm', 'assets/AssetManifest.bin', 'assets/FontManifest.json',
+    'sqlite3.wasm', 'assets/AssetManifest.bin', 'assets/FontManifest.json', `assets/${ROBOTO.file}`,
     ...canvasKit.map(name => `canvaskit/${name}`)].map(name => base + name),
 ];
 
@@ -232,6 +236,28 @@ test('High 6: a deferred part the app names but the build lacks is refused', () 
   stamp(build.dir);
   assert.match(stampProblems(build.dir).join('\n'), /main\.dart\.js names main\.dart\.js_3\.part\.js, which is not in the build/);
   done(build);
+});
+
+// E-210: without a Roboto family in the manifest the engine asks fonts.gstatic.com for it at every start.
+test('the build must register its own Roboto, with the pinned bytes', () => {
+  const build = stamped();
+  assert.deepEqual(stampProblems(build.dir), []);
+  done(build);
+  const noFamily = stamped();
+  const manifest = `${noFamily.base}assets/FontManifest.json`;
+  edit(noFamily.dir, manifest, text => JSON.stringify(JSON.parse(text).filter(family => family.family !== 'Roboto')));
+  refreshList(noFamily.dir);
+  assert.match(stampProblems(noFamily.dir).join('\n'), /FontManifest\.json has no Roboto family: the engine would fetch it from fonts\.gstatic\.com/);
+  done(noFamily);
+  const changed = stamped();
+  edit(changed.dir, `${changed.base}assets/${ROBOTO.file}`, text => text + 'x');
+  refreshList(changed.dir);
+  assert.match(stampProblems(changed.dir).join('\n'), /differs from the Roboto file the engine fetches/);
+  done(changed);
+});
+
+test('the pinned Roboto is the file in web/fonts, byte for byte', () => {
+  assert.equal(sha(readFileSync(join(repo, 'web', ROBOTO.file))), ROBOTO.sha256);
 });
 
 test('High 6: a font the manifest names but the build lacks is refused', () => {

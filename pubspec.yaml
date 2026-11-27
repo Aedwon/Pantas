@@ -109,6 +109,7 @@ flutter:
   assets:
     - assets/fonts/OFL-Geist.txt
     - assets/fonts/OFL-SourceSerif4.txt
+    - assets/fonts/OFL-Roboto.txt
     - assets/fonts/phosphor/LICENSE
     - content/exams/catalog.json
     - content/exams/custom_subject_tiers.json

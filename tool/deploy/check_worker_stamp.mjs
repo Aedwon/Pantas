@@ -17,13 +17,13 @@ import {createHash} from 'node:crypto';
 import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {buildFolder, FIXED_ADDRESS, fingerprints, isLocal, listHash, mapReferences, recomputedVersion, workerBuild} from '../web/stamp_worker_version.mjs';
+import {buildFolder, FIXED_ADDRESS, fingerprints, isLocal, listHash, mapReferences, recomputedVersion, ROBOTO, workerBuild} from '../web/stamp_worker_version.mjs';
 import {importMap, SDK_FILES, SDK_FOLDER, SDK_PATHS} from '../web/firebase_sdk.mjs';
 
 // What the app cannot boot without, inside the build folder.
 const REQUIRED = [
   'flutter_bootstrap.js', 'main.dart.js', 'pantas_pwa.js', 'pantas_history.js', 'pantas_welcome.js', 'pantas_splash.js',
-  'sqlite3.wasm', 'assets/AssetManifest.bin', 'assets/FontManifest.json',
+  'sqlite3.wasm', 'assets/AssetManifest.bin', 'assets/FontManifest.json', `assets/${ROBOTO.file}`,
   // Full CanvasKit only: the bootstrap pins it in every browser, so the chromium variant is never asked for.
   'canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm',
 ];
@@ -161,7 +161,7 @@ export function stampProblems(dir, {pins = PINNED_ROOT_FILES, target = null} = {
   if (existsSync(metadata) && JSON.parse(readFileSync(metadata, 'utf8')).pantasBuildVersion !== build.id) {
     problems.push('version.json names another build than the worker');
   }
-  problems.push(...runtimeProblems(dir, build));
+  problems.push(...runtimeProblems(dir, build, pins));
   // The build id names an address that browsers keep for a year. Bytes that changed under an
   // unchanged id would be served to phones that hold the old ones, even with a refreshed list.
   if (folders.length === 1) {
@@ -180,7 +180,7 @@ export function stampProblems(dir, {pins = PINNED_ROOT_FILES, target = null} = {
 // What the running app asks for by name: the deferred parts main.dart.js names and the fonts
 // FontManifest.json names. Each must be in the build and in the worker's list, or the app
 // would stop at that screen or font, online or offline.
-function runtimeProblems(dir, build) {
+function runtimeProblems(dir, build, pins) {
   const problems = [];
   const need = (what, file) => {
     if (!existsSync(join(dir, build.base, file))) problems.push(`${what}, which is not in the build`);
@@ -200,6 +200,14 @@ function runtimeProblems(dir, build) {
       problems.push('FontManifest.json is not a font list');
     }
     for (const {asset} of fonts) need(`FontManifest.json names ${asset}`, `assets/${asset}`);
+    // Without a Roboto family the engine asks fonts.gstatic.com for it at every start (E-210).
+    if (!fonts.some(({asset}) => asset === ROBOTO.file)) {
+      problems.push(`FontManifest.json has no Roboto family: the engine would fetch it from fonts.gstatic.com at every start (the stamp adds ${ROBOTO.file})`);
+    }
+    const font = join(dir, build.base, 'assets', ROBOTO.file);
+    if (existsSync(font) && sha256(readFileSync(font)) !== (pins[`assets/${ROBOTO.file}`] ?? ROBOTO.sha256)) {
+      problems.push(`assets/${ROBOTO.file} differs from the Roboto file the engine fetches: the text would look different`);
+    }
   }
   return problems;
 }
