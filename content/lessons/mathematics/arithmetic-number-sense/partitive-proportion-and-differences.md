@@ -18,11 +18,11 @@ keyPoints:
 
 In a **partitive proportion**, a whole amount is split into shares using a ratio. Think of the ratio numbers as equal boxes.
 
-A ratio of $3:1$ means $3+1=4$ equal boxes in all. One share gets $3$ boxes, and the other gets $1$ box.
+When a total is split in the ratio $3:1$, there are $3+1=4$ equal boxes in all. One share gets $3$ boxes, and the other gets $1$ box.
 
 <!-- FIGURE WANTED: horizontal bar split into 4 equal boxes totaling "Php 800". First 3 boxes bracketed as "Share A = 3 parts = Php 600"; last 1 box bracketed as "Share B = 1 part = Php 200" -->
 
-Suppose you split Php $800$ in the ratio $3:1$.
+Find both shares when Php $800$ is split in the ratio $3:1$.
 
 1. Add the ratio parts to count all the equal boxes.
 
@@ -38,9 +38,11 @@ $$3\times200=600$$
 
 The larger share is Php $600$, and the smaller share is Php $200$.
 
-Sometimes a problem gives the size of one share instead of the whole. Suppose a mix uses water and syrup in a ratio of $3:5$, and there are $20$ liters of syrup.
+Sometimes a problem gives the size of one share instead of the whole. Find the total when a mix uses water and syrup in a ratio of $3:5$ and has $20$ liters of syrup. Here $5$ parts equal $20$ liters.
 
-Here $5$ parts equal $20$ liters, so $1$ part is $20\div5=4$ liters. The total is $(3+5)\times4=32$ liters.
+$$\dfrac{20}{5}=4\text{ liters in }1\text{ part}$$
+
+$$(3+5)\times4=32\text{ liters}$$
 
 :::pair #add-parts-to-amount
 Right: $5$ parts $=20$ liters, so $1$ part $=4$ liters and total $=8\times4=32$ liters
@@ -49,16 +51,16 @@ Ratio parts and liters are different units. Never add a raw ratio number directl
 :::
 
 :::check
-A sum of Php $900$ is divided in the ratio $2:3:4$. What is the largest share?
+A prize of Php $720$ is shared in the ratio $2:3:4$. How much is the middle share?
 :::answer
-The answer is Php $400$. Total parts are $2+3+4=9$, so $1$ part is $900\div9=100$, and $4$ parts are $4\times100=400$.
+The answer is Php $240$. Total parts are $2+3+4=9$, so $1$ part is $720\div9=80$, and the middle share is $3\times80=240$.
 :::
 
 ### Using a Difference Between Shares
 
 When a problem tells you how much larger one share is than another, subtract their ratio parts. That difference in parts equals the given difference in amount.
 
-Suppose two amounts are in the ratio $3:5$, and the larger amount is $18$ more than the smaller amount.
+Find the total of two amounts in the ratio $3:5$ when the larger is $18$ more than the smaller.
 
 1. Subtract the ratio parts.
 
@@ -68,7 +70,7 @@ $$5-3=2\text{ parts}$$
 
 $$\dfrac{18}{2}=9$$
 
-3. Multiply $1$ part by the total parts ($3+5=8$) to find the whole.
+3. Multiply $1$ part by the total parts ($3+5=8$).
 
 $$8\times9=72$$
 
@@ -77,23 +79,17 @@ Why does subtracting the ratio parts work? Every box in the ratio has the exact 
 :::
 
 :::pair #one-share-not-total
-Right: ratio $4:7$ with $1$ part $=7\text{ m}$ -> total $=(4+7)\times7=77\text{ m}$
+Right: ratio $4:7$ with $1$ part $=7\text{ m}$, so total $=(4+7)\times7=77\text{ m}$
 Wrong: total $=7\times7=49\text{ m}$
 Here $49\text{ m}$ is only the longer piece. Check whether the question asks for one piece or the total.
 :::
 
-Watch the order of names in every ratio problem. A blue-to-yellow ratio of $9:11$ is not the same as $11:9$.
+Watch the order of names in a ratio. A mix has $9$ liters of blue and $11$ liters of yellow, so blue to yellow is $9:11$, not $11:9$.
 
 :::pair #reverse-ratio-order
 Right: blue to yellow is $9:11$
 Wrong: blue to yellow is $11:9$
 Match the first number to the first word named, and the second number to the second word named.
-:::
-
-:::check
-Two numbers are in the ratio $2:7$. Their difference is $35$. What is the smaller number?
-:::answer
-The answer is $14$. The difference is $7-2=5$ parts, so $1$ part is $35\div5=7$, and the smaller number is $2\times7=14$.
 :::
 
 ## Examples
@@ -118,8 +114,6 @@ $$5\times12,000=60,000$$
 
 The share is Php $60,000$.
 
-**Check:** Find the other two shares: $2\times12,000=24,000$ and $3\times12,000=36,000$. Add all three: $24,000+36,000+60,000=120,000$, which matches the total.
-
 ### #2: Finding a Total from a Difference
 
 A cable is cut in the ratio $3:8$. If the longer piece is $25$ meters longer than the shorter piece, what was the original length?
@@ -142,8 +136,6 @@ $$3+8=11$$
 Finish the last step: multiply $11$ parts by $5$ meters to find the original length.
 :::answer
 The answer is $55$ meters. Multiply $11\times5=55$ meters.
-
-**Check:** The pieces are $3\times5=15$ meters and $8\times5=40$ meters. Their difference is $40-15=25$ meters, and their sum is $15+40=55$ meters.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -155,6 +147,6 @@ The answer is $55$ meters. Multiply $11\times5=55$ meters.
 
 :::checklist
 - Mixing ratio parts with real units: convert $1$ ratio part into pesos or meters before adding or subtracting. {#add-parts-to-amount}
-- Asked for the whole total: add all ratio parts, do not stop at the largest single share. {#one-share-not-total}
+- Asked for the whole total: multiply the size of $1$ part by all the ratio parts, not only one share's parts. {#one-share-not-total}
 - Writing or reading a ratio: keep the numbers in the same word order the question names. {#reverse-ratio-order}
 :::

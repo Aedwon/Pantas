@@ -24,22 +24,22 @@ $$y=\dfrac{k}{x}$$
 
 Here $k$ is a fixed number. When $k>0$, making one quantity larger makes the other smaller. Doubling $x$ cuts $y$ in half so their product stays $k$.
 
-Suppose $6$ identical pumps empty a pool in $10$ hours. First find the constant product, the total pump-hours for the job.
+Suppose $6$ identical pumps, each at the same steady rate, empty a pool in $10$ hours. Find the hours $x$ that $5$ pumps need. First find the constant product, the total pump-hours for the job.
 
 $$6\times10=60$$
 
-Now find how long $5$ pumps take to do that same $60$ pump-hour job.
+Now set the same product for $5$ pumps.
 
-$$5\times x=60$$
+$$5x=60$$
 
-$$x=\dfrac{60}{5}=12$$
+$$\dfrac{60}{5}=12$$
 
 Five pumps take $12$ hours. Notice that fewer pumps need more time, not less.
 
 :::pair #direct-instead-of-inverse
 Right: $5x=6\times10=60$, so $x=12\text{ hours}$
 Wrong: $\dfrac{6}{10}=\dfrac{5}{x}$, giving $x=8\dfrac{1}{3}\text{ hours}$
-The wrong line scaled time down with fewer pumps. For a fixed job, fewer pumps need more time, so multiply each pair instead of dividing.
+The wrong line scaled time down with fewer pumps. On a fixed job, fewer pumps need more time, so keep pumps times hours the same.
 :::
 
 Just going in opposite directions does not prove inverse proportion. You must check that the product $xy$ stays equal.
@@ -55,9 +55,9 @@ Why does a fixed job keep $xy$ constant? If each pump removes $1$ part of the po
 :::
 
 :::check
-Four printers finish a job in $15$ minutes. Working at the same rate, how long do $6$ printers take?
+Four painters, each at the same steady rate, finish a fence in $18$ hours. How many such painters finish it in $8$ hours?
 :::answer
-The answer is $10\text{ minutes}$. The job takes $4\times15=60$ printer-minutes, so $6$ printers need $60\div6=10\text{ minutes}$.
+The answer is $9$ painters. The job is $4\times18=72$ painter-hours, so it needs $72\div8=9$ painters.
 :::
 
 ### Handling a Mid-Problem Change
@@ -72,7 +72,7 @@ One **worker-day** is the work $1$ worker does in $1$ day. Follow three steps:
 
 <!-- FIGURE WANTED: two stacked horizontal bars. Top bar labeled "Total job = 10 x 12 = 120 worker-days". Bottom bar split into shaded left section "Done in 4 days: 10 x 4 = 40 worker-days" and right section "Remaining: 80 worker-days, 8 workers x 10 days" -->
 
-Suppose $10$ workers finish a job in $12$ days. After $4$ days, $2$ leave. Apply the three steps to find how many more days the rest need:
+Suppose $10$ workers, each at the same steady rate, finish a job in $12$ days. After $4$ days, $2$ leave. Apply the three steps to find how many more days the rest need:
 
 $$10\times12=120\text{ worker-days}$$
 
@@ -88,14 +88,6 @@ $$\dfrac{80}{8}=10\text{ more days}$$
 Right: remaining work is $120-40=80$, so $80\div8=10\text{ days}$
 Wrong: divide total work by $8$, so $120\div8=15\text{ days}$
 The first $4$ days of work are already finished. Divide only the remaining $80$ worker-days by the $8$ remaining workers.
-:::
-
-:::check
-A camp has food for $20$ hikers for $18$ days. After $6$ days, $4$ more hikers arrive. How many more days will the remaining food last?
-:::answer
-The answer is $10\text{ days}$. Total food is $20\times18=360$ hiker-days. Six days use $20\times6=120$, leaving $240$ hiker-days for $24$ hikers, and $240\div24=10$.
-
-**Check:** The $24$ hikers eat $24\times10=240$ hiker-days, and $120+240=360$ is all the food.
 :::
 
 ## Examples
@@ -116,11 +108,9 @@ $$9x=90$$
 
 3. Divide by $9$.
 
-$$x=\dfrac{90}{9}=10$$
+$$\dfrac{90}{9}=10$$
 
 It will take $10$ days.
-
-**Check:** Check the direction and product. More workers ($9$ instead of $6$) should take fewer days than $15$, and $10<15$. Also $9\times10=90$, matching $6\times15=90$.
 
 ### #2: Remaining Supplies After People Leave
 
@@ -139,14 +129,12 @@ $$40-10=30\text{ people}$$
 :::try
 Finish the last step: divide the $800$ remaining person-days by $30$ people.
 :::answer
-The answer is $26\dfrac{2}{3}$ more days. Divide $\dfrac{800}{30}=\dfrac{80}{3}=26\dfrac{2}{3}$.
-
-**Check:** With all $40$ people, the remaining food lasted $20$ days. With $30$ people (fewer mouths), it must last longer than $20$ days, and $30\times26\dfrac{2}{3}=800$ person-days matches.
+The answer is $26\dfrac{2}{3}$ more days. Divide $\dfrac{800}{30}=\dfrac{80}{3}$, which is $26\dfrac{2}{3}$.
 :::
 
 ## Speed Tricks & Shortcuts
 
-When rates stay constant up to the change, skip total work and multiply the old group by the remaining days. In Example $2$, $30-10=20$ days remain for $40$ people, giving $40\times20=800$ person-days left.
+When everyone keeps the same steady rate up to the change, skip total work and multiply the old group by the remaining days. In Example $2$, $30-10=20$ days remain for $40$ people, giving $40\times20=800$ person-days left.
 
 ## Traps to Watch For
 

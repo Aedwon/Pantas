@@ -22,7 +22,7 @@ $$\text{Unit rate}=\dfrac{\text{total amount}}{\text{number of units}}$$
 
 Match the order of your division to the words in the question. For "pesos per envelope," pesos go on top and total envelopes go on the bottom.
 
-Suppose $8$ boxes of envelopes hold $25$ envelopes per box and cost $1,260$ pesos total.
+Find the cost of $1$ envelope when $8$ boxes of envelopes hold $25$ envelopes per box and cost $1,260$ pesos total.
 
 1. Find the total number of envelopes first:
 
@@ -35,7 +35,7 @@ $$\dfrac{1,260}{200}=6.30$$
 Each envelope costs $6.30$ pesos.
 
 :::why
-Why does pesos go on top for "pesos per envelope"? The word "per" means "for each $1$," so you divide by whatever unit follows "per."
+Why does pesos go on top for "pesos per envelope"? In a rate, "per" means "for each $1$," so you divide by whatever unit follows "per."
 :::
 
 :::pair #wrong-unit-rate-order
@@ -46,7 +46,7 @@ The wrong line flipped the division and found envelopes per peso instead of peso
 
 Also make sure your time unit matches the question. If you find a rate per minute and the question asks for a rate **per hour**, multiply the per-minute rate by $60$ (since $1\text{ hour}=60\text{ minutes}$).
 
-Suppose a scanner processes $315$ pages in $45$ minutes.
+Find the pages per hour for a scanner that processes $315$ pages in $45$ minutes.
 
 $$\dfrac{315}{45}=7\text{ pages per minute}$$
 
@@ -59,18 +59,16 @@ Dividing by $45$ minutes gives pages per minute. Multiply by $60$ to convert fro
 :::
 
 :::check
-A machine packs bottles at a constant $12$ bottles per minute. How many bottles does it pack in $40$ minutes?
+A tap fills $900$ liters in $2$ hours at a steady rate. How many liters does it fill per minute?
 :::answer
-The answer is $480$ bottles. Multiply the rate by the time: $12\times40=480$.
-
-**Check:** Divide back: $\dfrac{480}{40}=12$ bottles per minute.
+The answer is $7.5$ liters per minute. Two hours is $2\times60=120$ minutes, and $900\div120=7.5$.
 :::
 
 ### Scaling with Direct Proportion
 
 In a **direct proportion**, two quantities move in the same direction by the same factor. When the rate stays constant, doubling one quantity doubles the other, and multiplying one quantity by $1.5$ multiplies the other by $1.5$.
 
-You can always find the unit rate first, then multiply by the new number of units.
+At a constant rate, find the unit rate first, then multiply by the new number of units.
 
 Suppose a pump delivers $450$ liters in $12$ minutes at a constant rate. How many liters will it deliver during two $9$-minute runs?
 
@@ -94,12 +92,6 @@ Wrong: $450\times\dfrac{12}{18}=300\text{ liters}$
 The wrong line scaled down when pumping time went up. At a constant rate, more minutes must deliver more water, not less.
 :::
 
-:::check
-Seven identical pens cost $63$ pesos. At the same price per pen, how much do $12$ pens cost?
-:::answer
-The answer is $108$ pesos. One pen costs $\dfrac{63}{7}=9$ pesos, and $12$ pens cost $9\times12=108$ pesos.
-:::
-
 ## Examples
 
 ### #1: Finding a Unit Rate
@@ -114,8 +106,6 @@ A machine packs $240$ boxes in $6$ hours at a steady rate. How many boxes does i
 $$\dfrac{240}{6}=40$$
 
 The unit rate is $40$ boxes per hour.
-
-**Check:** Multiply $40$ boxes per hour by $6$ hours: $40\times6=240$ boxes, which matches the given total.
 
 ### #2: Scaling a Direct Proportion
 
@@ -133,8 +123,6 @@ One notebook costs $30$ pesos.
 Finish the last step: multiply the unit price by $10$ notebooks to find the total cost.
 :::answer
 The answer is $300$ pesos. Multiply $30\times10=300$.
-
-**Check:** Ten notebooks is $2.5$ times as many as $4$ notebooks ($\dfrac{10}{4}=2.5$). Scaling $120$ pesos by $2.5$ gives $120\times2.5=300$ pesos, which matches.
 :::
 
 ## Traps to Watch For
@@ -142,5 +130,5 @@ The answer is $300$ pesos. Multiply $30\times10=300$.
 :::checklist
 - Finding "amount per unit": put the quantity after "per" in the denominator, never flip the division. {#wrong-unit-rate-order}
 - Given minutes when asked "per hour": find the per-minute rate first, then multiply by $60$. {#missing-hour-conversion}
-- Direct proportion when units increase: total output or cost must increase by the same factor, never decrease. {#reverse-direct-scale}
+- Direct proportion at a steady positive rate: when units increase, total output or cost increases by the same factor. {#reverse-direct-scale}
 :::

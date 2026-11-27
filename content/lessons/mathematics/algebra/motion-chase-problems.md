@@ -31,7 +31,7 @@ $$r_{\text{close}}=r_{\text{fast}}-r_{\text{slow}}$$
 
 Use the starting gap as $d$ and the closing rate as $r$ in $d=rt$.
 
-Try this example. A jeepney leaves a terminal at $40$ kph. One hour later, a van follows in the same direction at $60$ kph. How many hours after the van starts will it catch the jeepney?
+Find when the van catches up. A jeepney leaves a terminal at $40$ kph. One hour later, a van follows in the same direction at $60$ kph. How many hours after the van starts will it catch the jeepney?
 
 First find the jeepney's $1$-hour head start:
 
@@ -70,18 +70,16 @@ Check when the question starts the clock. "After the van starts" asks for $2$ ho
 :::
 
 :::check
-A cyclist rides at $14$ kph with an $8\text{ km}$ head start. A second cyclist chases along the same straight road at $18$ kph. How many kilometers does the second cyclist ride before catching up?
+A cyclist leaves at $12$ kph. Two hours later, a second cyclist follows on the same road at $16$ kph. How many hours after the second cyclist starts until the catch-up?
 :::answer
-The answer is $36\text{ km}$. The closing rate is $18-14=4$ kph, so the catch-up time is $8\div 4=2$ hours. The chaser rides $18\times 2=36$ km.
-
-**Check:** The first cyclist rides $14\times 2=28$ km, and $28+8=36$ km is where they meet.
+The answer is $6$ hours. The head start is $12\times 2=24$ km and the closing rate is $16-12=4$ kph, so $24\div 4=6$.
 :::
 
 ## Examples
 
 ### #1: Catching Up After a Head Start
 
-A motorcycle travels at a constant $70$ kph. A car behind it travels in the same direction along the same straight road at a constant $90$ kph. If the motorcycle has a $40$ km lead when the chase begins, how many hours will the car take to catch it?
+A motorcycle travels at a constant $70$ kph. A car behind it travels in the same direction along the same straight road at a constant $90$ kph. If the motorcycle has a $50$ km lead when the chase begins, how many hours will the car take to catch it?
 
 **Solution:**
 
@@ -89,16 +87,14 @@ A motorcycle travels at a constant $70$ kph. A car behind it travels in the same
 
 $$90-70=20$$
 
-2. Let $t$ be the hours after the chase begins. Use $d=rt$ with the $40\text{ km}$ gap.
+2. Let $t$ be the hours after the chase begins. Use $d=rt$ with the $50\text{ km}$ gap.
 
-$$40=20t$$
+$$50=20t$$
 
 :::try
-Finish the last step: divide $40$ by $20$ to find how many hours the car takes.
+Finish the last step: divide $50$ by $20$ to find how many hours the car takes.
 :::answer
-The answer is $2$ hours. Dividing $40\div 20=2$ gives $t=2$.
-
-**Check:** In $2$ hours, the car travels $90\times 2=180$ km and the motorcycle travels $70\times 2=140$ km. The car covers $180-140=40$ km more, closing the $40\text{ km}$ lead.
+The answer is $2.5$ hours. Dividing $50\div 20=2.5$ gives $t=2.5$.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -111,6 +107,6 @@ For example, if the van drives at $60$ kph for $2$ hours to catch the jeepney, t
 
 :::checklist
 - Same-direction chase: subtract the slower speed from the faster speed, so $r_{\text{close}}=r_{\text{fast}}-r_{\text{slow}}$. {#add-speeds-in-chase}
-- Moving target ahead: never divide the gap by the chaser's speed alone because the target keeps moving. {#use-only-chaser-speed}
+- Moving target ahead: do not divide the gap by the chaser's speed alone, because the target keeps moving. {#use-only-chaser-speed}
 - Starting the clock: check whether the question asks for chase time or total time since the first start. {#head-start-clock}
 :::

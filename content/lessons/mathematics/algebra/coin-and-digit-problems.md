@@ -20,7 +20,7 @@ keyPoints:
 
 For the value equation, multiply each coin's count by its peso value and add them up.
 
-Try this example. Lito has $20$ coins made of $5$-peso and $10$-peso coins, worth $160$ pesos in all. Let $f$ be the number of $5$-peso coins and $t$ be the number of $10$-peso coins.
+Find how many of each coin Lito has from the coin total and the total value. He has $20$ coins made of $5$-peso and $10$-peso coins, worth $160$ pesos in all. Let $f$ be the number of $5$-peso coins and $t$ be the number of $10$-peso coins.
 
 $$f+t=20$$
 
@@ -37,13 +37,13 @@ Then $f=20-12=8$. There are $8$ five-peso coins and $12$ ten-peso coins.
 :::pair #missing-coin-value
 Right: count is $f+t=20$, and value is $5f+10t=160$
 Wrong: $5f+10t=20$
-Never mix count and value in one equation. Because $5f+10t$ gives total pesos, the right side must be $160$ pesos, not the $20$-coin count.
+Keep count and value in separate equations. Because $5f+10t$ gives total pesos, the right side must be $160$ pesos, not the $20$-coin count.
 :::
 
 :::check
-A pouch has $15$ coins made of $1$-peso and $5$-peso coins, worth $47$ pesos. If $y$ is the number of $5$-peso coins and $15-y$ is the number of $1$-peso coins, write the value equation.
+A purse has $9$ coins made of $5$-peso and $20$-peso coins, worth $90$ pesos in all. How many $5$-peso coins are there?
 :::answer
-The answer is $(15-y)+5y=47$. Multiply each count by its coin value: $1(15-y)+5y=47$.
+The answer is $6$. With $x$ five-peso and $y$ twenty-peso coins, $x+y=9$ and $5x+20y=90$. Multiplying the first by $5$ and subtracting gives $15y=45$, so $y=3$ and $x=9-3=6$.
 :::
 
 ### Place Value in Two-Digit Numbers
@@ -58,7 +58,7 @@ $$10u+t$$
 
 The original tens digit cannot be $0$. If the reversed number must also have two digits, the original units digit cannot be $0$ either.
 
-Try this example. The tens digit of a two-digit number is twice its units digit, and the digits add up to $12$. Let $u$ be the units digit, so $t=2u$.
+Find the number from its digit sum and the link between its digits. The tens digit is twice the units digit, and the digits add up to $12$. Let $u$ be the units digit, so $t=2u$.
 
 $$2u+u=12$$
 
@@ -78,12 +78,6 @@ Why multiply $t$ by $10$? In $84$, the digit $8$ sits in the tens place, so it s
 Right: tens digit $t=8$ and units digit $u=4$ gives $10(8)+4=84$
 Wrong: $48$
 Keep track of which letter stands for the tens digit and which stands for the units digit. Putting $4$ in the tens place reverses the number.
-:::
-
-:::check
-A two-digit number has tens digit $5$ and units digit $9$. What is the number, and what number do you get when you reverse its digits?
-:::answer
-The answer is $59$, and reversing gives $95$. Using $10t+u$, $10(5)+9=59$ and $10(9)+5=95$.
 :::
 
 ## Examples
@@ -112,8 +106,6 @@ $$4y=52-20=32$$
 $$y=8$$
 
 There are $8$ five-peso coins.
-
-**Check:** With $8$ five-peso coins, there are $20-8=12$ one-peso coins. Their total value is $12(1)+8(5)=12+40=52$ pesos.
 
 ### #2: Reversing a Two-Digit Number
 
@@ -152,14 +144,12 @@ $$t=9-6=3$$
 Finish the last step: use $u=6$ and $t=3$ to write the original two-digit number.
 :::answer
 The answer is $36$. Using $10t+u$, $10(3)+6=36$.
-
-**Check:** The digits add to $3+6=9$. Reversing the digits gives $63$, and $63-36=27$.
 :::
 
 ## Traps to Watch For
 
 :::checklist
 - Coin equations: keep total coins on the count equation and total pesos on the value equation. {#missing-coin-value}
-- Two-digit number value: multiply the tens digit by $10$, as in $10t+u$, never add digits alone. {#place-value-in-two-digit-numbers}
+- Two-digit number value: multiply the tens digit by $10$, as in $10t+u$, instead of adding the digits. {#place-value-in-two-digit-numbers}
 - Writing the final number: check which digit is tens and which is units so you do not reverse them. {#reversed-digits}
 :::
