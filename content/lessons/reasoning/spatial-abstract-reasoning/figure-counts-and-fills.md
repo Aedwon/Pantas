@@ -38,7 +38,7 @@ The answer is **$7$ dots**. Tracking dot count alone gives $1, 3, 5$, which adds
 
 When a feature is a count, write the counts as a number sequence and find the difference between each pair.
 
-<!-- ILLUSTRATION: three equal square frames containing circles with 1 dot, 2 dots, and 3 dots, followed by a blank fourth frame -->
+<!-- FIGURE WANTED: three equal square frames containing circles with 1 dot, 2 dots, and 3 dots, followed by a blank fourth frame -->
 
 Find the next dot count for circles with $1$, $2$, and $3$ dots:
 
@@ -126,7 +126,7 @@ The next figure is a **black circle**.
 
 A series of squares is filled to $\dfrac{1}{4}$, $\dfrac{1}{2}$, $\dfrac{3}{4}$, $\dfrac{1}{4}$, and $\dfrac{1}{2}$. Continue the pattern for two further figures. What fill appears in the second further figure?
 
-<!-- ILLUSTRATION: five equal square frames shaded from the bottom to 1/4, 1/2, 3/4, 1/4, and 1/2, followed by two blank frames -->
+<!-- FIGURE WANTED: five equal square frames shaded from the bottom to 1/4, 1/2, 3/4, 1/4, and 1/2, followed by two blank frames -->
 
 **Solution:**
 

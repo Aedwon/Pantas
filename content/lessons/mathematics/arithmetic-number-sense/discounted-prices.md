@@ -68,7 +68,7 @@ $$\text{Percent paid}=100\%-25\%=75\%$$
 
 $$\text{Price}=800\times0.75=600$$
 
-<!-- ILLUSTRATION: a horizontal bar labeled "Php 800 = 100%", split into a shaded left part "25%, discount, Php 200" and a right part "75%, you pay, Php 600" -->
+<!-- FIGURE WANTED: a horizontal bar labeled "Php 800 = 100%", split into a shaded left part "25%, discount, Php 200" and a right part "75%, you pay, Php 600" -->
 
 :::pair #price-not-discount
 Right: price after the discount $=$ Php $600$

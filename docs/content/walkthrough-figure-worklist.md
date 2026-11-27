@@ -413,3 +413,16 @@ Each row is a `:::try` that tested the same figure its lesson's Core Concept had
     :::
     ```
     Figure needed: a sheet with a vertical fold and a flap whose width, fold position and punch point differ from the core's $16\text{ cm}$ sheet, $6\text{ cm}$ flap and punch at $(10, 3)$ (for example a $14\text{ cm}$ wide sheet with a $5\text{ cm}$ flap folded at $5\text{ cm}$ and a full-depth punch at $(8, 4)$ inside the overlap from $5$ to $10\text{ cm}$). The reader must find the distance from the fold, reflect it, and give both hole positions with the height unchanged: here $(2, 4)$ and $(8, 4)$.
+
+## Hidden by the export fix (Nov 27)
+
+Markers hidden by changing `ILLUSTRATION:` to `FIGURE WANTED:` so the content export stops failing. Entries not on the lists above (Language Application had no entries).
+
+1. `content/lessons/language-proficiency/language-application/subject-and-verb-checks.md` (`## Core Concept` -> `### Subjects With Added Detail`):
+   `<!-- FIGURE WANTED: the sentence "The box [of tools stacked by the door] is open." with "[of tools stacked by the door]" grayed and bracketed as "added detail", "box" labeled "head, singular", and a teal arrow from "box" to "is" -->`
+
+2. `content/lessons/language-proficiency/language-application/phrases-and-sentence-types.md` (`## Core Concept` -> `### Counting Clauses`):
+   `<!-- FIGURE WANTED: the sentence "Although the counter was closed, the guard accepted the envelope, and the clerk recorded its arrival." split into three labeled bracketed boxes: [Although the counter was closed] = "dependent (1)", [the guard accepted the envelope] = "independent (1)", [the clerk recorded its arrival] = "independent (2)" -->`
+
+3. `content/lessons/language-proficiency/language-application/past-time-checks.md` (`## Core Concept` -> `### Order of Two Past Events`):
+   `<!-- FIGURE WANTED: timeline with two points: earlier X labeled "had already resolved (past perfect)" to the left of later X labeled "finished inspecting (simple past)" -->`

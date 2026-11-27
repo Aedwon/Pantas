@@ -20,7 +20,7 @@ In a **partitive proportion**, a whole amount is split into shares using a ratio
 
 A ratio of $3:1$ means $3+1=4$ equal boxes in all. One share gets $3$ boxes, and the other gets $1$ box.
 
-<!-- ILLUSTRATION: horizontal bar split into 4 equal boxes totaling "Php 800". First 3 boxes bracketed as "Share A = 3 parts = Php 600"; last 1 box bracketed as "Share B = 1 part = Php 200" -->
+<!-- FIGURE WANTED: horizontal bar split into 4 equal boxes totaling "Php 800". First 3 boxes bracketed as "Share A = 3 parts = Php 600"; last 1 box bracketed as "Share B = 1 part = Php 200" -->
 
 Suppose you split Php $800$ in the ratio $3:1$.
 

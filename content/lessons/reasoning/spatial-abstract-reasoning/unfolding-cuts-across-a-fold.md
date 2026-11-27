@@ -47,7 +47,7 @@ Reflection also flips direction across the crease:
 
 Check where the **folded corner** (where two perpendicular creases meet) lies on the open sheet: it is the **center** of the paper, not the outer corners. A punch near that corner opens into $4$ holes clustered near the **center**.
 
-<!-- ILLUSTRATION: square folded vertically left onto right, then horizontally bottom onto top, with a punch near the corner where both creases meet (touching neither crease); arrow opens horizontal fold first to show 2 holes near the vertical crease, then arrow opens vertical fold to show 4 holes clustered near the center of the full square -->
+<!-- FIGURE WANTED: square folded vertically left onto right, then horizontally bottom onto top, with a punch near the corner where both creases meet (touching neither crease); arrow opens horizontal fold first to show 2 holes near the vertical crease, then arrow opens vertical fold to show 4 holes clustered near the center of the full square -->
 
 :::pair #forget-to-flip-direction
 Right: an upward triangle in the lower half reflects across a horizontal fold to point **Downward** in the upper half.
@@ -89,7 +89,7 @@ The triangle's two sloping sides have equal length. What opening appears when th
 
 A square is folded vertically in half (left onto right), then horizontally in half (bottom onto top). A small circular punch passes through all $4$ layers near the right outer edge, touching no edge or crease. Where do the holes appear when the square is fully opened?
 
-<!-- ILLUSTRATION: square folded left half onto right half, then bottom half onto top half; small circular punch near the right outer edge at middle height of the packet, touching no edge or crease; unfolded state not shown -->
+<!-- FIGURE WANTED: square folded left half onto right half, then bottom half onto top half; small circular punch near the right outer edge at middle height of the packet, touching no edge or crease; unfolded state not shown -->
 
 **Solution:**
 

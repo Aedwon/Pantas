@@ -18,13 +18,13 @@ keyPoints:
 
 To add or subtract fractions, their pieces must be the same size. That means they need a **common denominator**.
 
-<!-- ILLUSTRATION: two equal-length horizontal fraction bars stacked vertically; top bar split into 4 equal parts with 3 shaded labeled "3/4"; bottom bar split into 12 equal parts with 9 shaded labeled "9/12", showing equal shaded length -->
+<!-- FIGURE WANTED: two equal-length horizontal fraction bars stacked vertically; top bar split into 4 equal parts with 3 shaded labeled "3/4"; bottom bar split into 12 equal parts with 9 shaded labeled "9/12", showing equal shaded length -->
 
 "Simplify" means write an equal fraction in lowest terms. When denominators match, add or subtract only the numerators, keep the denominator, and simplify.
 
 $$\dfrac{4}{9}+\dfrac{2}{9}=\dfrac{6}{9}=\dfrac{2}{3}$$
 
-When denominators differ, find a common multiple of the denominators. Multiply both numerator and denominator of each fraction by the same nonzero number so both bars are cut into equal pieces.
+When denominators differ, find a common multiple of the denominators. Multiply both numerator and denominator of each fraction by the same nonzero number so both fractions have pieces of the same size.
 
 Try adding $\dfrac{2}{5}+\dfrac{1}{3}$. The LCM of $5$ and $3$ is $15$.
 

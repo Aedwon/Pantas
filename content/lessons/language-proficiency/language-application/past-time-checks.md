@@ -49,7 +49,7 @@ Choose the right form: When the lights went out at ten, she *(was filing / filed
 
 The **past perfect** uses *had* plus a **past participle** (the form used after *have, has,* or *had*). Regular past participles end in *-ed* (*reviewed, finished*).
 
-<!-- ILLUSTRATION: timeline with two points: earlier X labeled "had already resolved (past perfect)" to the left of later X labeled "finished inspecting (simple past)" -->
+<!-- FIGURE WANTED: timeline with two points: earlier X labeled "had already resolved (past perfect)" to the left of later X labeled "finished inspecting (simple past)" -->
 
 Use *had* + past participle on the **earlier** of two past events when a sentence highlights that earlier completion: "The cook **had washed** the pans before the first order came in."
 

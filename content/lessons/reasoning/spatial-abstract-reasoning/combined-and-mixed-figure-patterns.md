@@ -43,9 +43,9 @@ The answer is a **small square with $5$ dots**. Size alternates small and medium
 
 An **interleaved pattern** mixes two separate series in one row. Read positions $1, 3, 5, \dots$ (the odd positions) as one track, and positions $2, 4, 6, \dots$ (the even positions) as a second track.
 
-<!-- ILLUSTRATION: five labeled frames in one row, 1 circle with 1 dot, 2 square with 4 dots, 3 circle with 2 dots, 4 square with 4 dots, 5 blank; bracket odd frames 1 3 5 above and even frames 2 4 below -->
+<!-- FIGURE WANTED: five labeled frames in one row, 1 circle with 1 dot, 2 square with 4 dots, 3 circle with 2 dots, 4 square with 4 dots, 5 blank; bracket odd frames 1 3 5 above and even frames 2 4 below -->
 
-1. Look at the $5$-frame series above: circle ($1$ dot), square ($4$ dots), circle ($2$ dots), square ($4$ dots), blank.
+1. Take this $5$-frame series: circle ($1$ dot), square ($4$ dots), circle ($2$ dots), square ($4$ dots), blank.
 2. Group the odd positions ($1, 3, 5$): circle with $1$ dot, circle with $2$ dots, blank. Frame $5$ is a **circle with $3$ dots**.
 3. Group the even positions ($2, 4$): square with $4$ dots, square with $4$ dots. The square track repeats $4$ dots.
 

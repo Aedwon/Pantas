@@ -20,7 +20,7 @@ keyPoints:
 
 A full turn is $360^\circ$, a half-turn is $180^\circ$, a quarter-turn is $90^\circ$, and an eighth-turn is $45^\circ$.
 
-<!-- ILLUSTRATION: a compass-style circle showing 8 directions every 45 degrees clockwise from up (0 degrees) through upper-right (45 degrees) and right (90 degrees) back to up (360 degrees) -->
+<!-- FIGURE WANTED: a compass-style circle showing 8 directions every 45 degrees clockwise from up (0 degrees) through upper-right (45 degrees) and right (90 degrees) back to up (360 degrees) -->
 
 1. Look at a line inside a square pointing up ($0^\circ$), upper-right ($45^\circ$), then right ($90^\circ$).
 2. Each step turns $45^\circ$ clockwise.
@@ -146,7 +146,7 @@ The answer is **right**.
 
 An arrow inside a square points up, right, up, and right. Which direction completes the series: up, down, right, or left?
 
-<!-- ILLUSTRATION: four equal square frames containing arrows pointing up, right, up, and right, followed by a blank fifth frame; choices arrows pointing up, down, right, and left -->
+<!-- FIGURE WANTED: four equal square frames containing arrows pointing up, right, up, and right, followed by a blank fifth frame; choices arrows pointing up, down, right, and left -->
 
 **Solution:**
 

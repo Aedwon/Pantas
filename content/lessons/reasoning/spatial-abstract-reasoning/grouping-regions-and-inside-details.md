@@ -111,7 +111,7 @@ The odd-one-out is the **hexagon**.
 
 Four polygons contain shaded dots: a square with $2$ dots, a rectangle with $2$ dots, a hexagon with $3$ dots, and a triangle with $2$ dots. Which figure does not belong?
 
-<!-- ILLUSTRATION: four unshaded outlines in one row, a square with 2 shaded dots, a rectangle with 2 shaded dots, a hexagon with 3 shaded dots, and a triangle with 2 shaded dots -->
+<!-- FIGURE WANTED: four unshaded outlines in one row, a square with 2 shaded dots, a rectangle with 2 shaded dots, a hexagon with 3 shaded dots, and a triangle with 2 shaded dots -->
 
 **Solution:**
 

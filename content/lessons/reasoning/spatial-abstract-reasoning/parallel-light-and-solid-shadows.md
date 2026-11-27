@@ -19,7 +19,7 @@ keyPoints:
 
 To find the shadow on a screen at $90^\circ$ to the rays, look straight at the solid along the ray direction. The outer rim you see is the shadow shape. Painted marks do not change the shadow, and a hole appears in the shadow only when rays pass straight through it.
 
-<!-- ILLUSTRATION: upright cone shown twice: left panel with vertical downward parallel rays casting a circle shadow on a horizontal floor; right panel with horizontal parallel rays casting an isosceles triangle shadow on a vertical wall -->
+<!-- FIGURE WANTED: upright cone shown twice: left panel with vertical downward parallel rays casting a circle shadow on a horizontal floor; right panel with horizontal parallel rays casting an isosceles triangle shadow on a vertical wall -->
 
 Test an upright **cone** resting on its round base in two ray directions:
 
@@ -96,7 +96,7 @@ The side projection is a **rectangle**.
 
 An opaque sphere is projected by parallel light onto a flat screen perpendicular to the rays. What happens to the shadow outline when the sphere turns in place?
 
-<!-- ILLUSTRATION: opaque sphere between horizontal parallel light arrows on the left and a vertical screen on the right casting a circular shadow, with a curved turn arrow around the sphere -->
+<!-- FIGURE WANTED: opaque sphere between horizontal parallel light arrows on the left and a vertical screen on the right casting a circular shadow, with a curved turn arrow around the sphere -->
 
 **Solution:**
 

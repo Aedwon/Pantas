@@ -53,7 +53,7 @@ The answer is yes, $203$ is divisible by $7$. Remove $3$ and double it to get $6
 
 To test if a number is divisible by $11$, split the digits into two alternating groups (the first, third, fifth, and so on in one group; the second, fourth, sixth, and so on in the other).
 
-<!-- ILLUSTRATION: six digit boxes for 3, 5, 4, 2, b, 1 in a row; teal top arcs link the 1st, 3rd, and 5th digits (3, 4, b) labeled "odd positions: 3 + 4 + b"; gray bottom arcs link the 2nd, 4th, and 6th digits (5, 2, 1) labeled "even positions: 5 + 2 + 1" -->
+<!-- FIGURE WANTED: six digit boxes for 3, 5, 4, 2, b, 1 in a row; teal top arcs link the 1st, 3rd, and 5th digits (3, 4, b) labeled "odd positions: 3 + 4 + b"; gray bottom arcs link the 2nd, 4th, and 6th digits (5, 2, 1) labeled "even positions: 5 + 2 + 1" -->
 
 1. Add the digits in each alternating group.
 2. Subtract one group total from the other (either order works).

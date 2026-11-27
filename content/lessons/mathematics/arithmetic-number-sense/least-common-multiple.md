@@ -61,7 +61,7 @@ The answer is $36$. Use the largest power of each prime: $2^2\times 3^2=4\times 
 
 Use the LCM when events start together and repeat at fixed intervals, and you need their next shared time.
 
-<!-- ILLUSTRATION: two parallel timelines from 0 to 60 minutes; top bar marks 15, 30, 45, 60; bottom bar marks 20, 40, 60; vertical teal dashed line at 60 labeled "LCM = 60 min" -->
+<!-- FIGURE WANTED: two parallel timelines from 0 to 60 minutes; top bar marks 15, 30, 45, 60; bottom bar marks 20, 40, 60; vertical teal dashed line at 60 labeled "LCM = 60 min" -->
 
 For example, if one jeepney returns every $15$ minutes and another every $20$ minutes, they next meet at the LCM of $15$ and $20$, which is $60$ minutes. Check the time window carefully to see whether the starting time counts.
 

@@ -19,7 +19,7 @@ keyPoints:
 
 The **subject** tells who or what the sentence is about, and the **head** is its main word. Phrases starting with *of*, *along with*, *together with*, or describing phrases like *stacked by the door* usually only add detail. Cover those added details so you match the verb to the head.
 
-<!-- ILLUSTRATION: the sentence "The box [of tools stacked by the door] is open." with "[of tools stacked by the door]" grayed and bracketed as "added detail", "box" labeled "head, singular", and a teal arrow from "box" to "is" -->
+<!-- FIGURE WANTED: the sentence "The box [of tools stacked by the door] is open." with "[of tools stacked by the door]" grayed and bracketed as "added detail", "box" labeled "head, singular", and a teal arrow from "box" to "is" -->
 
 Look at "The box of tools stacked by the door **is** open." Ask what is open: *the box*. Cover *of tools* and *stacked by the door*, then match singular *box* to singular *is*.
 

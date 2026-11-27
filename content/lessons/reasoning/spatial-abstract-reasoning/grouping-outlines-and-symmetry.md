@@ -55,7 +55,7 @@ The answer is the **octagon**. The kite, square, and trapezoid each have $4$ sid
 
 A figure has **reflection symmetry** when a straight line, called a **reflection axis**, splits it into two halves that match when folded across that line. A reflection axis can run vertically, horizontally, or diagonally, and internal marks must match across it too.
 
-<!-- ILLUSTRATION: four equal square frames in one row: first square with an internal line at 30 degrees from vertical, second square with one top-center dot, third square with one top-left corner dot and a dashed diagonal reflection axis, fourth square with two dots mirrored across the vertical center line -->
+<!-- FIGURE WANTED: four equal square frames in one row: first square with an internal line at 30 degrees from vertical, second square with one top-center dot, third square with one top-left corner dot and a dashed diagonal reflection axis, fourth square with two dots mirrored across the vertical center line -->
 
 Test the four squares for symmetry:
 

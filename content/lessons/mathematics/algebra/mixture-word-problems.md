@@ -47,7 +47,7 @@ $$\text{pure}_1+\text{pure}_2=\text{pure}_{\text{final}}$$
 
 Under that model assumption, the final volume is the sum of the two starting volumes.
 
-<!-- ILLUSTRATION: two beakers pouring into one larger beaker. Left beaker: "8 L at 50%" with "0.50(8) = 4 L pure". Middle beaker: "x L at 20%" with "0.20x L pure". Right beaker: "(8 + x) L at 30%" with "0.30(8 + x) L pure" -->
+<!-- FIGURE WANTED: two beakers pouring into one larger beaker. Left beaker: "8 L at 50%" with "0.50(8) = 4 L pure". Middle beaker: "x L at 20%" with "0.20x L pure". Right beaker: "(8 + x) L at 30%" with "0.30(8 + x) L pure" -->
 
 Try this example. A teacher needs $20$ liters of a $20\%$ salt solution by mixing a $30\%$ solution and a $10\%$ solution. Let $x$ be the liters of the $30\%$ solution. Then the $10\%$ solution has volume $20-x$.
 

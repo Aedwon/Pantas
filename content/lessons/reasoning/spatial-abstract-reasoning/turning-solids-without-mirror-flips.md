@@ -20,7 +20,7 @@ keyPoints:
 
 In a quarter-turn ($90^\circ$) around an axis through opposite face centers, both axial faces stay in place (markings may turn), opposite faces stay opposite, and middle faces shift one step together.
 
-<!-- ILLUSTRATION: cube with star on top, triangle on front, square on right, cross on back, dot on left, and circle on bottom; vertical axis arrow through top and bottom shows a quarter-turn moving square to front and triangle to left while star stays on top -->
+<!-- FIGURE WANTED: cube with star on top, triangle on front, square on right, cross on back, dot on left, and circle on bottom; vertical axis arrow through top and bottom shows a quarter-turn moving square to front and triangle to left while star stays on top -->
 
 With star top, circle bottom, triangle front, square right, cross back, dot left, make a vertical-axis quarter-turn (right to front) and list top, front, left:
 
@@ -96,7 +96,7 @@ Choice: **Candidate A**.
 
 A cube has star top, circle bottom, triangle front, square right, cross back, dot left. Turn one quarter-turn vertically so front moves to right. View the new top-front-right corner from outside.
 
-<!-- ILLUSTRATION: starting cube with star on top, triangle on front, square on right, cross on back, and dot on left; curved arrow around vertical axis moves front to right, tracking the starting top-front-left corner into the new top-front-right corner highlighted by a dashed circle on a second turned cube -->
+<!-- FIGURE WANTED: starting cube with star on top, triangle on front, square on right, cross on back, and dot on left; curved arrow around vertical axis moves front to right, tracking the starting top-front-left corner into the new top-front-right corner highlighted by a dashed circle on a second turned cube -->
 
 **Solution:**
 

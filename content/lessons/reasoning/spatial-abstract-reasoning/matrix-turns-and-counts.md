@@ -108,7 +108,7 @@ A $3 \times 3$ matrix shows squares with one center line. Row $1$ lines point up
 
 Row $3$ lines point up, lower-right, and a blank. Which direction does the line point in the blank cell?
 
-<!-- ILLUSTRATION: a 3 by 3 grid of equal squares each with one radial line from the center: row 1 up, upper-right, right; row 2 up, right, down; row 3 up, lower-right, blank -->
+<!-- FIGURE WANTED: a 3 by 3 grid of equal squares each with one radial line from the center: row 1 up, upper-right, right; row 2 up, right, down; row 3 up, lower-right, blank -->
 
 **Solution:**
 

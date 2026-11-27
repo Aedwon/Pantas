@@ -46,7 +46,7 @@ The answer is $31$. Its only positive factors are $1$ and $31$, while $25=5\time
 
 **Prime factorization** means writing an integer greater than $1$ as a product of prime numbers only. Divide out small primes step by step until every leftover factor is prime.
 
-<!-- ILLUSTRATION: factor tree for 60 branching into 2 and 30, 30 into 2 and 15, 15 into 3 and 5, with prime leaves 2, 2, 3, 5 circled in teal and written below as 60 = 2^2 x 3 x 5 -->
+<!-- FIGURE WANTED: factor tree for 60 branching into 2 and 30, 30 into 2 and 15, 15 into 3 and 5, with prime leaves 2, 2, 3, 5 circled in teal and written below as 60 = 2^2 x 3 x 5 -->
 
 Try $60$. Start by dividing by $2$ while the number is even, then move to $3$:
 

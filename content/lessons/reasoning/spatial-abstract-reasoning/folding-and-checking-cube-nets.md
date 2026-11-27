@@ -120,7 +120,7 @@ The pattern is **not a valid cube net** because D and F overlap.
 
 A row of $4$ squares reads B, C, D, E from left to right, with A above B and F below E. Fold the net into a cube. Which set meets at one corner: (A, B, D), (A, B, F), or (A, B, C)?
 
-<!-- ILLUSTRATION: flat net of six labeled squares with B, C, D, E in one horizontal row, A directly above B, and F directly below E -->
+<!-- FIGURE WANTED: flat net of six labeled squares with B, C, D, E in one horizontal row, A directly above B, and F directly below E -->
 
 **Solution:**
 

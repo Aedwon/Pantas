@@ -48,7 +48,7 @@ The answer is a **square with only a vertical line**. Both starting squares shar
 
 When cells hold several marks, check each corner one by one.
 
-<!-- ILLUSTRATION: three rows of three squares with corner dots: row 1 (top-left and top-right), (top-right and bottom-left), (top-right); row 2 (bottom-left and bottom-right), (top-left and bottom-left), (bottom-left); row 3 (top-left, top-right, bottom-right), (top-left, bottom-left, bottom-right), blank -->
+<!-- FIGURE WANTED: three rows of three squares with corner dots: row 1 (top-left and top-right), (top-right and bottom-left), (top-right); row 2 (bottom-left and bottom-right), (top-left and bottom-left), (bottom-left); row 3 (top-left, top-right, bottom-right), (top-left, bottom-left, bottom-right), blank -->
 
 Find row $3$'s blank cell:
 
@@ -103,7 +103,7 @@ A $3 \times 3$ matrix shows squares with corner dots. Row $1$ shows (top-left, t
 
 Row $2$ shows (bottom-left, bottom-right), then (top-left, bottom-left), then (bottom-left). Row $3$ shows (top-left, top-right, bottom-right), then (top-left, bottom-left, bottom-right), and a blank. Which corner dots belong in the blank square?
 
-<!-- ILLUSTRATION: a 3 by 3 grid of equal squares with large corner dots: row 1 has (top-left, top-right), (top-right, bottom-left), (top-right); row 2 has (bottom-left, bottom-right), (top-left, bottom-left), (bottom-left); row 3 has (top-left, top-right, bottom-right), (top-left, bottom-left, bottom-right), blank -->
+<!-- FIGURE WANTED: a 3 by 3 grid of equal squares with large corner dots: row 1 has (top-left, top-right), (top-right, bottom-left), (top-right); row 2 has (bottom-left, bottom-right), (top-left, bottom-left), (bottom-left); row 3 has (top-left, top-right, bottom-right), (top-left, bottom-left, bottom-right), blank -->
 
 **Solution:**
 

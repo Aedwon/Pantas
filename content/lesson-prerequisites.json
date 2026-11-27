@@ -51,6 +51,11 @@
     "lesson": "lesson-arithmetic-number-sense-signed-integer-operations",
     "strength": "helpful",
     "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
+   },
+   {
+    "lesson": "lesson-arithmetic-number-sense-substituting-negative-numbers",
+    "strength": "helpful",
+    "reason": "Putting a negative value in parentheses keeps its sign when substituting into an expression."
    }
   ],
   "lesson-algebra-logarithm-product-quotient-and-power-laws": [

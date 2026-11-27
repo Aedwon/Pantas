@@ -18,7 +18,7 @@ keyPoints:
 
 An **infinite series** keeps adding terms forever without stopping. It **converges** when the running total gets closer and closer to one finite number. It **diverges** when the running total does not settle toward any finite sum.
 
-<!-- ILLUSTRATION: horizontal bar of total length 2; left half labeled "1", next quarter labeled "1/2", next eighth labeled "1/4", next sixteenth labeled "1/8", with a dashed remaining gap pointing to "approaches 2" -->
+<!-- FIGURE WANTED: horizontal bar of total length 2; left half labeled "1", next quarter labeled "1/2", next eighth labeled "1/4", next sixteenth labeled "1/8", with a dashed remaining gap pointing to "approaches 2" -->
 
 Look at $1+\dfrac{1}{2}+\dfrac{1}{4}+\dfrac{1}{8}+\dots$, where $r=\dfrac{1}{2}$. Watch the running totals grow:
 

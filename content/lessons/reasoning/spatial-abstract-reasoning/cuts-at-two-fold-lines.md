@@ -43,9 +43,9 @@ The answer is **one circular opening**. Both halves meet along their flat edges 
 
 When a cut touches **one** crease and stays away from the other creases, only the touched crease joins halves. Every untouched crease still doubles the number of separate openings.
 
-<!-- ILLUSTRATION: square folded vertically left onto right, then horizontally bottom onto top, with a small semicircular notch centered on the vertical folded edge away from the horizontal crease; arrow opens horizontal fold first showing 2 notches on the vertical crease, arrow opens vertical fold next showing 2 separate circular openings centered on the vertical crease -->
+<!-- FIGURE WANTED: square folded vertically left onto right, then horizontally bottom onto top, with a small semicircular notch centered on the vertical folded edge away from the horizontal crease; arrow opens horizontal fold first showing 2 notches on the vertical crease, arrow opens vertical fold next showing 2 separate circular openings centered on the vertical crease -->
 
-1. Look above at a $2$-fold square (vertical, then horizontal) with a notch on the **vertical** fold only.
+1. Take a square folded twice (vertical, then horizontal) with a notch on the **vertical** fold only.
 2. Open the untouched horizontal fold: $1$ notch doubles to **$2$ separate notches** on the vertical fold.
 3. Open the touched vertical fold: each notch joins its copy across the fold, leaving **$2$ connected openings**.
 
@@ -93,7 +93,7 @@ The open sheet has **one circular opening at the center**.
 
 A square is folded vertically in half, then horizontally in half. A small semicircular notch is cut through all $4$ layers, centered on the vertical folded edge and away from the horizontal crease and outer edges. How many connected openings appear when the square is fully opened?
 
-<!-- ILLUSTRATION: square folded vertically left onto right, then horizontally bottom onto top; small semicircular notch centered on the vertical folded edge halfway up, away from the horizontal crease and outer edges; unfolded state not shown -->
+<!-- FIGURE WANTED: square folded vertically left onto right, then horizontally bottom onto top; small semicircular notch centered on the vertical folded edge halfway up, away from the horizontal crease and outer edges; unfolded state not shown -->
 
 **Solution:**
 

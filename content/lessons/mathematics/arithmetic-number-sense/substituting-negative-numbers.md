@@ -39,7 +39,7 @@ The answer is $-13$. Substitute with parentheses: $2(-5)-3=-10-3=-13$.
 
 An exponent applies only to what sits right before it. If that is a closing parenthesis, the exponent applies to everything inside the parentheses. If it is a number, the exponent applies to that number alone.
 
-<!-- ILLUSTRATION: two side-by-side panels. Left: (-3)^2 with a teal outline around "(-3)" joined to the exponent 2, then = (-3) x (-3) = 9. Right: -3^2 with a teal outline around only "3" joined to the exponent 2, the minus sign outside it, then = -(3 x 3) = -9 -->
+<!-- FIGURE WANTED: two side-by-side panels. Left: (-3)^2 with a teal outline around "(-3)" joined to the exponent 2, then = (-3) x (-3) = 9. Right: -3^2 with a teal outline around only "3" joined to the exponent 2, the minus sign outside it, then = -(3 x 3) = -9 -->
 
 Compare $(-3)^2$ and $-3^2$:
 

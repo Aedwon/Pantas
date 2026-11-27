@@ -93,7 +93,7 @@ A $3 \times 3$ matrix contains plain outlines. Row $1$ shows a circle, a triangl
 
 Row $3$ shows a square, a circle, and a blank. Which outline completes the blank cell?
 
-<!-- ILLUSTRATION: a 3 by 3 grid of plain unshaded outlines: row 1 circle, triangle, square; row 2 triangle, square, circle; row 3 square, circle, blank -->
+<!-- FIGURE WANTED: a 3 by 3 grid of plain unshaded outlines: row 1 circle, triangle, square; row 2 triangle, square, circle; row 3 square, circle, blank -->
 
 **Solution:**
 

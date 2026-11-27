@@ -90,7 +90,7 @@ A $2 \times 3$ matrix uses squares. Row $1$ shows a small bottom-half black squa
 
 Row $2$ shows a large bottom-half black square, a large top-half black square, and a blank. What should the blank show?
 
-<!-- ILLUSTRATION: a 2 by 3 grid of squares: row 1 small bottom-half black square, small top-half black square, small fully black square; row 2 large bottom-half black square, large top-half black square, blank -->
+<!-- FIGURE WANTED: a 2 by 3 grid of squares: row 1 small bottom-half black square, small top-half black square, small fully black square; row 2 large bottom-half black square, large top-half black square, blank -->
 
 **Solution:**
 

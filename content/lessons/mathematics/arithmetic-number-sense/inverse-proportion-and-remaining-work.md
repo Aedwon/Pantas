@@ -70,7 +70,7 @@ One **worker-day** is the work $1$ worker does in $1$ day. Follow three steps:
 2. Subtract the worker-days already finished to find what remains.
 3. Divide the remaining worker-days by the new number of workers.
 
-<!-- ILLUSTRATION: two stacked horizontal bars. Top bar labeled "Total job = 10 x 12 = 120 worker-days". Bottom bar split into shaded left section "Done in 4 days: 10 x 4 = 40 worker-days" and right section "Remaining: 80 worker-days, 8 workers x 10 days" -->
+<!-- FIGURE WANTED: two stacked horizontal bars. Top bar labeled "Total job = 10 x 12 = 120 worker-days". Bottom bar split into shaded left section "Done in 4 days: 10 x 4 = 40 worker-days" and right section "Remaining: 80 worker-days, 8 workers x 10 days" -->
 
 Suppose $10$ workers finish a job in $12$ days. After $4$ days, $2$ leave. Apply the three steps to find how many more days the rest need:
 

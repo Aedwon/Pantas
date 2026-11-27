@@ -40,7 +40,7 @@ $$0.25\times100\%=25\%$$
 
 Product A increased by $25\%$.
 
-<!-- ILLUSTRATION: two-step arrow diagram starting at 100, top curved arrow right to 80 labeled "-20 (-20% of 100)", bottom curved arrow right from 80 back to 100 labeled "+20 (+25% of 80)" -->
+<!-- FIGURE WANTED: two-step arrow diagram starting at 100, top curved arrow right to 80 labeled "-20 (-20% of 100)", bottom curved arrow right from 80 back to 100 labeled "+20 (+25% of 80)" -->
 
 :::why
 The drop starts from $100$, so $\dfrac{-20}{100}=-20\%$. The rise back up starts from $80$, so $\dfrac{20}{80}=25\%$. Each starting number sets the percent size.

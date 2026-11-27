@@ -19,7 +19,7 @@ keyPoints:
 
 A **signed integer** is a whole number with a plus or minus sign, such as $5$, $-3$, or $-12$. On a number line, positive numbers sit to the right of $0$ and negative numbers sit to the left.
 
-<!-- ILLUSTRATION: number line from -6 to 6 with 0 in the middle; a teal bracket from 0 to -6 labeled "6 steps" and the label |-6| = 6 under it -->
+<!-- FIGURE WANTED: number line from -6 to 6 with 0 in the middle; a teal bracket from 0 to -6 labeled "6 steps" and the label |-6| = 6 under it -->
 
 The **absolute value** of a number is how far it is from $0$. We write it between two bars. A distance is never negative, so an absolute value is never negative.
 
@@ -64,7 +64,7 @@ The answer is $-15$. Add $9+6=15$. Both numbers are negative, so keep the minus 
 
 A positive number and a negative number walk in opposite directions. Part of one walk undoes the other.
 
-<!-- ILLUSTRATION: number line from -8 to 2; arrow from 0 left to -7 labeled "-7"; second arrow from -7 right 4 steps to -3 labeled "+4"; the point -3 circled -->
+<!-- FIGURE WANTED: number line from -8 to 2; arrow from 0 left to -7 labeled "-7"; second arrow from -7 right 4 steps to -3 labeled "+4"; the point -3 circled -->
 
 Start at $0$ and walk $7$ steps left to $-7$. Then walk $4$ steps right.
 

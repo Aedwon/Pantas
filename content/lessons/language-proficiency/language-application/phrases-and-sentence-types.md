@@ -48,7 +48,7 @@ Is *before the morning shift* a phrase, a dependent clause, or an independent cl
 
 Count how many independent and dependent clauses appear in the whole sentence:
 
-<!-- ILLUSTRATION: the sentence "Although the counter was closed, the guard accepted the envelope, and the clerk recorded its arrival." split into three labeled bracketed boxes: [Although the counter was closed] = "dependent (1)", [the guard accepted the envelope] = "independent (1)", [the clerk recorded its arrival] = "independent (2)" -->
+<!-- FIGURE WANTED: the sentence "Although the counter was closed, the guard accepted the envelope, and the clerk recorded its arrival." split into three labeled bracketed boxes: [Although the counter was closed] = "dependent (1)", [the guard accepted the envelope] = "independent (1)", [the clerk recorded its arrival] = "independent (2)" -->
 
 - **Simple:** $1$ independent clause, $0$ dependent clauses (*The guard opened the gate.*). Watch out: one subject with two verbs (*The guard opened the gate and greeted us*) is still $1$ clause.
 - **Compound:** $2$ or more independent clauses, $0$ dependent clauses (*The guard opened the gate, and the visitors entered.*).

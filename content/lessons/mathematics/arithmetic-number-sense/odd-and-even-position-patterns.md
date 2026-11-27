@@ -19,7 +19,7 @@ Some sequences weave two separate lists together. **Odd positions** are position
 
 When neighboring terms jump up and down with no single rule, read every other term to separate the two groups.
 
-<!-- ILLUSTRATION: six term boxes for 4, 81, 8, 27, 16, 9 in a row; teal top arcs link the 1st, 3rd, and 5th terms (4, 8, 16) labeled "odd positions: x 2"; gray bottom arcs link the 2nd, 4th, and 6th terms (81, 27, 9) labeled "even positions: / 3" -->
+<!-- FIGURE WANTED: six term boxes for 4, 81, 8, 27, 16, 9 in a row; teal top arcs link the 1st, 3rd, and 5th terms (4, 8, 16) labeled "odd positions: x 2"; gray bottom arcs link the 2nd, 4th, and 6th terms (81, 27, 9) labeled "even positions: / 3" -->
 
 Look at $4,81,8,27,16,9,\dots$ and find the next two terms in order.
 

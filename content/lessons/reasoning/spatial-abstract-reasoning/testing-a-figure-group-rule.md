@@ -93,7 +93,7 @@ Four figures are shown: three equilateral triangles and one rhombus. The rule "a
 - C. At least one reflection axis
 - D. A closed boundary
 
-<!-- ILLUSTRATION: four unshaded outlines in one row, three identical equilateral triangles followed by one rhombus -->
+<!-- FIGURE WANTED: four unshaded outlines in one row, three identical equilateral triangles followed by one rhombus -->
 
 **Solution:**
 

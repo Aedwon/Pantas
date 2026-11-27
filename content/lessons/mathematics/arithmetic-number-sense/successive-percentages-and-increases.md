@@ -67,7 +67,7 @@ The words after a percent change the multiplier completely.
 - **"$p\%$ of" a base** means multiply the base by $\dfrac{p}{100}$. So "$120\%$ of" means $1.20\times\text{base}$.
 - **"$p\%$ more than" a base** means keep the full $100\%$ base and add $p\%$ of it. So "$120\%$ more than" means $(1+1.20)=2.20\times\text{base}$.
 
-<!-- ILLUSTRATION: two horizontal bars stacked for base = 200. Top bar labeled "120% of 200": one solid block of 200 (100%) extended to 240 (120%). Bottom bar labeled "120% more than 200": one solid block of 200 (100%) plus an added block of 240 (120%), total bracketed as 440 (220%) -->
+<!-- FIGURE WANTED: two horizontal bars stacked for base = 200. Top bar labeled "120% of 200": one solid block of 200 (100%) extended to 240 (120%). Bottom bar labeled "120% more than 200": one solid block of 200 (100%) plus an added block of 240 (120%), total bracketed as 440 (220%) -->
 
 Try both phrases on a base of $200$.
 

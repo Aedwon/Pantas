@@ -26,7 +26,7 @@ A **categorical syllogism** is an argument about groups using *all*, *no*, or *s
 - **Some $A$ are $B$**: circles $A$ and $B$ overlap with a mark in the overlap.
 - **Some $A$ are not $B$**: circle $A$ has a mark sitting outside circle $B$.
 
-<!-- ILLUSTRATION: three side-by-side circle diagrams: "All A are B" (circle A inside circle B), "No A are B" (separate circles A and B), and "Some A are B" (overlapping circles A and B with an X mark in the overlap) -->
+<!-- FIGURE WANTED: three side-by-side circle diagrams: "All A are B" (circle A inside circle B), "No A are B" (separate circles A and B), and "Some A are B" (overlapping circles A and B with an X mark in the overlap) -->
 
 A conclusion is forced only if every circle picture that fits the premises also fits that conclusion.
 

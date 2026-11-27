@@ -100,7 +100,7 @@ A $16\text{ cm}$ wide, $8\text{ cm}$ tall sheet has its leftmost $6\text{ cm}$ s
 
 When opened, where are the hole centers in centimeters (from left edge, from bottom)?
 
-<!-- ILLUSTRATION: rectangle 16 cm wide and 8 cm tall with vertical fold line at x=6 cm; leftmost 6 cm strip folded right onto region x=6 to x=12 cm; punch marked at (10, 3) inside the 2-layer overlap; unfolded state not shown -->
+<!-- FIGURE WANTED: rectangle 16 cm wide and 8 cm tall with vertical fold line at x=6 cm; leftmost 6 cm strip folded right onto region x=6 to x=12 cm; punch marked at (10, 3) inside the 2-layer overlap; unfolded state not shown -->
 
 **Solution:**
 

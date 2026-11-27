@@ -42,7 +42,7 @@ Wrong: $\text{Commission}=35,000\times0.04=1,400$, giving total $=\text{Php }3,8
 The wrong line took $4\%$ of revenue instead of net profit. Check what amount the problem says the rate applies to.
 :::
 
-<!-- ILLUSTRATION: a horizontal segmented bar labeled "Total sales: Php 110,000", split into three bands from left to right: "First Php 40,000 at 3%", "Next Php 40,000 at 5%", and "Above Php 80,000 (Php 30,000) at 8%" -->
+<!-- FIGURE WANTED: a horizontal segmented bar labeled "Total sales: Php 110,000", split into three bands from left to right: "First Php 40,000 at 3%", "Next Php 40,000 at 5%", and "Above Php 80,000 (Php 30,000) at 8%" -->
 
 In a **tiered commission**, each rate applies only to its own band of sales. Never multiply total sales by the highest rate alone.
 

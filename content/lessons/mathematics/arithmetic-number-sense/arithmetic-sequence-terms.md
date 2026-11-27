@@ -24,7 +24,7 @@ $$d=9-5=4$$
 
 Check the next jump: $13-9=4$. Every step adds $4$.
 
-<!-- ILLUSTRATION: number track of five boxes labeled a1=5, a2=9, a3=13, a4=17, a5=21 with four curved "+4" jump arcs between neighboring boxes, bracketed underneath as "4 steps (n - 1), not 5" -->
+<!-- FIGURE WANTED: number track of five boxes labeled a1=5, a2=9, a3=13, a4=17, a5=21 with four curved "+4" jump arcs between neighboring boxes, bracketed underneath as "4 steps (n - 1), not 5" -->
 
 To reach the fifth term from $a_1=5$, you take $4$ steps of $+4$, not $5$ steps. Reaching position $n$ always takes $n-1$ equal steps from $a_1$:
 

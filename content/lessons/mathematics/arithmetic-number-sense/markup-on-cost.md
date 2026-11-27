@@ -22,7 +22,7 @@ $$\text{Markup amount}=\text{Cost}\times\text{Markup rate}$$
 
 $$\text{Listed price}=\text{Cost}+\text{Markup amount}$$
 
-<!-- ILLUSTRATION: horizontal bar labeled "Cost = Php 800 (100%)" joined to an added right section labeled "Markup = Php 200 (25% of cost)", with a full bottom bracket labeled "Listed price = Php 1,000 (125% of cost)" -->
+<!-- FIGURE WANTED: horizontal bar labeled "Cost = Php 800 (100%)" joined to an added right section labeled "Markup = Php 200 (25% of cost)", with a full bottom bracket labeled "Listed price = Php 1,000 (125% of cost)" -->
 
 Suppose a box of canned goods costs Php $800$ and gets a $25\%$ markup based on cost.
 

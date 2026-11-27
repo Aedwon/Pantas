@@ -64,7 +64,7 @@ The answer is $4$ hours. Total work is $6\times10=60$ worker-hours, and $\dfrac{
 
 A ratio can split one fixed total into unequal parts. If a problem reserves or spends a fixed amount first, subtract that amount before dividing the rest.
 
-<!-- ILLUSTRATION: a horizontal bar labeled "360 folders = 9 equal parts (40 per part)", divided into 9 equal boxes: first 2 boxes bracketed as "Unit A (2 parts = 80)", next 3 boxes as "Unit B (3 parts = 120)", last 4 boxes as "Unit C (4 parts = 160)" -->
+<!-- FIGURE WANTED: a horizontal bar labeled "360 folders = 9 equal parts (40 per part)", divided into 9 equal boxes: first 2 boxes bracketed as "Unit A (2 parts = 80)", next 3 boxes as "Unit B (3 parts = 120)", last 4 boxes as "Unit C (4 parts = 160)" -->
 
 To divide a total in a ratio such as $2:3:4$:
 

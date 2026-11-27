@@ -20,7 +20,7 @@ Every percent problem connects three numbers. The **base** is the whole or refer
 
 The **part** is the share taken from that base. The **rate** tells what fraction or percent of the base you take.
 
-<!-- ILLUSTRATION: horizontal bar labeled "Base = 200 (100%)" split into a shaded left part labeled "Part = 60 (Rate = 30%)" and an unshaded right part labeled "140 (70%)" -->
+<!-- FIGURE WANTED: horizontal bar labeled "Base = 200 (100%)" split into a shaded left part labeled "Part = 60 (Rate = 30%)" and an unshaded right part labeled "140 (70%)" -->
 
 In "$30\%$ of $200$ is $60$," the base is $200$, the rate is $30\%$ (or $0.30$), and the part is $60$. Notice that the base sits right after the word "of."
 
