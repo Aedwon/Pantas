@@ -126,6 +126,16 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Walk-through lessons loop through rewrites and re-audits (Nov 27, repeat)
+
+- His words (about 3:50 PM Manila Nov 27): "i'm afraid we might be in a endless loop of poor writes and repeating audits. please rethink this whole process through. i do not want to waste any more usage than necessary".
+- Wrong: the fix in the entry below (blind pre-checks, whole-item rewrites) did not stop the loop. Within an hour of it, Language Application passed the pre-check and then failed its first Codex full read (20 Blockers, 53 Majors); Reasoning's second pre-check got worse (13 to 20 Blockers) after one fix; the first Reading Comprehension lessons repeated the Grammar mistakes although the five-pattern checklist (`pattern-checklist.md`, Nov 26) was in the writers' brief. Grammar has had seven Codex reads without a PASS.
+- Why it got through: (1) the work was scaled to every CSE subject (about 400 lessons) before any batch had passed end to end, so each defect class was found many times over; (2) the walk-through format adds several checks, tries and pairs per lesson, and each is a new place for a giveaway or an over-broad rule; (3) the writers do not apply a written checklist reliably, and the only gate was an open-ended expert read that finds a new layer each time; (4) the launch-day push added fix rounds to meet a deadline that this content never had (live lessons already work; the first CSE sitting is March 14, 2027); (5) no rule capped the number of reads or fix rounds per batch.
+- Fix:
+  1. Required step (manager, now): both lesson lanes paused (Nov 27, about 3:55 PM); no writes, fixers, pre-checks or Codex runs until Aedwon picks a redesign.
+  2. Required step (all lesson work from now on): no batch gets more than 2 Codex full reads. A batch that fails its second read stops, keeps its live lessons, and goes to the manager with the findings; it gets no third read without a changed plan. The manager checks the read count before relaying any Codex start.
+  3. The redesign he picks is recorded here and in the launch log before any lane resumes.
+
 ### Grammar walk-through lessons fail every Codex audit round (Nov 27)
 
 - His words (about 2:45 PM Manila Nov 27): "why is grammar always failing? this has happened many times already".
