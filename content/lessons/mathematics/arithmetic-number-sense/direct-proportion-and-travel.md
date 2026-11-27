@@ -44,7 +44,7 @@ $$AD=BC$$
 
 Keep both ratios in the exact same order, such as $\dfrac{\text{blue}}{\text{yellow}}$ on both sides.
 
-Find the yellow paint needed for $15$ liters of blue paint when blue and yellow mix in a $3:2$ ratio. Write both fractions as $\dfrac{\text{blue}}{\text{yellow}}$.
+Find the yellow paint needed for $15$ liters of blue paint when blue and yellow mix in a $3:2$ ratio. Let $x$ be the liters of yellow paint. Write both fractions as $\dfrac{\text{blue}}{\text{yellow}}$.
 
 $$\dfrac{3}{2}=\dfrac{15}{x}$$
 
@@ -75,7 +75,7 @@ Why does cross-multiplying work? Multiplying both sides of $\dfrac{A}{B}=\dfrac{
 :::check
 A map scale is $1\text{ cm}:12\text{ km}$. A trail is $54\text{ km}$ long. How many centimeters long is it on the map?
 :::answer
-The answer is $4.5\text{ cm}$. Write $\dfrac{1}{12}=\dfrac{x}{54}$ with centimeters on top, so $12x=54$ and $x=\dfrac{54}{12}=4.5$.
+The answer is $4.5\text{ cm}$. Let $x$ be the map length in centimeters. Write $\dfrac{1}{12}=\dfrac{x}{54}$ with centimeters on top, so $12x=54$ and $x=\dfrac{54}{12}=4.5$.
 :::
 
 ### Distance, Rate, and Time
@@ -110,7 +110,7 @@ A bakery uses $4$ cups of flour to make $24$ large muffins. At this rate, how ma
 
 **Solution:**
 
-1. Both ratios compare cups of flour to number of muffins. Put flour on top and muffins on the bottom in both fractions.
+1. Let $x$ be the cups of flour for $84$ muffins. Both ratios compare cups of flour to number of muffins. Put flour on top and muffins on the bottom in both fractions.
 
 $$\dfrac{4}{24}=\dfrac{x}{84}$$
 

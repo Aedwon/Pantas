@@ -20,8 +20,6 @@ In a **partitive proportion**, a whole amount is split into shares using a ratio
 
 When a total is split in the ratio $3:1$, there are $3+1=4$ equal boxes in all. One share gets $3$ boxes, and the other gets $1$ box.
 
-<!-- ILLUSTRATION: one horizontal bar of 4 equal boxes, each worth Php 200, totaling "Php 800". The first 3 boxes are shaded and bracketed as "Share A = 3 parts = Php 600". The last box is bracketed as "Share B = 1 part = Php 200". -->
-
 Find both shares when Php $800$ is split in the ratio $3:1$.
 
 1. Add the ratio parts to count all the equal boxes.
@@ -37,6 +35,8 @@ $$\dfrac{800}{4}=200$$
 $$3\times200=600$$
 
 The larger share is Php $600$, and the smaller share is Php $200$.
+
+<!-- ILLUSTRATION: one horizontal bar of 4 equal boxes, each worth Php 200, totaling "Php 800". The first 3 boxes are shaded and bracketed as "Share A = 3 parts = Php 600". The last box is bracketed as "Share B = 1 part = Php 200". -->
 
 Sometimes a problem gives the size of one share instead of the whole. Find the total when a mix uses water and syrup in a ratio of $3:5$ and has $20$ liters of syrup. Here $5$ parts equal $20$ liters.
 

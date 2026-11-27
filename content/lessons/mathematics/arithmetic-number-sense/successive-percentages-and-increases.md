@@ -67,8 +67,6 @@ The words after a percent change the multiplier.
 - **"$p\%$ of" a base** means multiply the base by $\dfrac{p}{100}$. So "$120\%$ of" means $1.20\times\text{base}$.
 - **"$p\%$ more than" a base** means keep the full $100\%$ base and add $p\%$ of it. So "$120\%$ more than" means $(1+1.20)\times\text{base}=2.20\times\text{base}$.
 
-<!-- ILLUSTRATION: two horizontal bars stacked for base = 200. Top bar labeled "120% of 200": one solid block of 200 (100%) extended to 240 (120%). Bottom bar labeled "120% more than 200": one solid block of 200 (100%) plus an added block of 240 (120%), total bracketed as 440 (220%). The second bar adds the whole increase to the full base. -->
-
 Find $120\%$ of $200$ and $120\%$ more than $200$. First, find $120\%$ of $200$.
 
 $$1.20\times200=240$$
@@ -76,6 +74,8 @@ $$1.20\times200=240$$
 Next, find $120\%$ more than $200$. Add the $240$ increase to the original $200$.
 
 $$200+240=440$$
+
+<!-- ILLUSTRATION: two horizontal bars stacked for base = 200. Top bar labeled "120% of 200": one solid block of 200 (100%) extended to 240 (120%). Bottom bar labeled "120% more than 200": one solid block of 200 (100%) plus an added block of 240 (120%), total bracketed as 440 (220%). The second bar adds the whole increase to the full base. -->
 
 In multiplier form, add $1$ to the rate, then multiply the base.
 

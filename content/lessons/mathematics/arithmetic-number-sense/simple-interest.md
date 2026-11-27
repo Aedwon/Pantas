@@ -39,7 +39,7 @@ $$10,000+1,500=11,500$$
 
 The total amount to repay is Php $11,500$.
 
-If a payment covers the interest first, only the rest of the payment reduces the principal. Find the principal left on a Php $18,000$ loan at $6\%$ for $1$ year after a Php $4,000$ payment. Find the interest, the rest of the payment, then the new principal:
+If a payment covers the interest first, only the rest of the payment reduces the principal. Find the principal left on a Php $18,000$ loan at $6\%$ simple annual interest after a Php $4,000$ payment at the end of $1$ year. Find the interest, the rest of the payment, then the new principal:
 
 $$18,000\times0.06=1,080$$
 
@@ -125,7 +125,7 @@ It will take $5$ years.
 
 ### #2: Finding the Annual Rate from Months
 
-An investor places Php $25,000$ in a fund. After $18$ months, the investment is worth Php $26,500$. What annual simple interest rate did the investment earn?
+An investor places Php $25,000$ in a fund. After $18$ months, with no further deposits or withdrawals, the investment is worth Php $26,500$. What annual simple interest rate did the investment earn?
 
 **Solution:**
 

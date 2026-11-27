@@ -22,7 +22,7 @@ $$xy=k$$
 
 $$y=\dfrac{k}{x}$$
 
-Here $k$ is a fixed number. When $k>0$, making one quantity larger makes the other smaller. Doubling $x$ cuts $y$ in half so their product stays $k$.
+Here $k$ is a fixed number. For positive quantities, making one quantity larger makes the other smaller. Doubling $x$ cuts $y$ in half so their product stays $k$.
 
 Suppose $6$ identical pumps, each at the same steady rate, empty a pool in $10$ hours. Find the hours $x$ that $5$ pumps need. First find the constant product, the total pump-hours for the job.
 
@@ -42,7 +42,7 @@ Wrong: $\dfrac{6}{10}=\dfrac{5}{x}$, giving $x=8\dfrac{1}{3}\text{ hours}$
 The wrong line scaled time down with fewer pumps. On a fixed job, fewer pumps need more time, so keep pumps times hours the same.
 :::
 
-Just going in opposite directions does not prove inverse proportion. You must check that the product $xy$ stays equal.
+Could the pairs $(x,y)=(2,8)$ and $(4,6)$ belong to one inverse proportion? Going in opposite directions does not prove it. You must check that the product $xy$ stays equal.
 
 :::pair #constant-product-not-sum
 Right: compare products: $2\times8=16$ and $4\times6=24$, not inverse proportion
@@ -78,11 +78,11 @@ $$10\times4=40\text{ worker-days done}$$
 
 $$120-40=80\text{ worker-days left}$$
 
-<!-- ILLUSTRATION: two stacked horizontal bars of the same length, drawn to scale. The top bar is labeled "Total job = 10 x 12 = 120 worker-days". The bottom bar is split into a shaded left section, labeled "Done in 4 days: 10 x 4 = 40 worker-days", and a right section twice as long, labeled "Remaining: 80 worker-days, 8 workers x 10 days". -->
-
 There are $10-2=8$ workers left, so divide $80$ by $8$.
 
 $$\dfrac{80}{8}=10\text{ more days}$$
+
+<!-- ILLUSTRATION: two stacked horizontal bars of the same length, drawn to scale. The top bar is labeled "Total job = 10 x 12 = 120 worker-days". The bottom bar is split into a shaded left section, labeled "Done in 4 days: 10 x 4 = 40 worker-days", and a right section twice as long, labeled "Remaining: 80 worker-days, 8 workers x 10 days". -->
 
 :::pair #use-total-not-remaining
 Right: remaining work is $120-40=80$, so $80\div8=10\text{ days}$

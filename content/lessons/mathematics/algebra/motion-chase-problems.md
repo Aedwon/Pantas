@@ -29,9 +29,9 @@ $$r_{\text{close}}=r_{\text{fast}}-r_{\text{slow}}$$
 
 Use the starting gap as $d$ and the closing rate as $r$ in $d=rt$.
 
-Find when the van catches up. A jeepney leaves a terminal at $40$ kph. One hour later, a van follows in the same direction at $60$ kph. How many hours after the van starts will it catch the jeepney?
+Find when the van catches up. A jeepney leaves a terminal at $40$ kph. One hour later, a van leaves the same terminal along the same straight road at $60$ kph. How many hours after the van starts will it catch the jeepney?
 
-First find the jeepney's $1$-hour head start:
+First find the distance the jeepney covers in its one-hour head start:
 
 $$40\times 1=40$$
 

@@ -32,6 +32,8 @@ $$5t=160-100$$
 
 $$5t=60$$
 
+$$t=\dfrac{60}{5}$$
+
 $$t=12$$
 
 Then $f=20-12=8$. There are $8$ five-peso coins and $12$ ten-peso coins.
@@ -144,9 +146,11 @@ $$2u=9+3$$
 
 $$2u=12$$
 
+8. Divide both sides by $2$ to leave $u$ alone.
+
 $$u=\dfrac{12}{2}=6$$
 
-8. Use $t+u=9$ to find $t$.
+9. Use $t+u=9$ to find $t$.
 
 $$t=9-6=3$$
 

@@ -22,8 +22,6 @@ $$\text{Markup amount}=\text{Cost}\times\text{Markup rate}$$
 
 $$\text{Listed price}=\text{Cost}+\text{Markup amount}$$
 
-<!-- ILLUSTRATION: horizontal bar labeled "Cost = Php 800 (100%)" joined to an added right section labeled "Markup = Php 200 (25% of cost)", with a full bottom bracket labeled "Listed price = Php 1,000 (125% of cost)" -->
-
 Find the listed price of a box of canned goods that costs Php $800$ and gets a $25\%$ markup based on cost.
 
 1. Change $25\%$ to a decimal: $25\%=0.25$.
@@ -38,10 +36,14 @@ $$800+200=1,000$$
 
 The listed price is Php $1,000$.
 
+$100\%$ of cost plus $25\%$ of cost is $125\%$ of cost.
+
+<!-- ILLUSTRATION: horizontal bar labeled "Cost = Php 800 (100%)" joined to an added right section labeled "Markup = Php 200 (25% of cost)", with a full bottom bracket labeled "Listed price = Php 1,000 (125% of cost)" -->
+
 :::pair #markup-only-not-price
 Right: $\text{Listed price}=800+200=1,000$
 Wrong: $\text{Listed price}=200$
-Php $200$ is only the markup added on top. Add the Php $800$ cost to get the selling price.
+Php $200$ is only the markup added on top. Add the Php $800$ cost to get the listed price.
 :::
 
 :::why
