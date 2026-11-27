@@ -50,6 +50,26 @@ Do not commit; the lead commits. If you hit a Claude usage limit, stop at once a
    - `algebra/mixture-word-problems.md` note at line 58 (three containers).
    - `data-interpretation/percentage-change.md` note at line 43 (100 to 80 and back to 100).
 
+## Round 2 (batch 2a and three pilot lessons; after `ee1f274b3`)
+
+Source: `docs/content/verification/walkthrough-work/batch-2-figure-list.md`, the rows for your lessons (the lead accepted
+every row). Each row gives the spot, what the picture shows, and its numbers. Before drawing, re-read the lesson text
+beside the spot: if a number in the row differs from the text, the text wins; say so in your report. Replace an existing
+`FIGURE WANTED` note with the `ILLUSTRATION` marker at the same spot; for a new row, put the marker on its own line at the
+spot named. Number files by marker order in the lesson (`01-`, `02-`). Do not add any sentence to the lesson in this
+round. Hard rules and Checks above apply; you may also run the full draw (Check 3) at most once, and skip it if it fails for
+the same `assets/seed/content.db` reason as round 1.
+
+- Figure worker 1, under `content/lessons/mathematics/arithmetic-number-sense/`: `simple-interest.md`,
+  `compound-interest.md`, `commission-and-sales-tax.md`, `markup-on-cost.md` (2 pictures),
+  `successive-percentages-and-increases.md`, `decimal-and-percent-conversions.md` (pilot).
+- Figure worker 2, under `content/lessons/mathematics/`: `algebra/motion-chase-problems.md`,
+  `algebra/motion-meeting-and-separation.md`, `arithmetic-number-sense/inverse-proportion-and-remaining-work.md`,
+  `arithmetic-number-sense/partitive-proportion-and-differences.md` (2 pictures), `algebra/age-word-problems.md` (pilot),
+  `algebra/work-rate-problems.md` (pilot).
+
+Each worker touches only its own lessons and their SVG folders.
+
 ## Checks
 
 1. SVG validator, no Flutter: `python3 -I <maintools>/tools/check_lesson_svgs.py <root> --validate-only`, where `<root>` is
