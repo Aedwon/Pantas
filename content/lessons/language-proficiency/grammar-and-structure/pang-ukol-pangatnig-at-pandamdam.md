@@ -40,16 +40,16 @@ Ang **pangatnig** (conjunction) ay nagdurugtong ng salita, **parirala** (phrase)
 - "[Nagbasa siya] **at** [nagsulat]."
 - "[Umuwi siya] **dahil** [umuulan na]."
 
-<!-- ILLUSTRATION: dalawang halimbawa sa magkatabing kahon: kaliwa "para sa [mga bisita]" na may tatak na "iniuugnay ang pangkat ng pangngalan sa ibang bahagi -> pang-ukol"; kanan "Nagbasa siya at nagsulat" na may tatak na "nagdurugtong ng dalawang kilos -> pangatnig" -->
+<!-- FIGURE WANTED: dalawang halimbawa sa magkatabing kahon: kaliwa "para sa [mga bisita]" na may tatak na "iniuugnay ang pangkat ng pangngalan sa ibang bahagi -> pang-ukol"; kanan "Nagbasa siya at nagsulat" na may tatak na "nagdurugtong ng dalawang kilos -> pangatnig" -->
 
 :::why
 Paano agad paghiwalayin ang pang-ukol at pangatnig? Itanong kung ano ang ginagawa ng salita. Iniuugnay ng pang-ukol ang pangkat ng pangngalan sa ibang bahagi ng pangungusap (*para sa mga bisita*). Nagdurugtong ang pangatnig ng dalawang bahagi, kahit pangngalan ang dalawa (*papel at lapis*) o kilos (*nagbasa at nagsulat*).
 :::
 
 :::check
-Sa "Nag-ayos kami ayon sa utos, kaya mabilis natapos ang trabaho," alin ang pangatnig: *ayon sa* o *kaya*?
+Sa "Nagbasa siya hinggil sa kalusugan habang naghihintay ang mga bisita," alin ang pangatnig: *hinggil sa* o *habang*?
 :::answer
-Ang sagot ay **kaya**. Pinagdurugtong nito ang dalawang sugnay (*nag-ayos kami ayon sa utos* at *mabilis natapos ang trabaho*). Iniuugnay naman ng *ayon sa* ang pangngalang *utos*.
+Ang sagot ay **habang**. Pinagdurugtong nito ang dalawang sugnay (*nagbasa siya hinggil sa kalusugan* at *naghihintay ang mga bisita*). Iniuugnay naman ng *hinggil sa* ang pangngalang *kalusugan*.
 :::
 
 ### Pandamdam: Tuwirang Pahayag ng Damdamin
@@ -65,16 +65,20 @@ Hindi pinapangalanan ng *Naku* ang isang damdamin tulad ng salitang *kaba*, hind
 :::
 
 :::check
-Sa "Hala! Nahulog ang baso sa sahig," alin ang pandamdam: *Hala*, *baso*, o *sa*?
+Alin ang gumagamit ng *Ayan* bilang pandamdam?
+
+(A) Ayan, nabasag na ang baso.
+
+(B) Ayan, ang bus na hinihintay mo.
 :::answer
-Ang sagot ay **Hala**. Nagpapahayag ito ng pagkagulat o reaksiyon. Pang-ukol ang *sa* na iniuugnay ang *sahig* sa pagkahulog.
+Ang sagot ay **A**. Reaksiyon sa nangyari ang *Ayan* at buo pa rin ang "Nabasag na ang baso" kapag inalis ito. Sa B, itinuturo ng *Ayan* ang bus, kaya hindi ito damdamin.
 :::
 
 ## Examples
 
-### #1: Ugnayang Ipinakikita ng Pang-ukol
+### #1: Regalo ni Ben
 
-Sa "Nagdala si Ben ng regalo **para kay** Lea," anong bahagi ng pananalita ang mga salitang nakadiin batay sa ugnayang ipinakikita nito?
+Sa "Nagdala si Ben ng regalo **para kay** Lea," ano ang gawain ng mga salitang nakadiin, at anong bahagi ng pananalita ang mga ito?
 
 **Solution:**
 
@@ -83,7 +87,7 @@ Sa "Nagdala si Ben ng regalo **para kay** Lea," anong bahagi ng pananalita ang m
 
 **Check:** Itanong: "Para kanino ang regalo?" *Para kay Lea.*
 
-### #2: Pagkilala sa Pangatnig
+### #2: Hangin at Sikat ng Araw
 
 Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pananalita ang salitang nakadiin?
 
@@ -96,16 +100,16 @@ Sa "Malamig ang hangin **ngunit** mainit ang sikat ng araw," anong bahagi ng pan
 
 ### #3: Salita sa Simula ng Pangungusap
 
-Sa "**Sayang**, nabasag ang baso" at "**Sayang** ang pagkain kung itatapon," alin ang gumagamit ng *Sayang* bilang pandamdam?
+Sa "**Sayang** nabasag ang baso" at "**Sayang** ang pagkain kung itatapon," alin ang gumagamit ng *Sayang* bilang pandamdam?
 
 **Solution:**
 
-1. Tingnan ang kasunod: *nabasag ang baso* sa una, *ang pagkain kung itatapon* sa ikalawa.
+1. Markahan ang dalawang pangungusap: [Sayang] [nabasag ang baso] at [Sayang] [ang pagkain kung itatapon].
 
 :::try
 Tapusin ang huling hakbang: aling pangungusap ang gumagamit ng *Sayang* bilang pandamdam?
 :::answer
-Ang sagot ay **ang una**: "**Sayang**, nabasag ang baso." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita. Sa ikalawa, inilalarawan ng *sayang* ang pagkain.
+Ang sagot ay **ang una**: "**Sayang** nabasag ang baso." Tuwiran nitong ipinahahayag ang damdamin ng nagsasalita. Sa ikalawa, inilalarawan ng *sayang* ang pagkain.
 
 **Check:** Alisin ang *Sayang* sa una: buo pa rin ang "Nabasag ang baso." Alisin ito sa ikalawa: bitin ang "ang pagkain kung itatapon."
 :::

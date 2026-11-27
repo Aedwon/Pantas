@@ -40,7 +40,7 @@ Ang **pang-abay** (adverb) ay nagbibigay-linaw sa **pandiwa** (verb), pang-uri, 
 - "**Mabilis** na **tumakbo** ang atleta." (*mabilis* -> *tumakbo*, pandiwa: paano)
 - "**Lubhang** **masaya** ang mga bata." (*lubhang* -> *masaya*, pang-uri: gaano)
 
-<!-- ILLUSTRATION: dalawang nakapatong na parirala para sa "mabilis": sa itaas "mabilis na atleta" na may palaso mula "mabilis" patungong "atleta (pangngalan)" at tatak na "pang-uri"; sa ibaba "mabilis na tumakbo" na may palaso mula "mabilis" patungong "tumakbo (pandiwa)" at tatak na "pang-abay" -->
+<!-- FIGURE WANTED: dalawang nakapatong na parirala para sa "mabilis": sa itaas "mabilis na atleta" na may palaso mula "mabilis" patungong "atleta (pangngalan)" at tatak na "pang-uri"; sa ibaba "mabilis na tumakbo" na may palaso mula "mabilis" patungong "tumakbo (pandiwa)" at tatak na "pang-abay" -->
 
 :::why
 Bakit maaaring maging pang-uri ang *mabilis* sa isang pangungusap at pang-abay sa isa pa? Nakabatay ang sagot sa salitang inilalarawan. Kapag *atleta* ang binibigyang-turing, pang-uri ito; kapag *tumakbo*, pang-abay ito.
@@ -79,7 +79,7 @@ Ang sagot ay **Sa kusina**. Sinasagot nito ang tanong na "Saan kami kumain?"
 
 ## Examples
 
-### #1: Pagtukoy sa Pang-uri
+### #1: Ang Tahimik na Estudyante
 
 Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "Nagbasa ang **tahimik** na estudyante ng aklat."
 
@@ -90,7 +90,7 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "Nagbasa ang **tahimik** 
 
 **Check:** Itanong: "Sino ang tahimik?" Ang sagot ay *estudyante* (pangngalan), hindi *nagbasa* (pandiwa).
 
-### #2: Pagtukoy sa Pang-abay
+### #2: Ang Pagbuhat ng Kahon
 
 Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Maingat** na nagbuhat ang kawani ng kahon."
 
@@ -101,20 +101,20 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Maingat** na nagbuhat 
 
 **Check:** Sinasagot ng *maingat* ang tanong na "Paano nagbuhat ang kawani?", na tanda ng pang-abay.
 
-### #3: Pangungusap Tungkol sa Paglalaro
+### #3: Batang Nasa Kabilang Bahay
 
-Sa "Naglaro ang mga bata ng taguan sa bakuran," aling pangkat ang nagsasabi ng lugar ng paglalaro at gumaganap na pang-abay na panlunan?
+Sa "Ang batang nasa kabilang bahay ay sumasayaw sa kalye," aling pangkat ang pang-abay na panlunan?
 
 **Solution:**
 
-1. Kilalanin ang kilos: *naglaro*.
+1. Kilalanin ang kilos: *sumasayaw*.
 
 :::try
-Tapusin ang huling hakbang: itanong kung saan naglaro ang mga bata.
+Tapusin ang huling hakbang: aling pangkat ang naglilinaw sa *sumasayaw*?
 :::answer
-Ang sagot ay **Sa bakuran**: "Naglaro ang mga bata ng taguan **sa bakuran**."
+Ang sagot ay **Sa kalye**: "Ang batang nasa kabilang bahay ay sumasayaw **sa kalye**." Ang *nasa kabilang bahay* ay naglalarawan sa *bata*, hindi sa kilos.
 
-**Check:** Kapag inalis ang *sa bakuran*, buo pa rin ang pangungusap, ngunit hindi na malaman ang lugar.
+**Check:** Alisin ang *sa kalye*: "Ang batang nasa kabilang bahay ay sumasayaw." Alam pa rin kung aling bata, ngunit hindi na malaman kung saan siya sumasayaw.
 :::
 
 ## Speed Tricks & Shortcuts

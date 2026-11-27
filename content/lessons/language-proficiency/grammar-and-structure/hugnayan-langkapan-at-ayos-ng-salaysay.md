@@ -41,7 +41,7 @@ Ang **langkapan** (compound-complex sentence) ay may dalawa o higit pang sugnay 
 
 - "[Umuwi ang bata] **at** [nagsara ang tindahan] [**dahil malakas na ang ulan**]." (2 makapag-iisa + 1 di-makapag-iisa)
 
-<!-- ILLUSTRATION: dalawang kahon ng bilang ng sugnay: kaliwa "Hugnayan (halimbawa: 1 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] + [dahil umuulan na]"; kanan "Langkapan (halimbawa: 2 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] at [nagsara ang tindahan] + [dahil malakas na ang ulan]" -->
+<!-- FIGURE WANTED: dalawang kahon ng bilang ng sugnay: kaliwa "Hugnayan (halimbawa: 1 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] + [dahil umuulan na]"; kanan "Langkapan (halimbawa: 2 makapag-iisa + 1 di-makapag-iisa)" gamit ang "[Umuwi ang bata] at [nagsara ang tindahan] + [dahil malakas na ang ulan]" -->
 
 :::why
 Bakit kailangang bilangin nang hiwalay ang bawat sugnay sa langkapan? Pinagsasama sa langkapan ang tambalan (dalawang buong diwa) at ang hugnayan (may sugnay na di-makapag-iisa). Kapag isa lamang sa dalawa ang nakita mo, nagiging mali ang uri ng pangungusap.
@@ -56,7 +56,7 @@ Kung *tambalan*, nalalaktawan ang "dahil malakas na ang ulan." Kung *hugnayan*, 
 :::check
 Ilang sugnay na makapag-iisa at ilang di-makapag-iisa ang nasa "Umalis si Ana dahil gabi na, at nagpaiwan si Ben dahil may bisita"?
 :::answer
-Ang sagot ay dalawang makapag-iisa (*Umalis si Ana* at *nagpaiwan si Ben*) at dalawang di-makapag-iisa (*dahil gabi na* at *dahil may bisita*). **Langkapan** ang pangungusap.
+Ang sagot ay dalawang makapag-iisa at dalawang di-makapag-iisa: "[Umalis si Ana] [**dahil gabi na**], **at** [nagpaiwan si Ben] [**dahil may bisita**]." Pinagdurugtong ng *at* ang dalawang makapag-iisa, kaya **langkapan** ang pangungusap.
 :::
 
 ### Ayos ng Salaysay at mga Pananda
@@ -70,7 +70,7 @@ Sa pagsasalaysay, pumili ng **pananda ng pagkakasunod** (sequence marker) na tug
 :::pair #ayos-ng-pananda-sa-salaysay
 Right: Para sa unang paghahanda, kasunod na pagsusuri, at pangwakas na pagpasa: "**Una**, inihanda ang ulat. **Pagkatapos**, sinuri ito. **Sa huli**, ipinasa ito."
 Wrong: "**Una, sa huli, pagkatapos**" o "**Sa huli, pagkatapos nito, una**."
-Ang *sa huli* ay para lamang sa pangwakas na pangyayari.
+Sa tatlong bahaging ito, ang *sa huli* ay para sa pangwakas na pangyayari.
 :::
 
 :::check

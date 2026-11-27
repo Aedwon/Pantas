@@ -17,7 +17,7 @@ keyPoints:
 
 ### Dalawang Karaniwang Ayos ng Pagmamay-ari
 
-Sa dalawang ayos na ito, nagbabago ang **panghalip** (pronoun) na **paari** (possessive) ayon sa puwesto ng may-ari:
+Nagbabago ang **panghalip** (pronoun) na **paari** (possessive) ayon sa puwesto ng may-ari:
 
 1. Pagkatapos ng pag-aari: anyong *ng* (*ko, mo, niya, namin, natin, ninyo, nila*), gaya sa "Ito ang aklat **ko**."
 2. Nauuna ang may-ari: anyong *sa* (*akin, iyo, kaniya, amin, atin, inyo, kanila*) nang walang *sa*, gaya sa "**Akin** ang aklat na nasa mesa."
@@ -43,7 +43,7 @@ Hinahati ang mga **panghalip panao** (personal pronoun) ayon sa **panauhan** (pe
 3. **Pinag-uusapan**: *siya, niya, kaniya* (isa); *sila, nila, kanila* (marami).
 
 :::pair #tayo-laban-sa-kami
-Right: Kausap ni Ruben si Mila. Hindi dadalo si Mila, kaya sabi ni Ruben: "Kami ang dadalo sa pagpupulong."
+Right: Kausap ni Ruben si Mila. Hindi dadalo si Mila, ngunit dadalo si Ruben at ang kaniyang mga kasama, kaya sabi ni Ruben: "Kami ang dadalo sa pagpupulong."
 Wrong: Sabihin ni Ruben ang "Tayo ang dadalo" o "Sila ang dadalo."
 Isinasama ng *tayo* ang kausap na si Mila, at iniaalis naman ng *sila* ang nagsasalitang si Ruben.
 :::
@@ -108,11 +108,11 @@ Sinabi ni Lea sa kaibigan niya, "Salamat sa tulong mo." Paano niya ito sasabihin
 1. Hanapin ang panghalip sa linya para sa kaibigan: *mo*.
 
 :::try
-Tapusin ang huling hakbang: punan ang patlang ng buong magalang na anyong *ng* mula sa seryeng *kayo, ninyo, inyo*: "Salamat po sa tulong ___."
+Tapusin ang huling hakbang: punan ang patlang ng buong magalang na anyo (hindi pinaikli) para sa iisang kausap: "Salamat po sa tulong ___."
 :::answer
-Ang sagot ay **ninyo**: "Salamat po sa tulong ninyo." Magalang na anyo ito para sa iisang kausap.
+Ang sagot ay **ninyo**: "Salamat po sa tulong ninyo." Magalang na anyo ito para sa iisang kausap, at anyong *ng* ang kailangan pagkatapos ng *tulong*.
 
-**Check:** Parehong anyong *ng* para sa kausap ang *mo* at *ninyo*, kaya pareho silang kasunod ng *tulong*.
+**Check:** Subukan ang *inyo*: "Salamat po sa tulong inyo." Mali ito dahil anyong *sa* ang *inyo*, at hindi ito ginagamit pagkatapos ng pangngalan.
 :::
 
 ## Speed Tricks & Shortcuts

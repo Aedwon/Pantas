@@ -21,13 +21,13 @@ Sa mga ugat na ipinakikita rito, inuulit ang unang katinig at patinig kapag kati
 
 ### Pangkat na Mag- (Maglinis)
 
-Sa pangkat ng *maglinis*, sumusunod ang tatlong **aspekto** (stage of an action) sa iisang hulma:
+Sa pangkat ng *maglinis*, sumusunod ang tatlong **aspekto** (stage of an action) ng **pandiwa** (verb) sa iisang hulma:
 
 1. **Perpektibo** (completed): tapos na, palitan ang *mag-* ng *nag-* -> *naglinis*.
 2. **Imperpektibo** (ongoing): nagpapatuloy, gamitin ang *nag-* at idagdag ang inuulit na bahagi -> *naglilinis*.
 3. **Kontemplatibo** (not yet begun): gagawin pa, panatilihin ang *mag-* at idagdag ang inuulit na bahagi -> *maglilinis*.
 
-Para sa **katatapos** (recently completed) na kilos, halimbawa sa ugat na *linis*, gamitin ang *ka-* at ang inuulit na bahagi: *kalilinis lang* (o *kadarating lang* mula sa *dating*, kung saan nagiging *r* ang *d* sa gitna ng mga patinig).
+Para sa **katatapos** (recently completed) na kilos, halimbawa sa ugat na *linis*, gamitin ang *ka-* at ang inuulit na bahagi: *kalilinis lang* (o *kadarating lang* mula sa *dating*).
 
 :::check
 Ano ang anyong imperpektibo ng pandiwang *maglaba*?
@@ -40,11 +40,11 @@ Ang sagot ay **Naglalaba**. Ginagamit ang *nag-* at inuulit ang *la*, ang unang 
 Iba ang hulma ng pangkat na *kumain*. Ipinapasok ang *-um-* pagkatapos ng unang katinig ng ugat (o sa unahan kung patinig ang simula, gaya ng *umalis*):
 
 1. **Perpektibo**: ugat + *-um-* -> *kumain*.
-2. **Imperpektibo**: *-um-* + inuulit na bahagi -> *kumakain*.
+2. **Imperpektibo**: inuulit na bahagi + ugat (*ka* + *kain*), saka ipasok ang *-um-* pagkatapos ng unang *k* -> *kumakain*.
 3. **Kontemplatibo**: inuulit na bahagi bago ang ugat, walang *-um-* -> *kakain*.
 
 :::why
-Bakit nawawala ang *-um-* sa *kakain*? Sa pangkat ng *-um-*, sapat na ang inuulit na bahagi upang ipakitang magaganap pa ang kilos. Hindi nito hinihiram ang *mag-* mula sa ibang pangkat ng **pandiwa** (verb).
+Bakit nawawala ang *-um-* sa *kakain*? Sa pangkat ng *-um-*, sapat na ang inuulit na bahagi upang ipakitang magaganap pa ang kilos. Hindi nito hinihiram ang *mag-* mula sa ibang pangkat ng pandiwa.
 :::
 
 :::pair #huwag-ilipat-ang-mag
@@ -106,10 +106,8 @@ Sa tala ay nakasulat, "Kasasara lang nila ng tanggapan. Nagbabasa na sila ng ula
 **Solution:**
 
 1. Suriin ang *kasasara lang*: ang *ka-*, inulit na *sa*, at *lang* ay nagpapakitang katatapos lamang ang pagsara, kaya **perpektibong katatapos** ito.
-2. Suriin ang *nagbabasa* sa "Nagbabasa na sila ng ulat."
-
 :::try
-Tapusin ang huling hakbang: anong bahagi ng *nagbabasa* ang inuulit, at anong aspekto ito?
+Tapusin ang huling hakbang: sa "Nagbabasa na sila ng ulat," anong bahagi ng *nagbabasa* ang inuulit, at anong aspekto ito?
 :::answer
 Inuulit ang *ba*, at **Imperpektibo** ang *nagbabasa*: "Nagbabasa na sila ng ulat." Gumagamit ito ng panlaping *nag-* kasama ng inulit na *ba*, kaya nagpapatuloy ang kilos.
 

@@ -54,12 +54,12 @@ Ang sagot ay **nagluto**. Ito ang kilos na ginawa ni Aling Rosa. Ngalan ng tao a
 
 ### Pandiwari sa Tradisyonal na Pag-uuri
 
-Ang **pandiwari** (participle) ay anyong mula sa pandiwa na sa tradisyonal na balarila ay ginagamit na **pang-uri** (adjective; *ang nahimatay na lalaki*) o, kapag walang pangngalang kasunod at ngalan ng tao o bagay ang buong parirala, na pangngalan (*ang nahimatay*). Sundin ang dalawang hakbang:
+Ang **pandiwari** (participle) ay anyong mula sa pandiwa na sa tradisyonal na balarila ay ginagamit na **pang-uri** (adjective; *ang nahimatay na lalaki*) o, kapag walang pangngalang kasunod at ngalan ng tao o bagay ang buong **parirala** (phrase), na pangngalan (*ang nahimatay*). Sundin ang dalawang hakbang:
 
 1. Hanapin muna ang pangunahing kilos ng pangungusap.
-2. Tingnan ang anyong mula sa pandiwa: kung inilalarawan nito ang pangngalang kasunod sa iisang parirala (*ang nahimatay na lalaki*), pang-uri ito; kung wala, itanong kung tao o bagay ang tinutukoy ng buong parirala (phrase).
+2. Tingnan ang anyong mula sa pandiwa: kung inilalarawan nito ang pangngalang kasunod sa iisang parirala (*ang nahimatay na lalaki*), pang-uri ito; kung wala, itanong kung tao o bagay ang tinutukoy ng buong parirala.
 
-<!-- ILLUSTRATION: ang pangungusap na "Inihatid ng kawani sa klinika ang nahimatay." na may tatak sa ilalim ng "Inihatid" (pandiwa ng kawani), "sa klinika" (lugar), at "ang nahimatay" (taong tinulungan, pandiwaring gamit na pangngalan) -->
+<!-- FIGURE WANTED: ang pangungusap na "Inihatid ng kawani sa klinika ang nahimatay." na may tatak sa ilalim ng "Inihatid" (pandiwa ng kawani), "sa klinika" (lugar), at "ang nahimatay" (taong tinulungan, pandiwaring gamit na pangngalan) -->
 
 :::why
 Ano ang tinutukoy ng *ang nahimatay* sa "Inihatid ng kawani sa klinika ang nahimatay"? Ang pangunahing kilos ng pangungusap ay *inihatid* ng kawani. Ang buong pariralang *ang nahimatay* ay hindi kilos ng kawani. Tumutukoy ito sa taong tinulungan, kaya gamit na pangngalan ito.
@@ -81,13 +81,13 @@ Ang sagot ay **pang-uri**. Mula sa pandiwa ang *nasugatan*, at inilalarawan nito
 
 ### #1: Pangngalan, Pantukoy, at Panghalip
 
-Sa "**Ang** masipag na **guro** ay ngumiti at umupo **siya**," tukuyin ang bahagi ng pananalita ng bawat salitang nakadiin.
+Ang guro ang ngumiti at umupo sa "**Ang** masipag na **guro** ay ngumiti at umupo **siya**." Tukuyin ang bahagi ng pananalita ng bawat salitang nakadiin.
 
 **Solution:**
 
 Pantukoy ang *Ang* (nagpapakilala sa *guro*), pangngalan ang *guro* (ngalan ng tao), at panghalip ang *siya* (pumapalit sa guro): "**Ang** masipag na **guro** ay ngumiti at umupo **siya**."
 
-**Check:** Palitan ang *siya* ng *ang guro*: buo pa rin ang "umupo ang guro," kaya *guro* ang tinutukoy ng *siya*.
+**Check:** Dahil guro ang umupo, puwedeng palitan ang *siya* ng *ang guro*: buo pa rin ang "umupo ang guro."
 
 ### #2: Pagkilala sa Pandiwa
 
@@ -97,7 +97,7 @@ Tukuyin ang bahagi ng pananalita ng salitang nakadiin: "**Sumulat** ang mga mag-
 
 1. Itanong ang ginawa ng **paksa** (subject) na *ang mga mag-aaral*: *sumulat*, kaya **pandiwa** ito: "**Sumulat** ang mga mag-aaral ng liham."
 
-**Check:** Palitan ang oras: "**Susulat** ang mga mag-aaral ng liham." Nagbago ang anyo ng *sumulat* ayon sa oras, kaya kilos ito.
+**Check:** Lagyan ng pahiwatig ng oras: "**Sumulat** ang mga mag-aaral ng liham kahapon." "**Susulat** ang mga mag-aaral ng liham bukas." Ipinapakita ng anyo ng pandiwa kung anong yugto na ang pagsulat: tapos na o gagawin pa.
 
 ### #3: Pangungusap Tungkol sa Guro
 

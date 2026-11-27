@@ -82,7 +82,7 @@ Alin ang anyong kontemplatibo ng pandiwang ugat na *basa*: (A) *Bumasa*, (B) *Bu
 
 **Solution:**
 
-1. Suriin ang (A) *bumasa*: tapos na ang kilos (perpektibo).
+1. Suriin ang (A) *bumasa*: sa "Bumasa siya kanina," tapos na ang kilos (perpektibo).
 2. Suriin ang (B) *bumabasa*: nagpapatuloy ang kilos (imperpektibo).
 3. Suriin ang (D) *basahin*: ibang **pokus** na nakatuon sa bagay, hindi anyong *-um-* ng **tagaganap** (actor).
 4. Piliin ang **(C) Babasa**: "Babasa kami ng aklat mamaya."
@@ -91,20 +91,20 @@ Alin ang anyong kontemplatibo ng pandiwang ugat na *basa*: (A) *Bumasa*, (B) *Bu
 
 ### #2: Pagpili ng Pandiwa Ayon sa Kuwento
 
-Natapos na ang paglalaba ng damit kahapon. Alin ang angkop na pandiwa sa pangungusap na "___ ng damit si Rita kahapon": *Maglalaba*, *Naglaba*, *Naglalaba*, o *Kalalaba lang*?
+Natapos na ang paglalaba ng damit noong nakaraang buwan. Alin ang angkop na pandiwa sa pangungusap na "___ ng damit si Rita noong nakaraang buwan": *Maglalaba*, *Naglaba*, *Naglalaba*, o *Kalalaba lang*?
 
 **Solution:**
 
-1. Basahin ang kalagayan: *natapos na kahapon* ang paglalaba, kaya kailangan ang **perpektibo**.
+1. Basahin ang kalagayan: *natapos na noong nakaraang buwan* ang paglalaba, kaya kailangan ang **perpektibo**.
 2. Alisin ang *maglalaba* (gagawin pa) at *naglalaba* (nagpapatuloy).
 3. Suriin ang *kalalaba lang*: hindi tugma sa *si Rita* ang anyong ito, dahil kailangan nito ang *ni Rita*.
-4. Piliin ang **Naglaba**: "Naglaba ng damit si Rita kahapon."
+4. Piliin ang **Naglaba**: "Naglaba ng damit si Rita noong nakaraang buwan."
 
-**Check:** Kung *Kalalaba lang ni Rita ng damit*, kailan lang natapos ang paglalaba, hindi kahapon pa.
+**Check:** Kung *Kalalaba lang ni Rita ng damit*, ilang sandali pa lamang ang lumilipas mula nang matapos ito, hindi isang buwan na.
 
 ### #3: Dalawang Anyo ng *Sulat*
 
-Paghambingin ang "Sumulat si Lea ng ulat noong Lunes" at "Kasusulat lang ni Lea ng ulat." Aling pagsusuri ang tama?
+Paghambingin ang "Sumulat lang si Lea ng ulat noong Lunes" at "Kasusulat lang ni Lea ng ulat." Parehong may *lang*. Aling pagsusuri ang tama?
 
 **Solution:**
 
@@ -113,9 +113,9 @@ Paghambingin ang "Sumulat si Lea ng ulat noong Lunes" at "Kasusulat lang ni Lea 
 :::try
 Tapusin ang huling hakbang: ano ang aspekto ng *kasusulat lang*, at ano ang buong paghahambing ng dalawang pangungusap?
 :::answer
-Perpektibo: "Sumulat si Lea ng ulat noong Lunes." Perpektibong katatapos: "Kasusulat lang ni Lea ng ulat."
+Perpektibo: "Sumulat lang si Lea ng ulat noong Lunes." Perpektibong katatapos: "Kasusulat lang ni Lea ng ulat."
 
-**Check:** May tiyak na araw ang una (*noong Lunes*). Ipinapakita ng *lang* na kailan lang natapos ang ikalawa.
+**Check:** Basahin ang anyo ng pandiwa. Walang *ka-* at inulit na bahagi ang *sumulat*, kaya ang *lang* dito ay "iyon lamang." May *ka-* at inulit na *su* ang *kasusulat*, kaya ito ang katatapos.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -26,7 +26,7 @@ Maaaring ilagay ang pahiwatig ng oras sa unahan ng pangungusap na may *ay*, o il
 :::pair #panatilihin-ang-oras-at-aspekto
 Right: Ilipat sa hulihan ang pahiwatig sa "Bukas ay magsusumite si Elena ng ulat": "**Magsusumite si Elena ng ulat bukas.**"
 Wrong: "**Magsusumite si Elena ng ulat kahapon.**" o "**Nagsumite si Elena ng ulat kahapon.**"
-Posisyon lamang ng *bukas* ang dapat ilipat. Kapag pinalitan ito ng *kahapon* o pinalitan ang *magsusumite*, nasisira ang orihinal na oras at kalagayan ng kilos.
+Ilipat ang *bukas* at alisin ang *ay*. Kapag pinalitan ito ng *kahapon* o pinalitan ang *magsusumite*, nasisira ang orihinal na oras at kalagayan ng kilos.
 :::
 
 :::check
@@ -61,7 +61,7 @@ Kapag may kilos na hindi pa tapos nang pumasok ang isa pang pangyayari sa nakara
 
 - "**Nagsusulat pa** ng ulat si Luis nang dumating ang pinuno **kahapon**."
 
-<!-- ILLUSTRATION: guhit ng oras na may tatak na "kahapon": isang mahabang guhit para sa "nagsusulat pa si Luis" at isang patayong tuldok na tumatama rito na may tatak na "nang dumating ang pinuno", na nagpapakitang nagpapatuloy pa ang pagsulat -->
+<!-- FIGURE WANTED: guhit ng oras na may tatak na "kahapon": isang mahabang guhit para sa "nagsusulat pa si Luis" at isang patayong tuldok na tumatama rito na may tatak na "nang dumating ang pinuno", na nagpapakitang nagpapatuloy pa ang pagsulat -->
 
 :::why
 Bakit imperpektibo ang *nagsusulat* kahit may *kahapon*? Dito, ipinakikita ng *pa* na hindi pa tapos ang pagsusulat nang dumating ang pinuno.
@@ -104,20 +104,20 @@ Ilipat sa hulihan ang pahiwatig ng oras sa "Ngayon ay nagsasanay ang koro." Alin
 
 **Check:** Hindi kailangang naglalaro sila sa mismong sandali ng pagsasalita; sapat na umiiral ang gawain tuwing Linggo.
 
-### #3: Dalawang Pangyayari Kahapon
+### #3: Dalawang Pangyayari Kagabi
 
-"Naglalaba pa si Rita nang tumawag ang kaibigan niya kahapon." Ano ang aspekto ng *naglalaba*, at bakit?
+"Nagluluto si Rita nang tumawag ang kaibigan niya kagabi." Ano ang aspekto ng *nagluluto*, at bakit?
 
 **Solution:**
 
-1. Tukuyin ang dalawang pangyayari kahapon: ang paglalaba ni Rita at ang pagtawag ng kaibigan niya.
+1. Tukuyin ang dalawang pangyayari kagabi: ang pagluluto ni Rita at ang pagtawag ng kaibigan niya.
 
 :::try
-Tapusin ang huling hakbang: ano ang aspekto ng *naglalaba*, at bakit?
+Tapusin ang huling hakbang: ano ang aspekto ng *nagluluto*, at bakit?
 :::answer
-Ang sagot ay **Imperpektibo**: "**Naglalaba** pa si Rita nang tumawag ang kaibigan niya kahapon," dahil nagpapatuloy ang paglalaba.
+Ang sagot ay **Imperpektibo**: "**Nagluluto** si Rita nang tumawag ang kaibigan niya kagabi," dahil nagpapatuloy ang pagluluto.
 
-**Check:** Sa pangungusap na ito, ang *pa* ang pahiwatig na hindi pa tapos ang paglalaba.
+**Check:** Sa sandali ng pagtawag, nagsimula na ang pagluluto at hindi pa tapos. Ang pagtawag ang pumasok sa gitna nito.
 :::
 
 ## Speed Tricks & Shortcuts

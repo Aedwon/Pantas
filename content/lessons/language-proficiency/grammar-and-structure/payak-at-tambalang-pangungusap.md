@@ -31,9 +31,9 @@ May simuno at panaguri rin ang mga iyon, ngunit bitin ang diwa dahil sa *dahil* 
 :::
 
 :::check
-Alin ang sugnay na makapag-iisa: *(Kung malakas ang ulan. / Malakas ang ulan.)*?
+Alin ang may sugnay na makapag-iisa: *(Kung malakas ang ulan, uuwi tayo. / Kung malakas ang ulan.)*?
 :::answer
-Ang sagot ay **Malakas ang ulan.** Buo ang diwa nito. Ang *kung malakas ang ulan* ay naghihintay pa ng kasunod.
+Ang sagot ay **Kung malakas ang ulan, uuwi tayo.** Buo ang diwa ng *uuwi tayo*. Ang *kung malakas ang ulan* ay naghihintay pa ng kasunod.
 :::
 
 ### Payak at Tambalang Pangungusap
@@ -43,7 +43,7 @@ Bilangin ang mga sugnay upang matukoy ang kayarian ng pangungusap:
 - Ang **payak** (simple) ay may iisang sugnay na makapag-iisa lamang at walang sugnay na di-makapag-iisa: "[Umuwi ang bata]." Kahit may dalawang tao o dalawang kilos sa iisang sugnay, payak pa rin ito: "[Naglilinis at nag-aayos ng silid sina Ana at Ben]." (1 sugnay)
 - Ang **tambalan** (compound) ay may dalawa o higit pang sugnay na makapag-iisa at walang sugnay na di-makapag-iisa: "[Umuwi ang bata] **ngunit** [naiwan ang bag niya]."
 
-<!-- ILLUSTRATION: dalawang halimbawa: sa itaas "Naglilinis at nag-aayos sina Ana at Ben" na may isang kahon na may tatak na "1 sugnay na makapag-iisa -> Payak"; sa ibaba "[Umuwi ang bata] ngunit [naiwan ang bag niya]" na may dalawang hiwalay na kahon at tatak na "2 sugnay na makapag-iisa -> Tambalan" -->
+<!-- FIGURE WANTED: dalawang halimbawa: sa itaas "Naglilinis at nag-aayos sina Ana at Ben" na may isang kahon na may tatak na "1 sugnay na makapag-iisa -> Payak"; sa ibaba "[Umuwi ang bata] ngunit [naiwan ang bag niya]" na may dalawang hiwalay na kahon at tatak na "2 sugnay na makapag-iisa -> Tambalan" -->
 
 :::pair #payak-laban-sa-tambalan
 Right: Ang "Umuwi ang bata ngunit naiwan ang bag niya" ay **Tambalan**.
@@ -72,14 +72,14 @@ Dagdag ang *at*, salungat ang *ngunit*, dahilan ang *dahil*; pagpipilian dito an
 :::
 
 :::check
-Gusto niyang sumama, *(at / ngunit / o)* masama ang pakiramdam niya. Alin ang angkop?
+Gusto niyang sumama, *(at / ngunit / o)* masama ang pakiramdam niya, kaya hindi siya nakasama. Alin ang nagpapakitang hadlang ang pakiramdam niya sa pagsama?
 :::answer
-Ang sagot ay **Ngunit**. Salungat sa pagnanais niyang sumama ang masamang pakiramdam.
+Ang sagot ay **Ngunit**. Salungat sa pagnanais niyang sumama ang masamang pakiramdam, at ito ang dahilan kung bakit hindi siya nakasama.
 :::
 
 ## Examples
 
-### #1: Payak na Pangungusap
+### #1: Sina Lea at Omar
 
 Tukuyin ang uri ng pangungusap: "Kumakanta at sumasayaw sina Lea at Omar sa entablado."
 
@@ -90,7 +90,7 @@ Tukuyin ang uri ng pangungusap: "Kumakanta at sumasayaw sina Lea at Omar sa enta
 
 **Check:** Iisa ang simuno ng dalawang kilos, kaya iisang sugnay lamang ito.
 
-### #2: Tambalang Pangungusap
+### #2: Ang Tindahan
 
 Tukuyin ang uri ng pangungusap: "Maaga kaming dumating ngunit sarado ang tindahan."
 
@@ -101,7 +101,7 @@ Tukuyin ang uri ng pangungusap: "Maaga kaming dumating ngunit sarado ang tindaha
 
 **Check:** Lagyan ng tuldok bilang kapalit ng *ngunit*: "Maaga kaming dumating. Sarado ang tindahan." Parehong buo.
 
-### #3: Pagtutugma ng Pangatnig
+### #3: Ulat ni Mia
 
 Sa ulat ni Mia, magkahiwalay na gawain ang nakalista, at parehong natapos. Aling pangatnig ang angkop sa patlang: "Nagdilig si Ana ng halaman, ___ nagwalis si Ben ng bakuran"?
 

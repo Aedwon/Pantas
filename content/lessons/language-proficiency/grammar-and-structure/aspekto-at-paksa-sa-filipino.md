@@ -23,7 +23,7 @@ Maraming **pandiwa** (verb) ang nagsasaad ng kilos. Ang **aspekto** (stage of an
 3. **Imperpektibo** (ongoing): nagaganap pa o paulit-ulit, *kumakain* ("Kumakain pa si Nena habang naghihintay.")
 4. **Kontemplatibo** (not yet begun): gagawin pa, *kakain* ("Kakain pa lamang siya mamaya.")
 
-<!-- ILLUSTRATION: guhit ng oras para sa kilos na "kain": sa kaliwa "kumain (perpektibo: tapos na)", kasunod ang maikling tuldok na "kakakain lamang (katatapos lang)", sa gitna "kumakain (imperpektibo: nagaganap pa)", at sa kanan "kakain (kontemplatibo: hindi pa nasisimulan)" -->
+<!-- FIGURE WANTED: guhit ng oras para sa kilos na "kain": sa kaliwa "kumain (perpektibo: tapos na)", kasunod ang maikling tuldok na "kakakain lamang (katatapos lang)", sa gitna "kumakain (imperpektibo: nagaganap pa)", at sa kanan "kakain (kontemplatibo: hindi pa nasisimulan)" -->
 
 Iba-iba ang **panlapi** (affix) ng bawat pandiwa (tulad ng *nagluto, nagluluto, magluluto*), kaya suriin kung tapos na, nagaganap pa, o gagawin pa ang kilos sa pangungusap.
 
@@ -43,7 +43,7 @@ Ang sagot ay **Naghuhugas**. Nagaganap pa at hindi pa tapos ang paghuhugas ni Ma
 
 Ang **paksa** (subject) ang pinag-uusapan sa pangungusap.
 
-Sa ibang wika tulad ng Ingles, nagbabago ang pandiwa kapag naging maramihan ang paksa. Sa Filipino, karaniwang hindi nagbabago ang aspekto ng pandiwa dahil lamang dumami ang paksa:
+Sa Ingles, may mga anyo ng pandiwa na nagbabago kapag maramihan ang paksa. Sa Filipino, karaniwang hindi nagbabago ang aspekto ng pandiwa dahil lamang dumami ang paksa:
 
 - Isahan: "**Kumakain** ng tanghalian **ang kawani**."
 - Maramihan: "**Kumakain** ng tanghalian **ang mga kawani**."
@@ -59,15 +59,15 @@ Dagdag na *mga* lamang ang pagbabago sa paksa. Kapag pinalitan ang *kumakain* ng
 :::
 
 :::check
-Gawing maramihan ang paksa ng "Sumulat ng liham ang mag-aaral" at panatilihin ang tapos na kilos. Alin ang tama?
+Tapos na kahapon ang pagbibigay ng sertipiko ng guro. Gawing maramihan ang paksa: "___ ng sertipiko ang mga guro." Alin ang tama?
 
-(A) Sumulat ng liham ang mga mag-aaral.
+(A) Nagbigay
 
-(B) Sumusulat ng liham ang mga mag-aaral.
+(B) Nagbibigay
 
-(C) Susulat ng liham ang mga mag-aaral.
+(C) Magbibigay
 :::answer
-Ang sagot ay **A**: "Sumulat ng liham ang mga mag-aaral." Dinagdagan lamang ng *mga* ang paksa at nanatiling tapos na ang *sumulat*.
+Ang sagot ay **A**: "Nagbigay ng sertipiko ang mga guro." Tapos na ang kilos, kaya *nagbigay* ang pandiwa. Dinagdagan lamang ng *mga* ang paksa.
 :::
 
 ## Examples
@@ -81,7 +81,7 @@ Nasa mesa si Rico at hindi pa tapos sa pagtahi ng kurtina. Aling anyo ng *tahi* 
 1. Ang pahiwatig ay "hindi pa tapos": nagpapatuloy pa ang pagtahi.
 2. Imperpektibo ang anyo: "**Tumatahi** pa si Rico ng kurtina habang tumatawag ang kapatid niya."
 
-**Check:** Ang *habang tumatawag* ay sabay sa pagtahi, kaya hindi ito tapos o hindi pa nagsisimula.
+**Check:** Ang *tumatahi* ay inulit ang *ta*, kaya hindi pa tapos ang pagtahi. Ang *tumahi* ay walang inulit na bahagi at tapos na ang kilos.
 
 ### #2: Pagbabago ng Bilang ng Paksa
 
@@ -104,11 +104,11 @@ Punan ng angkop na anyo ng *linis* ang bawat patlang: "___ si Lea ng silid kagab
 2. Nagaganap pa ngayon ang ikalawa: "**Naglilinis** pa siya ng bintana ngayon."
 
 :::try
-Alin ang akma sa ikatlong patlang: *kalilinis lamang* o *maglilinis*? Ano ang buong pangungusap?
+Alin ang akma sa ikatlong patlang: *naglinis* o *maglilinis*? Ano ang buong pangungusap?
 :::answer
 Ang sagot ay **Maglilinis**: "Maglilinis si Ben ng bakuran bukas ng umaga."
 
-**Check:** Ang *bukas* ay oras na darating pa, kaya hindi ito *kalilinis lamang*, na katatapos pa lamang.
+**Check:** Palitan ang *bukas* ng *kahapon*: "Naglinis si Ben ng bakuran kahapon." Ang *bukas* ang nagpapakitang gagawin pa ang kilos.
 :::
 
 ## Speed Tricks & Shortcuts

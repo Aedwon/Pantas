@@ -17,7 +17,7 @@ keyPoints:
 
 ### Anyong Ang: Para sa Taong Itinatampok
 
-Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao o kung minsan ng hayop. Nagbabago ang anyo nito ayon sa papel at bilang ng tao.
+Ang **panghalip panao** (personal pronoun) ay salitang pamalit sa ngalan ng tao o kung minsan ng hayop. Nagbabago ang anyo nito ayon sa papel, bilang, at **panauhan** (person: kung sino ang nagsasalita, kinakausap, o pinag-uusapan).
 
 Gamitin ang anyong **ang** para sa **paksa** (subject), halimbawa *ako, ikaw, ka, siya, kami, tayo, kayo,* at *sila*. Karaniwang nasa unahan o diniinan ang *ikaw* ("Ikaw ang sumulat"), at nasa loob ang *ka* ("Sumulat ka"). Palitan ang *si Ana*:
 
@@ -37,7 +37,7 @@ Ang sagot ay **Sila**: "Sila ang nagluto ng pagkain." Paksa ang *sina Lito at Mi
 
 ### Anyong Ng: Para sa May-ari o Gumawa
 
-Sa mga halimbawang ito, hanapin ang may-ari o ang gumawa. Gamitin ang anyong **ng** (halimbawa, *ko, mo, niya, namin, natin, ninyo, nila*) para sa dalawang papel:
+Gamitin ang anyong **ng** (halimbawa, *ko, mo, niya, namin, natin, ninyo, nila*) para sa dalawang papel:
 
 1. **May-ari** pagkatapos ng **pangngalan** (noun): "aklat **ko**," "proyekto **nila**."
 2. **Gumagawa** ng kilos kapag iba ang paksa: "Sinulat **niya** ang ulat." "Ipinakita **niya** ito."
@@ -45,7 +45,7 @@ Sa mga halimbawang ito, hanapin ang may-ari o ang gumawa. Gamitin ang anyong **n
 :::pair #bilang-at-gumawa-sa-ng
 Right: "Isang estudyante lamang ang nagdala ng proyekto; ipinakita niya ito sa buong klase."
 Wrong: Gamitin ang *nila*, *namin*, o *ninyo* para sa iisang estudyante.
-Iisang estudyante ang nagpakita kaya mali ang maramihang *nila*. Binabago rin ng *namin* (nagsasalita) at *ninyo* (kausap) ang **panauhan** (person); kailangan ang *niya*.
+Iisang estudyante ang nagpakita kaya mali ang maramihang *nila*. Binabago rin ng *namin* (nagsasalita) at *ninyo* (kausap) ang panauhan; kailangan ang *niya*.
 :::
 
 :::check
@@ -60,7 +60,7 @@ Gamitin ang anyong **sa** (*akin, iyo, kaniya, amin, atin, inyo, kanila*) para s
 
 - "Ibinigay ng kawani **kay Ana** ang resibo." -> "Ibinigay ng kawani **sa kaniya** ang resibo."
 
-<!-- ILLUSTRATION: tatlong hilera na nagpapakita ng pangkat ng panghalip panao: anyong ang ("Siya ay dumating"), anyong ng ("Ipinakita niya ito"), at anyong sa ("Ibinigay sa kaniya ang resibo"), may palaso sa bawat papel -->
+<!-- FIGURE WANTED: tatlong hilera na nagpapakita ng pangkat ng panghalip panao: anyong ang ("Siya ay dumating"), anyong ng ("Ipinakita niya ito"), at anyong sa ("Ibinigay sa kaniya ang resibo"), may palaso sa bawat papel -->
 
 :::why
 Bakit may tatlong anyo para sa iisang tao (*siya, niya, kaniya*)? Sa mga halimbawang ito, ipinakikita ng anyo ng panghalip kung siya ang paksa (*ang*), ang gumagawa o may-ari (*ng*), o ang tatanggap (*sa*). Kaya hindi napagpapalit ang mga ito kahit iisang tao ang tinutukoy.
@@ -73,7 +73,7 @@ Maramihang tatanggap ang mga boluntaryo, kaya *sa kanila*, hindi *sila*, *nila*,
 :::
 
 :::check
-Kausap mo si Lito. Isulat ang buong anyo (hindi pinaikli) na ipapalit sa "kay Lito" sa "Iniabot ko ang susi kay Lito."
+Kausap mo si Lito, isang kaibigan. Isulat ang buong anyo (hindi pinaikli, hindi magalang) na ipapalit sa "kay Lito" sa "Iniabot ko ang susi kay Lito."
 :::answer
 Ang sagot ay **Sa iyo**: "Iniabot ko ang susi sa iyo." Si Lito ang kausap na tumanggap ng susi, kaya anyong *sa* (*sa iyo*) ang kapalit ng *kay Lito*.
 :::
@@ -90,7 +90,7 @@ Palitan ang *si Ben* sa "Si Ben ang umalis." Alin sa *siya*, *niya*, *kaniya*, a
 2. *Niya* at *nila* ay nasa pangkat ng *ng*, habang *kaniya* ay nasa pangkat ng *sa*.
 3. Piliin ang **siya**: "**Siya** ang umalis."
 
-**Check:** Ang *Siya ang umalis* ay kapalit ng *Si Ben ang umalis*; hindi ito *Niya ang umalis*.
+**Check:** Palitan ang *si Ben* ng *ang kapatid ko at ako*: "**Kami** ang umalis." Paksa pa rin ito, kaya anyong *ang* at hindi *namin*.
 
 ### #2: Pagpili ng Tamang Panauhan at Bilang sa Anyong Ng
 
@@ -113,7 +113,7 @@ Sabi ni Lea tungkol sa paanyaya: "Ipinadala ng guro ang paanyaya kay Lea." Palit
 1. Tatanggap ng paanyaya si Lea, kaya anyong **sa** ang kailangan; suriin ang bilang at panauhan niya.
 
 :::try
-Tapusin ang huling hakbang: anong anyong *sa* ang ipapalit sa "kay Lea"?
+Tapusin ang huling hakbang: anong buong anyong *sa* (hindi pinaikli) ang ipapalit sa "kay Lea"?
 :::answer
 Ang sagot ay **Sa akin**: "Ipinadala ng guro ang paanyaya sa akin."
 

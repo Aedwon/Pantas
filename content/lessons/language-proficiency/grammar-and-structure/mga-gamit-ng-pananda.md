@@ -16,16 +16,16 @@ keyPoints:
 
 ### Mga Gamit ng Panandang Ng
 
-Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod na salita o **parirala** (phrase). May tatlong gamit ang panandang *ng* sa araling ito (at *ni* para sa tiyak na ngalan ng tao). Hanapin ang pariralang may *ng* sa bawat pangungusap at tukuyin ang papel nito:
+Ang **pananda** (marker) ay salitang nagpapakita ng papel o ugnayan ng kasunod na salita o **parirala** (phrase). May tatlong gamit ang panandang *ng* sa araling ito (at *ni* para sa tiyak na ngalan ng tao). Hanapin ang pariralang may *ng* sa bawat pangungusap at tukuyin ang papel nito ayon sa **pandiwa** (verb):
 
 1. **Layon** (object) na hindi **paksa** (subject): "Kumain ang bata **ng mangga**."
 2. **Tagaganap** (actor) kapag iba ang paksa: "Kinain **ng bata** ang tinapay."
 3. **Pagmamay-ari** o ugnayan: "Malinis ang bahay **ng guro**."
 
-Tandaan na iba ang panandang *ng* sa *nang*. Halimbawa, ginagamit ang *nang* sa paraan, oras, o pag-uulit ng kilos, samantalang ang *ng* ang nagmamarka ng **pangngalan** (noun) na layon, tagaganap, o may-ari.
+Iba ang *ng* sa *nang*. Halimbawa, ginagamit ang *nang* sa paraan, oras, o pag-uulit ng kilos, samantalang ang *ng* ang nagmamarka ng **pangngalan** (noun) na layon, tagaganap, o may-ari.
 
 :::why
-Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi ang *ng* ang nagmamarka ng paksa. Sa halimbawang ito, *ang* ang pananda ng paksa, at ang anyo ng **pandiwa** (verb) ang nagsasabi kung ano ang papel nito, gumawa man o bagay na ginawa.
+Bakit parehong *ng* ang gamit sa gumagawa at sa bagay na kinain? Hindi ang *ng* ang nagmamarka ng paksa. Sa halimbawang ito, *ang* ang pananda ng paksa, at ang anyo ng pandiwa ang nagsasabi kung ano ang papel nito, gumawa man o bagay na ginawa.
 :::
 
 :::pair #ng-para-sa-gumagawa
@@ -85,7 +85,7 @@ Piliin ang tamang pananda sa patlang: "Isinulat ______ guro ang ulat."
 1. Tingnan ang pandiwa: ang anyo ng *isinulat* ay nakatuon sa bagay na isinulat, at ang paksa ay *ang ulat*.
 2. Piliin ang **ng**: "Isinulat **ng** guro ang ulat."
 
-**Check:** Kapag *ang* ang inilagay, dalawa ang paksang may *ang* ("Isinulat ang guro ang ulat"), kaya mali.
+**Check:** Inilalagay ng *isinulat* ang *ang* sa bagay na isinulat (*ang ulat*) at ang *ng* sa sumulat. Kaya *ng guro* ang gumawa.
 
 ### #3: Gantimpala ng Guro
 

@@ -43,7 +43,7 @@ Ihambing kung paano iniuugnay ng dalawang pandiwa ang *ang bakuran*:
 1. **Ganapan** (location): ang paksa ang lugar kung saan ginawa ang kilos: "*Pinagtaniman* ng mga kawani ng gulay **ang bakuran**."
 2. **Direksiyon**: ang paksa ang pinuntahan: "*Pinuntahan* ng mga kawani **ang bakuran**."
 
-<!-- ILLUSTRATION: dalawang nakapatong na pangungusap na parehong may "ang bakuran": sa itaas "Pinagtaniman ng mga kawani ng gulay ang bakuran." na may tatak na "lugar ng pagtatanim -> ganapan"; sa ibaba "Pinuntahan ng mga kawani ang bakuran." na may tatak na "patutunguhan ng kilos -> direksiyon" -->
+<!-- FIGURE WANTED: dalawang nakapatong na pangungusap na parehong may "ang bakuran": sa itaas "Pinagtaniman ng mga kawani ng gulay ang bakuran." na may tatak na "lugar ng pagtatanim -> ganapan"; sa ibaba "Pinuntahan ng mga kawani ang bakuran." na may tatak na "patutunguhan ng kilos -> direksiyon" -->
 
 :::pair #ganapan-laban-sa-direksiyon
 Right: Ganapan ang pokus sa "Pinagtaniman ng mga kawani ng gulay ang bakuran," at direksiyon ang pokus sa "Pinuntahan ng mga kawani ang bakuran."
@@ -98,14 +98,14 @@ Sagot: **"Binili ni Lito ang gulay."**
 
 ### #2: Iisang Lugar, Dalawang Papel
 
-Paghambingin ang pokus sa "Pinaglaruan ng mga bata ng taguan ang parke" at "Pinuntahan ng mga bata ang parke."
+Paghambingin ang pokus sa "Pinagpahingahan ng mga bata ang silid" at "Pinasukan ng mga bata ang silid." Aling silid ang patutunguhan ng kilos?
 
 **Solution:**
 
-1. Doon naglaro, kaya **ganapan**: "*Pinaglaruan* ng mga bata ng taguan **ang parke**."
-2. Iyon ang tinungo, kaya **direksiyon**: "*Pinuntahan* ng mga bata **ang parke**."
+1. Doon nagpahinga, kaya **ganapan**: "*Pinagpahingahan* ng mga bata **ang silid**."
+2. Iyon ang pinasok, kaya **direksiyon**: "*Pinasukan* ng mga bata **ang silid**."
 
-**Check:** Ihambing ang tanong: sa una, "Saan naglaro ang mga bata?"; sa ikalawa, "Saan pumunta ang mga bata?"
+**Check:** Ihambing ang tanong: sa una, "Saan nagpahinga ang mga bata?"; sa ikalawa, "Saan pumasok ang mga bata?" Ang sagot sa ikalawa ang patutunguhan.
 
 ### #3: Dalawang Pandiwa ni Carlo
 
@@ -120,7 +120,7 @@ Tapusin: ano ang papel ng paksa sa bawat pangungusap, at ano ang pokus ng bawat 
 :::answer
 Kagamitan: "Ipinanghiwa ni Carlo ng gulay **ang kutsilyo**," dahil ginamit ito sa paghiwa. Sanhi: "Ikinabahala ni Carlo **ang ulat**," dahil iyon ang dahilan ng pagkabahala.
 
-**Check:** Itanong: "Ano ang ginamit ni Carlo sa paghiwa?" *Ang kutsilyo.* Itanong: "Bakit nabahala si Carlo?" *Ang ulat.*
+**Check:** Sabihin sa ibang paraan: "Gumamit ng kutsilyo si Carlo" at "Nabahala si Carlo dahil sa ulat." Buo at pareho ang kahulugan, kaya kagamitan ang *ang kutsilyo* at sanhi ang *ang ulat*.
 :::
 
 ## Speed Tricks & Shortcuts

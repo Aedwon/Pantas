@@ -18,7 +18,7 @@ keyPoints:
 
 Ang **paksa** (subject) ang sentrong pinag-uusapan sa pangungusap. Karaniwan itong minamarkahan ng *ang* o *ang mga* para sa karaniwang ngalan, at *si* o *sina* para sa tiyak na ngalan ng tao.
 
-Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya sa pariralang may **pangngalan** (noun), hanapin muna ang **parirala** (phrase) na may *ang*, *si*, *ang mga*, o *sina*. Walang pananda ang paksang **panghalip** (pronoun), gaya ng *siya* sa "Kumain siya ng tinapay." Hanapin ang paksa:
+Ang ibang **pananda** (marker) tulad ng *ng*, *ni*, *ng mga*, at *nina* ay hindi nagmamarka ng paksa. Kaya sa pariralang may **pangngalan** (noun), hanapin muna ang **parirala** (phrase) na may *ang*, *si*, *ang mga*, o *sina*. Walang pananda ang paksang **panghalip** (pronoun), gaya ng *siya* sa "Kumain siya ng tinapay."
 
 - Hanapin ang may *ang*: "Kumain **ang bata** ng tinapay."
 - Hanapin ang may *si*: "Sumulat **si Mara** ng liham."
@@ -31,15 +31,15 @@ Ang sagot ay **Ang kuwento**. Ito ang may panandang *ang*, habang *ni Rey* ay ma
 
 ### Pokus sa Tagaganap at Pokus sa Layon
 
-Ang **pokus** (role marked by the verb) ay ang ugnayan ng anyo ng **pandiwa** (verb) at ng papel ng paksa sa kilos. Paghambingin ang **tagaganap** (actor) at **layon** (object) sa iisang kilos (*sulat*, si Mara, liham):
+Ang **pokus** (role marked by the verb) ay ang ugnayan ng anyo ng **pandiwa** (verb) at ng papel ng paksa sa kilos. Paghambingin ang **tagaganap** (actor) at **layon** (object) sa iisang kilos (*sulat*, si Mara, liham). Ang **panlapi** (affix) ng pandiwa ang nagpapakita ng pokus:
 
 1. Pokus sa **tagaganap**: ang paksa ang gumagawa (halimbawa, *-um-*): "Sumulat **si Mara** ng liham."
 2. Pokus sa **layon**: ang paksa ang bagay na ginawan ng kilos (halimbawa, *-in-*): "Sinulat ni Mara **ang liham**."
 
-<!-- ILLUSTRATION: dalawang nakapatong na pangungusap: sa itaas "Sumulat si Mara ng liham." na may palaso mula "Sumulat" patungong "si Mara" na may tatak na "paksa: tagaganap"; sa ibaba "Sinulat ni Mara ang liham." na may palaso mula "Sinulat" patungong "ang liham" na may tatak na "paksa: layon" -->
+<!-- FIGURE WANTED: dalawang nakapatong na pangungusap: sa itaas "Sumulat si Mara ng liham." na may palaso mula "Sumulat" patungong "si Mara" na may tatak na "paksa: tagaganap"; sa ibaba "Sinulat ni Mara ang liham." na may palaso mula "Sinulat" patungong "ang liham" na may tatak na "paksa: layon" -->
 
 :::why
-Bakit sabay na nagbabago ang pandiwa at pananda? Ipinakikita ng **panlapi** (affix) ng pandiwa kung aling papel ang itinatampok. Kapag pinalitan ang paksa mula sa gumagawa patungo sa bagay, nagbabago rin ang mga pananda kasabay ng paksa.
+Bakit sabay na nagbabago ang pandiwa at pananda? Ipinakikita ng panlapi ng pandiwa kung aling papel ang itinatampok. Kapag pinalitan ang paksa mula sa gumagawa patungo sa bagay, nagbabago rin ang mga pananda kasabay ng paksa.
 :::
 
 :::pair #paksa-may-ang-o-si
@@ -96,7 +96,7 @@ Tukuyin ang paksa at pokus ng pandiwa sa bawat pangungusap: "Nagbasa ang guro ng
 1. Hanapin ang gumawa. Siya ang paksa, kaya nakapokus sa **tagaganap** ang *nagbasa*: "Nagbasa **ang guro** ng tula."
 2. Hanapin ang binasa. Ito ang paksa, kaya nakapokus sa **layon** ang *binasa*: "Binasa ng guro **ang tula**."
 
-**Check:** Palitan ang *ang guro* ng *ng guro* sa una: hindi na ito paksa.
+**Check:** Ihambing ang pangkat na may *ang*: *ang guro* sa una, *ang tula* sa ikalawa. Gumawa ang paksa sa una at binasa ang paksa sa ikalawa.
 
 ### #3: Paglipat ng Paksa Nang Walang Bawas sa Kilos
 
