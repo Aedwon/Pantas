@@ -126,6 +126,18 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Upload runs read past the free tier again (Nov 28)
+
+- Words: none from Aedwon on this instance; the CSE release lead r10 found and reported it (about 2:56 AM Manila). His standing words are in written rule 7 (Nov 15: "the only thing that should bill us is due to users"; Nov 21: ">:( how many times should I mention this").
+- Third time: Nov 15 ("Billed for test traffic and scheduled jobs"), Nov 21 ("Staging proof read past the free tier again"), now.
+- Wrong: for the quota day from Nov 27 08:00 UTC, staging reached 52,370 Firestore reads (free tier 50,000, staging budget 40,000) and prod 46,640 of 50,000 by 18:56 UTC. Each `tools/upload_content/upload_content.mjs` run (plan, upload or re-plan) reads the `version` of every content document, about 1,500 reads, and the lead made about 25 runs per project that night (plan, upload, re-plan, summary-timeout retries for eight content items). Real users were only about 10,000 of prod's reads; browser proof workers added the rest of staging's. The cost is cents, but it is testing that billed.
+- Why it got through: rule 7's run count (Nov 21) was done once at the start of the night, not before each run; the per-run cost of the upload tool was not in the release checklist's per-step costs, so each "small" content fix looked free; retries for the summary timeout multiplied runs; nothing in the tool reads the day's usage.
+- Fix:
+  1. Required step (now, until the check lands): no content run on staging or prod until the quota resets at 08:00 UTC (4:00 PM Manila); no prod test reads before then; his staging check waits for the reset (manager ruling, Nov 28: "testing never bills"). Before every upload-tool run, count the day's reads and add 1,500 per run; at most 3 runs per project per item.
+  2. Check (manager: "Yes to the tool fix, with one addition that makes it a check"): the upload tool reads the project's usage for the quota day, adds its own expected reads, and refuses to run if the total would pass the budget (staging 40,000; prod 40,000 minus a reserve for real users, set and recorded with the change). A test fails first on a run over budget.
+  3. Root cost: a version-list document per content kind, so a plan reads a handful of documents instead of about 1,500.
+  Links: written rule 7; the Nov 21 entry below; "A content upload left prod's exam summaries invalid for 5 minutes (Nov 28)", whose retries added runs.
+
 ### A content upload left prod's exam summaries invalid for 5 minutes (Nov 28)
 
 - Words: none from Aedwon; found by the CSE release lead r10 during the Math pilot prod upload (1:17 AM Manila).
