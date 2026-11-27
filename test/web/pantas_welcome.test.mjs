@@ -11,6 +11,7 @@ function setup({ seen = false, wide = false, storageThrows = false, path = '/', 
   const listeners = {};
   const captures = {};
   const timers = [];
+  const navigated = [];
   const store = new Map(seen ? [[SEEN_KEY, '1']] : []);
   const button = {
     html: 'Get Started',
@@ -75,11 +76,14 @@ function setup({ seen = false, wide = false, storageThrows = false, path = '/', 
     afterPaint: (fn) => fn(),
     wide: () => wide,
     pathname: () => path,
+    navigate: (to) => navigated.push(to),
   });
   const tap = () =>
     listeners.click({ target: { closest: (sel) => (sel === '#pw-start' ? {} : null) } });
+  const tapSignIn = () =>
+    listeners.click({ target: { closest: (sel) => (sel === '#pw-signin' ? {} : null) } });
   return {
-    welcome, classes, store, button, timers, fontLoads, tap, listeners, captures, doc, body,
+    welcome, classes, store, button, timers, fontLoads, tap, tapSignIn, navigated, listeners, captures, doc, body,
     windowListeners, windowCaptures,
     removed: () => screenRemoved,
   };
@@ -335,6 +339,35 @@ test('index.html declares the viewport Flutter writes, before any stylesheet', (
   );
   assert.ok(html.indexOf(tag[0]) < html.indexOf('<style>'));
   assert.ok(html.indexOf(tag[0]) < html.indexOf('pantas_welcome.js'));
+});
+
+test('Sign in remembers the visit and opens the email sign-in page, once', () => {
+  const t = setup();
+  t.tapSignIn();
+  t.tapSignIn();
+  assert.deepEqual(t.navigated, ['/auth/email-link']);
+  assert.equal(t.store.get(SEEN_KEY), '1', 'the next visit skips the cover');
+  assert.equal(t.welcome.state.started, true);
+});
+
+test('Enter on the Sign in link is left to the link, not Get Started', () => {
+  const t = setup({ wide: true, onWindow: true });
+  const event = {
+    key: 'Enter',
+    target: { closest: (sel) => (sel === '#pw-signin' ? {} : null) },
+    prevented: false,
+    preventDefault() {
+      this.prevented = true;
+    },
+  };
+  t.windowListeners.keydown(event);
+  assert.equal(t.welcome.state.started, false);
+  assert.equal(event.prevented, false);
+});
+
+test('index.html puts the Sign in link under Get Started', () => {
+  const html = readFileSync(new URL('../../web/index.html', import.meta.url), 'utf8');
+  assert.match(html, /id="pw-start"[\s\S]*Already have an account\?[\s\S]*id="pw-signin"/);
 });
 
 test('onLeave runs once when the screen leaves, and at once if it already has', () => {

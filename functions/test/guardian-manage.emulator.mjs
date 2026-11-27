@@ -595,3 +595,17 @@ test('the setup acceptance is recorded for a named account with the current vers
   await acceptance.recordAcceptance({auth: named, app, data: {version: '2026-11-09'}}, deps);
   assert.deepEqual((await db.doc(`users/${uid}/server/acceptance`).get()).data(), {version: '2026-11-09', acceptedAt: T0});
 });
+
+test('the setup acceptance reads back for a named account only, with App Check', async () => {
+  const uid = 'dm-accept-read'; await reset(uid);
+  const named = {uid, token: {firebase: {sign_in_provider: 'google.com'}}};
+  const deps = {db};
+  assert.deepEqual(await acceptance.readAcceptance({auth: named, app, data: {}}, deps), {version: null, acceptedAt: null});
+  await db.doc(`users/${uid}/server/acceptance`).set({version: '2026-11-09', acceptedAt: T0});
+  assert.deepEqual(await acceptance.readAcceptance({auth: named, app, data: {}}, deps), {version: '2026-11-09', acceptedAt: T0});
+  assert.equal(await code(acceptance.readAcceptance({auth: anon(uid), app, data: {}}, deps)), 'permission-denied');
+  assert.equal(await code(acceptance.readAcceptance({app, data: {}}, deps)), 'unauthenticated');
+  assert.equal(await code(acceptance.readAcceptance({auth: named, data: {}}, deps)), 'unauthenticated');
+  assert.equal(await code(acceptance.readAcceptance({auth: named, app: {...app, alreadyConsumed: true}, data: {}}, deps)), 'unauthenticated');
+  assert.equal(await code(acceptance.readAcceptance({auth: named, app, data: {}}, {db, allow: async () => false})), 'resource-exhausted');
+});

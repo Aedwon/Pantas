@@ -837,6 +837,7 @@ class ContentRenderer extends StatelessWidget {
     String? marker,
     ReaderSection section = ReaderSection.plain,
     bool step = false,
+    bool inSolution = false,
   }) {
     final type = string(block['_type']);
     switch (type) {
@@ -912,7 +913,7 @@ class ContentRenderer extends StatelessWidget {
         // Walk-through parts draw only in the reader; a block of a type this
         // build does not know keeps the fallback.
         return (readerFigures && type.startsWith('walk')
-                ? buildWalkPart(context, block)
+                ? buildWalkPart(context, block, inSolution: inSolution)
                 : null) ??
             fallback(context);
     }
@@ -1075,39 +1076,49 @@ class ContentRenderer extends StatelessWidget {
       }
       final style = isBlock ? string(block['style']) : '';
       final type = string(block['_type']);
-      // A walk-through part under display maths keeps the board's space after
-      // a formula (`.dm` margin-bottom 22, about 27 under the ink): 24 under
-      // the formula's box. Other blocks keep their rhythm.
+      // A walk-through part under display maths gets the same 28 under the
+      // formula's box as any block does (Aedwon, Nov 27: it must match the
+      // space above). Other blocks keep their rhythm.
       final afterMath = type.startsWith('walk') &&
           index > 0 &&
           items[index - 1] is ReaderPlain &&
           (items[index - 1] as ReaderPlain).block['_type'] == 'latex';
       final (rhythmAbove, below) = switch (style) {
-        // ReaderLayout rhythm: 16 between blocks, h2 40 above and 12 under,
-        // h3 28 above and 8 under. Display math has no value in the system
-        // and takes the h3 rhythm.
-        'h2' => (PantasSpace.s40, PantasSpace.s12),
-        'h3' => (PantasSpace.s28, PantasSpace.s8),
+        // ReaderLayout rhythm: 16 between blocks, h2 56 above and 12 under,
+        // h3 40 above and 8 under (Aedwon, Nov 28: more space above a
+        // heading than under it, so it groups with its own content, and a
+        // section stays more separated than a subsection).
+        'h2' => (PantasSpace.s56, PantasSpace.s12),
+        'h3' => (PantasSpace.s40, PantasSpace.s8),
         // Walk-through parts (walk.css): "Why?" is pulled up 10 under the
         // block before it; a card inside a solution has 8 above and 16 under;
         // every other part has 18 under.
         _ when type == 'walkWhy' => (-PantasSpace.s10, PantasSpace.s18),
-        _ when (type == 'walkCheck' || type == 'walkTry') && solution => (
+        // Try the last step in a solution is not a card: its rule sits 16
+        // under the work (board option A, `.tryA` margin-top 16).
+        _ when type == 'walkTry' && solution => (
+            PantasSpace.s16,
+            PantasSpace.s16,
+          ),
+        _ when type == 'walkCheck' && solution => (
             PantasSpace.s8,
             PantasSpace.s16,
           ),
         _ when type.startsWith('walk') => (PantasSpace.s0, PantasSpace.s18),
-        _ when block['_type'] == 'latex' => (PantasSpace.s28, PantasSpace.s8),
+        // The space under display maths equals the space above it (28), so
+        // the formula sits evenly between its neighbors.
+        _ when block['_type'] == 'latex' => (PantasSpace.s28, PantasSpace.s28),
         _ when list.isNotEmpty && solution => (PantasSpace.s0, PantasSpace.s8),
         _ => (PantasSpace.s0, PantasSpace.s16),
       };
-      final above = afterMath ? PantasSpace.s24 : rhythmAbove;
+      final above = afterMath ? PantasSpace.s28 : rhythmAbove;
       var child = dispatch(
         context,
         block,
         marker: marker,
         section: plain.section,
         step: solution && list == 'number',
+        inSolution: solution,
       );
       // A heading a checklist line points at: its anchor is a tap-back target.
       final anchor = block['anchor'];

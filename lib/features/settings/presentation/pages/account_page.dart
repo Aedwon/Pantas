@@ -10,6 +10,7 @@ import 'package:pantas/core/auth/public_id_provider.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/error/app_exception.dart';
 import 'package:pantas/core/storage/age_gate.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/card_footer.dart';
@@ -564,8 +565,16 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     );
     if (confirmed != true || !mounted) return;
     final telemetry = ref.read(telemetryProvider);
+    final container = ProviderScope.containerOf(context, listen: false);
+    final router = GoRouter.maybeOf(context);
     try {
       await ref.read(authRepositoryProvider).signOut();
+      // Leaving the account starts over at Welcome, like Delete Account.
+      await resetOnboardingToWelcome(
+        container.read(appPreferencesRepositoryProvider),
+        container,
+      );
+      router?.go('/onboarding');
     } catch (error, stack) {
       await telemetry.recordError(error, stack);
       if (mounted) {
