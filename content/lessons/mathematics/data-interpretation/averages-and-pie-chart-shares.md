@@ -88,7 +88,7 @@ Wrong: $45\%+30\%=75\%$, giving $0.75\times480,000=360,000\text{ pesos}$
 The wrong line stopped after adding the known slices. Subtract that $75\%$ from $100\%$ to find the remaining slice for supplies.
 :::
 
-When a question asks how much larger one slice is than another on the same pie chart, subtract the two percentages first, then multiply once by the total.
+When the total is known and a question asks how much larger one slice is than another on the same pie chart, subtract the two percentages first, then multiply once by the total.
 
 ## Examples
 

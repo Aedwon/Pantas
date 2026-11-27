@@ -59,7 +59,7 @@ Multiplying by $100$ moves the decimal point $2$ places right, not $1$. Notice $
 
 ### Calculating with Mixed Forms
 
-When an expression mixes fractions, decimals, and percentages, convert every number into the **same form** before adding or subtracting. Changing everything to decimals is usually quickest.
+When an expression mixes fractions, decimals, and percentages, convert every number into the **same form** before adding or subtracting. If every fraction has a decimal that stops, changing everything to decimals is usually quickest. If a decimal repeats, change everything to fractions instead.
 
 Find $0.5+\dfrac{1}{4}+10\%$:
 

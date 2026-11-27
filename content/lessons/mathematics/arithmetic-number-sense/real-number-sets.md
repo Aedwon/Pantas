@@ -18,24 +18,18 @@ keyPoints:
 
 Numbers belong to nested sets, like smaller boxes sitting inside larger boxes.
 
-- **Natural numbers** are the counting numbers $1,2,3,\dots$. Some books include $0$, so always follow the rule stated in the question.
+- **Natural numbers** are the counting numbers $1,2,3,\dots$. Some books include $0$, so follow the rule stated in the question.
 - **Whole numbers** add $0$ to the counting numbers: $0,1,2,3,\dots$. Fractions and negative numbers are not whole numbers.
 - **Integers** include all whole numbers and their opposites: $\dots,-2,-1,0,1,2,\dots$.
 
-Try sorting these three numbers: $5$, $0$, and $-4$. The number $5$ is natural, whole, and an integer.
+Sort $5$, $0$, and $-4$ by set. The number $5$ is natural, whole, and an integer.
 
 The number $0$ is whole and an integer, not natural when natural numbers start at $1$. The number $-4$ is an integer only.
 
 :::pair #negative-whole-number
 Right: $-1$ is an integer, not a whole number.
 Wrong: $-1$ is a whole number.
-Whole numbers start at $0$ and never include negatives. Only $0$ is a whole number that is not in $\{1,2,3,\dots\}$.
-:::
-
-:::check
-Which number in the list $-8$, $\dfrac{1}{2}$, $11$ is an integer but not a whole number?
-:::answer
-The answer is $-8$. It is negative, so it is an integer but not whole. The number $\dfrac{1}{2}$ is not an integer, and $11$ is whole.
+Whole numbers start at $0$, so a negative number is not whole. When natural numbers start at $1$, only $0$ is whole but not natural.
 :::
 
 ### Rational, Irrational, and Real Numbers
@@ -48,9 +42,11 @@ Rational and irrational numbers never overlap. Together, they make up all **real
 
 <!-- FIGURE: {"kind": "concept-diagram", "type": "nested-boxes", "boxes": ["Natural Numbers", "Whole Numbers", "Integers", "Rational Numbers", "Irrational Numbers", "Real Numbers"], "semanticsLabel": "A nested boxes diagram showing Natural Numbers inside Whole Numbers, Integers, Rational Numbers, with Irrational Numbers beside them inside Real Numbers."} -->
 
-Try testing two roots:
+Decide whether $\sqrt{9}$ and $\sqrt{7}$ are rational:
 
-$$\sqrt{9}=3=\dfrac{3}{1}$$
+$$\sqrt{9}=3$$
+
+$$3=\dfrac{3}{1}$$
 
 $$\sqrt{7}\approx 2.64575\dots$$
 
@@ -58,16 +54,18 @@ Because $9$ is a perfect square, $\sqrt{9}$ equals $3$, so it is rational. Becau
 
 Two irrational square roots can still multiply to a rational number if their product is a perfect square:
 
-$$\sqrt{2}\times\sqrt{8}=\sqrt{16}=4$$
+$$\sqrt{2}\times\sqrt{8}=\sqrt{16}$$
+
+$$\sqrt{16}=4$$
 
 :::why
-Why is every decimal that stops rational? Place value turns it straight into an integer fraction: $0.75=\dfrac{75}{100}=\dfrac{3}{4}$.
+Why is every decimal that stops rational? Place value turns it straight into an integer fraction: $0.75=\dfrac{75}{100}$, and $\dfrac{75}{100}=\dfrac{3}{4}$.
 :::
 
 :::pair #perfect-square-root
 Right: $\sqrt{9}=3$, which is rational.
 Wrong: $\sqrt{9}$ is irrational because it has a square root sign.
-Simplify the square root first. A square root of an integer is irrational only when the number inside is not a perfect square.
+Simplify the square root first. A square root of a positive integer is irrational only when the number inside is not a perfect square.
 :::
 
 :::pair #decimal-is-irrational
@@ -77,11 +75,9 @@ Only decimals that never end and never repeat are irrational. A decimal that sto
 :::
 
 :::check
-Is $\sqrt{50}$ rational or irrational?
+Which whole number between $20$ and $30$ has a rational square root?
 :::answer
-The answer is irrational. The number $50$ is not a perfect square, and $7^2=49$ and $8^2=64$ are the nearest squares. So $\sqrt{50}$ does not stop or repeat as a decimal.
-
-**Check:** $\sqrt{50}$ lies between $7$ and $8$, so it is not an integer.
+The answer is $25$. It is a perfect square, since $5^2=25$, so $\sqrt{25}=5$. The other whole numbers from $21$ to $29$ are not perfect squares.
 :::
 
 ## Mnemonics & Memory Aids
@@ -99,8 +95,11 @@ Irrational numbers sit inside Real numbers beside Rational numbers, never inside
 Which statement is false?
 
 A) Every integer is rational.
+
 B) $\sqrt{12}\times\sqrt{3}$ is irrational.
+
 C) Every irrational number is real.
+
 D) A repeating nonterminating decimal is rational.
 
 **Solution:**
@@ -112,8 +111,6 @@ D) A repeating nonterminating decimal is rational.
 Finish the last step: check statements B and D, and state which choice is the false statement.
 :::answer
 The answer is B. Multiply under one root: $\sqrt{12}\times\sqrt{3}=\sqrt{36}=6$, which is rational, so B is false. Statement D is true because a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction.
-
-**Check:** Re-read B: $6=\dfrac{6}{1}$ is an integer fraction, so it cannot be irrational.
 :::
 
 ## Traps to Watch For

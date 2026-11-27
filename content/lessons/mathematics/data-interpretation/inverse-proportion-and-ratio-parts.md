@@ -40,7 +40,7 @@ $12$ is the total number of machines required. When a question asks for addition
 
 Sometimes part of the job finishes before the team size changes. Subtract the completed work from the total work first, then divide the remaining work by the remaining workers.
 
-$8$ clerks can finish a batch in $15$ hours. After all $8$ work for $5$ hours, $2$ clerks leave. Find the hours the $6$ remaining clerks need.
+$8$ clerks, all at the same steady rate, can finish a batch in $15$ hours. After all $8$ work for $5$ hours, $2$ clerks leave. Find the hours the $6$ remaining clerks need.
 
 $$8\times15=120$$
 
@@ -67,9 +67,9 @@ The wrong line reduced the time when the team shrank. With fewer equal workers o
 :::
 
 :::check
-Seven workers can finish a fixed job in $12$ hours, all at the same steady rate. How many more workers are needed to finish it in $4$ hours?
+$12$ pumps, all at the same steady rate, empty a tank in $7$ hours. How many hours would $6$ of these pumps need?
 :::answer
-The answer is $14$ more workers. Total work is $7\times12=84$ worker-hours, and $\dfrac{84}{4}=21$ workers are needed, so $21-7=14$ more.
+The answer is $14$ hours. Total work is $12\times7=84$ pump-hours, and $\dfrac{84}{6}=14$ hours.
 :::
 
 ### Dividing a Total into Ratio Parts

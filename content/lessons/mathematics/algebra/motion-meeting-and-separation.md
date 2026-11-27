@@ -51,13 +51,15 @@ Add the two speeds only when the objects move in opposite directions along the s
 
 If they move the same direction, subtract the speeds.
 
-Use the combined speed as $r$ in $d=rt$ only for the time both objects move. For moving apart, $d$ is the final gap, minus the gap at the moment the second one starts if it starts later. For meeting, $d$ is the gap at the moment the second one starts.
+Use the combined speed as $r$ in $d=rt$ only for the time both objects move. For moving apart, $d$ is the final gap. If the second one starts later, subtract the gap at the moment it starts. For meeting, $d$ is the gap at the moment the second one starts.
 
 Find when two boats are $180\text{ km}$ apart. They leave the same port at the same time in opposite directions, at $25\text{ kph}$ and $35\text{ kph}$.
 
+$$25+35=60$$
+
 <!-- ILLUSTRATION: two horizontal straight-road diagrams stacked. The top one, "Moving apart", has a center dot with two arrows pointing opposite ways: the left arrow is labeled "25 kph" and the right arrow "35 kph". A bracket beneath is labeled "gap grows at 25 + 35 = 60 kph". The bottom one, "Meeting", has two dots at the ends of a segment labeled "starting gap" with arrows pointing toward each other: the left arrow is labeled "speed 1" and the right arrow "speed 2". A bracket beneath is labeled "gap closes at speed 1 + speed 2". -->
 
-$$25+35=60$$
+Let $t$ be the hours after leaving.
 
 $$180=60t$$
 
@@ -82,7 +84,7 @@ Both boats move at the same time, so do not average their speeds. Add both speed
 :::
 
 :::check
-Two runners start $24\text{ km}$ apart and run toward each other at $5\text{ kph}$ and $7\text{ kph}$. How many hours until they meet?
+Two runners start $24\text{ km}$ apart at the same time and run toward each other at steady speeds of $5\text{ kph}$ and $7\text{ kph}$. How many hours until they meet?
 :::answer
 The answer is $2$ hours. Add their speeds to get $5+7=12$ kph, then divide $24\div 12=2$.
 :::

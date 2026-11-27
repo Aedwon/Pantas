@@ -24,23 +24,25 @@ $$(a+bi)(c+di)=ac+adi+bci+bdi^2$$
 
 Using $i^2=-1$, the $bdi^2$ term becomes $-bd$, so the product is $(ac-bd)+(ad+bc)i$.
 
-Try multiplying $(3+2i)(4-5i)$:
+Multiply $(3+2i)(4-5i)$:
 
 $$(3+2i)(4-5i)=12-15i+8i-10i^2$$
 
 Combine the $i$ terms:
 
-$$12-7i-10i^2$$
+$$12-15i+8i-10i^2=12-7i-10i^2$$
 
 Replace $i^2$ with $-1$:
 
-$$12-7i-10(-1)$$
+$$12-7i-10i^2=12-7i-10(-1)$$
+
+Add the real numbers:
 
 $$12-7i+10=22-7i$$
 
 :::pair #i-squared-sign
-Right: $12-7i-10(-1)=12+10-7i=22-7i$
-Wrong: $12-7i-10(1)=12-10-7i=2-7i$
+Right: for $12-7i-10i^2$, $12-7i-10(-1)=12+10-7i=22-7i$
+Wrong: for $12-7i-10i^2$, $12-7i-10(1)=12-10-7i=2-7i$
 The wrong line replaced $i^2$ with $+1$ instead of $-1$. Because $i^2=-1$, subtracting $10i^2$ turns into adding $10$.
 :::
 
@@ -53,20 +55,24 @@ The wrong line made two slips: it skipped both cross terms ($-15i$ and $+8i$) an
 :::check
 Multiply $(2+3i)^2$.
 :::answer
-The answer is $-5+12i$. Expand $(2+3i)(2+3i)=4+6i+6i+9i^2=4+12i-9=-5+12i$.
+The answer is $-5+12i$. Squaring means multiplying $2+3i$ by itself: $4+6i+6i+9i^2$ becomes $4+12i-9$, which is $-5+12i$.
 :::
 
 ### Conjugates and Dividing Complex Numbers
 
 The **conjugate** of $a+bi$ is $a-bi$. Keep the real part the same and flip only the sign of the $i$ term.
 
-Multiplying a complex number by its conjugate cancels the $i$ terms and always gives a real number:
+For real $a$ and $b$, multiplying $a+bi$ by its conjugate cancels the $i$ terms and gives a real number:
 
 $$(a+bi)(a-bi)=a^2-b^2i^2=a^2+b^2$$
 
-Try multiplying $5-3i$ by its conjugate $5+3i$:
+Multiply $5-3i$ by its conjugate $5+3i$:
 
-$$(5-3i)(5+3i)=25+15i-15i-9i^2=25-9(-1)=25+9=34$$
+$$(5-3i)(5+3i)=25+15i-15i-9i^2$$
+
+$$25+15i-15i-9i^2=25-9i^2$$
+
+$$25-9i^2=25+9=34$$
 
 :::why
 Why does $(a+bi)(a-bi)$ equal $a^2+b^2$? The middle terms $+abi$ and $-abi$ cancel to $0$, and $-b^2i^2=-b^2(-1)=+b^2$.
@@ -78,26 +84,30 @@ $$\dfrac{a+bi}{c+di}\times\dfrac{c-di}{c-di}$$
 
 Multiplying by $\dfrac{c-di}{c-di}$ multiplies by $1$, so the value stays the same while the denominator becomes the real number $c^2+d^2$. The divisor must never be $0$, because division by $0$ is undefined.
 
-Try dividing $\dfrac{4+2i}{3-i}$. Multiply top and bottom by the conjugate $3+i$:
+Divide $\dfrac{4+2i}{3-i}$. Multiply top and bottom by the conjugate $3+i$.
 
-$$(4+2i)(3+i)=12+4i+6i+2i^2=12+10i-2=10+10i$$
+Multiply the numerator:
 
-$$(3-i)(3+i)=9-i^2=9+1=10$$
+$$(4+2i)(3+i)=12+4i+6i+2i^2$$
+
+$$12+4i+6i+2i^2=12+4i+6i-2$$
+
+$$12+4i+6i-2=10+10i$$
+
+Multiply the denominator:
+
+$$(3-i)(3+i)=9-i^2$$
+
+$$9-i^2=9+1=10$$
 
 Divide both terms in the numerator by $10$:
 
 $$\dfrac{10+10i}{10}=1+i$$
 
 :::pair #conjugate-denominator-sign
-Right: $(3-i)(3+i)=9-i^2=9+1=10$, so $\dfrac{4+2i}{3-i}=\dfrac{10+10i}{10}=1+i$
-Wrong: $(3-i)(3+i)=9-1=8$, so $\dfrac{10+10i}{8}=\dfrac{5}{4}+\dfrac{5}{4}i$
-Because $i^2=-1$, subtracting $i^2$ adds $1$ instead of subtracting $1$. Always add the squares: $c^2+d^2$.
-:::
-
-:::check
-What is the product of $4+3i$ and its complex conjugate?
-:::answer
-The answer is $25$. Multiply $(4+3i)(4-3i)=4^2+3^2=16+9=25$.
+Right: to divide $\dfrac{4+2i}{3-i}$, $(3-i)(3+i)=9-i^2=9+1=10$, so $\dfrac{10+10i}{10}=1+i$
+Wrong: to divide $\dfrac{4+2i}{3-i}$, $(3-i)(3+i)=9-1=8$, so $\dfrac{10+10i}{8}=\dfrac{5}{4}+\dfrac{5}{4}i$
+Because $i^2=-1$, subtracting $i^2$ adds $1$ instead of subtracting $1$. Add the squares: $c^2+d^2$.
 :::
 
 ## Examples
@@ -114,19 +124,17 @@ $$(3-4i)(2+5i)=6+15i-8i-20i^2$$
 
 2. Combine the $i$ terms.
 
-$$6+7i-20i^2$$
+$$6+15i-8i-20i^2=6+7i-20i^2$$
 
 3. Replace $i^2$ with $-1$.
 
-$$6+7i-20(-1)$$
+$$6+7i-20i^2=6+7i-20(-1)$$
 
 4. Add the real parts.
 
-$$6+20+7i=26+7i$$
+$$6+7i+20=26+7i$$
 
 The answer is $26+7i$.
-
-**Check:** Use $(ac-bd)+(ad+bc)i$: the real part is $3(2)-(-4)(5)=6+20=26$, and the imaginary part is $3(5)+(-4)(2)=15-8=7$.
 
 ### #2: Dividing by a Complex Number
 
@@ -142,29 +150,33 @@ $$\dfrac{2+3i}{1-i}\times\dfrac{1+i}{1+i}$$
 
 2. Multiply the numerator and replace $i^2$ with $-1$.
 
-$$(2+3i)(1+i)=2+2i+3i+3i^2=2+5i+3(-1)=-1+5i$$
+$$(2+3i)(1+i)=2+2i+3i+3i^2$$
 
-3. Multiply the denominator using $c^2+d^2$.
+$$2+2i+3i+3i^2=2+5i+3(-1)$$
 
-$$(1-i)(1+i)=1-i^2=1+1=2$$
+$$2+5i+3(-1)=-1+5i$$
+
+3. Multiply the denominator.
+
+$$(1-i)(1+i)=1-i^2$$
+
+$$1-i^2=1+1=2$$
 
 :::try
 Finish the last step: divide $-1+5i$ by $2$ and write the answer in standard form $a+bi$.
 :::answer
 The answer is $-\dfrac{1}{2}+\dfrac{5}{2}i$. Divide both parts of the numerator by $2$ to get $\dfrac{-1}{2}+\dfrac{5}{2}i$.
-
-**Check:** Multiply the answer by the denominator $1-i$: $(1-i)\left(-\dfrac{1}{2}+\dfrac{5}{2}i\right)=-\dfrac{1}{2}+\dfrac{5}{2}i+\dfrac{1}{2}i-\dfrac{5}{2}i^2=2+3i$.
 :::
 
 ## Speed Tricks & Shortcuts
 
-- **Quick conjugate product:** $(a+bi)(a-bi)=a^2+b^2$ skips FOIL whenever you multiply conjugates.
-- **Standard form:** always split the final fraction into two terms, $a+bi$, with real part first.
+- **Quick conjugate product:** for real $a$ and $b$, $(a+bi)(a-bi)=a^2+b^2$ skips FOIL.
+- **Standard form:** split the final fraction into two terms, $a+bi$, with real part first.
 
 ## Traps to Watch For
 
 :::checklist
 - Replacing $i^2$: substitute $-1$, so subtracting $10i^2$ adds $10$. {#i-squared-sign}
 - Multiplying two complex numbers: expand all four products, including both cross terms. {#missing-cross-terms}
-- Conjugate denominator: $(a+bi)(a-bi)$ equals $a^2+b^2$, never $a^2-b^2$, and the divisor cannot be $0$. {#conjugate-denominator-sign}
+- Conjugate denominator: $(a+bi)(a-bi)$ equals $a^2+b^2$, not $a^2-b^2$, and the divisor cannot be $0$. {#conjugate-denominator-sign}
 :::

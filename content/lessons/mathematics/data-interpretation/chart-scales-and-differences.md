@@ -104,7 +104,10 @@ Use the bar chart. How many more units did Factory A produce than Factory B?
 
 **Solution:**
 
-1. Labeled ticks are $100$ units apart, and each small tick is $20$ units.
+1. Labeled ticks are $100$ units apart with $5$ equal spaces between them. Find one small tick.
+
+$$\dfrac{100}{5}=20$$
+
 2. Read Factory A: the bar is $2$ small ticks above $400$.
 
 $$2\times20=40$$
