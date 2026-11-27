@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Walk-through lesson spacing and nesting found by Aedwon on staging (Nov 27)
+
+- His words (about 10:20 PM Manila Nov 27, reading the Math pilot lessons on staging): "card in card, isnt this against UI rules? or the design system, not sure but i think this could be better-designed" / "spacing. i think things after the WRONG example need just a bit more space" / "same with these equations also, juuust a bit more space after it so that they look visually equal to its above spacing". Also found: sign out lands on onboarding, not the first page.
+- Wrong: the renderer puts the faded "Try the last step" card inside the example card; the gap after a pair's WRONG line and after display math is smaller than the gap above them. Sign out skips the Welcome page.
+- Why it got through: the renderer was proven byte-identical on old lessons and checked against the board's layout, but no check measured vertical rhythm around the new blocks with real lesson content, and the board's samples did not show a faded step inside an example at phone width. The staging proof checked that blocks render, not their spacing. No journey covered sign out to the first page.
+- Fix: (1) a check: a golden or widget test that fails on today's gap after a WRONG line and after display math, and passes when the gap below equals the gap above (UX lead, failing first); (2) a check: a test that sign out lands on Welcome (UX lead, failing first); (3) required step for any new content block: before a staging proof, render one real lesson that uses every block at phone width and compare gaps above and below each block. The card-in-card look goes to a Claude Design board for his pick (rule 3).
+
 ### Steps set to clock times instead of starting when the step before them is done (Nov 27, repeat)
 
 - His words (about 6:15 PM Manila Nov 27): "i wonder why you're setting definite times instead of doing things once ready".
