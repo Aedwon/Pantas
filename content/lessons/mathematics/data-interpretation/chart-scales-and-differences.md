@@ -66,6 +66,8 @@ $$50-35=15$$
 
 $$15\times1,000=15,000$$
 
+<!-- ILLUSTRATION: vertical axis of reservoir volume in thousands of liters with ticks 35, 40, 45 and 50 and a line at 40; Monday's point at 50 is 2 ticks above the line and Friday's point at 35 is 1 tick below it; a bracket from Friday to Monday reads 2 + 1 = 3 ticks, 3 × 5 = 15, drop 15 thousand = 15,000 liters -->
+
 The volume decreased by $15,000$ liters.
 
 :::why

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 270" width="360" height="270">
+<title>Reservoir volume axis with a line at 40: Monday at 50 is 2 ticks above it, Friday at 35 is 1 tick below it, so the drop is 3 ticks of 5 thousand</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="270" rx="14" fill="url(#bg)"/>
+<line x1="70" y1="50" x2="70" y2="240" stroke="#020202" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<line x1="62" y1="70" x2="70" y2="70" stroke="#050505" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<text x="56" y="75" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101"><tspan x="56">50</tspan></text>
+<line x1="62" y1="120" x2="70" y2="120" stroke="#050505" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<text x="56" y="125" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101"><tspan x="56">45</tspan></text>
+<line x1="62" y1="170" x2="70" y2="170" stroke="#050505" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<text x="56" y="175" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="56">40</tspan></text>
+<line x1="62" y1="220" x2="70" y2="220" stroke="#050505" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<text x="56" y="225" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="400" fill="#010101"><tspan x="56">35</tspan></text>
+<text x="20" y="145" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101" transform="rotate(-90 20 145)"><tspan x="20">Volume, thousands of liters</tspan></text>
+<line x1="70" y1="170" x2="250" y2="170" stroke="#050505" stroke-width="2.5" stroke-linecap="butt" fill="none"/>
+<line x1="120" y1="70" x2="120" y2="220" stroke="#020202" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<circle cx="120" cy="70" r="6" fill="#050505"/>
+<circle cx="120" cy="220" r="6" fill="#050505"/>
+<text x="134" y="68" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="134">Monday 50</tspan></text>
+<text x="134" y="84" font-family="Geist, sans-serif" font-size="13" font-weight="400" fill="#020202"><tspan x="134">2 ticks above 40</tspan></text>
+<text x="134" y="218" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="134">Friday 35</tspan></text>
+<text x="134" y="234" font-family="Geist, sans-serif" font-size="13" font-weight="400" fill="#020202"><tspan x="134">1 tick below 40</tspan></text>
+<path d="M322 70 H328 V220 H322" stroke="#050505" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<text x="318" y="108" text-anchor="end" font-family="Geist, sans-serif" font-size="13" font-weight="400" fill="#010101"><tspan x="318">2 + 1 = 3 ticks</tspan></text>
+<text x="318" y="126" text-anchor="end" font-family="Geist, sans-serif" font-size="13" font-weight="400" fill="#010101"><tspan x="318">3 × 5 = 15</tspan></text>
+<text x="318" y="144" text-anchor="end" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="318">drop 15 thousand</tspan></text>
+<text x="318" y="160" text-anchor="end" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="318">= 15,000 liters</tspan></text>
+</svg>

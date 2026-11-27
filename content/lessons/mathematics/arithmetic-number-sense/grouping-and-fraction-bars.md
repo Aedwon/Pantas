@@ -158,7 +158,9 @@ $$9+20=29$$
 
 $$2^3=8$$
 
-$$6-8+4=-2+4=2$$
+$$6-8+4=-2+4$$
+
+$$-2+4=2$$
 
 :::try
 Finish the last step: write the value of the fraction $\dfrac{29}{2}$ as a decimal.
@@ -170,7 +172,9 @@ The answer is $14.5$. Divide the numerator by the denominator: $29\div 2=14.5$.
 
 When there are no grouping symbols around them, plus and minus signs split a long line into separate pieces. In $5\times 4-3^2+20\div 5$, you can work out the three pieces at once: $5\times 4=20$, $3^2=9$, and $20\div 5=4$.
 
-$$20-9+4=15$$
+$$20-9=11$$
+
+$$11+4=15$$
 
 Do this only when you do not break a group or a higher-priority operation.
 

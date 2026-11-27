@@ -10,7 +10,7 @@ partCount: 6
 ordering: 66
 keyPoints:
   - "Use distance equals rate times time with matching units."
-  - "Add speeds when objects move apart or toward each other."
+  - "Add speeds when objects move in opposite directions, apart or toward each other."
 ---
 ## Core Concept
 
@@ -44,12 +44,14 @@ The wrong line divided speed by distance. To find time, put distance on top: $\t
 
 When two objects move at steady speeds along the same straight path, **relative speed** tells how fast the gap between them changes.
 
-Add the two speeds in both of these cases:
+Add the two speeds only when the objects move in opposite directions along the same line, in both of these cases:
 
 1. Moving apart from the same starting spot in opposite directions.
 2. Moving toward each other from opposite ends of a starting gap.
 
-Use that combined speed as $r$ in $d=rt$ only for the time both objects move in opposite directions along the same path. For moving apart, $d$ is the final gap. For meeting, $d$ is the starting gap. If one object starts later, begin with the gap at the moment the second one starts.
+If they move the same direction, subtract the speeds.
+
+Use the combined speed as $r$ in $d=rt$ only for the time both objects move. For moving apart, $d$ is the final gap, minus the gap at the moment the second one starts if it starts later. For meeting, $d$ is the gap at the moment the second one starts.
 
 Find when two boats are $180\text{ km}$ apart. They leave the same port at the same time in opposite directions, at $25\text{ kph}$ and $35\text{ kph}$.
 
@@ -70,7 +72,7 @@ Why do the speeds add? In $1$ hour, the first boat travels $25\text{ km}$ one wa
 :::pair #subtract-instead-of-add
 Right: $25+35=60$ kph, so $t=\dfrac{180}{60}=3$ hours
 Wrong: $35-25=10$ kph, so $t=\dfrac{180}{10}=18$ hours
-Subtracting speeds is for a same-direction chase. When objects move apart or toward each other, both contribute to changing the gap, so add their speeds.
+Subtracting speeds is for objects moving the same direction. When two objects move in opposite directions along the same line, both change the gap, so add their speeds.
 :::
 
 :::pair #average-speeds-mistake
@@ -136,5 +138,5 @@ The answer is $150\text{ km}$. Use $d=rt$: $50\times 3=150$.
 :::checklist
 - Finding time from distance and speed: divide distance by rate, so $t=\dfrac{d}{r}$. {#speed-over-distance}
 - Moving apart or toward each other in opposite directions while both move: add both speeds to get the relative speed. {#subtract-instead-of-add}
-- Two objects changing the same gap: use the sum of their speeds, not their average. {#average-speeds-mistake}
+- Two objects moving in opposite directions along the same line: use the sum of their speeds, not their average. {#average-speeds-mistake}
 :::

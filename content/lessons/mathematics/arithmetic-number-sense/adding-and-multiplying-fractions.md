@@ -34,7 +34,7 @@ $$\dfrac{2}{5}=\dfrac{2\times 3}{5\times 3}=\dfrac{6}{15}$$
 
 $$\dfrac{1}{3}=\dfrac{1\times 5}{3\times 5}=\dfrac{5}{15}$$
 
-$$\dfrac{2}{5}+\dfrac{1}{3}=\dfrac{6}{15}+\dfrac{5}{15}=\dfrac{11}{15}$$
+$$\dfrac{6}{15}+\dfrac{5}{15}=\dfrac{11}{15}$$
 
 Subtraction works the same way. Find $\dfrac{5}{6}-\dfrac{1}{4}$ with common denominator $12$:
 
@@ -42,7 +42,7 @@ $$\dfrac{5}{6}=\dfrac{10}{12}$$
 
 $$\dfrac{1}{4}=\dfrac{3}{12}$$
 
-$$\dfrac{5}{6}-\dfrac{1}{4}=\dfrac{10}{12}-\dfrac{3}{12}=\dfrac{7}{12}$$
+$$\dfrac{10}{12}-\dfrac{3}{12}=\dfrac{7}{12}$$
 
 :::why
 Why do we keep the denominator unchanged when adding? The denominator names the size of each piece. Adding $1$ third and $1$ third makes $2$ thirds, never $2$ sixths.
