@@ -49,7 +49,7 @@ Add the two speeds in both of these cases:
 1. Moving apart from the same starting spot in opposite directions.
 2. Moving toward each other from opposite ends of a starting gap.
 
-<!-- FIGURE WANTED: two horizontal straight-road diagrams stacked. Top labeled "Moving apart": a center dot with two arrows pointing opposite ways, left arrow labeled "25 kph", right arrow labeled "35 kph", bracket beneath labeled "gap grows at 25 + 35 = 60 kph". Bottom labeled "Meeting": two dots at ends of a 270 km segment with arrows pointing inward, left arrow "50 kph", right arrow "40 kph", bracket labeled "gap closes at 50 + 40 = 90 kph" -->
+<!-- ILLUSTRATION: two horizontal straight-road diagrams stacked. The top one, "Moving apart", has a center dot with two arrows pointing opposite ways: the left arrow is labeled "25 kph" and the right arrow "35 kph". A bracket beneath is labeled "gap grows at 25 + 35 = 60 kph". The bottom one, "Meeting", has two dots at the ends of a segment labeled "starting gap" with arrows pointing toward each other: the left arrow is labeled "speed 1" and the right arrow "speed 2". A bracket beneath is labeled "gap closes at speed 1 + speed 2". -->
 
 Use that combined speed as $r$ in $d=rt$. For moving apart, $d$ is the final gap. For meeting, $d$ is the starting gap.
 

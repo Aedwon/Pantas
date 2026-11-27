@@ -49,6 +49,8 @@ $$18,000-2,920=15,080$$
 
 Php $15,080$ of principal is left.
 
+<!-- ILLUSTRATION: two stacked bars for a loan payment. The top bar, Payment Php 4,000, is split into a shaded part, Interest Php 1,080, and a larger part, Rest of payment Php 2,920. The bottom bar, Principal Php 18,000, is split into Principal left Php 15,080 and a shaded part of 2,920, the rest of the payment, which reduces the principal. -->
+
 :::why
 Why does simple interest grow by the same amount every year? Each year charges $5\%$ of the original Php $10,000$, which is Php $500$. Over $3$ years you pay $500+500+500=1,500$.
 :::

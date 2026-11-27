@@ -54,6 +54,8 @@ Wrong: $0.0625=\dfrac{625}{1,000}=\dfrac{5}{8}$
 The zero right after the decimal point still takes one place. Count all $4$ places after the point so the denominator is $10,000$, not $1,000$.
 :::
 
+<!-- ILLUSTRATION: place-value strip for 0.0625 with four boxes after the decimal point: tenths 0, hundredths 6, thousandths 2, ten-thousandths 5. The leading 0 still takes a place. Below the strip: "4 places, so 10,000" and "0.0625 = 625/10,000". -->
+
 :::check
 Write $3.06$ as a fraction in simplest form.
 :::answer

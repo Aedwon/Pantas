@@ -22,7 +22,7 @@ $$\text{Markup amount}=\text{Cost}\times\text{Markup rate}$$
 
 $$\text{Listed price}=\text{Cost}+\text{Markup amount}$$
 
-<!-- FIGURE WANTED: horizontal bar labeled "Cost = Php 800 (100%)" joined to an added right section labeled "Markup = Php 200 (25% of cost)", with a full bottom bracket labeled "Listed price = Php 1,000 (125% of cost)" -->
+<!-- ILLUSTRATION: horizontal bar labeled "Cost = Php 800 (100%)" joined to an added right section labeled "Markup = Php 200 (25% of cost)", with a full bottom bracket labeled "Listed price = Php 1,000 (125% of cost)" -->
 
 Find the listed price of a box of canned goods that costs Php $800$ and gets a $25\%$ markup based on cost.
 
@@ -117,6 +117,8 @@ $$\dfrac{5}{25}=0.20$$
 $$0.20=20\%$$
 
 The same Php $5$ markup gives $25\%$ of cost, but $20\%$ of selling price.
+
+<!-- ILLUSTRATION: one bar for the selling price, Php 25, made of Cost Php 20 and Markup Php 5 on the right. A bracket under the cost reads "5 of 20 = 25% of cost". A longer bracket under the whole bar reads "5 of 25 = 20% of selling price". The same Php 5 markup is measured against two different bases. -->
 
 :::pair #wrong-percentage-base
 Right: $\dfrac{5}{25}=0.20=20\%$ of selling price

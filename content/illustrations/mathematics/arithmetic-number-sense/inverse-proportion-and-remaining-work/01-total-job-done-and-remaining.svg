@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 206" width="360" height="206">
+<title>Two bars: the whole job of 120 worker-days, and the same job split into 40 worker-days done and 80 worker-days remaining</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="206" rx="14" fill="url(#bg)"/>
+<text x="20" y="32" text-anchor="start" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101"><tspan x="20">Total job = 10 x 12 = 120 worker-days</tspan></text>
+<rect x="20" y="42" width="320" height="32" rx="8" fill="#010101" fill-opacity="0.06" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<path d="M20 120 Q20 112 28 112 H126 V144 H28 Q20 144 20 136 Z" fill="#050505" fill-opacity="0.45"/>
+<path d="M126 112 H332 Q340 112 340 120 V136 Q340 144 332 144 H126 Z" fill="#010101" fill-opacity="0.06"/>
+<rect x="20" y="112" width="320" height="32" rx="8" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="126" y1="112" x2="126" y2="144" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="20" y="168" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="700" fill="#010101"><tspan x="20">Done in 4 days:</tspan></text>
+<text x="20" y="184" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="20">10 x 4 = 40 worker-days</tspan></text>
+<text x="340" y="168" text-anchor="end" font-family="Geist, sans-serif" font-size="12" font-weight="700" fill="#010101"><tspan x="340">Remaining: 80 worker-days</tspan></text>
+<text x="340" y="184" text-anchor="end" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="340">8 workers x 10 days</tspan></text>
+</svg>

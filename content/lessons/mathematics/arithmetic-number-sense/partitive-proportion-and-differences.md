@@ -20,7 +20,7 @@ In a **partitive proportion**, a whole amount is split into shares using a ratio
 
 When a total is split in the ratio $3:1$, there are $3+1=4$ equal boxes in all. One share gets $3$ boxes, and the other gets $1$ box.
 
-<!-- FIGURE WANTED: horizontal bar split into 4 equal boxes totaling "Php 800". First 3 boxes bracketed as "Share A = 3 parts = Php 600"; last 1 box bracketed as "Share B = 1 part = Php 200" -->
+<!-- ILLUSTRATION: one horizontal bar of 4 equal boxes, each worth Php 200, totaling "Php 800". The first 3 boxes are shaded and bracketed as "Share A = 3 parts = Php 600". The last box is bracketed as "Share B = 1 part = Php 200". -->
 
 Find both shares when Php $800$ is split in the ratio $3:1$.
 
@@ -73,6 +73,8 @@ $$\dfrac{18}{2}=9$$
 3. Multiply $1$ part by the total parts ($3+5=8$).
 
 $$8\times9=72$$
+
+<!-- ILLUSTRATION: two horizontal bars in the ratio 3:5, drawn to scale. The top bar has 3 boxes labeled "3 parts". The bottom bar has 5 boxes labeled "5 parts". Every box holds 9. A bracket under the 2 extra boxes of the longer bar is labeled "5 - 3 = 2 parts = 18". A line at the bottom reads "whole 3 + 5 = 8 parts, 8 x 9 = 72". -->
 
 :::why
 Why does subtracting the ratio parts work? Every box in the ratio has the exact same size. The larger share has $5$ boxes and the smaller has $3$ boxes, so the extra amount comes from the $5-3=2$ extra boxes.

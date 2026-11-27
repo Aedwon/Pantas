@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 214" width="360" height="214">
+<title>Road with a van at the 0 km mark going 60 kph and a jeepney at the 40 km mark going 40 kph, a head start of 40 km that shrinks by 20 km each hour</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="214" rx="14" fill="url(#bg)"/>
+<text x="24" y="34" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="24">Van</tspan></text>
+<text x="24" y="52" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="24">0 km mark, 60 kph</tspan></text>
+<text x="196" y="34" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="196">Jeepney</tspan></text>
+<text x="196" y="52" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="196">40 km mark, 40 kph</tspan></text>
+<line x1="24" y1="96" x2="336" y2="96" stroke="#020202" stroke-width="2" stroke-linecap="butt" fill="none" stroke-opacity="0.5"/>
+<line x1="40" y1="76" x2="40" y2="116" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.6"/>
+<line x1="200" y1="76" x2="200" y2="116" stroke="#020202" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.6"/>
+<circle cx="40" cy="96" r="8" fill="#050505"/>
+<circle cx="200" cy="96" r="8" fill="#010101" fill-opacity="0.7"/>
+<line x1="52" y1="96" x2="104" y2="96" stroke="#050505" stroke-width="3" stroke-linecap="butt" fill="none"/>
+<polygon points="104,88 116,96 104,104" fill="#050505"/>
+<line x1="212" y1="96" x2="244" y2="96" stroke="#010101" stroke-width="3" stroke-linecap="butt" fill="none" stroke-opacity="0.7"/>
+<polygon points="244,88 256,96 244,104" fill="#010101" fill-opacity="0.7"/>
+<path d="M40 128 V136 H200 V128" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="120" y="156" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="120">head start = 40 km</tspan></text>
+<text x="180" y="194" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="180">gap shrinks by 60 - 40 = 20 km each hour</tspan></text>
+</svg>

@@ -30,7 +30,7 @@ $$1,100\times1.10=1,210$$
 
 Notice that Year $2$ added Php $110$ instead of Php $100$, because $10\%$ also applied to the first Php $100$ of interest.
 
-<!-- FIGURE WANTED: two stacked two-year growth bars starting at Php 1,000. Top bar labeled "Simple interest": Php 1,000 + 100 (Year 1) + 100 (Year 2) = Php 1,200. Bottom bar labeled "Compound interest": Php 1,000 + 100 (Year 1 = Php 1,100) + 110 (Year 2, 10% of 1,100) = Php 1,210 -->
+<!-- ILLUSTRATION: two stacked two-year growth bars starting at Php 1,000, with the Php 1,000 block drawn short to save room. Top bar, Simple interest: Php 1,000 + 100 (Year 1) + 100 (Year 2) = Php 1,200. Bottom bar, Compound interest: Php 1,000 + 100 (Year 1 = Php 1,100) + 110 (Year 2, 10% of 1,100) = Php 1,210. Year 2 adds 110 instead of 100 because the 10% also applies to the first 100 of interest. -->
 
 Writing repeated multiplication as a power gives the compound-interest formula:
 

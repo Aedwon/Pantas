@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 208" width="360" height="208">
+<title>Ana and her mother now and in 6 years: both ages grow by the same 6, so the gap stays 3a</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="208" rx="14" fill="url(#bg)"/>
+<text x="72" y="32" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="72">Now</tspan></text>
+<text x="263" y="32" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="263">In 6 years</tspan></text>
+<rect x="16" y="56" width="28" height="26" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<rect x="16" y="98" width="112" height="26" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="30" y="74" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="30">a</tspan></text>
+<text x="52" y="74" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="52">Ana</tspan></text>
+<text x="72" y="116" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="72">Mother 4a</tspan></text>
+<rect x="200" y="56" width="28" height="26" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<rect x="228" y="56" width="14" height="26" fill="#050505" fill-opacity="0.45" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<rect x="200" y="98" width="112" height="26" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<rect x="312" y="98" width="14" height="26" fill="#050505" fill-opacity="0.45" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="250" y="74" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="250">Ana: a + 6</tspan></text>
+<text x="256" y="116" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="256">Mother 4a + 6</tspan></text>
+<text x="164" y="64" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="164">+ 6 years</tspan></text>
+<line x1="134" y1="70" x2="188" y2="70" stroke="#050505" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<polygon points="188,65 196,70 188,75" fill="#050505"/>
+<text x="164" y="106" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="164">+ 6 years</tspan></text>
+<line x1="134" y1="112" x2="188" y2="112" stroke="#050505" stroke-width="2" stroke-linecap="butt" fill="none"/>
+<polygon points="188,107 196,112 188,117" fill="#050505"/>
+<path d="M44 134 V142 H128 V134" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<path d="M242 134 V142 H326 V134" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="86" y="162" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101"><tspan x="86">gap = 3a</tspan></text>
+<text x="284" y="162" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101"><tspan x="284">gap = 3a</tspan></text>
+<text x="180" y="194" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="180">a = 12</tspan></text>
+</svg>

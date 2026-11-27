@@ -46,8 +46,6 @@ Wrong: $\text{Commission}=35,000\times0.04=1,400$, giving total $=\text{Php }3,8
 The wrong line took $4\%$ of revenue instead of net profit. Check what amount the problem says the rate applies to.
 :::
 
-<!-- FIGURE WANTED: a horizontal segmented bar labeled "Total sales: Php 110,000", split into three bands from left to right: "First Php 40,000 at 3%", "Next Php 40,000 at 5%", and "Above Php 80,000 (Php 30,000) at 8%" -->
-
 In a **tiered commission**, each rate applies only to its own band of sales. Total sales times the highest rate alone is wrong.
 
 :::why
@@ -103,6 +101,8 @@ The wrong answer stopped at the taxable subtotal. Check whether the question ask
 ### #1: Tiered Commission
 
 A sales agent earns a commission of $3\%$ on the first Php $40,000$ in sales, $5\%$ on the next Php $40,000$, and $8\%$ on sales above Php $80,000$. If total sales are Php $110,000$, how much commission does the agent earn?
+
+<!-- ILLUSTRATION: a horizontal segmented bar labeled "Total sales: Php 110,000", split into three bands from left to right: "First Php 40,000 at 3%", "Next Php 40,000 at 5%", and "Above Php 80,000 (Php 30,000) at 8%". Each rate applies only to its own band of sales. -->
 
 **Solution:**
 

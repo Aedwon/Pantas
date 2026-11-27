@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" width="360" height="150">
+<title>Bar for a cost of Php 800 with a markup of Php 200 added on the right, giving a listed price of Php 1,000, which is 125% of cost</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="150" rx="14" fill="url(#bg)"/>
+<text x="148" y="42" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="148">Cost = Php 800 (100%)</tspan></text>
+<text x="340" y="26" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="340">Markup = Php 200</tspan></text>
+<text x="340" y="42" text-anchor="end" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="340">(25% of cost)</tspan></text>
+<path d="M20 60 V53 H276 V60" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<path d="M284 60 V53 H340 V60" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<path d="M20 72 Q20 64 28 64 H276 V104 H28 Q20 104 20 96 Z" fill="#010101" fill-opacity="0.06"/>
+<path d="M276 64 H332 Q340 64 340 72 V96 Q340 104 332 104 H276 Z" fill="#050505" fill-opacity="0.45"/>
+<rect x="20" y="64" width="320" height="40" rx="8" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="276" y1="64" x2="276" y2="104" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<path d="M20 112 V119 H340 V112" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="180" y="138" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="180">Listed price = Php 1,000 (125% of cost)</tspan></text>
+</svg>

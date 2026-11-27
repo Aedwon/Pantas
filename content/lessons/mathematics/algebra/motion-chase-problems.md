@@ -23,7 +23,7 @@ Keep units matched: a rate in kph needs distance in km and time in hours.
 
 In a **chase problem**, two objects move in the same direction along the same straight path. The faster object starts behind and catches the slower one ahead. If the object behind is no faster, it can never close the gap.
 
-<!-- FIGURE WANTED: horizontal straight road showing slower vehicle ahead at 40 km mark moving right at 40 kph and faster vehicle at 0 km mark moving right at 60 kph; bracket from 0 to 40 km labeled "head start = 40 km"; note below "gap shrinks by 60 - 40 = 20 km each hour" -->
+<!-- ILLUSTRATION: horizontal straight road. A van at the 0 km mark moves right at 60 kph, and a jeepney ahead at the 40 km mark moves right at 40 kph. A bracket from 0 to 40 km is labeled "head start = 40 km". Below it a note reads "gap shrinks by 60 - 40 = 20 km each hour". -->
 
 When a problem gives a time head start instead of a distance, multiply the slower speed by the head-start time to find the starting gap $d$. Then subtract the slower speed from the faster speed to get the closing rate:
 

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 186" width="360" height="186">
+<title>Bar for a Php 20 cost plus a Php 5 markup, a selling price of Php 25: the Php 5 is 25% of cost and 20% of selling price</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="186" rx="14" fill="url(#bg)"/>
+<text x="180" y="28" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="180">Selling price Php 25</tspan></text>
+<path d="M20 46 V39 H340 V46" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<path d="M20 58 Q20 50 28 50 H276 V96 H28 Q20 96 20 88 Z" fill="#010101" fill-opacity="0.06"/>
+<path d="M276 50 H332 Q340 50 340 58 V88 Q340 96 332 96 H276 Z" fill="#050505" fill-opacity="0.45"/>
+<rect x="20" y="50" width="320" height="46" rx="8" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="276" y1="50" x2="276" y2="96" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="148" y="78" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="148">Cost Php 20</tspan></text>
+<text x="308" y="70" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="308">Markup</tspan></text>
+<text x="308" y="87" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="308">Php 5</tspan></text>
+<path d="M20 104 V111 H276 V104" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="148" y="130" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="148">5 of 20 = 25% of cost</tspan></text>
+<path d="M20 140 V147 H340 V140" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="180" y="166" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="180">5 of 25 = 20% of selling price</tspan></text>
+</svg>
