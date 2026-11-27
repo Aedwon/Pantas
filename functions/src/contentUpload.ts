@@ -399,27 +399,39 @@ async function readVersionIndex(db: Firestore, kind: ContentKind): Promise<Map<s
 export async function writeContent(db: Firestore, items: ContentItem[], pros: ProItem[],
   options: {dryRun?: boolean; fullScan?: boolean; beforeReads?: (reads: number) => Promise<void>}):
   Promise<{counts: PlanCounts; proWritten: number; summaries: SummaryResult; bankChanges: number}> {
-  const existing = new Map<string, string>();
   const stored = new Map<ContentKind, Map<string, string>>();
   const indexStale = new Set<ContentKind>();
+  const scan = async (kind: ContentKind): Promise<void> => {
+    if (!options.fullScan) await options.beforeReads?.(Math.max(1, items.filter((item) => item.kind === kind).length));
+    const snapshot = await db.collection(`content/${kind}/items`).select('version').get();
+    stored.set(kind, new Map(snapshot.docs.map((doc) => [doc.id, String(doc.get('version'))] as [string, string])));
+    indexStale.add(kind);
+  };
   for (const kind of CONTENT_KINDS) {
-    let versions = options.fullScan ? null : await readVersionIndex(db, kind);
-    if (versions === null) {
-      if (!options.fullScan) await options.beforeReads?.(Math.max(1, items.filter((item) => item.kind === kind).length));
-      const snapshot = await db.collection(`content/${kind}/items`).select('version').get();
-      versions = new Map(snapshot.docs.map((doc) => [doc.id, String(doc.get('version'))] as [string, string]));
-      indexStale.add(kind);
-    }
-    stored.set(kind, versions);
-    for (const [id, version] of versions) existing.set(`${kind}/${id}`, version);
+    const versions = options.fullScan ? null : await readVersionIndex(db, kind);
+    if (versions === null) await scan(kind);
+    else stored.set(kind, versions);
   }
-  const {counts, changed} = planWrites(items, existing);
-  const changedQuestionIds = new Set(changed.filter((item) => item.kind === 'questions').map((item) => item.id));
-  const proChanged = pros.filter((pro) => changedQuestionIds.has(pro.id));
   // Exam summaries are written only when this upload holds the whole stored bank (every stored lesson
   // and question set), because writes never delete: a partial upload cannot know the bank's full state.
   const markerRef = db.doc(`${SUMMARY_COLLECTION}/${BANK_MARKER_ID}`);
   const marker = await markerRef.get();
+  // An upload by an older copy of this tool changes lessons or question sets without updating the list,
+  // and a list that is behind would plan a revert as "unchanged". Every finished whole-bank upload leaves
+  // the marker holding the digest of the stored bank, so a list whose digest differs (or a marker that is
+  // missing, unfinished or partial) is not trusted for lessons and questions: they are scanned.
+  if (!options.fullScan) {
+    const listed = digest([...BANK_KINDS].flatMap((kind) =>
+      [...(stored.get(kind) ?? new Map<string, string>())].map(([id, version]) => `${kind}/${id}:${version}`)).sort());
+    if (!marker.exists || marker.get('bankVersion') !== listed) {
+      for (const kind of BANK_KINDS) if (!indexStale.has(kind)) await scan(kind);
+    }
+  }
+  const existing = new Map<string, string>();
+  for (const [kind, versions] of stored) for (const [id, version] of versions) existing.set(`${kind}/${id}`, version);
+  const {counts, changed} = planWrites(items, existing);
+  const changedQuestionIds = new Set(changed.filter((item) => item.kind === 'questions').map((item) => item.id));
+  const proChanged = pros.filter((pro) => changedQuestionIds.has(pro.id));
   const inputBank = new Set(items.filter((item) => BANK_KINDS.has(item.kind)).map((item) => `${item.kind}/${item.id}`));
   const bankItems = items.filter((item) => BANK_KINDS.has(item.kind));
   // Duplicate ids: Firestore keeps one copy, so the input is not the stored bank.
