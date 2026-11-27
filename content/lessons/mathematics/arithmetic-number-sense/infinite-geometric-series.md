@@ -30,10 +30,6 @@ $$1.75+\dfrac{1}{8}=1.875$$
 
 Each new term cuts the gap to $2$ in half, so the running total approaches $2$.
 
-<!-- ILLUSTRATION: A horizontal bar of total length 2, drawn to scale and marked "Total 2". It is cut into pieces labeled 1, 1/2, 1/4 and 1/8, each half the length of the one before. The pieces fill 1.875 of the bar. A dashed gap of 1/8 is left at the right end and is labeled "approaches 2". -->
-
-The bar draws positive terms only, so a negative ratio cannot be shown this way.
-
 The symbol $|r|$ means the absolute value of $r$, or its distance from $0$. For an infinite geometric series with a nonzero first term $a_1$:
 
 - If $|r|<1$, the terms shrink toward $0$, so the series **converges** to one finite sum. For example, $16-8+4-2+\dots$ has $r=\dfrac{-8}{16}=-\dfrac{1}{2}$, and $\left|-\dfrac{1}{2}\right|=\dfrac{1}{2}<1$.
