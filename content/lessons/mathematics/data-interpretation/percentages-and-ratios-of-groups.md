@@ -38,6 +38,8 @@ $$0.60\times100=60$$
 
 Facility Y used $60\%$ of the combined Quarter $1$ total.
 
+<!-- ILLUSTRATION: one horizontal bar of 300 megawatt-hours, labeled "Combined Quarter 1 total 300", drawn to scale. The left 40% is "Facility X 120" and the right 60% is "Facility Y 180". A bracket under Facility Y reads "180 / 300 = 0.60, 60%, out of the whole bar, not X alone", so the denominator is the combined total. -->
+
 :::pair #other-part-as-total
 Right: $\dfrac{180}{120+180}=\dfrac{180}{300}=0.6$, which is $60\%$
 Wrong: $\dfrac{180}{120}=1.5$, which is $150\%$

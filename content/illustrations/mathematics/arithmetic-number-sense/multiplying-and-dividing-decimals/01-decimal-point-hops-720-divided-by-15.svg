@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 204" width="360" height="204">
+<title>0.015 becomes 15 and 0.72 becomes 720 by moving each decimal point 3 places right, so 0.72 divided by 0.015 equals 720 divided by 15, which is 48</title>
+<rect width="360" height="204" rx="14" fill="#030303"/>
+<rect x="24" y="40" width="100" height="40" rx="8" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="74" y="67" text-anchor="middle" font-family="Geist, sans-serif" font-size="20" font-weight="600" fill="#010101"><tspan x="74">0.72</tspan></text>
+<path d="M132 58 Q148 38 164 58" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.9"/>
+<polygon points="164,58 157,52 161,50" fill="#020202"/>
+<path d="M164 58 Q180 38 196 58" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.9"/>
+<polygon points="196,58 189,52 193,50" fill="#020202"/>
+<path d="M196 58 Q212 38 228 58" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.9"/>
+<polygon points="228,58 221,52 225,50" fill="#020202"/>
+<text x="180" y="76" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#020202"><tspan x="180">3 places right</tspan></text>
+<rect x="236" y="40" width="100" height="40" rx="8" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="289" y="46" width="20" height="28" rx="4" fill="#050505" fill-opacity="0.45"/>
+<text x="268" y="67" text-anchor="middle" font-family="Geist, sans-serif" font-size="20" font-weight="600" fill="#010101"><tspan x="268">7</tspan></text>
+<text x="284" y="67" text-anchor="middle" font-family="Geist, sans-serif" font-size="20" font-weight="600" fill="#010101"><tspan x="284">2</tspan></text>
+<text x="300" y="67" text-anchor="middle" font-family="Geist, sans-serif" font-size="20" font-weight="600" fill="#010101"><tspan x="300">0</tspan></text>
+<text x="74" y="99" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="400" fill="#020202"><tspan x="74">÷</tspan></text>
+<text x="286" y="99" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="400" fill="#020202"><tspan x="286">÷</tspan></text>
+<rect x="24" y="108" width="100" height="40" rx="8" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="74" y="135" text-anchor="middle" font-family="Geist, sans-serif" font-size="20" font-weight="600" fill="#010101"><tspan x="74">0.015</tspan></text>
+<path d="M132 126 Q148 106 164 126" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.9"/>
+<polygon points="164,126 157,120 161,118" fill="#020202"/>
+<path d="M164 126 Q180 106 196 126" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.9"/>
+<polygon points="196,126 189,120 193,118" fill="#020202"/>
+<path d="M196 126 Q212 106 228 126" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.9"/>
+<polygon points="228,126 221,120 225,118" fill="#020202"/>
+<text x="180" y="144" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#020202"><tspan x="180">3 places right</tspan></text>
+<rect x="236" y="108" width="100" height="40" rx="8" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="276" y="135" text-anchor="middle" font-family="Geist, sans-serif" font-size="20" font-weight="600" fill="#010101"><tspan x="276">1</tspan></text>
+<text x="292" y="135" text-anchor="middle" font-family="Geist, sans-serif" font-size="20" font-weight="600" fill="#010101"><tspan x="292">5</tspan></text>
+<text x="180" y="186" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="180">720 ÷ 15 = 48</tspan></text>
+</svg>

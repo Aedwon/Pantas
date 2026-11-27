@@ -23,7 +23,7 @@ To test divisibility by $3$ or $9$, add all the digits of the number.
 
 If the sum is still large, you can add its digits again.
 
-Try $4,218$ and $5,742$.
+Test $4,218$ and $5,742$ for $3$ and $9$.
 
 $$4+2+1+8=15$$
 
@@ -38,29 +38,29 @@ Every multiple of $9$ is also a multiple of $3$, because $9=3\times3$. Passing t
 :::pair #three-instead-of-nine
 Right: for $57x81$ to pass $9$, $21+x$ must equal $27$, giving $x=6$
 Wrong: for $57x81$ to pass $9$, $21+x=24$ works, giving $x=3$
-The sum $24$ passes $3$, not $9$. Always check that your digit sum divides evenly by $9$ when the problem asks for $9$.
+The sum $24$ passes $3$, not $9$. Check that your digit sum divides evenly by $9$ when the problem asks for $9$.
 :::
 
 :::why
-Why does adding digits work for $3$ and $9$? Notice that $10=9+1$, $100=99+1$, and $1,000=999+1$. Each place value leaves a remainder of $1$ when divided by $9$ or $3$, so the total remainder equals the sum of the digits.
+Why does adding digits work for $3$ and $9$? Notice that $10=9+1$, $100=99+1$, and $1,000=999+1$. Each place value leaves a remainder of $1$ when divided by $9$ or $3$, so the number leaves the same remainder as its digit sum.
 :::
 
 :::check
-Is $6,813$ divisible by $9$?
+The number $6,3d4$ is divisible by $3$, where $d$ is a digit. List every possible value of $d$.
 :::answer
-The answer is yes. The digit sum is $6+8+1+3=18$, and $18\div9=2$.
+The answer is $d=2$, $5$ or $8$. The digit sum is $13+d$, which is from $13$ to $22$. The multiples of $3$ there are $15$, $18$ and $21$.
 :::
 
 ### Rule for $6$
 
-Since $6=2\times3$, a number is divisible by $6$ only when it passes **both** tests:
+Since $6=2\times3$, a number is divisible by $6$ exactly when it passes **both** tests:
 
 1. It is even (last digit is $0$, $2$, $4$, $6$, or $8$).
 2. Its digit sum is divisible by $3$.
 
 Passing only one test is not enough. Also, ending in the digit $6$ does not make a number divisible by $6$.
 
-Test $2,514$, $2,516$, and $2,517$:
+Test $2,514$, $2,516$, and $2,517$ for $6$:
 
 - $2,514$: even, and $2+5+1+4=12$ (divisible by $3$). Passes $6$.
 - $2,516$: even, and $2+5+1+6=14$ (not divisible by $3$). Fails $6$.
@@ -69,21 +69,15 @@ Test $2,514$, $2,516$, and $2,517$:
 :::pair #ends-in-six-for-six
 Right: $24,534$ passes $6$ because it is even and $2+4+5+3+4=18$
 Wrong: $24,536$ passes $6$ because it ends in $6$
-Only $2$, $5$, and $10$ depend on the last digit alone. For $6$, you must check the digit sum too.
+The tests for $2$, $5$, and $10$ use the last digit alone. For $6$, you must check the digit sum too.
 :::
 
-When a middle digit is missing in a multiple of $6$, the missing digit does not need to be even. Only the final digit controls whether the whole number is even.
+When the missing digit is in the middle of a multiple of $6$, it does not need to be even. Only the last digit decides whether the number is even.
 
 :::pair #only-even-middle-digit
 Right: in $42d18$, $d$ can be $0$, $3$, $6$, or $9$ because the last digit $8$ is already even
 Wrong: in $42d18$, $d$ must be even, so $d=9$ is ruled out
 The last digit $8$ already satisfies the $2$ test. Any digit from $0$ to $9$ that makes the digit sum a multiple of $3$ works for $d$.
-:::
-
-:::check
-Which of $3,412$ and $3,414$ is divisible by $6$?
-:::answer
-The answer is $3,414$. Both are even, and $3+4+1+4=12$ is divisible by $3$, while $3+4+1+2=10$ is not.
 :::
 
 ## Examples
@@ -104,11 +98,11 @@ $$20+x=27$$
 
 3. Subtract $20$ from both sides.
 
+$$x=27-20$$
+
 $$x=7$$
 
 The digit is $7$.
-
-**Check:** Replace $x$ with $7$ to get $47,781$. Its digit sum is $4+7+7+8+1=27$, and dividing gives $47,781\div9=5,309$ with no remainder.
 
 ### #2: Testing Choices for $6$
 
@@ -126,21 +120,21 @@ A shipping company packs exactly $6$ books per box. Which inventory count can be
 
 $$3+6+4+1+8=22$$
 
+Since $22$ is not divisible by $3$, choice A fails.
+
 :::try
 Finish the last step: add the digits of B, C and D, then pick the choice that is divisible by $6$.
 :::answer
 The answer is B, $36,420$. The digit sums are $15$, $17$ and $19$ for B, C and D. Only $15$ is divisible by $3$ ($15\div3=5$).
-
-**Check:** Divide $36,420\div6=6,070$ boxes with $0$ books left over. None of $22$, $17$, or $19$ divides evenly by $3$.
 :::
 
 ## Speed Tricks & Shortcuts
 
 ### Cast Out Nines
 
-When testing divisibility by $3$ or $9$, cross out any $9$ or any group of digits that adds up to $9$. Only skip groups summing to $9$, never random even digits.
+When testing divisibility by $3$ or $9$, cross out any digit $9$ and any group of digits that adds to $9$, then add what is left.
 
-For $945,712$, cross out $9$, then $4+5=9$, then $7+2=9$. Only $1$ remains. Since $1$ is divisible by neither $3$ nor $9$, $945,712$ passes neither test.
+Test $945,712$. Cross out $9$, then $4+5=9$, then $7+2=9$. Only $1$ remains. Since $1$ is divisible by neither $3$ nor $9$, $945,712$ passes neither test.
 
 ## Traps to Watch For
 

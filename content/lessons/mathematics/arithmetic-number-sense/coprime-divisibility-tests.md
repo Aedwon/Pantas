@@ -20,19 +20,13 @@ Two positive integers are **relatively prime**, or **coprime**, when their only 
 - $3$ and $8$ are coprime: factors of $3$ are $1,3$; factors of $8$ are $1,2,4,8$. Their only shared factor is $1$.
 - $4$ and $6$ are **not** coprime: both divide by $2$, so they share a factor larger than $1$.
 
-:::check
-Are $9$ and $11$ coprime? Are $3$ and $6$ coprime?
-:::answer
-The answer is yes for $9$ and $11$ (only $1$ divides both), and no for $3$ and $6$ (both divide by $3$).
-:::
-
 ### Combining Coprime Factors
 
-If $a$ and $b$ are coprime, a number is divisible by $ab$ exactly when it passes the test for $a$ **and** the test for $b$. Here $ab$ means $a\times b$.
+If $a$ and $b$ are coprime positive integers, a number is divisible by $ab$ exactly when it passes the test for $a$ **and** the test for $b$. Here $ab$ means $a\times b$.
 
 For example, $8$ and $9$ are coprime and $8\times9=72$. Passing both $8$ and $9$ proves a number is divisible by $72$.
 
-The two factors do not have to be prime numbers themselves, as long as they are coprime. If the two factors share a common factor larger than $1$, combining their tests fails.
+The factors need not be prime, only coprime. If the two factors share a factor larger than $1$, passing both tests does not prove divisibility by their product.
 
 For example, $4\times6=24$, yet testing $4$ and $6$ does not test $24$. The number $12$ passes both $4$ and $6$, even though $12$ is not divisible by $24$. To test $24$, use $3$ and $8$, which are coprime.
 
@@ -43,20 +37,20 @@ Factors $4$ and $6$ share the factor $2$. Passing both tests only guarantees div
 :::
 
 :::why
-Why do overlapping factors fail? When you test $4$ and $6$, the shared factor $2$ is checked twice instead of giving you another factor of $2$. The smallest number passing both $4$ and $6$ is their least common multiple, $12$, not $24$.
+Why do overlapping factors fail? When you test $4$ and $6$, the shared factor $2$ is checked twice instead of giving you another factor of $2$. The smallest positive number passing both $4$ and $6$ is their least common multiple, $12$, not $24$.
 :::
 
 :::check
-Which pair of factors proves divisibility by $45$: $3$ and $15$, or $5$ and $9$?
+A number passes the tests for $6$ and $10$. Must it be divisible by $60$?
 :::answer
-The answer is $5$ and $9$. Both $3$ and $15$ share the factor $3$, while $5$ and $9$ share only $1$.
+The answer is no. The factors $6$ and $10$ share the factor $2$, and $30$ passes both tests but is not divisible by $60$.
 :::
 
 ### Testing Two Unknown Digits
 
-When a number has two missing digits $x$ and $y$, always start with the last-digit test ($4$, $5$, $8$, or $10$). It limits the ending digit $y$ to just one or two choices. Then test each valid $y$ with the digit-sum or alternating-sum test ($3$, $9$, or $11$) to find $x$.
+When a number has two missing digits $x$ and $y$ and the divisor has a last-digit factor ($4$, $5$, $8$, or $10$), start with the last-digit test. It limits the ending digit $y$ to a few choices. Then test each valid $y$ with the digit-sum or alternating-sum test ($3$, $9$, or $11$) to find $x$.
 
-Try finding the missing digits in $32x1y$ if it is divisible by $45$. Since $45=5\times9$ and $5,9$ are coprime, test $5$ first, then $9$.
+Find $x$ and $y$ in $32x1y$, a multiple of $45$. Since $45=5\times9$ and $5,9$ are coprime, test $5$ first, then $9$.
 
 1. By the rule for $5$, $y$ can only be $0$ or $5$.
 
@@ -66,34 +60,34 @@ $$y=0\text{ or }y=5$$
 
 $$3+2+x+1+0=6+x$$
 
-The multiple of $9$ gives $6+x=9$, so $x=3$.
+Since $x$ is a digit, $6+x$ is from $6$ to $15$. The only multiple of $9$ there is $9$.
+
+$$6+x=9$$
+
+$$x=3$$
 
 3. Test $y=5$ with the rule for $9$. Add the digits:
 
 $$3+2+x+1+5=11+x$$
 
-The multiple of $9$ gives $11+x=18$, so $x=7$.
+Since $x$ is a digit, $11+x$ is from $11$ to $20$. The only multiple of $9$ there is $18$.
 
-Both $(3,0)$ and $(7,5)$ pass both tests.
+$$11+x=18$$
+
+$$x=7$$
+
+So $(x,y)$ is $(3,0)$ or $(7,5)$.
 
 :::pair #pass-only-one-test
-Right: check both $9$ and $11$ when testing $99$
+Right: in $3a4,5b2$, divisible by $99$, check both $9$ and $11$
 Wrong: pick $a=4,b=9$ in $3a4,5b2$ because $3+4+4+5+9+2=27$ passes $9$
 Passing one factor test is not enough. In $344,592$, the alternating sum is $(3+4+9)-(4+5+2)=5$, which fails $11$.
 :::
 
 :::pair #stop-at-first-case
-Right: test both $y=0$ and $y=5$ when finding the largest product or sum
+Right: in $32x1y$, test both $y=0$ and $y=5$ when finding the largest product or sum
 Wrong: stop after testing $y=0$ and report $x\times y=0$
-The ending $0$ often gives a smaller answer than $5$ or $8$. Check every valid ending before choosing the greatest or least value.
-:::
-
-:::check
-If $5x4y$ is divisible by $45$, what are all the possible pairs $(x,y)$?
-:::answer
-The answers are $(0,0)$, $(9,0)$ and $(4,5)$. By the rule for $5$, $y$ is $0$ or $5$. The digit sum is $9+x+y$. For $y=0$, $9+x$ must be a multiple of $9$, so $x=0$ or $x=9$. For $y=5$, $14+x$ must be $18$, so $x=4$.
-
-**Check:** $5,040\div45=112$, $5,940\div45=132$ and $5,445\div45=121$.
+The ending $0$ gives $3\times0=0$, but $y=5$ gives $7\times5=35$. Check every valid ending before choosing the greatest or least value.
 :::
 
 ## Examples
@@ -118,11 +112,11 @@ $$x=2$$
 
 5. Add the two digits.
 
-$$x+y=2+4=6$$
+$$x+y=2+4$$
+
+$$x+y=6$$
 
 The sum is $6$.
-
-**Check:** Put $x=2$ and $y=4$ into $52,344$. Divide directly: $52,344\div72=727$ with no remainder.
 
 ### #2: Checking Every Case for a Maximum
 
@@ -136,20 +130,28 @@ The five-digit number $74x3y$ is divisible by $36$. What is the greatest possibl
 
 $$7+4+x+3+2=16+x$$
 
-The only multiple of $9$ from $16$ to $25$ is $18$, so $x=2$, giving $x+y=2+2=4$.
+The only multiple of $9$ from $16$ to $25$ is $18$.
+
+$$16+x=18$$
+
+$$x=2$$
+
+With $y=2$, the sum is $x+y=2+2=4$.
 
 4. Second case ($y=6$): add the digits of $74x36$.
 
 $$7+4+x+3+6=20+x$$
 
-The only multiple of $9$ from $20$ to $29$ is $27$, so $x=7$.
+The only multiple of $9$ from $20$ to $29$ is $27$.
+
+$$20+x=27$$
+
+$$x=7$$
 
 :::try
 Finish the last step: find $x+y$ for the second case and compare it with the first case to pick the greatest sum.
 :::answer
 The answer is $13$. In the second case, $x+y=7+6=13$, which is greater than $4$ from the first case.
-
-**Check:** Test $74,736$ directly: $74,736\div36=2,076$ with no remainder. The smaller case $74,232\div36=2,062$ also passes, confirming $13$ is the greatest sum.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -170,6 +172,6 @@ The answer is $13$. In the second case, $x+y=7+6=13$, which is greater than $4$ 
 
 :::checklist
 - Splitting a composite divisor: pick two factors that share only $1$, such as $3$ and $8$ for $24$. {#overlapping-factors}
-- Testing a composite number: verify both coprime factor tests, never stop after passing just one. {#pass-only-one-test}
-- Finding a maximum or minimum digit sum: test every valid ending digit before picking the answer. {#stop-at-first-case}
+- Testing a divisor with coprime factors: verify both factor tests, never stop after passing just one. {#pass-only-one-test}
+- Finding a largest or smallest sum or product of missing digits: test every valid ending digit first. {#stop-at-first-case}
 :::

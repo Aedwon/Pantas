@@ -24,6 +24,8 @@ $$4(3x+7)=4(3x)+4(7)$$
 
 $$4(3x)+4(7)=12x+28$$
 
+<!-- ILLUSTRATION: a rectangle 4 tall and 3x + 7 wide, cut into two parts. The left part is 3x wide and has area 4 × 3x = 12x. The right part is 7 wide and has area 4 × 7 = 28. The whole rectangle is 4(3x + 7) = 12x + 28, so the 4 multiplies each part and not only the first. The widths are not drawn to scale. -->
+
 In symbols:
 
 $$a(b+c)=ab+ac$$

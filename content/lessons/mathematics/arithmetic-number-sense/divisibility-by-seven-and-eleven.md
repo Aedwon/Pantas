@@ -25,7 +25,7 @@ To test if a number is divisible by $7$:
 
 If the result is still large, repeat the three steps on the new number.
 
-Try $343$. Remove the last digit $3$, leaving $34$. Double $3$ to get $6$, then subtract from $34$.
+Test $343$ for $7$. Remove the last digit $3$, leaving $34$. Double $3$ to get $6$, then subtract from $34$.
 
 $$34-6=28$$
 
@@ -34,19 +34,19 @@ Since $28=7\times4$, $343$ is divisible by $7$.
 :::pair #subtract-without-doubling
 Right: for $343$, double $3$ first: $34-2(3)=34-6=28$
 Wrong: for $343$, subtract $3$ directly: $34-3=31$
-Always multiply the removed last digit by $2$ before subtracting.
+Multiply the removed last digit by $2$ before you subtract.
 :::
 
-Make sure you subtract from the digits *without* the last digit ($34-6=28$), not from the full original number ($343-6=337$).
+Subtract from the digits *without* the last digit ($34-6=28$), not from the full original number ($343-6=337$).
 
 :::why
 Write the original number as $10a+b$, where $b$ is the last digit, so $10(a-2b)=10a-20b=(10a+b)-21b$. Since $21b$ is a multiple of $7$, $10a+b$ is divisible by $7$ whenever $a-2b$ is. In reverse, if $10a+b$ is divisible by $7$, then $10(a-2b)$ is too, and because $10$ has no factor of $7$, $a-2b$ must also be divisible by $7$.
 :::
 
 :::check
-Test $203$ for divisibility by $7$ using one step of the rule.
+Use the rule for $7$ twice on $1,386$. Is $1,386$ divisible by $7$?
 :::answer
-The answer is yes, $203$ is divisible by $7$. Remove $3$ and double it to get $6$, then $20-6=14$, and $14=7\times2$.
+The answer is yes. First, $138-2(6)=126$. Then $12-2(6)=0$, and $0$ is a multiple of $7$.
 :::
 
 ### Rule for $11$
@@ -65,9 +65,19 @@ Wrong: for $1,234$, add all digits or adjacent pairs: $1+2+3+4=10$ or $(1+2)-(3+
 Total digit sums test $3$ and $9$, not $11$. Skip every other digit so odd positions ($1,3,5,\dots$) go in one group and even positions ($2,4,6,\dots$) go in the other.
 :::
 
-Try $2,728$. The odd-position sum is $2+2=4$, and the even-position sum is $7+8=15$. Subtract: $4-15=-11$, which is a multiple of $11$, so $2,728$ passes.
+Test $2,728$ for $11$. Add the digits in the odd positions, then in the even positions.
 
-A difference of $0$ also passes. The number $0$ is divisible by every nonzero integer because $0\div b=0$ with remainder $0$. (Remember that dividing *by* $0$ is undefined, so $0$ can be the dividend, never the divisor.)
+$$2+2=4$$
+
+$$7+8=15$$
+
+Subtract the two totals.
+
+$$4-15=-11$$
+
+Since $-11$ is a multiple of $11$, $2,728$ passes.
+
+A difference of $0$ also passes, because $0$ is divisible by every nonzero integer.
 
 :::pair #zero-is-divisible
 Right: $0\div11=0$, so a difference of $0$ passes the test for $11$
@@ -79,17 +89,11 @@ Every nonzero integer divides $0$ evenly. Only dividing *by* $0$ is undefined.
 Why does $0$ pass the $11$ test? Because $0=11\times0$, leaving no remainder. For example, $1,331$ has alternating sums $1+3=4$ and $3+1=4$, difference $4-4=0$, and $1,331=11\times121$.
 :::
 
-:::check
-Is $9,174$ divisible by $11$?
-:::answer
-The answer is yes. Alternating sums are $9+7=16$ and $1+4=5$. Their difference is $16-5=11$, which is a multiple of $11$.
-:::
-
 ## Examples
 
 ### #1: Repeating the Test for $7$
 
-Is $2,541$ divisible by $7$?
+Test $2,541$ for $7$, repeating the rule until the result is small.
 
 **Solution:**
 
@@ -115,8 +119,6 @@ $$21=7\times3$$
 
 Yes, $2,541$ is divisible by $7$.
 
-**Check:** Divide directly: $2,541\div7=363$ with no remainder.
-
 ### #2: A Zero Difference for $11$
 
 The six-digit number $3a42b1$ is divisible by $11$. If $a=5$, what is the value of $b$?
@@ -136,12 +138,12 @@ $$(7+b)-8=b-1$$
 
 4. Since $b$ is a digit from $0$ to $9$, $b-1$ goes from $-1$ to $8$. The only multiple of $11$ in that range is $0$.
 
-:::try
-Finish the last step: solve $b-1=0$ for $b$.
-:::answer
-The answer is $b=1$. Adding $1$ to both sides gives $b=1$.
+$$b-1=0$$
 
-**Check:** Put $b=1$ into $3542b1$ to get $354,211$. Alternating sums are $3+4+1=8$ and $5+2+1=8$, difference $8-8=0$. Direct division gives $354,211\div11=32,201$.
+:::try
+Finish the last step: find $b$, then write the six-digit number.
+:::answer
+The answer is $354,211$, with $b=1$. Adding $1$ to both sides of $b-1=0$ gives $b=1$.
 :::
 
 ## Traps to Watch For

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 208" width="360" height="208">
+<title>Rectangle 4 tall and 3x + 7 wide, cut into a 3x part with area 4 times 3x equals 12x and a 7 part with area 4 times 7 equals 28</title>
+<rect width="360" height="208" rx="14" fill="#030303"/>
+<text x="128" y="40" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="128">3x</tspan></text>
+<text x="272" y="40" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="272">7</tspan></text>
+<text x="30" y="103" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="30">4</tspan></text>
+<rect x="48" y="52" width="160" height="80" fill="#050505" fill-opacity="0.45" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="208" y="52" width="128" height="80" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="128" y="97" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="128">4 × 3x = 12x</tspan></text>
+<text x="272" y="97" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="272">4 × 7 = 28</tspan></text>
+<text x="192" y="166" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="192">4(3x + 7) = 12x + 28</tspan></text>
+<text x="192" y="190" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#020202"><tspan x="192">Widths not to scale</tspan></text>
+</svg>

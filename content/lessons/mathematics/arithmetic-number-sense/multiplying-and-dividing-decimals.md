@@ -68,13 +68,13 @@ To divide by a nonzero decimal, turn the divisor into a whole number first.
 2. Move the dividend's decimal point the exact same number of places right. Add zeros on the right of the dividend if you need extra places.
 3. Divide as usual, keeping the decimal point lined up above the dividend.
 
-<!-- FIGURE WANTED: two stacked number cards showing 0.72 / 0.015 becoming 720 / 15; three curved hop arrows move the point 3 places right on 0.015 to 15, and three curved hop arrows move the point 3 places right on 0.72 with a highlighted 0 added at the end to make 720 -->
-
 Find $0.72\div0.015$. The divisor $0.015$ needs $3$ places right to become $15$. Move the point $3$ places right in $0.72$ as well, adding one zero at the end.
 
 $$0.72\div0.015=720\div15$$
 
 $$720\div15=48$$
+
+<!-- ILLUSTRATION: two stacked number cards. The top card shows 0.72 and the bottom card shows 0.015, with a division sign between them. Three curved hop arrows move the decimal point 3 places right on 0.015 to give 15. Three curved hop arrows move the decimal point 3 places right on 0.72, with one highlighted 0 added at the end, to give 720. Below, 720 ÷ 15 = 48. Both points move the same number of places. -->
 
 Never divide by $0$. An expression such as $4.8\div0$ has no answer and is **undefined**.
 

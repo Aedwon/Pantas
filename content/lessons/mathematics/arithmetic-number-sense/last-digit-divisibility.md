@@ -28,19 +28,23 @@ To test $2$, $4$, and $8$, look only at the end of the number:
 
 If a number has fewer digits than the rule needs, test the whole number.
 
-Try $5,116$. The last digit is $6$ (even), so it passes $2$. The last $2$ digits form $16$, and $16\div4=4$, so $5,116$ passes $4$.
+Test $5,116$ for $2$ and $4$. The last digit is $6$ (even), so it passes $2$. The last $2$ digits form $16$, and $16\div4=4$, so $5,116$ passes $4$.
 
 :::pair #add-digits-for-four
 Right: for $4,516$, test the last $2$ digits ($16\div4=4$)
 Wrong: for $4,516$, add all digits ($4+5+1+6=16$)
-Never add digits to test $4$. Read the last $2$ digits together as one two-digit number.
+Adding the digits does not test $4$. Read the last $2$ digits together as one two-digit number.
 :::
 
-Now test $48,672$ for $8$. Look at the last $3$ digits: $672$.
+Test $48,672$ for $8$. Look at the last $3$ digits: $672$.
 
 $$672\div8=84$$
 
-It divides evenly, so $48,672$ is divisible by $8$. What if the hundreds digit were $3$, giving $48,372$? Even though $72$ divides by $8$, $372\div8=46$ with remainder $4$, so $48,372$ fails $8$.
+It divides evenly, so $48,672$ is divisible by $8$. Now change the hundreds digit to $3$ to get $48,372$.
+
+$$372\div8=46\text{ remainder }4$$
+
+Even though $72$ divides by $8$, the last $3$ digits do not, so $48,372$ fails $8$.
 
 :::pair #last-two-for-eight
 Right: for $48,k72$ to pass $8$, test all $3$ ending digits ($k72$)
@@ -52,12 +56,6 @@ Testing only $72$ checks $4$, not $8$. You must include the hundreds digit when 
 Why can we ignore the front digits? Every $10$ is divisible by $2$, every $100$ is divisible by $4$, and every $1,000$ is divisible by $8$. Everything to the left of those ending digits is already an exact multiple of the divisor.
 :::
 
-:::check
-Is $7,324$ divisible by $4$? Is it divisible by $8$?
-:::answer
-The answer is yes for $4$, no for $8$. The last $2$ digits are $24$ ($24\div4=6$), while the last $3$ digits are $324$ ($324=8\times40+4$, remainder $4$).
-:::
-
 ### Rules for $5$ and $10$
 
 Both $5$ and $10$ depend only on the very last digit.
@@ -65,7 +63,7 @@ Both $5$ and $10$ depend only on the very last digit.
 - **Divisible by $5$:** the last digit is $0$ or $5$.
 - **Divisible by $10$:** the last digit is $0$.
 
-Try $735$ and $740$. Both end in $5$ or $0$, so both pass $5$. Only $740$ ends in $0$, so only $740$ passes $10$.
+Test $735$ and $740$ for $5$ and $10$. Both end in $5$ or $0$, so both pass $5$. Only $740$ ends in $0$, so only $740$ passes $10$.
 
 Every multiple of $10$ is also a multiple of $5$, because $10=5\times2$. A number that is divisible by $5$ but *not* by $10$ must end in $5$.
 
@@ -80,9 +78,9 @@ Why does only the last digit matter for $5$ and $10$? Every multiple of $10$ is 
 :::
 
 :::check
-What single digit from $1$ to $9$ must be added to $6,482$ so the sum is divisible by both $5$ and $10$?
+What single digit from $1$ to $9$ must be added to $6,452$ so the sum is divisible by both $5$ and $10$?
 :::answer
-The answer is $8$. To pass both $5$ and $10$, the sum must end in $0$, and $6,482+8=6,490$.
+The answer is $8$. To pass both $5$ and $10$, the sum must end in $0$, and $6,452+8=6,460$.
 :::
 
 ## Examples
@@ -98,8 +96,6 @@ An inventory count $N$ is a four-digit number $6,47d$ that is a multiple of $5$ 
 3. Only $d=5$ remains, giving $N=6,475$.
 
 The digit is $d=5$.
-
-**Check:** Divide $6,475$ by $5$ and $10$. You get $6,475\div5=1,295$ (no remainder), while $6,475\div10=647.5$ (not a whole number).
 
 ### #2: Testing the Last Two and Three Digits
 
@@ -119,8 +115,6 @@ The division is exact, so $6,348$ can be packed evenly into crates of $4$.
 Finish the last step: divide $348$ by $8$ to see if $6,348$ is divisible by $8$.
 :::answer
 The answer is no for $8$ (and yes for $4$). Dividing $348=8\times43+4$ leaves a remainder of $4$, so $6,348$ is not divisible by $8$.
-
-**Check:** Split $6,348$ into $6,000+348$. Since $1,000$ is divisible by $8$, $6,000$ is $8\times750$, and $348$ is $8\times43+4$. The whole number leaves a remainder of $4$ when divided by $8$.
 :::
 
 ## Speed Tricks & Shortcuts

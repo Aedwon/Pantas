@@ -18,8 +18,6 @@ keyPoints:
 
 To add or subtract fractions, their pieces must be the same size. That means they need a **common denominator**.
 
-<!-- FIGURE WANTED: two equal-length horizontal fraction bars stacked vertically; top bar split into 4 equal parts with 3 shaded labeled "3/4"; bottom bar split into 12 equal parts with 9 shaded labeled "9/12", showing equal shaded length -->
-
 "Simplify" means write an equal fraction in lowest terms. When denominators match, add or subtract only the numerators, keep the denominator, and simplify.
 
 Add $\dfrac{4}{9}$ and $\dfrac{2}{9}$:
@@ -105,6 +103,8 @@ Simplify $\dfrac{3}{4}+\dfrac{2}{3}-\dfrac{1}{6}$.
 1. Find a common denominator for $4$, $3$, and $6$. Their LCM is $12$. Rewrite each fraction over $12$.
 
 $$\dfrac{3}{4}=\dfrac{3\times 3}{4\times 3}=\dfrac{9}{12}$$
+
+<!-- ILLUSTRATION: two bars of equal length stacked one above the other. The top bar is split into 4 equal parts with 3 shaded and is labeled "3/4". The bottom bar is split into 12 equal parts with 9 shaded and is labeled "9/12". Both shaded parts end at the same place, so 3/4 and 9/12 are the same amount cut into finer pieces. -->
 
 $$\dfrac{2}{3}=\dfrac{2\times 4}{3\times 4}=\dfrac{8}{12}$$
 

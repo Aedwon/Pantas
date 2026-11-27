@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" width="360" height="150">
+<title>One bar of 300 megawatt-hours: Facility X 120 and Facility Y 180, with Y compared to the whole bar, 180 / 300 = 0.60, 60%</title>
+<rect width="360" height="150" rx="14" fill="#030303"/>
+<text x="180" y="28" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="180">Combined Quarter 1 total 300</tspan></text>
+<path d="M24 42 V37 H336 V42" fill="none" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="24" y="46" width="124.8" height="40" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="148.8" y="46" width="187.2" height="40" fill="#050505" fill-opacity="0.45" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="86.4" y="71" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="86.4">Facility X 120</tspan></text>
+<text x="242.4" y="71" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="242.4">Facility Y 180</tspan></text>
+<path d="M149 94 V99 H336 V94" fill="none" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="242.4" y="119" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="242.4">180 / 300 = 0.60, 60%</tspan></text>
+<text x="242.4" y="137" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#020202"><tspan x="242.4">out of the whole bar, not X alone</tspan></text>
+</svg>

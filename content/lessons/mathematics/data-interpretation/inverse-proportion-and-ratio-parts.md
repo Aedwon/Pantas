@@ -52,6 +52,8 @@ $$\dfrac{80}{6}=13\dfrac{1}{3}\text{ hours}$$
 
 The $120$, $40$ and $80$ are clerk-hours of work.
 
+<!-- ILLUSTRATION: one horizontal bar of 120 clerk-hours, labeled "Total 8 × 15 = 120 clerk-hours", drawn to scale. The first third, 40 clerk-hours, is shaded and labeled "Done 8 × 5 = 40". The remaining two thirds are labeled "Left 120 - 40 = 80". Under the left part, a bracket reads "80 / 6 = 13 1/3 hours for 6 clerks", so the remaining work is divided by the remaining workers. -->
+
 :::why
 Why does losing $2$ clerks make the remaining time go up instead of down? Those $80$ clerk-hours of work now get shared by $6$ clerks instead of $8$, so each hour accomplishes less and the remaining job takes longer.
 :::
@@ -74,8 +76,6 @@ The answer is $14$ more workers. Total work is $7\times12=84$ worker-hours, and 
 
 A ratio can split one fixed total into unequal parts. If a problem reserves or spends a fixed amount first, subtract that amount before dividing the rest.
 
-<!-- FIGURE WANTED: a horizontal bar labeled "360 folders = 9 equal parts (40 per part)", divided into 9 equal boxes: first 2 boxes bracketed as "Unit A (2 parts = 80)", next 3 boxes as "Unit B (3 parts = 120)", last 4 boxes as "Unit C (4 parts = 160)" -->
-
 To divide a total in a ratio such as $2:3:4$:
 
 1. Add all ratio terms to count the total parts.
@@ -89,6 +89,8 @@ $$2+3+4=9\text{ parts}$$
 $$\dfrac{360}{9}=40\text{ folders per part}$$
 
 Unit A gets $2\times40=80$, Unit B gets $3\times40=120$, and Unit C gets $4\times40=160$. So Unit C gets $160-80=80$ more folders than Unit A.
+
+<!-- ILLUSTRATION: a horizontal bar labeled "360 folders = 9 equal parts (40 per part)", divided into 9 equal boxes. The first 2 boxes are bracketed as "Unit A, 2 parts = 80", the next 3 boxes as "Unit B, 3 parts = 120", and the last 4 boxes as "Unit C, 4 parts = 160". One part is the unit that every ratio term counts in. -->
 
 :::pair #divide-equally-instead-of-ratio
 Right: $2+3+4=9\text{ parts}$, so $1\text{ part}=\dfrac{360}{9}=40$ and $C-A=2\times40=80\text{ folders}$
