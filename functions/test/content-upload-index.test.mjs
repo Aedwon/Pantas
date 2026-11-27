@@ -114,8 +114,9 @@ test('--full-scan scans every kind and rewrites an index that is wrong', async (
   const wrong = JSON.parse(index.payload);
   wrong['lesson-0002'] = 'stale-version';
   seeded.stored.set(indexPath('lessons'), {...index, payload: JSON.stringify(wrong)});
-  // The count still agrees, so the index is trusted: this is what --full-scan is for.
-  assert.equal((await writeContent(clone(seeded), lessons(5), [], {dryRun: true})).counts.update, 1);
+  // The count still agrees, but the list's digest no longer matches the bank marker, so lessons are scanned
+  // and the plan is right; --full-scan is the deliberate check for the kinds the marker does not cover.
+  assert.equal((await writeContent(clone(seeded), lessons(5), [], {dryRun: true})).counts.update, 0);
   const checked = clone(seeded);
   const result = await writeContent(checked, lessons(5), [], {fullScan: true});
   assert.deepEqual(result.counts, {create: 0, update: 0, unchanged: 5});
