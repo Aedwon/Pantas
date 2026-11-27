@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Steps set to clock times instead of starting when the step before them is done (Nov 27, repeat)
+
+- His words (about 6:15 PM Manila Nov 27): "i wonder why you're setting definite times instead of doing things once ready".
+- Wrong: the manager scheduled the Math pilot's resume for 8:30 AM and a result check for 6:45 AM, although the release lead reports each opening step as it lands, and that report can start the next step. Earlier the same day, the final staging proof waited for a Friday 8 PM slot (entry below).
+- Why it got through: agents do not wake by themselves, so the manager used timers as the trigger by habit, even where a lead's report to the manager thread wakes it just as well.
+- Fix (required step, manager and leads): a step that depends on another lane's work starts when that lane reports it done. The reporting lead messages the manager, or the next lead directly, and the manager acts on that message. Clock times are used only for real clocks: a quota reset, an hour he chose, a hard stop that protects usage, or a free-tier day. Every other timer is a backup that does nothing if the step has already started. Applied now: the Math pilot resumes on the release lead's "opening done" report; the 8:30 AM task stays as a backup only.
+
 ### Final staging proof held to a cutoff that had already passed (Nov 27)
 
 - His words (about 4:35 PM Manila Nov 27): "what's the reason we had to wait for tonight? couldn't it be done yesterday?"
