@@ -82,7 +82,7 @@ Which order makes the link clear?
 
 Use **B → A**: "Heavy rain fell for hours without stopping. As a result, several streets were flooded."
 
-**Check:** Read (A) first. *As a result* has nothing to point back to.
+**Check:** Join them with *because*: "Several streets were flooded because heavy rain fell for hours without stopping." The cause and effect stay the same.
 
 ### #2: Canceled Classes
 
@@ -99,7 +99,7 @@ Which order makes the link clear?
 
 Use **A → B**: "Several classes were canceled that morning. The reason for these cancellations was that floodwater had blocked the school road."
 
-**Check:** *These cancellations* needs the cancellations to be named first, and (A) names them.
+**Check:** Join them with *because*: "Several classes were canceled that morning because floodwater had blocked the school road." The cause and effect stay the same.
 
 ### #3: A Warehouse
 
@@ -120,7 +120,7 @@ Put all three sentences in order.
 :::answer
 The answer is **C → B → A**. The unit stopped (C), so the temperature rose (B), so the stock was thrown away (A): "A refrigeration unit stopped working overnight. Without it, the temperature inside the warehouse rose above the safe level. As a result, the warehouse threw away most of its stock."
 
-**Check:** Read C, B, A aloud. Each sentence is the reason for the next.
+**Check:** Join them with *because*: "The warehouse threw away most of its stock because the temperature rose, and the temperature rose because the unit stopped working."
 :::
 
 ## Traps to Watch For

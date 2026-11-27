@@ -27,20 +27,19 @@ Let's fill the blank in "Although the clinic was crowded, the nurse stayed _____
 1. *Although* shows contrast.
 2. The first idea is a crowded, stressful clinic.
 3. The second idea must go against it. Predict a word such as *calm*.
-4. Check *calm* against the whole sentence.
 
 Although the clinic was crowded, the nurse stayed calm with every patient.
 
 :::pair #synonym-after-far-from
 Right: Far from being anxious, the cashier stayed calm and polite.
 Wrong: Far from being relaxed, the cashier stayed calm and polite.
-*Far from being* says the cashier was not like that. The blank needs the opposite of *calm*, and *relaxed* only repeats it.
+*Far from being* says the cashier was not like that. The word after it needs the opposite of *calm*, and *relaxed* only repeats it.
 :::
 
 :::check
-Choose the best word: "Because the road was slick with ice, drivers moved ______." *(quickly / carefully)*
+Choose the best word: "Thick fog covered the highway, so drivers moved ______." *(quickly / slowly)*
 :::answer
-*carefully*. *Because* gives the reason: ice makes a road dangerous, so drivers take care: "Because the road was slick with ice, drivers moved carefully."
+*slowly*. *So* gives a result: fog hides the road, so drivers slow down: "Thick fog covered the highway, so drivers moved slowly."
 :::
 
 ### Check Every Blank
@@ -52,20 +51,19 @@ Let's fill both blanks in "Because the room was ______, we opened the windows an
 1. *Because* gives a reason. Opening the windows is the result.
 2. The clearest clue is the windows. The room was *stuffy*.
 3. Fresh air in a stuffy room leaves people *relieved*.
-4. Read both words in the sentence.
 
 Because the room was stuffy, we opened the windows and felt relieved afterward.
 
 :::pair #one-blank-only
 Right: The manager's bold plan to scrap every old rule met widespread opposition.
 Wrong: The manager's ordinary plan to scrap every old rule met widespread opposition.
-*Opposition* fits, but scrapping every old rule is not ordinary. One good word does not make the pair correct.
+The pair is *ordinary* and *opposition*. *Opposition* fits, but scrapping every old rule is not ordinary. One good word does not make the pair correct.
 :::
 
 :::check
-Choose the best pair: "Although the new clerk felt ______ on the first day, weeks of practice left her ______ by the end." *(uneasy, comfortable / comfortable, uneasy / uneasy, hesitant)*
+Choose the best pair: "On her first day the new clerk was ______, but weeks of practice made her skilled and ______." *(nervous, confident / confident, nervous / nervous, hesitant)*
 :::answer
-*uneasy, comfortable*. *Although* sets a contrast, and practice brings comfort. A clerk who starts uneasy becomes comfortable: "Although the new clerk felt uneasy on the first day, weeks of practice left her comfortable by the end."
+*nervous, confident*. *But* sets a contrast, and weeks of practice made her skilled, so she ended confident: "On her first day the new clerk was nervous, but weeks of practice made her skilled and confident."
 :::
 
 ## Examples

@@ -35,9 +35,9 @@ Add flap width to fold line ($6+6=12$, capped at right edge) first.
 :::
 
 :::check
-A $14\text{ cm}$ wide rectangle has its leftmost $5\text{ cm}$ strip folded right along a vertical line $5\text{ cm}$ from the left edge. Between which two distances from the left edge does the $2$-layer overlap lie?
+A $9\text{ cm}$ wide rectangle has its leftmost $6\text{ cm}$ strip folded right along a vertical line $6\text{ cm}$ from the left edge. Between which two distances from the left edge does the $2$-layer overlap lie?
 :::answer
-The answer is **between $5\text{ cm}$ and $10\text{ cm}$**. The $5\text{ cm}$ flap folds across $5\text{ cm}$ and ends at $5+5=10\text{ cm}$.
+The answer is **between $6\text{ cm}$ and $9\text{ cm}$**. The flap would end at $6+6=12\text{ cm}$, but the sheet stops at $9\text{ cm}$, so the overlap is capped at the right edge.
 :::
 
 ### Reflecting Inside the Overlap and Checking Cut Depth
@@ -69,9 +69,9 @@ One vertical fold reflects sideways position only. Across a vertical fold, punch
 :::
 
 :::check
-A $15\text{ cm}$ wide, $8\text{ cm}$ tall sheet has its leftmost $5\text{ cm}$ strip folded right across $5\text{ cm}$. A punch cuts both layers at $(8, 2)$. What are the coordinates of the reflected hole?
+A $14\text{ cm}$ wide, $6\text{ cm}$ tall sheet has its leftmost $4\text{ cm}$ strip folded right across $4\text{ cm}$. A punch cuts both layers at $(7, 2)$. What are the coordinates of the reflected hole?
 :::answer
-The answer is **$(2, 2)$**. The punch is $8-5=3\text{ cm}$ right of the fold, so its mirror lies $5-3=2\text{ cm}$ from the left edge, with height still $2\text{ cm}$.
+The answer is **$(1, 2)$**. The punch is $7-4=3\text{ cm}$ right of the fold, so its mirror lies $4-3=1\text{ cm}$ from the left edge, with height still $2\text{ cm}$.
 :::
 
 ## Examples

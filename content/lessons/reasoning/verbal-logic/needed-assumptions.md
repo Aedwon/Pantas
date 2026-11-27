@@ -72,9 +72,9 @@ Negating "every car user stops" gives "not every car user stops," which still le
 :::
 
 :::check
-"Rooftop solar will lower school bills by supplying power it would otherwise buy from the grid." Does this reason require solar panels to meet *every* school power need?
+"The canteen should stop selling soda, so that pupils can no longer buy any sugary drink at school." Does this reason require soda to be the *only* sugary drink the canteen sells?
 :::answer
-The answer is **no**. Negating "meet every need" still lets *some* solar power replace paid grid power and lower bills.
+The answer is **yes**. Negating "only soda" means the canteen sells another sugary drink. Pupils could still buy one, so the stated reason fails.
 :::
 
 ## Examples
@@ -84,7 +84,9 @@ The answer is **no**. Negating "meet every need" still lets *some* solar power r
 Argument: "The office should replace its printed notices with website notices. This will lower printing costs while still giving every employee access to the notices." Which assumption is necessary?
 
 (A) Every employee prefers reading on a screen.
+
 (B) Every employee can access the website notices.
+
 (C) Every nearby office uses website notices.
 
 **Solution:**

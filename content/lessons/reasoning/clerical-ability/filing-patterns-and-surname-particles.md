@@ -34,9 +34,9 @@ The wrong choice uses a surname-first habit when the question states given-name-
 :::
 
 :::check
-A system shows *Lina Gomez* filed as *Gomez, Lina* and *Marco Tan* filed as *Tan, Marco*. How should *Nora Bautista* be filed?
+A system files *Rosa M. Diaz* as *Diaz, Rosa M.* and *Ken Yu* as *Yu, Ken*. How should *Paula J. Villanueva* be filed?
 :::answer
-The answer is **Bautista, Nora**. Both samples move the surname to Unit $1$, followed by a comma and the given name.
+The answer is **Villanueva, Paula J.** Both samples move the surname to Unit $1$, with a comma, and the initial stays after the given name.
 :::
 
 ### Surnames with Particles
@@ -70,9 +70,9 @@ Ignoring spaces is a comparison step only. Keep the recorded spelling and spaces
 :::
 
 :::check
-Using one-unit surname particles with spaces ignored only for comparison, which comes first: *Dela Paz* or *Delfin*?
+Using one-unit surname particles with spaces ignored only for comparison, which comes first: *Del Rio* or *Delgado*?
 :::answer
-The answer is **Dela Paz**. Comparing *delapaz* and *delfin*, the fourth letter *a* comes before *f*.
+The answer is **Delgado**. Comparing *delrio* and *delgado*, the first three letters match and the fourth letter *g* comes before *r*.
 :::
 
 ## Examples

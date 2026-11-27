@@ -66,9 +66,9 @@ Two or more marks can be shared at once. Check every position before stopping.
 :::
 
 :::check
-In a shared-only row, cell $1$ has dots at top-left, top-right, and bottom-left, while cell $2$ has dots at top-right, bottom-left, and bottom-right. Which dots belong in cell $3$?
+In a shared-only row, cell $1$ has dots at all four corners, while cell $2$ has dots at top-left and the center. Which dots belong in cell $3$?
 :::answer
-The answer is **top-right and bottom-left**. Those two positions appear in both starting cells.
+The answer is **top-left only**. Top-left is the one position in both starting cells. The other corners and the center each appear in only one.
 :::
 
 ## Examples

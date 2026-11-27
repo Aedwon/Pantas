@@ -63,7 +63,7 @@ Wrong: "The company expanded into three regions, however, profits stayed low."
 Both sides of *however* are complete clauses. Put a semicolon before *however*, not a comma.
 :::
 
-A **dependent clause** (*because the office closed*) joins an independent clause differently. Add a comma when the dependent clause comes first ("Because the office closed, we left"), and usually skip the comma when it comes second ("We left because the office closed").
+A **dependent clause** (*because the office closed*) joins an independent clause differently. Add a comma when an opening time, reason or condition clause comes first ("Because the office closed, we left"), and usually skip the comma when it comes second ("We left because the office closed").
 
 :::check
 Which part of this sentence must change? "The file was complete, consequently, the clerk approved it."
@@ -76,7 +76,7 @@ Which part of this sentence must change? "The file was complete, consequently, t
 :::answer
 Part (a). Both sides are complete clauses, and *consequently* is a transition word like *however*, so change the first comma to a semicolon: "The file was complete; consequently, the clerk approved it."
 
-**Check:** Swap in *and*: "The file was complete, and the clerk approved it." A comma can come before *and*, but not before *consequently*.
+**Check:** Swap in *and*: "The file was complete, and the clerk approved it." A comma plus *and* can join these two clauses, but a bare comma before *consequently* cannot.
 :::
 
 ## Examples
@@ -94,7 +94,7 @@ Fix the punctuation in each sentence:
 1. In (a), both halves can stand alone, so the comma alone creates a comma splice. Fix: "The office closed early; the storm became stronger."
 2. In (b), the period ends the first sentence, so the next one needs a capital: "The office closed early. **The** storm became stronger."
 
-**Check:** Add *and* after the comma in (a). A comma plus a joining word is correct, so the bare comma was the fault.
+**Check:** Read both fixed sentences. (a) "The office closed early; the storm became stronger." has a mark between the clauses. (b) "The office closed early. The storm became stronger." starts the second sentence with a capital.
 
 ### #2: One Long Sentence
 

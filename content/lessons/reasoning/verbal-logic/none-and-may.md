@@ -48,9 +48,9 @@ Only observers who serve as judges are barred from speaking. Never stretch *some
 :::
 
 :::check
-At a fair, no plant sold at the stall is lent to a school. Plant 7 was lent to a school. Which note on Plant 7 is an error: "Grown by students", "Lent again in June", or "Also sold at the stall"?
+No book sold at the booth is lent to a class. Book 5 was lent to a class. Which note on Book 5 is an error: "Also lent to a class in June", "Also sold at the booth", or "Also donated for the booth"?
 :::answer
-The answer is **"Also sold at the stall."** Zero overlap means a plant lent to a school cannot also be sold at the stall.
+The answer is **"Also sold at the booth."** Zero overlap means a book lent to a class cannot also be sold at the booth.
 :::
 
 ### Keeping "May" as Possibility
@@ -70,15 +70,15 @@ Wrong: A lack of quorum guarantees that the interview is postponed.
 :::
 
 :::check
-A notice says, "The ferry may leave late if the wind is strong." Which statement follows?
+A notice says, "The class may end early." Which statement follows?
 
-(A) The ferry will leave late in strong wind.
+(A) The class will end early.
 
-(B) The ferry could still leave on time in strong wind.
+(B) The class will not end early.
 
-(C) The ferry will leave on time when the wind is calm.
+(C) The class could end early or at the usual time.
 :::answer
-The answer is **(B)**. *May* leaves both outcomes open, so a late departure is possible but not certain. The notice says nothing about calm wind.
+The answer is **(C)**. *May* leaves both outcomes open. (A) turns *may* into certainty, and (B) rules the outcome out.
 :::
 
 ## Examples
@@ -109,28 +109,28 @@ A health center says, "Walk-in consultations may resume on Friday." A radio host
 
 ### #3: A Volunteer List
 
-Premises: "Some volunteers are drivers. No driver is a minor." Which conclusion follows?
+Premises: "No volunteer under $18$ is a driver. Some drivers are volunteers." Which conclusion follows?
 
-(A) No volunteer is a minor.
+(A) No driver is under $18$.
 
-(B) Some minors are not volunteers.
+(B) Some volunteers under $18$ are not drivers.
 
-(C) Some volunteers are not minors.
+(C) Some volunteers are not under $18$.
 
 **Solution:**
 
 Let's test each choice against the two premises:
 
-1. Premise $1$: at least $1$ volunteer sits in *Drivers*.
-2. Premise $2$: *Drivers* and *Minors* have zero overlap.
-3. Drop (A): nothing keeps volunteers who do not drive out of *Minors*.
+1. Premise $1$: *Volunteers under $18$* and *Drivers* have zero overlap.
+2. Premise $2$: at least $1$ driver is a volunteer.
+3. Drop (A): Premise $1$ covers only volunteers; a driver who is not one could be under $18$.
 
 :::try
 Finish the last step: compare (B) and (C) against the two premises.
 :::answer
-The answer is **(C) Some volunteers are not minors.** A volunteer who drives sits outside *Minors*. Choice (B) needs at least $1$ minor, and the premises never say one exists.
+The answer is **(C) Some volunteers are not under $18$.** A volunteer who drives cannot be a volunteer under $18$. Choice (B) needs at least $1$ volunteer under $18$, and the premises never say one exists.
 
-**Check:** Picture a group with no minors at all: both premises hold, (B) fails, and (C) still holds through the volunteer who drives.
+**Check:** Picture adult volunteers who all drive: both premises hold, (B) fails, and (C) still holds.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -25,7 +25,7 @@ $$T \rightarrow T = T,\quad T \rightarrow F = F$$
 
 $$F \rightarrow T = T,\quad F \rightarrow F = T$$
 
-The only false case is $T \rightarrow F$ (room cleaned, no ice cream: promise broken). Every false if-part keeps the promise unbroken, so both $F \rightarrow T$ and $F \rightarrow F$ equal $T$.
+The only false case is $T \rightarrow F$ (room cleaned, no ice cream: promise broken). A false if-part keeps the promise unbroken, so $F \rightarrow T$ and $F \rightarrow F$ equal $T$.
 
 :::why
 Why is a conditional $T$ whenever its if-part is $F$? A promise says only what happens when the condition $P$ holds. When $P$ does not happen, the rule cannot be broken.
@@ -38,9 +38,9 @@ It is tempting to mark $F \rightarrow F$ as false because both inputs are false.
 :::
 
 :::check
-A rule says "If a bus is full ($P$), the driver skips the stop ($Q$)." A bus is full and the driver stops anyway. Evaluate $P \rightarrow Q$ for this bus.
+Rule: "If the shop is closed ($P$), its sign is off ($Q$)." Today the shop is open and the sign is off. Evaluate $P \rightarrow Q$.
 :::answer
-The answer is **$F$** (false). The bus is full ($P=T$) and the driver did not skip ($Q=F$), so the rule is broken.
+The answer is **$T$** (true). The shop is not closed ($P=F$), so the rule cannot be broken, whatever the sign does.
 :::
 
 ### Swapping the Direction
@@ -55,13 +55,13 @@ Compare $P \rightarrow Q$ and $Q \rightarrow P$ with $P=T$, $Q=F$:
 :::pair #reversed-conditional-values
 Right: when $P=T$ and $Q=F$, $(P \rightarrow Q, Q \rightarrow P)$ equals **$(F, T)$**.
 Wrong: when $P=T$ and $Q=F$, $(P \rightarrow Q, Q \rightarrow P)$ equals **$(T, F)$**.
-The wrong answer swaps the two directions. Always look at the letter sitting right before the arrow to find the if-part.
+The wrong answer swaps the two directions. The if-part is the letter before the arrow.
 :::
 
 :::check
-With $P$ false and $Q$ true, evaluate $Q \rightarrow P$ and $P \rightarrow Q$, in that order.
+Club rule: "If a member pays dues ($P$), the member may vote ($Q$)." Ana has not paid but votes. Evaluate $P \rightarrow Q$ and $Q \rightarrow P$, in that order.
 :::answer
-The answer is **$(F, T)$**. $Q \rightarrow P$ is $T \rightarrow F = F$, while $P \rightarrow Q$ is $F \rightarrow T = T$.
+The answer is **$(T, F)$**. $P \rightarrow Q$ is $F \rightarrow T = T$, while $Q \rightarrow P$ is $T \rightarrow F = F$.
 :::
 
 ## Examples

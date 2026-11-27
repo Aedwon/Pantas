@@ -32,22 +32,22 @@ Wrong: Last Friday, the cashier pays the supplier.
 :::
 
 :::check
-Choose the form: "Last Monday, the driver ______ the package to the office." *(delivers / delivered)*
+Choose the form: "The receptionist signed for the package that the driver ______ to the office an hour ago." *(delivers / delivered)*
 :::answer
-*delivered*. *Last Monday* is a finished time in the past, so use the simple past: "Last Monday, the driver delivered the package to the office."
+*delivered*. *An hour ago* is a finished time in the past, so use the simple past: "The receptionist signed for the package that the driver delivered to the office an hour ago."
 :::
 
 ### Actions Around Another Event
 
 Past progressive uses *was* or *were* plus an *-ing* form for an ongoing past action: *She was writing when I called*. The action was in progress when something else happened.
 
-Let's fill the blank in "When the bell rang, the students ______ (take) a test."
+Let's fill the blank in "When the bell rang, the students ______ (take) a test and had not finished it."
 
 1. The bell rang at one moment in the past.
-2. The test was already going on at that moment.
+2. The test was already going on at that moment, and it was not finished.
 3. Use *were* plus the *-ing* form: *were taking*.
 
-When the bell rang, the students were taking a test.
+When the bell rang, the students were taking a test and had not finished it.
 
 :::pair #had-for-unfinished
 Right: When the manager walked in, the clerk was counting the cash. (still counting)
@@ -98,7 +98,7 @@ For the second blank: (had read / was reading / will read / read tomorrow).
 
 "By the time the desk opened, I had finished the form. When the clerk called my name, I was reading the instructions and stopped halfway through."
 
-**Check:** Read the timeline: finish the form, then the desk opens, then the clerk calls. Simple past can also show an earlier action when the order is clear, but it is not offered for the first blank.
+**Check:** Read the timeline: I finish the form, the desk opens, then the clerk calls while I am halfway through the instructions. *Had finished* is the earliest event, and *was reading* is still going on at the call.
 
 ### #2: A Repair
 
@@ -119,7 +119,7 @@ Choose the best completion: "Last week, the technician ______ the printer and to
 
 Choose **(B)**: "Last week, the technician fixed the printer and told us it was working again."
 
-**Check:** *Fixes* is present, *had fix* has no participle, and *fixing* has no helping verb. Only *fixed* fits.
+**Check:** Read it whole: "the technician fixed the printer and told us it was working again." *Fixed* and *told* are both past, so the verbs match.
 
 ### #3: A Night Cleaner
 

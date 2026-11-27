@@ -60,9 +60,9 @@ Shaded pieces stay shaded when combined. Imagine stacking two clear films so eve
 :::
 
 :::check
-A $3 \times 3$ matrix adds dot counts across each row: row $1$ has $2, 1, 3$ dots and row $2$ has $3, 3, 6$ dots. If row $3$ starts with $2$ dots and $4$ dots, how many dots belong in the third cell?
+A $3 \times 3$ matrix adds dot counts down each column: column $1$ has $2, 3, 5$ dots and column $2$ has $1, 4, 5$ dots. If column $3$ starts with $3$ dots and $2$ dots, how many dots belong in the blank?
 :::answer
-The answer is **$6$ dots**. Add the first two counts in row $3$: $2+4=6$.
+The answer is **$5$ dots**. Add the first two counts in column $3$: $3+2=5$.
 :::
 
 ## Examples

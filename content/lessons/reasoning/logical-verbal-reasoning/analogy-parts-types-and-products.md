@@ -147,7 +147,7 @@ The answer is **(A) Flour**.
 
 Which pair best matches the ordered relationship in "Zoo is to animals"?
 
-(A) Vet is to animals (B) Chapter is to book (C) Orchard is to trees (D) Farmer is to crops
+(A) Vet is to animals (B) Crowd is to stadium (C) Hospital is to patients (D) Farmer is to crops
 
 **Solution:**
 
@@ -157,9 +157,9 @@ Which pair best matches the ordered relationship in "Zoo is to animals"?
 :::try
 Finish the last step: test choices (B) and (C) in the sentence "______ holds ______."
 :::answer
-The answer is **(C) Orchard is to trees**. An orchard holds trees, keeping the container-to-contents direction. A chapter goes inside a book, reversing it.
+The answer is **(C) Hospital is to patients**. A hospital holds patients, keeping the container-to-contents direction. A crowd goes inside a stadium, reversing it.
 
-**Check:** Flipping (B) gives "A chapter holds a book," which is false.
+**Check:** Flipping (B) gives "A stadium holds a crowd," which is true, so (B) runs the other way.
 :::
 
 ## Speed Tricks & Shortcuts

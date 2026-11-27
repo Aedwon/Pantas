@@ -45,14 +45,15 @@ Let's read "The speaker told a joke to break the ice."
 
 1. *Break the ice* is an idiom.
 2. Its whole meaning is to help people relax at the start of a meeting.
-3. No ice is broken.
 
 The speaker told a joke to help the audience relax.
+
+The request is to watch the door:
 
 :::pair #idiom-by-parts
 Right: Please keep an eye on the door. (watch it)
 Wrong: Please turn a blind eye to the door. (ignore it)
-Both idioms contain *eye*, but their whole meanings are opposites. Read the whole expression.
+Both idioms contain *eye*, but their whole meanings are opposites. Only the first one asks someone to watch.
 :::
 
 :::check
@@ -82,7 +83,7 @@ Choose the best completion: "The panel found ______ evidence that the records ha
 
 Choose **(A)**: "The panel found strong evidence that the records had been changed."
 
-**Check:** Say each choice with *evidence*. Only *strong evidence* sounds natural.
+**Check:** The finding is believable only if the evidence is convincing, and *strong* says that.
 
 ### #2: A Day at Home
 
@@ -103,7 +104,7 @@ Choose the best completion: "Mina stayed home because she felt ______ the weathe
 
 Choose **(A)**: "Mina stayed home because she felt under the weather."
 
-**Check:** The sentence gives a reason for staying home. *Under the weather* means feeling unwell.
+**Check:** Say it plainly: "Mina stayed home because she felt slightly ill." The reason for staying home still makes sense.
 
 ### #3: A Night Shift
 
@@ -127,7 +128,7 @@ Finish the last step: which choice is the usual partner of *a close watch*?
 :::answer
 The answer is **(B) keep**: "The guard promised to keep a close watch on the gate all night."
 
-**Check:** Say each choice with *a close watch*. *Do*, *make* and *say* do not usually go with it.
+**Check:** Say it plainly: "The guard promised to watch the gate closely all night." That is the same promise.
 :::
 
 ## Speed Tricks & Shortcuts

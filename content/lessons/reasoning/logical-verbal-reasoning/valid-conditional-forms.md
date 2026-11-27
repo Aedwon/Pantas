@@ -41,9 +41,9 @@ Treat every stated rule as strict while testing validity. Do not add outside exc
 :::
 
 :::check
-If a card is red, it goes in Box $1$. This card is not in Box $1$. What must be true?
+This ticket was not accepted at the gate. If a ticket is stamped, the gate accepts it. What must be true?
 :::answer
-The answer is **This card is not red.** By modus tollens, denying the result ($Q$) forces denying the condition ($P$).
+The answer is **This ticket is not stamped.** By modus tollens, denying the result ($Q$) forces denying the condition ($P$).
 :::
 
 ### Conditional Chains
@@ -66,9 +66,9 @@ Arrows point one way only. Never flip $P \to R$ to $R \to P$.
 :::
 
 :::check
-If it rains, the road gets wet. If the road gets wet, traffic slows. Traffic did not slow. What must be true?
+If a switch is flipped, the pump starts. If the pump starts, the tank fills. If the tank fills, the alarm stops. The tank did not fill. What must be true?
 :::answer
-The answer is **The road did not get wet, and it did not rain.** Modus tollens steps backward through both links.
+The answer is **The pump did not start, and the switch was not flipped.** Modus tollens steps backward through the two links before the tank. Nothing is forced about the alarm.
 :::
 
 ### Disjunctive Syllogism
@@ -90,9 +90,9 @@ Wrong: conclude **the original is in neither place**
 :::
 
 :::check
-Either the meeting is on Monday or on Tuesday. It is not on Tuesday. What must be true?
+The form is in the drawer, on the shelf, or in the box. Not in the drawer. Not on the shelf. Where must it be?
 :::answer
-The answer is **The meeting is on Monday.** Ruling out Tuesday leaves Monday as the remaining option.
+The answer is **In the box.** Ruling out the drawer and the shelf leaves the box as the only option.
 :::
 
 ## Examples
@@ -139,19 +139,19 @@ Either the document is in Cabinet A or in Cabinet B. It is not in Cabinet A. The
 
 ### #4: Conditional Chain
 
-If records are complete, the application is reviewed. If reviewed, a decision is sent. The records are complete. What must follow?
+If records are complete, the application is reviewed. If reviewed, a decision is sent. The application was not reviewed. What must follow?
 
 **Solution:**
 
 1. Chain: Complete ($P$) $\to$ Reviewed ($Q$) $\to$ Decision sent ($R$).
-2. Fact: Complete ($P$) is true.
+2. Fact: Reviewed ($Q$) is false.
 
 :::try
-Finish the last step: follow the arrows from $P$ through $Q$ to state what follows.
+Finish the last step: decide what the fact forces about $P$ and about $R$.
 :::answer
-The answer is **A decision is sent.** $P$ forces $Q$, and $Q$ forces $R$.
+The answer is **The records are not complete.** Not $Q$ forces not $P$. Nothing is forced about $R$.
 
-**Check:** Arrows run from $P$ to $R$, never backward from $R$ to $P$.
+**Check:** If the records were complete, the application would have been reviewed, so completeness fails.
 :::
 
 ## Speed Tricks & Shortcuts

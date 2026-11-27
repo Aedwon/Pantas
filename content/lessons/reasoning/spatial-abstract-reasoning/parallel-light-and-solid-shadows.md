@@ -100,7 +100,7 @@ An opaque sphere is projected by parallel light onto a flat screen perpendicular
 
 **Solution:**
 
-1. Look at the sphere along the parallel rays before turning: its outer rim is the same distance from the center in every direction.
+1. Look at the sphere along the parallel rays before turning, and trace its outer rim.
 2. Turn the sphere in place while keeping the screen perpendicular to the rays.
 
 :::try

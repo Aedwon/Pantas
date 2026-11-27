@@ -17,8 +17,6 @@ keyPoints:
 
 The **main idea** is the main point the text makes about its topic. Choose a main idea that covers the whole text and adds no claim the text does not make.
 
-Notice the kind of text. A story may follow events, instructions may follow steps, and an opinion may give a claim with reasons. An explanation may show how or why something happens.
-
 Read: "Many schools now open their libraries on Saturdays. Students use the quiet room to finish projects. Parents can borrow books for younger children. Some libraries also offer free tutoring."
 
 What is the main idea?
@@ -48,9 +46,8 @@ Read: "The town hall made its parking lot safer. It painted the walking paths ye
 Which detail supports the main point: "Walking paths are painted yellow" or "Parking is now free"?
 
 1. The main point is in the first line: "made its parking lot safer."
-2. "Painted the walking paths yellow" is stated, and it is a safety change.
-3. "Parking is now free" appears nowhere in the text.
-4. The supporting detail is that the walking paths are painted yellow.
+2. "Parking is now free" appears nowhere in the text.
+3. "Painted the walking paths yellow" is stated and is a safety change, so it is the supporting detail.
 
 :::pair #claim-not-in-text
 Right: "Put up a sign that reads 'Slow down.'"
@@ -72,21 +69,21 @@ Read: "Many offices use digital forms. These forms reduce repeated handwriting a
 
 What is the main idea?
 
-(A) Handwriting is always slow.
+(A) Many offices use digital forms.
 
 (B) Digital forms can make office work easier.
 
-(C) Every department uses the same form.
+(C) Digital forms can be sent quickly between departments.
 
-(D) Paper records should never be used.
+(D) Digital forms reduce repeated handwriting.
 
 **Solution:**
 
 1. The details are "reduce repeated handwriting," "easier to store" and "sent quickly between departments."
 2. All three are benefits of digital forms.
-3. (B) covers all three benefits. (A), (C) and (D) each add a claim no line makes.
+3. The main idea is (B): digital forms can make office work easier. (A) names only the topic, and (C) and (D) each give one benefit.
 
-**Check:** Say the point in your own words: digital forms help. That matches (B).
+**Check:** Test (C) and (D) against the other details. Each leaves out two of the three benefits, and only (B) covers all of them.
 
 ### #2: Main Point in a Story
 
@@ -123,11 +120,11 @@ What is the main idea?
 2. The second detail is the Saturday craft fair.
 
 :::try
-Finish the last step: which choice covers all the details and adds no claim?
+Finish the last step: which choice covers the details that develop the main point?
 :::answer
-The answer is (B). It covers the shops and the fair. (A) and (D) each give one detail, and (C) is a line that supports neither.
+The answer is (B): new shops and a weekly fair have brought life back to the old ferry terminal. (A) and (D) each give one detail, and (C), the clock, supports neither.
 
-**Check:** Test (B) against each detail. All fit it. Each other choice leaves out a detail or is off the point.
+**Check:** Test (B) against the shops and the fair. Both are new life in the terminal, so both fit. The wrong clock shows no new life, so it is off the point.
 :::
 
 ## Speed Tricks & Shortcuts

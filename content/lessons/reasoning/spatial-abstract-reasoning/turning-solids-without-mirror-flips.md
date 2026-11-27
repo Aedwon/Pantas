@@ -69,9 +69,9 @@ View II (square, circle, triangle) reverses the cycle to circle, triangle, squar
 :::
 
 :::check
-Viewed from outside toward a corner, three faces read clockwise as A, B, C. After a turn, which clockwise list is possible: B, C, A or B, A, C?
+Viewed from outside toward a corner, three faces read clockwise as star, heart, moon. After a turn, the reading starts at the heart. Which list is possible: heart, star, moon or heart, moon, star?
 :::answer
-The answer is **B, C, A**. Starting at A in B, C, A reads A, B, C clockwise, while B, A, C reverses the cycle.
+The answer is **heart, moon, star**. Moon follows heart in the original cycle, while heart, star, moon reverses it.
 :::
 
 ## Examples

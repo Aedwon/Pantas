@@ -32,9 +32,9 @@ Taking a side can still be fair when backed by facts. Bias appears in unsupporte
 :::
 
 :::check
-A newsletter says, "The new canteen manager is a hero, and the old manager was a clueless disaster." It gives no sales or complaint records. What shows bias?
+A newsletter says the new canteen manager "cut waste with pride," while the old manager "let waste pile up through neglect." The records show the same waste totals for both. What shows bias?
 :::answer
-The answer is **It praises one manager and insults the other with no evidence.** Name-calling without records favors the new manager unfairly.
+The answer is **It uses warm words for one manager and harsh words for the other, for the same facts.** The unequal wording favors the new manager unfairly.
 :::
 
 ### One-Sided Evidence and One-Sided Sources
@@ -55,9 +55,9 @@ Comparing records can support a fair choice. Bias comes from showing only wins f
 :::
 
 :::check
-A report on a proposed market fee quotes three vendors and three shoppers. The group that wants the fee dropped chose all six speakers, and every quote is accurate. What creates the bias?
+A report says "riders love the new bus route." Its survey was handed out only at stops on the new route, and every answer is recorded accurately. What creates the bias?
 :::answer
-The answer is **One side chose the speakers.** Equal numbers and accurate quotes cannot balance a list that only one side picked.
+The answer is **The survey reached only people who already use the route.** Accurate answers cannot balance a sample that left out one side.
 :::
 
 ### Rewriting a Biased Phrase into Neutral Words
@@ -89,7 +89,9 @@ The answer is **"Landlords Raise Monthly Rents."** It states the event without n
 Passage: "Only a careless manager would reject our plan. It is clearly the sensible choice." The writer offers zero facts about benefits or drawbacks. Which feature suggests bias?
 
 (A) The passage states a conclusion.
+
 (B) The writer insults those who disagree instead of supporting the plan.
+
 (C) The passage discusses a manager's decision.
 
 **Solution:**
@@ -114,23 +116,23 @@ A report states, "Our favored supplier is clearly the only sensible choice." It 
 
 ### #3: Fixing a Biased Notice
 
-A barangay bulletin calls a curfew rule "a smart rule for decent families." Which revision best removes bias while keeping the subject?
+A barangay bulletin calls a waste rule "the overdue rule that finally makes lazy neighbors sort." Which revision best removes bias while keeping the subject?
 
-(A) A long-needed curfew rule for the barangay
+(A) The overdue rule on sorting waste
 
-(B) A proposed curfew rule for responsible families
+(B) The rule that makes neighbors sort waste or pay a fine
 
-(C) A proposed curfew rule for families
+(C) The rule on sorting waste in the barangay
 
 **Solution:**
 
-1. Biased words: "smart" pushes praise, and "decent" flatters supporters.
-2. Drop (A): "long-needed" adds an unsupported positive claim.
+1. Biased words: "overdue" pushes praise, and "lazy" insults neighbors.
+2. Drop (A): "overdue" keeps an unsupported positive claim.
 
 :::try
 Finish the last step: compare (B) and (C) to choose the best revision.
 :::answer
-The answer is **(C) A proposed curfew rule for families.** Choice (B) still praises some families as "responsible," whereas (C) states only what the rule is and whom it serves.
+The answer is **(C) The rule on sorting waste in the barangay.** Choice (B) drops the loaded words but adds a fine the bulletin never mentioned, whereas (C) states only what the rule is about.
 
 **Check:** Both supporters and critics can agree on (C) as a factual description.
 :::

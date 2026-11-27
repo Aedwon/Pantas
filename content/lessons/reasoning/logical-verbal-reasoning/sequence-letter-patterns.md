@@ -30,9 +30,9 @@ Counting from $A=0$ shifts every letter up by $1$ and turns $21$ into $V$. Alway
 :::
 
 :::check
-Using $A=1$ through $Z=26$, find the next letter in $D, H, L, P, \ldots$
+Using $A=1$ through $Z=26$, find the next letter in $C, G, K, O, \ldots$
 :::answer
-The answer is **$T$**. The positions are $4, 8, 12, 16$, so add $4$ to reach position $20$, which is $T$.
+The answer is **$S$**. The positions are $3, 7, 11, 15$, so add $4$ to reach position $19$, which is $S$.
 :::
 
 ### Wraparound Patterns
@@ -55,9 +55,9 @@ Counting $F$ itself as step $1$ stops early at $H$, while adding an extra step d
 :::
 
 :::check
-Using wraparound after $Z$, find the next letter in $U, X, A, D, \ldots$
+Using wraparound after $Z$, find the next letter in $T, X, B, F, \ldots$
 :::answer
-The answer is **$G$**. Each step adds $3$ ($21, 24, 1, 4$), so $4+3=7$, which is $G$.
+The answer is **$J$**. Each step adds $4$ ($20, 24, 2, 6$), so $6+4=10$, which is $J$.
 :::
 
 ### Word-Group and Spelling Patterns
@@ -77,9 +77,9 @@ Seeing two $J$s in a row looks like a repeating letter rule, but the list follow
 :::
 
 :::check
-Find the next letter in $S, M, T, W, T, \ldots$
+Find the next letter in $M, V, E, M, J, \ldots$
 :::answer
-The answer is **$F$**. These are the first letters of days from Sunday to Thursday, so Friday ($F$) comes next.
+The answer is **$S$**. These are the first letters of the planets from the sun: Mercury, Venus, Earth, Mars, Jupiter. Saturn ($S$) comes next.
 :::
 
 ## Examples

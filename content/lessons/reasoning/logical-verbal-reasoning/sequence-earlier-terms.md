@@ -36,9 +36,9 @@ Two-term addition is more common, so it is easy to use by habit. Check whether t
 :::
 
 :::check
-Each term after the first two is twice the previous term minus the one before that. Find the next term in $2, 5, 8, 11, \ldots$
+Each term after the first two is twice the previous term plus the one before that. Find the next term in $1, 2, 5, 12, \ldots$
 :::answer
-The answer is $14$. Twice $11$ minus $8$ is $22-8=14$.
+The answer is $29$. Twice $12$ plus $5$ is $24+5=29$.
 :::
 
 ### Fibonacci Addition Pattern
@@ -62,9 +62,9 @@ When a pattern is easy to continue in your head, it is easy to jump past the fir
 :::
 
 :::check
-Find the next term in this Fibonacci-type sequence: $2, 4, 6, 10, 16, \ldots$
+Find the next term in $4, 3, 7, 10, 17, \ldots$
 :::answer
-The answer is $26$. Add the last two shown terms: $10+16=26$.
+The answer is $27$. Each term after the first two is the sum of the two before it, so $10+17=27$.
 :::
 
 ## Examples

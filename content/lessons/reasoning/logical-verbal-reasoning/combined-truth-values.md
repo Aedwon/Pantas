@@ -31,9 +31,9 @@ The wrong line flips $P$ once and stops. Each $\neg$ flips the value once, so tw
 :::
 
 :::check
-If $P$ is true, evaluate $\neg P$ and $\neg\neg P$, in that order.
+If $P$ is true, evaluate $\neg P$, $\neg\neg P$, and $\neg\neg\neg P$, in that order.
 :::answer
-The answer is **$(F, T)$**. The first $\neg$ flips $T$ to $F$, and the second flips $F$ back to $T$.
+The answer is **$(F, T, F)$**. Each $\neg$ flips the value once: $T$ becomes $F$, then $T$, then $F$.
 :::
 
 ### Working Inside Out with Parentheses

@@ -86,15 +86,15 @@ Swapping *rejected* and *accepted* checks the wrong starting group.
 :::
 
 :::check
-Which is the negation of "No Grade 6 pupil has a library card"?
+Which is the negation of "Every Room 4 student passed the quiz"?
 
-(A) At least one Grade 5 pupil has a library card.
+(A) At least one Room 4 student passed.
 
-(B) Every Grade 6 pupil has a library card.
+(B) At least one Room 5 student did not pass.
 
-(C) At least one Grade 6 pupil has a library card.
+(C) At least one Room 4 student did not pass.
 :::answer
-The answer is **(C)**. *No* negates to *at least one* for the same group. (A) switches to Grade 5, and (B) goes too far.
+The answer is **(C)**. *Every* negates to *at least one does not* for the same group. (A) stays true when all pass, and (B) switches to Room 5.
 :::
 
 ## Examples
@@ -104,7 +104,9 @@ The answer is **(C)**. *No* negates to *at least one* for the same group. (A) sw
 Argument: "Every regional office must handle online forms. We can start today because all regional offices can process them." Which statement negates that assumption?
 
 (A) No regional office can process online forms.
+
 (B) At least one regional office cannot process online forms.
+
 (C) Some regional offices can process online forms.
 
 **Solution:**
@@ -121,7 +123,9 @@ Argument: "Every regional office must handle online forms. We can start today be
 A team assumes, "Some evening-shift staff hold a first-aid certificate." Which finding makes that false?
 
 (A) Not every evening-shift staff member holds a certificate.
+
 (B) At least one day-shift staff member holds a certificate.
+
 (C) No evening-shift staff member holds a certificate.
 
 **Solution:**

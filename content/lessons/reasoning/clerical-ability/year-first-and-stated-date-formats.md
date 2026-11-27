@@ -37,9 +37,9 @@ In $\text{YYYY-MM-DD}$, the middle two digits are always the month and the last 
 :::
 
 :::check
-In $\text{YYYY-MM-DD}$ format, what calendar date is $2025\text{-}08\text{-}06$?
+In $\text{YYYY-MM-DD}$ format, which date is newer: $2025\text{-}11\text{-}04$ or $2025\text{-}04\text{-}11$?
 :::answer
-The answer is **August $6$, $2025$**. The year is $2025$, the middle number $08$ is August, and the last number $06$ is day $6$.
+The answer is **$2025\text{-}11\text{-}04$**. Both are in $2025$. The middle number is the month, so $11$ (November) is later than $04$ (April).
 :::
 
 ### Using the Stated Date Format and Direction

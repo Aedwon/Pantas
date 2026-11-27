@@ -1,0 +1,51 @@
+{
+  "lesson-comprehension-skills-paksa-at-pangunahing-ideya": {
+    "paksa-hindi-buong-ideya": [
+      {"questionId": "q-comprehension-skills-main-idea-0017", "wrongChoice": "Tumutulong ang malinaw na tungkulin sa pagpapatuloy ng gawain.", "mistakeNote": "A full statement about the topic was chosen when only the topic name was asked."}
+    ],
+    "detalye-hindi-pangunahing-ideya": [
+      {"questionId": "q-comprehension-skills-main-idea-0016", "wrongChoice": "Ang pinakamahalagang layunin ng hardin ay ang pagdami ng talaan.", "mistakeNote": "A tool (the record) was made the main goal instead of the whole passage's point."}
+    ]
+  },
+  "lesson-comprehension-skills-balangkas-at-ugnayan": {
+    "detalye-bilang-pamagat": [
+      {"questionId": "q-comprehension-skills-main-idea-0021", "wrongChoice": "Paglalagay ng pisara: pagbabago ng tanggapan at hiwalay na mesa.", "mistakeNote": "One detail (the board) was made the main idea of the outline."}
+    ],
+    "dito-ay-bunga": [
+      {"questionId": "q-comprehension-skills-main-idea-0022", "wrongChoice": "Ipinapakilala nito ang sanhi ng unang pagtatayo ng tanggapan.", "mistakeNote": "A sentence starting with Dahil dito gives a result, but was read as a cause."}
+    ],
+    "hindi-ayon-sa-oras": [
+      {"questionId": "q-comprehension-skills-main-idea-0022", "wrongChoice": "Inilalarawan nito ang pangyayaring naganap bago ang lahat ng pagbabago.", "mistakeNote": "The result sentence was placed before the changes, as if paragraph order were event order."}
+    ]
+  },
+  "lesson-comprehension-skills-hinuha-mula-sa-detalye": {
+    "hinuha-na-walang-batayan": [
+      {"questionId": "q-comprehension-skills-inferencing-and-conclusions-0023", "wrongChoice": "Palitan ang lahat ng kawani na sumasagot sa mga tanong.", "mistakeNote": "Adds a decision about staff that no detail in the passage supports."}
+    ],
+    "hinuha-na-lampas-sa-teksto": [
+      {"questionId": "q-comprehension-skills-inferencing-and-conclusions-0024", "wrongChoice": "Hindi na kailanman mangangailangan ng tulong ang mga bisita.", "mistakeNote": "Stretches 'more visitors' to 'never' beyond what the text says."}
+    ],
+    "isang-detalye-lamang": [
+      {"questionId": "q-comprehension-skills-inferencing-and-conclusions-0024", "wrongChoice": "Ang talaan ng silid ay inilagay sa tabi ng pasukan.", "mistakeNote": "A true detail chosen as the implied main idea, but it covers only one part of the passage."}
+    ]
+  },
+  "lesson-comprehension-skills-paghatol-at-ebidensya": {
+    "hindi-sakop-ng-pagsubok": [
+      {"questionId": "q-comprehension-skills-inferencing-and-conclusions-0025", "wrongChoice": "Napatunayan ang pakinabang para sa bawat bago at sanay na kawani.", "mistakeNote": "Extends a result from experienced staff only to new staff who were not tested."}
+    ],
+    "kulang-hindi-walang-bisa": [
+      {"questionId": "q-comprehension-skills-inferencing-and-conclusions-0025", "wrongChoice": "Napatunayang walang pakinabang ang mga bagong lalagyan.", "mistakeNote": "Limited evidence was read as proof of no benefit."}
+    ],
+    "iisang-sanhi": [
+      {"questionId": "q-comprehension-skills-inferencing-and-conclusions-0026", "wrongChoice": "Ang mga lalagyan lamang ang maaaring sanhi ng mas maayos na trabaho.", "mistakeNote": "Names one cause although another change (staff experience) happened at the same time."}
+    ]
+  },
+  "lesson-comprehension-skills-filipino-meaning-clues": {
+    "ugaling-hindi-ipinakita": [
+      {"questionId": "q-comprehension-skills-context-clues-in-passages-0024", "wrongChoice": "mahigpit sa paniningil ng utang", "mistakeNote": "A trait the passage never shows was chosen because receipts relate to payment."}
+    ],
+    "literal-lamang": [
+      {"questionId": "q-comprehension-skills-context-clues-in-passages-0025", "wrongChoice": "ginamitan ng pang-ayos ng buhok", "mistakeNote": "Only the literal meaning of suyod (hair comb) was used; envelopes are being searched, not hair."}
+    ]
+  }
+}

@@ -69,7 +69,7 @@ Choose the verb: "My cousins ______ in Davao." *(live / lives)*
 
 Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. Verbs about a plan or a choice, such as *hope*, usually work the same way. The **base form** is the plain form, such as *go*, *leave*, or *talk*.
 
-Use *enjoy reading*, with an *-ing* form. Verbs such as *enjoy* and *avoid* usually work this way. Learn each verb together with its pattern. A pattern that fits *want* may not fit *enjoy*.
+Use *enjoy reading*, with an *-ing* form. Verbs about liking, avoiding or completing an action, such as *enjoy* and *avoid*, usually work this way. Learn each verb together with its pattern. A pattern that fits *want* may not fit *enjoy*.
 
 Let's fill the blanks in "Mina wants ______ early, but she enjoys ______ with her coworkers." *(leave, talk)*
 
@@ -81,7 +81,7 @@ Mina wants to leave early, but she enjoys talking with her coworkers.
 :::pair #verb-pattern
 Right: The interns want to join the team.
 Wrong: The interns want joining the team.
-*Want* takes *to* plus the base verb. It does not take an *-ing* form.
+*Want* meaning wish to do something takes *to* plus the base verb, not an *-ing* form.
 :::
 
 :::check
@@ -111,7 +111,7 @@ Choose the best completion: "Yesterday, the committee ______ the proposal after 
 
 Choose **(C) approved**: "Yesterday, the committee approved the proposal after months of review."
 
-**Check:** *Approval* is a noun and *approving* has no helping verb, so neither can be the main verb.
+**Check:** Read it whole: *approved* matches *yesterday*, while *approve* is present and *approval* and *approving* cannot be the main verb.
 
 ### #2: A Supply Cabinet
 
@@ -132,7 +132,7 @@ Choose the best completion: "Each evening, the nurses ______ the supply cabinet.
 
 Choose **(B)**: "Each evening, the nurses check the supply cabinet."
 
-**Check:** Read the subject and verb alone: "The nurses check." *Check* fits a plural subject.
+**Check:** Read it whole: "Each evening, the nurses check the supply cabinet." *Check* fits the plural *nurses*, and *has checked* does not fit the routine.
 
 ### #3: A Kitchen Plan
 
@@ -154,9 +154,9 @@ Choose the correct pair: "The cooks hope ______ the soup early, and they finish 
 :::try
 Finish the last step: which choice gives the form that follows *finish*?
 :::answer
-The answer is **(D) to serve, preparing**: "The cooks hope to serve the soup early, and they finish preparing the rice by noon." *Finish* works like *enjoy* and *avoid*, so it takes an *-ing* form, *preparing*.
+The answer is **(D) to serve, preparing**: "The cooks hope to serve the soup early, and they finish preparing the rice by noon." *Finish* is about completing an action, like *enjoy* and *avoid*, so it takes an *-ing* form, *preparing*.
 
-**Check:** Read it back. "Finish preparing the rice" sounds right. "Finish to prepare the rice" does not.
+**Check:** Read the wrong form in full: "The cooks hope to serve the soup early, and they finish to prepare the rice by noon" sounds wrong, so (D) stands.
 :::
 
 ## Traps to Watch For

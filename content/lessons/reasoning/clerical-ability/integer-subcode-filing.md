@@ -53,9 +53,9 @@ A $3$-digit suffix runs up to $999$, so adding $1$ to $099$ makes $100$ inside t
 :::
 
 :::check
-A registry treats each part of a dotted code as an integer subcode in ascending order. Which comes first: $14.3$ or $14.012$?
+A registry treats each part of a dotted code as an integer subcode in ascending order. Which comes last: $14.20$, $14.3$, or $14.015$?
 :::answer
-The answer is **$14.3$**. Both codes tie on $14$, and for the second integer subcode, $3$ is smaller than $12$.
+The answer is **$14.20$**. All three tie on $14$. The second integer subcodes are $20$, $3$, and $15$, and $20$ is the largest.
 :::
 
 ## Examples

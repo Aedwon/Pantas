@@ -29,9 +29,9 @@ Track one visual feature at a time from left to right:
 Check that your rule works on every shown step before picking an answer. For a figure with $2$, $4$, and $6$ dots, each step adds $2$ dots, so the next figure has $8$ dots.
 
 :::check
-A series shows squares with $1$, $3$, and $5$ dots, and the squares also grow larger at each step. How many dots belong in the fourth square?
+A series shows circles with $10$, $7$, and $4$ dots, and the circles also turn darker at each step. How many dots belong in the fourth circle?
 :::answer
-The answer is **$7$ dots**. Tracking dot count alone gives $1, 3, 5$, which adds $2$ dots at each step ($5+2=7$).
+The answer is **$1$ dot**. Tracking dot count alone gives $10, 7, 4$, which drops $3$ dots at each step ($4-3=1$).
 :::
 
 ### Counting Sides and Dots

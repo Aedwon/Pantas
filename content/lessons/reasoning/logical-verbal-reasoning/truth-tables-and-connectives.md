@@ -34,9 +34,9 @@ Having $4$ rows is not enough if two rows repeat the same pair. Check each pair 
 :::
 
 :::check
-A list for $P$ and $Q$ shows $(T, T)$, $(T, F)$, $(T, F)$, and $(F, F)$. Which pair is missing?
+A list for $P$ and $Q$ shows only three rows: $(T, T)$, $(F, T)$, and $(F, F)$. Which pair is missing?
 :::answer
-The answer is **$(F, T)$**. The pair $(T, F)$ appeared twice and took the place of $(F, T)$.
+The answer is **$(T, F)$**. Each of the three rows is different, and $(T, F)$ is the only one of the $4$ pairs not listed.
 :::
 
 ### The And Rule

@@ -54,9 +54,9 @@ A painter paints on canvas, just as a carpenter works on wood. Canvas is a surfa
 :::
 
 :::check
-Complete *telescope : astronomer* as *stethoscope : ______* (*heartbeat*, *hospital*, *doctor*, *clinic*).
+Complete *whistle : referee* as *baton : ______* (*music*, *conductor*, *audience*, *stage*).
 :::answer
-The answer is **doctor**. A telescope is used by an astronomer, and a stethoscope is used by a doctor.
+The answer is **conductor**. A whistle is used by a referee, and a baton is used by a conductor. The audience is a person, but it does not use the baton.
 :::
 
 ### Creator and Work

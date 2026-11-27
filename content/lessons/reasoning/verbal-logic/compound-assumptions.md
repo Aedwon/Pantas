@@ -35,7 +35,7 @@ Why does *and* turn into *or* when negated? If the gate is closed while the vehi
 :::pair #negate-and-with-and
 Right: negating "The loading gate is open and the delivery vehicle is available" gives **The gate is closed or the vehicle is unavailable.**
 Wrong: The gate is closed and the vehicle is unavailable.
-Requiring both failures misses one-part breaks. One failed part already breaks *and*.
+One failed part already breaks *and*.
 :::
 
 :::check
@@ -63,9 +63,15 @@ Keeping *or* leaves one option true (such as in-person delivery). An *or* claim 
 :::
 
 :::check
-"The clinic is open on Saturday or on Sunday or on a holiday." If this is false, what holds?
+"The pool is open on Tuesday or on Thursday or on Saturday." Which finding makes it false?
+
+(A) It is closed on Tuesday and Thursday.
+
+(B) It is closed on Tuesday, Thursday, and Saturday.
+
+(C) It is closed on Saturday.
 :::answer
-The answer is **The clinic is closed on Saturday, on Sunday, and on holidays.** An *or* claim fails only when every part fails, so closing on one or two of those days still leaves it true.
+The answer is **(B)**. An *or* claim fails only when every part fails. In (A) and (C), one open day still keeps the claim true.
 :::
 
 ### Negating Combined Parts Inside And/Or
@@ -86,9 +92,9 @@ With a good battery, one full card, and one card with room, the original still h
 :::
 
 :::check
-What is the negation of "The backup generator starts or at least one solar battery is charged"?
+What is the negation of "The pump runs or at least one of the three valves is open"?
 :::answer
-The answer is **The backup generator does not start, and neither solar battery is charged.** Flip *or* to *and*, and negate "at least one is charged" to "neither is charged."
+The answer is **The pump does not run, and none of the three valves is open.** Flip *or* to *and*, and negate "at least one is open" to "none is open."
 :::
 
 ## Examples

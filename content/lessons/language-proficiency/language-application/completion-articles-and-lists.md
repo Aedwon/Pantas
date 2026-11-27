@@ -84,9 +84,9 @@ The third item changed form. Every item in the list uses *-ing*.
 :::
 
 :::check
-Choose the form: "The course teaches planning, budgeting, and ___." *(negotiate / negotiating / to negotiate)*
+Choose the form: "___, scheduling, and reviewing are the clerk's daily tasks." *(file / filing / to file)*
 :::answer
-*negotiating*. *Planning* and *budgeting* end in *-ing*, so the third item does too: "The course teaches planning, budgeting, and negotiating."
+*filing*. *Scheduling* and *reviewing* end in *-ing*, so the first item does too: "Filing, scheduling, and reviewing are the clerk's daily tasks."
 :::
 
 ## Examples
@@ -110,7 +110,7 @@ Choose the best completion: "The assistant is responsible ______ updating the vi
 
 Choose **(B)**: "The assistant is responsible for updating the visitor log."
 
-**Check:** Try one swap: "responsible of updating the visitor log" is not a standard phrase.
+**Check:** Swap in *of*: "The assistant is responsible of updating the visitor log" is not standard, so *for* stays.
 
 ### #2: Articles and Context
 
@@ -131,7 +131,7 @@ Choose the correct pair: "A teacher gave Ben a worksheet. He finished ______ wor
 
 Choose **(D)**: "He finished the worksheet before a unit test."
 
-**Check:** Swap the first article: "He finished a worksheet" no longer points to the worksheet already named.
+**Check:** "A worksheet" would mean a new one, not Ben's. Say "an unit": it sounds wrong, so *a unit* stays.
 
 ### #3: A Club List
 
@@ -155,7 +155,7 @@ Finish the last step: which choice matches the first two items?
 :::answer
 The answer is **(B) raise**: "The club needs members who can plan events, write reports, and raise money."
 
-**Check:** Each item fits after *can*: *can plan, can write, can raise*.
+**Check:** Put *raising* in the blank: "can plan events, write reports, and raising money" breaks the pattern, so (B) stands.
 :::
 
 ## Traps to Watch For

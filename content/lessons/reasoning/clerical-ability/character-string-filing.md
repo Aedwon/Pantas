@@ -68,9 +68,9 @@ Why does $\text{M-40}$ come before $\text{M-5}$ even though $\text{M-40}$ is lon
 :::
 
 :::check
-Under ascending character-string order where shorter matching strings come first, arrange $\text{B-30}$, $\text{B-3}$, and $\text{B-4}$.
+Under ascending character-string order where shorter matching strings come first, arrange $\text{KD-60}$, $\text{KD-6}$, and $\text{KB-7}$.
 :::answer
-The answer is **$\text{B-3}$, $\text{B-30}$, $\text{B-4}$**. $\text{B-3}$ ends before $\text{B-30}$, and both have $3$ at position $3$ before $\text{B-4}$'s $4$.
+The answer is **$\text{KB-7}$, $\text{KD-6}$, $\text{KD-60}$**. Position $2$ puts $B$ before $D$, so $\text{KB-7}$ is first. Then $\text{KD-6}$ ends before $\text{KD-60}$.
 :::
 
 ## Examples

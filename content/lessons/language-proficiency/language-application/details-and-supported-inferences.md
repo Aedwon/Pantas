@@ -24,7 +24,7 @@ On which day is a book returned at 4 p.m. on Thursday counted?
 
 1. The line that fits is "Books returned after 3 p.m. will be counted on Friday."
 2. 4 p.m. is after 3 p.m., so the book is in that group.
-3. The line gives the day: Friday.
+3. A book returned at 4 p.m. on Thursday is counted on Friday.
 
 :::pair #wrong-day
 Right: "Sign-up ends on Wednesday. Results will be posted on Friday." The results are posted on Friday.
@@ -35,7 +35,7 @@ Wednesday is in the text, but it belongs to the sign-up. The line about the resu
 :::check
 Read: "The clinic sees walk-in patients until 4 p.m. Patients with appointments are seen until 5 p.m." A patient without an appointment arrives at 4:30 p.m. Will the clinic see the patient?
 :::answer
-The answer is no. The line says walk-in patients are seen until 4 p.m., and 4:30 is later.
+No, the clinic will not see the patient. The line says walk-in patients are seen until 4 p.m., and 4:30 is later.
 :::
 
 ### Supported Inferences
@@ -61,9 +61,9 @@ The text never says she found a mistake. Checking something does not mean findin
 :::
 
 :::check
-Read: "Rita hung her dripping coat on the hook and shook out her umbrella. Drops ran down the window behind her." What can be inferred about the weather?
+Read: "Rita hung her dripping coat on the hook and shook out her umbrella. Drops ran down the window behind her." What weather did Rita most likely just walk through?
 :::answer
-The answer is that it is raining. The dripping coat, the shaken umbrella and the drops on the window all point to rain.
+Rain. The dripping coat and the shaken umbrella show she was just out in rain. The drops on the window do not say whether it is still raining.
 :::
 
 ## Examples
@@ -78,7 +78,7 @@ When will an order placed on Saturday evening be baked?
 
 1. The line that fits is "Orders placed after 2 p.m. will be baked on Monday."
 2. Saturday evening is after 2 p.m., so the order is in that group.
-3. The line gives the day: Monday.
+3. An order placed on Saturday evening will be baked on Monday.
 
 **Check:** "The phone line will stay open" says how orders can be placed. It does not say when they are baked.
 
@@ -118,9 +118,9 @@ Which statement is best supported?
 :::try
 Finish the last step: test each choice against these two clues. Which choice do they support?
 :::answer
-The answer is (A). A line that reaches the corner shows many people used the side door. No line mentions the width of the door, closing early, or noon.
+The answer is (A): many people used the side door that morning. A line that reaches the corner shows it.
 
-**Check:** Cover the choices and say what the clues show: many people used the side door. That matches (A).
+**Check:** Test (D). The sign shows the east entrance was blocked, but no clue says when it reopens, so (D) is only a guess.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -38,9 +38,15 @@ Replies from volunteers cannot speak for silent staff. Keep the claim inside the
 :::
 
 :::check
-A log shows customers used English and Filipino, with no first-language data. Does the log prove that most customers used their first language?
+A counter log shows some customers used English and some used Filipino. Which claim does the log support?
+
+(A) Most customers used their first language.
+
+(B) Both languages were used at the counter.
+
+(C) English was used more often than Filipino.
 :::answer
-The answer is **no (the log does not tell us)**. The same log could happen if everyone used a first language or if nobody did.
+The answer is **(B)**. The log shows both languages in use. It has no first-language data for (A) and no counts for (C).
 :::
 
 ### Checking What the Count Actually Measures
@@ -71,8 +77,6 @@ The answer is **yes**. The dog got $55$ of $100$ forms, which is over half ($50$
 
 ### Avoiding Unmeasured Explanations and Combined Totals
 
-Never predict untested equal-access results or averages across unknown group sizes.
-
 Supported claim: "A school stocked more print than audio copies of a story, and print had more checkouts."
 
 - Recorded fact: **Print copies had more recorded loans.**
@@ -85,9 +89,15 @@ You cannot predict choices under equal supply when access was unequal. Report on
 :::
 
 :::check
-Ana's pupils did better on short tests and Ben's on long tests, with no test counts. Does that prove Ana's did better overall?
+Ana's pupils did better on short tests, Ben's on long tests. Which claim is supported?
+
+(A) Ana's pupils did better overall.
+
+(B) Ben's pupils did better overall.
+
+(C) The better group depended on test length.
 :::answer
-The answer is **no (the records do not tell us)**. Depending on how many tests of each length were taken, either group could lead overall.
+The answer is **(C)**. Each group led on one kind of test. Overall, either group could lead, depending on how many tests of each length were taken.
 :::
 
 ## Examples
@@ -97,7 +107,9 @@ The answer is **no (the records do not tell us)**. Depending on how many tests o
 A branch tested appointments on several mornings. On those mornings, appointment visitors waited less than walk-ins. No cause was given. Which conclusion is best supported?
 
 (A) Appointments will remove waiting time at every branch.
+
 (B) Having an appointment appears to be linked with shorter waits at the branch during the test.
+
 (C) Walk-in visitors caused the branch's delays.
 
 **Solution:**
@@ -116,7 +128,7 @@ A plant trialed two fruit crates. Slotted crates had less damage on long routes;
 **Solution:**
 
 1. Split the evidence: long routes favor slotted crates; short routes favor solid crates.
-2. Reject any claimed overall winner or tie: an overall comparison needs both damage rates and sample sizes for each route group (even equal group weights allow unequal damage totals).
+2. Reject any claimed overall winner or tie: an overall comparison needs both damage rates and sample sizes for each route group.
 3. Conclusion: **The better crate differed by route length.**
 
 **Check:** Opposite winners on the two route lengths directly establish that the better crate depended on route length.
@@ -129,7 +141,7 @@ Before a later-hours trial, several workers arrived after closing. During the tr
 
 (B) Later hours help some workers read more books.
 
-(C) Later hours help some workers use the library.
+(C) Some workers used the library during the added hours.
 
 **Solution:**
 
@@ -139,9 +151,9 @@ Before a later-hours trial, several workers arrived after closing. During the tr
 :::try
 Finish the last step: compare (B) and (C) against what the trial actually measured.
 :::answer
-The answer is **(C) Later hours help some workers use the library.** The trial saw those workers use the library during the added hours, whereas (B) adds book counts nobody measured.
+The answer is **(C) Some workers used the library during the added hours.** The trial saw exactly that. Choice (B) adds book counts nobody measured.
 
-**Check:** Those added evening and weekend hours were unavailable before the trial, and both "some workers" and "use the library" match the exact trial observations.
+**Check:** Those added evening and weekend hours were unavailable before the trial, and "some workers" and "during the added hours" match the exact trial observations.
 :::
 
 ## Speed Tricks & Shortcuts

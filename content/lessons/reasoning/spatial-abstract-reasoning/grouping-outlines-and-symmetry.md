@@ -46,9 +46,9 @@ Why check side count before proportions? Turning or stretching a $4$-sided shape
 :::
 
 :::check
-Four outlines are shown: a kite, a square, a trapezoid, and an octagon. Grouped by side count, which outline does not belong?
+Four outlines are shown: a pentagon, a trapezoid, a hexagon, and an oval. Grouped by straight versus curved edges, which outline does not belong?
 :::answer
-The answer is the **octagon**. The kite, square, and trapezoid each have $4$ sides, while the octagon has $8$ sides.
+The answer is the **oval**. The pentagon, trapezoid, and hexagon use only straight sides, while the oval has a curved edge.
 :::
 
 ### Testing Reflection Symmetry
@@ -71,9 +71,9 @@ A corner dot keeps symmetry along the diagonal through that corner and the cente
 :::
 
 :::check
-Four figures are shown: a rectangle with two pairs of equal sides, an isosceles triangle with two equal sides, a regular hexagon with six equal sides, and a triangle with no equal sides. Which figure has no reflection axis?
+Four figures are shown: a square, a regular pentagon, an isosceles triangle, and a slanted parallelogram (not a rectangle or a rhombus). Which figure has no reflection axis?
 :::answer
-The answer is the **triangle with no equal sides**. With all three sides unequal, no fold line makes matching halves.
+The answer is the **slanted parallelogram**. Its opposite sides match, but folding it along a vertical, horizontal, or diagonal line never gives matching halves.
 :::
 
 ## Examples

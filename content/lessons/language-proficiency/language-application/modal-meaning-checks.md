@@ -25,13 +25,13 @@ Common matches between modal and meaning:
 - **Possibility:** *might* or *may* ("It **might** rain tomorrow.")
 
 :::why
-Why do policy and forecast items test *must* against *might*? Both take the exact same base verb after them, so grammar alone cannot pick the winner. Only the clue in the sentence (*under this policy* versus *only a possibility*) tells them apart.
+Why do policy and forecast items test *must* against *might*? Both take the exact same base verb after them, so grammar alone cannot pick the winner. Only the clue in the sentence (*a policy that requires the action* versus *only a possibility*) tells them apart.
 :::
 
 :::pair #modal-meaning
 Right: "Under this policy, staff must register visitors at reception."
 Wrong: "Under this policy, staff might register visitors at reception."
-Here *might* shows only possibility. A rule or policy calls for *must*.
+Here *might* shows only possibility. A policy that requires the action calls for *must*.
 :::
 
 :::check
@@ -44,7 +44,7 @@ Choose the modal that fits: After months of practice, Ben *(can / must)* now pla
 
 ### After a Modal
 
-A **base verb** is the plain verb with no *to* and no endings like *-s*, *-ed*, or *-ing* (*register, arrive, leave*). Core modals such as *can, may, must, might, could, should* take the bare base verb directly, even when the subject is singular (*She must register*, not *must registers*).
+A **base verb** is the plain verb with no *to* and no endings like *-s*, *-ed*, or *-ing* (*register, arrive, leave*). Core modals such as *can, may, must, might, could, should* are followed by the bare base verb, even when the subject is singular (*She must register*, not *must registers*).
 
 :::pair #modal-plus-to
 Right: "The delayed shipment might arrive tomorrow."

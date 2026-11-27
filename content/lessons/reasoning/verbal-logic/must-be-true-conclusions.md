@@ -55,9 +55,9 @@ Being outside the supervisor group does not deny the degree. The rule places no 
 :::
 
 :::check
-"All riders taller than $120$ cm are let in. Rico is $130$ cm." Must a rider exactly $120$ cm be allowed in?
+"All riders aged $12$ and under ride free. Lani is $9$." Must a $12$-year-old rider ride free?
 :::answer
-The answer is **no**. The rule covers heights strictly *above* $120$ cm, leaving $120$ cm outside the guarantee.
+The answer is **yes**. The cutoff words "and under" include $12$ itself, so the rule covers a $12$-year-old.
 :::
 
 ### Reading "Some" Without Adding Exceptions
@@ -80,9 +80,9 @@ Everyday speech hints "only some," yet logic's *some* allows *all*. Never add an
 :::
 
 :::check
-"Some books on the top shelf are dictionaries." Must at least one book on the top shelf not be a dictionary?
+"Every dictionary in the library is a reference book. Some reference books are on the top shelf." Must some dictionaries be on the top shelf?
 :::answer
-The answer is **no**. *Some* means at least one, so every book on that shelf could be a dictionary.
+The answer is **no**. *Some* means at least one, so the reference books on the top shelf could all be atlases.
 :::
 
 ## Examples

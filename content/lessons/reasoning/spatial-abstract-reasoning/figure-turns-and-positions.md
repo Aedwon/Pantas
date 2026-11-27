@@ -33,9 +33,9 @@ Down is a main compass point, so it is tempting to skip the diagonal step. Measu
 :::
 
 :::check
-An arrow points lower-left, then upper-left, then upper-right. What direction comes next?
+An arrow points up, then right, then down. What direction comes next?
 :::answer
-The answer is **lower-right**. Each step turns $90^\circ$ clockwise ($225^\circ, 315^\circ, 45^\circ$), so $45^\circ+90^\circ=135^\circ$ (lower-right).
+The answer is **left**. Each step turns $90^\circ$ clockwise ($0^\circ, 90^\circ, 180^\circ$), so $180^\circ+90^\circ=270^\circ$ (left).
 :::
 
 ### Alternating vs. Continuous Turns
@@ -57,9 +57,9 @@ Checking only two frames makes $90^\circ$ clockwise look certain. Verify your ru
 :::
 
 :::check
-An arrow points left, up, left, up. If you take two more steps in this pattern, which way does the second new arrow point?
+An arrow points left, upper-left, left, upper-left. If you take two more steps in this pattern, which way does the second new arrow point?
 :::answer
-The answer is **up**. One more step goes to left, and the second step goes back to up.
+The answer is **upper-left**. One more step goes back to left, and the second step returns to upper-left.
 :::
 
 ### Moving Details Around a Frame

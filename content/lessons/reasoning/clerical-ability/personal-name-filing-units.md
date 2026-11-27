@@ -42,9 +42,9 @@ The wrong entry uses reading order, starting with the given name. Move the whole
 :::
 
 :::check
-A registry indexes surname, given name, then middle name. How should *Elena Mae Torres* be indexed?
+A registry indexes surname, given name, then middle initial. How should *Paolo R. Dela Rosa* be indexed?
 :::answer
-The answer is **Torres, Elena Mae**. *Torres* is the surname (Unit $1$), *Elena* is the given name (Unit $2$), and *Mae* is the middle name (Unit $3$).
+The answer is **Dela Rosa, Paolo R.** *Dela Rosa* is one surname (Unit $1$), *Paolo* is the given name (Unit $2$), and *R.* is the middle initial (Unit $3$).
 :::
 
 ### Comparing One Unit at a Time
@@ -76,9 +76,9 @@ Wrong: **Caballero, Ana** first because *Ana* comes before *Nora*
 :::
 
 :::check
-Using surname, then given name, which comes first: *Garcia, Nico* or *Garcia, Beth*?
+Using surname, given name, then middle name, which comes first: *Garcia, Nico Perez* or *Garcia, Nico Mendoza*?
 :::answer
-The answer is **Garcia, Beth**. Both share *Garcia*, and *Beth* comes before *Nico*.
+The answer is **Garcia, Nico Mendoza**. Units $1$ and $2$ tie, so Unit $3$ decides: *Mendoza* comes before *Perez*.
 :::
 
 ## Examples

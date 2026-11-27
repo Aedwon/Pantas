@@ -34,9 +34,9 @@ $4$ continues the even track ($10, 8, 6, 4$). Label the blank's position first: 
 :::
 
 :::check
-Find the $7$th term of $20, 2, 18, 5, 16, 8, \ldots$
+Find the $8$th term of $20, 2, 18, 5, 16, 8, 14, \ldots$
 :::answer
-The answer is $14$. The odd positions ($20, 18, 16$) decrease by $2$, so position $7$ is $16-2=14$.
+The answer is $11$. Position $8$ is even. The even positions ($2, 5, 8$) increase by $3$, so position $8$ is $8+3=11$.
 :::
 
 ### Alternating Operations
@@ -75,9 +75,9 @@ Doubling gives most of the jump, so it is easy to stop early. Check both parts o
 :::
 
 :::check
-Find the next term if each step doubles the previous term and subtracts $1$: $3, 5, 9, 17, \ldots$
+One two-operation rule repeats at every step. Find the next term in $2, 4, 10, 28, \ldots$
 :::answer
-The answer is $33$. Double $17$ to get $34$, then subtract $1$ to get $33$.
+The answer is $82$. The rule is "$\times3$, then $-2$": $2\times3-2=4$, $4\times3-2=10$, and $28\times3-2=82$.
 :::
 
 ## Examples

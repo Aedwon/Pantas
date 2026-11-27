@@ -63,9 +63,9 @@ Row and column rules describe the same single cell. Never add both steps togethe
 :::
 
 :::check
-A $3 \times 3$ matrix has squares with $2, 4, 6$ dots in row $1$ and $4, 6, 8$ dots in row $2$. Row $3$ begins with $6$ and $8$ dots. How many dots belong in the blank?
+A $3 \times 3$ matrix has squares with $6, 4, 2$ dots in row $1$ and $7, 5, 3$ dots in row $2$. Row $3$ begins with $8$ and $6$ dots. How many dots belong in the blank?
 :::answer
-The answer is **$10$ dots**. Both row $3$ ($6 \to 8 \to 10$) and column $3$ ($6 \to 8 \to 10$) add $2$ dots per step.
+The answer is **$4$ dots**. Row $3$ drops $2$ per step ($8 \to 6 \to 4$), and column $3$ rises $1$ per step ($2 \to 3 \to 4$).
 :::
 
 ## Examples

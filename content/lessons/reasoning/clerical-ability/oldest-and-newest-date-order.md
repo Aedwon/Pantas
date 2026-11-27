@@ -74,9 +74,9 @@ Why does a calendar compare year, then month, then day? One year holds $12$ mont
 :::
 
 :::check
-In oldest-to-newest order, which date comes first: August $28$, $2024$ or September $2$, $2024$?
+In oldest-to-newest order, which date comes last: November $12$, $2024$, April $3$, $2025$, or January $28$, $2025$?
 :::answer
-The answer is **August $28$, $2024$**. Both dates are in $2024$, and August comes before September.
+The answer is **April $3$, $2025$**. November $2024$ is oldest by year. Both $2025$ dates tie on year, and April comes after January.
 :::
 
 ## Examples

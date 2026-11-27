@@ -64,9 +64,9 @@ Top-right was row $2$'s ending corner, not a column constant. Continue the clock
 :::
 
 :::check
-A $3 \times 3$ grid uses three sizes: row $1$ is small, medium, large; row $2$ is medium, large, small; row $3$ begins large, small. What size belongs in the blank?
+A $3 \times 3$ grid uses circles, triangles, and squares. Row $1$ is a small circle, small triangle, small square. Row $2$ is a medium triangle, medium square, medium circle. Row $3$ begins with a large square and a large circle. What belongs in the blank?
 :::answer
-The answer is **medium**. Each row shifts the cycle one step left, and column $3$ also needs medium after large and small.
+The answer is a **large triangle**. Shape shifts one step left in each row, so row $3$ ends with a triangle. Size grows down the column, so column $3$ ends large.
 :::
 
 ## Examples

@@ -34,9 +34,9 @@ Time order never proves cause. Report sequence ("after") instead of inventing "b
 :::
 
 :::check
-A bakery added a delivery service in June. Its owner wrote in the yearly report, "We started delivery because customers kept asking for it." Is "The bakery started delivery because of customer requests" supported?
+A bakery owner wrote, "Many regulars asked for home delivery, so we began delivering." Which claim is supported: (A) the bakery began delivering to match a rival shop, or (B) it began delivering because regulars asked for it?
 :::answer
-The answer is **yes**. The owner states the reason directly, so the claim does not rest on timing or a guess.
+The answer is **(B)**. The owner states this reason, so it does not rest on timing or a guess. (A) names a reason nobody stated.
 :::
 
 ### Checking Whether Two Changes Happened at Once
@@ -60,9 +60,9 @@ Handing all credit to the second change repeats the same error in reverse. Neith
 :::
 
 :::check
-Section A used a new textbook in the morning and scored higher than Section B, which used the old textbook in the afternoon. Should a follow-up repeat this setup with more sections, or test both textbooks at the same hour?
+Pupils using a new reading app scored higher, but only they also had a tutor that month. Which change best isolates the app: (A) test more pupils the same way, (B) give both groups the tutor, or (C) ask pupils which they prefer?
 :::answer
-The answer is **test both textbooks at the same hour**. Holding the hour fixed isolates the textbook.
+The answer is **(B)**. With the tutor in both groups, the app is the only difference. (A) repeats the mix, and (C) measures opinion, not scores.
 :::
 
 ### Separating Actions from Unstated Motives
@@ -78,9 +78,9 @@ Fear sounds plausible, yet the record gives zero proof of it. State only observe
 :::
 
 :::check
-After a town hall meeting, Mariel took down her proposal poster. Does strong opposition at the meeting prove she changed her mind?
+Lito wrote, "I am leaving the choir because rehearsals clash with my work shift." A friend says Lito left because of the new conductor. Is the friend's claim supported?
 :::answer
-The answer is **no**. Opposition shows what others did, not Mariel's own reason; only direct evidence such as Mariel saying she withdrew support backs that motive.
+The answer is **no**. Lito's note gives a different reason. The claim about the conductor is a guess about Lito's mind, with no direct evidence.
 :::
 
 ## Examples
@@ -90,7 +90,9 @@ The answer is **no**. Opposition shows what others did, not Mariel's own reason;
 Before a branch changed hours, few people arrived early. After it began opening earlier, records showed more early arrivals. No other details were recorded. Which conclusion is best supported?
 
 (A) Opening earlier caused the rise in early visits.
+
 (B) Early-morning visits were higher after the schedule change.
+
 (C) Visitors came earlier because they disliked the old schedule.
 
 **Solution:**
@@ -107,7 +109,9 @@ Before a branch changed hours, few people arrived early. After it began opening 
 Carlo approved a revised schedule after reading staff feedback. No reason is given. Which conclusion is supported?
 
 (A) Carlo approved it because he feared complaints.
+
 (B) Carlo wanted to impress his director.
+
 (C) Carlo approved the revised schedule after reading staff feedback.
 
 **Solution:**
@@ -120,13 +124,13 @@ Carlo approved a revised schedule after reading staff feedback. No reason is giv
 
 ### #3: Reading an Attendance Record
 
-Across observed school days, rainier days had lower attendance than drier days. No causes were tested. Which conclusion is best supported?
+Across observed school days, rainier days had lower attendance than drier days. Which conclusion is best supported?
 
-(A) Rain explains why pupils miss class.
+(A) Attendance was lower on rainier days because rain kept pupils home.
 
 (B) Giving every pupil a raincoat always ends absences.
 
-(C) Attendance was lower on rainier days.
+(C) Pupils attended less often on rainier days than on drier days.
 
 **Solution:**
 
@@ -136,9 +140,9 @@ Across observed school days, rainier days had lower attendance than drier days. 
 :::try
 Finish the last step: compare (A) and (C) against the data.
 :::answer
-The answer is **(C) Attendance was lower on rainier days.** Without causal tests or ruling out other factors, the data show two patterns going together, not the cause that (A) claims.
+The answer is **(C) Pupils attended less often on rainier days than on drier days.** The data show two patterns going together. Choice (A) repeats them but adds a cause the records never tested.
 
-**Check:** "Lower on rainier days" matches "went together in the records" without claiming an untested cause.
+**Check:** (C) matches "went together in the records" without claiming an untested cause.
 :::
 
 ## Speed Tricks & Shortcuts

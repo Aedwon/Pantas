@@ -1,0 +1,26 @@
+{
+  "lesson-comprehension-skills-main-point-and-topic-sentence": {
+    "detail-or-main": [{"questionId": "rc-cs-mi-0010", "wrongChoice": "Community trust and financial discipline help stores survive.", "mistakeNote": "Picks a broad main-idea sentence when asked for a supporting detail."}],
+    "problem-only": [{"questionId": "q-comprehension-skills-main-idea-0018", "wrongChoice": "\"Kapag hindi siya nakadalo, halos walang nakagagawa ng ibang tungkulin.\"", "mistakeNote": "Picks the sentence that names only the original problem as the topic sentence."}]
+  },
+  "lesson-comprehension-skills-implied-main-point": {
+    "unsupported-motive": [{"questionId": "rc-cs-mi-0003", "wrongChoice": "She rejected the original proposals because of severe budget limitations.", "mistakeNote": "Adds a reason no detail gives."}],
+    "one-detail-preference": [{"questionId": "rc-cs-mi-0003", "wrongChoice": "She favors youth athletic activities over local agricultural projects.", "mistakeNote": "Stretches one detail into a preference."}]
+  },
+  "lesson-comprehension-skills-main-idea-scope": {
+    "too-narrow": [{"questionId": "rc-cs-mi-0015", "wrongChoice": "Cleaning Plastic: The Project's Only Environmental Goal", "mistakeNote": "Names one detail and calls it the only goal."}],
+    "too-broad": [{"questionId": "rc-cs-mi-0015", "wrongChoice": "The Complete History of Quezon Fishpond Construction", "mistakeNote": "Covers a much larger subject than the passage."}]
+  },
+  "lesson-comprehension-skills-main-idea-across-paragraphs": {
+    "one-side-only": [{"questionId": "rc-cs-mi-0001", "wrongChoice": "Safe nearby recreation was a need identified by the youth.", "mistakeNote": "Takes one group's supporting point as the whole passage's main idea."}],
+    "detail-as-rule": [{"questionId": "rc-cs-mi-0006", "wrongChoice": "Weekly wholesale buying is the only requirement for survival.", "mistakeNote": "Turns one detail into the only rule."}]
+  },
+  "lesson-comprehension-skills-paragraph-links-and-patterns": {
+    "points-forward": [{"questionId": "q-comprehension-skills-authors-purpose-tone-pov-0021", "wrongChoice": "Visits to collect a completed sample; comparison of two services.", "mistakeNote": "Links the pointing phrase to a later action instead of what came before."}],
+    "pattern-inside": [{"questionId": "q-comprehension-skills-authors-purpose-tone-pov-0021", "wrongChoice": "Visits made after revision of the instructions; cause and effect.", "mistakeNote": "Names a pattern inside the passage instead of the one organizing it."}]
+  },
+  "lesson-comprehension-skills-visual-data-conclusions": {
+    "units-not-counts": [{"questionId": "q-comprehension-skills-inferencing-and-conclusions-0027", "wrongChoice": "2 visitors", "mistakeNote": "Subtracts unit counts and skips the scale."}],
+    "same-morning": [{"questionId": "q-comprehension-skills-inferencing-and-conclusions-0028", "wrongChoice": "Monday and Tuesday", "mistakeNote": "Opens the window on the high days instead of the following morning."}]
+  }
+}

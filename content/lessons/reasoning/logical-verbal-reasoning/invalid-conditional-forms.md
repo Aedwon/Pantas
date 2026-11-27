@@ -40,9 +40,9 @@ Passing is the result ($Q$), not the condition ($P$) after *if*. Confirming $Q$ 
 :::
 
 :::check
-"If a parcel is sent by air, it arrives in two days. Rina's parcel arrived in two days. Therefore, it was sent by air." Is this argument valid?
+"The hall lights came on at six. If the timer is set, the hall lights come on at six. So the timer must be set." Is this argument valid?
 :::answer
-The answer is **no (invalid)**. Arriving in two days is the result ($Q$); a fast courier by road could also deliver in two days.
+The answer is **no (invalid)**. Lights on at six is the result ($Q$); someone could also switch them on by hand.
 :::
 
 ### Denying the Antecedent
@@ -109,7 +109,7 @@ If Leo takes the bus, he will arrive by noon. Leo did not take the bus. Therefor
 
 ### #3: Finding a Counterexample
 
-Given "If a pass is stamped, boarding is allowed," which situation obeys the rule while showing allowed boarding does not guarantee a stamped pass?
+Given "If a pass is stamped, boarding is allowed," a guard says "Everyone who boards has a stamped pass." Which case obeys the rule yet makes the guard wrong?
 
 - Option $1$: Stamped pass, boarding allowed
 - Option $2$: Unstamped pass, boarding forbidden
@@ -123,9 +123,9 @@ Given "If a pass is stamped, boarding is allowed," which situation obeys the rul
 :::try
 Finish the solution: test Options $1$, $2$, and $4$ and pick the answer.
 :::answer
-The answer is **Option $4$: Unstamped pass, boarding allowed**. Option $1$ has a stamp, and Option $2$ forbids boarding, so neither shows boarding allowed without a stamp. In Option $4$ the pass is unstamped, so the rule makes no promise.
+The answer is **Option $4$: Unstamped pass, boarding allowed**. Option $1$ has a stamp, and Option $2$ forbids boarding, so neither is a boarder without a stamp. In Option $4$ the pass is unstamped, so the rule makes no promise.
 
-**Check:** In Option $4$, the unstamped pass leaves "if stamped, then allowed" unbroken (true), while allowing boarding with an unstamped pass breaks "if allowed, then stamped" (false).
+**Check:** In Option $4$, "if stamped, then allowed" stays true, while the guard's "everyone who boards has a stamp" is false.
 :::
 
 ## Speed Tricks & Shortcuts

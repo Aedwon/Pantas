@@ -30,9 +30,9 @@ $7$ is the size of each decrease, not the number that sits in the blank. Always 
 :::
 
 :::check
-Find the missing term in $12, 18, 24, \ldots, 36$.
+Find the missing term in $8, \ldots, 22, 29, 36$.
 :::answer
-The answer is $30$. Each step adds $6$, so $24+6=30$, and $30+6=36$.
+The answer is $15$. The last terms show a step of $+7$, so $8+7=15$, and $15+7=22$.
 :::
 
 ### Constant Ratio
@@ -55,9 +55,9 @@ Gaps stay equal only in arithmetic patterns. Here the ratios stay equal ($\dfrac
 :::
 
 :::check
-Find the next term in $5, 15, 45, 135, \ldots$
+Find the next term in $486, 162, 54, 18, \ldots$
 :::answer
-The answer is $405$. Each term is multiplied by $3$, so $135\times3=405$.
+The answer is $6$. Each term is divided by $3$, so $18\div3=6$.
 :::
 
 ### Changing Differences

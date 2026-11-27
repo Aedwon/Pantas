@@ -34,9 +34,9 @@ Four layers make $4$ separate holes only when the cut touches no crease. Check w
 :::
 
 :::check
-A square is folded once vertically, and a triangle is cut with one whole side right on the vertical fold. How many openings appear when opened, and what shape is it?
+A square is folded once horizontally, and an equilateral triangle is cut with one whole side right on the fold. How many openings appear when opened, and how many sides does each have?
 :::answer
-The answer is **one four-sided opening (a kite)**. The triangle and its mirror copy meet along that shared side on the fold.
+The answer is **one opening with four sides (a rhombus)**. The triangle and its mirror copy meet along the shared side on the fold, and each has $3$ sides, so $3+3-2=4$.
 :::
 
 ### Cuts on One Fold Line in a Multi-Fold Packet
