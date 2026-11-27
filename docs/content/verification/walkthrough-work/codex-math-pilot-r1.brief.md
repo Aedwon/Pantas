@@ -29,7 +29,7 @@ visible. `<!-- ILLUSTRATION -->` markers are drawn figures (`content/illustratio
 order); `<!-- FIGURE WANTED -->` comments are NOT shown, so the text must work without them.
 
 Lead's checks at the target (do not rerun): the app's walk-through parser passes all 10; `lesson_checks.dart` from
-`tools/walkthrough-checks-r1` `861eabf57` reports nothing for them (size at or under 900 pre-tap words, trap-pair evidence,
+`tools/walkthrough-checks-r1` `9cd88773b` reports nothing for them (size at or under 900 pre-tap words, trap-pair evidence,
 example connection, fresh instance, giveaway, slim format, fences, line breaks, block spacing). A blind pre-check (0 Blockers;
 its 6 Majors fixed) and an independent recompute (0 mismatches) ran before this read:
 `docs/content/verification/walkthrough-work/pilot-precheck-findings.md` and `pilot-recompute-findings.md`.
