@@ -157,6 +157,31 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
           style: context.wideWeb ? textStyle : boardText,
           onPressed: () => context.push(route),
         );
+    // One paragraph: the text after the Privacy Policy link continues on the
+    // same line and wraps with the words, as the links sit inline in it.
+    Widget sentence() {
+      final style = context.wideWeb ? textStyle : boardText;
+      WidgetSpan inline(Widget child) => WidgetSpan(
+            alignment: PlaceholderAlignment.baseline,
+            baseline: TextBaseline.alphabetic,
+            child: child,
+          );
+      return Text.rich(
+        TextSpan(
+          style: style,
+          children: [
+            const TextSpan(text: 'I agree to the '),
+            inline(link('Terms of Service', '/legal/terms')),
+            const TextSpan(text: ' and '),
+            inline(link('Privacy Policy', '/legal/privacy')),
+            // The word joiner keeps the comma on the link's line: without it a
+            // line may break between the link and the comma.
+            const TextSpan(text: '\u2060$_acceptanceTail'),
+          ],
+        ),
+      );
+    }
+
     return OnboardingWebPage(
       title: 'Terms and Privacy',
       detail: 'Please review and accept our terms to continue.',
@@ -196,16 +221,7 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                     label: _acceptanceLabel,
                     onChanged: () =>
                         setState(() => _acceptedTerms = !_acceptedTerms),
-                    child: Wrap(
-                      crossAxisAlignment: WrapCrossAlignment.center,
-                      children: [
-                        plain('I agree to the '),
-                        link('Terms of Service', '/legal/terms'),
-                        plain(' and '),
-                        link('Privacy Policy', '/legal/privacy'),
-                        plain(_acceptanceTail),
-                      ],
-                    ),
+                    child: sentence(),
                   ),
                 ],
               ),
@@ -245,16 +261,7 @@ class _OnboardingConsentStepState extends ConsumerState<OnboardingConsentStep> {
                 onTap: _saving
                     ? null
                     : () => setState(() => _acceptedTerms = !_acceptedTerms),
-                content: Wrap(
-                  crossAxisAlignment: WrapCrossAlignment.center,
-                  children: [
-                    plain('I agree to the '),
-                    link('Terms of Service', '/legal/terms'),
-                    plain(' and '),
-                    link('Privacy Policy', '/legal/privacy'),
-                    plain(_acceptanceTail),
-                  ],
-                ),
+                content: sentence(),
               ),
             ],
           ),

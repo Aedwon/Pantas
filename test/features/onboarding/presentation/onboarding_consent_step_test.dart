@@ -13,6 +13,7 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_button_parts.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/features/onboarding/application/setup_acceptance.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_consent_step.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -26,6 +27,9 @@ class _RecordingGateway implements SetupAcceptanceGateway {
   final List<String> versions;
   @override
   Future<void> record(String version) async => versions.add(version);
+
+  @override
+  Future<AccountAcceptance?> read() async => null;
 }
 
 void main() {
@@ -68,6 +72,30 @@ void main() {
         viewportSize: const Size(390, 844),
         disableAnimations: true,
       );
+
+  testWidgets('the consent sentence is one paragraph with its links inline',
+      (tester) async {
+    await pump(tester);
+    await tester.pumpAndSettle();
+    // The Privacy Policy link and the text after it share one paragraph, so
+    // the text carries on after the link instead of starting a new line.
+    final paragraph = find.byWidgetPredicate(
+      (w) =>
+          w is RichText &&
+          w.text.toPlainText().contains('keeping my study records'),
+    );
+    expect(paragraph, findsOneWidget);
+    final text = tester.widget<RichText>(paragraph).text.toPlainText();
+    expect(text, startsWith('I agree to the '));
+    expect(text, contains('\u2060, and to Pantas'));
+    expect(text, isNot(contains('\n')));
+    // Both links are still in place and tappable.
+    for (final label in ['Terms of Service', 'Privacy Policy']) {
+      final link = find.widgetWithText(WebTextLink, label);
+      expect(link, findsOneWidget);
+      expect(tester.getSize(link).height, greaterThan(0));
+    }
+  });
 
   testWidgets('under 18 the usage sharing row is not offered', (tester) async {
     await pump(
@@ -160,7 +188,7 @@ void main() {
       (tester) async {
     await pump(tester);
     expect(
-      find.text(
+      find.textContaining(
         ', and to Pantas keeping my study records (answers, results and study '
         'times).',
       ),
@@ -325,7 +353,14 @@ void main() {
     await pump(tester, completed: () {});
     TextStyle? styleOf(String text) =>
         tester.renderObject<RenderParagraph>(find.text(text).first).text.style;
-    final sentence = styleOf('I agree to the ');
+    final sentence = ((tester
+                .renderObject<RenderParagraph>(
+                  find.textContaining('keeping my study records'),
+                )
+                .text as TextSpan)
+            .children!
+            .first as TextSpan)
+        .style;
     for (final link in ['Terms of Service', 'Privacy Policy']) {
       expect(styleOf(link)?.fontSize, sentence?.fontSize, reason: link);
       expect(styleOf(link)?.height, sentence?.height, reason: link);

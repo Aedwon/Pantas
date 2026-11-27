@@ -78,6 +78,56 @@ void main() {
     expect(tester.getCenter(start).dx, closeTo(720, .5));
     expect(tester.takeException(), isNull);
   });
+  testWidgets('phone Welcome offers Sign in for returning students',
+      (tester) async {
+    var taps = 0;
+    await pumpAccessibilitySurface(
+      tester,
+      OnboardingWelcomeStep(onAdvance: () {}, onSignIn: () => taps++),
+      viewportSize: const Size(390, 844),
+      disableAnimations: true,
+    );
+    expect(find.text('Already have an account?'), findsOneWidget);
+    final link = find.widgetWithText(PantasButton, 'Sign in');
+    expect(link, findsOneWidget);
+    expect(tester.getSize(link).height, greaterThanOrEqualTo(44));
+    expect(tester.getSize(link).width, greaterThanOrEqualTo(44));
+    await tester.tap(link);
+    expect(taps, 1);
+    await expectMeetsAccessibilityGuidelines(tester);
+  });
+  testWidgets('wide Welcome offers Sign in under Get Started', (tester) async {
+    debugWebPlatformOverride = true;
+    addTearDown(() => debugWebPlatformOverride = null);
+    var taps = 0;
+    await pumpAccessibilitySurface(
+      tester,
+      OnboardingWelcomeStep(onAdvance: () {}, onSignIn: () => taps++),
+      viewportSize: const Size(1440, 900),
+      disableAnimations: true,
+    );
+    final link = find.widgetWithText(PantasButton, 'Sign in');
+    expect(link, findsOneWidget);
+    expect(
+      tester.getTopLeft(link).dy,
+      greaterThan(
+        tester.getBottomLeft(find.widgetWithText(WebButton, 'Get Started')).dy,
+      ),
+    );
+    await tester.tap(link);
+    expect(taps, 1);
+  });
+  testWidgets('Welcome hides Sign in when no sign-in is offered',
+      (tester) async {
+    await pumpAccessibilitySurface(
+      tester,
+      OnboardingWelcomeStep(onAdvance: () {}),
+      viewportSize: const Size(390, 844),
+      disableAnimations: true,
+    );
+    expect(find.text('Already have an account?'), findsNothing);
+    expect(find.text('Sign in'), findsNothing);
+  });
   for (final width in [600.0, 768.0, 900.0, 1023.0]) {
     testWidgets('Get Started stays in the 640 column at $width px (2E-11)',
         (tester) async {

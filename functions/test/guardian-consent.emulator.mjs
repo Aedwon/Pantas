@@ -11,7 +11,7 @@ const T0 = Date.parse('2026-11-02T10:00:00+08:00');
 const DAY = 86400000;
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
-const documentVersions = {privacy: '2026-11-12', terms: '2026-11-12', teens: '2026-11-12'};
+const documentVersions = {privacy: '2026-11-28', terms: '2026-11-28', teens: '2026-11-28'};
 // Each caller comes from its own address unless a test names one, so the per-address limit stays out of the way.
 const addressOf = uid => { let n = 7; for (const c of uid) n = (n * 31 + c.charCodeAt(0)) % 16_000_000; return `10.${n >> 16}.${(n >> 8) & 255}.${n & 255}`; };
 const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data: data?.decision

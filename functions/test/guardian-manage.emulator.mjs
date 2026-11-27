@@ -21,7 +21,7 @@ const T0 = Date.parse('2026-11-09T10:00:00+08:00');
 const DAY = 86400000;
 const anon = uid => ({uid, token: {firebase: {sign_in_provider: 'anonymous'}}});
 const app = {appId: 'app', token: {}, alreadyConsumed: false};
-const versions = {privacy: '2026-11-12', terms: '2026-11-12', teens: '2026-11-12'};
+const versions = {privacy: '2026-11-28', terms: '2026-11-28', teens: '2026-11-28'};
 const req = (uid, data, extra = {}) => ({auth: anon(uid), app, data, ...extra});
 const answer = (token, over = {}) => ({token, decision: 'confirm', agreed: true,
   documentVersions: versions, noticeWordingVersion: '2026-11-12', ...over});
@@ -594,4 +594,18 @@ test('the setup acceptance is recorded for a named account with the current vers
   assert.equal((await db.doc(`users/${uid}/server/acceptance`).get()).exists, false);
   await acceptance.recordAcceptance({auth: named, app, data: {version: '2026-11-09'}}, deps);
   assert.deepEqual((await db.doc(`users/${uid}/server/acceptance`).get()).data(), {version: '2026-11-09', acceptedAt: T0});
+});
+
+test('the setup acceptance reads back for a named account only, with App Check', async () => {
+  const uid = 'dm-accept-read'; await reset(uid);
+  const named = {uid, token: {firebase: {sign_in_provider: 'google.com'}}};
+  const deps = {db};
+  assert.deepEqual(await acceptance.readAcceptance({auth: named, app, data: {}}, deps), {version: null, acceptedAt: null});
+  await db.doc(`users/${uid}/server/acceptance`).set({version: '2026-11-09', acceptedAt: T0});
+  assert.deepEqual(await acceptance.readAcceptance({auth: named, app, data: {}}, deps), {version: '2026-11-09', acceptedAt: T0});
+  assert.equal(await code(acceptance.readAcceptance({auth: anon(uid), app, data: {}}, deps)), 'permission-denied');
+  assert.equal(await code(acceptance.readAcceptance({app, data: {}}, deps)), 'unauthenticated');
+  assert.equal(await code(acceptance.readAcceptance({auth: named, data: {}}, deps)), 'unauthenticated');
+  assert.equal(await code(acceptance.readAcceptance({auth: named, app: {...app, alreadyConsumed: true}, data: {}}, deps)), 'unauthenticated');
+  assert.equal(await code(acceptance.readAcceptance({auth: named, app, data: {}}, {db, allow: async () => false})), 'resource-exhausted');
 });

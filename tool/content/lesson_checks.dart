@@ -4,11 +4,29 @@ import '../checks/check.dart';
 import '../checks/lesson_pool_check.dart';
 import '../checks/lesson_size_check.dart';
 import '../checks/lesson_split_coverage_check.dart';
+import '../checks/walkthrough_block_spacing_check.dart';
+import '../checks/walkthrough_emphasis_check.dart';
+import '../checks/walkthrough_example_connection_check.dart';
+import '../checks/walkthrough_fence_line_check.dart';
+import '../checks/walkthrough_fresh_instance_check.dart';
+import '../checks/walkthrough_giveaway_check.dart';
+import '../checks/walkthrough_hard_break_check.dart';
+import '../checks/walkthrough_slim_format_check.dart';
+import '../checks/walkthrough_trap_pair_check.dart';
 
 List<Violation> runLessonChecks(String contentRoot) => [
       ...runLessonSizeCheck(contentRoot),
       ...runLessonSplitCoverageCheck(contentRoot),
       ...runLessonPoolCheck(contentRoot),
+      ...runWalkthroughTrapPairCheck(contentRoot),
+      ...runWalkthroughExampleConnectionCheck(contentRoot),
+      ...runWalkthroughFreshInstanceCheck(contentRoot),
+      ...runWalkthroughHardBreakCheck(contentRoot),
+      ...runWalkthroughBlockSpacingCheck(contentRoot),
+      ...runWalkthroughEmphasisCheck(contentRoot),
+      ...runWalkthroughFenceLineCheck(contentRoot),
+      ...runWalkthroughSlimFormatCheck(contentRoot),
+      ...runWalkthroughGiveawayCheck(contentRoot),
     ];
 
 void main(List<String> args) {

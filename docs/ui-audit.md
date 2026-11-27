@@ -2807,3 +2807,13 @@ Each fix has a test that failed first.
 - FIXED. Settings > What's included on the phone: the exam name shows once.
 - FIXED. Wide email sign-in: "Welcome to Pantas" stays on one line (no board draws this page). The form keeps 420 px.
 - FIXED. Settings Study days circles fit at 390 (padding 12 at the sides): Saturday is no longer cut at rest and the gap is the 4 px README minimum.
+
+## Walk-through lessons on staging, his Math pilot read (Nov 27, E-205)
+
+Branch `ux/walkthrough-staging-fixes-r1`; record in the launch log, Nov 27 about 10:55 PM.
+
+- FIXED on the branch (staging after the opening). Space after a pair's Wrong line and after display maths now equals the space above. His words: "things after the WRONG example need just a bit more space" / "juuust a bit more space after it so that they look visually equal to its above spacing".
+- FIXED on the branch. Sign Out opens Welcome, not a later onboarding step.
+- ADDED on the branch. "Already have an account? Sign in" on Welcome and the web cover.
+- OPEN, picked. Try the last step nests a card in the solution panel in the example card ("card in card, isnt this against UI rules?"). His pick: "A" (no card, a ruled section at the end of the solution), board Lesson Walk-Through Samples version 13, id 1795790618-c58b. Build after the opening.
+- OPEN. A returning student still goes through age, terms and the exam picker after signing in; proposal and legal read after the opening.

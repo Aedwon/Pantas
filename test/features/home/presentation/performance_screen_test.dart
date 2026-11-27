@@ -216,7 +216,7 @@ void main() {
     await tester.tap(find.text('Topics'));
     await tester.pumpAndSettle();
     expect(find.text('Unlock with Pro'), findsOneWidget);
-    expect(find.text('Geometry'), findsNothing);
+    expect(find.textContaining('Geometry'), findsNothing);
   });
 
   testWidgets('shows the measured overall accuracy and subjects',
@@ -224,14 +224,14 @@ void main() {
     await pump(tester);
     expect(find.text('Your performance'), findsWidgets);
     expect(find.text('Overall accuracy'), findsOneWidget);
-    expect(find.text('Mathematics'), findsOneWidget);
+    expect(find.textContaining('Mathematics'), findsOneWidget);
   });
 
   testWidgets('Pro opens a topic on its own route', (tester) async {
     await pump(tester);
     await tester.tap(find.text('Topics'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Geometry'));
+    await tester.tap(find.textContaining('Geometry'));
     await tester.pumpAndSettle();
     expect(lastPush, '/performance/topic/Geometry');
   });

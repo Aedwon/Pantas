@@ -23,6 +23,8 @@ A **signed integer** is a whole number with a plus or minus sign, such as $5$, $
 
 The **absolute value** of a number is how far it is from $0$. We write it between two bars. A distance is never negative, so an absolute value is never negative.
 
+Find the absolute values of $-6$ and $6$:
+
 $$|-6|=6$$
 
 $$|6|=6$$
@@ -37,16 +39,18 @@ The answer is $15$. The number $-15$ is $15$ steps from $0$.
 
 ### Adding Two Numbers with the Same Sign
 
-Think of each number as a walk on the number line. A positive number walks right. A negative number walks left. When both walks go the same way, the steps add up.
+Think of each number as a walk on the number line. A positive number walks right, and a negative number walks left.
+
+When both walks go the same way, the steps add up.
 
 1. Add the absolute values.
 2. Keep the sign the two numbers share.
 
-Try $(-5)+(-3)$. You walk $5$ steps left, then $3$ more steps left.
+Find $(-5)+(-3)$. You walk $5$ steps left, then $3$ more steps left:
 
 $$5+3=8$$
 
-Both numbers are negative, so the answer is negative.
+Both numbers are negative, so keep the minus sign:
 
 $$(-5)+(-3)=-8$$
 
@@ -62,25 +66,27 @@ A positive number and a negative number walk in opposite directions. Part of one
 
 <!-- ILLUSTRATION: number line from -8 to 2; arrow from 0 left to -7 labeled "-7"; second arrow from -7 right 4 steps to -3 labeled "+4"; the point -3 circled -->
 
-Start at $0$ and walk $7$ steps left to $-7$. Then walk $4$ steps right. You stop at $-3$. The $4$ steps right undid $4$ of the $7$ steps left, so $3$ steps left remain.
+Start at $0$ and walk $7$ steps left to $-7$. Then walk $4$ steps right.
+
+You stop at $-3$. The $4$ steps right undid $4$ of the $7$ steps left, so $3$ steps left remain.
 
 1. Ignore the signs. Subtract the smaller absolute value from the larger one.
 2. Keep the sign of the number that is farther from $0$.
 3. If both numbers are the same distance from $0$, the sum is $0$.
 
-Try $(-7)+4$.
+Find $(-7)+4$:
 
 $$7-4=3$$
 
-The number $-7$ is farther from $0$ than $4$, so the answer is negative.
+The number $-7$ is farther from $0$ than $4$, so the answer is negative:
 
 $$(-7)+4=-3$$
 
-Now try $9+(-2)$. Subtract: $9-2=7$. The number $9$ is farther from $0$, so the answer is positive.
+Find $9+(-2)$. Subtract $9-2=7$; $9$ is farther from $0$, so the answer is positive:
 
 $$9+(-2)=7$$
 
-Last, $(-6)+6$. Both numbers are $6$ steps from $0$, so they cancel.
+Find $(-6)+6$. Both numbers are $6$ steps from $0$, so they cancel:
 
 $$(-6)+6=0$$
 
@@ -96,29 +102,27 @@ The answer is $-6$. Subtract $11-5=6$. The number $-11$ is farther from $0$, so 
 
 ### Subtracting a Signed Integer
 
-The **opposite** of a number is the number the same distance from $0$ on the other side. The opposite of $2$ is $-2$. The opposite of $-2$ is $2$.
+The **opposite** of a nonzero number is the number the same distance from $0$ on the other side. The opposite of $2$ is $-2$, and the opposite of $-2$ is $2$. The opposite of $0$ is $0$.
 
 Subtracting a number gives the same answer as adding its opposite. So you can turn any subtraction into an addition with two changes:
 
 1. Change the minus sign between the numbers to a plus sign.
 2. Change the number after it to its opposite.
 
-Then add with the rules above.
-
-$$5-(-2)=5+2=7$$
+Change each subtraction to adding the opposite:
 
 $$3-8=3+(-8)=-5$$
 
 $$(-4)-(-9)=(-4)+9=5$$
 
-:::why
-Why does taking away $-2$ add $2$? Look at this pattern. $5-2=3$, then $5-1=4$, then $5-0=5$. Each time you take away $1$ less, the answer goes up by $1$. Keep going: $5-(-1)=6$ and $5-(-2)=7$.
-:::
-
 :::pair #subtract-negative
 Right: $5-(-2)=5+2=7$
 Wrong: $5-(-2)=5-2=3$
 The wrong line made only one change. It kept the minus sign between the numbers and dropped the minus sign on $2$. Always make both changes.
+:::
+
+:::why
+Look at the pattern: $5-2=3$, then $5-1=4$, then $5-0=5$. Each time you take away $1$ less, the answer goes up by $1$. Keep going to get $5-(-1)=6$ and $5-(-2)=7$.
 :::
 
 :::check
@@ -129,7 +133,7 @@ The answer is $-10$. Change it to $(-3)+(-7)$. Both numbers are negative, so add
 
 ### Multiplying and Dividing
 
-Work out the number first. Then decide the sign.
+Work out the number first. Then decide the sign. For nonzero numbers:
 
 - Same signs give a positive answer: $(-4)\times(-5)=20$ and $(-12)\div(-3)=4$.
 - Different signs give a negative answer: $(-4)\times5=-20$ and $12\div(-3)=-4$.
@@ -140,14 +144,16 @@ Wrong: $(-28)\div7=4$
 The signs are different, so the answer must be negative. The wrong line worked out the number and forgot the sign.
 :::
 
-When you multiply more than two numbers, count the negative signs. An even count gives a positive answer. An odd count gives a negative answer.
+When you multiply more than two nonzero numbers, count the negative signs. An even count gives a positive answer. An odd count gives a negative answer. If any factor is $0$, the product is $0$.
+
+Multiply $(-2)\times(-3)\times(-1)$:
 
 $$(-2)\times(-3)\times(-1)=-6$$
 
 There are three negative signs. Three is odd, so the answer is negative.
 
 :::why
-Why is a negative times a negative positive? Look at this pattern. $2\times(-4)=-8$, then $1\times(-4)=-4$, then $0\times(-4)=0$. Each answer is $4$ more than the one before. Keep going: $(-1)\times(-4)=4$ and $(-2)\times(-4)=8$.
+Look at the pattern: $2\times(-4)=-8$, then $1\times(-4)=-4$, then $0\times(-4)=0$. Each answer is $4$ more than the one before. Keep going to get $(-1)\times(-4)=4$ and $(-2)\times(-4)=8$.
 :::
 
 One more rule: you can never divide by $0$. An expression such as $5\div0$ has no answer. We say it is **undefined**.
@@ -180,11 +186,11 @@ The signs are different, so the answer is negative.
 
 2. Put each answer back where its operation was. Keep every sign that sat between the parts.
 
-$$18-(-18)+(-4)$$
+$$18-6\times(-3)+8\div(-2)=18-(-18)+(-4)$$
 
 3. Subtracting $-18$ is the same as adding $18$.
 
-$$18+18+(-4)$$
+$$18-(-18)+(-4)=18+18+(-4)$$
 
 4. Add from left to right.
 
@@ -214,11 +220,11 @@ The signs are the same, so the answer is positive.
 
 2. Put each answer back. Keep the signs between the parts.
 
-$$-15-(-12)+4$$
+$$-15-(-4)\times3+(-24)\div(-6)=-15-(-12)+4$$
 
 3. Subtracting $-12$ is the same as adding $12$.
 
-$$-15+12+4$$
+$$-15-(-12)+4=-15+12+4$$
 
 4. Add $-15+12$. The signs are different, so subtract $15-12=3$. The number $-15$ is farther from $0$, so the answer is negative.
 

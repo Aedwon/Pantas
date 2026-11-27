@@ -232,26 +232,28 @@ void main() {
           tester.getTopLeft(_richAt('Core Concept')).dy,
           tester.getTopLeft(find.byType(ContentRenderer)).dy,
         );
-        // A later section: 40 above the heading, 12 below (ReaderLayout).
+        // A later section: 56 above the heading (was 40; Nov 28 spacing
+        // change), 12 below (ReaderLayout).
         final card = tester.getBottomLeft(
           _notes(c).first,
         );
         final head = tester.getTopLeft(_richAt('Mnemonics & Memory Aids'));
-        expect(head.dy - card.dy, 40);
+        expect(head.dy - card.dy, 56);
         final headBottom =
             tester.getBottomLeft(_richAt('Mnemonics & Memory Aids')).dy;
         final next = tester.getTopLeft(_notes(c).at(1)).dy;
         expect(next - headBottom, 12);
       });
 
-      testWidgets('subheads sit 28 above and 8 below', (tester) async {
+      // Was 28 above; 40 since the Nov 28 spacing change.
+      testWidgets('subheads sit 40 above and 8 below', (tester) async {
         await _pump(tester, _lesson(), config: config);
         final h3 = _rich(tester, 'A subhead').text.style!;
         expect(h3.fontSize, 20);
         expect(h3.fontWeight, FontWeight.w700);
         final maths = tester.getBottomLeft(_display).dy;
         final top = tester.getTopLeft(_richAt('A subhead')).dy;
-        expect(top - maths, closeTo(28, .01));
+        expect(top - maths, closeTo(40, .01));
         final bottom = tester.getBottomLeft(_richAt('A subhead')).dy;
         final under = tester.getTopLeft(_richAt('Under the subhead.')).dy;
         expect(under - bottom, 8);

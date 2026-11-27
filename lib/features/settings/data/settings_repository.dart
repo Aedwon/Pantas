@@ -102,9 +102,12 @@ class DriftSettingsRepository {
     });
   }
 
-  Future<void> recordPolicyAcceptance() async {
+  /// Records the acceptance. [acceptedAt] restores the time of an acceptance
+  /// the account already made on another device; without it, it is now.
+  Future<void> recordPolicyAcceptance({DateTime? acceptedAt}) async {
     await _writeAccountPrefs({
-      SettingsPrefKeys.policyAcceptedAt: _clock().toUtc().toIso8601String(),
+      SettingsPrefKeys.policyAcceptedAt:
+          (acceptedAt ?? _clock()).toUtc().toIso8601String(),
       SettingsPrefKeys.policyVersion: currentPolicyVersion,
       SettingsPrefKeys.updatedAt: _clock().toUtc().toIso8601String(),
     });

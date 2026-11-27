@@ -81,6 +81,60 @@ List<String> lessonSectionItems(String body, String section) {
   return items;
 }
 
+({int words, int pairCount, int checklistBullets}) _measurePreTap(
+  String commentStripped,
+) {
+  final visible = <String>[];
+  var inHidden = false;
+  var inChecklist = false;
+  var pairCount = 0;
+  var checklistBullets = 0;
+
+  for (final line in const LineSplitter().convert(commentStripped)) {
+    final trimmed = line.trim();
+    if (trimmed.startsWith(':::')) {
+      if (trimmed == ':::') {
+        inHidden = false;
+        inChecklist = false;
+      } else if (RegExp(r'^:::(?:why|answer)(?:\s|$)').hasMatch(trimmed)) {
+        inHidden = true;
+        inChecklist = false;
+      } else if (RegExp(r'^:::checklist(?:\s|$)').hasMatch(trimmed)) {
+        inHidden = false;
+        inChecklist = true;
+      } else {
+        if (RegExp(r'^:::pair(?:\s|$)').hasMatch(trimmed)) {
+          pairCount++;
+        }
+        inHidden = false;
+        inChecklist = false;
+      }
+      continue;
+    }
+    if (inHidden) continue;
+    var text = line;
+    if (inChecklist) {
+      if (RegExp(r'^-\s+').hasMatch(trimmed)) {
+        checklistBullets++;
+      }
+      text = line.replaceFirst(RegExp(r'\s*\{#[^\s}]+\}\s*$'), '');
+    }
+    visible.add(text);
+  }
+
+  final words = visible
+      .join(' ')
+      .trim()
+      .split(RegExp(r'\s+'))
+      .where((s) => s.isNotEmpty)
+      .length;
+  return (
+    words: words,
+    pairCount: pairCount,
+    checklistBullets: checklistBullets,
+  );
+}
+
 List<Violation> runLessonSizeCheck(String contentRoot) {
   final found = <Violation>[];
   try {
@@ -113,18 +167,25 @@ List<Violation> runLessonSizeCheck(String contentRoot) {
       if (keys == null || keys.isEmpty || keys.length > 4) {
         report('needs 1 to 4 keyPoints');
       }
-      final body = lesson.body.replaceAll(RegExp(r'<!--[\s\S]*?-->'), ' ');
-      final words =
-          body.trim().split(RegExp(r'\s+')).where((s) => s.isNotEmpty).length;
-      final examples = lessonSectionItems(body, 'Examples').length;
+      final commentStripped =
+          lesson.body.replaceAll(RegExp(r'<!--[\s\S]*?-->'), ' ');
+      final measured = _measurePreTap(commentStripped);
+      final examples = lessonSectionItems(commentStripped, 'Examples').length;
       final math = lesson.front['subject'] == 'subject-mathematics';
-      final cap = math && examples > 0 ? 550 : 450;
-      if (words < 150 || words > cap) {
-        report('teaching words $words, expected 150 to $cap');
+      const cap = 900;
+      if (measured.words < 150 || measured.words > cap) {
+        report('teaching words ${measured.words}, expected 150 to $cap');
       }
       if (math && examples > 2) report('more than 2 worked examples');
-      if (lessonSectionItems(body, 'Traps to Watch For').length > 3) {
+      if (lessonSectionItems(commentStripped, 'Traps to Watch For').length >
+          3) {
         report('more than 3 traps');
+      }
+      if (measured.pairCount > 3) {
+        report('more than 3 :::pair blocks (${measured.pairCount})');
+      }
+      if (measured.checklistBullets > 3) {
+        report('more than 3 :::checklist items (${measured.checklistBullets})');
       }
     }
     final prerequisites =

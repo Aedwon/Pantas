@@ -83,6 +83,48 @@ bool isSolutionMarker(Map<String, Object?> block) =>
   return (rest: {...block, 'children': rest});
 }
 
+/// How many step groups make a solution show one step at a time.
+const int walkStepThreshold = 4;
+
+/// Whether [blocks] hold any walk-through part. A lesson is in walk-through
+/// mode as a whole: only then are example solutions open and stepped.
+bool lessonIsWalkthrough(List<Map<String, Object?>> blocks) => blocks.any(
+      (block) =>
+          block['_type'] is String &&
+          (block['_type']! as String).startsWith('walk'),
+    );
+
+/// Whether [block] is a numbered step at level one: it opens a step group.
+bool _isGroupStart(Map<String, Object?> block) {
+  if (block['_type'] != 'block' || block['listItem'] != 'number') return false;
+  final level = block['level'];
+  return level is! num || level == 1;
+}
+
+/// Cuts a solution into step groups: a numbered step at level one and every
+/// block after it up to the next such step. Blocks before the first step join
+/// the first group. A solution with no step is one group.
+List<List<Map<String, Object?>>> splitStepGroups(
+  List<Map<String, Object?>> solution,
+) {
+  final groups = <List<Map<String, Object?>>>[];
+  var current = <Map<String, Object?>>[];
+  var seenStep = false;
+  for (final block in solution) {
+    if (_isGroupStart(block)) {
+      // Lead-in blocks stay with the first step.
+      if (seenStep) {
+        groups.add(current);
+        current = <Map<String, Object?>>[];
+      }
+      seenStep = true;
+    }
+    current.add(block);
+  }
+  if (current.isNotEmpty) groups.add(current);
+  return groups;
+}
+
 /// One step of a lesson, ready to draw.
 sealed class ReaderItem {
   const ReaderItem();

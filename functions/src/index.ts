@@ -52,7 +52,7 @@ export {setBetaPro} from './betaPro.js';
 
 export {sendGuardianLink, answerGuardianRequest, getGuardianStatus, getGuardianRequest,
   getGuardianManage, setGuardianSharing, withdrawGuardianPermission, markGuardianAdult} from './guardianConsent.js';
-export {recordSetupAcceptance} from './setupAcceptance.js';
+export {getSetupAcceptance, recordSetupAcceptance} from './setupAcceptance.js';
 
 export {getBetaAccess} from './betaAccess.js';
 

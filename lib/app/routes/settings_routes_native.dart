@@ -9,7 +9,6 @@ import 'package:pantas/core/auth/beta_access.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
-import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -170,12 +169,7 @@ List<RouteBase> settingsRoutes(Ref ref) => [
                 final container =
                     ProviderScope.containerOf(context, listen: false);
                 await _deleteAccount(ref, isAnonymous: isAnonymous);
-                await preferences.setCompletedOnboarding(value: false);
-                await preferences.setPassedAgeGate(value: false);
-                container
-                  ..invalidate(passedAgeGateProvider)
-                  ..invalidate(onboardingCompleteProvider)
-                  ..invalidate(userSettingsProvider);
+                await resetOnboardingToWelcome(preferences, container);
                 if (context.mounted) context.go('/onboarding');
               },
             );

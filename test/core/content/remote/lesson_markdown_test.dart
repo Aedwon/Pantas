@@ -5,6 +5,7 @@ import 'package:pantas/core/content/remote/lesson_markdown.dart';
 
 import '../../../../tools/content/lesson_asset_map.dart';
 import '../../../../tools/content/markdown_portable_text.dart';
+import '../../../helpers/walkthrough_fixtures.dart';
 
 void main() {
   test('server resolved SVG marker becomes an accessible image block', () {
@@ -81,5 +82,92 @@ void main() {
             .having((e) => e.message, 'message', contains('line 2')),
       ),
     );
+  });
+
+  group('walk-through blocks', () {
+    List<Map<String, Object?>> bundled(String body) => markdownToPortableText(
+          body,
+          lesson: const LessonIdentity(
+            path: 'content/lessons/test/test/test.md',
+            subject: 'test',
+            topic: 'test',
+            lesson: 'test',
+          ),
+          assets: const LessonAssetMap.unconfigured(),
+        );
+
+    test('every fence type converts to the schema, exactly', () {
+      expect(
+        lessonBlocksFromMarkdown(walkthroughExactMarkdown),
+        walkthroughExactBlocks,
+      );
+    });
+
+    test('a lesson with no fence gets no anchor field', () {
+      final blocks = lessonBlocksFromMarkdown(
+        '## A\n\n### B Rule\n\n#### C\n\nText.',
+      );
+      expect(blocks.where((block) => block.containsKey('anchor')), isEmpty);
+    });
+
+    test('anchors go on h3 only, in a walk-through lesson', () {
+      final blocks = lessonBlocksFromMarkdown(
+        '## A\n\n### B Rule\n\n#### C\n\n:::why\nWhy.\n:::',
+      );
+      expect(
+        blocks.map((block) => block['anchor']),
+        [null, 'b-rule', null, null],
+      );
+    });
+
+    test('the two converters agree on every walk-through fixture', () {
+      for (final name in walkthroughSamples) {
+        final body = walkthroughFixture(name);
+        expect(lessonBlocksFromMarkdown(body), bundled(body), reason: name);
+      }
+      expect(
+        lessonBlocksFromMarkdown(walkthroughExactMarkdown),
+        bundled(walkthroughExactMarkdown),
+      );
+    });
+
+    for (final entry in walkthroughBadCases.entries) {
+      test('${entry.key} fails with its line, as the bundled build does', () {
+        final (line, words) = entry.value;
+        final body = walkthroughFixture(entry.key);
+        expect(
+          () => lessonBlocksFromMarkdown(body),
+          throwsA(
+            isA<FormatException>().having(
+              (e) => e.message,
+              'message',
+              allOf(contains(words), endsWith(' at line $line')),
+            ),
+          ),
+        );
+        expect(
+          () => bundled(body),
+          throwsA(
+            isA<FormatException>().having(
+              (e) => e.message,
+              'message',
+              allOf(contains(words), contains(':$line')),
+            ),
+          ),
+        );
+      });
+    }
+
+    test('a table error inside a block names the line in the lesson', () {
+      expect(
+        () => lessonBlocksFromMarkdown(
+          ':::why\n| a | b |\nnot a delimiter\n:::',
+        ),
+        throwsA(
+          isA<FormatException>()
+              .having((e) => e.message, 'message', contains('line 3')),
+        ),
+      );
+    });
   });
 }
