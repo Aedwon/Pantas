@@ -52,6 +52,25 @@ Writer A (the only writer this round): under `content/lessons/mathematics/`:
 `arithmetic-number-sense/successive-percentages-and-increases.md`, `arithmetic-number-sense/direct-proportion-and-travel.md`.
 The other six lessons of batch 2a go to a second round.
 
+## Assignment (round 2, after round 1 committed at `631e03c34`)
+
+Two writers, three lessons each, under `content/lessons/mathematics/`. Append your figure rows to the same
+`batch-2-figure-list.md` (it exists; add rows at the end with the Edit tool; never rewrite rows another writer added).
+
+- Writer A: `arithmetic-number-sense/inverse-proportion-and-remaining-work.md`,
+  `arithmetic-number-sense/partitive-proportion-and-differences.md`, `data-interpretation/unit-rates-and-direct-proportion.md`.
+  Also add figure rows (judgment only, no edits to these files) for the pilot lessons `algebra/work-rate-problems.md` and
+  `arithmetic-number-sense/identities-and-like-terms.md`.
+- Writer B: `algebra/coin-and-digit-problems.md`, `algebra/motion-chase-problems.md`,
+  `algebra/motion-meeting-and-separation.md`. Also add figure rows (judgment only, no edits) for the pilot lessons
+  `algebra/age-word-problems.md` and `arithmetic-number-sense/decimal-and-percent-conversions.md`.
+
+Lead note from round 1: do not cut a teaching line (a rule, a worked conversion, a formula step) only to lower the word
+count. Deleting the extra checks and Check lines already lowers it. If a lesson would end above its start count, report it.
+
+Each writer edits only its own three lessons. If two writers need the figure list at once, add your rows in one Edit at
+the end of your work.
+
 ## Report (under 350 words)
 
 As in the pilot slim brief, plus: the simple-interest rows fixed and how; the figure list rows you added (count per lesson);
