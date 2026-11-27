@@ -125,6 +125,10 @@ Added rule from Aedwon, relayed: "the 6 AM opening must not lose Claude usage to
 limit at any point before 3 AM, stop for the night at once, commit WIP, tell me in one line, and do not resume until I
 message you after the opening."
 
+Manager, later the same evening: the opening moved to 12:05 AM Saturday. The stop task (same id) now fires at 11:40 PM
+and is a pause: a Codex read already running may finish, no new Claude work starts after 11:40 PM, and the lane resumes on
+the manager's message after the opening (about 1 AM). The 3:00 AM stop no longer applies.
+
 ## Caps
 
 At most 2 Claude workers at once; 1 Codex run at a time through `codex-pick`; files changed only with Edit or Write; one
