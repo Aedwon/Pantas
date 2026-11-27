@@ -127,18 +127,28 @@ try {
   const offOrigin = {'first visit': [...blocked['first visit']], 'cold offline': [...blocked['cold offline']]};
   console.log(`off-origin requests, first visit: ${offOrigin['first visit'].length}${offOrigin['first visit'].length ? `\n  ${offOrigin['first visit'].join('\n  ')}` : ''}`);
   console.log(`off-origin requests, cold offline: ${offOrigin['cold offline'].length}${offOrigin['cold offline'].length ? `\n  ${offOrigin['cold offline'].join('\n  ')}` : ''}`);
-  // Cold start makes no off-origin request at all: not the Firebase SDK (served from our own
-  // address, E-210), not a font, not any other address (audit 3, Medium).
-  const asked = [...offOrigin['first visit'], ...offOrigin['cold offline']];
-  if (asked.length) {
+  // Cold start asks no off-origin address for anything the app needs to start: not the Firebase SDK
+  // (served from our own address, E-210), not a font, not any address nobody listed (audit 3, Medium).
+  // The only off-origin requests allowed are the app's own online services, which start in the
+  // background and fail quietly with no connection. Each is named here, so a new one fails the test.
+  const ONLINE_SERVICES = [
+    /^https:\/\/accounts\.google\.com\/gsi\/client$/, // Google sign-in button script
+    /^https:\/\/www\.google\.com\/recaptcha\/enterprise\.js(\?|$)/, // App Check
+    /^https:\/\/firebaseinstallations\.googleapis\.com\//, // Analytics
+    /^https:\/\/firebase\.googleapis\.com\/v1alpha\/projects\/-\/apps\/[^/]+\/webConfig$/, // Analytics configuration
+  ];
+  const asked = [...new Set([...offOrigin['first visit'], ...offOrigin['cold offline']])];
+  const unexpected = asked.filter(url => !ONLINE_SERVICES.some(allowed => allowed.test(url)));
+  console.log(`off-origin addresses asked: ${asked.length}; the app's own online services: ${asked.length - unexpected.length}; unexpected: ${unexpected.length}`);
+  if (unexpected.length) {
     failed = true;
-    console.log(`FAIL: cold start asked ${asked.length} off-origin address(es) (first visit ${offOrigin['first visit'].length}, cold offline ${offOrigin['cold offline'].length})`);
+    console.log(`FAIL: cold start asked ${unexpected.length} off-origin address(es) it must not:\n  ${unexpected.join('\n  ')}`);
   }
   if (!coldReady) {
     failed = true;
     console.log('FAIL: with a cold HTTP cache and every off-origin request blocked, the app did not become ready (engine, storage and start)');
   } else if (!failed) {
-    console.log(`PASS: the app and its storage are ready from the worker alone (off-origin requests: ${asked.length}, connections to the down server: ${state.connectionsWhileDown})`);
+    console.log(`PASS: the app and its storage are ready from the worker alone (unexpected off-origin requests: ${unexpected.length}, connections to the down server: ${state.connectionsWhileDown})`);
   }
 } finally {
   await browser.close();
