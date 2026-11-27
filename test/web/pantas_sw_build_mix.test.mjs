@@ -957,6 +957,26 @@ test('audit 3 item 3: a root part A\'s cache lacks gets the secured 503 even whe
   assert.equal((await w.controller.fetch('main.dart.js_9.part.js')).status, 503);
 });
 
+// Audit 3 item 8: the Firebase SDK files sit at version-named root addresses, so an older page that
+// names an older SDK version asks for a root address the newer worker's list does not hold.
+test('audit 3 item 8: two builds with different SDK folders: the older page gets its own SDK, offline, from the retained cache', async () => {
+  const older = 'firebase_sdk/12.16.0/firebase-app.js';
+  build('S1', {files: {[older]: '// @build:S1@ the older SDK\n'}});
+  const w = world();
+  deploy(w, 'S1');
+  await takeOver(w, await install(w, 'S1'));
+  await pageLoad(w); // a window of S1 stays open
+  deploy(w, 'S2'); // the next build ships another SDK folder only
+  const s2 = await install(w, 'S2');
+  assert.deepEqual(await s2.message({type: 'pantas-take-over'}), {ok: true});
+  await takeOver(w, s2);
+  w.offline = true;
+  assert.equal((await get(w, older)).id, 'S1', 'the S1 page asks for its own SDK version');
+  assert.equal((await get(w, 'firebase_sdk/12.17.0/firebase-app.js')).id, 'none', 'the shared version is served');
+  // An SDK file no build holds is the secured 503, never invented.
+  assert.equal((await w.controller.fetch('firebase_sdk/12.15.0/firebase-app.js')).status, 503);
+});
+
 test('audit 3 item 3: with A\'s cache gone, a root part is still never another build\'s bytes', async () => {
   const w = await deployedBUnderA({prod: true});
   await takeOver(w, await install(w, 'B'));

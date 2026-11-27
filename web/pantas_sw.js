@@ -472,6 +472,12 @@ function handleBuild(event, request, path) {
   const folder = /^b\/([^/]+)\//.exec(path);
   if (folder && folder[1] !== BUILD.id) {
     event.respondWith(fromKeptCaches(request, path, BUILD_PREFIX + folder[1] + '-'));
+  } else if (path.startsWith(SDK_FOLDER)) {
+    // A Firebase SDK file of another version than this build's: the address names the SDK
+    // version and every build pins those bytes, so the cache of the build whose page asks holds
+    // exactly them. Not stored in the build folder because the page's import map (an inline script
+    // under the security policy's hash) cannot change with the build. Never the network.
+    event.respondWith(fromKeptCaches(request, path, BUILD_PREFIX, false));
   } else if (!folder && PART_PATTERN.test(path)) {
     // Only a page of the build that shipped before build folders asks for a deferred part at
     // the root, and the edge may by now serve another build's file at that address.

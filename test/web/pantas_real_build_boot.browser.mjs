@@ -26,9 +26,15 @@ const {chromium} = createRequire(import.meta.url)(process.env.PW_MODULE);
 const types = {'.html': 'text/html', '.js': 'text/javascript', '.mjs': 'text/javascript', '.json': 'application/json',
   '.wasm': 'application/wasm', '.png': 'image/png', '.otf': 'font/otf', '.ttf': 'font/ttf', '.bin': 'application/octet-stream'};
 const pause = ms => new Promise(done => setTimeout(done, ms));
-const state = {down: false, served: []};
+// `down` cuts the server: every connection is accepted and dropped, and counted, so the report
+// says how many times the page still tried to reach it (a server that is truly closed would hide
+// them from its own counters, audit 3).
+const state = {down: false, served: [], connectionsWhileDown: 0, requestsWhileDown: []};
 const server = createServer((request, response) => {
-  if (state.down) return request.socket.destroy();
+  if (state.down) {
+    state.requestsWhileDown.push(new URL(request.url, 'http://x').pathname);
+    return request.socket.destroy();
+  }
   const path = new URL(request.url, 'http://x').pathname;
   state.served.push(path);
   let file = path === '/' ? 'index.html' : path.slice(1);
@@ -45,6 +51,9 @@ const server = createServer((request, response) => {
     'Cache-Control': path.startsWith('/b/') ? 'public, max-age=31536000, immutable' : 'no-cache',
   });
   response.end(readFileSync(full));
+});
+server.on('connection', () => {
+  if (state.down) state.connectionsWhileDown++;
 });
 await new Promise(done => server.listen(0, '127.0.0.1', done));
 const origin = `http://127.0.0.1:${server.address().port}`;
@@ -109,23 +118,27 @@ try {
   await coldHttpCache(page);
   state.down = true;
   state.served.length = 0;
-  await context.setOffline(true);
+  // The server is down and the browser is not told so: every attempt to reach it is a connection
+  // the server counts, and every other address is refused by the route above.
   await page.reload();
   const coldReady = await ready('cold offline', 90);
-  console.log(`requests that reached the server while down: ${state.served.length}`);
-  console.log(`off-origin requests blocked, first visit:\n  ${[...blocked['first visit']].join('\n  ') || 'none'}`);
-  console.log(`off-origin requests blocked, cold offline:\n  ${[...blocked['cold offline']].join('\n  ') || 'none'}`);
-  // The Firebase SDK is served from our own address (E-210): nothing may ask Google for it.
-  const asked = [...blocked['first visit'], ...blocked['cold offline']].filter(url => /\/firebasejs\//.test(url));
+  console.log(`connections to the server while it was down: ${state.connectionsWhileDown}`);
+  console.log(`requests that reached the down server: ${state.requestsWhileDown.length}${state.requestsWhileDown.length ? `\n  ${[...new Set(state.requestsWhileDown)].join('\n  ')}` : ''}`);
+  const offOrigin = {'first visit': [...blocked['first visit']], 'cold offline': [...blocked['cold offline']]};
+  console.log(`off-origin requests, first visit: ${offOrigin['first visit'].length}${offOrigin['first visit'].length ? `\n  ${offOrigin['first visit'].join('\n  ')}` : ''}`);
+  console.log(`off-origin requests, cold offline: ${offOrigin['cold offline'].length}${offOrigin['cold offline'].length ? `\n  ${offOrigin['cold offline'].join('\n  ')}` : ''}`);
+  // Cold start makes no off-origin request at all: not the Firebase SDK (served from our own
+  // address, E-210), not a font, not any other address (audit 3, Medium).
+  const asked = [...offOrigin['first visit'], ...offOrigin['cold offline']];
   if (asked.length) {
     failed = true;
-    console.log(`FAIL: the page still asked another address for the Firebase SDK:\n  ${asked.join('\n  ')}`);
+    console.log(`FAIL: cold start asked ${asked.length} off-origin address(es) (first visit ${offOrigin['first visit'].length}, cold offline ${offOrigin['cold offline'].length})`);
   }
   if (!coldReady) {
     failed = true;
     console.log('FAIL: with a cold HTTP cache and every off-origin request blocked, the app did not become ready (engine, storage and start)');
   } else if (!failed) {
-    console.log('PASS: the app and its storage are ready from the worker alone');
+    console.log(`PASS: the app and its storage are ready from the worker alone (off-origin requests: ${asked.length}, connections to the down server: ${state.connectionsWhileDown})`);
   }
 } finally {
   await browser.close();
