@@ -15,7 +15,7 @@ keyPoints:
 
 ### Words That Point Back
 
-A **cause** explains why something happens. An **effect** is the result. A word such as *as a result*, *therefore* or *consequently* points back to a cause, so it comes after the cause.
+A **cause** explains why something happens. An **effect** is the result. A word such as *as a result* or *consequently* points back to a cause, so it comes after the cause.
 
 Let's order these two sentences:
 
@@ -34,9 +34,9 @@ Wrong: The resulting leak soaked the floor. The pipe froze overnight.
 :::
 
 :::check
-Put these in order: (A) Therefore, the class moved to the library. (B) The classroom ceiling began to leak.
+Put these in order: (A) Because of this, the picnic moved indoors. (B) Dark clouds covered the sky by noon.
 :::answer
-The answer is **B → A**. *Therefore* in (A) points back to the leak, so (B) comes first: "The classroom ceiling began to leak. Therefore, the class moved to the library."
+The answer is **B → A**. *Because of this* points back to the clouds in (B), so (B) comes first: "Dark clouds covered the sky by noon. Because of this, the picnic moved indoors."
 :::
 
 ### Phrases That Point Back

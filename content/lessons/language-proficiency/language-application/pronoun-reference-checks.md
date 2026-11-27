@@ -60,11 +60,11 @@ Either man could express concern. Repeating *the supervisor* removes the second 
 **Singular they** (*they, them, their, theirs*) refers to one person whose gender is unknown or does not need to be stated. Modern standard English accepts "Each student has brought **their** book." Keep the singular verb *has* with *each*, keep the past participle *brought* after *has*, and use possessive *their* (not *them*) before a noun.
 
 :::check
-Choose the sentence in standard modern English: (A) "Each nurse have signed their form." (B) "Each nurse has signed their form."
+Choose the sentence in standard modern English: (A) "The caller have left their number." (B) "The caller has left their number."
 :::answer
-(B): "Each nurse has signed their form." *Each nurse* takes singular *has*, and singular *their* fits one unspecified nurse.
+(B): "The caller has left their number." *The caller* is one person, so the verb is singular *has*, and *their* fits a caller whose gender is not stated.
 
-**Check:** Remove *Each nurse* and use *she*: "She has signed her form." One person takes *has*.
+**Check:** Swap in *he*: "He has left his number." One person takes *has*.
 :::
 
 ## Examples

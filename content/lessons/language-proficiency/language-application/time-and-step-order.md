@@ -115,26 +115,26 @@ At opening time that morning, the clerk found an unclaimed parcel. An hour after
 
 **Check:** Each event follows the last.
 
-### #3: Equipment at the Field
+### #3: A Pot of Soup
 
 Arrange the sentences in the best order.
 
-(A) Afterward, the team packed the equipment into the van.
+(A) The cook cleaned the empty pot.
 
-(B) Before dawn, the team set up the equipment at the field.
+(B) Before lunch, the cook boiled soup in the big pot.
 
-(C) At nine, the team began timing the runners.
+(C) At noon, the cook began serving the soup.
 
 **Solution:**
 
-1. (B) has "Before dawn," the earliest clue.
+1. (B) has "Before lunch," the earliest clue.
 
 :::try
 Finish the last step: put all three in order.
 :::answer
-The answer is B, C, A. (C) has "At nine," which is later than dawn. *Afterward* follows the timing in (C), because the team packs the equipment after it has used it. In order: "Before dawn, the team set up the equipment at the field. At nine, the team began timing the runners. Afterward, the team packed the equipment into the van."
+The answer is B, C, A. (C) has "At noon," which is later than before lunch. (A) has no time word, but the pot is empty only after the soup is served, so (A) follows (C). In order: "Before lunch, the cook boiled soup in the big pot. At noon, the cook began serving the soup. The cook cleaned the empty pot."
 
-**Check:** Packing before the timing would mean packing the equipment before it was used.
+**Check:** Cleaning the pot before serving would mean cleaning it while it still held soup.
 :::
 
 ## Traps to Watch For

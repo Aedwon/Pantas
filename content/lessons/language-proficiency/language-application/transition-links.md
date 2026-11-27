@@ -58,9 +58,9 @@ Wrong: "For example, dogs need long walks. Many pets need daily exercise."
 :::
 
 :::check
-Which sentence comes first? (A) "For example, tomatoes grow well in pots." (B) "Many vegetables can grow on a balcony."
+Which sentence comes first? (A) "For instance, the library lends tablets for a week." (B) "Public places can lend more than books."
 :::answer
-The answer is (B). It states the general idea. (A) is a case of that idea: "Many vegetables can grow on a balcony. For example, tomatoes grow well in pots."
+The answer is (B). It states the general idea. *For instance* in (A) introduces a case of that idea, as *for example* does: "Public places can lend more than books. For instance, the library lends tablets for a week."
 :::
 
 ### Where a Transition Goes

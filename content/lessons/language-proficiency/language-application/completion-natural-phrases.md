@@ -16,7 +16,7 @@ keyPoints:
 
 ### Word Combinations
 
-**Collocations** are words commonly used together, such as *strong evidence*, *make a decision*, *pay attention*, and *reach an agreement*. Grammar alone may not decide between choices. The usual word partner also matters.
+**Collocations** are words commonly used together, such as *strong evidence*, *make a decision*, and *reach an agreement*. Grammar alone may not decide between choices. The usual word partner also matters.
 
 Let's fill the blank in "The storm brought ______ rain."
 
@@ -32,9 +32,9 @@ Wrong: The committee must do a decision.
 :::
 
 :::check
-Choose the best word: "The pilot asked everyone to ___ attention to the safety video." *(pay / do / say)*
+Choose the best word: "The guide asked the group to ___ attention to the map." *(pay / make / do)*
 :::answer
-*pay*. The usual word combination is *pay attention*: "The pilot asked everyone to pay attention to the safety video."
+*pay*. *Attention* usually goes with *pay*, not *make* or *do*: "The guide asked the group to pay attention to the map."
 :::
 
 ### Idioms
@@ -105,9 +105,9 @@ Choose **(A)**: "Mina stayed home because she felt under the weather."
 
 **Check:** The sentence gives a reason for staying home. *Under the weather* means feeling unwell.
 
-### #3: A Deal by Friday
+### #3: A Wage Talk
 
-Choose the best completion: "The two sides hope to ______ an agreement by Friday."
+Choose the best completion: "The mayor and the union leaders met to ______ an agreement on wages."
 
 (A) do
 
@@ -125,7 +125,7 @@ Choose the best completion: "The two sides hope to ______ an agreement by Friday
 :::try
 Finish the last step: which choice is the usual partner of *agreement*?
 :::answer
-The answer is **(B) reach**: "The two sides hope to reach an agreement by Friday."
+The answer is **(B) reach**: "The mayor and the union leaders met to reach an agreement on wages."
 
 **Check:** Say each choice with *agreement*. *Do*, *say* and *hold* do not usually go with *agreement*.
 :::

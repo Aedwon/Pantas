@@ -67,9 +67,9 @@ Choose the verb: "My cousins ______ in Davao." *(live / lives)*
 
 ### Choosing the Form After a Verb
 
-Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. Verbs such as *hope* and *decide* work the same way. The **base form** is the plain form, such as *go*, *leave*, or *talk*.
+Some verbs take a certain form after them. Use *want to go*, with *to* plus the base verb. Verbs about a plan or a choice, such as *hope*, usually work the same way. The **base form** is the plain form, such as *go*, *leave*, or *talk*.
 
-Use *enjoy reading*, with an *-ing* form, as with *avoid*. Learn each verb together with its pattern. A pattern that fits *want* may not fit *enjoy*.
+Use *enjoy reading*, with an *-ing* form. Verbs such as *enjoy* and *avoid* usually work this way. Learn each verb together with its pattern. A pattern that fits *want* may not fit *enjoy*.
 
 Let's fill the blanks in "Mina wants ______ early, but she enjoys ______ with her coworkers." *(leave, talk)*
 
@@ -85,9 +85,9 @@ Wrong: The interns want joining the team.
 :::
 
 :::check
-Choose the form: "The manager decided ______ the meeting." *(to cancel / canceling)*
+Choose the form: "The committee plans ______ a new rule next month." *(to adopt / adopting)*
 :::answer
-*to cancel*. *Decided* takes *to* plus the base verb: "The manager decided to cancel the meeting."
+*to adopt*. *Plan* is a verb about a plan, so it takes *to* plus the base verb: "The committee plans to adopt a new rule next month."
 :::
 
 ## Examples
@@ -134,29 +134,29 @@ Choose **(B)**: "Each evening, the nurses check the supply cabinet."
 
 **Check:** Read the subject and verb alone: "The nurses check." *Check* fits a plural subject.
 
-### #3: A Camp Trip
+### #3: A Kitchen Plan
 
-Choose the correct pair: "The campers hope ______ the lake, and they avoid ______ in the dark."
+Choose the correct pair: "The cooks hope ______ the soup early, and they finish ______ the rice by noon."
 
-(A) reaching, to walk
+(A) serving, to prepare
 
-(B) to reach, to walk
+(B) to serve, to prepare
 
-(C) reach, walk
+(C) serve, prepare
 
-(D) to reach, walking
+(D) to serve, preparing
 
 **Solution:**
 
-1. *Hope* is the first verb. It takes *to* plus the base verb: *to reach*.
-2. *Avoid* is the second verb. Find the form it takes.
+1. *Hope* is the first verb. It takes *to* plus the base verb: *to serve*.
+2. *Finish* is the second verb. Find the form it takes.
 
 :::try
-Finish the last step: which choice gives the form that follows *avoid*?
+Finish the last step: which choice gives the form that follows *finish*?
 :::answer
-The answer is **(D) to reach, walking**: "The campers hope to reach the lake, and they avoid walking in the dark." *Avoid* takes an *-ing* form, *walking*.
+The answer is **(D) to serve, preparing**: "The cooks hope to serve the soup early, and they finish preparing the rice by noon." *Finish* works like *enjoy* and *avoid*, so it takes an *-ing* form, *preparing*.
 
-**Check:** Read it back. "Avoid walking in the dark" sounds right. "Avoid to walk in the dark" does not.
+**Check:** Read it back. "Finish preparing the rice" sounds right. "Finish to prepare the rice" does not.
 :::
 
 ## Traps to Watch For

@@ -64,9 +64,9 @@ Ang *reklamong ito* ay tumutukoy sa reklamong hindi pa nabanggit.
 :::
 
 :::check
-Ayusin: (1) Sa wakas, tumubo ang buto. (2) Nagtanim si Liza ng buto sa paso. (3) Pagkatapos nito, dinilig niya ang lupa araw-araw.
+Ayusin: (1) Kinaumagahan, masigla na siyang nakabangon. (2) Dahil sa pagod, maaga siyang natulog. (3) Napagod si Kiko sa maghapong paglalaro.
 :::answer
-Ang ayos ay **2, 3, 1**: "Nagtanim si Liza ng buto sa paso. Pagkatapos nito, dinilig niya ang lupa araw-araw. Sa wakas, tumubo ang buto." Walang tinutukoy na hindi pa nabanggit ang (2), kaya simula ito. Ang *nito* sa (3) ay ang pagtatanim, kaya kasunod ito. May *sa wakas* ang (1), kaya huli ito.
+Ang ayos ay **3, 2, 1**: "Napagod si Kiko sa maghapong paglalaro. Dahil sa pagod, maaga siyang natulog. Kinaumagahan, masigla na siyang nakabangon." Walang tinutukoy na hindi pa nabanggit ang (3), kaya simula ito. Ang *pagod* sa (2) ay galing sa (3), kaya kasunod ito. Ang umaga sa (1) ay sumunod sa pagtulog, kaya huli ito.
 :::
 
 ### Sanhi at Bunga

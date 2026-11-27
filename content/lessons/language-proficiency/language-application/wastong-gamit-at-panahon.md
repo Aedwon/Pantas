@@ -37,9 +37,9 @@ Ang *bukas* ay panahon. Nasa hinaharap ang kilos, ngunit hindi lahat ng kilos sa
 :::
 
 :::check
-Alin ang hindi tiyak na mangyayari: *(Darating ang inspektor sa Huwebes. / Siguro ay darating ang inspektor sa Huwebes.)*
+Alin ang hindi tiyak na mangyayari: *(Tiyak na papasa si Nilo sa pagsusulit. / Siguro, papasa si Nilo sa pagsusulit.)*
 :::answer
-*Siguro ay darating ang inspektor sa Huwebes.* Ang *siguro* ay nagpapakita ng posibilidad, kaya hindi tiyak na darating siya. Walang salita ng posibilidad ang isa pang pahayag.
+*Siguro, papasa si Nilo sa pagsusulit.* Ang *siguro* ay nagpapakita ng posibilidad, kaya hindi tiyak na papasa siya. Ang *tiyak na* ay nagsasabing sigurado.
 :::
 
 ### Salitang Magkasingkahulugan
@@ -66,9 +66,9 @@ Ang pandiwa ay maaaring magpahayag ng kilos, pangyayari, o karanasan. Itanong an
 - Naramdaman o naranasan ba? Karanasan ito: *natuwa si Lea sa balita*.
 
 :::check
-Alin ang karanasan: *(Nagluto si Ben ng sopas. / Bumagyo kagabi. / Natakot si Ben sa kulog.)*
+Alin ang pangyayari: *(Nagpinta ang mga bata ng pader. / Natumba ang puno sa ulan. / Kinabahan ang bata sa dilim.)*
 :::answer
-*Natakot si Ben sa kulog.* Damdamin ang naranasan ni Ben. Ang *nagluto* ay kilos, at ang *bumagyo* ay pangyayari.
+*Natumba ang puno sa ulan.* Nangyari lamang ito at walang sadyang gumawa. Ang *nagpinta* ay kilos, at ang *kinabahan* ay karanasan.
 :::
 
 ### Panahon ng Pandiwa

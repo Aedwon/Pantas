@@ -107,19 +107,19 @@ Identify the error: "Before the rain began, the volunteers had take all the boxe
 
 ### #3: Two Past Actions in One Sentence
 
-A question asks you to use past perfect for the earlier action: "The guests arrived at the hall, but the crew already repaired the sound system."
+A question asks you to use past perfect for the earlier action: "The audience reached the hall at eight, but the band played its last song at seven."
 
 **Solution:**
 
-1. Find the two past actions: *arrived* and *repaired*.
-2. Ask which action was already complete when the other happened.
+1. Find the two past actions: *reached* and *played*.
+2. Use the clock times to see which action came first.
 
 :::try
 Finish the last step: which verb group must change, and what should replace it?
 :::answer
-Change **already repaired** to **had already repaired**: "The guests arrived at the hall, but the crew had already repaired the sound system." The repair was complete before the guests came, so it takes the past perfect. *Arrived* stays in simple past as the later point.
+Change **played** to **had played**: "The audience reached the hall at eight, but the band had played its last song at seven." Seven comes before eight, so the song takes the past perfect. *Reached* stays in simple past as the later point.
 
-**Check:** Retell it in order: "The crew had already repaired the sound system, and then the guests arrived." The *had* sits on the earlier event.
+**Check:** Retell it in order: "The band had played its last song at seven, and then the audience reached the hall at eight." The *had* sits on the earlier event.
 :::
 
 ## Speed Tricks & Shortcuts

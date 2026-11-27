@@ -44,7 +44,7 @@ Choose the pair: "Mia gave ___ honest answer. Everyone trusted ___ answer." *(an
 
 ### Prepositions in Fixed Phrases
 
-**Prepositions**, such as *in, on, at, to,* and *for*, show links between words. Many go with one word in a fixed phrase, such as *interested in*, *responsible for*, *good at*, and *proud of*. Check the word before the blank, then recall its usual partner.
+**Prepositions**, such as *in, on, at, to,* and *for*, show links between words. Many go with one word in a fixed phrase, such as *interested in* and *good at*. Check the word before the blank, then recall its usual partner.
 
 Let's fill the blank in "The nurse is good ______ calming patients."
 
@@ -60,9 +60,9 @@ Many words keep one usual preposition. *On* fits other phrases, such as *focused
 :::
 
 :::check
-Choose the preposition: "The coach is proud ___ the team." *(of / at / for)*
+Choose the preposition: "The coach is proud ___ the team." *(of / at / in)*
 :::answer
-*of*. The fixed phrase is *proud of*: "The coach is proud of the team."
+*of*. *Proud* keeps *of*, as *interested* keeps *in* and *good* keeps *at*: "The coach is proud of the team."
 :::
 
 ### Matching Forms in Lists and Comparisons
@@ -133,29 +133,29 @@ Choose **(D)**: "He finished the worksheet before a unit test."
 
 **Check:** Swap the first article: "He finished a worksheet" no longer points to the worksheet already named.
 
-### #3: A Comparison of Habits
+### #3: A Club List
 
-Choose the best completion: "Ken prefers walking to ______ the bus."
+Choose the best completion: "The club needs members who can plan events, write reports, and ______ money."
 
-(A) ride
+(A) raising
 
-(B) riding
+(B) raise
 
-(C) to ride
+(C) to raise
 
-(D) rode
+(D) raised
 
 **Solution:**
 
-1. *Prefers* compares two activities.
-2. Name the form of the first activity.
+1. The list has three items after *can*.
+2. The third item does the same job as the first two.
 
 :::try
-Finish the last step: which choice has that form?
+Finish the last step: which choice matches the first two items?
 :::answer
-The answer is **(B) riding**: "Ken prefers walking to riding the bus."
+The answer is **(B) raise**: "The club needs members who can plan events, write reports, and raise money."
 
-**Check:** *Walking* and *riding* both end in *-ing*, so the two activities match.
+**Check:** Each item fits after *can*: *can plan, can write, can raise*.
 :::
 
 ## Traps to Watch For

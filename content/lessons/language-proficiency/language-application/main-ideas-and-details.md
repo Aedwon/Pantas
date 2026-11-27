@@ -59,9 +59,9 @@ It sounds like safety, but the text never says it. A supporting detail must be a
 :::
 
 :::check
-Read: "The school garden saves water with rain barrels. A barrel under each roof catches rain, and a short hose lets students water the plants without using the tap." Which detail supports the main point: "A barrel under each roof catches rain" or "The garden has won a prize"?
+Read: "The corner bakery cut its waste this year. It bakes smaller batches in the afternoon and gives day-old bread to a shelter. The shop opens at six." Which detail supports the main point: "It gives day-old bread to a shelter" or "The shop opens at six"?
 :::answer
-The answer is "A barrel under each roof catches rain." The text states it, and it saves water. Nothing in the text says the garden won a prize.
+The answer is "It gives day-old bread to a shelter." The text states it, and it cuts waste. "The shop opens at six" is also stated, but it says nothing about waste.
 :::
 
 ## Examples
@@ -105,29 +105,29 @@ What is the main idea?
 
 ### #3: Main Idea in a Description
 
-Read: "Many people think night markets only sell food. In fact, one market near the pier also sells handmade bags, lamps and toys. Visitors can watch the makers at work."
+Read: "The old ferry terminal is busy again. A bakery and a bike shop opened inside it this year, and a craft fair fills the hall on Saturdays. The terminal clock still shows the wrong time."
 
 What is the main idea?
 
-(A) The pier market sells handmade goods at low prices.
+(A) A bakery opened in the old ferry terminal this year.
 
-(B) One pier market sells many kinds of goods and lets visitors see the makers.
+(B) New shops and a weekly fair have brought life back to the old ferry terminal.
 
-(C) All night markets sell handmade goods.
+(C) The terminal clock still shows the wrong time.
 
-(D) The pier market is the oldest in town.
+(D) A craft fair fills the old ferry terminal hall on Saturdays.
 
 **Solution:**
 
-1. The first detail is "also sells handmade bags, lamps and toys."
-2. The second detail is "Visitors can watch the makers at work."
+1. The first details are the bakery and the bike shop.
+2. The second detail is the Saturday craft fair.
 
 :::try
-Finish the last step: which choice covers both details and adds no claim?
+Finish the last step: which choice covers all the details and adds no claim?
 :::answer
-The answer is (B). It names the goods and the makers. (A) adds low prices, (C) claims all night markets, and (D) is not mentioned.
+The answer is (B). It covers the shops and the fair. (A) and (D) each give one detail, and (C) is a line that supports neither.
 
-**Check:** Test (B) against each detail. Both fit it. Each other choice has a part with no line to support it.
+**Check:** Test (B) against each detail. All fit it. Each other choice leaves out a detail or is off the point.
 :::
 
 ## Speed Tricks & Shortcuts

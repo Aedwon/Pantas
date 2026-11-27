@@ -42,7 +42,7 @@ Many words break into three parts:
 
 - **Root:** carries the main meaning (*help* in *unhelpful*).
 - **Prefix:** added before the root to change its meaning (*un-* usually means *not*, as in *unhelpful* or *unclear*).
-- **Suffix:** added after the root (*-ful* means *full of* or *giving*; *-less* means *without*).
+- **Suffix:** added after the root. Many suffixes tell what the word has or lacks (*-ful* means *full of* or *giving*).
 
 Check that the remaining part is a real base word before treating letters as a prefix. In *unit* or *under*, *un-* is just part of the root, not the prefix meaning *not*.
 
@@ -57,11 +57,11 @@ Those wrong answers read *helpful* while dropping the negative prefix *un-*.
 :::
 
 :::check
-What does **hopeless** mean in "a **hopeless** case": *(full of hope / without hope)*?
+What does **careless** mean in "a **careless** mistake": *(full of care / without care)*?
 :::answer
-*Without hope*: a hopeless case has no hope left. The root is *hope*, and the suffix *-less* means *without*.
+*Without care*: a careless mistake comes from not taking care. The root is *care*, and the suffix *-less* lacks what the root names, the opposite of *-ful*.
 
-**Check:** Drop the suffix: "a case with hope" is the reverse of "hopeless," so *-less* removes the hope.
+**Check:** Compare *careful*, which means full of care. *Careless* has the opposite suffix, so it means the reverse.
 :::
 
 ## Examples

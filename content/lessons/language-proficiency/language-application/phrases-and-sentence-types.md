@@ -110,19 +110,19 @@ Classify each sentence:
 
 ### #3: Counting Clauses in a Long Sentence
 
-Count the independent and dependent clauses in this sentence and classify it: "The drivers stayed on route although the rain grew heavier, and the supervisor tracked each van."
+Count the independent and dependent clauses in this sentence and classify it: "The workers waited, and the supervisor checked the pump until the water ran clear."
 
 **Solution:**
 
-1. Check *although the rain grew heavier*: subject *rain*, verb *grew*, opens with *although*, so it is $1$ dependent clause.
-2. Check *The drivers stayed on route*: complete thought, so it is $1$ independent clause.
+1. Find each subject-verb pair: *workers waited*, *supervisor checked*, *water ran*.
+2. Check which pair opens with a joining word.
 
 :::try
-Finish the last step: count *the supervisor tracked each van*, state the total clause count, and classify the sentence.
+Finish the last step: state how many clauses are independent and how many are dependent, and classify the sentence.
 :::answer
-Two independent and one dependent, so the sentence is compound-complex. *The supervisor tracked each van* is a second independent clause, making $2$ independent clauses plus $1$ dependent clause.
+Two independent and one dependent, so the sentence is compound-complex. *Until the water ran clear* opens with a joining word, so it is $1$ dependent clause. *The workers waited* and *the supervisor checked the pump* are $2$ independent clauses.
 
-**Check:** Read each independent clause alone: "The drivers stayed on route." "The supervisor tracked each van." Read the third part: "Although the rain grew heavier" still needs a main clause.
+**Check:** Read each part alone: "The workers waited." and "The supervisor checked the pump." are complete. "Until the water ran clear." still needs a main clause.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -76,9 +76,9 @@ By the time the guests arrived, the cook had prepared the soup.
 Do not add *had* to every past verb. For one finished event, simple past is often enough.
 
 :::check
-Choose the form: "By the time the meeting began, Rico ______ his slides, so he handed them out at once." *(had printed / was printing / will print)*
+Choose the form: "Rico handed out his slides at once because he ______ them before the meeting began." *(had printed / was printing / will print)*
 :::answer
-*had printed*. He handed the slides out at once, so the printing was finished before the meeting began. Use *had* plus the participle: "By the time the meeting began, Rico had printed his slides, so he handed them out at once."
+*had printed*. He handed the slides out at once, so the printing was finished before the meeting began. Use *had* plus the participle: "Rico handed out his slides at once because he had printed them before the meeting began."
 :::
 
 ## Examples

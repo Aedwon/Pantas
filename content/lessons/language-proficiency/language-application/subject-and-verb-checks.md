@@ -55,11 +55,11 @@ Wrong: "Some of the information in these notes are confidential for legal reason
 :::
 
 :::check
-Choose the correct verb: Most of the water in those bottles *(is / are)* cold.
+Choose the correct verb: Most of the work *(was / were)* finished before the storm.
 :::answer
-*Is*: "Most of the water in those bottles is cold." *Water* is a mass noun, and *in those bottles* only adds a location.
+*Was*: "Most of the work was finished before the storm." *Work* is a mass noun right after *of*, so it takes *was*.
 
-**Check:** Replace the subject with *it*: "It is cold." One amount takes *is*.
+**Check:** Replace the subject with *it*: "It was finished." One amount takes *was*.
 :::
 
 ### Other Subjects You Will See

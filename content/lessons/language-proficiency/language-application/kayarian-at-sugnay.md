@@ -35,9 +35,9 @@ Walang panaguri rito, kaya hindi ito sugnay.
 :::
 
 :::check
-Alin ang sugnay na di-makapag-iisa: *(Kung maaga kang umalis. / Maaga kang umalis.)*
+Alin ang sugnay na di-makapag-iisa: *(Bumili si Ana ng prutas. / Nang dumating ang bisita.)*
 :::answer
-*Kung maaga kang umalis.* May *kung* sa unahan, kaya bitin ang diwa at kailangan pa ng karugtong.
+*Nang dumating ang bisita.* May *nang* sa unahan, kaya bitin ang diwa at kailangan pa ng karugtong. Buo na ang diwa ng *Bumili si Ana ng prutas*.
 :::
 
 ### Apat na Kayarian ng Pangungusap

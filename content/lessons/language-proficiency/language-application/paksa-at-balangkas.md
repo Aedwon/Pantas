@@ -33,9 +33,9 @@ Ang *lamang* ay nagdaragdag ng pahayag na wala sa talata. Piliin ang ideyang sak
 :::
 
 :::check
-Ano ang paksa at pangunahing ideya? "Maraming silbi ang bisikleta. Mabilis itong gamitin sa maikling biyahe. Hindi ito gumagamit ng gasolina. Mabuti rin ito sa katawan."
+Ano ang paksa at pangunahing ideya? "Naglalaro ang mga bata sa lilim ng puno tuwing hapon. Sinasala ng mga dahon ang maruming hangin. Doon din pumupugad ang mga ibon. Malaki ang naitutulong ng mga puno sa bayan."
 :::answer
-Ang paksa ay **bisikleta**. Ang pangunahing ideya ay **maraming silbi ang bisikleta**, at ang tatlong sumunod na pangungusap ang mga detalye.
+Ang paksa ay **puno**. Ang pangunahing ideya ay **malaki ang naitutulong ng mga puno sa bayan**. Nasa huling pangungusap ito, at ang tatlong nauna ang mga detalye.
 :::
 
 ### Pagpapaliwanag sa Sariling Salita

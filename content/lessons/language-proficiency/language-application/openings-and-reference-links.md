@@ -67,9 +67,9 @@ Wrong: "The study counted forty kinds. A student began a study of park birds."
 :::
 
 :::check
-Put in order: (A) "That change saved the school money." (B) "The school switched to solar panels last year."
+Put in order: (A) "Her brother found the key under the mat." (B) "Mia locked herself out of the flat on Friday."
 :::answer
-The answer is B, then A. *That change* in (A) points to the switch to solar panels in (B): "The school switched to solar panels last year. That change saved the school money."
+The answer is B, then A. *Her* in (A) points to Mia, who is named only in (B): "Mia locked herself out of the flat on Friday. Her brother found the key under the mat."
 :::
 
 ## Examples
