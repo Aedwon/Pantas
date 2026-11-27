@@ -126,12 +126,25 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### A content upload left prod's exam summaries invalid for 5 minutes (Nov 28)
+
+- Words: none from Aedwon; found by the CSE release lead r10 during the Math pilot prod upload (1:17 AM Manila).
+- Wrong: `upload_content.mjs` marks the bank invalid, writes the changed lessons, then writes every exam summary in batches of up to 400. On a slow link the summary batch hit Firestore's 60 s deadline twice, so the run exited 1 after the lessons were live and the marker stayed invalid; every content call then read the whole bank (the costly cold path of the Nov 21 entry) until the third run passed at 17:22 UTC. It had happened once on staging the same night (Math pilot staging upload) and was retried then without a rule.
+- Why it got through: the tool's own design is safe (an invalid marker makes readers scan, not break), so a failed run looks harmless; the upload steps in briefs check the re-plan's update count, not its "exam summaries" field, and nothing says to rerun at once.
+- Fix:
+  1. Required step (every content upload, staging and prod, now): read the upload's exit code; if it is not 0, rerun the same upload at once until it exits 0. The re-plan after it must say both "update":0 and "exam summaries: unchanged"; anything else is not done.
+  2. Tool fix proposed to the manager (needs his yes; changes the shared upload tool, about 30 min): write summary documents in small batches and retry a batch that times out, with a test that fails on the current single 400-document batch.
+  Cost of this instance: prod 17,914 reads for the quota day after it (9,668 before; most of the rise is the uploads' own plans), no errors.
+- Repeat (Nov 28, 1:43 to 1:47 AM Manila): the mixture-question prod upload timed out three times on the summaries before a fourth run passed; four failures in one night across staging and prod. The manager gave the yes for the tool fix (item 2 above), which the CSE release lead r10 builds next.
+- Done (Nov 28, about 2:05 AM Manila; manager: "yes, fix the upload tool now"): PR #163 (f51242b90). Batches stay under 2 MB as well as 400 writes, and a batch that fails with DEADLINE_EXCEEDED or UNAVAILABLE is rebuilt and resent up to 4 times; tests in `functions/test/content-upload.test.mjs` failed first on the old path. Staging proof: the ratio 0020 upload wrote the summaries on its first run (43 s), then prod on its first run (38 s). The required step in fix 1 stays: an upload that still exits non-zero is rerun at once, and the re-plan must show summaries unchanged.
+
 ### Walk-through lesson spacing and nesting found by Aedwon on staging (Nov 27)
 
 - His words (about 10:20 PM Manila Nov 27, reading the Math pilot lessons on staging): "card in card, isnt this against UI rules? or the design system, not sure but i think this could be better-designed" / "spacing. i think things after the WRONG example need just a bit more space" / "same with these equations also, juuust a bit more space after it so that they look visually equal to its above spacing". Also found: sign out lands on onboarding, not the first page.
 - Wrong: the renderer puts the faded "Try the last step" card inside the example card; the gap after a pair's WRONG line and after display math is smaller than the gap above them. Sign out skips the Welcome page.
 - Why it got through: the renderer was proven byte-identical on old lessons and checked against the board's layout, but no check measured vertical rhythm around the new blocks with real lesson content, and the board's samples did not show a faded step inside an example at phone width. The staging proof checked that blocks render, not their spacing. No journey covered sign out to the first page.
 - Fix: (1) a check: a golden or widget test that fails on today's gap after a WRONG line and after display math, and passes when the gap below equals the gap above (UX lead, failing first); (2) a check: a test that sign out lands on Welcome (UX lead, failing first); (3) required step for any new content block: before a staging proof, render one real lesson that uses every block at phone width and compare gaps above and below each block. The card-in-card look goes to a Claude Design board for his pick (rule 3).
+- Repeat (Nov 28, about 2:05 AM): "for the lesson viewer, i found that the subsections could use a bit more space from each other for better separation/grouping with its contents". The same rhythm gap at the subsection level: space above a heading did not exceed space below it. Fix extended: the check in (1) also measures each subsection heading, requiring more space above it than below, on one old-format and one walk-through lesson.
 
 ### Steps set to clock times instead of starting when the step before them is done (Nov 27, repeat)
 
@@ -140,6 +153,7 @@ pass 15, retire or merge one first.
 - Why it got through: agents do not wake by themselves, so the manager used timers as the trigger by habit, even where a lead's report to the manager thread wakes it just as well.
 - Fix (required step, manager and leads): a step that depends on another lane's work starts when that lane reports it done. The reporting lead messages the manager, or the next lead directly, and the manager acts on that message. Clock times are used only for real clocks: a quota reset, an hour he chose, a hard stop that protects usage, or a free-tier day. Every other timer is a backup that does nothing if the step has already started. Applied now: the Math pilot resumes on the release lead's "opening done" report; the 8:30 AM task stays as a backup only.
 - Repeat, same evening (about 9:45 PM): "why after opening?" The manager queued the pilot lessons' staging upload for after the opening although staging is not used by the opening; only the main merge needed to wait. Added required step: before deferring any step until after another event, the manager names what the wait protects in the message. If it protects nothing, the step starts now. Applied: the staging upload started at once, with a hard stop before the opening recheck.
+- Repeat (about 11:20 PM): "why read-only" — the manager reported that batch 2 would do only its read-only first step tonight without saying why. The reason was real: about 25 minutes remained before the 11:40 PM pause, and writers stopped mid-edit leave half-done files to recheck. But the report did not say it, so it read as another unexplained wait. The required step above now also covers reports to him: any limit on scope or timing states its reason in the same message.
 
 ### Final staging proof held to a cutoff that had already passed (Nov 27)
 
