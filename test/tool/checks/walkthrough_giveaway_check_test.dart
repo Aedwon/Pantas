@@ -304,6 +304,62 @@ The answer is $\dfrac{7}{20}$.
     expect(rulesOf('f', fraction), ['d']);
   });
 
+  // The two false alarms found by tuning over the 55 Math lessons at
+  // a2b132670 (Nov 27). In each, the key is printed above only as a number
+  // being worked on, not as a result, so a student cannot copy it.
+  test('no alarm: the key is an operand in a Right line (work-rate, a2b132670)',
+      () {
+    const md = r'''
+## Core Concept
+
+### Turning Time Into a Work Rate
+
+:::pair #average-work-times
+Right: $\dfrac{1}{6}+\dfrac{1}{3}=\dfrac{1}{2}$ wall per hour, so $t=2$ hours
+Wrong: $\dfrac{6+3}{2}=4.5$ hours
+Never average solo times.
+:::
+
+:::check
+Worker A can build a fence in $6$ hours, and Worker B can build the same fence in $6$ hours. What is their combined rate, and how many hours will they take together?
+:::answer
+The answer is $\dfrac{1}{3}$ fence per hour, and $3$ hours.
+:::
+''';
+    expect(checkWalkthroughGiveaways('work-rate', md), isEmpty);
+  });
+
+  test(
+      'no alarm: the key is a given before "of" in a Right line '
+      '(percentage-base, a2b132670)', () {
+    const md = r'''
+## Core Concept
+
+### Percentage Part, Rate, and Base
+
+:::pair #wrong-percentage-base
+Right: $40\%$ of a set is $72$ -> base $=180$, so $15\%$ of the set $=0.15\times180=27$
+Wrong: $15\%$ of the set $=0.15\times72=10.8$
+Find the base before taking another percent.
+:::
+
+## Examples
+
+### #2: Fraction Division to Find a Rate
+
+What percent of $\dfrac{5}{8}$ is $\dfrac{1}{4}$?
+
+$$\text{Rate}=\dfrac{8}{20}=\dfrac{2}{5}=0.40$$
+
+:::try
+Finish the last step: change the decimal rate $0.40$ to a percent.
+:::answer
+The answer is $40\%$. Multiply $0.40\times100\%=40\%$.
+:::
+''';
+    expect(checkWalkthroughGiveaways('percentage-base', md), isEmpty);
+  });
+
   test('passes a fresh check whose key is printed nowhere above', () {
     const md = r'''
 ## Core Concept

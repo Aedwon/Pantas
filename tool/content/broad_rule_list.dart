@@ -1,6 +1,8 @@
-// Lists the teaching sentences that may state a rule more broadly than the
-// lesson shows, for a verifier to judge. It is not a gate: it exits 0 unless
-// its arguments are wrong.
+// A verifier aid, not a gate. It lists the teaching sentences that may state a
+// rule more broadly than the lesson shows, and the verifier judges each one.
+// A listed line is not a finding, and an empty list is not a pass. It exits 0
+// unless its arguments are wrong, and it is not wired into lesson_checks.dart
+// or run_checks.dart.
 //
 //   dart run tool/content/broad_rule_list.dart --root <content dir>
 //       [--lesson <path relative to lessons/>]...

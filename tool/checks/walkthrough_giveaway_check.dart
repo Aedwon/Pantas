@@ -21,6 +21,24 @@ import 'lesson_size_check.dart';
 //
 // A key that cannot be read is skipped, never guessed.
 //
+// Tuning (Nov 27, the 55 Math lessons at a2b132670, before the Math fixes):
+// 5 hits, all real printed-answer findings of that day's blind pre-check
+// (identities and inverse-proportion by rule c; decimal-and-percent,
+// digit-sums and percentage-change by rule d); 0 false alarms after rule d
+// stopped counting operands and givens (see `_printedValues`). The 7 rule b
+// hits in Grammar and Vocabulary drafts at that commit were not reviewed.
+//
+// Known limits (it does not catch these real giveaways):
+// - a printed series where every form appears in some list, as in the
+//   round 8 `tinutukoy-at-pagmamay-ari-sa-panghalip` try (kayo, ninyo, inyo
+//   with the form named); kept as a test so a change sees the gap;
+// - a yes or no answer that restates a printed conclusion, as in the
+//   `additive-and-multiplicative-inverses` Check 3 at a2b132670 ("Can any
+//   real number s make 0 x s = 5 true?" after "0 has no multiplicative
+//   inverse").
+// The blind pre-check still reads every check and try; this check only
+// stops the commonest copies before it.
+//
 // Line numbers are relative to the text passed in. The lesson runner passes
 // the lesson body, as the other walk-through checks do.
 
@@ -180,6 +198,58 @@ List<String> _values(String raw) {
     if (m.group(1) == '-' && value != '0') value = '-$value';
     if (m.group(3) != null) value = '$value%';
     found.add(value);
+  }
+  return found;
+}
+
+final _valueTokenPattern = RegExp(
+  '(?:${_fracPattern.pattern})|(?:${_numberPattern.pattern})',
+  unicode: true,
+);
+const _operators = '+-*/^×÷';
+final _ofPattern = RegExp(r'^of\b', caseSensitive: false);
+
+/// Values that [raw] prints as statements, for rule d. A value right after or
+/// right before an operator is a number being worked on (the 1/3 in
+/// 1/6+1/3=1/2), and a value right before "of" is a given (the 40% in "40% of
+/// a set is 72"); neither is a printed answer a student can copy. Narrowing
+/// found by tuning on the 55 Math lessons at a2b132670 (Nov 27), where these
+/// were the only two false alarms.
+List<String> _printedValues(String raw) {
+  var text = raw
+      .replaceAll(r'\dfrac', r'\frac')
+      .replaceAll(r'\tfrac', r'\frac')
+      .replaceAll(r'\%', '%')
+      .replaceAll('\u2212', '-')
+      .replaceAll(RegExp(r'\\[,!;: ]'), ' ')
+      .replaceAll(RegExp(r'\\(?:left|right)'), '')
+      .replaceAll(RegExp(r'\\(?:times|div|cdot)'), '×')
+      .replaceAllMapped(RegExp(r'\\text\{([^}]*)\}'), (m) => ' ${m[1]} ')
+      .replaceAll(r'\$', ' ')
+      .replaceAll(r'$', ' ');
+  text = text.replaceAll(RegExp(r'(?<=\d),(?=\d{3}(?!\d))'), '');
+  final found = <String>[];
+  for (final m in _valueTokenPattern.allMatches(text)) {
+    final before = text.substring(0, m.start).trimRight();
+    final after = text.substring(m.end).trimLeft();
+    if (before.isNotEmpty && _operators.contains(before[before.length - 1])) {
+      continue;
+    }
+    if (after.isNotEmpty && _operators.contains(after[0])) continue;
+    if (_ofPattern.hasMatch(after)) continue;
+    final top = m.group(2) ?? m.group(4);
+    if (top != null) {
+      final bottom = m.group(3) ?? m.group(5)!;
+      final negative = m.group(1) != null ? '-' : '';
+      found.add(
+        '$negative${_canonicalNumber(top)}/${_canonicalNumber(bottom)}',
+      );
+    } else {
+      var value = _canonicalNumber(m.group(7)!);
+      if (m.group(6) == '-' && value != '0') value = '-$value';
+      if (m.group(8) != null) value = '$value%';
+      found.add(value);
+    }
   }
   return found;
 }
@@ -631,7 +701,7 @@ List<Violation> _checkBlock(String sourceId, _Block block) {
       .where((v) => _nonTrivial(v) && !_yearLike(v) && v != '100%')) {
     if (keyValues.length > 2) break;
     for (final l in inScope) {
-      if (_values(_withoutGroups(l.text)).contains(value)) {
+      if (_printedValues(_withoutGroups(l.text)).contains(value)) {
         add('d', 'key "$value" is printed above: "${_clip(l.text)}"');
         return found;
       }
