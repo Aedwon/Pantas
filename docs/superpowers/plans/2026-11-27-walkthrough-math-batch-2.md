@@ -87,10 +87,24 @@ kind is needed, which would be app code and goes to the manager first), how the 
 the inventory check change, how the two-theme preview is built, and which checks must exit 0. It names any step that needs
 a release lead, a board or Aedwon. The lead reads it and rules.
 
+P0 result (Nov 27, about 11:12 PM, `walkthrough-work/figure-pipeline-notes.md`): no existing code figure kind draws a split
+bar or a part, rate and base triangle. A second, existing route needs no app code: an `<!-- ILLUSTRATION: ... -->` marker plus
+a hand-drawn SVG at `content/illustrations/<subject>/<topic>/<lesson>/NN-slug.svg`, following
+`docs/content/lesson-svg-authoring.md` (theme color tokens, Geist and KaTeX fonts, allowed elements, about 360 wide). This
+is how the pilot's `table-values-and-totals` tables are drawn today. `FIGURE WANTED` notes are ignored by the export; an
+`ILLUSTRATION` marker with no file fails the export; markers inside a `:::` block throw. Gates: main's export,
+`python3 tools/check_lesson_svgs.py <root>` (`--validate-only` needs no Flutter; the full two-theme draw goes through
+`flutter-locked.sh`, release lead first), and `lesson_checks.dart --root`. The illustration inventory check already fails on
+shipped content and is not the gate. Visual judgment is Aedwon's on staging.
+Lead ruling (rule 4): pictures in this lane are SVG files on that route. My "code-drawn" above was an assumption from the
+first search; the SVG route is the existing approved style. A new code figure kind is used only if an SVG cannot show the
+relation, and then it goes to the manager first.
+
 Then the first case, Percentage Base and Fraction Division (pilot, already passed):
 - a part-and-whole bar where the hidden note sits (line 23 today): the base bar split into part and remainder with rate
-  labels, numbers taken from the lesson's own worked numbers at that spot, recomputed (the pilot moved the core worked
-  numbers to 25% of 60, so the note's "Base = 200, Part = 60, 30%" may no longer match; the figure follows the lesson);
+  labels: Base 200 (100%), Part 60 (30%), remainder 140 (70%). These equal the sentence beside it (line 25, "30% of 200 is
+  60"). Correction (manager, Nov 27 about 11:06 PM): I wrote that the pilot had moved these numbers to 25% of 60; that is
+  the later "try" paragraph (line 35), not the text beside the bar. Rule: a picture's numbers equal the text beside it;
 - a part, rate and base triangle right after the three formulas, each formula readable from it by covering one corner.
 
 If no existing kind can draw them, the lead stops and tells the manager before any app-code work: a new figure kind is a
