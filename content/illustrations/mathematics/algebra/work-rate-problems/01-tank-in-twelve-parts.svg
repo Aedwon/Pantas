@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 214" width="360" height="214">
+<title>A tank of 12 equal parts: Pipe A fills 3 parts an hour, Pipe B fills 1 part, together 4 of 12 parts, so 3 hours fill the tank</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="214" rx="14" fill="url(#bg)"/>
+<text x="24" y="32" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="24">Tank = 12 equal parts</tspan></text>
+<rect x="24" y="44" width="78" height="34" fill="#050505" fill-opacity="0.45"/>
+<rect x="102" y="44" width="26" height="34" fill="#010101" fill-opacity="0.35"/>
+<rect x="24" y="44" width="312" height="34" rx="6" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="50" y1="44" x2="50" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<line x1="76" y1="44" x2="76" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<line x1="102" y1="44" x2="102" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<line x1="128" y1="44" x2="128" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<line x1="154" y1="44" x2="154" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<line x1="180" y1="44" x2="180" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<line x1="206" y1="44" x2="206" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<line x1="232" y1="44" x2="232" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<line x1="258" y1="44" x2="258" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<line x1="284" y1="44" x2="284" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<line x1="310" y1="44" x2="310" y2="78" stroke="#020202" stroke-width="1" stroke-opacity="0.6"/>
+<rect x="24" y="98" width="14" height="14" rx="3" fill="#050505" fill-opacity="0.45" stroke="#020202" stroke-width="1" stroke-opacity="0.7"/>
+<text x="46" y="110" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="46">Pipe A: 1/4 tank per hour = 3 parts</tspan></text>
+<rect x="24" y="122" width="14" height="14" rx="3" fill="#010101" fill-opacity="0.35" stroke="#020202" stroke-width="1" stroke-opacity="0.7"/>
+<text x="46" y="134" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="46">Pipe B: 1/12 tank per hour = 1 part</tspan></text>
+<line x1="24" y1="150" x2="336" y2="150" stroke="#040404" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.6"/>
+<text x="24" y="172" text-anchor="start" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101"><tspan x="24">Together: 3/12 + 1/12 = 4/12</tspan></text>
+<text x="24" y="190" text-anchor="start" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101"><tspan x="24">= 1/3 tank per hour</tspan></text>
+<text x="336" y="190" text-anchor="end" font-family="Geist, sans-serif" font-size="13" font-weight="400" fill="#010101"><tspan x="336">3 hours for 1 tank</tspan></text>
+</svg>

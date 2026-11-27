@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 214" width="360" height="214">
+<title>Two bars in the ratio 3:5 with every box worth 9; the 2 extra boxes of the longer bar equal the difference of 18, and all 8 boxes make 72</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="214" rx="14" fill="url(#bg)"/>
+<text x="16" y="56" text-anchor="start" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="16">3 parts</tspan></text>
+<text x="16" y="108" text-anchor="start" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="16">5 parts</tspan></text>
+<rect x="76" y="34" width="162" height="32" fill="#010101" fill-opacity="0.12"/>
+<rect x="76" y="86" width="162" height="32" fill="#010101" fill-opacity="0.12"/>
+<rect x="238" y="86" width="108" height="32" fill="#050505" fill-opacity="0.45"/>
+<rect x="76" y="34" width="162" height="32" rx="6" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<rect x="76" y="86" width="270" height="32" rx="6" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="130" y1="34" x2="130" y2="66" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="184" y1="34" x2="184" y2="66" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="130" y1="86" x2="130" y2="118" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="184" y1="86" x2="184" y2="118" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="238" y1="86" x2="238" y2="118" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="292" y1="86" x2="292" y2="118" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="103" y="55" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="103">9</tspan></text>
+<text x="157" y="55" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="157">9</tspan></text>
+<text x="211" y="55" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="211">9</tspan></text>
+<text x="103" y="107" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="103">9</tspan></text>
+<text x="157" y="107" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="157">9</tspan></text>
+<text x="211" y="107" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="211">9</tspan></text>
+<text x="265" y="107" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="265">9</tspan></text>
+<text x="319" y="107" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101"><tspan x="319">9</tspan></text>
+<path d="M238 128 V136 H346 V128" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="346" y="156" text-anchor="end" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101"><tspan x="346">5 - 3 = 2 parts = 18</tspan></text>
+<line x1="20" y1="170" x2="340" y2="170" stroke="#040404" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.6"/>
+<text x="180" y="196" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="180">whole 3 + 5 = 8 parts, 8 x 9 = 72</tspan></text>
+</svg>

@@ -1,7 +1,7 @@
 ---
 _id: "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work"
 title: "Inverse Proportion and Remaining Work"
-summary: "Use a constant product for inverse proportion."
+summary: "Keep the product constant in inverse proportion and separate finished work first."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 isActive: true
@@ -14,70 +14,132 @@ keyPoints:
 ---
 ## Core Concept
 
-### Inverse Proportion
+### Constant Product in Inverse Proportion
 
 In an **inverse proportion**, two nonzero quantities keep the same product. If $y$ is inversely proportional to $x$, then:
 
 $$xy=k$$
 
-or:
-
 $$y=\dfrac{k}{x}$$
 
-When $k>0$, making one quantity larger makes the other smaller. For example, if one quantity doubles, the other is cut in half.
+Here $k$ is a fixed number. For positive quantities, making one quantity larger makes the other smaller. Doubling $x$ cuts $y$ in half so their product stays $k$.
+
+Suppose $6$ identical pumps, each at the same steady rate, empty a pool in $10$ hours. Find the hours $x$ that $5$ pumps need. First find the constant product, the total pump-hours for the job.
+
+$$6\times10=60$$
+
+Now set the same product for $5$ pumps.
+
+$$5x=60$$
+
+$$\dfrac{60}{5}=12$$
+
+Five pumps take $12$ hours. Notice that fewer pumps need more time, not less.
+
+:::pair #direct-instead-of-inverse
+Right: $5x=6\times10=60$, so $x=12\text{ hours}$
+Wrong: $\dfrac{6}{10}=\dfrac{5}{x}$, giving $x=8\dfrac{1}{3}\text{ hours}$
+The wrong line scaled time down with fewer pumps. On a fixed job, fewer pumps need more time, so keep pumps times hours the same.
+:::
+
+Could the pairs $(x,y)=(2,8)$ and $(4,6)$ belong to one inverse proportion? Going in opposite directions does not prove it. You must check that the product $xy$ stays equal.
+
+:::pair #constant-product-not-sum
+Right: compare products: $2\times8=16$ and $4\times6=24$, not inverse proportion
+Wrong: compare sums: $2+8=10$ and $4+6=10$, so inverse proportion
+Check the product. Equal sums alone do not show inverse proportion.
+:::
+
+:::why
+Why does a fixed job keep $xy$ constant? If each pump removes $1$ part of the pool per hour, then $6$ pumps working $10$ hours remove $6\times10=60$ parts. Any other number of pumps must still remove those same $60$ parts.
+:::
+
+:::check
+Four painters, each at the same steady rate, finish a fence in $18$ hours. How many such painters finish it in $8$ hours?
+:::answer
+The answer is $9$ painters. The job is $4\times18=72$ painter-hours, so it needs $72\div8=9$ painters.
+:::
+
+### Handling a Mid-Problem Change
+
+When workers join or leave partway through a job, do not apply the new group size to the whole job. First subtract the work already done.
+
+One **worker-day** is the work $1$ worker does in $1$ day. If every worker works at the same steady rate, follow three steps:
+
+1. Find the total worker-days for the whole job.
+2. Subtract the worker-days already finished to find what remains.
+3. Divide the remaining worker-days by the new number of workers.
+
+Suppose $10$ workers, each at the same steady rate, finish a job in $12$ days. After $4$ days, $2$ leave. Apply the three steps to find how many more days the rest need:
+
+$$10\times12=120\text{ worker-days}$$
+
+$$10\times4=40\text{ worker-days done}$$
+
+$$120-40=80\text{ worker-days left}$$
+
+There are $10-2=8$ workers left, so divide $80$ by $8$.
+
+$$\dfrac{80}{8}=10\text{ more days}$$
+
+<!-- ILLUSTRATION: two stacked horizontal bars of the same length, drawn to scale. The top bar is labeled "Total job = 10 x 12 = 120 worker-days". The bottom bar is split into a shaded left section, labeled "Done in 4 days: 10 x 4 = 40 worker-days", and a right section twice as long, labeled "Remaining: 80 worker-days, 8 workers x 10 days". -->
+
+:::pair #use-total-not-remaining
+Right: remaining work is $120-40=80$, so $80\div8=10\text{ days}$
+Wrong: divide total work by $8$, so $120\div8=15\text{ days}$
+The first $4$ days of work are already finished. Divide only the remaining $80$ worker-days by the $8$ remaining workers.
+:::
 
 ## Examples
 
-### #1: Basic Inverse Proportion
+### #1: Changing the Crew Size
 
 A contractor estimates that $6$ workers, all working at the same constant rate, can finish a fixed job in $15$ days. If $9$ workers work at that same rate, how many days will the job take?
 
 **Solution:**
 
-1. For a fixed job with equal worker rates, workers and time are inversely proportional.
+1. For a fixed job with equal worker rates, workers times days stays constant.
 
-$$6\times15=9x$$
+$$6\times15=90\text{ worker-days}$$
 
-2. Solve for $x$.
+2. Set the new product equal to $90$.
 
-$$x=\dfrac{90}{9}=10$$
+$$9x=90$$
+
+3. Divide by $9$.
+
+$$\dfrac{90}{9}=10$$
 
 It will take $10$ days.
 
-### #2: Inverse Proportion with a Mid-Problem Change
+### #2: Remaining Supplies After People Leave
 
 A group of $40$ people has enough identical daily food portions for $30$ days. After $10$ days, $10$ people leave. If each person keeps receiving the same daily portion, how many more days will the remaining food last?
 
 **Solution:**
 
-1. After $10$ days, there are $20$ days of food left for $40$ people. One **person-day** means enough food for $1$ person for $1$ day.
+1. After $10$ days, there are $30-10=20$ days of food left for the original $40$ people. One **person-day** is enough food for $1$ person for $1$ day.
 
 $$40\times20=800\text{ person-days}$$
 
-2. The new group has $30$ people.
+2. Find the new group size after $10$ people leave.
 
-$$40-10=30$$
+$$40-10=30\text{ people}$$
 
-3. Divide the remaining person-days by $30$.
-
-$$\dfrac{800}{30}=\dfrac{80}{3}=26\dfrac{2}{3}$$
-
-The remaining food lasts $26\dfrac{2}{3}$ more days.
+:::try
+Finish the last step: divide the $800$ remaining person-days by $30$ people.
+:::answer
+The answer is $26\dfrac{2}{3}$ more days. Divide $\dfrac{800}{30}=\dfrac{80}{3}$, which is $26\dfrac{2}{3}$.
+:::
 
 ## Speed Tricks & Shortcuts
 
-- **Worker-time model.** For a fixed job, workers $\times$ time stays constant only when every worker has the same constant work rate and the work can be shared.
+When everyone keeps the same steady rate up to the change, skip total work and multiply the old group by the remaining days. In Example $2$, $30-10=20$ days remain for $40$ people, giving $40\times20=800$ person-days left.
 
 ## Traps to Watch For
 
-### #1: Assuming Every Opposite-Direction Change Is Inverse Proportion
-
-> One quantity rising while another falls does not prove inverse proportion.
-
-Inverse proportion needs a constant product $xy$. If the product changes, the relationship is not inverse proportion.
-
-### #2: Ignoring Work or Supplies Already Used
-
-> Separate what is already finished or used before solving the remaining part.
-
-If a group size or rate changes partway through a problem, first find what remains. Then apply the new relationship to that remaining amount.
+:::checklist
+- Fewer workers or pumps on a fixed job: keep the product constant so time goes up, not down. {#direct-instead-of-inverse}
+- Checking if two quantities are inversely proportional: test that the product $xy$ stays equal. Equal sums alone do not show it. {#constant-product-not-sum}
+- Workers or people at the same steady rate leaving partway through: subtract the finished work or used supplies first before dividing. {#use-total-not-remaining}
+:::

@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 176" width="360" height="176">
+<title>Php 800 as 4 equal boxes of Php 200: Share A is 3 boxes, Php 600, and Share B is 1 box, Php 200</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="176" rx="14" fill="url(#bg)"/>
+<text x="180" y="30" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="180">Php 800</tspan></text>
+<path d="M20 52 V44 H340 V52" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<rect x="20" y="62" width="240" height="40" fill="#050505" fill-opacity="0.45"/>
+<rect x="260" y="62" width="80" height="40" fill="#010101" fill-opacity="0.06"/>
+<rect x="20" y="62" width="320" height="40" rx="8" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="100" y1="62" x2="100" y2="102" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="180" y1="62" x2="180" y2="102" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="260" y1="62" x2="260" y2="102" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="60" y="87" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="60">Php 200</tspan></text>
+<text x="140" y="87" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="140">Php 200</tspan></text>
+<text x="220" y="87" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="220">Php 200</tspan></text>
+<text x="300" y="87" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="300">Php 200</tspan></text>
+<path d="M20 112 V120 H256 V112" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<path d="M264 112 V120 H340 V112" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="138" y="142" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101"><tspan x="138">Share A = 3 parts</tspan></text>
+<text x="138" y="160" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="400" fill="#010101"><tspan x="138">= Php 600</tspan></text>
+<text x="302" y="142" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101"><tspan x="302">Share B = 1 part</tspan></text>
+<text x="302" y="160" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="400" fill="#010101"><tspan x="302">= Php 200</tspan></text>
+</svg>

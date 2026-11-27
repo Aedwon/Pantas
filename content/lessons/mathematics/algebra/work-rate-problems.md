@@ -49,6 +49,8 @@ $$=3$$
 
 Both pipes together fill the tank in $3$ hours.
 
+<!-- ILLUSTRATION: one tank drawn as a bar of 12 equal parts. Pipe A fills 3 parts in 1 hour ("Pipe A: 1/4 tank per hour = 3 parts"). Pipe B fills 1 part in 1 hour ("Pipe B: 1/12 tank per hour = 1 part"). Together they fill 4 of the 12 parts ("Together: 3/12 + 1/12 = 4/12 = 1/3 tank per hour"), so the whole tank takes "3 hours for 1 tank". -->
+
 :::why
 Why must the shared time be less than $4$ hours? Pipe A alone takes $4$ hours, and Pipe B adds extra water every hour. When both keep a steady rate, working together finishes faster than the fastest worker alone.
 :::

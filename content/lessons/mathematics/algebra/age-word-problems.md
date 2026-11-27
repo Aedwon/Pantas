@@ -65,6 +65,8 @@ $$a=12$$
 
 Ana is $12$ years old now.
 
+<!-- ILLUSTRATION: two columns, "Now" and "In 6 years", each showing two horizontal bars. Now: Ana is a short bar labeled "a" and her mother is a bar 4 times as long labeled "4a". In 6 years: both bars have the same extra piece added, with an arrow "+ 6 years" for each person, so Ana is "a + 6" and her mother is "4a + 6". At both times the gap between the two bars is bracketed as "3a", the same length. A line below reads "a = 12". -->
+
 :::why
 Why does the gap between two ages stay the same? Each year adds $1$ to both people, so $(4a+6)-(a+6)=4a-a=3a$. The ratio changes as time passes.
 :::

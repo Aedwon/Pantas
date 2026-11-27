@@ -55,7 +55,7 @@ If no liquid or pure substance is lost and the volumes add, add the two volumes 
 
 $$\text{pure}_1+\text{pure}_2=\text{pure}_{\text{final}}$$
 
-<!-- FIGURE WANTED: two beakers pouring into one larger beaker. Left beaker: "8 L at 50%" with "0.50(8) = 4 L pure". Middle beaker: "x L at 20%" with "0.20x L pure". Right beaker: "(8 + x) L at 30%" with "0.30(8 + x) L pure" -->
+<!-- ILLUSTRATION: Three containers in a row. The first is x liters at 30% with 0.30x liters of pure salt. A plus sign joins it to the second, 20 - x liters at 10% with 0.10(20 - x) liters of pure salt. An arrow leads to the third, the mixture of 20 liters at 20% with 0.20(20) = 4 liters of pure salt. The two pure amounts add to the pure amount in the mixture. -->
 
 Try this example: find the liters of the $30\%$ solution needed. A teacher needs $20$ liters of a $20\%$ salt solution by mixing a $30\%$ solution and a $10\%$ solution, all by volume. Use the rule above: the volumes add and nothing is lost. Let $x$ be the liters of the $30\%$ solution. Then the $10\%$ solution has volume $20-x$.
 

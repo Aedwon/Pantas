@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 240" width="360" height="240">
+<title>Two-year growth of Php 1,000 at 10%: simple interest ends at Php 1,200, compound interest ends at Php 1,210 because Year 2 adds 110, not 100</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="240" rx="14" fill="url(#bg)"/>
+<text x="20" y="26" text-anchor="start" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="20">Simple interest</tspan></text>
+<rect x="20" y="34" width="90" height="40" rx="0" fill="#010101" fill-opacity="0.06"/>
+<rect x="110" y="34" width="90" height="40" rx="0" fill="#050505" fill-opacity="0.22"/>
+<rect x="200" y="34" width="90" height="40" rx="0" fill="#050505" fill-opacity="0.22"/>
+<polygon points="92,34 100,34 96,74 88,74" fill="#030303"/>
+<line x1="92" y1="34" x2="88" y2="74" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="100" y1="34" x2="96" y2="74" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<rect x="20" y="34" width="270" height="40" rx="0" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="110" y1="34" x2="110" y2="74" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="200" y1="34" x2="200" y2="74" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="52" y="59" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="52">Php 1,000</tspan></text>
+<text x="155" y="52" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="155">Year 1</tspan></text>
+<text x="155" y="67" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="155">100</tspan></text>
+<text x="245" y="52" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="245">Year 2</tspan></text>
+<text x="245" y="67" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="245">100</tspan></text>
+<text x="20" y="94" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="20">Php 1,000 + 100 (Year 1) + 100 (Year 2)</tspan></text>
+<text x="20" y="110" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="20">= Php 1,200</tspan></text>
+<text x="20" y="144" text-anchor="start" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101"><tspan x="20">Compound interest</tspan></text>
+<rect x="20" y="152" width="90" height="40" rx="0" fill="#010101" fill-opacity="0.06"/>
+<rect x="110" y="152" width="90" height="40" rx="0" fill="#050505" fill-opacity="0.22"/>
+<rect x="200" y="152" width="99" height="40" rx="0" fill="#050505" fill-opacity="0.45"/>
+<polygon points="92,152 100,152 96,192 88,192" fill="#030303"/>
+<line x1="92" y1="152" x2="88" y2="192" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="100" y1="152" x2="96" y2="192" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<rect x="20" y="152" width="279" height="40" rx="0" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="110" y1="152" x2="110" y2="192" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<line x1="200" y1="152" x2="200" y2="192" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="52" y="177" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="52">Php 1,000</tspan></text>
+<text x="155" y="170" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="155">Year 1</tspan></text>
+<text x="155" y="185" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="155">100</tspan></text>
+<text x="250" y="170" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="250">Year 2</tspan></text>
+<text x="250" y="185" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101"><tspan x="250">110</tspan></text>
+<text x="20" y="212" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="20">Php 1,000 + 100 (Year 1 = Php 1,100)</tspan></text>
+<text x="20" y="228" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="20">+ 110 (Year 2, 10% of 1,100) = </tspan><tspan font-weight="600">Php 1,210</tspan></text>
+</svg>
