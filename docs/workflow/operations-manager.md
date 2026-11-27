@@ -38,6 +38,10 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
   first; paused lanes commit their work in progress and wait to be resumed.
   Relaxed Nov 15 (Aedwon: "you can accelerate things, still have plenty of usage left"): run lanes and
   parallel Codex jobs as needed while he has usage; return to the cap if he asks.
+  Restored and tightened Nov 28, about 4 AM (Aedwon: "obviously i want you to slow down", after four
+  leads ran at once): one build lane at a time, plus short one-off jobs. The integrator goes first.
+  Every other lane is paused until he names it. Before starting or resuming any lane, the manager says
+  which lane stops to make room.
 
 **Leads**
 - Own their lane end to end: plan, brief workers, review every result, merge, log to main.
