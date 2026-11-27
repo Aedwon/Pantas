@@ -21,6 +21,7 @@ import {dirname, join, relative, resolve} from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 
 import {assertResolvedLessonSize, checkIllustrationFiles, resolveLessonIllustrations} from './lesson_illustrations.mjs';
+import {guardLiveRun} from './upload_budget.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const functionsDir = resolve(here, '../../functions');
@@ -191,13 +192,20 @@ if (outDir) {
 }
 
 // --dry-run --live plans against the live project: it reads every stored version (about 1,500 reads) and
-// writes nothing. Count those reads before running it (docs/deploy-prod.md, "Count before every hosted run").
+// writes nothing. Before it reads, it checks the project's reads today against the budget and exits 75 if
+// the run would pass it (upload_budget.mjs). Still count the reads first (docs/deploy-prod.md, "Count before every hosted run").
 if (dryRun && !process.env.FIRESTORE_EMULATOR_HOST && !live) {
   console.log('dry run: no database was read or written');
   process.exit(0);
 }
+const project = option('--project', process.env.GCLOUD_PROJECT ?? 'demo-pantas-test');
+// A hosted run reads one document per stored item (the upload holds the whole bank) plus the bank marker.
+// The check runs before the first Firestore read and has no override (upload_budget.mjs).
+const refused = await guardLiveRun({live, emulator: Boolean(process.env.FIRESTORE_EMULATOR_HOST), outDir, project,
+  expected: items.length + 1});
+if (refused) process.exit(refused);
 const {initializeApp} = require('firebase-admin/app');
 const {getFirestore} = require('firebase-admin/firestore');
-initializeApp({projectId: option('--project', process.env.GCLOUD_PROJECT ?? 'demo-pantas-test')});
+initializeApp({projectId: project});
 const result = await writeContent(getFirestore(), items, pros, {dryRun});
 console.log(`${dryRun ? 'dry run: would write' : 'wrote'} ${JSON.stringify(result.counts)}, pro documents changed: ${result.proWritten}, lesson and question-set changes: ${result.bankChanges}, exam summaries: ${result.summaries}`);
