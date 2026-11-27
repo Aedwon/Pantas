@@ -18,7 +18,7 @@ keyPoints:
 
 **Compound interest** adds each period's interest into the balance. The next period then earns or charges interest on that new, larger balance, instead of only on the starting principal.
 
-Suppose Php $1,000$ earns $10\%$ interest compounded annually for $2$ years.
+Find the balance after $2$ years when Php $1,000$ earns $10\%$ interest compounded annually.
 
 Year $1$ starts with Php $1,000$ and multiplies by $1+0.10=1.10$:
 
@@ -48,14 +48,6 @@ Wrong: $1,000+100+100=1,200$
 The wrong line used simple interest, adding Php $100$ each year. Compound interest calculates Year $2$ on the updated balance of Php $1,100$.
 :::
 
-:::check
-A deposit of Php $8,000$ earns $5\%$ interest compounded annually for $3$ years. How much interest does it earn in total?
-:::answer
-The answer is Php $1,261$. The balances are $8,000\times1.05=8,400$, then $8,400\times1.05=8,820$, then $8,820\times1.05=9,261$. The interest is $9,261-8,000=1,261$.
-
-**Check:** $1.05^3=1.157625$, and $8,000\times1.157625=9,261$.
-:::
-
 ### Matching Rate and Periods to Compounding Frequency
 
 When a problem states an annual rate but compounds more than once a year, match both $r$ and $t$ to one compounding period:
@@ -66,13 +58,15 @@ When a problem states an annual rate but compounds more than once a year, match 
 
 Divide the annual rate by the number of periods per year to find $r$. Multiply the number of years by the periods per year to find $t$.
 
-Suppose an account earns $8\%$ per year compounded quarterly for $1$ year. Since quarterly means $4$ periods per year:
+Find the rate per period, the growth factor and the number of periods for an account that earns $8\%$ per year compounded quarterly for $1$ year:
 
-$$r=\dfrac{8\%}{4}=2\%=0.02$$
+$$\dfrac{8\%}{4}=2\%$$
 
-$$1+r=1+0.02=1.02$$
+$$2\%=0.02$$
 
-$$t=1\times4=4$$
+$$1+0.02=1.02$$
+
+$$1\times4=4$$
 
 The balance formula for $1$ year is $A=P(1.02)^4$.
 
@@ -83,9 +77,9 @@ Dividing $8\%$ by $2$ gives a semi-annual rate, not a quarterly rate. There are 
 :::
 
 :::check
-An account pays $12\%$ per year compounded quarterly. What is the growth factor $1+r$ for one quarter, and how many periods are in $2$ years?
+Php $5,000$ earns $6\%$ per year compounded semi-annually for $1$ year. What is the balance at the end?
 :::answer
-The growth factor is $1.03$ and there are $8$ periods. Divide $12\%\div4=3\%=0.03$, so $1+0.03=1.03$, and multiply $2\times4=8$.
+The answer is Php $5,304.50$. The rate per period is $6\%\div2=3\%$, so the factor is $1.03$. There are $1\times2=2$ periods, so $A=5,000\times1.03^2=5,000\times1.0609=5,304.50$.
 :::
 
 ### Estimating Doubling Time with the Rule of $72$
@@ -94,22 +88,16 @@ For **compound growth**, the **Rule of $72$** gives a quick estimate of how many
 
 $$\text{Doubling years}\approx\dfrac{72}{\text{annual percent rate}}$$
 
-At an annual compound rate of $8\%$, the estimated doubling time is:
+Estimate the doubling time at an annual compound rate of $8\%$:
 
-$$72\div8=9\text{ years}$$
+$$72\div8=9$$
 
-At $9\%$, it takes about $72\div9=8$ years. This is a rough estimate for compound growth, not an exact value and not the simple-interest formula.
+The estimate is $9$ years. At $9\%$, it takes about $72\div9=8$ years. This is a rough estimate for compound growth, not an exact value and not the simple-interest formula.
 
 :::pair #rule-of-72-direction
 Right: $72\div9=8\text{ years}$
 Wrong: $9\div72=\dfrac{1}{8}\text{ year}$
 The wrong line divided the rate by $72$ instead of $72$ by the rate. A single-digit percent rate should take several years to double, not a tiny fraction of a year.
-:::
-
-:::check
-Using the Rule of $72$, about how many years does it take money to double at $6\%$ interest compounded annually?
-:::answer
-The answer is about $12$ years. Divide $72\div6=12$.
 :::
 
 ## Examples
@@ -122,22 +110,24 @@ An amount of Php $10,000$ is deposited into a savings account that earns an annu
 
 1. Semi-annual compounding means interest is applied $2$ times a year. Divide the annual rate by $2$ to get the rate per period.
 
-$$r=\dfrac{4\%}{2}=2\%=0.02$$
+$$\dfrac{4\%}{2}=2\%$$
+
+$$2\%=0.02$$
 
 2. Multiply the $2$ years by $2$ periods per year to count total periods.
 
-$$t=2\times2=4$$
+$$2\times2=4$$
 
 3. Substitute $P=10,000$, $r=0.02$, and $t=4$ into $A=P(1+r)^t$.
 
-$$A=10,000(1+0.02)^4=10,000(1.02)^4$$
+$$A=10,000(1+0.02)^4$$
+
+$$A=10,000(1.02)^4$$
 
 :::try
 Finish the last step: use $1.02^4\approx1.0824$ to find the total amount.
 :::answer
 The answer is approximately Php $10,824$. Multiply $10,000\times1.0824=10,824$.
-
-**Check:** Simple interest at $4\%$ for $2$ years would earn $10,000\times0.04\times2=800$, giving Php $10,800$. Compound interest gives Php $10,824$, which is slightly more than Php $10,800$, as expected.
 :::
 
 ## Traps to Watch For
@@ -145,5 +135,5 @@ The answer is approximately Php $10,824$. Multiply $10,000\times1.0824=10,824$.
 :::checklist
 - Compound vs. simple interest: apply the period rate to the new balance each period, instead of only to the original principal. {#simple-instead-of-compound}
 - Compounding more than once a year: divide the annual rate by the periods per year to find $r$. {#wrong-quarterly-period-rate}
-- Rule of $72$ doubling estimate: divide $72$ by the annual percent rate, never the reverse. {#rule-of-72-direction}
+- Rule of $72$ doubling estimate: divide $72$ by the annual percent rate, not the reverse. {#rule-of-72-direction}
 :::

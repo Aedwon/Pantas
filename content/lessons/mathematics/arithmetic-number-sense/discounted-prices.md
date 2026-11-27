@@ -76,7 +76,7 @@ Wrong: price after the discount $=$ Php $200$
 Php $200$ is the money taken off. The question asks what you pay.
 :::
 
-<!-- FIGURE WANTED: a horizontal bar labeled "Php 800 = 100%", split into a shaded left part "25%, discount, Php 200" and a right part "75%, you pay, Php 600" -->
+<!-- ILLUSTRATION: One horizontal bar labeled "Php 800 = 100%". The bar is drawn to scale and split in two. The shaded left part is 25% of the bar and is labeled "25%, discount, Php 200". The right part is 75% of the bar and is labeled "75%, you pay, Php 600". -->
 
 To go back from a sale price to the listed price, divide the sale price by the fraction you still pay. That fraction must be greater than $0$. Find the listed price of a shirt that costs Php $340$ after $15\%$ off. You still pay $85\%$:
 

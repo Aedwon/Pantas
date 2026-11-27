@@ -34,12 +34,6 @@ Wrong: $y=x+3$ is direct proportion because $y$ goes up when $x$ goes up.
 Going up together is not enough. In $y=x+3$, the pairs $(1,4)$ and $(2,5)$ have different ratios, $\dfrac{4}{1}=4$ and $\dfrac{5}{2}=2.5$.
 :::
 
-:::check
-Does the table $(x,y)=(2,10)$ and $(5,25)$ show direct proportion?
-:::answer
-The answer is yes. Both ratios equal $5$, since $\dfrac{10}{2}=5$ and $\dfrac{25}{5}=5$.
-:::
-
 ### Equal Ratios and Cross-Multiplying
 
 A **proportion** says that two ratios are equal. When two ratios are equal, their cross products are equal. For nonzero $B$ and $D$:
@@ -50,17 +44,21 @@ $$AD=BC$$
 
 Keep both ratios in the exact same order, such as $\dfrac{\text{blue}}{\text{yellow}}$ on both sides.
 
-Suppose blue and yellow paint mix in a $3:2$ ratio, and you have $15$ liters of blue paint. How much yellow paint do you need? Write both fractions as $\dfrac{\text{blue}}{\text{yellow}}$.
+Find the yellow paint needed for $15$ liters of blue paint when blue and yellow mix in a $3:2$ ratio. Write both fractions as $\dfrac{\text{blue}}{\text{yellow}}$.
 
 $$\dfrac{3}{2}=\dfrac{15}{x}$$
 
 Cross-multiply.
 
-$$3x=2\times15=30$$
+$$3x=2\times15$$
+
+$$3x=30$$
 
 Divide by $3$.
 
-$$x=\dfrac{30}{3}=10$$
+$$x=\dfrac{30}{3}$$
+
+$$x=10$$
 
 You need $10$ liters of yellow paint.
 
@@ -75,9 +73,9 @@ Why does cross-multiplying work? Multiplying both sides of $\dfrac{A}{B}=\dfrac{
 :::
 
 :::check
-A map scale is $1\text{ cm}:12\text{ km}$. How many kilometers does $3.5\text{ cm}$ represent?
+A map scale is $1\text{ cm}:12\text{ km}$. A trail is $54\text{ km}$ long. How many centimeters long is it on the map?
 :::answer
-The answer is $42\text{ km}$. Write $\dfrac{1}{12}=\dfrac{3.5}{x}$, so $x=12\times3.5=42\text{ km}$.
+The answer is $4.5\text{ cm}$. Write $\dfrac{1}{12}=\dfrac{x}{54}$ with centimeters on top, so $12x=54$ and $x=\dfrac{54}{12}=4.5$.
 :::
 
 ### Distance, Rate, and Time
@@ -88,26 +86,20 @@ $$d=rt$$
 
 Here $d$ is distance, $r$ is rate, and $t$ is time. At a fixed rate, distance and time are directly proportional: twice the time covers twice the distance. For a fixed distance, rate and time are inversely proportional because $rt=d$ stays constant.
 
-The time unit in $t$ must match the time unit in $r$. If speed is in kilometers per hour, convert minutes to hours before multiplying by dividing by $60$. If you get a decimal number of hours, multiply by $60$ to turn it into minutes.
+The time unit in $t$ must match the time unit in $r$. If speed is in kilometers per hour, divide minutes by $60$ to get hours before you multiply. If you get a decimal number of hours, multiply by $60$ to turn it into minutes.
 
-Try finding the distance traveled at $50\text{ km/h}$ for $48$ minutes. First change $48$ minutes to hours.
+Find the distance traveled at $50\text{ km/h}$ for $48$ minutes. First change $48$ minutes to hours.
 
-$$t=\dfrac{48}{60}=0.8\text{ hour}$$
+$$\dfrac{48}{60}=0.8\text{ hour}$$
 
 Now multiply rate by time.
 
-$$d=50\times0.8=40\text{ km}$$
+$$50\times0.8=40\text{ km}$$
 
 :::pair #hours-to-minutes
 Right: $0.8\text{ hour}=0.8\times60=48\text{ minutes}$
 Wrong: $0.8\text{ hour}=80\text{ minutes}$
-An hour has $60$ minutes, not $100$. Always multiply decimal hours by $60$ to get minutes.
-:::
-
-:::check
-How many minutes does it take to travel $24\text{ km}$ at $32\text{ km/h}$?
-:::answer
-The answer is $45\text{ minutes}$. First $t=\dfrac{24}{32}=0.75\text{ hour}$, and $0.75\times60=45\text{ minutes}$.
+An hour has $60$ minutes, not $100$. Multiply decimal hours by $60$ to get minutes.
 :::
 
 ## Examples
@@ -124,15 +116,17 @@ $$\dfrac{4}{24}=\dfrac{x}{84}$$
 
 2. Cross-multiply.
 
-$$24x=4\times84=336$$
+$$24x=4\times84$$
+
+$$24x=336$$
 
 3. Divide both sides by $24$.
 
-$$x=\dfrac{336}{24}=14$$
+$$x=\dfrac{336}{24}$$
+
+$$x=14$$
 
 The bakery needs $14$ cups of flour.
-
-**Check:** Find the unit rate. Dividing $24\div4=6$ muffins per cup. Then $84\div6=14$ cups, which matches.
 
 ### #2: Distance, Rate, and Time with Unit Conversion
 
@@ -146,7 +140,7 @@ $$108=45t$$
 
 2. Divide by $45$ to find the time in hours.
 
-$$t=\dfrac{108}{45}=2.4\text{ hours}$$
+$$\dfrac{108}{45}=2.4\text{ hours}$$
 
 3. Split $2.4$ hours into $2$ whole hours and $0.4$ hour.
 
@@ -154,8 +148,6 @@ $$t=\dfrac{108}{45}=2.4\text{ hours}$$
 Finish the last step: convert $0.4$ hour into minutes and write the total time.
 :::answer
 The answer is $2\text{ hours}$ and $24\text{ minutes}$. Multiply $0.4\times60=24\text{ minutes}$.
-
-**Check:** Check $2\text{ hours}$ and $24\text{ minutes}$ at $45\text{ km/h}$. Two hours covers $2\times45=90\text{ km}$, and $24\text{ minutes}$ is $\dfrac{24}{60}=\dfrac{2}{5}$ of an hour, which covers $\dfrac{2}{5}\times45=18\text{ km}$. Adding $90+18=108\text{ km}$, which matches.
 :::
 
 ## Speed Tricks & Shortcuts

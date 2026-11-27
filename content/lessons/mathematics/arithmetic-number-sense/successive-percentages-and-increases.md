@@ -16,9 +16,9 @@ keyPoints:
 
 ### Applying Successive Percentage Changes
 
-**Successive percentage changes** happen one after another. Each new change acts on the updated amount from the step before, never on the starting amount.
+**Successive percentage changes** happen one after another. Each change after the first acts on the updated amount from the step before, not on the starting amount.
 
-Suppose a Php $1,000$ jacket gets a $20\%$ discount, then a $10\%$ discount on the sale price.
+Find the final price of a Php $1,000$ jacket that gets a $20\%$ discount, then a $10\%$ discount on the sale price.
 
 1. Find the price after the first $20\%$ discount. You still pay $100\%-20\%=80\%$, or $0.80$.
 
@@ -28,7 +28,7 @@ $$1,000\times0.80=800$$
 
 $$800\times0.90=720$$
 
-The final price is Php $720$. The total price drop is $1,000-720=280$, which is $\dfrac{280}{1,000}=28\%$, not $30\%$.
+The final price is Php $720$. The total price drop is $1,000-720=280$. That is $\dfrac{280}{1,000}=0.28$ of the price, a $28\%$ drop, not $30\%$.
 
 :::pair #add-successive-percents
 Right: $1,000\times0.80=800$, then $800\times0.90=720$
@@ -36,7 +36,7 @@ Wrong: $20\%+10\%=30\%$, so $1,000\times0.70=700$
 You cannot add or subtract percents that use different bases. The second discount comes from Php $800$, not Php $1,000$.
 :::
 
-The same rule holds for increases, or a mix of increases and discounts. Suppose a Php $500$ bill adds a $10\%$ service charge ($\times1.10$) and then a $10\%$ tax ($\times1.10$) on the new total.
+The same rule holds for increases, or a mix of increases and discounts. Find the final amount of a Php $500$ bill that adds a $10\%$ service charge ($\times1.10$) and then a $10\%$ tax ($\times1.10$) on the new total.
 
 $$500\times1.10=550$$
 
@@ -55,23 +55,21 @@ Why does a $20\%$ increase followed by a $20\%$ decrease leave less than you sta
 :::
 
 :::check
-A price starts at $100$. It rises by $10\%$, then rises by another $20\%$. What is the final price?
+A price starts at $100$. It rises by $10\%$, then falls by $20\%$. What is the final price?
 :::answer
-The answer is $132$. First $100\times1.10=110$, then $110\times1.20=132$.
+The answer is $88$. First $100\times1.10=110$, then $110\times0.80=88$.
 :::
 
 ### Percent Of Versus Percent More Than
 
-The words after a percent change the multiplier completely.
+The words after a percent change the multiplier.
 
 - **"$p\%$ of" a base** means multiply the base by $\dfrac{p}{100}$. So "$120\%$ of" means $1.20\times\text{base}$.
 - **"$p\%$ more than" a base** means keep the full $100\%$ base and add $p\%$ of it. So "$120\%$ more than" means $(1+1.20)=2.20\times\text{base}$.
 
 <!-- FIGURE WANTED: two horizontal bars stacked for base = 200. Top bar labeled "120% of 200": one solid block of 200 (100%) extended to 240 (120%). Bottom bar labeled "120% more than 200": one solid block of 200 (100%) plus an added block of 240 (120%), total bracketed as 440 (220%) -->
 
-Try both phrases on a base of $200$.
-
-First, find $120\%$ of $200$.
+Find $120\%$ of $200$ and $120\%$ more than $200$. First, find $120\%$ of $200$.
 
 $$1.20\times200=240$$
 
@@ -79,18 +77,16 @@ Next, find $120\%$ more than $200$. Add the $240$ increase to the original $200$
 
 $$200+240=440$$
 
-In multiplier form, that is $(1+1.20)\times200=2.20\times200=440$.
+In multiplier form, add $1$ to the rate, then multiply the base.
+
+$$1+1.20=2.20$$
+
+$$2.20\times200=440$$
 
 :::pair #percent-more-as-of
 Right: "$120\%$ more than" uses multiplier $1+1.20=2.20$
 Wrong: "$120\%$ more than" uses multiplier $1.20$
 Multiplying by $1.20$ gives only the increase above the original amount, or $120\%$ of it. Add $1$ to include the original $100\%$ base.
-:::
-
-:::check
-A town had $500$ residents last year. Its population is now $40\%$ more than last year. How many residents does it have now?
-:::answer
-The answer is $700$. "More than" means keep the whole $100\%$ and add $40\%$, so $500\times1.40=700$.
 :::
 
 ## Examples
@@ -113,13 +109,11 @@ $$80\times0.75=60$$
 
 $$100-60=40$$
 
-4. Divide the drop by the starting $100$ and change to a percent.
+4. Divide the drop by the starting $100$.
 
-$$\dfrac{40}{100}\times100\%=40\%$$
+$$\dfrac{40}{100}=0.40$$
 
 The equivalent single discount is $40\%$.
-
-**Check:** Notice that $20\%+25\%=45\%$, so the combined discount must be less than $45\%$. Getting $40\%$ is smaller than $45\%$, which fits.
 
 ### #2: Percent Of and Percent More Than
 
@@ -136,14 +130,12 @@ $$1.50\times300=450$$
 :::try
 Finish the last step: find $2.50\times300$.
 :::answer
-The answer is $450$ forms for this week and $750$ forms for next week. Multiplying $2.50\times300=750$.
-
-**Check:** "$150\%$ more than $300$" means the original $300$ plus an increase of $450$. Adding $300+450=750$, which matches $2.50\times300$.
+The answer is $750$ forms for next week. Multiply $2.50\times300=750$.
 :::
 
 ## Speed Tricks & Shortcuts
 
-To reverse a successive change and find an original price, multiply the decimal factors first and then divide. If a price drops by $20\%$ ($\times0.80$) and then rises by $12\%$ ($\times1.12$), the combined multiplier is $0.80\times1.12=0.896$. Divide the final price by $0.896$ to get the original price.
+To find an original price after successive changes, multiply the decimal factors first, then divide the final price by that product. If a price drops by $20\%$ ($\times0.80$) and then rises by $12\%$ ($\times1.12$), the combined multiplier is $0.80\times1.12=0.896$.
 
 ## Traps to Watch For
 

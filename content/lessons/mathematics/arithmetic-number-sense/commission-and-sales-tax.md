@@ -20,7 +20,7 @@ A **commission** is pay earned as a percentage of a stated money amount, called 
 
 $$\text{Commission}=\text{Stated base}\times\text{Commission rate}$$
 
-Change the percent rate to a decimal by dividing by $100$, then multiply by the stated base. Suppose a salesperson earns a $6\%$ commission on Php $85,000$ in sales.
+Change the percent rate to a decimal by dividing by $100$, then multiply by the stated base. Find the commission of a salesperson who earns a $6\%$ commission on Php $85,000$ in sales.
 
 $$6\%=0.06$$
 
@@ -28,13 +28,17 @@ $$85,000\times0.06=5,100$$
 
 The commission is Php $5,100$.
 
-Sometimes the stated base is **net profit**, which is revenue minus all costs. Suppose a store assistant earns a Php $400$ daily wage for $6$ days plus $4\%$ commission on weekly net profit, with Php $35,000$ in revenue and Php $25,000$ in costs.
+Sometimes the stated base is **net profit**, which is revenue minus all costs. Find the weekly earnings of a store assistant with a Php $400$ daily wage for $6$ days plus $4\%$ commission on weekly net profit. The week's revenue is Php $35,000$ and its costs are Php $25,000$. Find the net profit, the commission, the wage, then the total:
 
 $$35,000-25,000=10,000$$
 
 $$10,000\times0.04=400$$
 
-The weekly wage is $6\times400=2,400$, so total earnings are $2,400+400=2,800$, or Php $2,800$.
+$$6\times400=2,400$$
+
+$$2,400+400=2,800$$
+
+The total earnings are Php $2,800$.
 
 :::pair #wrong-commission-base
 Right: $\text{Net profit}=35,000-25,000=10,000$, so commission $=10,000\times0.04=400$ and total $=\text{Php }2,800$
@@ -44,7 +48,7 @@ The wrong line took $4\%$ of revenue instead of net profit. Check what amount th
 
 <!-- FIGURE WANTED: a horizontal segmented bar labeled "Total sales: Php 110,000", split into three bands from left to right: "First Php 40,000 at 3%", "Next Php 40,000 at 5%", and "Above Php 80,000 (Php 30,000) at 8%" -->
 
-In a **tiered commission**, each rate applies only to its own band of sales. Never multiply total sales by the highest rate alone.
+In a **tiered commission**, each rate applies only to its own band of sales. Total sales times the highest rate alone is wrong.
 
 :::why
 Why read the base before multiplying? Two totals often appear in the same question, such as revenue and profit, or total sales and a sales band. Only the stated base gets multiplied by that rate.
@@ -54,8 +58,6 @@ Why read the base before multiplying? Two totals often appear in the same questi
 A store has Php $50,000$ in revenue. Its net profit is $30\%$ of revenue. An agent earns $6\%$ commission on net profit. How much commission does the agent earn?
 :::answer
 The answer is Php $900$. Net profit is $50,000\times0.30=15,000$, and $15,000\times0.06=900$.
-
-**Check:** The commission is $900$, which is $1.8\%$ of revenue, and $0.30\times0.06=0.018$.
 :::
 
 ### Sales Tax and Total Price
@@ -66,7 +68,7 @@ $$\text{Sales tax}=\text{Taxable price}\times\text{Tax rate}$$
 
 $$\text{Total price}=\text{Taxable price}+\text{Sales tax}$$
 
-Suppose an item has a taxable price of Php $2,400$ and a $5\%$ sales tax is added.
+Find the total price of an item with a taxable price of Php $2,400$ and a $5\%$ sales tax.
 
 $$2,400\times0.05=120$$
 
@@ -74,7 +76,7 @@ $$2,400+120=2,520$$
 
 The total price is Php $2,520$.
 
-When you buy several identical taxable items, multiply the item price by the quantity first to get the full taxable amount. Suppose an office buys $8$ supplies at Php $375$ each with $6\%$ sales tax.
+When you buy several identical taxable items, multiply the item price by the quantity first to get the full taxable amount. Find the total bill for $8$ supplies at Php $375$ each with $6\%$ sales tax.
 
 $$8\times375=3,000$$
 
@@ -94,14 +96,6 @@ A sales tax increases the bill, unlike a discount. Add the tax to the taxable pr
 Right: $\text{Total bill}=3,000+180=\text{Php }3,180$
 Wrong: $\text{Total bill}=\text{Php }3,000$
 The wrong answer stopped at the taxable subtotal. Check whether the question asks for the tax, the total bill, or the change from a payment.
-:::
-
-:::check
-An item has a taxable price of Php $2,000$. With sales tax added, the total price is Php $2,140$. What is the sales tax rate?
-:::answer
-The answer is $7\%$. The tax is $2,140-2,000=140$, and $\dfrac{140}{2,000}=0.07$.
-
-**Check:** $2,000\times0.07=140$, and $2,000+140=2,140$.
 :::
 
 ## Examples
@@ -134,8 +128,6 @@ $$1,200+2,000+2,400=5,600$$
 
 The agent earns Php $5,600$ in commission.
 
-**Check:** If all Php $110,000$ earned $3\%$, the pay would be $3,300$. If all earned $8\%$, the pay would be $8,800$. Since most sales sit in the $3\%$ and $5\%$ bands, Php $5,600$ sits right where it should.
-
 ### #2: Multi-Item Bill with Sales Tax and Change
 
 An office purchases $6$ identical printer cartridges at a taxable price of Php $650$ each. A sales tax of $6\%$ is added to the full taxable amount. If the buyer pays with Php $4,500$, how much change is due?
@@ -158,8 +150,6 @@ $$3,900+234=4,134$$
 Finish the last step: subtract the total bill from the Php $4,500$ payment to find the change.
 :::answer
 The answer is Php $366$. Subtract $4,500-4,134=366$.
-
-**Check:** Without tax, the change from Php $4,500$ would be $4,500-3,900=600$. Taking away the Php $234$ tax leaves $600-234=366$, which matches.
 :::
 
 ## Traps to Watch For
