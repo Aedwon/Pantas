@@ -16,7 +16,7 @@ keyPoints:
 
 ### Apostrophes for Ownership
 
-An **apostrophe (')** shows ownership. Always name the **owner** first, check whether it is singular or plural, then add the ending:
+An **apostrophe (')** can show ownership. Always name the **owner** first, check whether it is singular or plural, then add the ending:
 
 1. Singular noun: add *'s*: *Maria* -> *"Maria's book."*
 2. Plural noun ending in *s*: add only *'* after the *s*: *teachers* -> *"the teachers' room."*
@@ -90,7 +90,7 @@ Finish each sentence with ownership: (a) The bike belongs to Leo. It is ___ bike
 2. For (b), *players* is plural ending in *s*, so add *'*: **"It is the players' bus."**
 3. For (c), *men* is plural without *s*, so add *'s*: **"They are the men's coats."**
 
-**Check:** Spell each owner alone: *Leo*, *players*, *men*. Only *players* already ends in *s*, so only it takes a bare apostrophe.
+**Check:** Read "the bus used by the players": the same owner, *players*, appears with its apostrophe after the *s*.
 
 ### #2: Expanding a Contraction
 

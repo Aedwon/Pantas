@@ -22,7 +22,7 @@ A **misplaced modifier** sits where it seems to describe the wrong noun or actio
 
 Move the modifier right next to the noun it describes: *"The waiter served the customer pasta covered in cheese."*
 
-<!-- ILLUSTRATION: two stacked sentences: top "The waiter served pasta to the [customer] [covered in cheese]." with an arrow from "covered in cheese" pointing mistakenly to "customer"; bottom "The waiter served the customer [pasta] [covered in cheese]." with a teal arrow from "covered in cheese" pointing to "pasta" -->
+<!-- FIGURE WANTED: two stacked sentences: top "The waiter served pasta to the [customer] [covered in cheese]." with an arrow from "covered in cheese" pointing mistakenly to "customer"; bottom "The waiter served the customer [pasta] [covered in cheese]." with a teal arrow from "covered in cheese" pointing to "pasta" -->
 
 :::pair #wrong-noun-attachment
 Right: *"The waiter served the customer pasta covered in cheese."*
@@ -69,7 +69,7 @@ The toy has a missing wheel. Revise *"The clerk gave a toy to the girl with a mi
 2. Notice it sits after *the girl*, making the girl seem to have a missing wheel.
 3. Keep the word order and move only the modifier right after *a toy*: **"The clerk gave a toy with a missing wheel to the girl."**
 
-**Check:** Ask which noun now gets the detail. *A missing wheel* belongs to the toy, and the girl has none.
+**Check:** Ask what had the missing wheel. In the revised sentence, the answer is the toy.
 
 ### #2: Preserving Which Object Is Damaged
 
@@ -92,11 +92,11 @@ The travelers wait at the station, and the snack is wrapped in foil. Check this 
 2. In sentence 2, *"wrapped in foil"* sits after *the vendor*, attaching the foil to the vendor.
 
 :::try
-Finish the last step: which rewrite of sentence 2 makes *"wrapped in foil"* describe *snack*: (A) *"Wrapped in foil, we bought a snack from the vendor."* or (B) *"We bought a snack wrapped in foil from the vendor."*?
+Finish the last step: which rewrite of sentence 2 makes *"wrapped in foil"* describe *snack*: (A) *"Wrapped in foil, we bought a snack from the vendor."* or (B) *"From the vendor, we bought a snack wrapped in foil."*?
 :::answer
-**B: "Waiting at the station, we heard a whistle. We bought a snack wrapped in foil from the vendor."** *Wrapped in foil* follows *snack*, with *the vendor* no longer between them. In A, the opener would describe *we*.
+**B: "Waiting at the station, we heard a whistle. From the vendor, we bought a snack wrapped in foil."** *Wrapped in foil* follows *snack*, and *from the vendor* moves to the front, so it cannot attach to the foil. In A, the opener would describe *we*.
 
-**Check:** Ask what is wrapped in foil: the snack, not the vendor. Ask what stayed the same: we still bought it from the vendor.
+**Check:** Ask what is wrapped in foil: the snack, because *wrapped in foil* directly follows it. Ask where we bought it: *from the vendor*, now at the front.
 :::
 
 ## Speed Tricks & Shortcuts

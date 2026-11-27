@@ -114,12 +114,12 @@ Dan asks two questions. Choose the one that requests permission:
 
 **Solution:**
 
-1. Both questions begin with *Could I*, so the opening words cannot decide.
+1. Mark the words after *Could I* in each: [use the scanner] and [see Mars from here].
 
 :::try
 Finish the job: say who is asked and what is asked in each question, then choose the permission request.
 :::answer
-**(A)** Dan asks the clerk to allow him to use the scanner, so it is a permission request. In (B), nobody is asked to allow anything; Dan wonders whether seeing Mars is possible.
+**(A)** Dan asks the clerk to allow him to use the scanner, so it is a permission request. In (B), Dan asks his sister whether Mars can be seen from there, so he wants information, not permission.
 
 **Check:** Add *please*: "Could I use the scanner, please?" sounds natural, while "Could I see Mars from here, please?" does not.
 :::

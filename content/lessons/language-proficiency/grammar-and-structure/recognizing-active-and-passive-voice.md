@@ -70,7 +70,7 @@ Do not invent an actor when the doer is unknown. *Were changed* is also passive,
 :::check
 No one knows who misplaced the files. Which fits better: "The cleaner lost the files" or "The files were lost"?
 :::answer
-The answer is **"The files were lost."** Passive voice reports what happened without inventing an actor. *The cleaner* is a doer nobody knows.
+The answer is **"The files were lost."** Passive voice reports what happened without inventing an actor. Naming the cleaner would assume who misplaced the files.
 :::
 
 ## Examples
@@ -89,15 +89,15 @@ Label each sentence: (a) "The nurse checked the chart." (b) "The chart was check
 
 ### #2: Tense and Voice Together
 
-In "By the time the manager reviewed it, the report had already been submitted by the intern," identify the tense and voice of *had already been submitted*.
+In "Before the inspector arrived, the permits had been signed by the director," identify the tense and voice of *had been signed*.
 
 **Solution:**
 
-1. Find the verb group: *had ... been submitted*.
+1. Find the verb group: *had been signed*.
 2. *Had* plus *been* shows **past perfect**.
-3. *Been submitted* is *be* + a past participle, so the voice is **passive**: "By the time the manager reviewed it, the report had already been submitted by the intern."
+3. *Been signed* is *be* + a past participle, so the voice is **passive**: "Before the inspector arrived, the permits had been signed by the director."
 
-**Check:** Change it to active: "the intern had already submitted the report." The tense stays past perfect.
+**Check:** Change it to active: "the director had signed the permits." The tense stays past perfect.
 
 ### #3: A Notice About the Lobby Doors
 

@@ -103,7 +103,7 @@ Identify the part of speech of **cool** in each sentence: "The room felt **cool*
 
 1. *Cool* describes *the room*, so it is an **adjective**: "The room felt **cool**."
 2. *Cool* is what you do to the soup, so it is a **verb**: "Please **cool** the soup."
-3. *Cool* names a thing after *the*, so it is a **noun**: "Enjoy the **cool** of the evening."
+3. *Cool* names the cool air of the evening in that sentence, so it is a **noun**: "Enjoy the **cool** of the evening."
 
 **Check:** Swap words with one job: "The room felt *chilly*" (adjective), "Please *refrigerate* the soup" (verb), and "Enjoy the *peace* of the evening" (noun).
 

@@ -20,7 +20,7 @@ Words that look redundant on paper can carry real meaning depending on what happ
 1. **No earlier repeat happened:** A speaker says something once, and a listener misses it. In *"Could you please repeat again what you just said?"*, *repeat* already means say once more, so *again* usually adds nothing. Cut it: *"Could you please repeat what you just said?"*
 2. **An earlier repeat already happened:** An officer gave an instruction, then repeated it when asked. A late arrival missed both readings. In *"Please repeat the instruction again for the late arrival,"* *again* can mark **one more repeat** after the repeat already given. Some style guides call *repeat again* redundant in both cases, so follow the timeline the question gives.
 
-<!-- ILLUSTRATION: three-step timeline left to right: Step 1 "First reading" -> Step 2 "First repeat (already repeated)" -> Step 3 "Late arrival arrives: 'repeat again' = a further repeat" -->
+<!-- FIGURE WANTED: three-step timeline left to right: Step 1 "First reading" -> Step 2 "First repeat (already repeated)" -> Step 3 "Late arrival arrives: 'repeat again' = a further repeat" -->
 
 :::why
 Why can *repeat again* be wrong in one case and right in another? *Repeat* means say one more time. On a first repeat, *repeat* alone does the job; after an earlier repeat, *again* can mark a further repeat beyond the first one.
@@ -81,7 +81,7 @@ Mara read a notice aloud. At Ben's request, she repeated it. Ben still could not
 1. Count prior readings: (1) first reading, (2) first repeat for Ben.
 2. Ben now wants a **second** repeat, so *again* adds that further step and can stay: **"Please repeat it again."**
 
-**Check:** Read the three requests in order: read it, repeat it, repeat it again. *Again* names the third.
+**Check:** Retell the sequence as actions: Mara's first reading, her first repeat, then the second repeat Ben now asks for. *Again* marks that last step.
 
 ### #3: Reading a Longer Timeline
 
@@ -96,7 +96,7 @@ Finish the last step: delete one word and keep the same meaning.
 :::answer
 **"Could you repeat the drill for Sam?"** The coach has not repeated the drill yet, so *repeat* alone asks for the first repeat.
 
-**Check:** Put *again* back: "repeat the drill again" points to an earlier repeat that never happened.
+**Check:** Compare "repeat the drill for Sam" with "repeat the drill again for Sam." Here, with no earlier repeat, both ask for the same single repeat.
 :::
 
 ## Speed Tricks & Shortcuts

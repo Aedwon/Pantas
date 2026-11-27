@@ -61,15 +61,15 @@ The second one: **The nurse is checking the forms before noon.** *The nurse* is 
 
 ## Examples
 
-### #1: Finding the Finite Verb in a Verb Group
+### #1: Completing a Sentence
 
-Which is a complete formal sentence: *"Waiting by the gate"* or *"Mia was waiting by the gate"*?
+Which choice turns *"waiting by the gate"* into a complete formal sentence: (A) *"Mia waiting by the gate"* or (B) *"Mia was waiting by the gate"*?
 
 **Solution:**
 
-1. In *"Waiting by the gate,"* *waiting* has no helper verb carrying tense and no stated subject. It is a nonfinite verb group.
-2. In *"Mia was waiting by the gate,"* *Mia* is the subject and *was* carries past tense.
-3. So the second entry is the complete formal sentence: *"Mia was waiting by the gate."*
+1. In (A), *waiting* has no helper verb carrying tense, so the group stays nonfinite even with *Mia* in front.
+2. In (B), *Mia* is the subject and *was* carries past tense.
+3. So (B) is the complete formal sentence: *"Mia was waiting by the gate."*
 
 **Check:** Shift the second sentence to present time: *was* changes to *is* (*"Mia is waiting"*).
 
@@ -89,18 +89,18 @@ The word that supplies the finite verb form is **is**: "The driver **is** loadin
 
 ### #3: Completing an -ing Fragment
 
-Revise *"Preparing the final report for the committee"* into a complete formal sentence.
+Revise *"Reviewing the budget for the council"* into a complete formal sentence.
 
 **Solution:**
 
-1. *Preparing* alone is nonfinite: it shows no time, so the group is not a sentence.
+1. *Reviewing* alone is nonfinite: it shows no time, so the group is not a sentence.
 
 :::try
-Finish the last step. It is happening right now. Pick the helper: *The coordinator (is / was) preparing the final report for the committee.*
+Finish the last step. It is happening right now. Write the full sentence with *the auditor* as the subject.
 :::answer
-**The coordinator is preparing the final report for the committee.** *The coordinator* is the subject, and *is* supplies present tense.
+**The auditor is reviewing the budget for the council.** *The auditor* is the subject, and *is* supplies present tense.
 
-**Check:** Shift the sentence to past time: *"The coordinator was preparing the final report for the committee."* *Is* changes to *was*, confirming a real finite verb is present.
+**Check:** Cover *is*: "The auditor reviewing the budget for the council" is an incomplete group again, so the helper makes the sentence.
 :::
 
 ## Speed Tricks & Shortcuts

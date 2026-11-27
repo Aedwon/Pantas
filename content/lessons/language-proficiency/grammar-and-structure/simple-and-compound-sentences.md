@@ -57,7 +57,7 @@ Why does a semicolon make a compound sentence without *and* or *but*? A semicolo
 :::pair #but-so-semicolon-are-compound
 Right: *"She wanted to travel abroad, but she could not afford the airfare."* and *"The clinic reopened; appointments resumed."* are **Compound**.
 Wrong: Classify *"She wanted to travel abroad, but she could not afford the airfare."* as **Complex** or **Compound-complex**, or classify *"The clinic reopened; appointments resumed."* as **Simple** or **Complex**.
-A semicolon joins two independent clauses, and these have no dependent clause, so they are compound. It is not one simple clause or a subordinator.
+*But* joins the clauses in the first sentence, and the semicolon joins the clauses in the second. Each has two independent clauses and no dependent clause, so both are compound.
 :::
 
 :::pair #compound-subject-not-compound

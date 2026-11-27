@@ -17,7 +17,7 @@ keyPoints:
 
 ### Tense, Aspect, and Simple Present
 
-English verbs show **tense** (when an action happens) and **aspect** (whether it is a habit, ongoing, or completed). **Simple present** uses the base form, the plain verb (adding *-s* or *-es* for *he, she, it*, or a singular noun; *am, is, are* for *be*). Common uses:
+English verbs show **tense** (when an action happens) and **aspect** (whether it is a habit, ongoing, or completed). **Simple present** uses the base form, the plain verb (regular verbs typically add *-s* or *-es* for *he, she, it*, or a singular noun; *be* has its own forms, *am, is, are*). Common uses:
 
 1. Regular habits or duties: "On every working day, the records officer **sorts** the mail."
 2. General truths: "Water **boils** at its boiling point."
@@ -49,9 +49,9 @@ Wrong: Claim *am writing* means I must be writing at this exact second.
 :::
 
 :::check
-Does "My brother is repairing his bike this week" mean the repair is underway this week or was finished last week?
+My brother started repairing his bike on Monday and is on a break now. What does *is repairing* convey in "My brother is repairing his bike this week"?
 :::answer
-The answer is **Underway this week**. *Is* plus *-ing* (*repairing*) shows an action in progress around now, and *this week* names the period.
+The answer is **A repair underway around now**. He has started, so *is* plus *-ing* (*repairing*) shows a project in progress, even during a break, and *this week* names the period.
 :::
 
 ### State Verbs Usually Take Simple Forms
@@ -88,7 +88,7 @@ Choose the forms: (a) "On every school day, the guard *(opens / opened / open)* 
 2. In (b), the sentence states a general truth, so choose **melts**: "Ice **melts** when it gets warm."
 3. In (c), a fixed timetable uses simple present for tomorrow, so choose **leaves**: "The last bus **leaves** at nine tomorrow."
 
-**Check:** In (a), *opened* places the description in the past, while *opens* gives the current duty the stem states.
+**Check:** Test each finished sentence against its cue: *every school day* (repeated duty), *when it gets warm* (general truth) and *tomorrow* (fixed timetable). Each fits simple present.
 
 ### #2: Action Now Versus Project This Month
 
@@ -99,7 +99,7 @@ A student eating lunch says "I am studying for the exam this week." Name the ten
 1. *This week* marks a longer project around the present, not this second.
 2. So *am* + *-ing* is **present progressive**: "I **am studying** for the exam this week."
 
-**Check:** He is eating lunch as he speaks, yet the sentence is true because the studying continues around now.
+**Check:** The student is eating lunch while speaking, yet the sentence is true because the studying continues around now.
 
 ### #3: Choosing the Right Verb Form
 

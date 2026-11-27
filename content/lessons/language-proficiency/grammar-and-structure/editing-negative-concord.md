@@ -28,7 +28,7 @@ Condition: keep the original time (present vs. past) and full scope (*anybody* d
 :::pair #keeping-negative-concord-in-formal
 Right: In standard formal English, revise *"She doesn't want no help with the project"* to *"She doesn't want any help with the project."*
 Wrong: Keep *"She doesn't want no help with the project."* or change it to *"She wants some help with the project after all."*
-Keeping *doesn't* and *no* fails the formal rule, while *wants some help* flips her refusal into acceptance. Replace *no* with *any* so her refusal stays intact.
+Keeping *doesn't* and *no* fails the formal rule, while *wants some help* reverses what she wants. Replace *no* with *any* so she still wants no help.
 :::
 
 :::check
@@ -86,9 +86,9 @@ In a dialect that uses negative concord, what does *"We never saw nobody at the 
 **Solution:**
 
 1. Spot the two negatives: *never* and *nobody*.
-2. Under negative concord, both reinforce one single negative idea: **"We saw nobody at the gate."**
+2. Under negative concord, both reinforce one single negative idea: **"We never saw anybody at the gate."**
 
-**Check:** Rewrite in standard formal English: *"We never saw anybody at the gate."* Both versions mean no one was seen.
+**Check:** Test it with *"At no time did we see anyone at the gate."* It keeps the same meaning, including *never*.
 
 ### #3: Preserving Scope and Register
 

@@ -32,7 +32,7 @@ The answer is **"They flew to Cebu in March."** *They* begins the sentence, *Ceb
 Under the standard convention, capitalize a formal title such as *President* **directly before a person's name**: *"President Reyes"* or *"President Cruz."*
 
 In this style, a **generic job role** without a name after it stays lowercase: *"the president"* or *"the doctor."*
-<!-- ILLUSTRATION: two stacked sentences: top "We met President Reyes yesterday." with a teal bracket linking capital "President" directly to "Reyes" labeled "title before a name"; bottom "We met the president yesterday." with lowercase "president" after "the" labeled "generic job role, no name" -->
+<!-- FIGURE WANTED: two stacked sentences: top "We met President Reyes yesterday." with a teal bracket linking capital "President" directly to "Reyes" labeled "title before a name"; bottom "We met the president yesterday." with lowercase "president" after "the" labeled "generic job role, no name" -->
 
 :::pair #title-before-name-vs-role
 Right: "We met President Reyes yesterday." and (as a generic role) "We met the president yesterday."
@@ -41,9 +41,9 @@ Before *Reyes*, *President* sits right in front of a name and takes a capital *P
 :::
 
 :::check
-Fix the capitals: *"The note needed president Santos's signature, and the President signed it."*
+Fix the capitals: *"The form needed principal Tan's signature, and the Principal signed it."*
 :::answer
-The answer is **"The note needed President Santos's signature, and the president signed it."** Capitalize *President* right before *Santos*, and lowercase *president* after *the*.
+The answer is **"The form needed Principal Tan's signature, and the principal signed it."** Capitalize *Principal* right before *Tan*, and lowercase *principal* after *the*.
 :::
 
 ### Quoted Sentences vs. Quoted Words
@@ -70,7 +70,7 @@ The answer is **The teacher wrote the word "garden" on the board.** The quote is
 
 ## Examples
 
-### #1: Formal Title vs. Generic Role
+### #1: Capitals in a Title and Surname
 
 Choose the correctly capitalized sentence:
 
@@ -88,7 +88,7 @@ Choose the correctly capitalized sentence:
 
 The correct answer is **(C)**: "I called Mayor Lopez this morning."
 
-**Check:** *Mayor* sits right before *Lopez*, so it takes a capital. *The mayor* alone would stay lowercase.
+**Check:** Swap the name for a generic role: "I called the mayor this morning" has a lowercase *m*. With *Lopez* back, *Mayor* and *Lopez* both take capitals.
 
 ### #2: Quoted Sentence vs. Quoted Word
 

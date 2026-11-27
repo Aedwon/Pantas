@@ -27,7 +27,7 @@ All three verbs fit cleanly after *how to*, so one *how to* covers the whole lis
 
 Condition: a shared word must fit every item. When items need different prepositions, keep each: *"interest in and talent for music,"* because *interest for music* does not work.
 
-<!-- ILLUSTRATION: branching diagram from a single box "how to" to three aligned rows: "install (base verb)", "update (base verb)", and "repair (base verb)" each with a teal checkmark, with "updating (-ing)" crossed out beside row 2 -->
+<!-- FIGURE WANTED: branching diagram from a single box "how to" to three aligned rows: "install (base verb)", "update (base verb)", and "repair (base verb)" each with a teal checkmark, with "updating (-ing)" crossed out beside row 2 -->
 
 :::why
 Why does one *to* work for three verbs? Once *how to* opens the list, English can carry that same *to* forward to every joined base verb in the list.
@@ -57,9 +57,9 @@ Fixing only *setting* leaves *saving* unmatched. Changing *track* to *tracking* 
 :::
 
 :::check
-Which words break the parallel list in *"The guide helps new clerks sort files, logging calls, and answering questions"*?
+Which words break the parallel list in *"The notice asks visitors to sign in, showing a pass, and wait outside"*?
 :::answer
-The answer is **Logging and answering**. *Sort* is a base verb after *helps new clerks*, so change *logging* to *log* and *answering* to *answer*.
+The answer is **Showing a pass**. *Sign* and *wait* are base verbs after *asks visitors to*, so change *showing* to *show*.
 :::
 
 ## Examples
@@ -94,21 +94,21 @@ Fix the missing word in *"He felt great trust and responsibility for his team."*
 
 **Check:** Try the same test on *"belief and hope for peace"*: *belief for peace* fails, so write *"belief in and hope for peace."*
 
-### #3: Fixing a Longer List
+### #3: A Longer List After a Preposition
 
-Identify and fix the parallelism error: *"The clinic lets patients book visits, paying fees, and checking results."*
+Identify and fix the parallelism error: *"The firm cut costs by reducing waste, to share offices, and negotiated with suppliers."*
 
 **Solution:**
 
-1. Find the shared lead-in: *"lets patients."*
-2. Test each item after *"lets patients"*.
+1. Find the shared lead-in: *by*.
+2. Test the first item: *by reducing waste* works, because *by* is followed by an *-ing* form.
 
 :::try
-Finish the last step: replace only *paying* and *checking* in the frame "The clinic lets patients book visits, ____ fees, and ____ results."
+Finish the last step: test the other two items after *by*, and fix the ones that fail.
 :::answer
-The answer is **Change "paying" and "checking" to "pay" and "check."** The finished sentence is **"The clinic lets patients book visits, pay fees, and check results."**
+The answer is **Change "to share" and "negotiated" to "sharing" and "negotiating."** The finished sentence is **"The firm cut costs by reducing waste, sharing offices, and negotiating with suppliers."**
 
-**Check:** *Book*, *pay*, and *check* are all base verbs after *"The clinic lets patients."*
+**Check:** Read *by* before each item: *by reducing*, *by sharing*, *by negotiating*. All three are *-ing* forms.
 :::
 
 ## Speed Tricks & Shortcuts

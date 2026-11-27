@@ -68,18 +68,18 @@ The answer is **"The meeting starts at 3 p.m."** The time *3 p.m.* already state
 
 ## Examples
 
-### #1: A Request to Combine Forms
+### #1: A Reading Request
 
-Revise for concise formal writing: *"Please combine the two forms together."*
+Revise for concise formal writing: *"Please read the report's past history first."*
 
 **Solution:**
 
-1. *Combine* already means join together.
-2. Drop *together* while keeping the action (*combine*) and its object (*the two forms*).
+1. *History* already means what happened in the past.
+2. Drop *past* while keeping the action (*read*) and its object (*the report's history*).
 
-Correct sentence: **"Please combine the two forms."**
+Correct sentence: **"Please read the report's history first."**
 
-**Check:** Read the new sentence: it still asks to join the forms.
+**Check:** The revised request still names the same action, *read*, the same object, *the report's history*, and the order, *first*.
 
 ### #2: A Store Notice
 
@@ -100,7 +100,7 @@ An editor wants to shorten *"The soup was boiling hot."* The writer meant only t
 
 **Solution:**
 
-1. *Hot* tells the reader how much heat the soup has.
+1. *Hot* names the soup's temperature, and *boiling* shows how intense that heat is. The two words work together.
 
 :::try
 Finish the last step: state what the editor should check before deleting *hot*, and whether the cut is safe.

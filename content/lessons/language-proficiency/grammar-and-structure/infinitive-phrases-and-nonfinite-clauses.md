@@ -53,13 +53,13 @@ Compare a fragment with a sentence:
 :::pair #long-infinitive-still-fragment
 Right: *"The unit plans to revise the policy."* is a complete formal sentence.
 Wrong: Pick *"To revise the policy before the next inspection."*, *"To have the policy revised before the inspection."*, or *"To revise the policy and to notify all employees."* as a complete formal sentence.
-Look for a stated subject paired with a tense-carrying finite verb like *plans*; if no finite verb appears, the group is a fragment.
+Look for a finite main verb like *plans* outside the infinitive group; if none appears, the group is a fragment.
 :::
 
 :::check
-Which is a complete sentence, and which word carries its tense: *"To verify every receipt before noon"* or *"The clerk plans to verify every receipt before noon"*?
+Which is a complete sentence, and which word carries its tense: *"For the clerk to verify every receipt before noon"* or *"The clerk verifies every receipt before noon"*?
 :::answer
-**The clerk plans to verify every receipt before noon.** *Plans* carries present tense. *To verify* has no tense, so the first group has no main clause.
+**The clerk verifies every receipt before noon.** *Verifies* carries present tense. In the first group, *to verify* has no tense, and no other verb stands outside it, so it has no main clause.
 :::
 
 ## Examples
@@ -114,5 +114,5 @@ Check the verbs first. An action starting with *to* never supplies the finite ma
 
 :::checklist
 - Infinitive group with an understood doer: label it by the system in the question, never as a finite clause or complete sentence. {#infinitive-not-finite-clause}
-- Long or paired infinitive groups like *"To revise ... and to notify ..."*: look for a subject and tense-carrying verb before calling it a sentence. {#long-infinitive-still-fragment}
+- Long or paired infinitive groups like *"To revise ... and to notify ..."*: look for a finite main verb outside the infinitive group before calling it a sentence. {#long-infinitive-still-fragment}
 :::

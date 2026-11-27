@@ -48,7 +48,7 @@ Result: *"She studied hard, and she passed the exam."*
 
 Condition: in an ordinary statement, do **not** add a comma when two verbs share one subject (a **compound predicate**). In *"She studied hard and passed the exam,"* *"passed the exam"* has no new subject and cannot stand alone, so omit the comma before *and*.
 
-<!-- ILLUSTRATION: two stacked sentence diagrams: top "She studied hard, and she passed the exam." with two complete boxes connected by a teal ", and"; bottom "She studied hard and passed the exam." with one subject "She" branching to "studied hard" and "passed the exam" and no comma before "and" -->
+<!-- FIGURE WANTED: two stacked sentence diagrams: top "She studied hard, and she passed the exam." with two complete boxes connected by a teal ", and"; bottom "She studied hard and passed the exam." with one subject "She" branching to "studied hard" and "passed the exam" and no comma before "and" -->
 
 :::why
 Why does a comma usually go before *and* when a second subject follows? A comma warns the reader that a brand-new complete clause is starting. When one subject simply does two actions, the sentence stays one clause.
@@ -117,12 +117,12 @@ Finish the last step: check both halves of (C) around *and*, and name the correc
 :::answer
 The answer is **(D) Both (A) and (C):** (A) "The cook chopped and fried the onions." and (C) "The cook chopped the onions, and he fried them." In (C), *"The cook chopped the onions"* and *"he fried them"* are two independent clauses, so the comma before *and* is right; in (A), one subject shares two verbs with no comma.
 
-**Check:** (A) has no subject after *and*; (C) has *he*.
+**Check:** Read each version at *and*. (C) leaves two full statements, "The cook chopped the onions" and "He fried them." (A) leaves "fried the onions," which needs a subject.
 :::
 
 ## Speed Tricks & Shortcuts
 
-In an ordinary statement with no interruption or special pause, cover the joining word (*for, and, nor, but, or, yet,* or *so*) and read the right side alone. A second subject and verb takes a comma before the joining word (a very short, closely connected pair may skip it). A second verb for the same subject takes none.
+In an ordinary statement with no interruption or special pause, cover the joining word (*for, and, nor, but, or, yet,* or *so*) and read the right side alone. A second part that can stand alone as a full statement (an independent clause) takes a comma before the joining word (a very short, closely connected pair may skip it). A second verb for the same subject takes none.
 
 ## Traps to Watch For
 

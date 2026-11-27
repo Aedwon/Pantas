@@ -65,7 +65,7 @@ A **phrase** is a group of words that works together as one part of a sentence. 
 
 The **head** is the main word of the subject. It controls the verb. A phrase that only adds optional detail to an ordinary noun subject does not.
 
-<!-- ILLUSTRATION: the sentence "The basket of apples is heavy." with "of apples" grayed and bracketed as "added detail"; a teal arrow from "basket" to "is"; "basket" labeled "head, singular" -->
+<!-- FIGURE WANTED: the sentence "The basket of apples is heavy." with "of apples" grayed and bracketed as "added detail"; a teal arrow from "basket" to "is"; "basket" labeled "head, singular" -->
 
 Find the head of the subject in "The basket of apples is heavy":
 
@@ -99,7 +99,7 @@ Choose the correct forms: I *(am / is)* ready, and he *(have / has)* the documen
 
 Correct: "I am ready, and he has the documents."
 
-**Check:** Put *I am* and *he has* back in place and read the whole sentence: each verb sits beside its own subject.
+**Check:** Swap the forms: "I is ready" and "he have the documents" both fail, because *is* goes with *he*, *she* and *it*, and *have* goes with *I*, *we* and *they*.
 
 ### #2: A Phrase in the Middle
 

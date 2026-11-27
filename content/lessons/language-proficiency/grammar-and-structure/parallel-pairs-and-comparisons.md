@@ -50,7 +50,7 @@ Comparisons with *than* or *as* should compare the same kind of thing or activit
 
 In *"Reading a book is more relaxing than to watch television,"* the left side uses *-ing* (*reading*) while the right switches to *to watch*. Change *to watch* to *watching*: *"Reading a book is more relaxing than watching television."*
 
-<!-- ILLUSTRATION: two balanced comparison cards joined by "is lower than": left card "The cost of a bus trip" tagged "cost"; right card "the cost of a taxi trip" tagged "cost", with "a taxi driver" and "taking a taxi" crossed out below -->
+<!-- FIGURE WANTED: two balanced comparison cards joined by "is lower than": left card "The cost of a bus trip" tagged "cost"; right card "the cost of a taxi trip" tagged "cost", with "a taxi driver" and "taking a taxi" crossed out below -->
 
 :::why
 Why can you not say *"Her report is longer than him"*? A report is writing, while *him* is a person. Comparing *her report* to *his report* keeps the comparison fair.
@@ -88,7 +88,7 @@ Revise *"He either wanted to win the race or to finish in the top three"* so *ei
 
 **Solution:**
 
-1. After *either* sits *wanted to win the race*; after *or* sits *to finish*.
+1. After *either* sits *wanted to win the race*; after *or* sits *to finish in the top three*.
 2. Move *either* after the shared verb: *"He wanted either to win the race or to finish in the top three."*
 
 **Check:** Read each goal after *wanted*: *wanted to win the race* and *wanted to finish in the top three*.
@@ -108,9 +108,9 @@ Finish the last step: the writer compares what it costs to rent each apartment f
 
 (B) *"The rent is lower than the rent for the apartment next door."*
 :::answer
-**B: "The rent is lower than the rent for the apartment next door."** Now a rent is compared with a rent.
+**B:** Both repaired sentences together: "The room is neither dark nor small. The rent is lower than the rent for the apartment next door." Now a rent is compared with a rent.
 
-**Check:** In A, the right side is a deposit, so the rent is compared with a different cost.
+**Check:** Name each side: this apartment's rent and the next apartment's rent. In A, the right side is a deposit, a different cost.
 :::
 
 ## Speed Tricks & Shortcuts

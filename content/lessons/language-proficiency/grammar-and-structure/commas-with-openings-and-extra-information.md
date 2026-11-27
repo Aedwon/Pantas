@@ -45,7 +45,7 @@ Compare extra detail with a clause that picks out some students:
 1. *"My brother, who lives in Cebu, is visiting this week."*
 2. *"The students who missed the test must report today."*
 
-<!-- ILLUSTRATION: two stacked sentences comparing comma pairs: top "My brother, who lives in Cebu, is visiting." with "who lives in Cebu" shaded between two teal commas and labeled "only one brother -> extra info"; bottom "The students who missed the test must report." with no commas and a tight bracket from "who missed the test" to "The students" labeled "picks out some students -> identifying" -->
+<!-- FIGURE WANTED: two stacked sentences comparing comma pairs: top "My brother, who lives in Cebu, is visiting." with "who lives in Cebu" shaded between two teal commas and labeled "only one brother -> extra info"; bottom "The students who missed the test must report." with no commas and a tight bracket from "who missed the test" to "The students" labeled "picks out some students -> identifying" -->
 
 :::why
 Why do commas change who is meant? With paired commas, you can remove the middle clause and still know who is meant. Without commas, the clause stays locked to the noun to narrow the group.
@@ -77,7 +77,7 @@ Add the needed punctuation: *"Because the office was closed we returned the next
 
 **Solution:**
 
-1. Find the opening clause: *"Because the office was closed."*
+1. Find the opening clause: [Because the office was closed].
 2. Put one comma before the main clause *"we returned the next day."*
 
 Correct sentence: **"Because the office was closed, we returned the next day."**
@@ -86,16 +86,16 @@ Correct sentence: **"Because the office was closed, we returned the next day."**
 
 ### #2: Opening and Extra Information
 
-The speaker has only one brother. Add commas: *"After the long meeting with the principal my brother who lives in Cebu drove me home."*
+The speaker has only one aunt. Add commas: *"After the long meeting with the principal my aunt who teaches in Davao drove me home."*
 
 **Solution:**
 
 1. Put a comma after the opening phrase: *"After the long meeting with the principal,"*
-2. The speaker has only one brother, so *who lives in Cebu* is extra and takes commas on both sides.
+2. The speaker has only one aunt, so *who teaches in Davao* is extra and takes commas on both sides.
 
-Correct sentence: **"After the long meeting with the principal, my brother, who lives in Cebu, drove me home."**
+Correct sentence: **"After the long meeting with the principal, my aunt, who teaches in Davao, drove me home."**
 
-**Check:** Lift out *"who lives in Cebu"*: *"After the long meeting with the principal, my brother drove me home."* The single brother is still clear.
+**Check:** Lift out *"who teaches in Davao"*: *"After the long meeting with the principal, my aunt drove me home."* The single aunt is still clear.
 
 ### #3: Applicants and Folders
 
@@ -107,7 +107,7 @@ Only some applicants submitted incomplete folders, and only they must return on 
 
 **Solution:**
 
-1. Decide whether *who submitted incomplete folders* adds extra detail about all applicants or identifies which subset must return.
+1. Mark the same clause in both choices: [who submitted incomplete folders]. Only the commas around it differ.
 
 :::try
 Finish the last step: choose (A) or (B), and explain how the comma choice matches the intended meaning.

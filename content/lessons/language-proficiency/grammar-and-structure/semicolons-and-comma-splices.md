@@ -50,7 +50,7 @@ When commas inside list items would make the item boundaries unclear, keep those
 
 In *"We visited Manila, Philippines; Tokyo, Japan; and Seoul, Korea,"* each pair keeps its inside comma, and semicolons divide the pairs.
 
-<!-- ILLUSTRATION: marked-up list "We visited [Manila, Philippines] ; [Tokyo, Japan] ; and [Seoul, Korea]." with each city-country pair bracketed, the internal commas shown in gray, and the boundary semicolons highlighted in teal -->
+<!-- FIGURE WANTED: marked-up list "We visited [Manila, Philippines] ; [Tokyo, Japan] ; and [Seoul, Korea]." with each city-country pair bracketed, the internal commas shown in gray, and the boundary semicolons highlighted in teal -->
 
 :::why
 Why switch to semicolons when inside commas blur the items? Semicolons act as heavier dividers than commas, so the reader sees three two-part items.
@@ -96,7 +96,7 @@ Why is the semicolon faulty in *"The boat sank; during the storm"*?
 
 Corrected sentence: **"The boat sank during the storm."**
 
-**Check:** Read *"During the storm."* alone: it is not a full sentence.
+**Check:** Read "The boat sank during the storm": *during the storm* answers *when it sank* inside one sentence.
 
 ### #3: Choosing the Punctuation for a List
 

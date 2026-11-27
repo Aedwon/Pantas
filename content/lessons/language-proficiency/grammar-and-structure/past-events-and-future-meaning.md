@@ -38,7 +38,7 @@ The answer is **Filed**. *Last Friday* sets a past timeline, so the verb stays i
 ### Future Meaning with Will
 
 **Simple future** is the common school label for *will* plus the base form of a verb when it points to the future: "She **will write** a letter tomorrow."
-The verb that *will* governs stays in its plain base form (*will close*, *will help*), with no *-s*, *-ed*, or *-ing*. In longer groups, that verb is *be* or *have* (*will be closing*, *will have closed*).
+The verb that *will* governs stays in its plain base form (*will close*, *will help*), with no *-s*, *-ed*, or *-ing*. Helpers such as *be* or *have* can also follow *will* (*will be closing*, *will have closed*).
 
 :::pair #will-is-simple-future
 Right: In "She will write a letter tomorrow," *will write* is simple future.
@@ -105,7 +105,7 @@ Identify the verb tense in "We will visit the museum on Friday."
 
 ### #3: Judging a Tense Shift Across Clauses
 
-Decide whether the tense shift in "We cleaned the room last Saturday, and we paint the walls last Saturday" is justified.
+Decide whether the tense shift in "We cleaned the room last Saturday, and we paint the walls two days later" is justified.
 
 **Solution:**
 
@@ -114,9 +114,9 @@ Decide whether the tense shift in "We cleaned the room last Saturday, and we pai
 :::try
 Finish the job: check the second clause, then say whether the shift is justified and why.
 :::answer
-The answer is **No, the shift is not justified.** Both clauses share the clue *last Saturday*, which is past, so *paint* must become *painted*: **"We cleaned the room last Saturday, and we painted the walls last Saturday."**
+The answer is **No, the shift is not justified.** *Last Saturday* is past, and *two days later* counts forward from that past Saturday, so both times are past. *Paint* must become *painted*: **"We cleaned the room last Saturday, and we painted the walls two days later."**
 
-**Check:** Swap the second clue: with *next Saturday*, *will paint* would fit; with *last Saturday*, *painted* keeps both actions in the same simple past pattern.
+**Check:** Compare with a real change of time: with *next Saturday* as the second clue, *will paint* would fit. *Two days later* does not move past today, so *painted* stays.
 :::
 
 ## Speed Tricks & Shortcuts

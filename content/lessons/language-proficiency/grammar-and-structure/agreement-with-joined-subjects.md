@@ -41,7 +41,7 @@ With *or*, *either...or*, and *neither...nor*, a common formal convention (the *
 
 Set aside detail phrases. In "Neither the coach nor the players on the visiting team **were** satisfied," cover *on the visiting team* so plural *players* controls *were*.
 
-<!-- ILLUSTRATION: the sentence "Neither the coach nor the players on the visiting team were satisfied." with "the coach" grayed out, "on the visiting team" bracketed as "added detail", and a teal arrow from "players" (labeled "nearer head, plural") to "were" -->
+<!-- FIGURE WANTED: the sentence "Neither the coach nor the players on the visiting team were satisfied." with "the coach" grayed out, "on the visiting team" bracketed as "added detail", and a teal arrow from "players" (labeled "nearer head, plural") to "were" -->
 
 :::pair #proximity-first-subject
 Right: "Neither the manager nor the employees were aware of the change."
@@ -78,7 +78,7 @@ Choose each verb: (a) The supervisor and the clerk *(is / are)* checking the for
 1. In (a), two people are joined by *and*: "The supervisor and the clerk **are** checking the forms."
 2. In (b), one person handles both jobs: "Our treasurer and secretary, who handles both jobs alone, **is** absent."
 
-**Check:** Test pronouns: "They are checking" fits (a), and "She is absent" fits (b).
+**Check:** Test the count: "They are checking" fits (a), and "That person is absent" fits (b).
 
 ### #2: Rewriting Neither...Nor into Two Clauses
 

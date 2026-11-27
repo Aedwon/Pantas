@@ -45,7 +45,7 @@ Present perfect connects a past action or state to now. Common uses:
 3. A situation continuing to now: "We arrived last month and **have lived** here ever since."
 4. Repeated events in an open period: "The printer **has stopped** twice this week."
 
-<!-- ILLUSTRATION: horizontal timeline showing "last month" with a solid teal arrow extending to "now" labeled "have lived here ever since (present perfect)", below a marked point at "yesterday afternoon" labeled "submitted (simple past)" -->
+<!-- FIGURE WANTED: horizontal timeline showing "last month" with a solid teal arrow extending to "now" labeled "have lived here ever since (present perfect)", below a marked point at "yesterday afternoon" labeled "submitted (simple past)" -->
 
 :::why
 Why does "We arrived last month and have lived here ever since" change verb forms? The arrival happened and ended last month (*arrived*). Living here started then and is still true now (*have lived*).
@@ -103,22 +103,22 @@ Choose the right verb form for one event: "The mayor ___ the new bridge last Fri
 1. Spot the time clue: *last Friday*, a finished time.
 2. Rule out *has opened*, leaving simple past **opened**: "The mayor opened the new bridge last Friday."
 
-**Check:** "I saw it last Friday" also uses simple past.
+**Check:** Put *has opened* in the sentence: "The mayor has opened the new bridge last Friday" clashes with *last Friday*, a finished time.
 
 ### #3: Choosing Between Three Sentences
 
-Dan's club membership began in May and continues today. Choose the correct sentence: "Dan joins the club in May and has been a member ever since," "Dan had been a member until May, and then he left," or "Dan joined the club in May and has been a member ever since."
+Lena began working at the bakery in March, and she still works there. Choose the correct sentence: "Lena begins working at the bakery in March and has worked there for months," "Lena began working at the bakery in March and had worked there for months," or "Lena began working at the bakery in March and has worked there for months."
 
 **Solution:**
 
-1. The membership *continues today*, ruling out *had been ... and then he left*.
+1. The March start is finished and past, so present *begins* cannot describe it.
 
 :::try
-Finish the last step: which sentence fits both timelines, and why do its two verbs differ?
+Finish the last step: which of the other two sentences fits both timelines, and why do its two verbs differ?
 :::answer
-The answer is **"Dan joined the club in May and has been a member ever since."** *Joined* places the joining in the finished past, and *has been* links the ongoing membership to now.
+The answer is **"Lena began working at the bakery in March and has worked there for months."** *Began* places the start in the finished past, and *has worked* links the continuing job to now.
 
-**Check:** Ask whether Dan is on the member list today. Yes, so *has been a member* fits.
+**Check:** Rewrite with *had worked*: the months would end at an earlier past point, but Lena still works there now, so only *has worked* fits.
 :::
 
 ## Speed Tricks & Shortcuts

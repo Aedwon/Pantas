@@ -48,7 +48,7 @@ Words like *before*, *after*, and *until* can do two jobs. Compare a noun phrase
 1. Preposition, noun phrase *dinner* with no verb: "We met **before** dinner."
 2. Subordinating conjunction, clause with subject *we* and verb *finished*: "We left **before** we finished dinner."
 
-<!-- ILLUSTRATION: two stacked sentences comparing "before": top "We met before [dinner]" with [dinner] bracketed and labeled "noun phrase -> preposition"; bottom "We left [before we finished dinner]" with the whole bracket labeled "subordinate clause -> before is a subordinating conjunction", and inside it "we" labeled "subject" and "finished" labeled "verb" -->
+<!-- FIGURE WANTED: two stacked sentences comparing "before": top "We met before [dinner]" with [dinner] bracketed and labeled "noun phrase -> preposition"; bottom "We left [before we finished dinner]" with the whole bracket labeled "subordinate clause -> before is a subordinating conjunction", and inside it "we" labeled "subject" and "finished" labeled "verb" -->
 
 :::why
 Why does traditional school grammar place *before* in two classes? A preposition links a noun phrase to a sentence, while a conjunction links a whole clause. Reading past the first noun to check for a verb reveals which job it does.
@@ -77,7 +77,7 @@ Identify the parts of speech of **Yikes** and **but**: "**Yikes!** The pot is ho
 1. *Yikes* stands apart and shows sudden alarm, so it is an **interjection**: "**Yikes!** The pot is hot."
 2. *Leo wanted a snack* and *the jar was empty* are both complete clauses, so *but* is a **conjunction**: "Leo wanted a snack, **but** the jar was empty."
 
-**Check:** Read each clause alone: "Leo wanted a snack." "The jar was empty." Each stands alone, so *but* joins equal parts.
+**Check:** Remove *Yikes!* and "The pot is hot" is still a complete sentence. Read each clause around *but* alone: each stands, so *but* joins equal parts.
 
 ### #2: Preposition or Subordinating Conjunction
 
@@ -105,7 +105,7 @@ Finish the last step: is **(4) until** a preposition or a conjunction?
 :::answer
 The answer is **Conjunction** (a subordinating conjunction): "The very patient guests calmly waited **until** the rain stopped." *The rain* is a subject and *stopped* is a verb, so *until the rain stopped* is the subordinate clause.
 
-**Check:** Stopping at *the rain* would miss the verb *stopped*; reading the full group "until the rain stopped" confirms a subject-verb clause.
+**Check:** Substitute *until noon*: no clause follows *until*, so there it is a preposition. A clause follows it here, so it is a conjunction.
 :::
 
 ## Speed Tricks & Shortcuts

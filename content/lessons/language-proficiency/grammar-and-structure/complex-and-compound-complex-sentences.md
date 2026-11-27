@@ -25,7 +25,7 @@ A dependent clause can sit at the front (*"Although the storm was severe, the to
 
 Even **two dependent clauses** still make a **complex** sentence when there is only **one** independent clause. In *"[If the rain stops [when the guests arrive]], we will open the hall,"* the *when* clause sits inside the *if* clause. Both are dependent, and *we will open the hall* is the one independent clause.
 
-<!-- ILLUSTRATION: two-column clause inventory diagram: left column "Complex = 1 independent + 1 or more dependent" with example "[If the rain stops [when the guests arrive]] (dep, with a second dep clause inside) + [we will open the hall] (1 indep)"; right column "Compound-complex = 2+ independent + 1+ dependent" with example "[When the bell rang] (dep) + [the students grabbed their bags] (indep 1), and [they rushed out] (indep 2)" -->
+<!-- FIGURE WANTED: two-column clause inventory diagram: left column "Complex = 1 independent + 1 or more dependent" with example "[If the rain stops [when the guests arrive]] (dep, with a second dep clause inside) + [we will open the hall] (1 indep)"; right column "Compound-complex = 2+ independent + 1+ dependent" with example "[When the bell rang] (dep) + [the students grabbed their bags] (indep 1), and [they rushed out] (indep 2)" -->
 
 :::pair #multiple-dependents-still-complex
 Right: *"If the rain stops when the guests arrive, we will open the hall."* and *"Although the storm was severe, the town suffered minimal damage."* are **Complex**.
@@ -101,7 +101,7 @@ Which sentence is simple: *"Since Monday, the clinic has opened early."* or *"Si
 1. *"Since Monday"* has no verb, so *"Since Monday, the clinic has opened early."* has one clause: **Simple**.
 2. *"Since the clerk resigned"* has subject *the clerk* and verb *resigned*, so it is dependent: *"Since the clerk resigned, the clinic has opened late."* is **Complex**.
 
-**Check:** Sentence 1 has only one subject-verb pair.
+**Check:** Remove each *since* group. "Since Monday" takes out words with no verb, while "Since the clerk resigned" takes out a subject and verb of its own.
 
 ### #3: Counting Clauses in a Long Sentence
 
@@ -128,6 +128,6 @@ Keep two counts, independent clauses and dependent clauses, counting only clause
 
 :::checklist
 - Two dependent clauses with one main clause: count main clauses separately so you pick complex, not compound-complex. {#multiple-dependents-still-complex}
-- Subordinating word plus *and* or *but*: check for a second subject so you do not pick complex or compound. {#missed-second-main-or-dep}
+- Subordinating word plus *and* or *but*: check for a second independent clause (one that can stand alone) so you do not pick complex or compound. {#missed-second-main-or-dep}
 - Opening word like *after*, *before*, or *since*: in this lesson, count a dependent clause only when a subject and finite verb follow. {#after-phrase-vs-clause}
 :::

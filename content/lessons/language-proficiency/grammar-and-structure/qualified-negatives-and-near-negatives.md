@@ -23,7 +23,7 @@ Two negatives can give a **qualified** (middle-ground) positive meaning.
 2. *unreasonable* = not reasonable -> *"not unreasonable"* = **fairly reasonable** (not perfect).
 3. *uncommon* = rare -> *"not uncommon"* = **fairly common** (not always).
 
-<!-- ILLUSTRATION: three stacked contrast bars: (1) Frequency: "never (zero)" -> "seldom (rarely)" -> "not uncommon (fairly common)"; (2) Completion: "not started (zero)" -> "barely started (tiny start)"; (3) Judgment: "unreasonable (negative)" -> "not unreasonable (fairly reasonable)" -> "perfect (extreme)" -->
+<!-- FIGURE WANTED: three stacked contrast bars: (1) Frequency: "never (zero)" -> "seldom (rarely)" -> "not uncommon (fairly common)"; (2) Completion: "not started (zero)" -> "barely started (tiny start)"; (3) Judgment: "unreasonable (negative)" -> "not unreasonable (fairly reasonable)" -> "perfect (extreme)" -->
 
 :::why
 Why write *"not unreasonable"* instead of *"very reasonable"*? Putting *not* before an *un-* word rules out the negative extreme without making an absolute promise.
@@ -48,7 +48,7 @@ The answer is **Fairly clear**. *Not unclear* rules out confusion without promis
 1. *"She has barely started her homework"* = only just begun (not zero, not finished).
 2. *"He crossed the line, though he could scarcely finish the race"* = finished, but only just.
 
-When both words express the same negative idea, keep just one in formal English: *"I can hardly hear you."* *"Scarcely any supplies remained."*
+When *not* or *no* plus a near-negative would say the same negative idea twice, keep just one in formal English: *"I can hardly hear you."* *"Scarcely any supplies remained."*
 
 :::pair #not-with-near-negative
 Right: *"I can hardly hear you from over here."* and *"Scarcely any supplies remained."*
@@ -114,18 +114,18 @@ Correct sentence: **"He could barely stay awake in class."**
 
 ### #3: Reading Two Office Memos
 
-One memo says, *"The clerk barely caught the last train."* Another says, *"We seldom cancel Friday briefings,"* and its schedule shows one cancellation in twenty briefings.
+One memo says, *"The clerk barely caught the last train."* Another says, *"The elevator seldom breaks down,"* and its repair record shows one breakdown this year.
 
 **Solution:**
 
 1. In the first memo, *barely* describes *caught*, so ask what happened to the last train.
 
 :::try
-Finish the job: did the clerk catch the train? Then say whether the one cancellation contradicts the second memo.
+Finish the job: did the clerk catch the train? Then say whether the one breakdown contradicts the second memo.
 :::answer
-The answer is **The clerk caught the train, but only just; and no, one cancellation does not contradict the memo.**
+The answer is **The clerk caught the train, but only just; and no, one breakdown does not contradict the memo.**
 
-**Check:** Nineteen of the twenty briefings still ran, so *seldom* is true and *never* would be false.
+**Check:** Test both readings. The clerk boarded, so *barely* does not mean *missed*. One breakdown is not zero, so *seldom* fits and *never* would be false.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -136,6 +136,6 @@ Read *not unexpected* as unsurprising, and *seldom* as *rarely*. Read *hardly*, 
 
 :::checklist
 - Qualified negative (*not unexpected*, *not unreasonable*): read a softened positive (*unsurprising*, *fairly reasonable*) as the common meaning. {#qualified-negative-extremes}
-- Near-negative (*hardly*, *scarcely*, *barely*): when both words express the same negative idea, keep just one in formal English (*can't* to *can*, *no* to *any*). {#not-with-near-negative}
+- Near-negative (*hardly*, *scarcely*, *barely*): when *not* or *no* repeats the negative idea, keep just one in formal English (*can't* to *can*, *no* to *any*). {#not-with-near-negative}
 - *Seldom*: read it as *rarely*, not as *never*. {#seldom-as-never}
 :::

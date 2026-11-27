@@ -21,7 +21,7 @@ keyPoints:
 - "By the time the guests arrived, she **had cooked** the entire meal."
 - "She **had written** the letter by noon yesterday."
 
-<!-- ILLUSTRATION: horizontal timeline showing Event 1 marked "had cooked (earlier past, finished first)" before Event 2 marked "guests arrived (later past)", both to the left of "now" -->
+<!-- FIGURE WANTED: horizontal timeline showing Event 1 marked "had cooked (earlier past, finished first)" before Event 2 marked "guests arrived (later past)", both to the left of "now" -->
 
 *Had* stays the same for every subject. Put *had* on the action that was already finished at the later past point.
 
@@ -78,19 +78,19 @@ Correct: "By the time the bus left, Ben had bought his ticket."
 
 ### #2: Two Past Actions in One Sentence
 
-Complete "When Rita reached the shop, the owner ___ home" with *went* or *had gone*. The owner was already gone.
+Complete "When Rita reached the shop, the owner ___ home" with *went* or *had gone*. Rita found the door locked, with a note from the owner taped to it.
 
 **Solution:**
 
 1. Identify the two past actions: *reached* and the owner leaving.
-2. Mark Rita's arrival as the later past point: *reached the shop*.
+2. Use the clue: the owner's note was already on the locked door when Rita arrived.
 
 :::try
 Finish the last step: which form fits, and why?
 :::answer
 The answer is **had gone**: "When Rita reached the shop, the owner **had gone** home." The owner left before Rita reached the shop, so *had* marks leaving as finished first.
 
-**Check:** Swap in *went*: "the owner went home" would suggest he left after she arrived.
+**Check:** Swap in *went*: "the owner went home" suggests the owner left at or around the time Rita arrived, not before it.
 :::
 
 ## Speed Tricks & Shortcuts

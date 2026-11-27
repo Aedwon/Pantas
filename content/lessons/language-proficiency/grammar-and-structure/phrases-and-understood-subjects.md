@@ -38,12 +38,12 @@ The answer is **A phrase**. *After* introduces the noun group *the morning meeti
 
 ### Commands Have an Understood Subject
 
-In a command such as "Close the door" or "Sit down," the subject is usually not written out, yet it is still there. The **understood subject** (implied subject) is *you*, the person spoken to: "(You) close the door."
+In a command with no written subject, such as "Close the door" or "Sit down," the subject is still there, understood. The **understood subject** (implied subject) is *you*, the person spoken to: "(You) close the door."
 
-Because a command pairs the understood subject *you* with a real verb (*close*, *sit*) and gives a complete instruction, it is an **independent clause**.
+Because such a command pairs the understood subject *you* with a real verb (*close*, *sit*) and gives a complete instruction, it is an **independent clause**.
 
 :::why
-Why do commands leave out *you*? When you speak directly to someone to give an order or polite request, the listener already knows *you* must do the action, so English drops the word unless extra stress is needed.
+Why do these commands leave out *you*? When you speak directly to someone to give an order or polite request, the listener already knows *you* must do the action, so English drops the word unless extra stress is needed.
 :::
 
 :::pair #command-has-understood-you
@@ -98,12 +98,12 @@ Finish the last step: is "Open the window" a phrase, a dependent clause, or an i
 :::answer
 The answer is **Independent clause; implied subject.** In "**Open** the window," the verb *open* pairs with the understood subject (*you*, not written) and gives a complete instruction, so it stands alone without another clause.
 
-**Check:** Add a name: "Sam, open the window." *Sam* is the person spoken to, the understood *you*.
+**Check:** Add a name: "Sam, open the window." *Sam* is the person addressed, and the command still leaves *you* understood as its subject.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Look for the verb first. In these examples, a group with no verb is a phrase, not a clause. If the group is an order or polite request, supply *you* in front to reveal the full independent clause.
+Look for the verb first. In these examples, a group with no verb is a phrase, not a clause. If the group is an order or polite request with no written subject, supply *you* in front to reveal the full independent clause.
 
 ## Traps to Watch For
 

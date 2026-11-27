@@ -16,9 +16,9 @@ keyPoints:
 
 ### Switching Between Active and Passive Voice
 
-To change active to passive for an action like approving a budget, move the **object** (what receives the action) into the subject spot. Only an active clause with an object and a verb that allows a passive can do this ("The child slept" has no object, and *have lunch* has no passive). Use the matching form of *be* plus the past participle.
+To change active to passive for an action like approving a budget, move the **object** (what receives the action) into the subject spot. Only an active clause with an object and a verb that allows a passive can do this ("The child slept" has no object, and *have lunch* has no passive). Use the matching form of *be* plus the past participle, then add *by* plus the doer to keep it.
 
-<!-- ILLUSTRATION: two stacked sentences showing role swap: top "The committee [actor] approved [simple past] the new budget [receiver]." with crossing arrows to bottom "The new budget [subject] was approved [simple past passive] by the committee [agent]." -->
+<!-- FIGURE WANTED: two stacked sentences showing role swap: top "The committee [actor] approved [simple past] the new budget [receiver]." with crossing arrows to bottom "The new budget [subject] was approved [simple past passive] by the committee [agent]." -->
 
 Change "The committee approved the new budget" to passive:
 
@@ -41,7 +41,7 @@ The answer is **"The chef cooked the meal."** *The chef* becomes the subject, an
 
 ### Keeping the Same Time and Aspect
 
-Change the voice of each sentence and keep its tense and aspect:
+Change the voice of this sentence and keep its tense and aspect:
 
 - Ongoing present: "The crew **is repairing** the road." -> "The road **is being repaired** by the crew."
 
@@ -94,7 +94,7 @@ Rewrite in active voice while keeping the completed past action: "The report was
 
 Correct: "An intern typed the report."
 
-**Check:** Before and after, an intern is the one who typed the report, and the action stays in the past.
+**Check:** Reverse the result: "The report was typed by an intern" recovers the original sentence.
 
 ### #2: Active to Passive Without Losing Tense
 
@@ -108,11 +108,11 @@ Rewrite in passive voice while keeping the past event: "The mayor signed the new
 
 Correct: "The new law was signed by the mayor."
 
-**Check:** Both sentences keep *the mayor* as signer and the verb in simple past.
+**Check:** Reverse the result: "The mayor signed the new law" recovers the original sentence.
 
 ### #3: A Line from a Storm Report
 
-Look at "The wooden fence got damaged during the typhoon."
+Turn this storm-report line into formal report wording: "The wooden fence got damaged during the typhoon."
 
 **Solution:**
 

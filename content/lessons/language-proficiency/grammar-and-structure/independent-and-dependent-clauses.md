@@ -59,18 +59,18 @@ Which group leaves you waiting for a main clause: *"The crowd left early"* or *"
 *After, before, since,* and *until* can start a **prepositional phrase** or a **dependent clause**. Compare the two groups shown, then ask whether a finite verb is present:
 
 1. Noun group only, no finite verb: *"After the bus trip"* is a prepositional phrase.
-2. Subject paired with a finite verb: *"After the bus arrived"* has subject *the bus* and finite verb *arrived*, so it contains a dependent clause.
+2. Subject paired with a finite verb: *"After the bus arrived"* has subject *the bus* and finite verb *arrived*, so the whole group, *After* included, is a dependent clause.
 
-<!-- ILLUSTRATION: two stacked groups starting with "After": top "After [the bus trip]" with "the bus trip" bracketed and labeled "noun group, no finite verb -> prepositional phrase"; bottom "After [the bus] [arrived]" with "the bus" labeled "subject", "arrived" labeled "finite verb", and the whole group labeled "dependent clause" -->
+<!-- FIGURE WANTED: two stacked groups starting with "After": top "After [the bus trip]" with "the bus trip" bracketed and labeled "noun group, no finite verb -> prepositional phrase"; bottom "After [the bus] [arrived]" with "the bus" labeled "subject", "arrived" labeled "finite verb", and the whole group labeled "dependent clause" -->
 
 :::pair #event-noun-vs-verb
-Right: *"After the bus arrived"* contains a finite dependent clause.
+Right: *"After the bus arrived"* is a finite dependent clause.
 Wrong: Pick *"After the bus trip"* or *"During the bus journey"* as a finite clause because *trip* and *journey* name actions.
 Here *trip* and *journey* act as nouns after *the bus*, not finite verbs. Look for a subject paired with a finite verb.
 :::
 
 :::check
-Which group contains a finite clause: *"Before the sale"* or *"Before the sale ended"*?
+Which group is a finite clause: *"Before the sale"* or *"Before the sale ended"*?
 :::answer
 **Before the sale ended.** *The sale* is the subject and *ended* is the finite verb; *"Before the sale"* has no verb.
 :::
@@ -97,7 +97,7 @@ In *"Because the road flooded, the bus was late,"* which word signals that the f
 
 **Solution:**
 
-1. Isolate the first clause: *"Because the road flooded."*
+1. Isolate the first clause: [Because the road flooded].
 2. Remove *Because*: *"the road flooded"* has subject *the road* and verb *flooded*, and stands alone.
 3. So **Because** is the signal word making the clause dependent: "**Because** the road flooded, the bus was late."
 
@@ -105,7 +105,7 @@ In *"Because the road flooded, the bus was late,"* which word signals that the f
 
 ### #3: Phrase or Clause After a Time Word
 
-Which group contains a finite clause: *"Until the doors opened"* or *"Until the opening ceremony"*?
+Which group is a finite clause: *"Until the doors opened"* or *"Until the opening ceremony"*?
 
 **Solution:**
 
@@ -114,7 +114,7 @@ Which group contains a finite clause: *"Until the doors opened"* or *"Until the 
 :::try
 Finish the last step: which group has a verb that changes when the time changes?
 :::answer
-**Until the doors opened** contains the finite clause. *The doors* is the subject, *opened* is the finite verb, and *Until* makes the clause dependent. In *"Until the opening ceremony,"* *ceremony* is a noun, so the group is a prepositional phrase.
+**Until the doors opened** is the finite clause, a dependent one. *The doors* is the subject, *opened* is the finite verb, and *Until* makes the clause depend on a main clause. In *"Until the opening ceremony,"* *ceremony* is a noun, so the group is a prepositional phrase.
 
 **Check:** Change the time: *"Until the doors open"* changes the verb, while *"Until the opening ceremony"* has no verb to change.
 :::

@@ -22,7 +22,7 @@ A **dangling modifier** happens when the main subject is not the one the phrase 
 
 An opening phrase is fine when the main subject names the one it describes.
 
-<!-- ILLUSTRATION: two stacked sentences: top "After finishing the marathon, [a warm bath] felt amazing." with a crossed line from "finishing" to "a warm bath" labeled "dangling: bath cannot finish a race"; bottom "After finishing the marathon, [she] enjoyed a warm bath." with a teal arrow from "finishing" to "she" labeled "matching main subject" -->
+<!-- FIGURE WANTED: two stacked sentences: top "After finishing the marathon, [a warm bath] felt amazing." with a crossed line from "finishing" to "a warm bath" labeled "dangling: bath cannot finish a race"; bottom "After finishing the marathon, [she] enjoyed a warm bath." with a teal arrow from "finishing" to "she" labeled "matching main subject" -->
 
 :::pair #passive-or-later-pronoun
 Right: *"After finishing the marathon, she enjoyed a warm bath."*
@@ -46,7 +46,7 @@ The answer is **Yes**. The phrase describes whoever reads the board, but the mai
 
 Fix a dangling opening phrase in two ways:
 
-1. **Change the main subject:** *"Rushing to catch the bus, my coffee spilled"* -> *"Rushing to catch the bus, **I** spilled my coffee."*
+1. **Change the main subject:** *"Tired after the long drive, the bed looked inviting"* -> *"Tired after the long drive, **we** found the bed inviting."*
 2. **Turn the phrase into a full clause:** *"While approaching the gate, the barking of a dog startled Liza"* -> *"As **Liza approached** the gate, the barking of a dog startled her."*
 
 :::why
@@ -94,21 +94,21 @@ I was the runner and laced my own shoes. Revise *"Hoping to win the race, my sho
 
 Dan, not the host, felt nervous before the talk. Choose the sentence whose opening phrase matches its main subject:
 
-(A) *"Feeling nervous before the talk, the host called Dan to the stage."*
+(A) *"Feeling nervous before the talk, the host introduced Dan."*
 
-(B) *"Feeling nervous before the talk, Dan walked to the stage."*
+(B) *"Feeling nervous before the talk, Dan thanked the host."*
 
 **Solution:**
 
-1. The opening phrase describes the person who felt nervous: Dan.
+1. In both, the opening phrase is [Feeling nervous before the talk]. The main subject starts right after the comma.
 2. Find the main subject of each sentence.
 
 :::try
 Finish: choose (A) or (B), and prove why it avoids a dangling modifier.
 :::answer
-The answer is **(B) "Feeling nervous before the talk, Dan walked to the stage."** Its main subject is *Dan*, the nervous person, so the phrase attaches correctly. In (A), the main subject is *the host*, so the phrase says the host felt nervous.
+The answer is **(B) "Feeling nervous before the talk, Dan thanked the host."** Its main subject is *Dan*, the nervous person, so the phrase attaches correctly. In (A), the main subject is *the host*, so the phrase says the host felt nervous.
 
-**Check:** Ask "Who felt nervous?" In (B), *Dan* answers it right after the comma.
+**Check:** Pair each main subject with the phrase: "Dan felt nervous" matches the stem, but "the host felt nervous" does not.
 :::
 
 ## Speed Tricks & Shortcuts

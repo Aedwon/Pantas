@@ -68,9 +68,9 @@ Putting *almost* before the verb (*almost rode*, *almost displayed*) can say the
 :::
 
 :::check
-Each tray nearly slipped from Tess's hands, but she caught them all. Which wording is clearer for that scene: *"Tess almost dropped every tray"* or *"Tess nearly dropped each tray, but she caught them all"*?
+Every tray nearly slipped from Tess's hands, and none fell. Which wording matches that scene: *"Tess almost dropped every tray"* or *"Tess dropped almost every tray"*?
 :::answer
-The answer is **"Tess nearly dropped each tray, but she caught them all."** It shows that each drop nearly happened and none did. *Almost dropped every tray* leaves its scope open: it could mean the whole stack or each tray.
+The answer is **"Tess almost dropped every tray."** *Almost* sits before the verb, so each drop came close and did not happen. In the other sentence, *almost* limits *every tray*, so she dropped nearly all of them.
 :::
 
 ## Examples
@@ -82,8 +82,8 @@ A coupon works at the café in March and in no other month. Which states that cl
 **Solution:**
 
 1. The restricted detail is the month (*March*).
-2. *"Only at the café"* limits where the coupon works.
-3. **"The coupon works at the café in March only"** states the restriction clearly.
+2. *"Only at the café"* can limit the café or the whole place-and-time group, so the month stays unclear.
+3. **"The coupon works at the café in March only"** clearly limits the month.
 
 **Check:** Ask "What about April?" That sentence rules out other months.
 
@@ -99,24 +99,24 @@ Which says the club met on nearly every Friday, not every Friday: *"Almost all t
 
 **Check:** Ask whether one Friday can pass without a meeting. Yes, so *almost every Friday* is right.
 
-### #3: A Bakery Shelf
+### #3: A Movie Night
 
-A baker started with 40 loaves and sold all but two. Which sentence says that clearly?
+A movie runs 120 minutes, and Mia watched all but the last five minutes. Which sentence says that clearly?
 
-(a) *"The baker nearly sold all the loaves."*
+(a) *"Mia nearly watched the whole movie."*
 
-(b) *"The baker sold all the loaves nearly every day."*
+(b) *"Mia watched nearly the whole movie."*
 
-(c) *"The baker sold nearly all the loaves."*
+(c) *"Mia watched the whole movie nearly every night."*
 
 **Solution:**
 
-1. Read what *nearly* sits beside in each option.
+1. Mark what *nearly* sits beside in each option: (a) [watched], (b) [the whole movie], (c) [every night].
 
 :::try
 Finish the last step: choose the sentence, and say what *nearly* limits in each option.
 :::answer
-**(c) "The baker sold nearly all the loaves."** *Nearly* sits directly before *all the loaves*, so it limits the number of loaves sold. In (a) it sits before the verb and can say the selling nearly happened, and in (b) it limits how often.
+**(b) "Mia watched nearly the whole movie."** *Nearly* sits directly before *the whole movie*, so it limits how much she watched. In (a) it sits before the verb and can say the watching nearly happened, and in (c) it limits how often.
 
 **Check:** Swapping in *"almost all"* keeps the meaning.
 :::

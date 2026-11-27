@@ -41,7 +41,7 @@ The answer is **which**: "The report, which arrived this morning, is on your des
 
 In *"The driver who found the road closed delayed our delivery,"* *who found the road closed* sits inside the subject to tell which driver is meant. The main verb for *the driver* is *delayed*. Because the relative clause sits inside the main frame, **the whole sentence** is the independent clause.
 
-<!-- ILLUSTRATION: the sentence "The driver [who found the road closed] delayed our delivery." with [who found the road closed] bracketed and shaded as "relative clause (dependent)" with an arrow back to "The driver", and a teal arc connecting "The driver" (main subject) over the bracket to "delayed" (main verb) -->
+<!-- FIGURE WANTED: the sentence "The driver [who found the road closed] delayed our delivery." with [who found the road closed] bracketed and shaded as "relative clause (dependent)" with an arrow back to "The driver", and a teal arc connecting "The driver" (main subject) over the bracket to "delayed" (main verb) -->
 
 :::why
 Why is the whole sentence the independent clause? Drop the embedded relative clause and *"The driver delayed our delivery"* remains. Keep it in, and the whole sentence still forms one complete main statement.
@@ -71,7 +71,7 @@ In *"The runner who won the race thanked her coach,"* classify *"who won the rac
 2. It describes *the runner*.
 3. It identifies which runner thanked her coach, so it is essential and takes no commas: "The runner who won the race thanked her coach."
 
-**Check:** Outer frame: *"The runner thanked her coach."* *Thanked* matches *the runner*.
+**Check:** Drop the clause: "The runner thanked her coach" no longer says which runner is meant, so the clause identifies her and takes no commas.
 
 ### #2: Choosing Who or Whom
 
@@ -79,7 +79,7 @@ Choose the formal form in *"The applicant (who / whom) the committee selected st
 
 **Solution:**
 
-1. Isolate the relative clause: *"who/whom the committee selected."*
+1. Bracket the relative clause: "The applicant [___ the committee selected] starts on Monday."
 2. *The committee* is the subject doing the selecting, so the missing word is the object of *selected*.
 3. Use **whom** for an object in formal prose: "The applicant **whom** the committee selected starts on Monday."
 

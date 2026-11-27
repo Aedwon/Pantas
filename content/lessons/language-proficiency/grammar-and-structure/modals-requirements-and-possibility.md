@@ -99,7 +99,7 @@ In "The storm may reach the coast by night," determine what *may* expresses.
 
 **Solution:**
 
-1. Check the subject *the storm*: an event arriving, not a person asking to enter or showing past skill.
+1. Check the subject *the storm*: the sentence predicts what the storm might do. It is not a person asking to enter or showing past skill.
 2. *May* presents arrival as uncertain, so it expresses **possibility**: "The storm **may** reach the coast by night."
 
 **Check:** Replace *may* with *might* ("The storm might reach the coast by night"): the uncertain prediction stays intact, confirming possibility.
@@ -115,9 +115,9 @@ Read: "The lights are off and the door is locked, so the shop must be closed. Th
 :::try
 Finish the job: what does each phrase express?
 :::answer
-Strong conclusion from evidence: **"The shop must be closed."** The dark lights and locked door are the clues. Possibility: **"The owner might open it at noon."** Opening is uncertain.
+Strong conclusion from evidence: **"The lights are off and the door is locked, so the shop must be closed."** The dark lights and locked door are the clues. Possibility: **"The owner might open it at noon."** Opening is uncertain.
 
-**Check:** Replace *must be closed* with *is probably closed*: the meaning still fits the clues.
+**Check:** Substitute *is almost certainly closed* for *must be closed*, and *possibly opens it* for *might open it*: both sentences keep their meaning.
 :::
 
 ## Speed Tricks & Shortcuts

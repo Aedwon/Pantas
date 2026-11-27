@@ -24,7 +24,7 @@ keyPoints:
 
 In these lists, usually avoid mixing in a full clause (*"tools will be bought"*), a *how-to* clause (*"how to plan sales"*), or a new verb predicate that changes the meaning.
 
-<!-- ILLUSTRATION: three-row parallel alignment chart under the shared lead-in "Her hobbies include": row 1 "painting (-ing)", row 2 "dancing (-ing)" with "to dance" crossed out beside it, row 3 "singing (-ing)", each aligned with a teal checkmark -->
+<!-- FIGURE WANTED: three-row parallel alignment chart under the shared lead-in "Her hobbies include": row 1 "painting (-ing)", row 2 "dancing (-ing)" with "to dance" crossed out beside it, row 3 "singing (-ing)", each aligned with a teal checkmark -->
 
 :::pair #fix-only-two-items
 Right: Fix *"Her hobbies include painting, to dance, and singing"* to **"Her hobbies include painting, dancing, and singing."**
@@ -45,9 +45,9 @@ Two items are noun phrases, and *it grew financially* inserts a full clause. Del
 :::
 
 :::check
-Which option matches the two *-ing* items in *"The class teaches reading, writing, and ___"*: *"to count"*, *"how to count"*, or *"counting"*?
+Which option completes *"The coach told us to stretch, to rest, and ___"*: *"eating well"*, *"to eat well"*, or *"we should eat well"*?
 :::answer
-The answer is **counting**: *"The class teaches reading, writing, and counting."* *Reading* and *writing* are *-ing* forms, so *counting* matches them.
+The answer is **to eat well**: *"The coach told us to stretch, to rest, and to eat well."* *Stretch* and *rest* follow *to*, so the third item needs the same *to* plus verb form.
 :::
 
 ## Examples
@@ -70,9 +70,9 @@ Revise *"We can choose between taking the bus and a taxi will pick us up"* so bo
 **Solution:**
 
 1. After *between*, the first option is an *-ing* phrase (*taking the bus*), while the second is a full clause (*a taxi will pick us up*).
-2. Change the second option to a matching *-ing* phrase: **"We can choose between taking the bus and taking a taxi."**
+2. Change the second option to a matching *-ing* phrase that keeps the pickup: **"We can choose between taking the bus and being picked up by a taxi."**
 
-**Check:** Ask *"What can we choose?"* Both *taking the bus* and *taking a taxi* work as answers.
+**Check:** Ask *"What can we choose?"* Both *taking the bus* and *being picked up by a taxi* work as answers.
 
 ### #3: Reading a Clerk's Three Actions
 

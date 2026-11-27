@@ -31,9 +31,9 @@ Even though a committee has many members, the American one-unit convention treat
 :::
 
 :::check
-In standard American English, treating the class as one unit, choose the correct verb: The class *(is / are)* taking its final exam on Friday.
+In standard American English, choose the correct verb: The class *(is / are)* handing in one group report on Friday.
 :::answer
-The answer is **is**: "The class is taking its final exam on Friday." One unit taking one exam takes singular *is*.
+The answer is **is**: "The class is handing in one group report on Friday." The class acts together to hand in one report, so it is one unit and takes singular *is*.
 :::
 
 ### Indefinite Pronouns
@@ -109,7 +109,7 @@ Fix the error in "Everyone have their own locker" while keeping modern gender-ne
 
 Correct: "Everyone **has** their own locker."
 
-**Check:** Test the subject and verb alone: "Everyone has" fits singular agreement, while "Everyone have" does not.
+**Check:** Swap in *somebody* and read the whole sentence: "Somebody has their own locker" fits, while "Somebody have their own locker" does not.
 
 ### #3: Choosing Two Verbs
 

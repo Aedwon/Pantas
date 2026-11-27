@@ -100,23 +100,23 @@ Choose the pronouns: (a) "The boys left *(his / their)* bags at the gate." (b) G
 1. In (a), *the boys* is plural: "The boys left **their** bags at the gate."
 2. In (b), *each* points to one unspecified player: "Each of the players must bring **their** shoes."
 
-**Check:** Count the people each *their* names: several boys in (a), one unnamed player in (b).
+**Check:** In (b), swap *their* for *his or her*: it still names one player's shoes.
 
-### #2: Combining Everybody and Singular They
+### #2: Combining Somebody and Singular They
 
-Choose the correct sentence: (A) "Somebody have said they are ready." (B) "Somebody has said they is ready." (C) "Somebody has said they are ready."
+Choose the correct sentence: (A) "Somebody have left, and they are waiting outside." (B) "Somebody has left, and they is waiting outside." (C) "Somebody has left, and they are waiting outside."
 
 **Solution:**
 
 1. *Somebody* is singular, so it needs *has* (not *have*).
 2. *They* takes *are* (not *is*).
-3. Only **(C) "Somebody has said they are ready"** gets both verbs right.
+3. Only **(C) "Somebody has left, and they are waiting outside"** gets both verbs right.
 
-**Check:** Test each clause: "Somebody has said it" and "They are ready."
+**Check:** Swap *they* for *the visitors*: "The visitors are waiting outside" keeps *are*, so singular *they* matches plural *they*.
 
 ### #3: Fixing an Ambiguous Reference
 
-Explain why "When Mr. Lim called Ben, he sounded tired" is unclear, and fix it so Ben sounded tired.
+Explain why "When Mr. Lim called Ben, he sounded tired" is unclear, and fix it so the person who received the call sounded tired.
 
 **Solution:**
 
@@ -125,13 +125,13 @@ Explain why "When Mr. Lim called Ben, he sounded tired" is unclear, and fix it s
 :::try
 Finish the last step: which rewrite keeps the stated meaning?
 
-(A) "When Mr. Lim called Ben, Mr. Lim sounded tired."
+(A) "When Mr. Lim called Ben, Ben sounded tired."
 
-(B) "When Mr. Lim called Ben, Ben sounded tired."
+(B) "When Mr. Lim called Ben, Mr. Lim sounded tired."
 :::answer
-The answer is **(B) "When Mr. Lim called Ben, Ben sounded tired."** Replacing *he* with a name makes one person clear, and (B) names Ben, the person who sounded tired.
+The answer is **(A) "When Mr. Lim called Ben, Ben sounded tired."** Replacing *he* with a name makes one person clear, and (A) names Ben, who received the call.
 
-**Check:** Ask "Who sounded tired?" Each sentence now has one answer, and only (B) answers *Ben*.
+**Check:** Mr. Lim made the call and Ben received it. Read each choice and ask who received the call: only (A) gives the tired voice to that person.
 :::
 
 ## Speed Tricks & Shortcuts

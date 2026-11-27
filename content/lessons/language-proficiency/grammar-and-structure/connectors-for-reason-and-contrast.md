@@ -29,9 +29,9 @@ Why does *"Because it rained, so we stayed inside"* fail? *Because* makes *"it r
 :::
 
 :::check
-Fix *"Although the team practiced, but it lost"* by keeping *although*.
+Fix *"Though the road flooded, so we kept driving."* Keep the connector that fits the meaning.
 :::answer
-The answer is **"Although the team practiced, it lost."** Dropping *but* leaves one connector for the one link.
+The answer is **"Though the road flooded, we kept driving."** Flooding goes against driving on, so *though* stays. *So* shows a reason, so it goes, which leaves one connector for the one link.
 :::
 
 ### Comma Placement by Clause Order
@@ -57,7 +57,7 @@ The answer is **after "open"**. *"Although the shop was open, we left without bu
 
 In formal writing, a dependent clause standing alone with a period is a **fragment**, an incomplete sentence: *"Although the teacher explained the lesson twice."*
 
-To fix a dependent-clause fragment, add a **main clause** that can stand alone, with no subordinating word at the front. Adding another dependent clause (*while, because*), a noun phrase, or a prepositional phrase still leaves a fragment.
+To fix a dependent-clause fragment, add a **main clause** that can stand alone, with no opening word like *because* or *although*. Adding another dependent clause (*while, because*), a noun phrase, or a prepositional phrase still leaves a fragment.
 
 :::pair #fragment-is-not-sentence
 Right: In formal prose, *"Although the teacher explained the lesson twice"* is **a dependent-clause fragment**.
@@ -68,13 +68,13 @@ Wrong: Call *"Although the teacher explained the lesson twice"* **a complete ind
 :::pair #two-dependent-clauses
 Right: *"Because the store was closed, we went home."*
 Wrong: Write *"Because the store was closed, while we walked back home."* or *"Although she reviewed it carefully, because the manager still had questions."*
-Both clauses start with subordinating words (*because, while, although*). Joining two dependent clauses leaves the sentence with no main clause.
+Both clauses start with words that make them dependent (*because, while, although*). Joining two dependent clauses leaves the sentence with no main clause.
 :::
 
 :::check
 Which completes *"Since the office was closed, ___"* as a full sentence: *"we called the next day"* or *"because the clerk was ill"*?
 :::answer
-The answer is **we called the next day**: **"Since the office was closed, we called the next day."** *We* is the subject and *called* is the finite verb with no subordinating word at the front.
+The answer is **we called the next day**: **"Since the office was closed, we called the next day."** *We called the next day* stands on its own as a full statement.
 :::
 
 ## Examples
@@ -120,12 +120,12 @@ Finish the last step: choose the option that expresses the contrast, then write 
 
 ## Speed Tricks & Shortcuts
 
-Count subordinating words (*because, although, if*). For the formal statements here, add a main clause that can stand alone, and do not use two connectors for one link (*although* with *but*, *because* with *so*).
+Spot opening words like *because, although, if*. For the formal statements here, add a main clause that can stand alone, and do not use two connectors for one link (*although* with *but*, *because* with *so*).
 
 ## Traps to Watch For
 
 :::checklist
 - Reversing clause order with *because*: usually put a comma after an opening *because* clause, and skip it before a closing essential *because* clause. {#comma-by-clause-order}
 - Dependent clause ending with a period in formal prose: treat it as a fragment and attach it to a main clause. {#fragment-is-not-sentence}
-- Two clauses both starting with subordinating words: provide a main clause that keeps the intended relation. {#two-dependent-clauses}
+- Two clauses both starting with words like *because* or *although*: provide a main clause that keeps the intended relation. {#two-dependent-clauses}
 :::

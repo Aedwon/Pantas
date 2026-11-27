@@ -10,7 +10,7 @@ partCount: 4
 ordering: 13
 keyPoints:
   - "Distinguish a group acting as one unit from its individual members."
-  - "Use plural reference for antecedents joined by and."
+  - "Use plural reference when and joins distinct people or things."
   - "Rewrite mixed or/nor references when the pronoun makes the meaning unclear."
 ---
 ## Core Concept
@@ -66,23 +66,23 @@ Wrong: "Neither the coach nor the players brought his own required equipment."
 :::
 
 :::check
-In "Neither the guard nor the drivers wore their badges," which people can *their* refer to: only the drivers, or both the guard and the drivers?
+Each person named had a badge. In "Neither the guard nor the drivers wore their badges," which people can *their* refer to: only the drivers, or both the guard and the drivers?
 :::answer
-**Both the guard and the drivers.** *Their* can cover a singular person and a plural group at once, so no one named is left out. A singular *his* or *her* would leave out the drivers.
+**Both the guard and the drivers.** *Their* keeps each person's own badge, so no one named is left out. A singular *his* or *her* would leave out the drivers.
 :::
 
 ## Examples
 
 ### #1: One Unit Versus Individual Members
 
-Choose what fits each rule: (a) Treating *class* as one unit: "The class finished *(its / their)* project early." (b) In a variety allowing plural collective reference, stressing separate members: "The committee *(published its report / returned to their homes)*."
+Choose what fits each rule: (a) Treating *class* as one unit: "The class finished *(its / their)* project early." (b) In a variety allowing plural collective reference, stressing separate members: "The staff *(published its schedule / picked up their coats)*."
 
 **Solution:**
 
 1. In (a), one class with one shared project takes **its**: "The class finished its project early."
-2. In (b), separate homes belong to individual members: "The committee **returned to their homes**."
+2. In (b), separate coats belong to individual members: "The staff **picked up their coats**."
 
-**Check:** Swap in *the class's project* and *the members' homes*: each reads naturally in place of *its project* and *their homes*.
+**Check:** Swap in *the class's project* and *the members' coats*: each reads naturally in place of *its project* and *their coats*.
 
 ### #2: Joined Antecedents
 
@@ -102,14 +102,14 @@ Treating any group as one unit, fill each blank with *its*, *her*, or *their*: "
 
 **Solution:**
 
-1. The first blank follows *the clinic had met*, and the second follows *she kept*.
+1. Mark the two owners without choosing forms: [the clinic] set the goal, and [Dr. Sol] keeps the notes.
 
 :::try
 Finish the last step: which pronoun fills each blank, and why?
 :::answer
 The answer is **its** and **her**: "The clinic opened on Monday. Dr. Sol said the clinic had met **its** goal, and she kept **her** notes in a folder." The clinic is one unit, so it takes *its*; Dr. Sol is one person, so she takes *her*. *Their* would suit separate members.
 
-**Check:** Put each noun back: *the clinic's goal* and *Dr. Sol's notes*.
+**Check:** Read the whole passage with nouns: "Dr. Sol said the clinic had met the clinic's goal, and she kept Dr. Sol's notes in a folder." Each owner is unchanged.
 :::
 
 ## Speed Tricks & Shortcuts
