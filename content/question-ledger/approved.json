@@ -3006,9 +3006,9 @@
     "lesson": "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work"
   },
   "q-arithmetic-number-sense-ratio-and-proportion-0020": {
-    "approvedAt": "2026-11-14",
-    "evidence": "docs/content/verification/arithmetic-number-sense.md",
-    "hash": "2c9ef86aed25df3411ea0c8a1aa7ef4c760d6a6c5e49544a10b8ae5d2eae921b",
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/fix-ratio-0020-r1.md",
+    "hash": "49386d21ecf82cb660081b770fd4944c092552cadf9b244283aee6f358b27d00",
     "lesson": "lesson-arithmetic-number-sense-partitive-proportion-and-differences"
   },
   "q-arithmetic-number-sense-ratio-and-proportion-0021": {

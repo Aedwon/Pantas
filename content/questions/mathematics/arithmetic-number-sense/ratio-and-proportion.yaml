@@ -451,7 +451,7 @@ questions:
     choices:
       - text: '$77$ meters'
         correct: true
-      - text: '$33$ meters'
+      - text: '$32$ meters'
         rationale: |
           This adds the ratio numbers to the given difference. All three numbers appear in the problem. Check that ratio parts must first be converted to meters.
       - text: '$49$ meters'
