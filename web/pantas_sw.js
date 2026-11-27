@@ -342,7 +342,8 @@ async function prune() {
 }
 
 // The page's request to take over. Only when its window is the only one: another
-// window may be running the build whose cache this worker deletes on activation.
+// window may be running the older build. Keeping one build per window of the app means
+// two tabs never share a database across two versions of the code.
 async function takeOver(reply) {
   const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
   if (windows.length > 1) {
