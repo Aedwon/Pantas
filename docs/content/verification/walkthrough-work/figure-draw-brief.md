@@ -86,6 +86,16 @@ row at line 51 only; the existing bar chart stays as it is, and the new marker's
 rename nothing that exists: if the new marker comes first, report it and stop for the lead), `data-interpretation/inverse-proportion-and-ratio-parts.md` (2),
 `data-interpretation/percentages-and-ratios-of-groups.md`.
 
+## Round 4 (batch 2c; after `0e8b93aa0`)
+
+Same rules as rounds 2 and 3. One worker. Rows in `batch-2-figure-list.md` for these lessons under
+`content/lessons/mathematics/arithmetic-number-sense/`: `coprime-divisibility-tests.md`,
+`divisibility-by-seven-and-eleven.md` (its row proposes the "Test 2,728" paragraph; put the marker right after that
+paragraph's worked lines and remove the old note at line 56), `last-digit-divisibility.md`, `greatest-common-factor.md`,
+`least-common-multiple.md`, `prime-factors-and-powers.md`, `same-remainder-numbers.md`, `imaginary-unit-and-powers.md`.
+`real-number-sets.md` keeps its code figure; do not touch it. If a lesson already has a drawn ILLUSTRATION and the new
+marker would come before it, stop for that lesson and report it.
+
 ## Checks
 
 1. SVG validator, no Flutter: `python3 -I <maintools>/tools/check_lesson_svgs.py <root> --validate-only`, where `<root>` is
