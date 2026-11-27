@@ -5,8 +5,8 @@ summary: "Evaluate nested groups from the inside out."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 isActive: true
-part: 3
-partCount: 3
+part: 4
+partCount: 4
 ordering: 3
 keyPoints:
   - 'Evaluate nested groups from the inside out.'

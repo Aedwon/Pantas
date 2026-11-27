@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 160" width="360" height="160">
+<title>Number line from -8 to 2 with a walk from 0 left 7 steps to -7, then 4 steps right to -3, where the point -3 is circled</title>
+<rect width="360" height="160" rx="14" fill="#030303"/>
+<line x1="12" y1="120" x2="348" y2="120" stroke="#010101" stroke-width="2" fill="none"/>
+<polygon points="348,120 340,116 340,124" fill="#010101"/>
+<polygon points="12,120 20,116 20,124" fill="#010101"/>
+<line x1="30" y1="115" x2="30" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<line x1="60" y1="115" x2="60" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<line x1="90" y1="115" x2="90" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<line x1="120" y1="115" x2="120" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<line x1="150" y1="115" x2="150" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<line x1="180" y1="115" x2="180" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<line x1="210" y1="115" x2="210" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<line x1="240" y1="115" x2="240" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<line x1="270" y1="115" x2="270" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<line x1="300" y1="115" x2="300" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<line x1="330" y1="115" x2="330" y2="125" stroke="#010101" stroke-width="1.5" fill="none"/>
+<text x="30" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="400" fill="#010101">−8</text>
+<text x="60" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="700" fill="#010101">−7</text>
+<text x="90" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="400" fill="#010101">−6</text>
+<text x="120" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="400" fill="#010101">−5</text>
+<text x="150" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="400" fill="#010101">−4</text>
+<text x="180" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="700" fill="#010101">−3</text>
+<text x="210" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="400" fill="#010101">−2</text>
+<text x="240" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="400" fill="#010101">−1</text>
+<text x="270" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="700" fill="#010101">0</text>
+<text x="300" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="400" fill="#010101">1</text>
+<text x="330" y="144" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="12" font-weight="400" fill="#010101">2</text>
+<line x1="270" y1="56" x2="270" y2="114" stroke="#020202" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+<line x1="60" y1="56" x2="60" y2="114" stroke="#020202" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+<line x1="180" y1="86" x2="180" y2="108" stroke="#020202" stroke-width="1" stroke-opacity="0.5" fill="none"/>
+<line x1="270" y1="56" x2="70" y2="56" stroke="#010101" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<polygon points="60,56 71,50 71,62" fill="#010101"/>
+<line x1="60" y1="86" x2="169" y2="86" stroke="#050505" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+<polygon points="180,86 169,80 169,92" fill="#050505"/>
+<circle cx="180" cy="120" r="11" fill="none" stroke="#050505" stroke-width="2.5"/>
+<circle cx="270" cy="120" r="4.5" fill="#010101"/>
+<circle cx="60" cy="120" r="4.5" fill="#010101"/>
+<text x="165" y="46" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="16" font-weight="700" fill="#010101">−7</text>
+<text x="120" y="76" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="16" font-weight="700" fill="#010101">+4</text>
+</svg>

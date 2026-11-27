@@ -52,7 +52,7 @@ questions:
 
   - id: q-arithmetic-number-sense-order-of-operations-0003
     approved: true
-    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
+    lesson: lesson-arithmetic-number-sense-substituting-negative-numbers
     keyPoint: 2
     type: direct-computation
     difficulty: easy
@@ -173,8 +173,8 @@ questions:
 
   - id: q-arithmetic-number-sense-order-of-operations-0008
     approved: true
-    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
-    keyPoint: 2
+    lesson: lesson-arithmetic-number-sense-substituting-negative-numbers
+    keyPoint: 3
     type: direct-computation
     difficulty: medium
     stem: |
@@ -295,8 +295,8 @@ questions:
 
   - id: q-arithmetic-number-sense-order-of-operations-0013
     approved: true
-    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
-    keyPoint: 2
+    lesson: lesson-arithmetic-number-sense-substituting-negative-numbers
+    keyPoint: 3
     type: direct-computation
     difficulty: hard
     stem: |
@@ -479,8 +479,8 @@ questions:
 
   - id: q-arithmetic-number-sense-order-of-operations-0021
     approved: true
-    lesson: lesson-arithmetic-number-sense-signed-integers-and-substitution
-    keyPoint: 1
+    lesson: lesson-arithmetic-number-sense-signed-integer-operations
+    keyPoint: 3
     type: direct-computation
     difficulty: exam
     stem: |
@@ -499,3 +499,141 @@ questions:
           This makes negative twenty-eight divided by seven positive. Different signs give a negative quotient. Check the first operation.
     explanation: |
       Divide and multiply first: $-28\div7=-4$ and $3(-5)=-15$. Then $-4-(-15)+(-6)=-4+15-6=5$.
+
+  - id: q-arithmetic-number-sense-order-of-operations-0022
+    approved: true
+    lesson: lesson-arithmetic-number-sense-signed-integer-operations
+    keyPoint: 1
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      What is the value of $-17 + 12 + (-4)$?
+    choices:
+      - text: '$-9$'
+        correct: true
+      - text: '$-33$'
+        rationale: |
+          This carries the leading minus sign onto $12$ and computes $-17 - 12 - 4 = -(17 + 12 + 4) = -33$. Reading left to right too fast after the leading negative makes it easy to miss the plus sign before $12$. Check the sign directly in front of each term before combining.
+      - text: '$-1$'
+        rationale: |
+          This subtracts four from five and keeps the minus sign instead of adding two negative numbers. Both numbers after the first step have negative signs. Check whether the signs match before subtracting.
+      - text: '$1$'
+        rationale: |
+          This drops the negative sign after subtracting seventeen minus twelve. Five is the correct distance between seventeen and twelve. Check which starting number is farther from zero.
+    explanation: |
+      Work from left to right. First add $-17+12$: the signs differ, so subtract $17-12=5$ and keep the sign of $-17$ to get $-5$. Then add $-5+(-4)$: both signs are negative, so add $5+4=9$ and keep the minus sign to get $-9$.
+
+  - id: q-arithmetic-number-sense-order-of-operations-0023
+    approved: true
+    lesson: lesson-arithmetic-number-sense-signed-integer-operations
+    keyPoint: 1
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      Evaluate $7 - (-5) - (-9) - 13$.
+    choices:
+      - text: '$8$'
+        correct: true
+      - text: '$-20$'
+        rationale: |
+          This keeps only one minus sign on both negative five and negative nine. Each term keeps its subtraction sign. Check that subtracting a negative turns into adding its opposite.
+      - text: '$-10$'
+        rationale: |
+          This changes the first double negative to addition to get $12$, then rewrites $12 - (-9) - 13$ as $12 - 9 - 13 = -10$ instead of adding $9$. After fixing the first double negative, seeing $-9$ inside parentheses right after a minus sign tempts subtracting $9$ instead of flipping both signs again. Check every minus sign before a negative number.
+      - text: '$34$'
+        rationale: |
+          This turns the final subtraction of thirteen into addition as well. Two earlier subtractions did become additions. Check whether thirteen itself is positive or negative.
+    explanation: |
+      Change each subtraction of a negative number into adding its opposite: $7-(-5)=7+5=12$ and $12-(-9)=12+9=21$. Then subtract $13$ last: $21-13=8$.
+
+  - id: q-arithmetic-number-sense-order-of-operations-0024
+    approved: true
+    lesson: lesson-arithmetic-number-sense-signed-integer-operations
+    keyPoint: 2
+    type: which-is-true
+    difficulty: medium
+    stem: |
+      Which expression has a negative value?
+    choices:
+      - text: '$(-2)(-3)(-4) \div 6$'
+        correct: true
+      - text: '$(-2)(-3)(-4) \div (-6)$'
+        rationale: |
+          This has four negative numbers, which gives a positive value of four. The first three factors do multiply to a negative number. Check the total count of negative signs including the divisor.
+      - text: '$(-2)(3)(-4) \div 6$'
+        rationale: |
+          This expression equals $+4$, not $-4$, because multiplying by both $-2$ and $-4$ gives $+24$ and $24 \div 6 = 4$. Seeing the leading negative factor $-2$ tempts keeping its minus sign and missing that the second negative factor $-4$ flips the product back to positive. Check the total count of negative signs, since an even count gives a positive value.
+      - text: '$(-2)(3)(4) \div (-6)$'
+        rationale: |
+          This has two negative numbers, which gives a positive value of four. Dividing by negative six looks like it keeps the negative sign. Check the total count of negative signs across all operations.
+    explanation: |
+      Count the negative signs in multiplication and division. An odd count gives a negative answer. In $(-2)(-3)(-4)\div6$, there are three negative signs, so the value is $-24\div6=-4$.
+
+  - id: q-arithmetic-number-sense-order-of-operations-0025
+    approved: true
+    lesson: lesson-arithmetic-number-sense-signed-integer-operations
+    keyPoint: 3
+    type: direct-computation
+    difficulty: hard
+    stem: |
+      Evaluate $-36 \div (-4) - (-2)(7) + (-11)$.
+    choices:
+      - text: '$12$'
+        correct: true
+      - text: '$-16$'
+        rationale: |
+          This drops one minus sign in $9 - (-14)$ and computes $9 - 14$. Only one subtraction sign appears between the first two parts. Check both minus signs when subtracting a negative product.
+      - text: '$-6$'
+        rationale: |
+          This makes $-36 \div (-4)$ equal to $-9$ instead of $9$. Different signs do give a negative quotient. Check that both numbers in the division are negative.
+      - text: '$34$'
+        rationale: |
+          This changes $+(-11)$ into $+11$ at the end. Eleven is the correct size of the last term. Check the negative sign on eleven before adding.
+    explanation: |
+      Divide and multiply first: $(-36)\div(-4)=9$ because both signs are negative, and $(-2)(7)=-14$ because the signs differ. Put the results back: $9-(-14)+(-11)=9+14+(-11)$. Add from left to right: $9+14=23$, then $23+(-11)=12$.
+
+  - id: q-arithmetic-number-sense-order-of-operations-0026
+    approved: true
+    lesson: lesson-arithmetic-number-sense-substituting-negative-numbers
+    keyPoint: 1
+    type: direct-computation
+    difficulty: easy
+    stem: |
+      If $x = -4$, what is the value of $1 - 2x$?
+    choices:
+      - text: '$9$'
+        correct: true
+      - text: '$-7$'
+        rationale: |
+          This computes $2(-4) = -8$ but misses the double negative in $1 - (-8)$. One subtraction sign sits before the term. Check both minus signs before adding.
+      - text: '$-5$'
+        rationale: |
+          This drops parentheses after substituting and computes $1 - 2 - 4$. The minus four stays visible in the line. Check that substituting into $2x$ keeps multiplication by $-4$.
+      - text: '$4$'
+        rationale: |
+          This subtracts $1 - 2$ before multiplying by $-4$. The subtraction sits at the start of the expression. Check that multiplication comes before subtraction.
+    explanation: |
+      Substitute $-4$ inside parentheses: $1-2(-4)$. Multiply first: $2(-4)=-8$. Keep the sign between the parts: $1-(-8)=1+8=9$.
+
+  - id: q-arithmetic-number-sense-order-of-operations-0027
+    approved: true
+    lesson: lesson-arithmetic-number-sense-substituting-negative-numbers
+    keyPoint: 2
+    type: direct-computation
+    difficulty: medium
+    stem: |
+      If $a = -3$ and $b = -2$, what is the value of $-a^2 - b^3$?
+    choices:
+      - text: '$-1$'
+        correct: true
+      - text: '$17$'
+        rationale: |
+          This includes the leading minus sign inside the square, turning $-a^2$ into $9$. Parentheses do hold the negative value of $a$. Check that the leading minus sign stays outside the square.
+      - text: '$-17$'
+        rationale: |
+          This finds $-a^2 = -9$ and $b^3 = -8$ correctly, then writes $-9 - 8$ instead of $-9 - (-8)$. A single minus sits before $b^3$ in the stem. Check both minus signs when subtracting a negative cube.
+      - text: '$1$'
+        rationale: |
+          This turns $-(-3)^2$ into $9$ and drops one minus sign in $-(-8)$, computing $9 - 8 = 1$. The parentheses around $-3$ tempt pulling the outside minus inside the square, and the single minus before $b^3$ tempts subtracting $8$ instead of $-8$. Check that $-a^2 = -9$ and subtracting $-8$ adds $8$.
+    explanation: |
+      Substitute both numbers inside parentheses: $-(-3)^2-(-2)^3$. First do the powers: $(-3)^2=9$, so $-(-3)^2=-9$, and $(-2)^3=-8$. Keep the subtraction sign between the parts: $-9-(-8)=-9+8=-1$.

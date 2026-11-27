@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" width="360" height="150">
+<title>Two panels: in (-3)^2 the exponent 2 reaches all of (-3), so it equals (-3) times (-3) = 9; in -3^2 the exponent 2 reaches only 3, so it equals -(3 times 3) = -9</title>
+<rect width="360" height="150" rx="14" fill="#030303"/>
+<line x1="180" y1="20" x2="180" y2="130" stroke="#040404" stroke-width="1.5" fill="none"/>
+<rect x="28" y="38" width="78" height="50" rx="8" fill="#050505" fill-opacity="0.12" stroke="#050505" stroke-width="2"/>
+<line x1="106" y1="48" x2="118" y2="48" stroke="#050505" stroke-width="2" fill="none"/>
+<circle cx="130" cy="48" r="12" fill="#050505" fill-opacity="0.12" stroke="#050505" stroke-width="2"/>
+<text x="39" y="76" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="36" font-weight="400" fill="#010101">(</text>
+<line x1="49" y1="62" x2="63" y2="62" stroke="#010101" stroke-width="3" fill="none"/>
+<text x="76" y="76" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="36" font-weight="400" fill="#010101">3</text>
+<text x="94" y="76" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="36" font-weight="400" fill="#010101">)</text>
+<text x="130" y="54" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="18" font-weight="400" fill="#010101">2</text>
+<text x="94" y="122" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="16" font-weight="400" fill="#010101">= (−3) × (−3) = 9</text>
+<line x1="225" y1="62" x2="239" y2="62" stroke="#010101" stroke-width="3" fill="none"/>
+<rect x="246" y="38" width="32" height="50" rx="8" fill="#050505" fill-opacity="0.12" stroke="#050505" stroke-width="2"/>
+<line x1="278" y1="48" x2="290" y2="48" stroke="#050505" stroke-width="2" fill="none"/>
+<circle cx="302" cy="48" r="12" fill="#050505" fill-opacity="0.12" stroke="#050505" stroke-width="2"/>
+<text x="262" y="76" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="36" font-weight="400" fill="#010101">3</text>
+<text x="302" y="54" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="18" font-weight="400" fill="#010101">2</text>
+<text x="266" y="122" text-anchor="middle" font-family="KaTeX_Main, serif" font-size="16" font-weight="400" fill="#010101">= −(3 × 3) = −9</text>
+</svg>

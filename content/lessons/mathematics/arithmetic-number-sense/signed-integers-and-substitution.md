@@ -5,9 +5,10 @@ summary: "Calculate with signed integers inside expressions."
 subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 isActive: true
-part: 2
-partCount: 3
-ordering: 2
+status: retired
+replacedBy:
+  - lesson-arithmetic-number-sense-signed-integer-operations
+  - lesson-arithmetic-number-sense-substituting-negative-numbers
 keyPoints:
   - 'Calculate with signed integers inside expressions.'
   - 'Substitute negative values in parentheses and apply powers correctly.'

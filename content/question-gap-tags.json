@@ -7,13 +7,13 @@
    "$14$": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
   },
   "q-algebra-algebraic-expressions-0009": {
-   "$4$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$4$": "lesson-arithmetic-number-sense-substituting-negative-numbers"
   },
   "q-algebra-algebraic-expressions-0010": {
-   "$-1$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$-1$": "lesson-arithmetic-number-sense-substituting-negative-numbers"
   },
   "q-algebra-algebraic-expressions-0015": {
-   "$2$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$2$": "lesson-arithmetic-number-sense-substituting-negative-numbers"
   },
   "q-algebra-exponents-and-logarithms-0012": {
    "$x = -1$": "lesson-algebra-simplifying-and-evaluating-expressions",
@@ -74,36 +74,36 @@
    "$5\\%$": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0002": {
-   "$\\dfrac{7}{4}$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$\\dfrac{7}{4}$": "lesson-arithmetic-number-sense-signed-integer-operations"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0004": {
-   "Subtraction is commutative because the numerical value remains 2.": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "Subtraction is commutative because the numerical value remains 2.": "lesson-arithmetic-number-sense-signed-integer-operations"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0006": {
-   "$-2x - 10$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$-2x - 10$": "lesson-arithmetic-number-sense-signed-integer-operations"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0007": {
-   "$-a - 12b$": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
-   "$-11a + 12b$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$-a - 12b$": "lesson-arithmetic-number-sense-signed-integer-operations",
+   "$-11a + 12b$": "lesson-arithmetic-number-sense-signed-integer-operations"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0011": {
-   "$-24x-2y$": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
-   "$-18y$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$-24x-2y$": "lesson-arithmetic-number-sense-signed-integer-operations",
+   "$-18y$": "lesson-arithmetic-number-sense-signed-integer-operations"
   },
   "q-arithmetic-number-sense-properties-of-real-numbers-0015": {
-   "$-8x+2y$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$-8x+2y$": "lesson-arithmetic-number-sense-signed-integer-operations"
   },
   "q-arithmetic-number-sense-ratio-and-proportion-0010": {
    "$120$ minutes": "lesson-arithmetic-number-sense-percentage-base-and-fraction-division"
   },
   "q-arithmetic-number-sense-real-imaginary-numbers-0004": {
-   "$7 + 7i$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$7 + 7i$": "lesson-arithmetic-number-sense-signed-integer-operations"
   },
   "q-arithmetic-number-sense-real-imaginary-numbers-0005": {
-   "$4 - i$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$4 - i$": "lesson-arithmetic-number-sense-signed-integer-operations"
   },
   "q-arithmetic-number-sense-real-imaginary-numbers-0008": {
-   "$22 + 7i$": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+   "$22 + 7i$": "lesson-arithmetic-number-sense-signed-integer-operations"
   },
   "q-biology-cellular-metabolism-0003": {
    "Mitochondrion": "lesson-biology-cell-biology",

@@ -2502,10 +2502,10 @@
     "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
   },
   "q-arithmetic-number-sense-order-of-operations-0003": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-exam-tags.md",
-    "hash": "4d2e06a27582eb54f11d03f6f1419a8081cf9f2ae40ecafb148ed5120e663f98",
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/split-signed-integers-r1.md",
+    "hash": "1b9503d9f5df579f75cfbbbfeba6f62c60fe7a63e4ba237bec993c7fbc73de5f",
+    "lesson": "lesson-arithmetic-number-sense-substituting-negative-numbers"
   },
   "q-arithmetic-number-sense-order-of-operations-0004": {
     "approvedAt": "2026-11-19",
@@ -2532,10 +2532,10 @@
     "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right"
   },
   "q-arithmetic-number-sense-order-of-operations-0008": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-exam-tags.md",
-    "hash": "70fc13b5fe7cdf9118ea217711d8cb4beb68ef86d35324f4e0c03fc52b51ca5c",
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/split-signed-integers-r1.md",
+    "hash": "f5aaaec56c27e741d7028f348b1d8f9d60d3c23865ff029a323b27db6c6f6c33",
+    "lesson": "lesson-arithmetic-number-sense-substituting-negative-numbers"
   },
   "q-arithmetic-number-sense-order-of-operations-0009": {
     "approvedAt": "2026-11-19",
@@ -2562,10 +2562,10 @@
     "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
   },
   "q-arithmetic-number-sense-order-of-operations-0013": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-exam-tags.md",
-    "hash": "3f31ba0b895d642c41765a6aee1124ad1cb0b997b00d0769edae9c42230d18f2",
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/split-signed-integers-r1.md",
+    "hash": "65dbcd7e9f0ddb02be2f217d4d996d307b540038ff8c36cde2340163f721f92b",
+    "lesson": "lesson-arithmetic-number-sense-substituting-negative-numbers"
   },
   "q-arithmetic-number-sense-order-of-operations-0014": {
     "approvedAt": "2026-11-19",
@@ -2610,10 +2610,46 @@
     "lesson": "lesson-arithmetic-number-sense-grouping-and-fraction-bars"
   },
   "q-arithmetic-number-sense-order-of-operations-0021": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-exam-tags.md",
-    "hash": "716d15c41e7d06fe9128ee304b33648617722ab440045724c1cb9d4419273869",
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution"
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/split-signed-integers-r1.md",
+    "hash": "4e914657c9642651c59427f9f4081ec21ce1e34f9cea67c5e68c8e6ac2569afb",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0022": {
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/split-signed-integers-r1.md",
+    "hash": "0a12f8d7c14710f1c2356082cbf62a0e56630019a7923ca7327c289c6c70164d",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0023": {
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/split-signed-integers-r1.md",
+    "hash": "a3089ab07ae0bd008ed4a969d63365f2e2a862b7857a8568e7bbf85c3000db2f",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0024": {
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/split-signed-integers-r1.md",
+    "hash": "0e4552fb1e88d51cf7d9cbda35afc2ebf942b989f1742c9106cb48b0faf26779",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0025": {
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/split-signed-integers-r1.md",
+    "hash": "5bc69f4006e72524f9d1f67ae665948eda9686c038c1245118e401e9f98e023f",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0026": {
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/split-signed-integers-r1.md",
+    "hash": "5bcea3a2bb13cb30aa3268761ca6b1cda4e277e93ebd6387eb6872ff9c036984",
+    "lesson": "lesson-arithmetic-number-sense-substituting-negative-numbers"
+  },
+  "q-arithmetic-number-sense-order-of-operations-0027": {
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/split-signed-integers-r1.md",
+    "hash": "6f27950af4e51f07ada2dc45d8ab051900f6b5bc417b0f1e737fc3b216b77038",
+    "lesson": "lesson-arithmetic-number-sense-substituting-negative-numbers"
   },
   "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0001": {
     "approvedAt": "2026-11-14",

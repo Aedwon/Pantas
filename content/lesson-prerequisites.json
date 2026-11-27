@@ -48,7 +48,7 @@
     "reason": "Fraction arithmetic helps with the final symbolic example, which shows the needed denominator conversion locally."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations",
     "strength": "helpful",
     "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
@@ -2614,16 +2614,23 @@
    }
   ],
   "lesson-arithmetic-number-sense-operation-priority-and-left-to-right": [],
-  "lesson-arithmetic-number-sense-signed-integers-and-substitution": [
+  "lesson-arithmetic-number-sense-signed-integer-operations": [
    {
     "lesson": "lesson-arithmetic-number-sense-operation-priority-and-left-to-right",
     "strength": "required",
     "reason": "Read the previous part first."
    }
   ],
+  "lesson-arithmetic-number-sense-substituting-negative-numbers": [
+   {
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations",
+    "strength": "required",
+    "reason": "Read the previous part first."
+   }
+  ],
   "lesson-arithmetic-number-sense-grouping-and-fraction-bars": [
    {
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "lesson": "lesson-arithmetic-number-sense-substituting-negative-numbers",
     "strength": "required",
     "reason": "Read the previous part first."
    }
@@ -2723,7 +2730,7 @@
     "reason": "Signed arithmetic practice makes combining coefficients and distributing negative factors easier. This lesson supplies the algebra rules."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations",
     "strength": "helpful",
     "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
@@ -2742,7 +2749,7 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations",
     "strength": "helpful",
     "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
@@ -2754,7 +2761,7 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations",
     "strength": "helpful",
     "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
@@ -2799,7 +2806,7 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations",
     "strength": "helpful",
     "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
@@ -2811,7 +2818,7 @@
     "reason": "Read the previous part first."
    },
    {
-    "lesson": "lesson-arithmetic-number-sense-signed-integers-and-substitution",
+    "lesson": "lesson-arithmetic-number-sense-signed-integer-operations",
     "strength": "helpful",
     "reason": "Signed-number rules help students keep the correct signs when calculating with negative values."
    }
