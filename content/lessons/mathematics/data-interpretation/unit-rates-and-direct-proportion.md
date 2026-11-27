@@ -35,7 +35,7 @@ $$\dfrac{1,260}{200}=6.30$$
 Each envelope costs $6.30$ pesos.
 
 :::why
-Why does pesos go on top for "pesos per envelope"? In a rate, "per" means "for each $1$," so you divide by whatever unit follows "per."
+Why do pesos go on top for "pesos per envelope"? In a rate, "per" means "for each $1$," so you divide by whatever unit follows "per."
 :::
 
 :::pair #wrong-unit-rate-order
@@ -66,7 +66,7 @@ The answer is $7.5$ liters per minute. Two hours is $2\times60=120$ minutes, and
 
 ### Scaling with Direct Proportion
 
-In a **direct proportion**, two quantities move in the same direction by the same factor. When the rate stays constant, doubling one quantity doubles the other, and multiplying one quantity by $1.5$ multiplies the other by $1.5$.
+In a **direct proportion**, the rate between two quantities stays constant, so multiplying one by a factor multiplies the other by that factor. At a positive rate, doubling one doubles the other, and multiplying one by $1.5$ multiplies the other by $1.5$.
 
 At a constant rate, find the unit rate first, then multiply by the new number of units.
 

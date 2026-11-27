@@ -28,13 +28,21 @@ $$85,000\times0.06=5,100$$
 
 The commission is Php $5,100$.
 
-Sometimes the stated base is **net profit**, which is revenue minus all costs. Find the weekly earnings of a store assistant with a Php $400$ daily wage for $6$ days plus $4\%$ commission on weekly net profit. The week's revenue is Php $35,000$ and its costs are Php $25,000$. Find the net profit, the commission, the wage, then the total:
+Sometimes the stated base is **net profit**, which is revenue minus all costs. A store assistant earns Php $400$ a day for $6$ days plus $4\%$ commission on weekly net profit. The week's revenue is Php $35,000$ and its costs are Php $25,000$. Find the weekly earnings.
+
+Net profit:
 
 $$35,000-25,000=10,000$$
 
+Commission:
+
 $$10,000\times0.04=400$$
 
+Wages:
+
 $$6\times400=2,400$$
+
+Total earnings:
 
 $$2,400+400=2,800$$
 

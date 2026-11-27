@@ -68,13 +68,13 @@ A **markup** is not automatically the same as **profit**. A seller often pays ex
 
 $$\text{Profit}=\text{Selling price}-\text{Cost}-\text{Expenses}$$
 
-Find the profit on an item that costs Php $640$, gets a $25\%$ markup on cost, and has Php $45$ in selling expenses.
+Find the profit on an item that costs Php $640$, gets a $25\%$ markup on cost, has Php $45$ in selling expenses, and sells at its listed price.
 
 1. Find the markup amount.
 
 $$640\times0.25=160$$
 
-2. Find the listed price, which is the selling price.
+2. Find the listed price. The item sells at that price.
 
 $$640+160=800$$
 
@@ -169,7 +169,7 @@ The answer is $37.5\%$. Dividing the Php $750$ markup by the Php $2,000$ selling
 ## Traps to Watch For
 
 :::checklist
-- Asked for the selling or listed price: add the markup amount to the cost ($800+200=1,000$, not $200$ alone). {#markup-only-not-price}
+- Asked for the listed price: add the markup amount to the cost ($800+200=1,000$, not $200$ alone). {#markup-only-not-price}
 - Asked for profit at the listed price when selling expenses are given: subtract expenses from the markup ($160-45=115$). {#markup-is-not-profit}
 - Asked for percent of selling price versus percent of cost: put the stated base in the denominator ($\dfrac{5}{25}=20\%$ of selling price). {#wrong-percentage-base}
 :::

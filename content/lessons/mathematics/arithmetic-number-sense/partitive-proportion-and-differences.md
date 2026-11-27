@@ -80,6 +80,8 @@ $$8\times9=72$$
 Why does subtracting the ratio parts work? Every box in the ratio has the exact same size. The larger share has $5$ boxes and the smaller has $3$ boxes, so the extra amount comes from the $5-3=2$ extra boxes.
 :::
 
+Find the full length of a wire split in the ratio $4:7$, with each part worth $7$ meters.
+
 :::pair #one-share-not-total
 Right: ratio $4:7$ with $1$ part $=7\text{ m}$, so total $=(4+7)\times7=77\text{ m}$
 Wrong: total $=7\times7=49\text{ m}$

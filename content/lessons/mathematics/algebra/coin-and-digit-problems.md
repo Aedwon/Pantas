@@ -16,7 +16,7 @@ keyPoints:
 
 ### Coin Count and Coin Value
 
-**Coin problems** use two separate equations: one for how many coins there are (**count**) and one for how much money they are worth (**value**).
+In **coin problems**, write a **value** equation for how much money the coins are worth. When the total count is given, also write a **count** equation for how many coins there are. Keep them separate.
 
 For the value equation, multiply each coin's count by its peso value and add them up.
 
@@ -66,7 +66,7 @@ $$2u+u=12$$
 
 $$3u=12$$
 
-$$u=4$$
+$$u=\dfrac{12}{3}=4$$
 
 Then $t=2(4)=8$, and the number is:
 
@@ -101,11 +101,13 @@ $$x+5y=52$$
 
 4. Subtract the count equation from the value equation to cancel $x$.
 
-$$4y=52-20=32$$
+$$4y=52-20$$
+
+$$4y=32$$
 
 5. Divide both sides by $4$.
 
-$$y=8$$
+$$y=\dfrac{32}{4}=8$$
 
 There are $8$ five-peso coins.
 
@@ -124,21 +126,27 @@ $$t+u=9$$
 
 $$(10u+t)-(10t+u)=27$$
 
-4. Distribute the minus sign and combine like terms.
+4. Distribute the minus sign.
+
+$$10u+t-10t-u=27$$
+
+5. Combine like terms.
 
 $$9u-9t=27$$
 
-5. Divide both sides by $9$.
+6. Divide both sides by $9$.
 
 $$u-t=3$$
 
-6. Add this equation to $t+u=9$ to cancel $t$.
+7. Add this equation to $t+u=9$ to cancel $t$.
 
-$$2u=9+3=12$$
+$$2u=9+3$$
 
-$$u=6$$
+$$2u=12$$
 
-7. Use $t+u=9$ to find $t$.
+$$u=\dfrac{12}{2}=6$$
+
+8. Use $t+u=9$ to find $t$.
 
 $$t=9-6=3$$
 
@@ -151,7 +159,7 @@ The answer is $36$. Using $10t+u$, $10(3)+6=36$.
 ## Traps to Watch For
 
 :::checklist
-- Coin equations: keep total coins on the count equation and total pesos on the value equation. {#missing-coin-value}
+- Coin equations: when the total count is given, keep total coins on the count equation and total pesos on the value equation. {#missing-coin-value}
 - Two-digit number value: multiply the tens digit by $10$, as in $10t+u$, instead of adding the digits. {#place-value-in-two-digit-numbers}
 - Writing the final number: check which digit is tens and which is units so you do not reverse them. {#reversed-digits}
 :::

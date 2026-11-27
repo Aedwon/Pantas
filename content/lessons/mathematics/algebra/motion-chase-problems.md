@@ -21,11 +21,9 @@ $$d=rt$$
 
 Keep units matched: a rate in kph needs distance in km and time in hours.
 
-In a **chase problem**, two objects move in the same direction along the same straight path. The faster object starts behind and catches the slower one ahead. If the object behind is no faster, it can never close the gap.
+In a **chase problem**, two objects move in the same direction along the same straight path at steady speeds. The faster object starts behind and catches the slower one ahead. If the object behind is no faster, it can never close the gap.
 
-<!-- ILLUSTRATION: horizontal straight road. A van at the 0 km mark moves right at 60 kph, and a jeepney ahead at the 40 km mark moves right at 40 kph. A bracket from 0 to 40 km is labeled "head start = 40 km". Below it a note reads "gap shrinks by 60 - 40 = 20 km each hour". -->
-
-When a problem gives a time head start instead of a distance, multiply the slower speed by the head-start time to find the starting gap $d$. Then subtract the slower speed from the faster speed to get the closing rate:
+When a problem gives a time head start instead of a distance, and both leave the same point, multiply the slower speed by the head-start time to find the starting gap $d$. Then subtract the slower speed from the faster speed to get the closing rate:
 
 $$r_{\text{close}}=r_{\text{fast}}-r_{\text{slow}}$$
 
@@ -36,6 +34,8 @@ Find when the van catches up. A jeepney leaves a terminal at $40$ kph. One hour 
 First find the jeepney's $1$-hour head start:
 
 $$40\times 1=40$$
+
+<!-- ILLUSTRATION: horizontal straight road. A van at the 0 km mark moves right at 60 kph, and a jeepney ahead at the 40 km mark moves right at 40 kph. A bracket from 0 to 40 km is labeled "head start = 40 km". Below it a note reads "gap shrinks by 60 - 40 = 20 km each hour". -->
 
 Next find how fast the van closes the $40\text{ km}$ gap:
 
@@ -70,7 +70,7 @@ Check when the question starts the clock. "After the van starts" asks for $2$ ho
 :::
 
 :::check
-A cyclist leaves at $12$ kph. Two hours later, a second cyclist follows on the same road at $16$ kph. How many kilometers from the start does the second cyclist catch the first?
+A cyclist leaves a town at a constant $12$ kph. Two hours later, a second cyclist leaves the same town and follows on the same road at a constant $16$ kph. How many kilometers from the town does the second cyclist catch the first?
 :::answer
 The answer is $96$ km. The head start is $12\times 2=24$ km and the closing rate is $16-12=4$ kph, so the catch-up takes $24\div 4=6$ hours. The second cyclist rides $16\times 6=96$ km.
 :::
@@ -99,9 +99,9 @@ The answer is $2.5$ hours. Dividing $50\div 20=2.5$ gives $t=2.5$.
 
 ## Speed Tricks & Shortcuts
 
-When a chase problem asks for the **distance** from the start instead of the time, find the chase time $t$ first. Then multiply the chaser's speed by $t$, not by the total time including the head start.
+When a chase problem asks for the **distance** from the chaser's starting point instead of the time, find the chase time $t$ first. Then multiply the chaser's speed by $t$, not by the total time including the head start.
 
-For example, if the van drives at $60$ kph for $2$ hours to catch the jeepney, the catch-up distance is $60\times 2=120$ km.
+For example, if the van drives at $60$ kph for $2$ hours to catch the jeepney, the catch-up distance from the terminal where the van started is $60\times 2=120$ km.
 
 ## Traps to Watch For
 

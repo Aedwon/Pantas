@@ -47,7 +47,7 @@ Just going in opposite directions does not prove inverse proportion. You must ch
 :::pair #constant-product-not-sum
 Right: compare products: $2\times8=16$ and $4\times6=24$, not inverse proportion
 Wrong: compare sums: $2+8=10$ and $4+6=10$, so inverse proportion
-Inverse proportion keeps the product $xy$ constant, never the sum $x+y$.
+Check the product. Equal sums alone do not show inverse proportion.
 :::
 
 :::why
@@ -64,13 +64,11 @@ The answer is $9$ painters. The job is $4\times18=72$ painter-hours, so it needs
 
 When workers join or leave partway through a job, do not apply the new group size to the whole job. First subtract the work already done.
 
-One **worker-day** is the work $1$ worker does in $1$ day. Follow three steps:
+One **worker-day** is the work $1$ worker does in $1$ day. If every worker works at the same steady rate, follow three steps:
 
 1. Find the total worker-days for the whole job.
 2. Subtract the worker-days already finished to find what remains.
 3. Divide the remaining worker-days by the new number of workers.
-
-<!-- ILLUSTRATION: two stacked horizontal bars of the same length, drawn to scale. The top bar is labeled "Total job = 10 x 12 = 120 worker-days". The bottom bar is split into a shaded left section, labeled "Done in 4 days: 10 x 4 = 40 worker-days", and a right section twice as long, labeled "Remaining: 80 worker-days, 8 workers x 10 days". -->
 
 Suppose $10$ workers, each at the same steady rate, finish a job in $12$ days. After $4$ days, $2$ leave. Apply the three steps to find how many more days the rest need:
 
@@ -79,6 +77,8 @@ $$10\times12=120\text{ worker-days}$$
 $$10\times4=40\text{ worker-days done}$$
 
 $$120-40=80\text{ worker-days left}$$
+
+<!-- ILLUSTRATION: two stacked horizontal bars of the same length, drawn to scale. The top bar is labeled "Total job = 10 x 12 = 120 worker-days". The bottom bar is split into a shaded left section, labeled "Done in 4 days: 10 x 4 = 40 worker-days", and a right section twice as long, labeled "Remaining: 80 worker-days, 8 workers x 10 days". -->
 
 There are $10-2=8$ workers left, so divide $80$ by $8$.
 
@@ -140,6 +140,6 @@ When everyone keeps the same steady rate up to the change, skip total work and m
 
 :::checklist
 - Fewer workers or pumps on a fixed job: keep the product constant so time goes up, not down. {#direct-instead-of-inverse}
-- Checking if two quantities are inversely proportional: test that the product $xy$ stays equal, not the sum. {#constant-product-not-sum}
-- Workers or people leaving partway through: subtract the finished work or used supplies first before dividing. {#use-total-not-remaining}
+- Checking if two quantities are inversely proportional: test that the product $xy$ stays equal. Equal sums alone do not show it. {#constant-product-not-sum}
+- Workers or people at the same steady rate leaving partway through: subtract the finished work or used supplies first before dividing. {#use-total-not-remaining}
 :::

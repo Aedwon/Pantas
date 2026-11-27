@@ -19,7 +19,7 @@ keyPoints:
 
 The **principal** is the starting amount of money. The **rate** is the percentage charged or earned over a stated time period. **Per annum** means per year.
 
-**Simple interest** is charged only on a fixed principal, never on earlier interest. When the rate is annual, use:
+**Simple interest** is charged only on the principal fixed for the period being calculated, never on earlier interest. When the rate is annual, use:
 
 $$I=PRT$$
 
@@ -52,10 +52,10 @@ Php $15,080$ of principal is left.
 <!-- ILLUSTRATION: two stacked bars for a loan payment. The top bar, Payment Php 4,000, is split into a shaded part, Interest Php 1,080, and a larger part, Rest of payment Php 2,920. The bottom bar, Principal Php 18,000, is split into Principal left Php 15,080 and a shaded part of 2,920, the rest of the payment, which reduces the principal. -->
 
 :::why
-Why does simple interest grow by the same amount every year? Each year charges $5\%$ of the original Php $10,000$, which is Php $500$. Over $3$ years you pay $500+500+500=1,500$.
+Why does the interest on the Php $10,000$ loan stay the same each year while the principal and rate stay the same? Each year charges $5\%$ of Php $10,000$, which is Php $500$. Over $3$ years you pay $500+500+500=1,500$.
 :::
 
-Find the total to repay on a Php $50,000$ loan at $5\%$ for $1.5$ years.
+Find the total to repay on a Php $50,000$ loan at $5\%$ simple annual interest for $1.5$ years, with no earlier payments.
 
 :::pair #interest-instead-of-total
 Right: $I=50,000\times0.05\times1.5=3,750$, so the total to repay is $50,000+3,750=\text{Php }53,750$
@@ -85,7 +85,7 @@ Wrong: $I=15,000\times0.08\times9=\text{Php }10,800$
 The wrong line used $9$ months as $9$ years. The rate is per year, so convert months to years first.
 :::
 
-Now find the total to repay on a Php $50,000$ loan at $6\%$ for $15$ months.
+Now find the total to repay on a Php $50,000$ loan at $6\%$ simple annual interest for $15$ months, with no earlier payments.
 
 :::pair #months-as-decimal-years
 Right: $15\text{ months}=\dfrac{15}{12}\text{ years}=1.25\text{ years}$, so $I=50,000\times0.06\times1.25=3,750$ and the total is $\text{Php }53,750$

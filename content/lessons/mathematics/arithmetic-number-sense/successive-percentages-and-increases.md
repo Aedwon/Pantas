@@ -48,16 +48,16 @@ Wrong: $500\times0.10=50$, giving $550+50=600$
 The second percent applies to the updated total of Php $550$, not the starting Php $500$.
 :::
 
-When a problem gives only percents and no starting peso amount, pick $100$ as your starting base. It makes the final percent change easy to read.
+To find the overall percent change when the starting price is unknown, let the starting price be $100$. It makes the final percent change easy to read.
 
 :::why
 Why does a $20\%$ increase followed by a $20\%$ decrease leave less than you started with? Starting at $100$, a $20\%$ increase adds $20$ to reach $120$. Then $20\%$ of $120$ is $24$, so taking $24$ away drops you to $96$, which is $4\%$ below $100$.
 :::
 
 :::check
-A price starts at $100$. It rises by $10\%$, then falls by $20\%$. What is the final price?
+A price is cut by $30\%$. Then a $10\%$ tax is added to the new price. The starting price is not given. What single percent change does the price show overall?
 :::answer
-The answer is $88$. First $100\times1.10=110$, then $110\times0.80=88$.
+The answer is a $23\%$ decrease. Let the starting price be $100$. Then $100\times0.70=70$ and $70\times1.10=77$, so the price fell by $100-77=23$.
 :::
 
 ### Percent Of Versus Percent More Than
@@ -65,7 +65,7 @@ The answer is $88$. First $100\times1.10=110$, then $110\times0.80=88$.
 The words after a percent change the multiplier.
 
 - **"$p\%$ of" a base** means multiply the base by $\dfrac{p}{100}$. So "$120\%$ of" means $1.20\times\text{base}$.
-- **"$p\%$ more than" a base** means keep the full $100\%$ base and add $p\%$ of it. So "$120\%$ more than" means $(1+1.20)=2.20\times\text{base}$.
+- **"$p\%$ more than" a base** means keep the full $100\%$ base and add $p\%$ of it. So "$120\%$ more than" means $(1+1.20)\times\text{base}=2.20\times\text{base}$.
 
 <!-- ILLUSTRATION: two horizontal bars stacked for base = 200. Top bar labeled "120% of 200": one solid block of 200 (100%) extended to 240 (120%). Bottom bar labeled "120% more than 200": one solid block of 200 (100%) plus an added block of 240 (120%), total bracketed as 440 (220%). The second bar adds the whole increase to the full base. -->
 
