@@ -44,9 +44,15 @@ const FOLDERS = 'b';
 // owner across builds, and the worker that shipped before build folders (which caches it
 // at that address) serves identical bytes. The deploy guard pins those bytes.
 const ROOT_FILES = new Set([
-  PAGE, WORKER, 'version.json', 'manifest.json', 'favicon.png', 'og-image.png', 'README.md', '.last_build_id',
+  PAGE, WORKER, 'version.json', 'manifest.json', 'favicon.png', 'og-image.png',
   'flutter_service_worker.js', 'drift_worker.js',
 ]);
+// Files no deploy serves: tool/cloudflare-app/deploy.sh removes them from the folder it stages
+// (the Firebase rollback publishes the folder as given and ignores hidden files). The stamp
+// neither moves, lists nor hashes them, so removing them cannot change a build's id (audit 3).
+// The deploy guard uses the same list, through buildHash.
+export const NOT_SERVED = ['README.md', '.last_build_id', '__/'];
+export const isServed = name => !NOT_SERVED.some(entry => (entry.endsWith('/') ? name.startsWith(entry) : name === entry));
 // A package asks for this file by a fixed address relative to the page (purchases_flutter's
 // web plugin hard-codes it), so it cannot follow the folder. It is in the startup set, so a
 // controlled page gets the copy its build verified.
@@ -55,7 +61,7 @@ export const FIXED_ADDRESS = ['assets/packages/purchases_flutter/assets/web/purc
 // the SDK version, so every build shares one copy and the map (and the page's security policy
 // hash for it) does not change with the build (E-210, tool/web/firebase_sdk.mjs).
 const SDK_ROOT = 'firebase_sdk/';
-const atRoot = name => ROOT_FILES.has(name) || name.startsWith('icons/') || name.startsWith(SDK_ROOT) || FIXED_ADDRESS.includes(name);
+const atRoot = name => !isServed(name) || ROOT_FILES.has(name) || name.startsWith('icons/') || name.startsWith(SDK_ROOT) || FIXED_ADDRESS.includes(name);
 
 function files(dir, root = dir) {
   if (!existsSync(dir)) return [];
@@ -139,7 +145,7 @@ export function workerBuild(source) {
 // Everything else, the bootstrap included, is in the id.
 export function buildHash(dir) {
   const hash = createHash('sha256');
-  for (const name of files(dir)) {
+  for (const name of files(dir).filter(isServed)) {
     let bytes = readFileSync(join(dir, name));
     if (name === WORKER) bytes = bytes.toString('utf8').replace(BUILD, UNSTAMPED);
     if (name === BOOTSTRAP) {

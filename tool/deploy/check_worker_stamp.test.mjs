@@ -1,11 +1,11 @@
 import assert from 'node:assert/strict';
-import {existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
+import {cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 import {createHash} from 'node:crypto';
-import {FIXED_ADDRESS, fingerprints, listHash, stamp} from '../web/stamp_worker_version.mjs';
+import {FIXED_ADDRESS, fingerprints, listHash, stamp, workerBuild} from '../web/stamp_worker_version.mjs';
 import {constantOf, sdkStandIn, writeBuild} from '../../test/web/fixtures/sw_fixture_build.mjs';
 import {SDK_FILES, SDK_FOLDER, SDK_PATHS} from '../web/firebase_sdk.mjs';
 import {PINNED_ROOT_FILES, stampProblems as realProblems} from './check_worker_stamp.mjs';
@@ -367,6 +367,31 @@ test('the Cloudflare deploy script refuses an unstamped build before it uploads 
     assert.equal(run.status, 1, run.stdout + run.stderr);
     assert.match(run.stderr, /Refusing .*unstamped/s);
   }
+  done(build);
+});
+
+// Audit 3, blocker: the stamp hashed README.md and .last_build_id, and the deploy removes them before
+// the guard recomputes the id, so a normal release was refused after its own staging step.
+test('audit 3 blocker: a stamped build still passes after the deploy script removes the files it does not serve', () => {
+  const build = stamped();
+  const source = readFileSync(deploy, 'utf8');
+  const removed = /rm -rf ([^\n]*\/dist\/[^\n]*)/.exec(source)[1].split(/\s+/).map(arg => arg.replace(/^"\$here\/dist\//, '').replace(/"$/, ''));
+  assert.deepEqual(removed.sort(), ['.last_build_id', 'README.md', '__']);
+  // The staged copy: exactly what the deploy script makes of the folder it was given.
+  const staged = mkdtempSync(join(tmpdir(), 'stamp-staged-'));
+  cpSync(build.dir, staged, {recursive: true});
+  for (const name of removed) rmSync(join(staged, name), {recursive: true, force: true});
+  assert.deepEqual(stampProblems(staged, {target: 'prod'}), []);
+  for (const name of ['README.md', '.last_build_id', '__/auth/handler']) {
+    assert.ok(existsSync(join(build.dir, name)), `the stamp leaves ${name} where it was, and out of the worker's list`);
+    assert.ok(!(name in workerBuild(readFileSync(join(build.dir, 'pantas_sw.js'), 'utf8')).files));
+  }
+  // The Firebase rollback publishes the folder as given, README.md and all: the same id holds.
+  assert.deepEqual(stampProblems(build.dir, {target: 'prod'}), []);
+  // A change to a file that is served still changes the id.
+  edit(staged, `${build.base}main.dart.js`, text => text + '// changed');
+  assert.match(stampProblems(staged).join('\n'), /build id .* does not match/);
+  rmSync(staged, {recursive: true});
   done(build);
 });
 

@@ -83,6 +83,9 @@ export function buildFiles(id, prod = false) {
     'version.json': JSON.stringify({app_name: 'pantas', note: m}),
     'og-image.png': `png ${m}`,
     'README.md': m,
+    // Flutter writes this one; Firebase's reserved folder is only present when a tree was fetched from it.
+    '.last_build_id': m,
+    '__/auth/handler': m,
     'flutter_service_worker.js': base,
     'assets/NOTICES': m,
   };
