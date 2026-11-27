@@ -20,7 +20,7 @@ A table organizes numbers into horizontal **rows** and vertical **columns**. A r
 
 Always read the unit note next to the table title or column header before reporting an answer. A table in "thousands of pesos" scales its amounts by $1,000$. A table in "millions of pesos" scales its amounts by $1,000,000$.
 
-Suppose a table labeled "Office Purchases, in thousands of pesos" lists chairs as $12$, desks as $8$, and lamps as $5$.
+Find the combined purchase cost in pesos from a table labeled "Office Purchases, in thousands of pesos" that lists chairs as $12$, desks as $8$, and lamps as $5$.
 
 1. Add the printed entries first.
 
@@ -62,9 +62,9 @@ Wrong: $12,000+15,000+19,000=46,000$
 The wrong sum grabbed $19,000$ from the neighboring Ink column instead of $11,000$ from Paper. Trace the column heading down for every single entry.
 :::
 
-For a difference ("how many more" or "by how much does X exceed Y"), find each group total first if needed, then subtract the smaller value from the larger one unless a signed change is asked for.
+For a gap ("how many more" or "by how much does X exceed Y"), find each group total first if needed, then subtract the smaller value from the larger one. For an increase over time, subtract the earlier value from the later one. A negative result shows a fall, so skip it when you look for an increase.
 
-Suppose three centers list Female applicants as $1,500$, $950$, and $750$, and Male applicants as $1,200$, $800$, and $650$.
+Find how many more female than male applicants there are. Three centers list Female applicants as $1,500$, $950$, and $750$, and Male applicants as $1,200$, $800$, and $650$.
 
 $$1,500+950+750=3,200$$
 
@@ -79,6 +79,14 @@ Right: $3,200-2,650=550$
 Wrong: $2,650-3,200=-550$
 The wrong line reversed the subtraction order. When a question asks how many more, subtract the smaller count from the larger count to get a positive answer.
 :::
+
+If the total is known and one entry is missing, subtract the known entries from the total. Find the missing entry when a total of $88$ has known entries $19$ and $33$:
+
+$$19+33=52$$
+
+$$88-52=36$$
+
+The missing entry is $36$.
 
 ## Examples
 

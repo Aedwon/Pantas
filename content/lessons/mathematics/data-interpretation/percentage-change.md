@@ -16,15 +16,15 @@ keyPoints:
 
 ### Measuring Change from the Original Value
 
-**Percentage change** compares how much a number went up or down against where it started. For a change from an earlier value to a later one, divide by the **original** value, not the new value.
+**Percentage change** compares how much a positive number went up or down against where it started. For a change from an earlier value to a later one, divide by the **original** value, not the new value.
 
 $$\text{Change}=\text{new}-\text{original}$$
 
 $$\text{Percent change}=\dfrac{\text{change}}{\text{original}}\times100\%$$
 
-When the original value is positive, a positive answer means an increase and a negative answer means a decrease.
+A positive answer means an increase and a negative answer means a decrease.
 
-Suppose Product A revenue grows from $40$ million pesos in $2024$ to $50$ million pesos in $2025$.
+Find the percentage change when Product A revenue grows from $40$ million pesos in $2024$ to $50$ million pesos in $2025$.
 
 1. Find the change (new minus original):
 
@@ -58,19 +58,27 @@ Wrong: $50-40=10\%$
 The wrong answer put a percent sign directly on the raw difference of $10$. A difference must be divided by the original value before it becomes a percent.
 :::
 
-When a question combines two categories (for example, $20$ rising to $28$, up $40\%$, and $30$ rising to $36$, up $20\%$), add to get the original total and the new total first:
+When a question combines two categories, find each gain from its starting amount and rate. Find the combined percentage change when one category starts at $20$ and rises $40\%$, and another starts at $30$ and rises $20\%$:
 
-$$\text{Original total}=20+30=50$$
+$$20\times0.40=8$$
 
-$$\text{New total}=28+36=64$$
+$$30\times0.20=6$$
 
-Then find the change and divide by the original total:
+Add each gain to its starting amount to get the new amount, such as $20+8=28$. Then add the gains and the starting amounts:
 
-$$64-50=14$$
+$$8+6=14$$
 
-$$\dfrac{14}{50}\times100\%=28\%$$
+$$20+30=50$$
+
+Divide the combined gain by the original total:
+
+$$\dfrac{14}{50}=0.28$$
+
+$$0.28\times100\%=28\%$$
 
 Averaging the two separate rates gives $\dfrac{40\%+20\%}{2}=30\%$, which is wrong because the larger category ($30$) grew more slowly than the smaller category ($20$).
+
+To compare two percentage changes, subtract them. The answer is in **percentage points**: a $14\%$ rise is $14-9=5$ percentage points more than a $9\%$ rise.
 
 :::check
 A fund falls from $60$ thousand pesos to $54$ thousand pesos. What is the percentage change?
@@ -84,7 +92,7 @@ If the starting value is $0$, the formula tries to divide by $0$. You can never 
 
 Report the actual change in counts or pesos instead, unless the question states a special rule.
 
-Suppose an office has $0$ volunteers in January and $12$ volunteers in February.
+Find the percentage change in volunteers when an office has $0$ in January and $12$ in February.
 
 $$\text{Change}=12-0=12$$
 
@@ -93,7 +101,7 @@ Because the original value is $0$, $\dfrac{12}{0}$ is undefined. You cannot repo
 :::pair #percent-from-zero
 Right: Undefined, because the starting count is $0$
 Wrong: The percentage increase is $100\%$
-Going from $0$ to $12$ is not $100\%$. Doubling a nonzero number gives $100\%$ growth, whereas dividing by $0$ has no value.
+Going from $0$ to $12$ is not $100\%$. Doubling a positive starting number gives $100\%$ growth, whereas dividing by $0$ has no value.
 :::
 
 ## Examples

@@ -25,7 +25,7 @@ Use this four-step plan:
 3. Solve the equation.
 4. Read the question again to match your number to the right person and time.
 
-Try this example. Ben is $4$ years older than his sister Maya, and the sum of their ages is $24$. Let $m$ be Maya's age now. Then Ben is $m+4$.
+Try this example: find Maya's age from the total and the gap. Ben is $4$ years older than his sister Maya, and the sum of their ages is $24$. Let $m$ be Maya's age now. Then Ben is $m+4$.
 
 $$m+(m+4)=24$$
 
@@ -37,13 +37,19 @@ $$m=10$$
 
 Maya is $10$ years old now, and Ben is $10+4=14$ years old.
 
+:::pair #wrong-person-or-time
+Right: the question asks for Maya's age, so the answer is $m=10$ years old.
+Wrong: Ben's age is $10+4=14$, so the answer is $14$ years old.
+Match your final answer to the exact person and time in the question. Here $m$ stands for Maya, while $14$ is Ben's age.
+:::
+
 ### Shifting Ages Forward and Back
 
 Time passes at the same rate for everyone. If Ana is $a$ years old now, then in $6$ years she will be $a+6$. Every other person's age also goes up by $6$ in those $6$ years.
 
 For an age $4$ years ago, subtract $4$ from every person's age.
 
-Try this problem. A mother is $4$ times as old as her daughter Ana. In $6$ years, the mother will be $3$ times as old as Ana. Let $a$ be Ana's age now, so her mother is $4a$. Both ages gain $6$ years:
+Try this problem: find Ana's age now from the two age ratios. A mother is $4$ times as old as her daughter Ana. In $6$ years, the mother will be $3$ times as old as Ana. Let $a$ be Ana's age now, so her mother is $4a$. Both ages gain $6$ years:
 
 $$4a+6=3(a+6)$$
 
@@ -79,17 +85,15 @@ The answer is $70$. Add $7$ to each age: $(c+7)+(56-c+7)=c+7+63-c=70$.
 
 Solving for the letter often gives the younger person's age, or an age at another time. Always check the last question before choosing an answer.
 
-Suppose $b$ is Ben's age now, $b=6$, and Ana is $3b$. If the question asks for Ana's age in $4$ years, substitute and shift:
+Suppose $b$ is Ben's age now, $b=6$, and Ana is $3b$. Find Ana's age in $4$ years: put $6$ in for $b$, then add $4$ years.
 
-$$3(6)+4=18+4=22$$
+$$3(6)+4$$
+
+$$=18+4$$
+
+$$=22$$
 
 Ana will be $22$ years old in $4$ years.
-
-:::pair #wrong-person-or-time
-Right: Maya's age now is $m=10$, so the answer is $10$ years old.
-Wrong: Ben's age is $10+4=14$, so the answer is $14$ years old.
-Match your final answer to the exact person and time in the question. Here $m$ stands for Maya, while $14$ is Ben's age.
-:::
 
 ## Examples
 

@@ -36,11 +36,19 @@ Some questions call it the original price or the marked price. The discount rate
 
 $$\text{Discount}=\text{Listed price}\times\text{Discount rate}$$
 
-Find the $25\%$ discount on a Php $800$ bag:
+Find the discount on a Php $800$ bag at $25\%$ off:
 
-$$\text{Discount}=800\times0.25=200$$
+$$800\times0.25$$
+
+$$=200$$
 
 The discount is Php $200$.
+
+Check the offer's conditions first, such as a minimum purchase. If the purchase qualifies and the discount covers the whole purchase, take the rate of the full listed price. For "$10\%$ off purchases of Php $500$ or more," a Php $700$ purchase qualifies. Find its discount:
+
+$$700\times0.10$$
+
+$$=70$$
 
 ### Finding the Price After a Discount
 
@@ -48,15 +56,27 @@ There are two ways. Both give the same answer.
 
 **Way $1$: subtract the Php $200$ discount from Php $800$:**
 
-$$\text{Price}=800-200=600$$
+$$800-200$$
+
+$$=600$$
 
 **Way $2$: find the percent you still pay from $100\%$, then multiply by Php $800$:**
 
-$$\text{Percent paid}=100\%-25\%=75\%$$
+$$100\%-25\%$$
 
-$$\text{Price}=800\times0.75=600$$
+$$=75\%$$
+
+$$800\times0.75$$
+
+$$=600$$
 
 <!-- FIGURE WANTED: a horizontal bar labeled "Php 800 = 100%", split into a shaded left part "25%, discount, Php 200" and a right part "75%, you pay, Php 600" -->
+
+To go back from a sale price to the listed price, divide the sale price by the fraction you still pay. That fraction must be greater than $0$. Find the listed price of a shirt that costs Php $340$ after $15\%$ off. You still pay $85\%$:
+
+$$340\div0.85$$
+
+$$=400$$
 
 :::pair #price-not-discount
 Right: price after the discount $=$ Php $600$
@@ -68,7 +88,7 @@ Php $200$ is the money taken off. The question asks what you pay.
 Why do both ways agree? The $25\%$ you take off and the $75\%$ you keep make up the whole $100\%$. Way $2$ just skips finding the Php $200$ first.
 :::
 
-Way $2$ takes one step instead of two. It saves even more time when there are two discounts.
+Way $2$ gives the amount paid directly after you find the percent you still pay. It saves even more time when there are two discounts.
 
 :::check
 A jacket is listed at Php $1,200$ with a $15\%$ discount. Mia pays with a Php $1,500$ bill. How much change does she get?
@@ -105,7 +125,9 @@ A pair of shoes originally priced at Php $1,500$ is on sale for $20\%$ off. What
 
 1. Find the percent you still pay.
 
-$$\text{Percent paid}=100\%-20\%=80\%$$
+$$100\%-20\%$$
+
+$$=80\%$$
 
 2. Change $80\%$ to a decimal.
 
@@ -113,7 +135,9 @@ $$80\%=0.80$$
 
 3. Multiply the original price by that decimal.
 
-$$\text{Final price}=1,500\times0.80=1,200$$
+$$1,500\times0.80$$
+
+$$=1,200$$
 
 The final selling price is Php $1,200$.
 
@@ -127,7 +151,9 @@ The **net price** is the price after every discount.
 
 1. First discount: you still pay $100\%-20\%=80\%$ of the listed price.
 
-$$\text{After }20\%\text{ off}=30,000\times0.80=24,000$$
+$$30,000\times0.80$$
+
+$$=24,000$$
 
 2. Second discount: you still pay $100\%-15\%=85\%$ of the new price, Php $24,000$.
 
@@ -147,7 +173,15 @@ The last part, $\dfrac{ab}{100}$, is why the total is less than $a+b$. The secon
 
 Find the single discount percent for $20\%$ and $10\%$ off:
 
-$$\text{Total discount percent}=20+10-\dfrac{20\times10}{100}=28\%$$
+$$20+10-\dfrac{20\times10}{100}$$
+
+$$=30-\dfrac{200}{100}$$
+
+$$=30-2$$
+
+$$=28$$
+
+This is a $28\%$ single discount.
 
 ## Traps to Watch For
 

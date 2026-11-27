@@ -26,13 +26,19 @@ A **terminating decimal** stops after a fixed number of decimal places. To conve
 2. Put all digits of the number (including any whole digit before the point) over that power of $10$.
 3. **Simplify** the fraction: divide both numerator and denominator by common factors greater than $1$ until no common factor remains.
 
-Try converting $0.05$, $0.35$, and $1.25$:
+Write $0.05$, $0.35$, and $1.25$ as fractions, then divide top and bottom by their largest common factor:
 
-$$0.05=\dfrac{5}{100}=\dfrac{5\div 5}{100\div 5}=\dfrac{1}{20}$$
+$$0.05=\dfrac{5}{100}$$
 
-$$0.35=\dfrac{35}{100}=\dfrac{35\div 5}{100\div 5}=\dfrac{7}{20}$$
+$$\dfrac{5}{100}=\dfrac{1}{20}$$
 
-$$1.25=\dfrac{125}{100}=\dfrac{125\div 25}{100\div 25}=\dfrac{5}{4}$$
+$$0.35=\dfrac{35}{100}$$
+
+$$\dfrac{35}{100}=\dfrac{7}{20}$$
+
+$$1.25=\dfrac{125}{100}$$
+
+$$\dfrac{125}{100}=\dfrac{5}{4}$$
 
 This method works for terminating decimals only, not for decimals whose digits repeat forever.
 
@@ -49,9 +55,9 @@ The zero right after the decimal point still takes one place. Count all $4$ plac
 :::
 
 :::check
-Write $0.18$ as a fraction in simplest form.
+Write $3.06$ as a fraction in simplest form.
 :::answer
-The answer is $\dfrac{9}{50}$. Two decimal places give $\dfrac{18}{100}$, and dividing top and bottom by $2$ gives $\dfrac{9}{50}$.
+The answer is $\dfrac{153}{50}$. Keep every digit, including the $3$ before the point and the $0$ after it: two decimal places give $\dfrac{306}{100}$. Dividing top and bottom by $2$ gives $\dfrac{153}{50}$.
 :::
 
 ### Percentages to Decimals and Fractions
@@ -64,13 +70,19 @@ A **percentage** means "per hundred" or "out of $100$." The symbol $\%$ means pe
 
 $$p\%=\dfrac{p}{100}$$
 
-Try all three moves:
+Write $5\%$ as a decimal:
 
 $$5\%=5\div 100=0.05$$
 
+Write $0.045$ as a percent:
+
 $$0.045\times 100\%=4.5\%$$
 
-$$40\%=\dfrac{40}{100}=\dfrac{2}{5}$$
+Write $40\%$ as a fraction in simplest form:
+
+$$40\%=\dfrac{40}{100}$$
+
+$$\dfrac{40}{100}=\dfrac{2}{5}$$
 
 :::why
 Why does dividing by $100$ move the decimal point two places left? Each place left divides by $10$, so two places divide by $10\times 10=100$.
@@ -98,11 +110,11 @@ $$0.125=\dfrac{125}{1,000}$$
 
 2. Divide both top and bottom by $25$.
 
-$$\dfrac{125}{1,000}=\dfrac{125\div 25}{1,000\div 25}=\dfrac{5}{40}$$
+$$\dfrac{125}{1,000}=\dfrac{5}{40}$$
 
 3. Divide both top and bottom by $5$.
 
-$$\dfrac{5}{40}=\dfrac{5\div 5}{40\div 5}=\dfrac{1}{8}$$
+$$\dfrac{5}{40}=\dfrac{1}{8}$$
 
 The answer is $\dfrac{1}{8}$.
 

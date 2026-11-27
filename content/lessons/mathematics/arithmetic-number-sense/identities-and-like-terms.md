@@ -36,6 +36,8 @@ $$a+0=a$$
 
 $$a\times 1=a$$
 
+Which number leaves $-17$ unchanged when you add, and which when you multiply?
+
 :::pair #zero-multiplication
 Right: $(-17)+0=-17$ and $(-17)(1)=-17$
 Wrong: $(-17)+0=-17$ and $(-17)(0)=0$
@@ -56,21 +58,31 @@ A **term** is a number, a variable, or a product of numbers and variables separa
 
 The number multiplying the variable part is the **coefficient** ($1$ or $-1$ if unwritten). Simplify $5x-x$ and $-4a+a$:
 
-$$5x-x=(5-1)x=4x$$
+$$5x-x=(5-1)x$$
 
-$$-4a+a=(-4+1)a=-3a$$
+$$(5-1)x=4x$$
+
+$$-4a+a=(-4+1)a$$
+
+$$(-4+1)a=-3a$$
 
 ### Combining Like Terms
 
 **Like terms** share the same variable part and exponents. Plain numbers are like terms with each other.
 
-Add signed coefficients and keep the variable part. Combine $8x-3x$:
+Add the numbers in front, with their signs. Keep the letters and their powers. Combine $8x-3x$:
 
-$$8x-3x=(8-3)x=5x$$
+$$8x-3x=(8-3)x$$
+
+$$(8-3)x=5x$$
 
 Since $xy=yx$, combine $4xy+2yx$:
 
-$$4xy+2yx=(4+2)xy=6xy$$
+$$4xy+2yx=4xy+2xy$$
+
+$$4xy+2xy=(4+2)xy$$
+
+$$(4+2)xy=6xy$$
 
 :::why
 Why does the exponent stay the same when you add $8x$ and $-3x$? Think of $x$ as a box of pens: $8$ boxes minus $3$ boxes leaves $5$ boxes, not $5$ squared boxes.
@@ -122,15 +134,19 @@ Simplify $7x^2-3x+4-2x^2+8x-9$.
 
 1. Group terms with matching variable parts, keeping each sign with its term.
 
-$$(7x^2-2x^2)+(-3x+8x)+(4-9)$$
+$$7x^2-3x+4-2x^2+8x-9=(7x^2-2x^2)+(-3x+8x)+(4-9)$$
 
 2. Add the signed coefficients of the $x^2$ terms.
 
-$$7x^2-2x^2=(7-2)x^2=5x^2$$
+$$7x^2-2x^2=(7-2)x^2$$
+
+$$(7-2)x^2=5x^2$$
 
 3. Add the signed coefficients of the $x$ terms.
 
-$$-3x+8x=(-3+8)x=5x$$
+$$-3x+8x=(-3+8)x$$
+
+$$(-3+8)x=5x$$
 
 :::try
 Finish the last step: combine the plain numbers $4-9$, and write the final simplified expression.

@@ -24,7 +24,7 @@ The **part** is the share taken from that base. The **rate** tells what fraction
 
 In "$30\%$ of $200$ is $60$," the base is $200$, the rate is $30\%$ (or $0.30$), and the part is $60$. In questions like this, the base sits right after the word "of."
 
-Change the rate to a decimal before using these three formulas:
+If you know the rate as a percent, write it as a decimal or fraction before you multiply or divide by it:
 
 $$\text{Part}=\text{Rate}\times\text{Base}$$
 
@@ -32,13 +32,13 @@ $$\text{Base}=\dfrac{\text{Part}}{\text{Rate}}$$
 
 $$\text{Rate}=\dfrac{\text{Part}}{\text{Base}}$$
 
-Try finding the base when $25\%$ of a number is $60$. Here the part is $60$, the rate is $0.25$, and the base is unknown.
+Try finding the base when $25\%$ of a number is $60$. Here the part is $60$, the rate is $0.25$, and the base is unknown. Divide the part by the rate, moving both decimal points $2$ places right so the divisor is a whole number:
 
-$$\text{Base}=\dfrac{60}{0.25}$$
+$$\dfrac{60}{0.25}$$
 
-Move both decimal points $2$ places right to divide by a whole number.
+$$=\dfrac{6,000}{25}$$
 
-$$\text{Base}=\dfrac{6,000}{25}=240$$
+$$=240$$
 
 You can only divide by a nonzero rate or a nonzero base.
 
@@ -64,22 +64,28 @@ Here $b$, $c$, and $d$ cannot be $0$.
 
 Suppose a problem asks: what percent of $\dfrac{4}{5}$ is $\dfrac{3}{5}$? In this question, the number after "of" is the base, so the base is $\dfrac{4}{5}$ and the part is $\dfrac{3}{5}$.
 
-1. Divide the part by the base to find the rate.
+1. Divide the part by the base to find the rate. Multiply by the reciprocal of $\dfrac{4}{5}$, multiply across, simplify, and write the decimal.
 
-$$\text{Rate}=\dfrac{3}{5}\div\dfrac{4}{5}$$
+$$\dfrac{3}{5}\div\dfrac{4}{5}$$
 
-2. Multiply by the reciprocal of $\dfrac{4}{5}$.
+$$=\dfrac{3}{5}\times\dfrac{5}{4}$$
 
-$$\text{Rate}=\dfrac{3}{5}\times\dfrac{5}{4}=\dfrac{15}{20}=\dfrac{3}{4}=0.75$$
+$$=\dfrac{15}{20}$$
 
-3. Change the decimal to a percent by multiplying by $100\%$.
+$$=\dfrac{3}{4}$$
 
-$$0.75\times100\%=75\%$$
+$$=0.75$$
+
+2. Change the decimal to a percent by multiplying by $100\%$.
+
+$$0.75\times100\%$$
+
+$$=75\%$$
 
 :::pair #percent-decimal-shift
 Right: $0.75\times100\%=75\%$
 Wrong: $0.75\times100\%=7.5\%$
-Multiplying by $100$ moves the decimal point $2$ places right, not $1$. A rate of $7.5\%$ would be $0.075$.
+Multiplying by $100\%$ moves the decimal point $2$ places right and adds the percent sign, so the value stays the same. A rate of $7.5\%$ would be $0.075$.
 :::
 
 :::why
@@ -96,9 +102,7 @@ After completing $40\%$ of a practice set, a student has answered $72$ questions
 
 **Solution:**
 
-1. The part $72$ equals $40\%$ of the base (the full set):
-
-$$\text{Base}=\dfrac{72}{0.40}$$
+1. Find the base: the part $72$ equals $40\%$ of the full set, so divide $72$ by $0.40$.
 
 :::pair #wrong-percentage-base
 Right: find the base first, $72\div0.40$, then take $15\%$ of it
@@ -108,7 +112,11 @@ Here $72$ is only the $40\%$ part, not the whole set. Find the base before takin
 
 2. Divide to find the base:
 
-$$\text{Base}=\dfrac{7,200}{40}=180$$
+$$\dfrac{72}{0.40}$$
+
+$$=\dfrac{7,200}{40}$$
+
+$$=180$$
 
 :::pair #stop-at-the-base
 Right: $15\%$ of $180$: $0.15\times180=27$
@@ -118,7 +126,9 @@ The question asks for $15\%$ of the set, not the full set. Check what the final 
 
 3. Multiply the base by $0.15$:
 
-$$0.15\times180=27$$
+$$0.15\times180$$
+
+$$=27$$
 
 There are $27$ questions.
 
@@ -129,16 +139,17 @@ What percent of $\dfrac{2}{5}$ is $\dfrac{7}{20}$?
 **Solution:**
 
 1. Identify the base after "of." The base is $\dfrac{2}{5}$ and the part is $\dfrac{7}{20}$.
+2. Divide the part by the base. Multiply by the reciprocal of $\dfrac{2}{5}$, multiply across, simplify, and write the decimal.
 
-$$\text{Rate}=\dfrac{7}{20}\div\dfrac{2}{5}$$
+$$\dfrac{7}{20}\div\dfrac{2}{5}$$
 
-2. Multiply by the reciprocal of $\dfrac{2}{5}$.
+$$=\dfrac{7}{20}\times\dfrac{5}{2}$$
 
-$$\text{Rate}=\dfrac{7}{20}\times\dfrac{5}{2}$$
+$$=\dfrac{35}{40}$$
 
-3. Multiply numerators and denominators, then simplify.
+$$=\dfrac{7}{8}$$
 
-$$\text{Rate}=\dfrac{35}{40}=\dfrac{7}{8}=0.875$$
+$$=0.875$$
 
 :::try
 Finish the last step: change the decimal rate $0.875$ to a percent.
