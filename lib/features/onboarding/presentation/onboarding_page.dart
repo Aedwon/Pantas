@@ -31,6 +31,7 @@ import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_ste
 import 'package:pantas/features/onboarding/presentation/onboarding_guardian_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_study_days_step.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_terms_gate.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_name_step.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
@@ -55,6 +56,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   bool _finishing = false;
   bool _finished = false;
   bool _finishFailed = false;
+
+  /// The Terms check ended with Terms on screen, so Back to it does not ask
+  /// the server again.
+  bool _termsChecked = false;
 
   /// Name was just saved in this visit, so the page keeps showing it while
   /// onboarding closes instead of swapping to an empty loading page.
@@ -486,7 +491,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           ),
         );
       case OnboardingStep.terms:
-        return KeyedSubtree(
+        final consent = KeyedSubtree(
           key: const ValueKey('consent'),
           child: OnboardingConsentStep(
             onBack: _back,
@@ -496,6 +501,19 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
               }
             },
           ),
+        );
+        // A returning student whose account already accepted the current
+        // wording skips Terms. The check runs once a visit.
+        return OnboardingTermsGate(
+          key: const ValueKey('termsGate'),
+          check: !_termsChecked,
+          terms: consent,
+          onShowTerms: () => _termsChecked = true,
+          onSkipped: () {
+            if (_step == OnboardingStep.terms) {
+              setState(() => _flow!.skipTerms(OnboardingStep.picker));
+            }
+          },
         );
       case OnboardingStep.picker:
         return KeyedSubtree(
