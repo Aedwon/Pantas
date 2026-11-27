@@ -29,7 +29,8 @@ The chain is passage to clue to answer, not equation to value.
 
 - Passages are about neutral, everyday Philippine settings (school, barangay, market, family, local office). Do not state real-world facts, statistics, laws, dates or named real people as true unless you are certain they are correct. Prefer clearly made-up local situations.
 - Any numbers in a passage, table or chart are sample data inside an exercise ("a class survey", "the canteen's sales log"), never presented as real statistics.
-- A chart lesson (`visual-data-conclusions`) shows data as a small Markdown table. Do not invent an image; if a figure would truly help, add an `<!-- ILLUSTRATION: ... -->` comment describing it.
+- A chart lesson (`visual-data-conclusions`) shows data as a small Markdown table. Do not invent an image.
+- Never add an `<!-- ILLUSTRATION: ... -->` marker (lead, Nov 27 3 PM): main's content export fails on a marker with no drawn figure. If a figure would truly help, write `<!-- FIGURE WANTED: description -->`, which the export ignores. Keep any ILLUSTRATION marker already in a lesson exactly as it is.
 
 ## Rules carried from the Grammar and Vocabulary audits (do these from the start)
 
