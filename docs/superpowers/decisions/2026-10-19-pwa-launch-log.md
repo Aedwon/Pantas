@@ -4946,3 +4946,9 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 ### Nov 27, creator early access (security lead)
 
 - One creator given early access and a year of Pro; details in Pantas-private; no email sent, per Aedwon. Policy main 7317c8028.
+
+### Nov 27, about 7:40 PM Manila: Math pilot Codex read 1; two live mixture questions held for after the opening (manager)
+
+- **Read 1 (7:25 to 7:32 PM):** FAIL, 3 Blockers, 44 Majors, 12 Minors (`docs/content/verification/walkthrough-work/codex-math-pilot-r1.md` on `content/lesson-walkthrough-cse-r1`). One lesson Blocker, a notation slip ("20+10-2 = 28%" where the value is 28); no wrong key, no copyable answer and no wrong number in any lesson. Majors by pattern: combined moves on one line, lead-ins that do not name the unknown, pairs without setup, rules missing a condition, checks testing an unshown step, 7 quiz skills the lessons never teach (also true of the live lessons). The lead fixes every pattern, then read 2, the last allowed.
+- **Manager rulings:** pairs that show the cited mistake with other numbers are acceptable (spec revision point 3). A missing quiz skill is added only as a short rule with one example within 900 words before a tap; otherwise it is listed for later.
+- **Live question defects, held:** `algebra/word-problems.yaml` lines 221 and 359 on the content root: two mixture questions do not say the percentages are by volume. They go to the release lead after "opening done", through the question process, as a later content upload. They are not added to tonight's checked update.
