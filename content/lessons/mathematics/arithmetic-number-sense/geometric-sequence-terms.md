@@ -18,7 +18,7 @@ A **sequence** is an ordered list of numbers called **terms**. A **series** is a
 
 ### Identifying a Geometric Sequence and Ratio
 
-A **geometric sequence** multiplies each term by the same constant number to make the next term. That multiplier is the **common ratio** $r$. Divide any term by the nonzero term right before it to find $r$, and check more than one pair so you are sure the ratio stays constant.
+A **geometric sequence** multiplies each term by the same constant number to make the next term. That multiplier is the **common ratio** $r$. Divide a term by the nonzero term right before it to find $r$. Check every shown pair of neighbors that has a nonzero first term. If any ratio differs, the sequence is not geometric.
 
 Check the sequence $3,6,12,24,48,\dots$.
 
@@ -47,13 +47,13 @@ So $x=12$, or $x=-12$ if negative terms are allowed.
 :::pair #check-only-first-difference
 Right: For $3,6,12,24,\dots$, $6\div3=2$ and $12\div6=2$, so it is geometric with ratio $2$.
 Wrong: For $3,6,12,24,\dots$, $6-3=3$, so it is arithmetic with difference $3$.
-The first jump is $+3$, but the next jump is $12-6=6$. Check at least two consecutive pairs before naming the type.
+The first jump is $+3$, but the next jump is $12-6=6$. Check every shown pair of neighbors before naming the type.
 :::
 
 :::pair #confuse-first-term-with-ratio
 Right: $r=\dfrac{6}{3}=2$
 Wrong: $r=a_1=3$
-The number $3$ is the first term $a_1$, not the multiplier. Divide a term by the term before it to get $r=2$.
+The number $3$ is the first term $a_1$, not the multiplier. Divide a term by the nonzero term before it to get $r=2$.
 :::
 
 ### Finding Any Geometric Term
@@ -137,7 +137,7 @@ The answer is $-384$. Multiplying $3\times(-128)$ gives $-384$.
 ## Traps to Watch For
 
 :::checklist
-- Checking if a sequence is arithmetic or geometric: test at least two consecutive pairs ($6\div3=2$ and $12\div6=2$). {#check-only-first-difference}
-- Finding the common ratio $r$: divide a term by the term before it instead of copying $a_1$ ($r=6\div3=2$). {#confuse-first-term-with-ratio}
+- Checking if a sequence is arithmetic or geometric: test every shown pair of neighbors ($6\div3=2$, $12\div6=2$, $24\div12=2$). {#check-only-first-difference}
+- Finding the common ratio $r$: divide a term by a nonzero term before it instead of copying $a_1$ ($r=6\div3=2$). {#confuse-first-term-with-ratio}
 - Finding the $n^{\text{th}}$ geometric term: raise $r$ to $n-1$, not $n$ ($a_6=3\times2^5=96$). {#wrong-exponent-on-ratio}
 :::

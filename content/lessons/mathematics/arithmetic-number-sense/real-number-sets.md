@@ -36,9 +36,11 @@ Whole numbers start at $0$, so a negative number is not whole. When natural numb
 
 A **rational number** can be written as a fraction $\dfrac{p}{q}$ of two integers, with $q\ne 0$. Every integer $n$ equals $\dfrac{n}{1}$, so every integer is rational. Decimals that stop (like $0.75$) or repeat forever (like $0.333\dots$) are rational too.
 
+The **real numbers** are all the numbers on the number line. They split into two sets: rational numbers and irrational numbers.
+
 An **irrational number** is a real number that cannot be written as an integer fraction. Its decimal goes on forever without repeating. Common examples are $\pi$ and square roots of non-negative integers that are not perfect squares, such as $\sqrt{2}$ and $\sqrt{7}$.
 
-Rational and irrational numbers never overlap. Together, they make up all **real numbers**.
+Rational and irrational numbers never overlap. Together, they make up all real numbers.
 
 Now finish the sort of $5$, $0$ and $-4$. Each one is an integer, so each is rational: $5=\dfrac{5}{1}$, $0=\dfrac{0}{1}$ and $-4=\dfrac{-4}{1}$. Each rational number is also a real number. So $5$ is a rational number and a real number as well, $0$ is too, and $-4$ is too.
 

@@ -59,7 +59,7 @@ Why can one sequence hold two unrelated rules? Every other position skips the te
 
 A rule must fit every shown term in its group, not only the first two terms. When a blank sits in the middle of a sequence, count its position first. Then check both neighbors in that same group.
 
-Find the missing term in $7,50,12,43,17,\square,22,29$.
+Find the missing term in $7,50,12,43,17,\square,22,29$, where each group has a constant difference.
 
 1. Count positions from left to right. The blank is in position $6$, which is even.
 
@@ -82,17 +82,17 @@ Since $29$ matches the eighth term, the missing term is $36$. Check every shown 
 :::pair #mix-position-groups
 Right: $\square=43-7=36$
 Wrong: $\square=17+5=22$
-Position $6$ is even, so it belongs with $50,43,29$, not with the odd-position rule $+5$.
+The odd positions hold $7,12,17,22$, which rise by $5$. Position $6$ is even, so it belongs with $50,43,29$, not with the odd-position rule $+5$.
 :::
 
 :::pair #copy-wrong-step
 Right: $43-7=36$
 Wrong: $43-5=38$
-Subtracting $5$ borrows the size of the odd-position step ($+5$) and applies it to an even-position term. Compute the step inside the matching group.
+Subtracting $5$ borrows the step of the odd positions ($7,12,17,22$ rise by $5$) and applies it to an even-position term. Compute the step inside the matching group.
 :::
 
 :::check
-Find the missing term in $6,40,10,34,\square,28,18,22$.
+Find the missing term in $6,40,10,34,\square,28,18,22$, where each group has a constant difference.
 :::answer
 The answer is $14$. The blank is in position $5$, which is odd. The odd-position terms $6,10,\square,18$ go up by $4$, so $10+4=14$ and $14+4=18$.
 :::
@@ -134,7 +134,7 @@ If a sequence is not arithmetic or geometric, check the differences between neig
 ## Traps to Watch For
 
 :::checklist
-- Asked for two next numbers: put the odd-position term first, then the even-position term ($32,3$). {#reverse-position-order}
+- Asked for two next numbers: continue the group that matches the next position first, then the other group ($32,3$). {#reverse-position-order}
 - Finding a missing term in a mixed list: count its position first and stay inside its own group ($43-7=36$). {#mix-position-groups}
 - Calculating the step for an even or odd group: use terms from that same group only ($43-7=36$, never borrow the other group's step). {#copy-wrong-step}
 :::

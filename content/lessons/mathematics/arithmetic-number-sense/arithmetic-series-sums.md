@@ -138,7 +138,7 @@ Find the sixth term of a sequence whose sum of the first $n$ terms is $S_n=n^2+4
 
 **Solution:**
 
-1. $S_6$ is the sum of the first $6$ terms, and $S_5$ is the sum of the first $5$ terms. Subtracting $S_5$ from $S_6$ leaves only the sixth term $a_6$.
+1. $S_6$ is the sum of the first $6$ terms, and $S_5$ is the sum of the first $5$ terms.
 
 2. Compute $S_6$.
 
@@ -159,7 +159,7 @@ $$S_5=25+20=45$$
 :::try
 Use $S_6$ and $S_5$ to find $a_6$.
 :::answer
-The answer is $15$. Subtract the two sums: $a_6=60-45=15$.
+The answer is $15$. $S_6$ has one more term than $S_5$, so subtracting $S_5$ from $S_6$ leaves only $a_6$: $a_6=60-45=15$.
 :::
 
 ## Traps to Watch For

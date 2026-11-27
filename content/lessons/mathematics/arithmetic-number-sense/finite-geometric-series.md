@@ -24,7 +24,7 @@ When $n$ is large, listing every term takes too long. When $r\ne1$, one formula 
 
 $$S_n=\dfrac{a_1(1-r^n)}{1-r}$$
 
-If $r>1$, flipping both subtractions to $\dfrac{a_1(r^n-1)}{r-1}$ gives the same value and keeps both top and bottom positive.
+If $r>1$, flipping both subtractions to $\dfrac{a_1(r^n-1)}{r-1}$ gives the same value and makes $r^n-1$ and $r-1$ positive. The sign of the sum also depends on $a_1$.
 
 Test the flipped form on $2,6,18,54,\dots$ with $a_1=2$, $r=3$, and $n=4$.
 
@@ -57,7 +57,7 @@ Take $a_1=5$, $r=3$ and $n=5$.
 :::pair #omit-sum-denominator
 Right: $S_5=\dfrac{5(3^5-1)}{3-1}=\dfrac{5(242)}{2}=605$
 Wrong: $S_5=5(3^5-1)=1,210$
-Leaving out $r-1=2$ in the denominator doubles the real sum. Keep $1-r$ (or $r-1$) underneath.
+Leaving out $r-1=2$ in the denominator doubles the real sum. Pair $r-1$ with $r^n-1$ on top, or $1-r$ with $1-r^n$.
 :::
 
 :::pair #report-last-term-not-sum
@@ -138,7 +138,7 @@ Find the sum of $8$ terms when every term is $5$.
 
 **Solution:**
 
-1. Since every term is the same nonzero number $5$, the common ratio is a division of equal numbers.
+1. Since every term is the same nonzero number $5$, divide $5$ by $5$ to find the common ratio.
 
 $$r=\dfrac{5}{5}=1$$
 
@@ -153,7 +153,7 @@ The answer is $40$. Multiplying $8\times5$ gives $40$.
 ## Traps to Watch For
 
 :::checklist
-- Using the finite sum formula when $r\ne1$: divide by $1-r$ (or $r-1$), so $S_5=\dfrac{5(3^5-1)}{3-1}=605$. {#omit-sum-denominator}
+- Using the finite sum formula when $r\ne1$: pair $r-1$ with $r^n-1$, or $1-r$ with $1-r^n$, so $S_5=\dfrac{5(3^5-1)}{3-1}=605$. {#omit-sum-denominator}
 - Asked for a sum of $n$ terms: add all $n$ terms instead of stopping at $a_n$ ($S_5=605$, not $a_5=405$). {#report-last-term-not-sum}
 - Adding $n$ equal terms when $r=1$: multiply $n\times a_1$, not $n+a_1$ ($5\times18=90$). {#add-count-instead-of-multiply}
 :::

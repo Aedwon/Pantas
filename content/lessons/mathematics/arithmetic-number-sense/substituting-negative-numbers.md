@@ -133,11 +133,9 @@ If $a=-3$ and $b=-1$, evaluate $2a^2-ab+b^3$.
 
 $$2a^2-ab+b^3=2(-3)^2-(-3)(-1)+(-1)^3$$
 
-2. Do the powers. An even power of a negative is positive. An odd power is negative.
+2. Do the power of $a$. An even power of a negative is positive.
 
 $$(-3)^2=9$$
-
-$$(-1)^3=-1$$
 
 3. Do the products. In $(-3)(-1)$ the signs are the same, so the product is positive.
 
@@ -147,14 +145,14 @@ $$2\times9=18$$
 
 $$(-3)(-1)=3$$
 
-4. Put each answer back into $2a^2-ab+b^3$. Keep the signs between the parts.
+4. Put each answer back into $2a^2-ab+b^3$. Keep the signs between the parts. The $b^3$ part stays as it is.
 
-$$2a^2-ab+b^3=18-3+(-1)$$
+$$2a^2-ab+b^3=18-3+(-1)^3$$
 
 :::try
 Finish the last step: find the value of $2a^2-ab+b^3$.
 :::answer
-The answer is $14$. First $18-3=15$. Then $15+(-1)=14$.
+The answer is $14$. The power is odd, so $(-1)^3=-1$. Then $18-3=15$, and $15+(-1)=14$.
 :::
 
 ## Traps to Watch For

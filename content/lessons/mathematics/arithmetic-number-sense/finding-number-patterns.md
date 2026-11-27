@@ -98,7 +98,7 @@ $$32+25=57$$
 :::pair #wrong-square-step
 Right: $32+25=57$
 Wrong: $32+20=52$
-Consecutive squares ($1,4,9,16,25$) grow by more each time. Use the next square, $5^2=25$, instead of adding $4$ to $16$.
+The wrong line treats $4$ as a fixed rise from one square to the next. The rises from $1$ to $4$ to $9$ are $3$ and $5$, so use the next square, $5^2=25$.
 :::
 
 :::why
@@ -106,7 +106,7 @@ Why subtract the differences a second time? When a sequence speeds up at a stead
 :::
 
 :::check
-What is the sixth term of $3,7,13,21,\dots$?
+The differences between terms grow by the same amount each time. What is the sixth term of $3,7,13,21,\dots$?
 :::answer
 The answer is $43$. The differences are $4,6,8$, each growing by $2$. The next differences are $10$ and $12$, so the terms continue $21+10=31$ and $31+12=43$.
 :::

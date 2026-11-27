@@ -89,7 +89,7 @@ Adding $29+47$ moves forward to term $6$. When the question asks for an earlier 
 
 Sometimes the terms of a Fibonacci-type sequence contain a letter such as $a$. A **coefficient** is the number multiplying a variable. In $2a$, the coefficient of $a$ is $2$. The $a$ alone has coefficient $1$.
 
-To add two expressions with the same variable, add their coefficients together and add their plain numbers together.
+To add expressions like these, add the coefficients of the terms with the same variable raised to the same power, and add the plain numbers together.
 
 Add $2a+3$ and $a+5$:
 
@@ -105,20 +105,14 @@ If $x,y,z$ are three consecutive terms of a Fibonacci-type sequence in that orde
 
 **Solution:**
 
-1. Write the Fibonacci-type rule for three neighboring terms.
+1. Read the two terms right before $z$.
 
-$$z=x+y$$
-
-2. Substitute $x=2a+1$ and $y=3a-2$.
-
-$$z=(2a+1)+(3a-2)$$
-
-3. Group the $a$-terms together and the plain numbers together.
+$$x=2a+1,\quad y=3a-2$$
 
 :::try
-Finish the last step: add the coefficients of $a$ and combine the plain numbers to find $z$.
+Finish the last step: find $z$ in terms of $a$.
 :::answer
-The answer is $5a-1$. The $a$-terms give $2+3=5$, so $5a$. The plain numbers give $1-2=-1$.
+The answer is $5a-1$. Each term is the sum of the two before it, so $z=(2a+1)+(3a-2)$. The $a$-terms give $2+3=5$, so $5a$. The plain numbers give $1-2=-1$.
 :::
 
 ## Traps to Watch For
