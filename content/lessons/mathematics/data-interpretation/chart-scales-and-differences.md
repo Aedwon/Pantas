@@ -26,9 +26,9 @@ Suppose a vertical axis is labeled every $100$ units, and there are $5$ equal sp
 
 $$\dfrac{100}{5}=20$$
 
-Each small tick step is $20$ units. If a bar sits $2$ small ticks above $400$:
+Each small tick step is $20$ units. If a bar sits $3$ small ticks above $200$:
 
-$$400+2\times20=440$$
+$$200+3\times20=260$$
 
 Also read the unit on the axis label, such as "in hundreds" or "in thousands." Multiply your chart reading by that unit before reporting the final answer. Suppose an axis says "Visitors, in hundreds" and a bar reaches $2.4$.
 
@@ -96,16 +96,16 @@ The answer is $150$ applications. Office A is $6+2\times0.5=7$, Office B is $6-0
 
 ### #1: Reading a Chart Scale and Finding a Difference
 
-<!-- ILLUSTRATION: bar chart titled "Factory Output" with x-axis labels Factory A and Factory B, y-axis labeled "Units produced" from 0 to 500, labeled every 100 with smaller tick marks every 20; Factory A bar reaches 460 and Factory B bar reaches 320 -->
+<!-- ILLUSTRATION: bar chart titled "Factory Output" with x-axis labels Factory A and Factory B, y-axis labeled "Units produced" from 0 to 500, labeled every 100 with smaller tick marks every 20; Factory A bar reaches 440 and Factory B bar reaches 320 -->
 
 Use the bar chart. How many more units did Factory A produce than Factory B?
 
 **Solution:**
 
 1. Check the axis scale. Labeled ticks increase by $100$ units, and each small tick mark is $20$ units.
-2. Read Factory A: the bar is $3$ small ticks above $400$.
+2. Read Factory A: the bar is $2$ small ticks above $400$.
 
-$$400+3\times20=460$$
+$$400+2\times20=440$$
 
 3. Read Factory B: the bar is $1$ small tick above $300$.
 
@@ -114,9 +114,9 @@ $$300+20=320$$
 :::try
 Finish the last step: subtract Factory B's units from Factory A's units.
 :::answer
-The answer is $140$ more units. Subtract $460-320=140$.
+The answer is $120$ more units. Subtract $440-320=120$.
 
-**Check:** Count the $20$-unit tick steps from $320$ up to $460$: $4$ steps reach $400$ and $3$ more reach $460$, making $7$ steps total, and $7\times20=140$ units.
+**Check:** Count the $20$-unit tick steps from $320$ up to $440$: $4$ steps reach $400$ and $2$ more reach $440$, making $6$ steps total, and $6\times20=120$ units.
 :::
 
 ## Speed Tricks & Shortcuts
