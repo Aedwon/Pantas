@@ -126,6 +126,22 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Grammar walk-through lessons fail every Codex audit round (Nov 27)
+
+- His words (about 4:15 PM Manila Nov 27): "why is grammar always failing? this has happened many times already".
+- Wrong: the 52 Grammar walk-through lessons have failed every Codex read since Nov 26: round 2 (0 Blockers, 9 Majors), round 3, round 4, round 5 (42 Blockers, 52 Majors), round 6, the round 7 delta, and round 8 (22 Blockers, 85 Majors, 5 Minors, `codex-grammar-r8-full.md` on `content/lesson-walkthrough-cse-r1` ecc329dd1). Round 8 still lists 16 round 6 and round 7 findings as open, several "in a new choice set". Each round costs about a quarter of Codex b's 5-hour window plus a Claude fix and verify cycle. Grammar will not make the launch-day upload.
+- Why it got through:
+  1. Fixers change only the rows they are given. A row such as "only one choice matches the printed list" was fixed by writing new choices, and the new choices gave the answer away the same way. Nothing required the fixer to test the new version against the pattern.
+  2. The in-lane verifiers do not read with the audit's criteria, so giveaways and over-broad rules surface only at the Codex read, the most expensive step.
+  3. The no-growth word budget made fixers trim, and trims removed required Checks (round 6 "missing Checks restored"), which a later read flagged again.
+  4. Grammar was written before the Nov 26 fresh-instance and connection rules, so each read finds issues against rules the lessons were not written to.
+  5. Grammar rules invite claims that are true only in the cases shown (finite clauses, "y to ies"), and a full read finds the next exception each time.
+- Fix:
+  1. Required step (lesson leads): a fixer who fixes a repeated finding (open in two reads) rewrites the whole Quick Check or try with a fresh sentence and choices that all fit the visible text, not only the flagged words. Before any Codex read, one Claude verifier solves every Check and try with the answer hidden and marks any that can be answered by copying visible text, using the Codex brief's own Blocker list. Codex runs only on a batch that verifier passes.
+  2. Required step (lesson leads): a batch that fails two full reads in a row without a drop in Blockers plus Majors stops. The lead reports to the manager with options and costs (rewrite the batch's checks from a template, narrow the rules to what the lesson shows, or keep the live lessons for that subject) before another Codex run.
+  3. A check (Claude lesson lead, after the launch-day upload): `tool/checks/walkthrough_giveaway_check.dart` fails a Quick Check or try whose correct choice appears word for word in the visible lines above it, or is the only choice matching a printed list. It must fail first on the round 8 Blockers in `aspekto-at-paksa-sa-filipino.md` and `tinutukoy-at-pagmamay-ari-sa-panghalip.md`.
+  The audit bar stays at 0 Blockers and 0 Majors: lowering it would let a wrong rule reach students.
+
 ### Claude 5-hour limit hit again: worker cap broken and Fable audits from two lanes (Nov 26)
 
 - His words (about 1:35 AM Manila Nov 27): "did you run out of limits", then "why was usage so high last 5-hour session".
