@@ -40,10 +40,16 @@ $$0.25\times100\%=25\%$$
 
 Product A increased by $25\%$.
 
+Changes of the same size can have different percents. A price falls from $100$ to $80$, then rises back to $100$:
+
+$$\dfrac{-20}{100}=-20\%$$
+
+$$\dfrac{20}{80}=25\%$$
+
 <!-- ILLUSTRATION: Three values in a row: 100, 80, 100. A curved arrow above goes from the first 100 to 80 and is labeled "-20 (-20% of 100)". A curved arrow below goes from 80 to the last 100 and is labeled "+20 (+25% of 80)". The drop is measured from 100 and the rise from 80, so the two percents differ. -->
 
 :::why
-Say a price falls from $100$ to $80$, then rises back to $100$. The drop starts from $100$, so $\dfrac{-20}{100}=-20\%$. The rise starts from $80$, so $\dfrac{20}{80}=25\%$. Each starting number sets the percent size.
+Why do the two percents differ? The drop starts from $100$ and the rise starts from $80$. Each starting number sets the percent size.
 :::
 
 :::pair #divide-by-new-value

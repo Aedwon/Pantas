@@ -110,8 +110,6 @@ The wrong answer stopped at the taxable subtotal. Check whether the question ask
 
 A sales agent earns a commission of $3\%$ on the first Php $40,000$ in sales, $5\%$ on the next Php $40,000$, and $8\%$ on sales above Php $80,000$. If total sales are Php $110,000$, how much commission does the agent earn?
 
-<!-- ILLUSTRATION: a horizontal segmented bar labeled "Total sales: Php 110,000", split into three bands from left to right: "First Php 40,000 at 3%", "Next Php 40,000 at 5%", and "Above Php 80,000 (Php 30,000) at 8%". Each rate applies only to its own band of sales. -->
-
 **Solution:**
 
 1. Find the commission on the first Php $40,000$ at $3\%$.
@@ -125,6 +123,8 @@ $$40,000\times0.05=2,000$$
 3. Subtract Php $80,000$ from total sales to find the amount above Php $80,000$.
 
 $$110,000-80,000=30,000$$
+
+<!-- ILLUSTRATION: a horizontal segmented bar labeled "Total sales: Php 110,000", split into three bands from left to right: "First Php 40,000 at 3%", "Next Php 40,000 at 5%", and "Above Php 80,000 (Php 30,000) at 8%". Each rate applies only to its own band of sales. -->
 
 4. Multiply that remaining Php $30,000$ by $8\%$.
 

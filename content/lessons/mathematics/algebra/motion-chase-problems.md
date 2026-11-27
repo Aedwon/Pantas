@@ -35,11 +35,11 @@ First find the distance the jeepney covers in its one-hour head start:
 
 $$40\times 1=40$$
 
-<!-- ILLUSTRATION: horizontal straight road. A van at the 0 km mark moves right at 60 kph, and a jeepney ahead at the 40 km mark moves right at 40 kph. A bracket from 0 to 40 km is labeled "head start = 40 km". Below it a note reads "gap shrinks by 60 - 40 = 20 km each hour". -->
-
 Next find how fast the van closes the $40\text{ km}$ gap:
 
 $$60-40=20$$
+
+<!-- ILLUSTRATION: horizontal straight road. A van at the 0 km mark moves right at 60 kph, and a jeepney ahead at the 40 km mark moves right at 40 kph. A bracket from 0 to 40 km is labeled "head start = 40 km". Below it a note reads "gap shrinks by 60 - 40 = 20 km each hour". -->
 
 Now divide the gap by the closing rate:
 
