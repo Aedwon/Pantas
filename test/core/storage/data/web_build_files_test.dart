@@ -4,14 +4,24 @@ import 'package:pantas/core/storage/data/web_build_files.dart';
 void main() {
   final documentBase = Uri.parse('https://app.test/');
 
-  test('a stamped build finds the database worker and wasm in its folder', () {
-    expect(
-      buildFileUri(documentBase, 'b/1-abc123/', 'drift_worker.js'),
-      Uri.parse('https://app.test/b/1-abc123/drift_worker.js'),
-    );
+  test('a stamped build finds sqlite3.wasm in its folder', () {
     expect(
       buildFileUri(documentBase, 'b/1-abc123/', 'sqlite3.wasm'),
       Uri.parse('https://app.test/b/1-abc123/sqlite3.wasm'),
+    );
+  });
+
+  test('the database worker keeps one address for every build', () {
+    // A shared worker is keyed by its address and name. The same address in
+    // every build means a tab on the old build and a tab on the new one reach
+    // the same worker instead of two that both think they own the database.
+    expect(
+      rootFileUri(documentBase, 'drift_worker.js'),
+      Uri.parse('https://app.test/drift_worker.js'),
+    );
+    expect(
+      rootFileUri(Uri.parse('https://app.test/app/'), 'drift_worker.js').path,
+      '/app/drift_worker.js',
     );
   });
 

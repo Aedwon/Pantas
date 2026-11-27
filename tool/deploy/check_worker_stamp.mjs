@@ -11,6 +11,7 @@
 // the old worker would put the mixing back. Roll back by deploying an earlier
 // stamped build.
 // Usage: node tool/deploy/check_worker_stamp.mjs [build/web]
+import {createHash} from 'node:crypto';
 import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -19,12 +20,22 @@ import {buildFolder, FIXED_ADDRESS, fingerprints, listHash, workerBuild} from '.
 // What the app cannot boot without, inside the build folder.
 const REQUIRED = [
   'flutter_bootstrap.js', 'main.dart.js', 'pantas_pwa.js', 'pantas_history.js', 'pantas_welcome.js', 'pantas_splash.js',
-  'drift_worker.js', 'sqlite3.wasm', 'assets/AssetManifest.bin', 'assets/FontManifest.json',
+  'sqlite3.wasm', 'assets/AssetManifest.bin', 'assets/FontManifest.json',
   'canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm', 'canvaskit/chromium/canvaskit.js', 'canvaskit/chromium/canvaskit.wasm',
 ];
-const REQUIRED_AT_ROOT = ['index.html', 'pantas_sw.js', 'version.json', 'manifest.json'];
+// At the root, and in the worker's list. The database worker keeps one address for every build.
+const REQUIRED_AT_ROOT = ['index.html', 'pantas_sw.js', 'version.json', 'manifest.json', 'drift_worker.js'];
+const ROOT_IN_LIST = ['drift_worker.js'];
+// Root files that prod serves today and that every build must serve byte for byte. The worker
+// that shipped before build folders caches them at these addresses and serves them to a page
+// of the new build, so any other bytes would be a mix (fix list items 1 and 5, Nov 26).
+// drift_worker.js: unchanged since the first web commit (5cd9f119c).
+export const PINNED_ROOT_FILES = {
+  'drift_worker.js': '88a90a723fd84013c92fe5106fd0b4d324279224195f94ea33bcae94477ef2a0',
+};
 // Files a page loads. None may sit at the root of a release.
-const LOADED_AT_ROOT = /^(main\.dart\.[\w.]+|flutter(_bootstrap)?\.js|drift_worker\.js|sqlite3\.wasm|pantas_(?!sw\.js$)[\w-]+\.js|assets\/.*|canvaskit\/.*)$/;
+const LOADED_AT_ROOT = /^(main\.dart\.[\w.]+|flutter(_bootstrap)?\.js|sqlite3\.wasm|pantas_(?!sw\.js$)[\w-]+\.js|assets\/.*|canvaskit\/.*)$/;
+const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
 
 function listFiles(dir, root = dir) {
   return readdirSync(dir).flatMap(name => {
@@ -65,6 +76,14 @@ export function stampProblems(dir) {
   }
   for (const name of REQUIRED_AT_ROOT) {
     if (!existsSync(join(dir, name))) problems.push(`required file missing: ${name}`);
+  }
+  for (const name of ROOT_IN_LIST) {
+    if (existsSync(join(dir, name)) && !(name in build.files)) problems.push(`required file missing from the worker's list: ${name}`);
+  }
+  for (const [name, hash] of Object.entries(PINNED_ROOT_FILES)) {
+    if (existsSync(join(dir, name)) && sha256(readFileSync(join(dir, name))) !== hash) {
+      problems.push(`${name} differs from the file prod serves today: the worker that shipped before build folders would serve its own copy to this build's page`);
+    }
   }
   for (const name of REQUIRED) {
     if (!existsSync(join(dir, build.base, name))) problems.push(`required file missing: ${build.base}${name}`);

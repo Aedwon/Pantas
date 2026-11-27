@@ -1,10 +1,11 @@
 // Run after `flutter build web`. The stamp turns the build into a release:
 //
 // 1. Build folder. Every file a page loads moves into b/<id>/ (the helper scripts,
-//    flutter_bootstrap.js, main.dart.js and its parts, the database worker, sqlite3.wasm,
+//    flutter_bootstrap.js, main.dart.js and its parts, sqlite3.wasm,
 //    assets/, canvaskit/) and the page names those URLs. The root keeps only what the
 //    browser or a link needs at a fixed address: the page, the service worker,
-//    version.json, manifest.json, the icons and a few files nothing loads. A page
+//    version.json, manifest.json, the icons, the database worker (one address for
+//    every build, see ROOT_FILES) and a few files nothing loads. A page
 //    can therefore only ever run the files of the build it names, whatever worker
 //    or HTTP cache is in between (service worker build mix, E-184).
 // 2. Version. The id covers the final bytes of everything except the stamp's own
@@ -37,9 +38,13 @@ const FOLDERS = 'b';
 
 // What stays at the root: the page, the worker, version.json (network only), what
 // a fixed address needs (manifest, favicon, icons) and files no page loads.
+// drift_worker.js stays at its root address in every build (fix list item 1, Nov 26): a
+// browser keys a shared worker by address and name, so one address means one database
+// owner across builds, and the worker that shipped before build folders (which caches it
+// at that address) serves identical bytes. The deploy guard pins those bytes.
 const ROOT_FILES = new Set([
   PAGE, WORKER, 'version.json', 'manifest.json', 'favicon.png', 'og-image.png', 'README.md', '.last_build_id',
-  'flutter_service_worker.js',
+  'flutter_service_worker.js', 'drift_worker.js',
 ]);
 // A package asks for this file by a fixed address relative to the page (purchases_flutter's
 // web plugin hard-codes it), so it cannot follow the folder. It is in the startup set, so a
@@ -63,9 +68,9 @@ function files(dir, root = dir) {
 // registered), assets/NOTICES (the licenses page only), source maps, and every
 // canvaskit file except the two variants a dart2js build can use (below).
 const EXACT = new Set([
-  'flutter.js', 'flutter_bootstrap.js', 'main.dart.js', 'main.dart.mjs', 'main.dart.wasm', 'drift_worker.js', 'sqlite3.wasm',
+  'flutter.js', 'flutter_bootstrap.js', 'main.dart.js', 'main.dart.mjs', 'main.dart.wasm', 'sqlite3.wasm',
 ]);
-const ROOT_SET = new Set([PAGE, 'manifest.json', 'favicon.png']);
+const ROOT_SET = new Set([PAGE, 'manifest.json', 'favicon.png', 'drift_worker.js']);
 const PARTS = /^main\.dart\.(js|mjs)_\d+\.part\.(js|mjs)$|^main\.dart\.wasm_\d+\.part\.wasm$/;
 const HELPERS = /^pantas_(?!sw\.js$)[\w-]+\.js$/;
 const EXCLUDED = new Set(['assets/NOTICES']);

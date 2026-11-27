@@ -183,7 +183,8 @@ async function bootPaths(w) {
   if (page.id === 'miss') return null;
   const scripts = [...page.text.matchAll(/src="([^"]+)"/g)].map((match) => match[1]);
   const folder = scripts.find((path) => path.endsWith('flutter_bootstrap.js')).replace('flutter_bootstrap.js', '');
-  return ['', ...scripts, ...['main.dart.js', 'main.dart.js_1.part.js', 'drift_worker.js', 'sqlite3.wasm'].map((name) => folder + name), 'manifest.json'];
+  // drift_worker.js keeps its root address in every build (fix list item 1).
+  return ['', ...scripts, ...['main.dart.js', 'main.dart.js_1.part.js', 'sqlite3.wasm'].map((name) => folder + name), 'drift_worker.js', 'manifest.json'];
 }
 
 // The page loads online: the page, then everything it names.
@@ -201,7 +202,8 @@ async function offlineSet(w) {
   const paths = await bootPaths(w);
   for (const path of paths ?? ['']) ids[path || 'index'] = (await get(w, path, {navigate: path === ''})).id;
   w.offline = before;
-  const found = new Set(Object.values(ids).filter((id) => id !== 'miss'));
+  // The database worker is the same file in every build and carries no build marker ('none').
+  const found = new Set(Object.values(ids).filter((id) => id !== 'miss' && id !== 'none'));
   return {ids, builds: [...found], mixed: found.size > 1, misses: Object.entries(ids).filter(([, id]) => id === 'miss').map(([p]) => p)};
 }
 
@@ -263,7 +265,9 @@ test('online, the installed worker serves its own build for every boot file; ver
   deploy(w, 'C');
   // A new build reaches the page only through a new worker that verified its whole set.
   for (const path of paths) {
-    assert.equal((await get(w, path, {navigate: path === ''})).id, 'B', path);
+    const id = (await get(w, path, {navigate: path === ''})).id;
+    // The database worker is one file for every build, so it carries no build marker.
+    assert.equal(id, path === 'drift_worker.js' ? 'none' : 'B', path);
   }
   assert.equal((await get(w, 'version.json')).id, 'C', 'version.json is network only');
   for (const [name, store] of w.stores) {
@@ -307,7 +311,7 @@ test('Dart files fetched after a newer deploy are not stored in the older build 
 test('a stamped build serves every file a page loads from its own folder, none from the root', () => {
   const {served} = build('B');
   const root = Object.keys(served).filter((path) => path && !path.includes('/'));
-  assert.deepEqual(root.sort(), ['favicon.png', 'index.html', 'manifest.json', 'og-image.png', 'pantas_sw.js', 'version.json', 'README.md', 'flutter_service_worker.js'].sort());
+  assert.deepEqual(root.sort(), ['drift_worker.js', 'favicon.png', 'index.html', 'manifest.json', 'og-image.png', 'pantas_sw.js', 'version.json', 'README.md', 'flutter_service_worker.js'].sort());
   const page = served[''];
   for (const [, path] of page.matchAll(/src="([^"]+)"/g)) assert.ok(path.startsWith(folderOf('B')), path);
 });
@@ -319,7 +323,7 @@ test('today\'s worker claims no path inside a build folder, so it can neither st
   await takeOver(w, a);
   deploy(w, 'B');
   const stored = JSON.stringify([...w.stores].map(([name, store]) => [name, [...store.keys()]]));
-  const names = ['pantas_pwa.js', 'flutter_bootstrap.js', 'main.dart.js', 'main.dart.js_1.part.js', 'drift_worker.js', 'sqlite3.wasm',
+  const names = ['pantas_pwa.js', 'flutter_bootstrap.js', 'main.dart.js', 'main.dart.js_1.part.js', 'sqlite3.wasm',
     'assets/AssetManifest.bin', 'assets/fonts/MaterialIcons-Regular.otf', 'canvaskit/canvaskit.wasm', 'icons/Icon-192.png'];
   for (const name of names.filter((n) => !n.startsWith('icons/'))) {
     assert.equal(await w.controller.fetch(inFolder('B', name)), null, `today's worker answers b/.../${name}`);
@@ -335,7 +339,8 @@ test('rollout: prod A, B deployed: the page B names loads all of B, never one fi
   // Today's worker (A) served the new page from the network and stored it, but every
   // file that page names is in B's folder, which A does not touch.
   const online = await pageLoad(w);
-  for (const path of online.filter((p) => p)) assert.ok(path.startsWith(folderOf('B')) || path === 'manifest.json', path);
+  // drift_worker.js is the one shared root file: A's copy and B's are the same bytes.
+  for (const path of online.filter((p) => p)) assert.ok(path.startsWith(folderOf('B')) || ['manifest.json', 'drift_worker.js'].includes(path), path);
   // Offline, A still serves the page it stored. B's files were never stored, so the
   // load stops: no boot, and nothing of A is mixed in.
   const r = await offlineSet(w);
@@ -592,14 +597,14 @@ test('a set file missing from the cache is checked against its hash and not stor
   const w = world();
   deploy(w, 'B');
   await takeOver(w, await install(w, 'B'));
-  const path = inFolder('B', 'drift_worker.js');
+  const path = inFolder('B', 'sqlite3.wasm');
   w.stores.get(cacheOf('B')).delete(ORIGIN + path);
   const sizeBefore = w.stores.get(cacheOf('B')).size;
   assert.equal((await get(w, path)).id, 'B');
   assert.equal(w.stores.get(cacheOf('B')).size, sizeBefore, 'not stored');
   // The server moved to another build: the immutable address no longer holds B's bytes, so the answer is refused.
   deploy(w, 'C');
-  w.tamper[path] = build('C').served[inFolder('C', 'drift_worker.js')];
+  w.tamper[path] = build('C').served[inFolder('C', 'sqlite3.wasm')];
   assert.equal((await get(w, path)).id, 'miss');
 });
 
@@ -607,7 +612,7 @@ test('the worker\'s own 503 carries the edge security headers', async () => {
   const w = world();
   deploy(w, 'B');
   await takeOver(w, await install(w, 'B'));
-  const path = inFolder('B', 'drift_worker.js');
+  const path = inFolder('B', 'sqlite3.wasm');
   w.stores.get(cacheOf('B')).delete(ORIGIN + path);
   w.tamper[path] = 'something else';
   const failure = await w.controller.fetch(path);

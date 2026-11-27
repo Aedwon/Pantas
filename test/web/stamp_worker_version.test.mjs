@@ -123,13 +123,27 @@ test('every file a page loads moves into b/<id>/, and the root keeps only the pa
   const version = stamp(dir);
   const folder = `b/${version}/`;
   const root = readdirSync(dir).sort();
-  assert.deepEqual(root, ['b', 'favicon.png', 'icons', 'index.html', 'manifest.json', 'og-image.png', 'pantas_sw.js', 'version.json']);
-  for (const name of ['flutter_bootstrap.js', 'pantas_pwa.js', 'main.dart.js', 'main.dart.js_1.part.js', 'drift_worker.js',
+  // drift_worker.js keeps its root address (fix list item 1): see the next test.
+  assert.deepEqual(root, ['b', 'drift_worker.js', 'favicon.png', 'icons', 'index.html', 'manifest.json', 'og-image.png', 'pantas_sw.js', 'version.json']);
+  for (const name of ['flutter_bootstrap.js', 'pantas_pwa.js', 'main.dart.js', 'main.dart.js_1.part.js',
     'sqlite3.wasm', 'assets/FontManifest.json', 'assets/assets/x.png']) {
     assert.ok(existsSync(join(dir, folder, name)), `${folder}${name}`);
     assert.ok(!existsSync(join(dir, name)), `${name} is not at the root`);
   }
   assert.deepEqual(readdirSync(join(dir, 'b')), [version]);
+});
+
+test('the database worker stays at the root address in every build and is in the verified set', () => {
+  // Browsers key a shared worker by its address and name. Two builds at two addresses
+  // would run two workers that each believe they own the same database.
+  const dir = build('code');
+  writeFileSync(join(dir, 'drift_worker.js'), 'worker');
+  const version = stamp(dir);
+  assert.equal(read(dir, 'drift_worker.js'), 'worker');
+  assert.ok(!existsSync(join(dir, `b/${version}/drift_worker.js`)));
+  assert.equal(stampedOf(dir).files['drift_worker.js'], sha('worker'));
+  assert.equal(stamp(dir), version, 'stamping again is stable');
+  assert.equal(read(dir, 'drift_worker.js'), 'worker');
 });
 
 test('the page names the build folder for every script it loads and nothing else', () => {

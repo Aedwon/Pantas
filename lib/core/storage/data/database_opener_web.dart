@@ -30,7 +30,9 @@ Future<AppDatabase> openEncryptedDatabase({
   Uri? driftWorkerUri,
 }) async {
   final wasm = sqlite3Uri ?? webBuildFile('sqlite3.wasm');
-  final worker = driftWorkerUri ?? webBuildFile('drift_worker.js');
+  // The database worker keeps one address for every build, so two tabs on two
+  // builds share one worker. sqlite3.wasm follows the build folder.
+  final worker = driftWorkerUri ?? webRootFile('drift_worker.js');
   try {
     return await _openOnce(databaseName, wasm, worker);
   } on _UnreadableDatabase catch (unreadable) {

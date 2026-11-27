@@ -61,7 +61,7 @@ test('a file added or removed after the stamp is refused', () => {
   writeFileSync(join(build.dir, build.base, 'pantas_extra.js'), 'x');
   assert.match(stampProblems(build.dir).join(), /pantas_extra\.js is in the build but not in the worker/);
   rmSync(join(build.dir, build.base, 'pantas_extra.js'));
-  rmSync(join(build.dir, build.base, 'drift_worker.js'));
+  rmSync(join(build.dir, 'drift_worker.js'));
   assert.match(stampProblems(build.dir).join(), /drift_worker\.js is in the worker's list but not in the build/);
   done(build);
 });
@@ -84,9 +84,9 @@ test('restamping a changed build makes it pass again', () => {
 // ---- The required-file list (Revision 1, item 4) ----
 
 const required = base => [
-  'index.html', 'pantas_sw.js', 'version.json', 'manifest.json',
+  'index.html', 'pantas_sw.js', 'version.json', 'manifest.json', 'drift_worker.js',
   ...['flutter_bootstrap.js', 'main.dart.js', 'pantas_pwa.js', 'pantas_history.js', 'pantas_welcome.js', 'pantas_splash.js',
-    'drift_worker.js', 'sqlite3.wasm', 'assets/AssetManifest.bin', 'assets/FontManifest.json',
+    'sqlite3.wasm', 'assets/AssetManifest.bin', 'assets/FontManifest.json',
     ...canvasKit.map(name => `canvaskit/${name}`)].map(name => base + name),
 ];
 
@@ -107,6 +107,15 @@ test('a freshly stamped tree missing a file the app needs is refused, by name', 
     assert.ok(problems.includes(short), `${name}: ${problems}`);
     done(build);
   }
+});
+
+test('a root file that prod serves today must keep prod\'s bytes (the worker that shipped before build folders serves it from its own cache)', () => {
+  const build = stamped();
+  edit(build.dir, 'drift_worker.js', text => text + '// a new drift worker');
+  stamp(build.dir); // the stamp is honest about the new bytes; the guard still refuses them
+  const problems = stampProblems(build.dir).join('\n');
+  assert.match(problems, /drift_worker\.js differs from the file prod serves today/);
+  done(build);
 });
 
 test('a build made without --no-web-resources-cdn is refused', () => {
@@ -174,7 +183,7 @@ test('the deploy script checks the folder it stages, not only the one it was giv
 
 test('the deploy script refuses a staged build that lacks a required file', () => {
   const build = stamped();
-  rmSync(join(build.dir, build.base, 'drift_worker.js'));
+  rmSync(join(build.dir, 'drift_worker.js'));
   stamp(build.dir);
   const run = spawnSync('bash', [deploy, 'staging', build.dir], {encoding: 'utf8'});
   assert.equal(run.status, 1, run.stdout + run.stderr);

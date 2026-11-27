@@ -17,3 +17,7 @@ String? _buildBase() {
 /// The address of [name] in this build's folder, in the browser.
 Uri webBuildFile(String name) =>
     buildFileUri(Uri.parse(web.document.baseURI), _buildBase(), name);
+
+/// The address of [name], which every build serves from the same place.
+Uri webRootFile(String name) =>
+    rootFileUri(Uri.parse(web.document.baseURI), name);

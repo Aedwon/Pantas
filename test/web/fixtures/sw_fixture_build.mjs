@@ -52,7 +52,9 @@ export function buildFiles(id, prod = false) {
     'pantas_history.js': base,
     'pantas_splash.js': base,
     'pantas_welcome.js': base,
-    'drift_worker.js': base,
+    // The real database worker: it keeps one root address and the same bytes in every build
+    // (fix list item 1), so it carries no build marker and a test can see it is shared.
+    'drift_worker.js': readFileSync(join(repo, 'web/drift_worker.js'), 'utf8'),
     'sqlite3.wasm': `\0asm${m}`,
     'manifest.json': JSON.stringify({name: 'Pantas', note: m, icons: [{src: 'icons/Icon-192.png'}]}),
     'favicon.png': `png ${m}`,

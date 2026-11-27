@@ -10,3 +10,11 @@
 /// it, such as `b/1-abc123/`.
 Uri buildFileUri(Uri documentBase, String? buildBase, String name) =>
     documentBase.resolve(buildBase ?? '').resolve(name);
+
+/// The address of a file that keeps one address in every build.
+///
+/// The database worker is the only one. A browser keys a shared worker by its
+/// address and name, so a tab on the old build and a tab on the new one reach
+/// the same worker only when both ask for the same address. The file's bytes
+/// are pinned by the deploy guard.
+Uri rootFileUri(Uri documentBase, String name) => documentBase.resolve(name);
