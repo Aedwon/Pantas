@@ -18,14 +18,14 @@ keyPoints:
 Two positive integers are **relatively prime**, or **coprime**, when their only common positive factor is $1$.
 
 - $3$ and $8$ are coprime: the factors of $3$ are $1,3$, and of $8$ are $1,2,4,8$. They share only $1$.
-- $4$ and $6$ are **not** coprime: both divide by $2$, so they share a factor larger than $1$.
+- $4$ and $6$ are **not** coprime: both divide by $2$.
 
 ### Combining Coprime Factors
 
 If $a$ and $b$ are coprime positive integers, a number is divisible by $ab$ exactly when it passes the test for $a$ **and** the test for $b$.
-For example, $8$ and $9$ are coprime and $8\times9=72$. Passing both $8$ and $9$ proves a number is divisible by $72$. The factors need not be prime, only coprime.
+For example, $8$ and $9$ are coprime and $8\times9=72$, so passing both proves divisibility by $72$. The factors need not be prime.
 
-If the factors share a factor, passing both tests does not prove divisibility by their product. For example, $4\times6=24$, yet testing $4$ and $6$ does not test $24$. The number $12$ passes both $4$ and $6$, even though $12$ is not divisible by $24$.
+If the factors share a factor, passing both tests does not prove divisibility by their product. For example, $4\times6=24$. The number $12$ passes both $4$ and $6$, even though $12$ is not divisible by $24$.
 
 <!-- ILLUSTRATION: Two rows of prime tiles. The number 4 is the tiles 2 and 2. The number 6 is the tiles 2 and 3. The first 2 tile in each row is the shared factor 2 and is outlined in both rows. Below the rows: the tiles needed for both are 2 x 2 x 3 = 12, so passing the tests for 4 and 6 only proves divisibility by 12. Testing 24 needs 2 x 2 x 2 x 3. -->
 
@@ -40,14 +40,14 @@ Why do overlapping factors fail? When you test $4$ and $6$, the shared factor $2
 :::
 
 :::check
-A number passes the tests for $6$ and $10$. Must it be divisible by $60$?
+What is the smallest positive number that passes the tests for $6$ and $10$ but is not divisible by $60$?
 :::answer
-The answer is no. The factors $6$ and $10$ share the factor $2$, and $30$ passes both tests but is not divisible by $60$.
+The answer is $30$. The factors $6$ and $10$ share the factor $2$, so a number passes both tests exactly when it is a multiple of $30$. The smallest is $30$, and $30$ is not divisible by $60$.
 :::
 
 ### Testing Two Unknown Digits
 
-When a number has two missing digits $x$ and $y$, the divisor has a last-digit factor ($4$, $5$, $8$, or $10$), and $x$ is outside the digits that factor reads, start with the last-digit test. It limits the ending digit $y$ to a few choices. Then test each valid $y$ with the digit-sum or alternating-sum test to find $x$.
+With two missing digits $x$ and $y$, a divisor with a last-digit factor ($4$, $5$, $8$, or $10$) lets you test that factor first when $y$ is in the digits it reads and $x$ is not. That limits $y$ to a few choices. Then, for each valid $y$, test the other coprime factor with its own rule, such as digit sums for $3$ or $9$ or alternating sums for $11$, to find $x$.
 
 Find $x$ and $y$ in $32x1y$, a multiple of $45$. Since $45=5\times9$ and $5,9$ are coprime, test $5$ first, then $9$.
 
@@ -69,7 +69,7 @@ So $(x,y)$ is $(3,0)$ or $(7,5)$.
 
 If the range holds two multiples of $9$, keep both. In $5x31$, $9+x$ is from $9$ to $18$, so $x=0$ or $9$.
 
-For $99=9\times11$, take $2a6,3b5$. The $11$ difference is from $-9$ to $9$, so it must be $0$ and $a=b$.
+For $99=9\times11$, find $a$ and $b$ if $2a6,3b5$ is a multiple of $99$. The $11$ difference is from $-9$ to $9$, so it must be $0$ and $a=b$.
 
 $$(2+6+b)-(a+3+5)=b-a=0$$
 
@@ -80,7 +80,7 @@ $$2+a+6+3+a+5=16+2a=18$$
 :::pair #pass-only-one-test
 Right: in $3a4,5b2$, divisible by $99$, check both $9$ and $11$
 Wrong: pick $a=4,b=9$ in $3a4,5b2$ because $3+4+4+5+9+2=27$ passes $9$
-Passing one factor test is not enough. In $344,592$, the alternating sum is $(3+4+9)-(4+5+2)=5$, which fails $11$.
+In $344,592$, the alternating sum is $(3+4+9)-(4+5+2)=5$, which fails $11$.
 :::
 
 :::pair #stop-at-first-case
@@ -103,7 +103,7 @@ The five-digit number $5x34y$ is a multiple of $72$. Find $x+y$.
 
 $$5+x+3+4+4=16+x=18$$
 
-4. Subtract $16$ from both sides.
+4. Solve for $x$.
 
 $$x=18-16=2$$
 
@@ -153,7 +153,7 @@ The answer is $13$. In the second case, $x+y=7+6=13$, which is greater than $4$ 
 - $88=8\times11$
 - $99=9\times11$
 
-For $88=8\times11$, take $561,1y6$. The multiples of $8$ from $106$ to $196$ that end in $6$ are $136$ and $176$, so $y=3$ or $7$. The $11$ difference is $(5+1+3)-(6+1+6)=-4$ for $y=3$ and $(5+1+7)-(6+1+6)=0$ for $y=7$. So $y=7$.
+For $88=8\times11$, find $y$ if $561,1y6$ is a multiple of $88$. The multiples of $8$ from $106$ to $196$ that end in $6$ are $136$ and $176$, so $y=3$ or $7$. The $11$ difference is $(5+1+3)-(6+1+6)=-4$ for $y=3$ and $(5+1+7)-(6+1+6)=0$ for $y=7$. So $y=7$.
 
 ## Traps to Watch For
 

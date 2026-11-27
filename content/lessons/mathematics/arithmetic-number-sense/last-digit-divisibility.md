@@ -76,7 +76,7 @@ A number ending in $0$ passes both $5$ and $10$. When $10$ is ruled out, $0$ is 
 :::
 
 :::why
-Why does only the last digit matter for $5$ and $10$? Every multiple of $10$ is $10$ times a whole number, and $10=5\times2$. So the tens, hundreds, and thousands parts already divide evenly by both $5$ and $10$.
+Why does only the last digit matter for $5$ and $10$? Every multiple of $10$ is $10$ times an integer, and $10=5\times2$. So the tens, hundreds, and thousands parts already divide evenly by both $5$ and $10$.
 :::
 
 :::check

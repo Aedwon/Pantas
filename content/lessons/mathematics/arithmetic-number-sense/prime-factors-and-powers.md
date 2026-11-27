@@ -54,6 +54,10 @@ $$30=2\times 15$$
 
 $$15=3\times 5$$
 
+Put each split back into the product for $60$:
+
+$$60=2\times 2\times 15$$
+
 $$60=2\times 2\times 3\times 5$$
 
 Now every factor ($2, 2, 3, 5$) is prime.
@@ -77,6 +81,10 @@ $$36=2\times 18$$
 $$18=2\times 9$$
 
 $$9=3\times 3$$
+
+Put the splits back into the product, then group equal factors:
+
+$$72=2\times 2\times 2\times 3\times 3$$
 
 $$72=2^3\times 3^2$$
 

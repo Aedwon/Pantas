@@ -75,7 +75,7 @@ The tests for $2$, $5$, and $10$ use the last digit alone. For $6$, you must che
 When the missing digit is in the middle of a multiple of $6$, it does not need to be even. Only the last digit decides whether the number is even.
 
 :::pair #only-even-middle-digit
-Right: in $42d18$, $d$ can be $0$, $3$, $6$, or $9$ because the last digit $8$ is already even
+Right: in $42d18$, the last digit $8$ passes the test for $2$. The digit sum $15+d$ passes $3$ exactly for $d=0,3,6,9$
 Wrong: in $42d18$, $d$ must be even, so the greatest choice is $d=8$
 The last digit $8$ already satisfies the $2$ test. With $d=8$ the digit sum is $4+2+8+1+8=23$, which fails $3$. Any digit from $0$ to $9$ that makes the digit sum a multiple of $3$ works for $d$.
 :::

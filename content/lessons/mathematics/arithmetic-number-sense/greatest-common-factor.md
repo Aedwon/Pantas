@@ -80,6 +80,8 @@ $$24\div 6=4\text{ oranges}$$
 
 That makes $3+4=7$ pieces of fruit in each bag.
 
+Find the longest equal pieces that a $12$-cm strip and an $18$-cm strip can be cut into with no waste. Since $12=2^2\times 3$ and $18=2\times 3^2$, the GCF is $2\times 3=6$. Each piece is $6$ cm long. Here the GCF is a length, not a count.
+
 :::pair #gcf-groups-vs-items
 Right: if $144$ pouches and $96$ kits fill $48$ identical boxes, each box holds $144\div 48+96\div 48=5$ items
 Wrong: if $144$ pouches and $96$ kits fill $48$ identical boxes, the answer is $48$ items per box

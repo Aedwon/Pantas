@@ -58,8 +58,8 @@ To test if a number is divisible by $11$, split the digits into two alternating 
 3. If the difference is $0$ or a multiple of $11$ (such as $11$, $-11$, or $22$), the number is divisible by $11$.
 
 :::pair #total-sum-for-eleven
-Right: for $1,234$, use alternating positions: $(1+3)-(2+4)=4-6=-2$
-Wrong: for $1,234$, add all digits or adjacent pairs: $1+2+3+4=10$ or $(1+2)-(3+4)=-4$
+Right: for $1,221$, use alternating positions: $(1+2)-(2+1)=0$, so it passes $11$
+Wrong: for $1,221$, add all digits: $1+2+2+1=6$, so it fails $11$
 Total digit sums test $3$ and $9$, not $11$. Skip every other digit so odd positions ($1,3,5,\dots$) go in one group and even positions ($2,4,6,\dots$) go in the other.
 :::
 
@@ -146,6 +146,6 @@ The answer is $354,211$, with $b=1$. Adding $1$ to both sides of $b-1=0$ gives $
 
 :::checklist
 - Testing for $7$: remove the last digit, double it, then subtract from the remaining digits. {#subtract-without-doubling}
-- Testing for $11$: add digits in alternating positions, not all digits or adjacent pairs. {#total-sum-for-eleven}
+- Testing for $11$: add digits in alternating positions, not all the digits together. {#total-sum-for-eleven}
 - Getting a difference of $0$: count $0$ as passing, because $0$ is divisible by every nonzero integer. {#zero-is-divisible}
 :::

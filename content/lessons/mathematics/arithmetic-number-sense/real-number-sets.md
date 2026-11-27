@@ -22,9 +22,9 @@ Numbers belong to nested sets, like smaller boxes sitting inside larger boxes.
 - **Whole numbers** add $0$ to the counting numbers: $0,1,2,3,\dots$. Negative numbers are not whole numbers. A fraction is whole only when it equals a whole number, such as $\dfrac{6}{3}=2$, not $\dfrac{1}{2}$.
 - **Integers** include all whole numbers and their opposites: $\dots,-2,-1,0,1,2,\dots$.
 
-Sort $5$, $0$, and $-4$ by set. The number $5$ is natural, whole, and an integer.
+Sort $5$, $0$, and $-4$ by set. The number $5$ is natural, whole, an integer, a rational number and a real number.
 
-The number $0$ is whole and an integer, not natural when natural numbers start at $1$. The number $-4$ is an integer only.
+The number $0$ is whole, an integer, a rational number and a real number. It is not natural when natural numbers start at $1$. The number $-4$ is an integer, a rational number and a real number. It is not a natural or whole number.
 
 :::pair #negative-whole-number
 Right: $-1$ is an integer, not a whole number.
@@ -106,11 +106,12 @@ D) A repeating nonterminating decimal is rational.
 
 1. Check A: every integer $n$ can be written as $\dfrac{n}{1}$, which is an integer fraction, so A is true.
 2. Check C: real numbers consist of rational and irrational numbers together, so C is true.
+3. Check D: a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction, so D is true.
 
 :::try
-Finish the last step: check statements B and D, and state which choice is the false statement.
+Finish the last step: multiply $\sqrt{12}\times\sqrt{3}$ under one root, then use the value to say whether B is true, and name the false statement.
 :::answer
-The answer is B. Multiply under one root: $\sqrt{12}\times\sqrt{3}=\sqrt{36}=6$, which is rational, so B is false. Statement D is true because a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction.
+The answer is B. $\sqrt{12}\times\sqrt{3}=\sqrt{36}=6$, which is rational, so B is false.
 :::
 
 ## Traps to Watch For

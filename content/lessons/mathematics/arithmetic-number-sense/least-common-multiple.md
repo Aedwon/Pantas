@@ -67,9 +67,9 @@ Use the LCM when events start together and repeat at fixed intervals, and you ne
 
 For example, if one jeepney returns every $15$ minutes and another every $20$ minutes, they next meet at the LCM of $15$ and $20$, which is $60$ minutes.
 
-Two buses leave together at minute $0$, then every $12$ and $18$ minutes. The LCM is $36$, so they meet at $36$, $72$ and $108$ minutes, and at every multiple of $36$. In a $120$-minute window, that is $3$ meetings after the start, or $4$ if the start counts. The next meeting after minute $100$ is $108$. By minute $36$, the $12$-minute bus has made $36\div12=3$ trips.
-
 <!-- ILLUSTRATION: Two parallel timelines from 0 to 60 minutes on the same scale. The top timeline, "Every 15 minutes", has marks at 15, 30, 45 and 60. The bottom timeline, "Every 20 minutes", has marks at 20, 40 and 60. A vertical dashed accent line at 60 joins the two timelines and is labeled "LCM = 60 min", the first minute where both have a mark. -->
+
+Two buses leave together at minute $0$, then every $12$ and $18$ minutes. The LCM is $36$, so they meet at $36$, $72$ and $108$ minutes, and at every multiple of $36$. In a $120$-minute window, that is $3$ meetings after the start, or $4$ if the start counts. The next meeting after minute $100$ is $108$. By minute $36$, the $12$-minute bus has made $36\div12=3$ trips.
 
 ### The Product Rule for Two Numbers
 

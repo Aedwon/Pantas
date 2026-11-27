@@ -60,13 +60,13 @@ $$i^{57}=i^1$$
 $$i^1=i$$
 
 :::why
-Why do groups of $4$ powers disappear? Since $i^4=1$, every four factors multiply to $1$: $i^{57}=(i^4)^{14}\cdot i^1=1^{14}\cdot i=i$.
+Why can you group the factors of $i^{57}$ in fours? Since $i^4=1$, every four factors of $i$ multiply to $1$: $i^{57}=(i^4)^{14}\cdot i^1=1^{14}\cdot i=i$.
 :::
 
 :::pair #last-digit-power-of-i
 Right: to find $i^{57}$, $57=4(14)+1$, so $i^{57}=i^1=i$
 Wrong: to find $i^{57}$, last digit $7=4(1)+3$, so $i^{57}=i^3=-i$
-Do not divide only the last digit by $4$. Because $10$ does not divide evenly by $4$, the tens digit changes the remainder. Divide the whole exponent by $4$.
+Do not divide only the last digit by $4$. The tens digit can change the remainder, so check the whole exponent.
 :::
 
 :::check
@@ -90,7 +90,7 @@ $$(2i)(3i)=6i^2$$
 $$6i^2=6(-1)=-6$$
 
 :::pair #negative-root-product
-Right: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{(6i)(2i)}{4i}=\dfrac{-12}{4i}=\dfrac{-3}{i}=\dfrac{-3i}{i^2}=3i$
+Right: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{(6i)(2i)}{4i}=\dfrac{-12}{4i}=\dfrac{-3}{i}$, then multiply top and bottom by $i$: $\dfrac{-3i}{i^2}=\dfrac{-3i}{-1}=3i$
 Wrong: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{6\cdot 2}{4}=3$
 Do not drop the minus signs inside negative roots or use $\sqrt{ab}$ before pulling out $i$. Write each negative root in $i$ form first.
 :::
