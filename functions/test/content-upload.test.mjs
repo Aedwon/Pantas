@@ -341,8 +341,11 @@ test('writeContent scans gaps and writes the one gap document only when changed'
   const item = upload.gapItem(tags);
   assert.deepEqual((await writeContent(db, [item], [], {})).counts, {create: 1, update: 0, unchanged: 0});
   assert.ok(db.scans.includes('content/gaps/items'));
+  const afterFirst = db.writes;
   assert.deepEqual((await writeContent(db, [item], [], {})).counts, {create: 0, update: 0, unchanged: 1});
-  assert.equal(db.writes, 1);
+  // The first run also wrote the version list (one document per kind); the second writes nothing.
+  assert.equal(db.writes, afterFirst);
+  assert.equal([...db.stored.keys()].filter(key => key.startsWith('content/gaps/items/')).length, 1);
 });
 
 test('Free served payloads of every kind contain no gap tags and gaps is rejected', async () => {

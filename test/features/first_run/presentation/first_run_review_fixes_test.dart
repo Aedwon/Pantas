@@ -324,6 +324,10 @@ void main() {
     testWidgets('a new step takes the focus', (tester) async {
       await pumpFirstRun(tester, progressJson: _run('lesson'));
       final before = FocusManager.instance.primaryFocus;
+      // The button closes the lesson; the taller heading spacing (Nov 28)
+      // puts it below the first screen, so scroll to it as a student would.
+      await tester.ensureVisible(find.text('Answer 3 Questions'));
+      await tester.pumpAndSettle();
       await tester.tap(find.text('Answer 3 Questions'));
       await tester.pumpAndSettle();
       final after = FocusManager.instance.primaryFocus!;

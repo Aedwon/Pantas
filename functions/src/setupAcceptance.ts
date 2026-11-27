@@ -33,5 +33,30 @@ export async function recordAcceptance(request: AcceptanceRequest,
   return {version};
 }
 
+/**
+ * Reads back the acceptance a named account recorded, so a returning student on a new
+ * device can skip the Terms step. Clients cannot read `server/**` directly.
+ */
+export async function readAcceptance(request: AcceptanceRequest,
+  deps: {db: Firestore; allow?: (uid: string) => Promise<boolean>}):
+  Promise<{version: string | null; acceptedAt: number | null}> {
+  if (!request.app) throw new HttpsError('unauthenticated', 'App Check is required.');
+  assertFreshAppCheck(request);
+  const uid = assertNamedUser(request.auth);
+  if (!await (deps.allow ?? (id => allowAtMost(id, 'getSetupAcceptance', 60, 3_600_000)))(uid)) {
+    throw new HttpsError('resource-exhausted', 'Too many requests. Try again later.');
+  }
+  const snap = await deps.db.doc(`users/${uid}/server/acceptance`).get();
+  const version = snap.get('version');
+  const acceptedAt = snap.get('acceptedAt');
+  return {
+    version: typeof version === 'string' ? version : null,
+    acceptedAt: typeof acceptedAt === 'number' ? acceptedAt : null,
+  };
+}
+
+export const getSetupAcceptance = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
+  timed('getSetupAcceptance', (request) => readAcceptance(request, {db: getFirestore()})));
+
 export const recordSetupAcceptance = onCall({region: 'asia-southeast1', enforceAppCheck: enforceAppCheck},
   timed('recordSetupAcceptance', (request) => recordAcceptance(request, {db: getFirestore()})));

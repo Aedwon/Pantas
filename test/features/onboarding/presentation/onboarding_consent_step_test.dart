@@ -27,6 +27,9 @@ class _RecordingGateway implements SetupAcceptanceGateway {
   final List<String> versions;
   @override
   Future<void> record(String version) async => versions.add(version);
+
+  @override
+  Future<AccountAcceptance?> read() async => null;
 }
 
 void main() {

@@ -1156,9 +1156,8 @@ void main() {
       expect(boldOf(tester.widget<RichText>(plain.first)), isEmpty);
     });
 
-    // The board's `.dm` has margin-bottom 22, so a part under display maths
-    // sits about 27 under the ink. The math box ends about 4 above its ink, so
-    // the box-to-part gap is 24.
+    // A part under display maths sits 28 under the maths box, the same as the
+    // space above the formula (Aedwon, Nov 27).
     final latex = {'_type': 'latex', 'body': r'x = \dfrac{1}{2}'};
     final parts = <String, (Map<String, Object?>, String)>{
       'Quick Check': (_check('Q?', 'A.'), 'walk-card'),
@@ -1171,7 +1170,7 @@ void main() {
       ),
     };
     for (final MapEntry(key: name, value: (part, key)) in parts.entries) {
-      testWidgets('a $name after display maths sits 24 under the maths box',
+      testWidgets('a $name after display maths sits 28 under the maths box',
           (tester) async {
         await _pump(tester, [
           _p('Core Concept', style: 'h2'),
@@ -1181,7 +1180,147 @@ void main() {
         ]);
         final math = tester.getRect(find.byType(MathExpression).last);
         final below = tester.getRect(_key(key).last);
-        expect(below.top - math.bottom, closeTo(24, 0.5));
+        expect(below.top - math.bottom, closeTo(28, 0.5));
+      });
+    }
+
+    // Aedwon picked option A for "Try the last step" (Nov 28): inside a
+    // solution it is no card. A 1 px rule 16 under the work and 14 above the
+    // label replaces the fill, border and radius.
+    for (final dark in [false, true]) {
+      testWidgets(
+          'Try inside a solution is a ruled part, not a card in a card, '
+          '${dark ? 'dark' : 'light'}', (tester) async {
+        await _pump(
+          tester,
+          [
+            _p('Examples', style: 'h2'),
+            ..._example(
+              2,
+              tail: [
+                _try('Finish the last step.', ['The answer is 1.']),
+              ],
+            ),
+          ],
+          dark: dark,
+        );
+        final panel = tester.element(_key('reader-solution-panel'));
+        // (a) Nothing between the solution panel and the Try content draws a
+        // fill, a border or a radius.
+        final tryPart = tester.element(_key('walk-try'));
+        final drawn = <Widget>[];
+        void check(Widget w) {
+          final d = switch (w) {
+            Container(decoration: final BoxDecoration? d) => d,
+            DecoratedBox(decoration: final BoxDecoration d) => d,
+            _ => null,
+          };
+          if (d != null &&
+              (d.color != null || d.border != null || d.borderRadius != null)) {
+            drawn.add(w);
+          }
+          if (w is ColoredBox || w is Material || w is PhysicalModel) {
+            drawn.add(w);
+          }
+        }
+
+        check(tryPart.widget);
+        tryPart.visitAncestorElements((e) {
+          // The panel's own fill is the solution panel; stop there.
+          final w = e.widget;
+          if (w is DecoratedBox &&
+              w.decoration == (panel.widget as Container).decoration) {
+            return false;
+          }
+          check(e.widget);
+          return true;
+        });
+        expect(drawn, isEmpty);
+        // (b) The rule is 1 px in the separator color, 16 under the work and
+        // 14 above the label.
+        final rule = _key('walk-try-rule');
+        final ruleBox = tester.widget<ColoredBox>(rule);
+        expect(ruleBox.color, _c(dark).separator);
+        final ruleRect = tester.getRect(rule);
+        expect(ruleRect.height, 1);
+        final work = tester.getRect(_rich('Work for step 2.'));
+        expect(ruleRect.top - work.bottom, 16);
+        final label = tester.getRect(find.text('TRY THE LAST STEP'));
+        expect(label.top - ruleRect.bottom, 14);
+        // The rule runs the width of the part.
+        expect(ruleRect.width, tester.getRect(_key('walk-try')).width);
+        // The group keeps its name for a screen reader.
+        expect(
+          find.bySemanticsLabel(RegExp('^Try the last step')),
+          findsOneWidget,
+        );
+      });
+    }
+
+    // Aedwon on staging (Nov 27): the space after a Wrong line and after a
+    // display formula looked smaller than the space before it. The gap below
+    // must equal the gap above, measured between the rendered boxes.
+    for (final dark in [false, true]) {
+      testWidgets(
+          'space after a display formula equals the space before it, '
+          '${dark ? 'dark' : 'light'}', (tester) async {
+        await _pump(
+          tester,
+          [
+            _p('Core Concept', style: 'h2'),
+            _p('Rearrange the rate formula to get the time.'),
+            {'_type': 'latex', 'body': r't = \dfrac{1}{r}'},
+            _p('Now put the rate in and divide.'),
+          ],
+          dark: dark,
+        );
+        final before = tester.getRect(
+          _rich('Rearrange the rate formula to get the time.'),
+        );
+        final math = tester.getRect(find.byType(MathExpression).last);
+        final after = tester.getRect(_rich('Now put the rate in and divide.'));
+        final above = math.top - before.bottom;
+        final below = after.top - math.bottom;
+        expect(below, closeTo(above, 1));
+      });
+
+      testWidgets(
+          'space after a Wrong line equals the space before it, '
+          '${dark ? 'dark' : 'light'}', (tester) async {
+        await _pump(
+          tester,
+          [
+            _p('Core Concept', style: 'h2'),
+            {
+              '_type': 'walkPair',
+              'id': 'p1',
+              'right': [
+                _run(r't = \dfrac{25}{60}', ['latex']),
+                _run(' hour'),
+              ],
+              'wrong': [
+                _run(r't = \dfrac{5}{24}', ['latex']),
+                _run(' hour'),
+              ],
+              'note': [_p('The note under both.')],
+            },
+          ],
+          dark: dark,
+        );
+        final card = tester.getRect(_key('walk-pair-right'));
+        final label = tester.getRect(find.text('WRONG'));
+        final line = tester.getRect(
+          find
+              .descendant(
+                of: _key('walk-pair-wrong'),
+                matching: find.byType(RichText),
+              )
+              .last,
+        );
+        final note = tester.getRect(_rich('The note under both.'));
+        final above = label.top - card.bottom;
+        final below = note.top - line.bottom;
+        expect(below, closeTo(above, 1));
       });
     }
 
@@ -1200,7 +1339,55 @@ void main() {
       expect(card.top - paragraph.bottom, 16);
       final math = tester.getRect(find.byType(MathExpression).last);
       final after = tester.getRect(_rich('After the maths.'));
-      expect(after.top - math.bottom, 8);
+      expect(after.top - math.bottom, 28);
+    });
+
+    // Aedwon, Nov 28: subsections need more space from each other. A heading
+    // has more space above than below, so it groups with its own content, and
+    // a section (h2) has more above than a subsection (h3).
+    testWidgets('old format: h3 has 40 above, 8 below; h2 has 56 above',
+        (tester) async {
+      await _pump(tester, [
+        _p('Core Concept', style: 'h2'),
+        _p('First paragraph.'),
+        _p('Old subhead one', style: 'h3'),
+        _p('Text under one.'),
+        latex,
+        _p('Old subhead two', style: 'h3'),
+        _p('Text under two.'),
+        _p('Examples', style: 'h2'),
+        _p('Text under the section.'),
+      ]);
+      final one = tester.getRect(_rich('Old subhead one'));
+      final two = tester.getRect(_rich('Old subhead two'));
+      final math = tester.getRect(find.byType(MathExpression).last);
+      expect(
+        one.top - tester.getRect(_rich('First paragraph.')).bottom,
+        40,
+      );
+      expect(two.top - math.bottom, 40);
+      expect(tester.getRect(_rich('Text under one.')).top - one.bottom, 8);
+      expect(tester.getRect(_rich('Text under two.')).top - two.bottom, 8);
+      final h2 = tester.getRect(_rich('Examples'));
+      final above = h2.top - tester.getRect(_rich('Text under two.')).bottom;
+      expect(above, 56);
+      expect(above, greaterThan(two.top - math.bottom));
+    });
+
+    testWidgets('walk-through: h3 after a Quick Check has 40 above, 8 below',
+        (tester) async {
+      await _pump(tester, [
+        _p('Core Concept', style: 'h2'),
+        _p('A paragraph.'),
+        _check('Q?', 'A.'),
+        _p('Walk subhead', style: 'h3'),
+        _p('Text under the walk subhead.'),
+      ]);
+      final card = tester.getRect(_key('walk-card'));
+      final head = tester.getRect(_rich('Walk subhead'));
+      expect(head.top - card.bottom, 40);
+      final under = tester.getRect(_rich('Text under the walk subhead.'));
+      expect(under.top - head.bottom, 8);
     });
 
     for (final wide in [false, true]) {

@@ -205,6 +205,26 @@ const series = (api, project, metric, query) =>
     .then((body) => body?.timeSeries ?? []);
 const num = (value) => Number(value?.int64Value ?? value?.doubleValue ?? 0);
 
+/**
+ * Firestore operations since the latest Pacific midnight (the current quota day) up to `end`: one bucket
+ * per metric, summed. `metrics` is [[key, metricName]]. Read-only.
+ */
+async function quotaDayUsage(api, project, end, metrics) {
+  const iso = (d) => d.toISOString().replace(/\.\d+Z$/, 'Z');
+  const since = pacificMidnight(end);
+  const usage = {since: iso(since), ...Object.fromEntries(metrics.map(([key]) => [key, 0]))};
+  const sinceQuery = `interval.startTime=${iso(since)}&interval.endTime=${iso(end)}&aggregation.alignmentPeriod=${Math.max(60, Math.ceil((end - since) / 1000))}s&aggregation.perSeriesAligner=ALIGN_SUM&aggregation.crossSeriesReducer=REDUCE_SUM`;
+  for (const [key, metric] of metrics) {
+    for (const s of await series(api, project, `firestore.googleapis.com/document/${metric}`, sinceQuery)) usage[key] += s.points.reduce((t, p) => t + num(p.value), 0);
+  }
+  return usage;
+}
+
+/** The project's Firestore reads in the current quota day. Throws when they cannot be read (no login, API error). */
+export async function firestoreReadsToday(project, {api = makeApi(token()), now = new Date()} = {}) {
+  return (await quotaDayUsage(api, project, now, [['reads', 'read_count']])).reads;
+}
+
 async function collectProject(api, project) {
   const end = new Date();
   const iso = (d) => d.toISOString().replace(/\.\d+Z$/, 'Z');
@@ -242,12 +262,7 @@ async function collectProject(api, project) {
   }
 
   // The current quota day: Firestore's free quota resets at midnight Pacific time. One bucket from then to now.
-  const since = pacificMidnight(end);
-  const today = {since: iso(since), reads: 0, writes: 0};
-  const sinceQuery = `interval.startTime=${iso(since)}&interval.endTime=${iso(end)}&aggregation.alignmentPeriod=${Math.max(60, Math.ceil((end - since) / 1000))}s&aggregation.perSeriesAligner=ALIGN_SUM&aggregation.crossSeriesReducer=REDUCE_SUM`;
-  for (const [key, metric] of [['reads', 'read_count'], ['writes', 'write_count']]) {
-    for (const s of await series(api, project, `firestore.googleapis.com/document/${metric}`, sinceQuery)) today[key] += s.points.reduce((t, p) => t + num(p.value), 0);
-  }
+  const today = await quotaDayUsage(api, project, end, [['reads', 'read_count'], ['writes', 'write_count']]);
 
   const ops = {};
   for (const [key, metric] of [['reads', 'read_count'], ['writes', 'write_count'], ['deletes', 'delete_count']]) {
