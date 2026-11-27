@@ -105,29 +105,29 @@ Choose **(A)**: "Mina stayed home because she felt under the weather."
 
 **Check:** The sentence gives a reason for staying home. *Under the weather* means feeling unwell.
 
-### #3: A Wage Talk
+### #3: A Night Shift
 
-Choose the best completion: "The mayor and the union leaders met to ______ an agreement on wages."
+Choose the best completion: "The guard promised to ______ a close watch on the gate all night."
 
 (A) do
 
-(B) reach
+(B) keep
 
-(C) hold
+(C) make
 
 (D) say
 
 **Solution:**
 
-1. The blank is a verb before *an agreement*.
-2. Ask which verb usually goes with *agreement*.
+1. The blank is a verb before *a close watch*.
+2. Ask which verb usually goes with *watch* in this sense.
 
 :::try
-Finish the last step: which choice is the usual partner of *agreement*?
+Finish the last step: which choice is the usual partner of *a close watch*?
 :::answer
-The answer is **(B) reach**: "The mayor and the union leaders met to reach an agreement on wages."
+The answer is **(B) keep**: "The guard promised to keep a close watch on the gate all night."
 
-**Check:** Say each choice with *agreement*. *Do*, *say* and *hold* do not usually go with *agreement*.
+**Check:** Say each choice with *a close watch*. *Do*, *make* and *say* do not usually go with it.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -34,11 +34,11 @@ Nearby plural *laptops* makes *have* sound familiar, yet singular *every one* is
 :::
 
 :::check
-Choose the correct verb: Each of the new reports *(was / were)* filed on time.
+Choose the correct verb: The coach, together with two players, *(visits / visit)* the school every Friday.
 :::answer
-*Was*: "Each of the new reports was filed on time." Cover *of the new reports*; the singular head *each* takes *was*.
+*Visits*: "The coach, together with two players, visits the school every Friday." Cover *together with two players*; the singular head *coach* takes *visits*.
 
-**Check:** Read the head and verb alone: "Each was filed on time." It sounds right.
+**Check:** Read the head and verb alone: "The coach visits the school." It sounds right.
 :::
 
 ### Amounts Before *Of*

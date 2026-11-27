@@ -119,7 +119,7 @@ At opening time that morning, the clerk found an unclaimed parcel. An hour after
 
 Arrange the sentences in the best order.
 
-(A) The cook cleaned the empty pot.
+(A) The cook scrubbed the last of the soup from the pot.
 
 (B) Before lunch, the cook boiled soup in the big pot.
 
@@ -132,9 +132,9 @@ Arrange the sentences in the best order.
 :::try
 Finish the last step: put all three in order.
 :::answer
-The answer is B, C, A. (C) has "At noon," which is later than before lunch. (A) has no time word, but the pot is empty only after the soup is served, so (A) follows (C). In order: "Before lunch, the cook boiled soup in the big pot. At noon, the cook began serving the soup. The cook cleaned the empty pot."
+The answer is B, C, A. (C) has "At noon," which is later than before lunch. (A) has no time word, but "the last of the soup" means the rest was already served, so (A) follows (C). In order: "Before lunch, the cook boiled soup in the big pot. At noon, the cook began serving the soup. The cook scrubbed the last of the soup from the pot."
 
-**Check:** Cleaning the pot before serving would mean cleaning it while it still held soup.
+**Check:** Put (A) first: there is no soup yet to scrub out, so that order cannot be right.
 :::
 
 ## Traps to Watch For

@@ -26,9 +26,9 @@ What does *therefore* show here?
 3. The result is "the bus took the hill route."
 
 :::check
-Which fits the blank: *however* or *therefore*? "The trail was steep. ___, we rested often."
+Which fits the blank: *as a result* or *on the other hand*? "Mia trained every morning for a month. ___, she finished the race in first place."
 :::answer
-The answer is *therefore*. Resting often is a result of the steep trail, not a contrast: "The trail was steep. Therefore, we rested often."
+The answer is *as a result*. Winning follows from the training, so the second sentence is a result, not a contrast: "Mia trained every morning for a month. As a result, she finished the race in first place."
 :::
 
 ### Placing a Transition Sentence

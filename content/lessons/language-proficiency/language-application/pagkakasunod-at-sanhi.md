@@ -86,9 +86,9 @@ Ang pagkahuli ay ang bunga. Itanong ang "Bakit?"
 :::
 
 :::check
-Pagsamahin gamit ang *dahil*: "Nabasag ang baso kaya nagwalis si Ana."
+Walang pang-ugnay rito: "Nadulas si Lolo sa kusina. Basa ang sahig." Alin ang sanhi?
 :::answer
-*Nagwalis si Ana dahil nabasag ang baso.* Ang *nabasag ang baso* ang sagot sa "Bakit nagwalis si Ana?", kaya ito ang kasunod ng *dahil*. Tama rin ang *Dahil nabasag ang baso, nagwalis si Ana.*
+Ang sanhi ay *basa ang sahig*. Ito ang sagot sa "Bakit nadulas si Lolo?", kaya ang pagkadulas ang bunga: "Nadulas si Lolo sa kusina dahil basa ang sahig."
 :::
 
 ## Examples

@@ -26,11 +26,11 @@ Wrong: "The documents are being delivered by the courier yesterday."
 :::
 
 :::check
-Choose the correct form: The signed forms *(were mailed / are being mailed)* to the office last Monday.
+Choose the correct form: In May, the new benches *(were painted / have painted)* by volunteers.
 :::answer
-*Were mailed*: "The signed forms were mailed to the office last Monday." *Last Monday* places the finished action in the past, and *forms* receives the action.
+*Were painted*: "In May, the new benches were painted by volunteers." *In May* marks a finished past time, and the benches receive the action.
 
-**Check:** Turn it active: "Someone mailed the signed forms last Monday." The time and the meaning still match.
+**Check:** Turn it active: "Volunteers painted the new benches in May." The doer and the time still match.
 :::
 
 ### One Action Meets Another
