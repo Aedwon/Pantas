@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import {cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync} from 'node:fs';
+import {cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, realpathSync, rmSync, writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {join} from 'node:path';
 import {spawnSync} from 'node:child_process';
@@ -299,6 +299,72 @@ test('High 6: the Firebase rollback script runs the guard before it publishes an
   const source = readFileSync(rollback, 'utf8');
   assert.ok(source.indexOf('check_worker_stamp.mjs') < source.indexOf('firebase deploy'), 'the guard comes first');
   assert.match(source, /--target "\$env"/);
+  done(build);
+});
+
+// Audit 3, High: the installed Firebase CLI rejects --public when the hosting config is an array,
+// which both repository configs are. This stand-in `firebase` applies the same rules as the CLI's
+// own code (lib/deploy/hosting/prepare.js handlePublicDirectoryFlag, lib/hosting/config.js
+// filterOnly) and records what it would have published. No hosted call is made.
+const stubFirebase = `#!/usr/bin/env node
+const fs = require('fs');
+const args = process.argv.slice(2);
+const option = name => (args.includes(name) ? args[args.indexOf(name) + 1] : undefined);
+const fail = message => { console.error('Error: ' + message); process.exit(1); };
+if (args[0] !== 'deploy') fail('this stand-in only deploys');
+const configFile = option('--config') ?? 'firebase.json';
+const config = JSON.parse(fs.readFileSync(configFile, 'utf8'));
+if (option('--public') && Array.isArray(config.hosting)) fail('Cannot specify --public option with multi-site configuration.');
+const hosting = Array.isArray(config.hosting) ? config.hosting : [config.hosting];
+const only = (option('--only') ?? '').split(',').filter(target => target.startsWith('hosting:')).map(target => target.slice('hosting:'.length));
+for (const target of only) {
+  if (!hosting.some(c => c.target === target || c.site === target)) fail('Hosting site or target ' + target + ' not detected in firebase.json');
+}
+const used = hosting.filter(c => only.some(target => c.target === target || c.site === target));
+fs.writeFileSync(process.env.STUB_OUT, JSON.stringify({configFile, project: option('--project'), publicFlag: option('--public') ?? null, used}));
+`;
+
+function rollbackWithStub(env, dir) {
+  const stubDir = mkdtempSync(join(tmpdir(), 'stub-firebase-'));
+  const out = join(stubDir, 'out.json');
+  writeFileSync(join(stubDir, 'firebase'), stubFirebase, {mode: 0o755});
+  const run = spawnSync('/bin/bash', [rollback, env, dir], {
+    encoding: 'utf8',
+    env: {PATH: `${stubDir}:/usr/bin:/bin:${process.execPath.replace(/\/node$/, '')}`, STUB_OUT: out, PANTAS_GUARD_PINS: pinsFile},
+  });
+  const recorded = existsSync(out) ? JSON.parse(readFileSync(out, 'utf8')) : null;
+  rmSync(stubDir, {recursive: true});
+  return {run, recorded};
+}
+
+test('audit 3 High: the rollback works with the repository\'s real hosting configs (array form), staging and prod', () => {
+  for (const env of ['staging', 'prod']) {
+    const build = stamped();
+    if (env === 'staging') {
+      edit(build.dir, `${build.base}main.dart.js`, text => text + `\nvar k = "${STAGING_KEY}";`);
+      stamp(build.dir);
+    }
+    const {run, recorded} = rollbackWithStub(env, build.dir);
+    assert.equal(run.status, 0, `${env}: ${run.stdout}${run.stderr}`);
+    assert.equal(recorded.publicFlag, null, 'no --public flag');
+    assert.equal(recorded.project, `pantas-${env}`);
+    assert.equal(recorded.used.length, 1);
+    const [entry] = recorded.used;
+    assert.equal(entry.target, 'app');
+    assert.equal(realpathSync(entry.public), realpathSync(build.dir), 'publishes the build folder given');
+    // Everything else of the repository's `app` entry is kept: its rewrite and its cache headers.
+    const real = JSON.parse(readFileSync(join(repo, env === 'prod' ? 'firebase.json' : 'firebase.staging.json'), 'utf8')).hosting.find(site => site.target === 'app');
+    assert.deepEqual({...entry, public: null}, {...real, public: null});
+    assert.ok(!existsSync(join(repo, recorded.configFile)), 'the temporary config is removed');
+    done(build);
+  }
+});
+
+test('audit 3 High: the rollback still stops at the guard, before any config is written or firebase runs', () => {
+  const build = stamped();
+  const {run, recorded} = rollbackWithStub('prod', build.dir.replace(/\/?$/, '/missing'));
+  assert.notEqual(run.status, 0);
+  assert.equal(recorded, null);
   done(build);
 });
 
