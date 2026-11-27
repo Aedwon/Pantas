@@ -1342,6 +1342,54 @@ void main() {
       expect(after.top - math.bottom, 28);
     });
 
+    // Aedwon, Nov 28: subsections need more space from each other. A heading
+    // has more space above than below, so it groups with its own content, and
+    // a section (h2) has more above than a subsection (h3).
+    testWidgets('old format: h3 has 40 above, 8 below; h2 has 56 above',
+        (tester) async {
+      await _pump(tester, [
+        _p('Core Concept', style: 'h2'),
+        _p('First paragraph.'),
+        _p('Old subhead one', style: 'h3'),
+        _p('Text under one.'),
+        latex,
+        _p('Old subhead two', style: 'h3'),
+        _p('Text under two.'),
+        _p('Examples', style: 'h2'),
+        _p('Text under the section.'),
+      ]);
+      final one = tester.getRect(_rich('Old subhead one'));
+      final two = tester.getRect(_rich('Old subhead two'));
+      final math = tester.getRect(find.byType(MathExpression).last);
+      expect(
+        one.top - tester.getRect(_rich('First paragraph.')).bottom,
+        40,
+      );
+      expect(two.top - math.bottom, 40);
+      expect(tester.getRect(_rich('Text under one.')).top - one.bottom, 8);
+      expect(tester.getRect(_rich('Text under two.')).top - two.bottom, 8);
+      final h2 = tester.getRect(_rich('Examples'));
+      final above = h2.top - tester.getRect(_rich('Text under two.')).bottom;
+      expect(above, 56);
+      expect(above, greaterThan(two.top - math.bottom));
+    });
+
+    testWidgets('walk-through: h3 after a Quick Check has 40 above, 8 below',
+        (tester) async {
+      await _pump(tester, [
+        _p('Core Concept', style: 'h2'),
+        _p('A paragraph.'),
+        _check('Q?', 'A.'),
+        _p('Walk subhead', style: 'h3'),
+        _p('Text under the walk subhead.'),
+      ]);
+      final card = tester.getRect(_key('walk-card'));
+      final head = tester.getRect(_rich('Walk subhead'));
+      expect(head.top - card.bottom, 40);
+      final under = tester.getRect(_rich('Text under the walk subhead.'));
+      expect(under.top - head.bottom, 8);
+    });
+
     for (final wide in [false, true]) {
       testWidgets(
           'answer lines with fractions do not overlap, '

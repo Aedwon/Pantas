@@ -1084,11 +1084,12 @@ class ContentRenderer extends StatelessWidget {
           items[index - 1] is ReaderPlain &&
           (items[index - 1] as ReaderPlain).block['_type'] == 'latex';
       final (rhythmAbove, below) = switch (style) {
-        // ReaderLayout rhythm: 16 between blocks, h2 40 above and 12 under,
-        // h3 28 above and 8 under. Display math has no value in the system
-        // and takes the h3 rhythm.
-        'h2' => (PantasSpace.s40, PantasSpace.s12),
-        'h3' => (PantasSpace.s28, PantasSpace.s8),
+        // ReaderLayout rhythm: 16 between blocks, h2 56 above and 12 under,
+        // h3 40 above and 8 under (Aedwon, Nov 28: more space above a
+        // heading than under it, so it groups with its own content, and a
+        // section stays more separated than a subsection).
+        'h2' => (PantasSpace.s56, PantasSpace.s12),
+        'h3' => (PantasSpace.s40, PantasSpace.s8),
         // Walk-through parts (walk.css): "Why?" is pulled up 10 under the
         // block before it; a card inside a solution has 8 above and 16 under;
         // every other part has 18 under.
