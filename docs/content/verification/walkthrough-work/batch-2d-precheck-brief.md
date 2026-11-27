@@ -18,5 +18,9 @@ What Codex found in batch 2c that the pre-check missed (look for these on purpos
 - A Wrong line with an extra, uncited mistake, or one whose wrong method still reaches the right verdict.
 - A "Why" question that names the wrong thing being grouped or compared.
 
+Placement (manager, Nov 28; Aedwon's Nov 26 connection rule): an illustration sits after the text that gives its
+numbers. Flag a picture placed before the line that introduces its numbers, or whose numbers appear only in a hidden
+`:::why` or `:::answer` (Major).
+
 Findings files: Worker 1 `docs/content/verification/walkthrough-work/batch-2d-precheck-findings.md`, Worker 2
 `docs/content/verification/walkthrough-work/batch-2d-recompute-findings.md`.

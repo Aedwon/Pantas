@@ -15,3 +15,6 @@ Follow `codex-math-2d-r1.brief.md` in this folder in full (and the briefs it poi
   whole. Measure from the SVG coordinates. A shape that implies a size the text contradicts (for example, equal containers
   for unequal volumes) is a Major; one that leads to a wrong value is a Blocker. A shape with no implied size (equal boxes
   for unknowns, no waterline) is fine.
+- Placement (manager, Nov 28, from the release lead's staging check; Aedwon's Nov 26 connection rule): an illustration sits
+  after the text that gives its numbers. A picture placed before the line that introduces its numbers, or whose numbers
+  appear only in a hidden `:::why` or `:::answer`, is a Major.

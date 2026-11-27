@@ -16,5 +16,9 @@ What Codex found in batch 2b that the pre-check missed (look for these on purpos
 - A display line that ends at a partial expression the next line repeats (Major).
 - A loose statement of where something sits (a fraction bar, a digit place) or a rounded value converted again (Major).
 
+Placement (manager, Nov 28; Aedwon's Nov 26 connection rule): an illustration sits after the text that gives its
+numbers. Flag a picture placed before the line that introduces its numbers, or whose numbers appear only in a hidden
+`:::why` or `:::answer` (Major). Added after this batch's pre-check ran; kept here for the record and for reuse.
+
 Findings files: Worker 1 `docs/content/verification/walkthrough-work/batch-2c-precheck-findings.md`, Worker 2
 `docs/content/verification/walkthrough-work/batch-2c-recompute-findings.md`.
