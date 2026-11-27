@@ -86,7 +86,7 @@ Why does $S_n=\dfrac{a_1(1-r^n)}{1-r}$, the sum of the first $n$ terms, simplify
 :::pair #add-ratio-in-denominator
 Right: $12\div\left(1-\dfrac{1}{3}\right)=12\div\dfrac{2}{3}=18$
 Wrong: $12\div\left(1+\dfrac{1}{3}\right)=12\div\dfrac{4}{3}=9$
-Adding $1+r$ instead of subtracting $1-r$ makes the denominator too large and shrinks the sum to $9$.
+Subtract $r$ from $1$ to get $1-r$. Adding $r$ to $1$ makes the denominator too large and shrinks the sum to $9$.
 :::
 
 :::pair #divide-by-ratio-only
@@ -151,6 +151,6 @@ The answer is no, it does not have a finite sum. Here $|r|=|2|=2$, which is not 
 
 :::checklist
 - Before using $S_\infty=\dfrac{a_1}{1-r}$ (including alternating series): when $a_1\neq 0$, check $|r|<1$ first, because nonzero series with $|r|\ge 1$ diverge. {#when-an-infinite-geometric-series-converges}
-- Finding the denominator of $S_\infty$: subtract $1-r$, not add $1+r$ ($12\div\left(1-\dfrac{1}{3}\right)=18$). {#add-ratio-in-denominator}
+- Finding the denominator of $S_\infty$: subtract $r$ from $1$ to get $1-r$, not add $r$ ($12\div\left(1-\dfrac{1}{3}\right)=18$). {#add-ratio-in-denominator}
 - Applying $S_\infty=\dfrac{a_1}{1-r}$: divide by $1-r$, not by $r$ alone. {#divide-by-ratio-only}
 :::

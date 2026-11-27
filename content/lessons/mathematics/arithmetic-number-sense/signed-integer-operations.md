@@ -223,5 +223,5 @@ The answer is $1$. The signs are different, so subtract $4-3=1$. The number $4$ 
 :::checklist
 - A minus sign right before a negative number: change the minus to a plus and the number to its opposite, so $18-(-18)=18+18=36$. {#subtract-negative}
 - Different signs in a product or quotient: the answer is negative, so $(-28)\div7=-4$. {#quotient-sign}
-- Adding numbers with different signs: take the sign of the number farther from $0$, so $(-7)+4=-3$. {#adding-two-numbers-with-different-signs}
+- Adding numbers with different signs: take the sign of the number farther from $0$, so $(-7)+4=-3$; if both are the same distance from $0$, the sum is $0$. {#adding-two-numbers-with-different-signs}
 :::

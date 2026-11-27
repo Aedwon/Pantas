@@ -18,7 +18,7 @@ A **sequence** is an ordered list of numbers called **terms**. A **series** is a
 
 ### Identifying a Geometric Sequence and Ratio
 
-A **geometric sequence** multiplies each term by the same constant number to make the next term. That multiplier is the **common ratio** $r$. Divide a term by the nonzero term right before it to find $r$. Check every shown pair of neighbors that has a nonzero first term. If any ratio differs, the sequence is not geometric.
+A **geometric sequence** multiplies each term by the same constant number to make the next term. That multiplier is the **common ratio** $r$. Divide a term by the nonzero term right before it to find $r$. Check every shown pair of neighbors that has a nonzero first term. A $0$ must be followed by $0$; if a $0$ is followed by a nonzero term, the list is not geometric. If any ratio differs, the sequence is not geometric.
 
 Check the sequence $3,6,12,24,48,\dots$.
 
@@ -28,6 +28,8 @@ $$12\div6=2$$
 
 $$24\div12=2$$
 
+$$48\div24=2$$
+
 Each quotient is $2$, so the sequence is geometric with $r=2$.
 
 A geometric sequence can shrink when $r$ is a fraction between $0$ and $1$, or switch signs when $r$ is negative. Check $81,27,9,3,\dots$:
@@ -35,6 +37,8 @@ A geometric sequence can shrink when $r$ is a fraction between $0$ and $1$, or s
 $$27\div81=\dfrac{1}{3}$$
 
 $$9\div27=\dfrac{1}{3}$$
+
+$$3\div9=\dfrac{1}{3}$$
 
 Here $r=\dfrac{1}{3}$. In a geometric sequence with nonzero terms, consecutive ratios match, so any three consecutive terms $a_1,a_2,a_3$ satisfy $\dfrac{a_2}{a_1}=\dfrac{a_3}{a_2}$, or $a_2^2=a_1a_3$. Find the middle term $x$ in $4,x,36$:
 
@@ -45,7 +49,7 @@ $$x^2=144$$
 So $x=12$, or $x=-12$ if negative terms are allowed.
 
 :::pair #check-only-first-difference
-Right: For $3,6,12,24,\dots$, $6\div3=2$ and $12\div6=2$, so it is geometric with ratio $2$.
+Right: For $3,6,12,24,\dots$, $6\div3=2$, $12\div6=2$ and $24\div12=2$, so it is geometric with ratio $2$.
 Wrong: For $3,6,12,24,\dots$, $6-3=3$, so it is arithmetic with difference $3$.
 The first jump is $+3$, but the next jump is $12-6=6$. Check every shown pair of neighbors before naming the type.
 :::
@@ -116,9 +120,11 @@ Find the $8^{\text{th}}$ term of the geometric sequence $3,-6,12,-24,\dots$.
 
 $$r=\dfrac{-6}{3}=-2$$
 
-Check with the next pair.
+Check with the other two pairs.
 
 $$\dfrac{12}{-6}=-2$$
+
+$$\dfrac{-24}{12}=-2$$
 
 2. Find the exponent for the $8^{\text{th}}$ term.
 

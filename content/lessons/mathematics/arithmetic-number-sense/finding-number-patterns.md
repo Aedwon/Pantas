@@ -29,7 +29,7 @@ $$10-7=3$$
 
 $$13-10=3$$
 
-2. Divide each term by the nonzero term before it. If the ratio stays the same, multiply by that constant number each step.
+2. Divide each term by the nonzero term before it. If the ratio stays the same, multiply by that constant number each step. A $0$ must be followed by $0$; if a $0$ is followed by a nonzero term, the list is not geometric.
 
 $$2,6,18,54,\dots$$
 

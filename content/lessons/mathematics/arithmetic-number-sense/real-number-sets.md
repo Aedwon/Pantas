@@ -113,7 +113,7 @@ D) A repeating nonterminating decimal is rational.
 3. Check D: a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction, so D is true.
 
 :::try
-Finish the last step. Check B: put $\sqrt{12}\times\sqrt{3}$ under one root. What is its exact value?
+Finish the last step. Check B: what is the exact value of $\sqrt{12}\times\sqrt{3}$, and what does it show about B?
 :::answer
 The answer is $6$. $\sqrt{12}\times\sqrt{3}=\sqrt{36}=6$. Since $6$ is rational, B is false, so B is the false statement.
 :::

@@ -156,6 +156,8 @@ $$4(5)=20$$
 
 $$S_5=25+20=45$$
 
+Two partial sums that differ by one term leave that term. For another sequence, if $S_3=21$ and $S_2=10$, then $a_3=21-10=11$.
+
 :::try
 Use $S_6$ and $S_5$ to find $a_6$.
 :::answer
