@@ -42,7 +42,7 @@ Why does simple interest grow by the same amount every year? Each year charges $
 :::
 
 :::pair #interest-instead-of-total
-Right: $\text{Total to repay}=50,000+3,750=\text{Php }53,750$
+Right: Php $50,000$ at $5\%$ for $1.5$ years: $I=50,000\times0.05\times1.5=3,750$, so the total to repay is $50,000+3,750=\text{Php }53,750$
 Wrong: $\text{Total to repay}=\text{Php }3,750$
 Php $3,750$ is only the interest. When a question asks for the total amount to repay or the final balance, add the original principal back in.
 :::

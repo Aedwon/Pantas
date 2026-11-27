@@ -124,7 +124,7 @@ Read the title, row labels, column labels, and unit note before calculating anyt
 ## Traps to Watch For
 
 :::checklist
-- Table unit in thousands or millions: multiply your sum or cell reading by the stated unit before answering. {#missing-unit-scale}
+- Table unit in thousands or millions, answer asked in pesos: multiply your sum or cell reading by the stated unit. {#missing-unit-scale}
 - Summing down a column or across a row: double-check the label on every entry so an adjacent column does not slip in. {#wrong-column-entry}
 - "How many more" or "exceed" questions: subtract the smaller total from the larger total. {#reverse-difference-order}
 :::

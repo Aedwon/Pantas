@@ -60,7 +60,7 @@ A **percentage** means "per hundred" or "out of $100$." The symbol $\%$ means pe
 
 - Percent to decimal: divide by $100$ (move the decimal point $2$ places left).
 - Decimal to percent: multiply by $100$ (move the decimal point $2$ places right) and attach $\%$.
-- Percent to fraction: write the percent number over $100$ and simplify.
+- Percent to fraction: write the percent number over $100$ and simplify. If the percent has a decimal point, change it to a decimal first and use the steps above.
 
 $$p\%=\dfrac{p}{100}$$
 

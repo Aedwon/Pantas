@@ -70,9 +70,9 @@ The wrong equation added $6$ to Ana's age and forgot the mother. Time passes for
 :::
 
 :::check
-Carlo is $c$ years old now, and his father is $56-c$. How do you write both of their ages $4$ years ago?
+Carlo is $c$ years old now, and his father is $56-c$. What will the sum of their ages be in $7$ years?
 :::answer
-The answer is $c-4$ and $52-c$. Subtract $4$ from each current age, and $56-4=52$.
+The answer is $70$. Add $7$ to each age: $(c+7)+(56-c+7)=c+7+63-c=70$.
 :::
 
 ### Checking Which Person and Time Are Asked

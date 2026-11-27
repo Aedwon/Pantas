@@ -32,24 +32,18 @@ $$\text{Base}=\dfrac{\text{Part}}{\text{Rate}}$$
 
 $$\text{Rate}=\dfrac{\text{Part}}{\text{Base}}$$
 
-Try finding the base when $40\%$ of a number is $72$. Here the part is $72$, the rate is $0.40$, and the base is unknown.
+Try finding the base when $25\%$ of a number is $60$. Here the part is $60$, the rate is $0.25$, and the base is unknown.
 
-$$\text{Base}=\dfrac{72}{0.40}$$
+$$\text{Base}=\dfrac{60}{0.25}$$
 
 Move both decimal points $2$ places right to divide by a whole number.
 
-$$\text{Base}=\dfrac{7,200}{40}=180$$
+$$\text{Base}=\dfrac{6,000}{25}=240$$
 
 You can only divide by a nonzero rate or a nonzero base.
 
 :::why
 Why does dividing the part by the rate give the base? Because $\text{Part}=\text{Rate}\times\text{Base}$. Dividing both sides by the rate undoes the multiplication and leaves the base alone.
-:::
-
-:::pair #wrong-percentage-base
-Right: $40\%$ of a set is $72$ -> base $=180$, so $15\%$ of the set $=0.15\times180=27$
-Wrong: $15\%$ of the set $=0.15\times72=10.8$
-Here $72$ is only the $40\%$ part, not the whole set. Find the base before taking another percent.
 :::
 
 :::check
@@ -106,6 +100,12 @@ After completing $40\%$ of a practice set, a student has answered $72$ questions
 
 $$\text{Base}=\dfrac{72}{0.40}$$
 
+:::pair #wrong-percentage-base
+Right: find the base first, $72\div0.40$, then take $15\%$ of it
+Wrong: $15\%$ of the set $=0.15\times72=10.8$
+Here $72$ is only the $40\%$ part, not the whole set. Find the base before taking another percent.
+:::
+
 2. Divide to find the base:
 
 $$\text{Base}=\dfrac{7,200}{40}=180$$
@@ -154,7 +154,7 @@ For any two numbers $x$ and $y$, $x\%$ of $y$ equals $y\%$ of $x$. For example, 
 
 ### Find $10\%$ First
 
-To find $15\%$ mentally, find $10\%$, take half of it for $5\%$, and add them. For $180$, $10\%$ is $18$ and $5\%$ is $9$, so $15\%$ is $18+9=27$.
+To find $15\%$ mentally, find $10\%$, take half of it for $5\%$, and add them. For $240$, $10\%$ is $24$ and $5\%$ is $12$, so $15\%$ is $24+12=36$.
 
 ## Traps to Watch For
 
