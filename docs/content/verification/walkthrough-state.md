@@ -47,6 +47,9 @@
 - Survey: all 45 non-pilot drafts are still in the old format (1 to 5 Quick Checks, 0 to 4 Check lines each); 23 have a hidden figure note.
 - Pause: 11:40 PM for the 12:05 AM opening (task `scheduled-task:6913067b-ced2-4fdd-a31e-89de5994d83c`, 11:35 PM). Resume on the manager's message.
 - Status: plan written, sent to the manager; no lesson or figure writes yet.
+- Manager approved the plan (about 11:06 PM) and corrected the bar: it uses 200, 60 and 30% to match line 25 beside it.
+- P0 done (`3b9719190`, `walkthrough-work/figure-pipeline-notes.md`): pictures are SVG files on the existing ILLUSTRATION route (lead ruling); no new code figure kind.
+- Paused 11:35 PM for the opening: no workers or Codex running; timer E-206 paused. Next on resume: draw the Percentage Base bar and triangle, then the batch 2a slim pass.
 
 ## Session 5 (Nov 27, from 2:20 PM Manila, E-198)
 
