@@ -29,7 +29,7 @@ Test Section $12(1)$ when police summon a delivery driver to a precinct under an
 
 :::pair #custody-by-restraint
 Right: Custodial safeguards attach when a suspect's freedom is significantly restricted during questioning.
-Wrong: Waiting for a formal arrest announcement or a signed statement before giving warnings.
+Wrong: Waiting for investigators to announce a formal arrest before custodial safeguards apply.
 Significant restraint during suspect questioning, not an arrest label, triggers Section $12(1)$.
 :::
 
@@ -79,7 +79,7 @@ Why require both writing and counsel? Writing prevents disputes over what was ag
 
 :::pair #waiver-both-writing-and-counsel
 Right: A valid custodial waiver requires both a written form and counsel's presence.
-Wrong: Treating an oral agreement before counsel, or an officer's memory, as enough.
+Wrong: Treating an oral agreement heard by counsel as enough without putting it in writing.
 Both writing and counsel's presence are mandatory under Section $12(1)$.
 :::
 
@@ -93,45 +93,45 @@ The answer is **No**. Section $12(1)$ requires a written waiver in the presence 
 
 ### #1: Choosing Silence
 
-During custodial investigation, a suspect says that she will remain silent. Investigators insist that she must answer their questions. Which right directly applies?
+In custody, a suspect chooses silence. Investigators insist she must answer. Which right applies?
 
 **Solution:**
 
-1. Check the setting: questioning a suspect in custody triggers Article III, Section $12(1)$.
-2. Apply the rule: Section $12(1)$ protects the right to remain silent.
+1. Setting: custodial questioning triggers Article III, Section $12(1)$.
+2. Rule: Section $12(1)$ protects the right to remain silent.
 
 Answer: The right to remain silent under Article III, Section $12(1)$.
 
-**Check:** Custodial questioning never lets investigators force answers against a suspect's choice of silence.
+**Check:** Custodial questioning never lets investigators force answers against silence.
 
 ### #2: No Money for Counsel
 
-A suspect in custodial investigation asks for a lawyer but cannot afford one. Investigators say that questioning must continue without counsel because the suspect cannot pay. What does Section $12$ require?
+An indigent suspect in custody asks for counsel. Investigators continue questioning because she cannot pay. What does Section $12$ require?
 
 **Solution:**
 
-1. Check the right: Section $12(1)$ guarantees competent and independent counsel, preferably of the suspect's choice.
-2. Check inability to pay: counsel must be provided if the suspect cannot pay.
+1. Right: Section $12(1)$ guarantees competent, independent counsel.
+2. Poverty: free counsel must be provided.
 
-Answer: Investigators must provide free competent and independent counsel before questioning.
+Answer: Provide free competent, independent counsel before questioning.
 
-**Check:** Lack of money never removes the right to counsel under Section $12(1)$.
+**Check:** Inability to pay never removes custodial counsel.
 
-### #3: Waiver While Alone
+### #3: Invitation, Non-Independent Counsel, and Waiver
 
-A suspect signs a written waiver of custodial rights while no lawyer is present. Does the signature alone meet the constitutional waiver requirements?
+Officers summon a clerk under an RA $7438$ invitation. With no independent lawyer there, he signs a waiver beside a precinct employee. Later, an independent lawyer hears him orally waive silence. Rule on both waivers.
 
 **Solution:**
 
-1. Check writing: signing a form satisfies the written requirement.
-2. Check counsel: Section $12(1)$ also requires the presence of counsel.
+1. Test the printed waiver against Section $12(1)$'s independent-counsel rule.
+2. Test the oral agreement against Section $12(1)$'s writing rule.
 
 :::try
-Finish the last step: rule on the signature and contrast it with an oral waiver made in counsel's presence.
+Finish the last step: rule on both the printed waiver and the later oral agreement under Section $12(1)$.
 :::answer
-The answer is **No, the signature fails without counsel present**. An oral waiver before counsel also fails because writing is missing. Both requirements in Article III, Section $12(1)$ must exist together.
+The answer is **Both waivers fail Section $12(1)$ because the printed form lacked independent counsel and the oral agreement lacked writing.** A precinct employee is not competent, independent counsel, and an oral waiver before counsel still fails the writing rule.
 
-**Check:** A written waiver without counsel fails presence, while an oral waiver with counsel fails the writing rule.
+**Check:** Under Section $12(1)$, a valid custodial waiver needs both writing and the presence of competent, independent counsel together.
 :::
 
 ## Traps to Watch For
@@ -139,5 +139,5 @@ The answer is **No, the signature fails without counsel present**. An oral waive
 :::checklist
 - Suspect detained without a formal arrest label: apply Section $12(1)$ once liberty is significantly restricted. {#custody-by-restraint}
 - Suspect cannot pay for a lawyer in custody: provide competent, independent counsel free of charge. {#counsel-free-if-indigent}
-- Custodial waiver offered orally or signed alone: require both writing and counsel's presence. {#waiver-both-writing-and-counsel}
+- Oral custodial waiver heard by counsel: require putting the waiver in writing alongside counsel's presence. {#waiver-both-writing-and-counsel}
 :::

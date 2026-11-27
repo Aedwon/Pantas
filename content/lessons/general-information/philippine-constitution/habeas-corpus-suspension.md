@@ -26,7 +26,7 @@ Test Section $15$ when police hold a delivery driver in a station cell for four 
 
 :::pair #habeas-protects-liberty
 Right: The privilege of the writ of *habeas corpus* protects personal liberty against unlawful detention.
-Wrong: Treating *habeas corpus* as a remedy for property tax assessments or municipal land disputes.
+Wrong: Treating *habeas corpus* as a remedy for property rights in municipal land disputes.
 Check whether the dispute challenges unlawful custody of a person rather than property or taxes.
 :::
 
@@ -45,7 +45,7 @@ Article III, Section $15$ allows suspension of the privilege of the writ **only 
 
 Invasion and rebellion need not occur together, yet a general emergency label never replaces armed invasion or rebellion. Likewise, administrative convenience never replaces public safety.
 
-Limits stay intact during valid suspension under Article III, Section $13$ and Article VII, Section $18$. Suspension never makes every detention lawful or cancels bail or trial safeguards. Detainees must be judicially charged within $3$ days or released.
+Limits stay intact during valid suspension under Article III, Section $13$ and Article VII, Section $18$. Suspension never makes every detention lawful or cancels bail or trial safeguards. Under Article VII, Section $18$, the suspension applies only to persons judicially charged for rebellion or offenses directly connected with invasion. Any person arrested or detained under that suspension must be judicially charged within $3$ days or released.
 
 Test an arrest of a peaceful tenant for unpaid rent during a valid rebellion suspension:
 
@@ -64,7 +64,7 @@ Both prongs in Section $15$ must hold, and a storm or calamity label never repla
 
 :::pair #suspension-never-blank-power
 Right: Valid suspension leaves limits intact and never makes every detention lawful or cancels trial safeguards.
-Wrong: Claiming valid suspension makes every detention lawful or erases all trial protections.
+Wrong: Claiming valid suspension supplies a legal basis making every detention lawful.
 Even when validly suspended, detention stays bounded by law, the $3$-day charge rule, and the right to bail.
 :::
 
@@ -104,17 +104,17 @@ Answer: No, Section $15$ forbids suspension without invasion or rebellion.
 
 ### #3: Five Days Uncharged During Rebellion
 
-During an actual rebellion, officials validly suspend the privilege of the writ of *habeas corpus* for public safety. A camp commander holds a local journalist for $5$ days with no court charge and refuses her bail application on a bailable offense. He claims the suspension removes all custody deadlines and bail rights. Is the commander right?
+During an actual rebellion, officials validly suspend the privilege of the writ of *habeas corpus* for public safety. A camp commander detains a local journalist under the suspension, claiming a connection to the rebellion. He holds her for $5$ days with no court charge and refuses bail on a bailable offense. He claims the suspension removes all custody deadlines and bail rights. Is the commander right?
 
 **Solution:**
 
-1. Check the suspension context: rebellion and public safety support suspending the writ privilege for covered cases.
-2. Check constitutional limits: Article III, Section $13$ keeps bail intact, and Article VII, Section $18$ requires judicial charging within $3$ days or release.
+1. Check the scope of the valid rebellion suspension and the ground claimed for holding the journalist.
+2. Test the $5$-day uncharged detention against Article VII, Section $18$ and the bail refusal against Article III, Section $13$.
 
 :::try
 Finish the last step: rule on the $5$-day uncharged detention and the refusal of bail under the Constitution.
 :::answer
-The answer is **No, the commander violates both the $3$-day charging rule and the right to bail.** Under Article VII, Section $18$, a detainee must be judicially charged within $3$ days or released. Under Article III, Section $13$, suspension never impairs the right to bail.
+The answer is **No, the commander violates both the $3$-day charging rule and the right to bail.** Under Article VII, Section $18$, a person arrested or detained under the suspension must be judicially charged within $3$ days or released. Under Article III, Section $13$, suspension never impairs the right to bail.
 
 **Check:** Valid suspension under Section $15$ leaves both the $3$-day court-charge deadline and bail rights fully in force.
 :::

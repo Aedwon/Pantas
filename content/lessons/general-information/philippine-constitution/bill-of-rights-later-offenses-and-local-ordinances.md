@@ -55,7 +55,7 @@ Test Section $21$ when a vendor is validly convicted and fined under a city litt
 
 :::pair #ordinance-and-national-same-act
 Right: Under Section $21$, conviction or acquittal under an ordinance bars a national trial for the same act.
-Wrong: Allowing a second trial because national law outranks an ordinance or seeks another penalty.
+Wrong: Allowing a national prosecution for the same act because national laws outrank local ordinances.
 Section $21$'s second sentence treats national laws and ordinances equally for one act.
 :::
 
@@ -66,38 +66,38 @@ Section $21$ explicitly states that "conviction or acquittal under either" bars 
 :::
 
 :::check
-A motorist is acquitted under a national traffic law for running a red light. Can a city prosecute that exact act under an ordinance?
+A motorist is convicted under a national traffic law for running a red light. Can a city prosecute that exact act under an ordinance?
 :::answer
-The answer is **No**. Under Article III, Section $21$, acquittal under the national law bars prosecution under the ordinance.
+The answer is **No**. Under Article III, Section $21$, conviction under the national law bars prosecution under the ordinance.
 :::
 
 ## Examples
 
-### #1: A Graver Offense Develops Later
+### #1: Already-Known Harm Before Conviction
 
-An accused is convicted of physical injuries after a valid first case. The victim later dies from those injuries, so a graver offense develops after conviction. Does the first conviction always bar prosecution for that graver offense?
-
-**Solution:**
-
-1. Check timing: the victim's death happened after conviction, creating a graver offense from the same act.
-2. Apply Rule $117$, Section $7(a)$: supervening facts allow a later trial, though guilt still needs proof.
-
-Answer: No, the first conviction does not automatically bar the later prosecution.
-
-**Check:** Because the graver crime arose from supervening facts after conviction, Rule $117$, Section $7(a)$ creates an exception.
-
-### #2: One Act Under a Law and an Ordinance
-
-A person is acquitted under a national law. A local ordinance punishes the same act. May another prosecution proceed under the ordinance for that act?
+Hospital X-rays before a suspect's arraignment already show a broken jaw from a street fight. Prosecutors still charge and convict him only of slight physical injuries. Later, they file serious physical injuries for that same broken jaw, citing Rule $117$, Section $7(a)$. Does the exception apply?
 
 **Solution:**
 
-1. Identify the two rules: a national law and a local ordinance punish the same act.
-2. Apply Article III, Section $21$: acquittal under either bars prosecution under the other for that act.
+1. Check when the broken jaw appeared: X-rays proved the injury before conviction, so no new fact developed later.
+2. Apply Rule $117$, Section $7(a)$: the exception covers only a graver offense caused by supervening facts after conviction.
 
-Answer: No, the second prosecution under the ordinance is barred.
+Answer: No, double jeopardy bars the second trial because no supervening fact arose after conviction.
 
-**Check:** Section $21$ protects one act against successive trials under national and local measures.
+**Check:** Rule $117$, Section $7(a)$ applies when a graver result develops after conviction, not when prosecutors undercharge known facts.
+
+### #2: Same Act vs. a Separate Day's Act
+
+A boat owner is validly convicted under a national fishery law for dumping oil into a bay on Monday. On Friday, he dumps oil into the bay again. City prosecutors file an ordinance charge for Monday's act and another ordinance charge for Friday's act. Which charge is barred?
+
+**Solution:**
+
+1. Check Monday's act: both the national law and the city ordinance punish the exact same Monday dumping.
+2. Check Friday's act: dumping oil on Friday is a separate act, not covered by Monday's conviction.
+
+Answer: Section $21$ bars the ordinance charge for Monday's act, while Friday's separate act may be prosecuted.
+
+**Check:** Section $21$'s law-and-ordinance rule bars a second trial only for the same act, not a new act on another day.
 
 ### #3: City Smoke Conviction and a National Charge
 
@@ -106,7 +106,7 @@ A driver is validly convicted and fined under a city smoke-belching ordinance fo
 **Solution:**
 
 1. Check the act: both the ordinance and the national law target the exact same exhaust act.
-2. Check rank, penalty, and outcome: Section $21$ bars retrial despite national rank, another penalty, or conviction.
+2. Test the prosecutor's rank, penalty, and prior-conviction arguments against Section $21$'s law-and-ordinance rule.
 
 :::try
 Finish the last step: rule on the national case and answer the prosecutor's rank, penalty, and conviction claims.
@@ -120,6 +120,6 @@ The answer is **No, the national trial is barred under Article III, Section $21$
 
 :::checklist
 - Graver harm happens after conviction: apply Rule $117$'s supervening-fact exception without assuming guilt. {#supervening-graver-offense}
-- Act violates both a law and an ordinance: block retrial despite national rank or penalty differences. {#ordinance-and-national-same-act}
+- Act violates both a law and an ordinance: block retrial despite national rank. {#ordinance-and-national-same-act}
 - First ordinance case ended in conviction: bar retrial because conviction and acquittal both trigger Section $21$. {#conviction-and-acquittal-both-bar}
 :::

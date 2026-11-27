@@ -66,14 +66,14 @@ All three Section $14(2)$ conditions must hold together, and when all three hold
 
 :::pair #absence-not-proof-of-guilt
 Right: Lawful trial in absence lets the hearing proceed while the accused stays presumed innocent.
-Wrong: Treating unjustified absence after notice as proving guilt or forcing dismissal.
+Wrong: Treating an accused's unjustified absence after due notice as proof of guilt.
 The prosecution must still prove guilt even when trial proceeds in absence.
 :::
 
 :::check
-An accused skips her arraignment date without excuse after receiving notice, before any plea is entered. May trial proceed?
+A court lets a trial proceed in absence after arraignment, due notice, and an unexcused absence. Does that excuse the prosecutor from calling witnesses?
 :::answer
-The answer is **No**. Article III, Section $14(2)$ permits trial in absence only after arraignment.
+The answer is **No**. Even during a lawful trial in absence, absence never proves guilt, so the prosecution must still prove its case.
 :::
 
 ## Examples
@@ -91,34 +91,34 @@ Answer: Both confrontation of witnesses and compulsory process under Article III
 
 **Check:** Confrontation tests prosecution witnesses in court, while compulsory process brings reluctant defense witnesses and evidence.
 
-### #2: Absence After Arraignment
+### #2: Blocked Roads After Arraignment
 
-After arraignment, an accused person receives proper notice of trial but stays away without a valid reason. May the trial proceed despite the absence?
-
-**Solution:**
-
-1. Check prior steps: arraignment occurred, and the accused received proper notice.
-2. Check the excuse: the absence has no valid reason, meeting all three Section $14(2)$ conditions.
-
-Answer: Yes, Section $14(2)$ permits trial to proceed, though the prosecution must still prove guilt.
-
-**Check:** Arraignment, due notice, and unjustifiable absence allow trial to continue without shifting the burden of proof.
-
-### #3: Missing Notice After Plea
-
-An accused person pleads not guilty at arraignment, moves houses, and never receives notice of a new hearing date. When he misses court, the prosecutor asks to proceed with trial and treat his absence as proof of guilt. How does Section $14(2)$ apply?
+A ferry captain pleads not guilty at arraignment and receives timely notice of Tuesday's trial. On Tuesday morning, a mudslide closes the only mountain highway from his island port, so no vehicle can pass. May the court hold the trial without him?
 
 **Solution:**
 
-1. Check trial in absence: arraignment occurred, yet proper notice of the hearing was never given.
-2. Check absence effect: even a lawful trial in absence never proves guilt.
+1. Check prior steps: arraignment already occurred, and the captain received due notice of the hearing.
+2. Check the cause of absence: an impassable mudslide blocking the only route makes his absence justifiable.
+
+Answer: No, Section $14(2)$ bars trial in his absence because his failure to appear is justifiable.
+
+**Check:** Trial in absence requires an unjustifiable absence alongside prior arraignment and due notice.
+
+### #3: Skipping Arraignment Without Excuse
+
+A driver charged with reckless imprudence receives proper notice of his arraignment date, yet stays home without any valid excuse before entering a plea. The prosecutor asks the court to hold the trial anyway and treat his absence as proof of guilt. How does Section $14(2)$ apply?
+
+**Solution:**
+
+1. Check whether the three Section $14(2)$ conditions for trial in absence are met.
+2. Check what Section $14(2)$ says about whether trial absence proves guilt.
 
 :::try
-Finish the last step: rule on both the request to proceed without notice and the claim that absence proves guilt.
+Finish the last step: rule on whether trial may proceed before arraignment and whether the driver's absence proves guilt.
 :::answer
-The answer is **Trial cannot proceed without proper notice, and absence never proves guilt**. Under Article III, Section $14(2)$, trial in absence requires prior arraignment, due notice, and an unjustifiable absence. Even then, the accused stays presumed innocent.
+The answer is **Trial cannot proceed before arraignment, and absence never proves guilt.** Under Article III, Section $14(2)$, trial in absence requires prior arraignment alongside due notice and an unjustifiable absence. Even when trial lawfully proceeds in absence, the prosecution must still prove guilt.
 
-**Check:** Missing notice defeats trial in absence, and absence never substitutes for proof of the crime.
+**Check:** Missing arraignment bars trial in absence, and absence never replaces proof of the offense.
 :::
 
 ## Traps to Watch For
@@ -126,5 +126,5 @@ The answer is **Trial cannot proceed without proper notice, and absence never pr
 :::checklist
 - Defense barred from questioning a state witness: apply confrontation, not compulsory process. {#confrontation-vs-compulsory}
 - Accused misses trial after arraignment: verify proper notice and no valid excuse before proceeding. {#absence-needs-all-three}
-- Trial proceeds lawfully in absence: remember absence never proves guilt or forces dismissal. {#absence-not-proof-of-guilt}
+- Trial proceeds lawfully in absence: remember absence never proves guilt. {#absence-not-proof-of-guilt}
 :::

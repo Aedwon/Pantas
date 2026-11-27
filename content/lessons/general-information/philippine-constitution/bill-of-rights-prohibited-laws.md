@@ -70,18 +70,18 @@ The answer is **Only the ex post facto ban**. The law increases past penalties r
 
 ## Examples
 
-### #1: Punishing Without a Trial
+### #1: Lowering Proof for Past Offenses
 
-A new law directly orders punishment of named people without a court trial. What prohibited kind of law is this?
+A $2026$ statute lets courts convict drivers for $2025$ hit-and-run cases using only one unsworn traffic ticket instead of full trial proof. Regular courts still hold trials. Which Section $22$ ban applies?
 
 **Solution:**
 
-1. Check who imposes punishment: the law itself names the people and orders punishment.
-2. Check for trial: no judicial trial takes place.
+1. Check for trial: courts still hold trials, so the statute is not a bill of attainder.
+2. Check backward reach: lowering the proof needed to convict for past acts makes the law worse for the accused backward in time.
 
-Answer: A bill of attainder under Article III, Section $22$.
+Answer: The ban on *ex post facto* laws under Article III, Section $22$.
 
-**Check:** Legislative punishment without a court trial defines a bill of attainder, unlike backward penal laws (*ex post facto*) or contract impairment (Section $10$).
+**Check:** An *ex post facto* law includes any backward criminal change that lowers required proof for earlier offenses, even when courts hold trials.
 
 ### #2: A New Penalty for a Past Act
 
@@ -96,21 +96,21 @@ Answer: The ban on *ex post facto* laws under Article III, Section $22$.
 
 **Check:** Raising criminal punishment retroactively defines an *ex post facto* law, distinct from a bill of attainder or contract impairment.
 
-### #3: Naming a Group for Past Acts
+### #3: Identifiable Group and Past Conduct
 
-Congress passes a law naming a civic group's officers and forfeiting their property without a court trial. The penalty punishes rallies that were legal two years earlier. How do Section $22$'s prohibitions apply?
+In $2026$, a statute targets every customs clerk who attended a lawful $2024$ budget forum. By statute alone and with no court trial, it fines those clerks and bars them from public jobs. Rule on the statute under both Section $22$ tests.
 
 **Solution:**
 
-1. Check the bill-of-attainder test: the statute targets named officers and inflicts punishment with no judicial trial.
-2. Check the *ex post facto* test: the statute penalizes rallies that were lawful when held.
+1. Test the statute's targeted group and lack of a court trial against Section $22$'s bill-of-attainder rule.
+2. Test the statute's punishment of $2024$ forum attendance against Section $22$'s *ex post facto* rule.
 
 :::try
-Finish the last step: state which Section $22$ bans the statute breaks and explain why targeting a named group does not avoid Section $22$.
+Finish the last step: state which Section $22$ bans the statute violates and explain why avoiding personal names does not save it.
 :::answer
-The answer is **The statute violates both bans in Section $22$: the ban on bills of attainder and the ban on ex post facto laws.** Naming a specific group triggers the bill-of-attainder ban rather than excusing the law, and punishing earlier legal rallies adds the *ex post facto* violation.
+The answer is **The statute violates both bans in Section $22$: the ban on bills of attainder and the ban on ex post facto laws.** Targeting an identified group without trial triggers the bill-of-attainder ban, and penalizing lawful $2024$ attendance violates the *ex post facto* ban.
 
-**Check:** Test both Section $22$ bans separately whenever a law punishes without trial and reaches back to earlier lawful conduct.
+**Check:** Both Section $22$ tests apply whenever a law punishes an identified group without a trial for earlier lawful acts.
 :::
 
 ## Traps to Watch For

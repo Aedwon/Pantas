@@ -111,18 +111,18 @@ Answer: No, denying bail before conviction requires both *reclusion perpetua* an
 
 **Check:** Both Section $13$ conditions must hold together.
 
-### #2: Rebellion Suspension and Bail
+### #2: Excessive Bail During Suspension
 
-During an armed rebellion, officials validly suspend the privilege of the writ of *habeas corpus* for public safety. A civilian detained on a bailable charge applies for bail, and the jail warden claims the suspension froze all bail petitions. Is the warden right?
+During rebellion, the *habeas corpus* privilege is validly suspended. A vendor facing a minor theft charge seeks bail before trial, and the prosecutor demands a five-million-peso bond. May the court impose that sum?
 
 **Solution:**
 
-1. Check Section $15$: rebellion and public safety support suspending *habeas corpus*.
-2. Check Section $13$: the right to bail is not impaired even when the writ's privilege is suspended.
+1. Check Section $13$: bail stays protected even when *habeas corpus* is suspended.
+2. Check the sum: Section $13$ bars excessive bail, and five million pesos is excessive for minor theft.
 
-Answer: No, the warden is wrong because bail stays protected under Section $13$.
+Answer: No, suspension neither ends bail nor permits excessive bail.
 
-**Check:** Suspending *habeas corpus* limits that remedy while leaving bail governed by Section $13$.
+**Check:** Section $13$ keeps bail intact and bars excessive bail during suspension.
 
 ### #3: Board Delay and Forced Confession
 
@@ -130,8 +130,8 @@ A city permits board stalls a contractor's dispute for three years. A board inve
 
 **Solution:**
 
-1. Answer the stall: Section $16$ guarantees speedy disposition before administrative and quasi-judicial bodies.
-2. Answer the forced confession: Section $17$ bars compelling anyone to testify against themselves.
+1. Check which Article III right applies to a three-year stall before a city permits board.
+2. Check which Article III right applies when a board investigator demands a confession.
 
 :::try
 Finish the last step: name both protections and explain why the non-criminal board setting removes neither right.
@@ -144,7 +144,7 @@ The answer is **Speedy disposition of cases (Section $16$) and protection agains
 ## Traps to Watch For
 
 :::checklist
-- Charged with *reclusion perpetua* or *habeas corpus* suspended: deny bail only with strong evidence too, and keep bail intact during suspension. {#bail-both-conditions}
+- Charged with *reclusion perpetua*: deny bail only when strong evidence of guilt is also shown. {#bail-both-conditions}
 - Agency delays a non-criminal case: Section $16$ covers administrative and quasi-judicial bodies. {#speedy-disposition-all-bodies}
 - Official demands an admission of guilt: apply Section $17$, not excessive bail. {#self-incrimination-forced-testimony}
 :::

@@ -31,7 +31,7 @@ Test Article $6$ when a shooter fires at a victim's chest and doctors save the v
 
 :::pair #attempt-vs-frustrated
 Right: Attempted stops before all execution acts; frustrated finishes all execution acts while the result fails.
-Wrong: Calling completed execution acts an attempt, or calling unfinished execution acts a frustrated crime.
+Wrong: Calling completed execution acts an attempted offense simply because the intended result failed.
 Check whether all execution acts finished before checking the result.
 :::
 
@@ -60,7 +60,7 @@ Why bar a lesser included charge after acquittal? Retrying the same core element
 
 :::pair #included-offense-same-elements
 Right: Section $21$ bars a second charge whose elements sat inside the first charge, despite a new name or fewer parts.
-Wrong: Allowing retrial because the second charge has a different name or requires fewer elements.
+Wrong: Allowing a second trial for an included offense merely because it requires fewer elements.
 Compare required factual elements instead of charge titles.
 :::
 
@@ -71,25 +71,25 @@ Both conviction and acquittal close off every included offense.
 :::
 
 :::check
-An accused is convicted of murder after a valid trial. May prosecutors later try him for homicide for the same killing?
+A driver is acquitted of reckless imprudence resulting in damage to property, then charged with driving with an expired license from the same stop. Do both charges share the same included elements?
 :::answer
-The answer is **No**. Homicide was included in the murder charge, so Section $21$ bars a second trial.
+The answer is **No**. An expired-license charge requires a license fact outside reckless driving, so double jeopardy does not bar it.
 :::
 
 ## Examples
 
-### #1: An Included Offense
+### #1: Attempted Stage After Frustrated Acquittal
 
-After a valid murder charge, arraignment, and a not-guilty plea in a proper court, an accused is acquitted. Prosecutors then seek a homicide trial for the same killing. Homicide's required parts were included in the murder charge. Does using the lesser charge avoid double jeopardy?
+A proper court acquits a defendant after arraignment and plea on a charge of frustrated murder for shooting a victim who survived. Prosecutors then file a second case charging attempted murder for that exact shooting, citing the different stage name. Is the second trial allowed?
 
 **Solution:**
 
-1. Check first jeopardy: valid charge, proper court, arraignment, plea, and acquittal occurred.
-2. Compare elements: homicide's parts were all included in the murder charge.
+1. Check first jeopardy: valid charge, proper court, arraignment, plea, and acquittal all occurred.
+2. Check covered forms: Rule $117$, Section $7$ covers attempt and frustration, and attempted murder's elements sit inside frustrated murder.
 
-Answer: No, double jeopardy under Section $21$ bars the second trial.
+Answer: No, double jeopardy under Section $21$ bars the attempted-murder trial.
 
-**Check:** A lesser name or fewer elements cannot bypass an acquittal covering those same core elements.
+**Check:** A different stage name cannot bypass an acquittal when all elements of the attempt sat inside the first charge.
 
 ### #2: Incomplete Stages of Arson
 
@@ -111,7 +111,7 @@ A proper court acquits an accused after arraignment and plea on serious physical
 **Solution:**
 
 1. Check first jeopardy: valid charge, proper court, arraignment, plea, and acquittal occurred.
-2. Compare elements: every part of slight physical injuries sat inside the serious-injury charge.
+2. Compare the required elements of slight physical injuries with the serious-injury charge.
 
 :::try
 Finish the last step: rule on the slight-injury charge and answer the prosecutors' name, element-count, and acquittal claims.
@@ -125,6 +125,6 @@ The answer is **Yes, double jeopardy bars the slight-injury trial.** Every requi
 
 :::checklist
 - Incomplete crime shown: separate unfinished acts (attempted) from completed acts with failed result (frustrated). {#attempt-vs-frustrated}
-- Lesser charge uses a new name or fewer parts: compare elements against the first charge. {#included-offense-same-elements}
+- Lesser charge requires fewer elements: compare required elements against the first charge. {#included-offense-same-elements}
 - First case ended in acquittal: remember acquittal bars included offenses too. {#acquittal-also-bars-included}
 :::

@@ -29,7 +29,7 @@ Test Section $12(2)$ when officers hold a suspect in an unmarked basement room w
 
 :::pair #secret-detention-always-barred
 Right: Secret, solitary, and incommunicado detention are prohibited even when no physical violence occurs.
-Wrong: Allowing secret or cut-off detention because no physical force was used or no confession came out.
+Wrong: Allowing secret or cut-off detention because only physical violence is prohibited.
 Section $12(2)$ bans hidden and cut-off detention directly, regardless of violence or questioning results.
 :::
 
@@ -102,21 +102,21 @@ Answer: No, the commander is wrong because Section $12(2)$ bans that detention r
 
 **Check:** Section $12(2)$ forbids secret, solitary, and incommunicado detention on its own, without needing blows or a confession.
 
-### #3: Forced Partial Admission
+### #3: Voluntary Versus Threatened Admissions
 
-During questioning without counsel, officers intimidate a warehouse guard until he admits turning off the alarm at closing time. He denies taking any goods. Officers argue the statement is usable because he never confessed to theft. How do Sections $12$ and $17$ apply?
+During a fraud inquiry, Suspect A receives warnings, signs a written waiver with independent counsel present, and freely admits signing a delivery log. Investigators then threaten to lock Suspect B in a dark, isolated cell unless he admits copying a vault code, without admitting the theft. Rule on using each factual admission in evidence.
 
 **Solution:**
 
-1. Classify the statement: turning off the alarm helps prove guilt, making it an **admission** rather than a confession.
-2. Check Section $17$: forcing an incriminating fact violates protection against compelled self-incrimination.
+1. Classify both statements (confession vs. admission) and check whether Suspect A's statement followed Section $12(1)$'s waiver rules.
+2. Test Suspect B's threatened admission against Sections $12(2)$, $12(3)$, and $17$.
 
 :::try
-Finish the last step: rule on whether the admission is usable and explain why avoiding a full confession does not save it.
+Finish the last step: rule on whether Suspect A's admission and Suspect B's admission are usable in evidence.
 :::answer
-The answer is **No, the admission is inadmissible under Article III, Section $12(3)$**. Section $12(3)$ excludes both confessions and admissions. Even without admitting the whole theft, the intimidated factual statement violated Section $12$ and Section $17$.
+The answer is **Suspect A's voluntary admission is usable, while Suspect B's threatened admission is inadmissible under Section $12(3)$.** Threats violate Section $12(2)$ and force self-incrimination under Section $17$, so Section $12(3)$ bars threatened admissions just like confessions.
 
-**Check:** Section $12(3)$ excludes any confession or admission obtained through intimidation, missing counsel, or forced self-incrimination.
+**Check:** Section $12(3)$ leaves lawful voluntary admissions usable while excluding any admission obtained through threats or denied rights.
 :::
 
 ## Traps to Watch For

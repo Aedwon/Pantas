@@ -60,7 +60,7 @@ Apply Section $20$ to three cases:
 
 :::pair #debt-and-poll-tax
 Right: Section $20$ bars imprisonment for both debt and nonpayment of a poll tax.
-Wrong: Limiting Section $20$ to private loans and allowing imprisonment for an unpaid poll tax.
+Wrong: Claiming any unpaid tax permits imprisonment because Section $20$ concerns debt alone.
 Section $20$ expressly names nonpayment of a poll tax alongside debt.
 :::
 
@@ -72,47 +72,47 @@ The answer is **No**. Section $19(2)$ directs laws to penalize abuse of detainee
 
 ## Examples
 
-### #1: Imprisonment for Debt
+### #1: Political Beliefs and Separate Offenses
 
-A person cannot pay a personal loan. No fraud or other crime is alleged. May the person be imprisoned solely for the unpaid debt?
-
-**Solution:**
-
-1. Apply Section $20$: no person may be imprisoned for debt.
-2. Check the facts: only failure to pay a loan is shown, with no separate crime.
-
-Answer: No, imprisonment solely for unpaid debt is prohibited, though lawful civil collection remains allowed.
-
-**Check:** Section $20$ bars jail for unpaid debt without erasing the debt itself.
-
-### #2: Unpaid Poll Tax
-
-A barangay treasurer warns a resident with an unpaid community poll tax that the resident will be jailed by Friday. No fraud or other offense is alleged. May the resident be jailed solely for the unpaid poll tax?
+A mayor jails a columnist solely for opposition essays, charging no crime. Elsewhere, a marcher smashes a shop window and is charged with property damage. How does Section $18(1)$ apply?
 
 **Solution:**
 
-1. Identify the obligation: a fixed community tax per person is a **poll tax**.
-2. Apply Section $20$: the Constitution bars imprisonment for debt or nonpayment of a poll tax.
+1. Columnist: Section $18(1)$ bars detention solely for political beliefs.
+2. Marcher: Section $18(1)$ never shields a separate crime.
 
-Answer: No, Section $20$ bars imprisonment solely for failing to pay a poll tax.
+Answer: Jailing the columnist breaks Section $18(1)$, while charging the marcher is valid.
 
-**Check:** Poll-tax nonpayment stands alongside debt in Section $20$ and proves no separate crime by itself.
+**Check:** Political beliefs bar detention alone, yet never excuse a separate offense.
 
-### #3: Forced Labor Before Conviction
+### #2: Unpaid Debt Versus Proven Fraud
 
-Police detain a suspect on a robbery complaint while prosecutors prepare for trial. Before any court hears the case or enters judgment, a jail supervisor orders the detainee to clear roadside brush without pay as punishment. Does Section $18(2)$'s punishment exception allow that order?
+A tailor misses shop rent with no fraud. Meanwhile, a supplier is convicted of fraud for issuing fake receipts. Who is shielded from jail by Section $20$?
 
 **Solution:**
 
-1. Identify the work: unpaid forced brush clearing against the detainee's will is **involuntary servitude**.
-2. Check Section $18(2)$: forced labor as punishment is allowed only after a court's due conviction for a crime.
+1. Tailor: unpaid rent with no crime is debt protected by Section $20$.
+2. Supplier: Section $20$ leaves a separate proven crime like fraud punishable.
+
+Answer: Only the tailor is shielded by Section $20$; the supplier faces prison for fraud.
+
+**Check:** Section $20$ bars jail for debt alone, not for separate proven crimes.
+
+### #3: Pre-Trial Labor Versus Post-Conviction Labor
+
+At a city jail, a warden orders two detainees to dig drainage trenches without pay as punishment. Detainee A is still awaiting trial on an arson indictment, while Detainee B is serving a final court judgment of conviction for robbery. Rule on whether Section $18(2)$ allows each order.
+
+**Solution:**
+
+1. Check whether forced unpaid trench digging without consent is involuntary servitude under Section $18(2)$.
+2. Test Detainee A's status and Detainee B's status against Section $18(2)$'s punishment exception.
 
 :::try
-Finish the last step: rule on the jail supervisor's order and explain why calling the work punishment does not satisfy Section $18(2)$.
+Finish the last step: rule on the warden's order for Detainee A and Detainee B under Section $18(2)$.
 :::answer
-The answer is **No, the forced labor breaks Section $18(2)$ because the detainee has no due conviction for a crime.** Calling forced work "punishment" names the Section $18(2)$ exception, yet that exception fails without a court conviction.
+The answer is **The order breaks Section $18(2)$ for Detainee A, while it is allowed for Detainee B.** Calling pre-trial labor "punishment" does not satisfy Section $18(2)$ without due conviction, whereas Detainee B has a final conviction for a crime.
 
-**Check:** An accused awaiting trial is presumed innocent, so forced labor as punishment applies only after due conviction.
+**Check:** Involuntary servitude as punishment applies only after a court's due conviction, never on an unconvicted accusation.
 :::
 
 ## Traps to Watch For

@@ -27,7 +27,7 @@ Test a search order signed by a city mayor instead of a judge:
 
 :::pair #judge-determines-probable-cause
 Right: Only a judge personally determines probable cause before a warrant issues.
-Wrong: Accepting a local chief officer's approval or a prosecutor's finding instead of a judge's decision.
+Wrong: Accepting verbal approval from a local chief officer instead of a judge's decision.
 Officers and prosecutors supply facts, while the judge makes the independent decision.
 :::
 
@@ -86,16 +86,16 @@ The answer is **No**. The judge must personally evaluate sufficient supporting e
 
 ### #1: Who Determines Probable Cause
 
-Police receive a tip about stolen goods in a shop and get written approval from the city mayor instead of a court. Does that approval satisfy Article III, Section $2$?
+Inspectors suspect smuggled fuel in a depot and obtain a signed search order from a barangay captain instead of a court. Does that order satisfy Article III, Section $2$?
 
 **Solution:**
 
 1. Recall the rule: Section $2$ requires probable cause personally determined by a judge.
-2. Check who approved the search: the city mayor, an administrative official.
+2. Check who signed the order: a barangay captain is a local executive officer, not a judge.
 
 Answer: No, only a judge may personally determine probable cause for a warrant.
 
-**Check:** Executive or local officials cannot replace the judge's personal determination under Section $2$.
+**Check:** Local executive officers cannot replace the judge's personal determination under Section $2$.
 
 ### #2: A General Search Warrant
 
@@ -110,21 +110,21 @@ Answer: A particular description of the things to be seized.
 
 **Check:** Section $2$ requires specific descriptions of both the place to be searched and the persons or things to be seized.
 
-### #3: An Arrest Warrant Based on Records
+### #3: Arrest Warrant Versus Search Warrant Review
 
-A judge personally reads a prosecutor's report and sworn witness affidavits in the record, then finds probable cause for an arrest warrant. Defense counsel argues that every arrest warrant still requires calling the witnesses for live questioning. Is defense counsel right?
+A judge reads a prosecutor's robbery report and sworn affidavits for an arrest warrant, skipping live questioning because the records show probable cause. For a companion search warrant on the same house, the judge calls the complainant under oath and writes down the questions. Rule on both judicial steps under Section $2$.
 
 **Solution:**
 
-1. Check whether the judge acted independently: yes, the judge personally evaluated the report and sworn affidavits.
-2. Check the arrest-warrant rule: sufficient written records can support probable cause for an arrest warrant.
+1. Check what the judge reviewed for the arrest warrant and how the judge handled the search warrant.
+2. Check the Section $2$ standard for issuing an arrest warrant versus a search warrant.
 
 :::try
-Finish the last step: rule on defense counsel's claim and explain how a search warrant differs.
+Finish the last step: rule on whether both warrants follow Section $2$ and explain why the steps differ.
 :::answer
-The answer is **No, defense counsel is wrong because personally reviewing sufficient written records meets the judge's duty for an arrest warrant.** Unlike a search warrant, which requires personally examining the complainant and witnesses under oath, an arrest warrant does not always require live questioning.
+The answer is **Both warrants follow Section $2$ because an arrest warrant may rely on sufficient written records while a search warrant requires sworn examination.** Reviewing complete records satisfies an arrest warrant, whereas Section $2$ requires examining the complainant and witnesses under oath for a search warrant.
 
-**Check:** Section $2$ demands independent judicial review for both warrants, while permitting reliance on sufficient written records for an arrest warrant.
+**Check:** Independent judicial review governs both warrants, yet only a search warrant always requires personal examination under oath.
 :::
 
 ## Traps to Watch For

@@ -27,7 +27,7 @@ Test consent when armed officers enter a store, command the owner to unlock a ba
 
 :::pair #silence-not-consent
 Right: Consent must be clear, specific, informed, and free from pressure.
-Wrong: Treating silence, obeying an officer's command, or lack of physical resistance as free consent.
+Wrong: Treating obedience to an armed officer's command as informed consent.
 Lack of resistance under pressure does not prove free permission to search.
 :::
 
@@ -82,40 +82,40 @@ The answer is **No**. Section $3(2)$ bars unlawfully obtained communication for 
 
 ## Examples
 
-### #1: Free Consent and Mere Submission
+### #1: Scope and Pressure in Consent Searches
 
-In one case, a traveler understands an officer's request to check a suitcase and clearly agrees without pressure. In another, uniformed officers knock late at night, demand that a homeowner unlock a tool shed, and treat the homeowner's silent compliance as permission. Does silence establish consent in the second case?
-
-**Solution:**
-
-1. Check the first case: clear, informed, specific permission given freely satisfies consent.
-2. Check the second case: officers demanded entry, and the homeowner complied in silence without free agreement.
-
-Answer: No, silence and obedience to officers under pressure do not establish free consent.
-
-**Check:** Free consent requires voluntary, clear permission, so passive submission or lack of physical resistance fails.
-
-### #2: Unlawfully Obtained Messages
-
-Board inspectors intercept an engineer's private emails without a court order or any law allowing the intrusion. They offer the printed emails in a license-revocation inquiry, arguing the hearing is not a criminal trial and the emails look genuine. Should the board admit the emails?
+At a highway checkpoint, a driver lets an officer inspect her open car trunk, then objects when he reaches for her locked toolbox. When the officer demands the key, she hands it over without speaking. Does valid consent cover opening the toolbox?
 
 **Solution:**
 
-1. Check Section $3(1)$: intercepting private emails without a lawful court order or enabling law violates communication privacy.
-2. Apply Section $3(2)$: any evidence obtained in violation of Section $3$ is inadmissible for any purpose in any proceeding.
+1. Check the scope of consent: permission to inspect the open trunk was specific and did not include the locked toolbox.
+2. Check handing over the key: obeying a demand in silence is submission, not clear and free permission.
+
+Answer: No, neither the earlier trunk permission nor silent compliance establishes consent to open the toolbox.
+
+**Check:** Consent under Section $2$ must be specific to the area searched and freely given without pressure.
+
+### #2: Court Orders and Civil Evidence
+
+In a civil contract lawsuit, a city agency offers two sets of private text messages from a contractor. A judge issued a lawful court order for the January texts, while inspectors copied the February texts without a warrant or law, claiming urgency. Rule on the admissibility of both sets of texts in the civil lawsuit.
+
+**Solution:**
+
+1. Test each set of text messages against Section $3(1)$'s court-order and enabling-law exceptions.
+2. Test admissibility in a civil lawsuit against Section $3(2)$'s exclusionary rule.
 
 :::try
-Finish the last step: rule on admitting the emails and explain why reliability and the non-criminal board setting do not allow them.
+Finish the last step: rule on whether the civil judge may admit the January texts and the February texts.
 :::answer
-The answer is **No, the board must exclude the emails for any purpose because Section $3(2)$ applies to all proceedings.** Neither the non-criminal licensing setting nor the apparent reliability of the emails cures a Section $3$ violation.
+The answer is **The judge may admit the January texts, while the February texts are inadmissible for any purpose.** Section $3(1)$ allows intrusion under a lawful court order, whereas an inspector's urgency claim violates Section $3(1)$ and triggers exclusion in civil cases too.
 
-**Check:** Section $3(2)$ covers criminal, civil, and administrative inquiries alike, so unlawfully intercepted messages cannot be used in a licensing case.
+**Check:** Section $3(2)$ bars unlawfully taken messages in any proceeding, while messages taken under a lawful court order remain admissible.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Suspect obeys armed officers in silence: require clear, voluntary permission, not mere submission or lack of resistance. {#silence-not-consent}
+- Suspect obeys armed officers in silence: require clear, voluntary permission, not mere obedience. {#silence-not-consent}
 - Official claims urgency to read messages: require a lawful court order or a public-safety or order rule set by law. {#privacy-of-messages-and-correspondence}
 - Illegal letters offered in an agency case: exclude Section $2$ or $3$ violations for any purpose in any proceeding. {#exclusion-any-proceeding}
 :::

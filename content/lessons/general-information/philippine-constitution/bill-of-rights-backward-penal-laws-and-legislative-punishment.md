@@ -39,7 +39,7 @@ Why ban backward proof reductions alongside harsher penalties? Changing the evid
 
 :::pair #lower-proof-still-ex-post-facto
 Right: Lowering the proof needed to convict for an earlier act is an *ex post facto* law even with a trial.
-Wrong: Allowing a backward proof reduction because prison time stays unchanged or a court holds trial.
+Wrong: Allowing a backward reduction in required proof because the prison penalty stays unchanged.
 Check every harmful backward penal change, including lighter proof standards alongside heavier penalties.
 :::
 
@@ -62,7 +62,7 @@ Test Section $22$ when Congress passes a general drone-safety crime taking effec
 
 :::pair #ex-post-facto-vs-attainder
 Right: *Ex post facto* laws apply harmful penal changes backward; bills of attainder impose legislative punishment without trial.
-Wrong: Confusing backward penal changes with legislative punishment without trial.
+Wrong: Calling a law that punishes an act without judicial trial an *ex post facto* law.
 Check whether the defect is harmful retroactivity or Congress punishing directly without a court trial.
 :::
 
@@ -126,7 +126,7 @@ The answer is **A bill of attainder, unlike a general prospective law tried in c
 ## Traps to Watch For
 
 :::checklist
-- New law cuts required proof for past acts: flag it as *ex post facto* even with a trial. {#lower-proof-still-ex-post-facto}
-- Law punishes backward vs. punishes without trial: separate *ex post facto* laws from bills of attainder. {#ex-post-facto-vs-attainder}
+- New law cuts required proof for past acts: flag it as *ex post facto* even when the prison penalty stays unchanged. {#lower-proof-still-ex-post-facto}
+- Law punishes an act without a judicial trial: identify it as a bill of attainder, not an *ex post facto* law. {#ex-post-facto-vs-attainder}
 - General law covers future acts with a court trial: reject both Section $22$ labels. {#prospective-general-crime-valid}
 :::

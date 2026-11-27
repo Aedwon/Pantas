@@ -56,7 +56,7 @@ Why bar retrial after a granted demurrer or speedy-trial dismissal? In both case
 
 :::pair #granted-demurrer-is-acquittal
 Right: A granted demurrer to evidence finds proof insufficient and operates as a binding acquittal.
-Wrong: Claiming a demurrer waives double jeopardy as a requested dismissal, or that only a jury can acquit.
+Wrong: Claiming another trial is allowed because every requested dismissal waives double jeopardy.
 In Philippine courts, the judge decides guilt, and granting a demurrer for weak proof is an acquittal.
 :::
 
@@ -74,47 +74,47 @@ The answer is **No**. Under Rule $119$, Section $23$, only a **granted** demurre
 
 ## Examples
 
-### #1: A Requested Dismissal
+### #1: Misspelled Name Dismissal vs. Unconsented Dismissal
 
-After a valid charge, arraignment, and plea in a proper court, the accused requests dismissal for a procedural defect. The court grants it without deciding guilt or finding a speedy-trial violation. Does that dismissal alone bar another prosecution for the same offense?
-
-**Solution:**
-
-1. Check who asked: the accused expressly requested the dismissal.
-2. Check the ground: the court ruled on a procedural defect, with no weak-proof acquittal or speedy-trial violation.
-
-Answer: No, the requested procedural dismissal does not itself bar another prosecution.
-
-**Check:** Under Rule $117$, Section $7$, express defense consent blocks double jeopardy unless an exception applies.
-
-### #2: Dismissal for Insufficient Evidence
-
-After a valid charge, arraignment, and plea in a proper court, the prosecution finishes presenting its evidence. The accused files a demurrer to evidence. The court grants it because the evidence cannot support conviction. May the State retry the same offense merely because the accused requested dismissal?
+After pleading not guilty to estafa in a proper court, Ana asks to dismiss the charge for a misspelled middle name. In another proper court after plea, Ben's theft case is dismissed without his express consent. Which case may prosecutors refile?
 
 **Solution:**
 
-1. Check the court's act: the judge evaluated the proof and found it insufficient to convict.
-2. Apply Rule $119$, Section $23$ and Section $21$: granting a demurrer for weak proof is an acquittal.
+1. Check Ana's case: she requested dismissal for a procedural defect, with no weak-proof acquittal or speedy-trial ruling.
+2. Check Ben's case: dismissal without the accused's express consent after a valid plea triggers double jeopardy.
 
-Answer: No, double jeopardy bars a second prosecution for the same offense.
+Answer: Prosecutors may refile Ana's case, yet double jeopardy bars refiling Ben's case.
 
-**Check:** Even though the accused filed the demurrer, a ruling on insufficient evidence operates as an acquittal.
+**Check:** A requested procedural dismissal leaves retrial open, unlike an unconsented dismissal after a valid plea.
 
-### #3: Dismissal for a Speedy-Trial Violation
+### #2: Granted Demurrer for Missing Proof
 
-A valid charge proceeds through arraignment and plea in a proper court. The accused requests dismissal, and the court finds that the constitutional right to a speedy trial was violated. It dismisses the case on that ground. Does the accused's request alone allow another prosecution for the same offense?
+During a falsification trial after arraignment and plea, the prosecution rests without producing the allegedly forged land deed or handwriting proof. The judge grants the defense's demurrer to evidence for insufficient proof. Prosecutors argue that only a jury verdict can acquit after a defense request. Can the State retry the case?
 
 **Solution:**
 
-1. Check the general rule: a requested dismissal usually leaves retrial open.
-2. Check the exception: the court dismissed for a constitutional speedy-trial violation under Section $14(2)$.
+1. Check the demurrer ruling: under Rule $119$, Section $23$, the judge weighed the proof and found it insufficient to convict.
+2. Check Philippine trial procedure: Philippine courts have no juries, so a judge's granted demurrer operates as a binding acquittal.
+
+Answer: No, double jeopardy bars another prosecution because the granted demurrer is an acquittal.
+
+**Check:** A granted demurrer for weak proof ends the case as an acquittal despite being requested by the defense.
+
+### #3: Comparing Two Requested Dismissals
+
+Two cases proceed past arraignment and plea in proper courts. In Case A, the accused wins dismissal because the complaint used an unsigned copy. In Case B, the accused wins dismissal because the court finds a four-year stall violated Section $14(2)$'s speedy-trial right. May prosecutors refile either case?
+
+**Solution:**
+
+1. Check Case A's dismissal ground against Rule $117$, Section $7$'s general rule on requested dismissals.
+2. Check Case B's dismissal ground against the constitutional speedy-trial exception.
 
 :::try
-Finish the last step: rule on whether another prosecution is allowed and explain why this dismissal differs from a procedural dismissal.
+Finish the last step: rule on whether prosecutors may refile Case A, Case B, or both.
 :::answer
-The answer is **No, another prosecution is barred despite the accused's request.** Dismissal for violating Section $14(2)$'s speedy-trial right is an exception alongside a granted demurrer. It differs from an ordinary procedural dismissal.
+The answer is **Prosecutors may refile Case A, while double jeopardy bars refiling Case B.** Case A ended on a requested procedural defect with no exception. Case B's dismissal for violating Section $14(2)$'s speedy-trial right bars retrial despite the defense request.
 
-**Check:** Checking the dismissal ground separates an ordinary consent dismissal from a speedy-trial bar.
+**Check:** Always inspect why the court granted a requested dismissal before deciding whether retrial is barred.
 :::
 
 ## Traps to Watch For

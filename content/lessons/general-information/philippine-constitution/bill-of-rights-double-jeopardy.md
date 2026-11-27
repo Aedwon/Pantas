@@ -68,9 +68,9 @@ Section $21$ treats both conviction and acquittal under one as barring prosecuti
 :::
 
 :::check
-A driver is acquitted under a city traffic ordinance after arraignment and plea in a proper court. Can prosecutors charge the same act under a national law?
+After arraignment and plea in a proper court, a vendor is acquitted under a national food-safety law. May city prosecutors charge that same act under a local market ordinance?
 :::answer
-The answer is **No**. Once the driver wins a valid acquittal under the city ordinance, Section $21$ blocks prosecuting that same driving act under national law.
+The answer is **No**. Section $21$ works both ways: acquittal or conviction under national law bars prosecuting the same act under a local ordinance.
 :::
 
 ## Examples
@@ -88,34 +88,34 @@ Answer: Section $17$ and Section $21$, in that order.
 
 **Check:** Section $17$ sits among trial protections, while Section $21$ sits right before Section $22$'s prohibited laws.
 
-### #2: A Dropped Complaint
+### #2: Dismissal by a Court Lacking Authority
 
-Police file an estafa complaint against a bookkeeper in a trial court. Before the court reads the charge or takes a plea, the prosecutor withdraws the complaint. Two months later, the prosecutor refiles the same charge, and the bookkeeper claims double jeopardy. Does Section $21$ bar the refiled case?
-
-**Solution:**
-
-1. Check the basic conditions: a valid complaint was filed in a proper court, yet no arraignment and no valid plea occurred.
-2. Check trial risk: without arraignment, plea, and a protected end, double jeopardy never attached.
-
-Answer: No, filing a complaint before arraignment and plea does not trigger double jeopardy.
-
-**Check:** All four steps from valid charge through protected ending must be met, so withdrawing a complaint early allows refiling.
-
-### #3: National Law and Local Ordinance
-
-Dumping waste into a river violates both a city sanitation ordinance and a national clean-water statute. A factory owner faces a valid ordinance charge in a proper court, enters a not-guilty plea at arraignment, and wins an acquittal. Later, prosecutors charge the owner under the national statute for the exact same river-dumping incident. Can the national case proceed?
+A municipal court takes a not-guilty plea on an estafa charge, then dismisses the case because the amount exceeds its legal jurisdiction. When prosecutors refile the charge in the proper Regional Trial Court, the accused claims double jeopardy. Is the refiled case barred?
 
 **Solution:**
 
-1. Verify the first case: valid charge, court with authority, arraignment, valid plea, and acquittal are all present.
-2. Check the second charge: it prosecutes the exact same act under national law.
+1. Check the Rule $117$, Section $7$ conditions: arraignment, plea, and dismissal happened, yet a court of competent jurisdiction was missing.
+2. Apply Section $21$: because the first court lacked legal authority, double jeopardy never attached.
+
+Answer: No, refiling in the proper court is allowed because the first court lacked competent jurisdiction.
+
+**Check:** Every general condition must be met in the first case, including a court with legal authority to try the charge.
+
+### #3: Ordinance Conviction Followed by National Charge
+
+Selling firecrackers without a permit violates both a city safety ordinance and a national explosives law. A stall owner enters a guilty plea in a proper court under the ordinance and pays the court fine. Prosecutors then file a national charge for the same sale, seeking a prison term. May the national case proceed?
+
+**Solution:**
+
+1. Check the first case against the four Rule $117$, Section $7$ conditions (valid charge, proper court, plea, and protected end).
+2. Check the second charge against Section $21$'s rule on the same act under a law and an ordinance.
 
 :::try
-Finish the last step: state whether the national prosecution may proceed and explain why the different law source and prior acquittal do not allow it.
+Finish the last step: state whether the national prosecution may proceed and explain why the heavier penalty and different lawmaker do not allow it.
 :::answer
-The answer is **No, the national case is barred because Section $21$ forbids a second prosecution for the same act after an ordinance acquittal.** Section $21$ treats both conviction and acquittal under either a national law or a local ordinance as a bar under the other.
+The answer is **No, the national case is barred because Section $21$ forbids prosecuting the same act after an ordinance conviction.** Section $21$ makes either conviction or acquittal under the ordinance a bar under national law, even when the national law carries a heavier penalty.
 
-**Check:** Different lawmaking bodies (city council and Congress) do not permit trying the same act twice once the first case meets the required steps.
+**Check:** Different lawmakers and a heavier national penalty do not permit trying the same act twice after a valid ordinance conviction.
 :::
 
 ## Traps to Watch For

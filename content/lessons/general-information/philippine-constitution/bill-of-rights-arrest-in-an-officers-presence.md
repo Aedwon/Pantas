@@ -16,7 +16,7 @@ keyPoints:
 
 ### Warrantless Arrest in an Officer's Presence
 
-Article III, Section $2$ bars unreasonable searches and seizures, so officers normally need a warrant. Under Rule $113$, Section $5$, an officer may arrest without a warrant when an offense happens **in the officer's presence**. This applies when a person has committed, is actually committing, or attempts an offense directly seen or sensed by the officer.
+Article III, Section $2$ bars unreasonable searches and seizures, so officers normally need a warrant. Under Rule $113$, Section $5(a)$, an officer may arrest without a warrant when an offense happens **in the officer's presence**. This applies when a person has committed, is actually committing, or attempts an offense directly seen or sensed by the officer.
 
 Test a patrol officer who sees a suspect snatch a commuter's phone and immediately arrests the suspect:
 
@@ -26,7 +26,7 @@ Test a patrol officer who sees a suspect snatch a commuter's phone and immediate
 :::pair #presence-needs-no-warrant
 Right: An officer who personally witnesses an offense may arrest the offender immediately without a warrant.
 Wrong: Requiring a warrant even when the officer personally witnesses the offense.
-An offense in the officer's presence is a recognized warrantless-arrest exception under Rule $113$, Section $5$.
+An offense in the officer's presence is a recognized warrantless-arrest exception under Rule $113$, Section $5(a)$.
 :::
 
 :::check
@@ -73,18 +73,18 @@ The answer is **No**. A search incident to lawful arrest must follow a lawful ar
 
 ## Examples
 
-### #1: An Offense in an Officer's Presence
+### #1: An Attempted Offense in an Officer's Presence
 
-An officer sees a person commit a theft and immediately arrests that person without a warrant. Does lacking a warrant alone make the arrest unlawful?
+On patrol, an officer sees a man wedging a crowbar into a locked sedan door and arrests him at once without a warrant. The man argues no theft succeeded yet. Does that defeat the arrest?
 
 **Solution:**
 
-1. Check the warrant rule: Article III, Section $2$ allows recognized warrant exceptions.
-2. Check Rule $113$, Section $5$: the officer personally saw the theft happening.
+1. Check the warrant rule: Article III, Section $2$ allows recognized warrantless-arrest exceptions.
+2. Check Rule $113$, Section $5(a)$: the presence rule covers a person attempting to commit an offense in front of the officer.
 
-Answer: No, an offense committed in the officer's presence permits a warrantless arrest.
+Answer: No, witnessing an attempted offense in the officer's presence supports a lawful warrantless arrest.
 
-**Check:** Direct observation of the offense satisfies the presence exception, so no arrest warrant is needed.
+**Check:** Rule $113$, Section $5(a)$ covers completed, ongoing, or attempted offenses seen by the officer, so no warrant is needed.
 
 ### #2: A Search After Lawful Arrest
 
@@ -92,11 +92,11 @@ A city inspector and a police officer watch a vendor sell fake tax stamps to a b
 
 **Solution:**
 
-1. Test the arrest: watching the illegal sale satisfies Rule $113$, Section $5$'s presence rule.
-2. Test the apron-pocket search: after a lawful arrest, Rule $126$, Section $13$ allows searching the arrested person for evidence or weapons without a separate warrant.
+1. Test the warrantless arrest against Rule $113$, Section $5(a)$'s presence requirement.
+2. Test both the apron-pocket search and the parked-van entry against Rule $126$, Section $13$'s sequence and scope limits.
 
 :::try
-Finish the last step: rule on entering the parked van two blocks away without a warrant and state the scope limit.
+Finish the last step: rule on the arrest, the apron-pocket search, and entering the parked van two blocks away.
 :::answer
 The answer is **The arrest and apron-pocket search are lawful, while entering the distant van without a warrant is not.** A search incident to lawful arrest covers only the arrested person for weapons or evidence, not distant places.
 

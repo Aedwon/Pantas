@@ -86,18 +86,18 @@ Answer: Free access to the courts under Article III, Section $11$.
 
 **Check:** Section $11$ bars closing court doors to any person solely for lack of money.
 
-### #2: Access to a Quasi-Judicial Body
+### #2: Access at an Environmental Claims Board
 
-A government body hears evidence and decides disputes outside the court system. It refuses a hearing solely because the applicant is poor. Does Section $11$ cover this kind of body?
+A provincial environmental claims board hears evidence and decides pollution compensation disputes outside regular courts. When an indigent fisherfolk family seeks to file a claim, the clerk refuses until they pay fees or win a civil suit first. Does Section $11$ allow that bar?
 
 **Solution:**
 
-1. Classify the body: hearing evidence and deciding disputes makes it a quasi-judicial body.
-2. Apply Article III, Section $11$: poverty cannot justify denying access to courts or quasi-judicial bodies.
+1. Classify the board: hearing evidence and deciding compensation disputes makes it a quasi-judicial body under Section $11$.
+2. Check the timing rule: Section $11$ protects free access despite poverty before any judgment or win exists.
 
-Answer: Yes, Section $11$ covers access to this quasi-judicial body.
+Answer: No, poverty cannot block access to a quasi-judicial board before a dispute is heard.
 
-**Check:** Dispute-deciding power outside regular courts brings the body directly inside Section $11$.
+**Check:** Dispute-deciding power outside regular courts brings the board under Section $11$ regardless of its name or any prior win.
 
 ### #3: Legal Assistance Denied
 
@@ -106,10 +106,10 @@ An applicant is told that adequate legal assistance will be denied solely becaus
 **Solution:**
 
 1. Identify the denial: the applicant is refused needed legal help, not merely barred from filing papers.
-2. Apply Article III, Section $11$: adequate legal assistance cannot be denied to any person by reason of poverty.
+2. Test that denial against Article III, Section $11$'s rules on filing access and adequate legal assistance.
 
 :::try
-Finish the last step: rule on the denial and explain why allowing the applicant to file a case would not cure it.
+Finish the last step: rule on the denial and explain whether allowing the applicant to file papers would cure it.
 :::answer
 The answer is **The denial violates Article III, Section $11$**. Section $11$ protects adequate legal assistance separately from filing access. Letting a poor litigant file papers does not excuse denying needed legal help.
 

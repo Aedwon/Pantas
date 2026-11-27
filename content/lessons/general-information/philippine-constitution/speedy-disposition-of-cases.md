@@ -28,7 +28,7 @@ Test Section $16$ when a civil service board stalls a teacher's promotion disput
 
 :::pair #covers-all-three-bodies
 Right: Section $16$ covers cases before judicial, quasi-judicial, and administrative bodies.
-Wrong: Limiting Section $16$ only to criminal trial courts or appellate courts.
+Wrong: Limiting Section $16$ only to criminal trial courts while excluding administrative bodies.
 Non-court bodies that hear and decide cases fall directly under Article III, Section $16$.
 :::
 
@@ -55,7 +55,7 @@ Why make speedy disposition broader than speedy trial? Agency delays over jobs, 
 
 :::pair #speedy-trial-vs-disposition
 Right: Speedy trial covers criminal trials, while speedy disposition covers both criminal trials and agency cases.
-Wrong: Excluding an agency case from Section $16$ because it sits outside the courts or lacks a criminal charge.
+Wrong: Claiming neither protection reaches an agency case solely because the agency sits outside the courts.
 An administrative or quasi-judicial case enjoys Section $16$ protection even with no criminal charge filed.
 :::
 
@@ -106,7 +106,7 @@ A land board outside the courts hears evidence and resolves boundary disputes. I
 **Solution:**
 
 1. Check board coverage: hearing evidence and deciding boundary disputes makes the board a quasi-judicial body covered by Section $16$.
-2. Check the delay rule: Section $16$ bars unreasonable delay, not every necessary postponement.
+2. Test the two-week pause for verified surveyor maps against Section $16$'s unreasonable-delay standard.
 
 :::try
 Finish the last step: state whether the claimant's automatic-violation rule is right and explain what must be reviewed instead.

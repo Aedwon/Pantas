@@ -32,7 +32,7 @@ Test this process when a prisoner reports guards withheld food for three days:
 
 :::pair #label-is-not-proof
 Right: Verify who acted and what happened with evidence, then compare those facts against the right's conditions.
-Wrong: Treating a "rights violation" label as proof, or deciding from claimed harm without checking who acted.
+Wrong: Treating a "rights violation" label as proof without checking records or witnesses.
 Protection depends on proven facts matching the rule, never on a bare label alone.
 :::
 
@@ -67,7 +67,7 @@ Why stick strictly to facts in the record? Guessing unproved injuries or fake le
 
 :::pair #only-record-supported-effects
 Right: Name only personal and family effects backed by the record, such as lost liberty and unpaid workdays.
-Wrong: Assuming unproven physical injuries with no medical record, or inventing cancellation of family debts.
+Wrong: Adding a proven physical injury when the record contains no medical findings.
 Match every stated personal or family effect directly to a fact in the record.
 :::
 
@@ -92,18 +92,18 @@ Answer: Check the evidence on who acted and what happened, then test it against 
 
 **Check:** A report starts an inquiry rather than proving guilt by label alone, and detention never removes Section $19$ safeguards.
 
-### #2: Effects on a Family
+### #2: Seized Tools and Family Income
 
-A worker is unlawfully detained for political beliefs alone. The worker misses paid work, and the family cannot meet daily expenses. Explain one direct effect and one family effect shown by these facts.
+Police seize a seamstress's sewing machine during an unlawful warrantless search. Receipts prove she lost three weeks of dress orders, leaving her family short on rent. No medical record appears in the file. State one personal effect and one family effect backed by the record.
 
 **Solution:**
 
-1. Check the direct effect: unlawful detention under Section $18(1)$ deprives the worker of personal liberty.
-2. Check the family effect: missed paid work cuts household income needed for daily expenses.
+1. Check the personal effect: losing her machine and three weeks of orders deprived her of property use and earned wages.
+2. Check the family effect: lost sewing income left her household short on rent, while no medical record backs any injury.
 
-Answer: Loss of the worker's liberty, and family difficulty meeting daily expenses.
+Answer: Lost use of her tool with missed wages, and family difficulty paying rent.
 
-**Check:** Both effects trace directly to stated facts without guessing unproven injuries or debt relief.
+**Check:** Both effects rest directly on the seizure and order receipts without adding unproved physical injuries.
 
 ### #3: Clinic Notes and Claimed Harms
 
@@ -111,8 +111,8 @@ A market vendor is unlawfully held overnight solely for political leaflets. Jail
 
 **Solution:**
 
-1. Check the record: logs and missed sales prove lost liberty and lost daily grocery income.
-2. Check extra claims: the clinic note shows no injury, and detention never cancels valid debts.
+1. Check what personal and family effects the jail logs and missed stall-sales records establish.
+2. Check the clinic note and Section $20$ against the supporter's claims of broken ribs and loan cancellation.
 
 :::try
 Finish the last step: state the supported effects and explain why the supporter's two extra claims fail.
@@ -127,5 +127,5 @@ The answer is **The record supports lost liberty and reduced grocery money, whil
 :::checklist
 - Report uses a strong rights label: verify who acted and what happened with evidence first. {#label-is-not-proof}
 - Abuse claim comes from a detained person: remember detainees keep Section $19$ protections. {#detainees-keep-protections}
-- Listing personal and family effects: include only harms backed by the record, never guessed injuries or erased debts. {#only-record-supported-effects}
+- Listing personal and family effects: include only harms backed by the record, never guessed injuries. {#only-record-supported-effects}
 :::

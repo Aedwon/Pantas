@@ -28,7 +28,7 @@ Test Section $17$ when an audit panel orders an uncharged cashier under oath to 
 
 :::pair #applies-beyond-accused-and-police
 Right: Section $17$ protects any person in any inquiry from forced answers showing personal guilt.
-Wrong: Limiting Section $17$ to charged defendants or police custodial questioning.
+Wrong: Claiming Section $17$ is unavailable to a witness who has not been criminally charged.
 Section $12$ governs police custody, while Section $17$ bars forced self-incriminating answers anywhere.
 :::
 
@@ -61,7 +61,7 @@ Statements revealing knowledge of guilt are testimonial whether spoken or writte
 
 :::pair #not-blanket-physical-ban
 Right: Section $17$ bars forced self-incriminating testimony, not every demand for physical evidence.
-Wrong: Treating Section $17$ as a blanket right to refuse all physical evidence or neutral documents.
+Wrong: Treating compulsion as turning every demand for physical evidence into a Section $17$ violation.
 Check whether the demand compels incriminating testimony rather than neutral physical proof.
 :::
 
@@ -86,40 +86,40 @@ Answer: The right against compelled self-incrimination under Article III, Sectio
 
 **Check:** A forced written admission combines compulsion and personal incrimination, triggering Section $17$.
 
-### #2: Witness at a Personnel Inquiry
+### #2: Legislative Hearing Testimony
 
-During a city personnel inquiry, an uncharged clerk is ordered under oath to admit selling fake clearances. An officer says Section $17$ cannot apply without a criminal charge or police questioning. Is the officer right?
-
-**Solution:**
-
-1. Check status: Section $17$ protects any person, even before any criminal charge is filed.
-2. Check forum: Section $17$ applies outside police custody, including administrative hearings.
-
-Answer: No, Section $17$ lets the clerk refuse a forced answer showing personal guilt.
-
-**Check:** Unlike Section $12$ custodial warnings, Section $17$ needs neither police custody nor a pending criminal charge.
-
-### #3: Handwritten Timeline vs. Fingerprints
-
-Investigators compel a warehouse clerk to write a signed timeline explaining how missing goods left the dock. They argue paper and ink are physical evidence like fingerprints, so Section $17$ cannot apply. How does Section $17$ treat the timeline compared with fingerprints?
+During a Senate committee inquiry, an uncharged port inspector is subpoenaed to testify. A senator orders him under threat of contempt to state who approved a harmless dock schedule and also admit whether he personally accepted bribes. When does Section $17$ protect him?
 
 **Solution:**
 
-1. Check the timeline: writing how goods disappeared reveals the clerk's knowledge of guilt, making it **testimonial evidence**.
-2. Check fingerprints: fingerprints show physical traits without forcing mental testimony.
+1. Check the dock-schedule question: answering who approved a routine schedule does not show the inspector's own guilt.
+2. Check the bribe question: Section $17$ protects any person in any inquiry from forced answers showing personal guilt.
+
+Answer: Section $17$ lets him refuse the compelled bribe question, even without police custody or a criminal charge, but not the neutral schedule question.
+
+**Check:** Section $17$ follows compulsion plus personal incrimination across all forums, rather than stopping at police custody or charged defendants.
+
+### #3: Booking Photo vs. Forced Petty-Cash Memo
+
+Investigators detain a cashier suspected of missing petty cash. They take her booking photograph and force her to type and sign a memo explaining how she pocketed the funds. Her lawyer invokes Section $17$ against both items, while the investigators claim Section $17$ bars neither. Rule on both items.
+
+**Solution:**
+
+1. Check whether the booking photograph reveals mental knowledge of guilt or only physical appearance.
+2. Check whether the forced typed memo reveals the cashier's own mental knowledge of guilt.
 
 :::try
-Finish the last step: rule on whether Section $17$ covers the forced handwritten timeline and explain why calling it paper and ink fails.
+Finish the last step: rule on both the booking photograph and the forced typed memo under Section $17$.
 :::answer
-The answer is **Yes, Section $17$ bars forcing the handwritten timeline**. It is compelled testimonial evidence showing personal guilt, unlike neutral fingerprints. Words revealing what the writer knows do not become physical evidence merely by being written.
+The answer is **Section $17$ allows the booking photograph, yet bars the forced typed memo.** A booking photo is neutral physical evidence rather than forced mental testimony. A forced written account admitting guilt is testimonial evidence barred by Section $17$.
 
-**Check:** Section $17$ turns on forced incriminating knowledge rather than whether the statement is spoken or written.
+**Check:** Separate neutral physical proof from forced written statements revealing personal knowledge of guilt.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Uncharged witness questioned outside police custody: apply Section $17$ if forced to give answers showing personal guilt. {#applies-beyond-accused-and-police}
+- Uncharged witness asked incriminating question: apply Section $17$ even without a criminal charge. {#applies-beyond-accused-and-police}
 - Official forces a written admission of guilt: treat it as testimonial evidence under Section $17$, not physical evidence. {#written-confession-is-testimonial}
 - Suspect refuses neutral physical proof: remember Section $17$ bars compelled incriminating testimony, not all physical evidence. {#not-blanket-physical-ban}
 :::

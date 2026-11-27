@@ -105,8 +105,8 @@ A trial court convicts a defendant of a serious kidnapping. Prosecutors ask for 
 
 **Solution:**
 
-1. Check the death request: Section $19(1)$ gives conditional permission to Congress, while Republic Act No. $9346$, Section $1$ bans death sentences.
-2. Check the cell: sewage-flooded confinement attacks dignity and creates subhuman conditions without needing physical blows.
+1. Test the death-penalty request against Section $19(1)$'s wording and Republic Act No. $9346$, Section $1$.
+2. Test the windowless sewage-flooded cell against Sections $19(1)$ and $19(2)$.
 
 :::try
 Finish the last step: state the court's ruling on both the death-penalty request and the cell condition.

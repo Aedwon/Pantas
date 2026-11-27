@@ -16,7 +16,7 @@ keyPoints:
 
 ### Two Rules for a Hot-Pursuit Arrest
 
-Under Article III, Section $2$ and Rule $113$, Section $5$, an officer may make a warrantless **hot-pursuit arrest** only when two strict conditions are met:
+Under Article III, Section $2$ and Rule $113$, Section $5(b)$, an officer may make a warrantless **hot-pursuit arrest** only when two strict conditions are met:
 
 1. **Immediacy:** An offense has in fact just been committed.
 2. **Personal knowledge:** The officer has probable cause based on **personal knowledge of facts or circumstances** showing that the person to be arrested committed it.
@@ -83,25 +83,25 @@ An officer arrives moments after a stabbing. The officer sees the wounded victim
 2. Check personal knowledge: the officer directly saw the victim, fresh blood trail, and bloodied knife.
 3. Even without witnessing the stabbing itself, those personally observed facts meet the rule.
 
-Answer: The hot-pursuit exception under Rule $113$, Section $5$.
+Answer: The hot-pursuit exception under Rule $113$, Section $5(b)$.
 
 **Check:** Both immediacy (moments after the crime) and personal knowledge (directly observed physical clues) are present, distinguishing this from an in-presence arrest.
 
-### #2: A Tip Without Personal Knowledge
+### #2: Immediacy With and Without Personal Knowledge
 
-An officer arrests a man without a warrant based solely on an unverified message saying he stole a bicycle the previous month. Does the hot-pursuit exception justify the arrest?
+Minutes after a pharmacy break-in, Officer Reyes arrests a passerby based solely on an unverified text message naming him. Down the block, Officer Cruz inspects the forced door, follows wet shoe prints to a shed, and arrests a suspect holding pill bottles. Rule on both warrantless arrests under hot pursuit.
 
 **Solution:**
 
-1. Test immediacy: a bicycle theft from the previous month did not just occur.
-2. Test personal knowledge: an unverified message gives the officer no personally known facts linking the man to the theft.
+1. Check the timing of the pharmacy break-in against Rule $113$, Section $5(b)$'s immediacy requirement for both officers.
+2. Check whether each officer acted on personally known facts linking the arrested person to the offense.
 
 :::try
-Finish the last step: state whether hot pursuit applies and name both missing conditions.
+Finish the last step: rule on Officer Reyes's arrest and Officer Cruz's arrest under hot pursuit.
 :::answer
-The answer is **No, hot pursuit fails on both rules: a month-old theft is not recent, and a bare message gives no personal knowledge.** Without both conditions, officers must apply to a judge for an arrest warrant.
+The answer is **Officer Cruz's arrest is valid under hot pursuit, while Officer Reyes's arrest is not.** Both acted minutes after the crime, yet only Officer Cruz saw scene clues linking the suspect, whereas an unverified text gives no personal knowledge.
 
-**Check:** Even acting quickly after reading a tip cannot replace the two mandatory conditions under Rule $113$, Section $5$.
+**Check:** Immediacy alone cannot support a hot-pursuit arrest under Rule $113$, Section $5(b)$ without personally known facts or circumstances.
 :::
 
 ## Traps to Watch For

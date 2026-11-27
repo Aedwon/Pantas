@@ -32,8 +32,8 @@ Locate two sample issues inside Article III's $22$ sections:
 
 :::pair #article-three-count
 Right: Article III has $22$ sections.
-Wrong: Stopping at $15$ sections or $20$ sections, or counting $25$ sections.
-Sections $15$ and $20$ sit inside the article, while Sections $21$ and $22$ finish it.
+Wrong: Stopping at $20$ sections (the debt clause) instead of counting through Section $22$.
+Section $20$ sits inside the article, while Sections $21$ and $22$ finish it.
 :::
 
 :::check
@@ -58,9 +58,9 @@ Why require notice and a chance to answer? Fair notice lets a person point out e
 :::
 
 :::check
-A town office tears down a stall with no lawful basis, notice, or hearing. Which Section $1$ guarantee is missing?
+A public agency suspends a nurse's right to work for six months with no written notice or chance to reply. Which Section $1$ step failed?
 :::answer
-The answer is **Due process**. Section $1$ requires lawful basis, notice, and a chance to be heard before taking property.
+The answer is **Due process**. Section $1$ requires a lawful basis, notice, and a fair chance to answer before taking a protected liberty.
 :::
 
 ### Section $1$: Equal Protection
@@ -81,13 +81,13 @@ Test a law giving scholarships to students with top grades, while excluding stud
 
 :::pair #due-process-vs-equal-protection
 Right: Match missing notice or hearing to due process, and unfair grouping to equal protection.
-Wrong: Calling a missing hearing an equal-protection issue, or picking equal protection when lawful process is asked.
+Wrong: Calling an equal-protection grouping question a court-hearing issue.
 Both sit in Section $1$, so check whether the facts show bad procedure or unfair grouping.
 :::
 
 :::pair #all-four-grouping-tests
 Right: Check all four grouping tests, including whether the difference fits the law's purpose.
-Wrong: Treating uniform rules inside each group or future application as enough to cure an unrelated distinction.
+Wrong: Treating uniform rules inside each group as enough to cure an unrelated distinction.
 All four tests must pass together.
 :::
 
@@ -99,31 +99,31 @@ The answer is **Fit with the law's purpose**. Birth month has no link to housing
 
 ## Examples
 
-### #1: Counting the Sections
+### #1: Locating Protections Across Article III
 
-How many sections make up Article III of the $1987$ Constitution?
-
-**Solution:**
-
-1. Start at Section $1$ (due process and equal protection).
-2. Count through Section $22$ (prohibited laws).
-
-Answer: $22$ sections.
-
-**Check:** Sections $1$ to $11$ give $11$ sections, and Sections $12$ to $22$ give $11$ more, making $11 + 11 = 22$ sections total.
-
-### #2: Notice and a Hearing
-
-A government office takes a person's property without a lawful basis, notice, or a chance to answer. Which Section $1$ protection is most directly involved?
+A student checks two rules: warrantless searches (Section $2$) and *ex post facto* laws (Section $22$). Place each in its half of Article III and give the total count.
 
 **Solution:**
 
-1. Check what is affected: the government took property.
-2. Check what failed: lawful basis, notice, and a chance to answer.
+1. First half (Sections $1$ to $11$): Section $2$ sits here.
+2. Second half (Sections $12$ to $22$): Section $22$ ends the list at $22$ sections.
 
-Answer: Due process under Article III, Section $1$.
+Answer: Section $2$ is in the first half, Section $22$ is in the second, and Article III has $22$ sections.
 
-**Check:** The defect is missing lawful basis and fair steps before taking property, which is due process rather than group classification.
+**Check:** Sections $1$ to $11$ plus Sections $12$ to $22$ give $22$ sections total.
+
+### #2: Fair Steps Without a Full Court Trial
+
+A transport board revokes a driver's franchise after sending written notice and hearing his reply. He claims Section $1$ was broken because no court trial happened. Is he right?
+
+**Solution:**
+
+1. Protected interest: a franchise is property under Section $1$.
+2. Due process: written notice and a fair hearing satisfy Section $1$.
+
+Answer: No, due process was met through notice and a fair hearing.
+
+**Check:** Due process requires notice and a chance to answer, not a court trial in every agency case.
 
 ### #3: Unequal Treatment
 
@@ -132,10 +132,10 @@ A town ordinance gives a tax discount to hardware stores owned by town-born resi
 **Solution:**
 
 1. Note that similar resident hardware-store owners receive different tax treatment.
-2. Check the four grouping tests: equal treatment inside each group and future scope pass, yet childhood birthplace has no link to running a store.
+2. Test the four equal-protection conditions against the ordinance's residency-at-birth rule, including whether it fits the tax discount's purpose.
 
 :::try
-Finish the last step: state which grouping test fails and explain why equal treatment inside each group and future scope do not save the ordinance.
+Finish the last step: state which grouping test fails and explain why uniform treatment inside each group does not save the ordinance.
 :::answer
 The answer is **Fit with the law's purpose fails because birthplace has no connection to the business-tax discount.** Treating every owner inside each group alike and applying to future applicants cannot cure an unrelated difference, because all four tests must pass together.
 
@@ -146,6 +146,6 @@ The answer is **Fit with the law's purpose fails because birthplace has no conne
 
 :::checklist
 - Counting Article III sections: count Section $1$ through Section $22$ ($22$ sections). {#article-three-count}
-- Section $1$ case: link notice and hearing defects to due process, and group differences to equal protection. {#due-process-vs-equal-protection}
+- Section $1$ grouping case: check unfair classification instead of blaming a missing court hearing. {#due-process-vs-equal-protection}
 - Grouping law looks consistent: verify all four tests, including fit with the law's purpose. {#all-four-grouping-tests}
 :::

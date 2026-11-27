@@ -28,7 +28,7 @@ Test a town ordinance banning a local newsletter from printing an editorial on b
 
 :::pair #article-three-speech
 Right: Article III, Section $4$ protects speech, expression, and the press.
-Wrong: Placing speech and press under Article II (state policies), Article IV (citizenship), or Article XIII (social justice and human rights).
+Wrong: Placing speech and press under Article XIII (Social Justice and Human Rights) instead of Article III.
 Only Article III lists the Bill of Rights guarantees against government limits on expression.
 :::
 
@@ -88,8 +88,8 @@ Residents peacefully gather outside a municipal hall and submit a written reques
 
 **Solution:**
 
-1. Identify the gathering: meeting peacefully to voice a shared concern is the right of peaceful assembly under Section $4$.
-2. Identify the written request: asking officials to repair the bridge is a petition for redress of grievances, not a request for public records.
+1. Identify the gathering outside municipal hall under Section $4$'s assembly clause.
+2. Check whether the repair request seeks action (Section $4$) or records (Section $7$), and whether Section $4$ forces officials to repair the bridge.
 
 :::try
 Finish the last step: state whether Section $4$ protects both acts and whether it guarantees that officials must grant the repair request.
@@ -102,6 +102,6 @@ The answer is **Section $4$ protects both peaceful assembly and the petition for
 ## Traps to Watch For
 
 :::checklist
-- Question asks which article protects speech and press: choose Article III (Bill of Rights), not Articles II, IV, or XIII. {#article-three-speech}
+- Question asks which article protects speech and press: choose Article III (Bill of Rights), not Article XIII. {#article-three-speech}
 - Residents ask officials to fix a problem: match asking for action to petition for redress, not the right to information. {#petition-vs-information}
 :::

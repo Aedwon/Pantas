@@ -27,7 +27,7 @@ Test Section $20$ when a town treasurer threatens to jail a resident who missed 
 
 :::pair #debt-and-poll-tax-both-covered
 Right: Section $20$ protects both private debts, even written ones, and unpaid poll taxes from jail.
-Wrong: Limiting Section $20$ to poll taxes only, or allowing jail because a loan was in writing.
+Wrong: Claiming a lender can jail a borrower solely by showing the unpaid loan was in writing.
 Both debt and unpaid poll tax sit inside Section $20$'s plain ban on imprisonment.
 :::
 
@@ -60,7 +60,7 @@ Freedom from jail for debt never erases the underlying obligation to pay.
 
 :::pair #separate-crime-still-punishable
 Right: Section $20$ bars jail solely for debt or poll-tax nonpayment, not for a separate proven crime.
-Wrong: Treating Section $20$ as immunity for any financial crime or any case involving a written contract.
+Wrong: Treating Section $20$ as barring prison for any financial transaction even when a separate crime is proved.
 Check whether punishment rests on unpaid debt alone or on a distinct proven offense.
 :::
 
@@ -85,18 +85,18 @@ Answer: No, the citizen cannot be jailed solely for that debt, though the debt r
 
 **Check:** Section $20$ blocks jail for simple nonpayment while leaving civil collection remedies available.
 
-### #2: An Unpaid Fixed Levy
+### #2: Unpaid Poll Tax vs. Proven Tax Fraud
 
-A city charges every adult resident a fixed $100$-peso annual head tax regardless of income or land owned. An unemployed resident misses the deadline. An officer warns that missing payment brings five days in jail. Is the jail threat lawful?
+One resident misses paying a fixed $100$-peso annual poll tax with no crime involved. Another resident is convicted of criminal tax fraud for falsifying business receipts. May the court sentence either person to prison?
 
 **Solution:**
 
-1. Classify the tax: a fixed per-person levy unrelated to income or property is a **poll tax**.
-2. Apply Section $20$: imprisonment for nonpayment of a poll tax is prohibited.
+1. Check the poll tax: Section $20$ forbids imprisonment for nonpayment of a fixed per-person poll tax.
+2. Check the tax fraud: Section $20$ never blocks prison for a separate proven crime like fraud.
 
-Answer: No, Article III, Section $20$ forbids jailing the resident for an unpaid poll tax.
+Answer: No prison is allowed for the unpaid poll tax, while prison is allowed for proven tax fraud.
 
-**Check:** Poll taxes are named alongside debt in Section $20$, so nonpayment alone cannot trigger jail.
+**Check:** Section $20$ protects simple nonpayment of a poll tax without shielding separate financial crimes.
 
 ### #3: Unpaid Shop Lease and Civil Remedies
 
@@ -104,8 +104,8 @@ A mechanic falls three months behind on shop rent after a slow season, with no d
 
 **Solution:**
 
-1. Check the landlord's threat: unpaid lease rent is a civil contract debt, so Section $20$ forbids imprisonment for nonpayment.
-2. Check the mechanic's claim: Section $20$ bars jail without wiping out lawful civil collection suits.
+1. Classify unpaid shop rent with no deception under Section $20$.
+2. Check how Section $20$ treats criminal arrest threats versus civil collection suits.
 
 :::try
 Finish the last step: rule on both the arrest threat and the civil collection suit under Section $20$.
@@ -118,7 +118,7 @@ The answer is **The landlord cannot have the mechanic jailed, yet the landlord m
 ## Traps to Watch For
 
 :::checklist
-- Borrower owes a written loan or poll tax: block jail for nonpayment under Section $20$. {#debt-and-poll-tax-both-covered}
+- Borrower owes a written loan: block jail for nonpayment under Section $20$. {#debt-and-poll-tax-both-covered}
 - Debtor claims Section $20$ erases the loan: keep the debt valid for civil collection. {#debt-still-payable}
 - Case involves proven criminal fraud: separate the crime from mere debt under Section $20$. {#separate-crime-still-punishable}
 :::

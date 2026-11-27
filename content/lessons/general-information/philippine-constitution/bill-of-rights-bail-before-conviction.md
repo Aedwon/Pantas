@@ -32,7 +32,7 @@ Test Section $13$ when an accused posts a surety bond in a theft case:
 
 :::pair #bail-secures-appearance
 Right: Bail and sureties guarantee required appearance without deciding guilt or ending trial.
-Wrong: Treating bail release as proving innocence, admitting guilt, or ending the case.
+Wrong: Treating bail with sureties as guaranteeing the accused will be found innocent.
 Bail governs pretrial custody while trial still decides guilt or innocence.
 :::
 
@@ -62,13 +62,13 @@ Why require strong proof alongside *reclusion perpetua*? Before conviction, the 
 
 :::pair #bail-exception-two-parts
 Right: Denying bail before conviction requires both *reclusion perpetua* and strong evidence of guilt.
-Wrong: Denying bail from the penalty alone, or on a minor charge a prosecutor opposes.
+Wrong: Denying bail solely because the charged offense carries *reclusion perpetua*.
 Both conditions in Section $13$ must hold together before bail stops being a right.
 :::
 
 :::pair #bail-survives-suspension
 Right: Suspending the *habeas corpus* privilege leaves bail and the ban on excessive bail intact.
-Wrong: Treating suspension as removing bail for every detainee or allowing excessive bail.
+Wrong: Treating suspension of the writ privilege as removing the right to bail for every detainee.
 Section $13$ expressly keeps bail protected and bars excessive bail during writ suspension.
 :::
 
@@ -82,64 +82,64 @@ The answer is **No**. Excessive bail is forbidden under Section $13$, and custod
 
 ### #1: The Bail Exception
 
-Before conviction, an accused faces a charge punishable by *reclusion perpetua*. The evidence of guilt is strong. Is bail guaranteed as a matter of right under Section $13$?
+Before conviction, an accused faces *reclusion perpetua* with strong evidence of guilt. Is bail a right under Section $13$?
 
 **Solution:**
 
-1. Check the penalty: *reclusion perpetua* applies.
-2. Check the proof: evidence of guilt is strong.
+1. Penalty: *reclusion perpetua* applies.
+2. Proof: evidence of guilt is strong.
 
-Answer: No, with both conditions met, bail is not a right under Section $13$.
+Answer: No, bail is not a right when both conditions hold.
 
-**Check:** Both the severe penalty and strong evidence hold together, meeting the sole exception.
+**Check:** Severe penalty plus strong proof meet Section $13$'s sole exception.
 
-### #2: A Serious Charge Without Strong Evidence
+### #2: Lighter Charge With Strong Evidence
 
-Before conviction, an accused faces a charge punishable by *reclusion perpetua*, but the evidence of guilt is not strong. Does the named penalty alone remove the constitutional right to bail?
-
-**Solution:**
-
-1. State the rule: Section $13$ requires both *reclusion perpetua* and strong evidence.
-2. Check the facts: strong evidence is absent.
-
-Answer: No, the penalty alone does not remove bail.
-
-**Check:** Only half of Section $13$'s exception is met, so bail stays a right.
-
-### #3: Release Without a Bail Bond
-
-A law allows an eligible accused to be released on a lawful undertaking instead of a bail bond. What form of release is described?
+Before conviction, a mechanic faces an $8$-year falsification charge. Strong video proof exists, and prosecutors ask to deny bail. May the judge deny bail?
 
 **Solution:**
 
-1. Check the form: release uses a statutory undertaking rather than a bond.
-2. Match Section $13$: this is **release on recognizance** provided by law.
+1. Rule: Section $13$ requires both *reclusion perpetua* and strong proof.
+2. Charge: an $8$-year term is not *reclusion perpetua*.
 
-Answer: Release on recognizance under Article III, Section $13$.
+Answer: No, bail stays a right without *reclusion perpetua*.
 
-**Check:** Recognizance replaces a bail bond with a lawful undertaking without deciding guilt.
+**Check:** Strong proof on an $8$-year charge never removes bail.
 
-### #4: Bail During Writ Suspension
+### #3: Recognizance Release Pending Trial
 
-During an invasion, officials validly suspend the *habeas corpus* privilege. A bailable detainee seeks bail, yet a prosecutor demands an unaffordable amount, claiming suspension ended bail limits. How does Section $13$ apply?
+Charged with a minor offense, a dockworker has no cash for bond. By statute, the court releases him on his signed undertaking to appear. Prosecutors call this an acquittal. Are they right?
 
 **Solution:**
 
-1. Check the right: Section $13$ keeps bail intact during writ suspension.
-2. Check the amount: Section $13$ forbids excessive bail.
+1. Form: release on a statutory undertaking is **release on recognizance**.
+2. Effect: recognizance secures appearance without acquitting the accused.
+
+Answer: No, recognizance grants temporary release while trial proceeds.
+
+**Check:** Recognizance secures appearance without deciding guilt.
+
+### #4: Bailable Charge During Writ Suspension
+
+During rebellion, officials suspend the *habeas corpus* privilege. A detainee on a $4$-year charge seeks bail. The prosecutor opposes bail and demands a ten-million-peso bond. Rule on both requests.
+
+**Solution:**
+
+1. Check how Section $13$ treats bail during *habeas corpus* suspension.
+2. Check the prosecutor's opposition and ten-million-peso bond demand.
 
 :::try
-Finish the last step: rule on both the right to bail and the demand for an unaffordable amount.
+Finish the last step: rule on the denial request and the ten-million-peso bond.
 :::answer
-The answer is **The detainee keeps the right to bail, and excessive bail remains prohibited**. Suspending the writ privilege neither impairs bail nor allows excessive bail amounts under Article III, Section $13$.
+The answer is **The technician keeps the right to bail, and the ten-million-peso bond is barred as excessive bail.** Under Section $13$, a $4$-year charge with prosecutor opposition never removes bail, and valid writ suspension neither ends bail nor permits excessive bail.
 
-**Check:** Section $13$ preserves both bail and the ban on excessive bail during valid suspension.
+**Check:** Section $13$ preserves both the right to bail and the ban on excessive bail during valid writ suspension.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Accused posts bail with sureties: remember sureties guarantee appearance, not innocence or dismissal. {#bail-secures-appearance}
+- Accused posts bail with sureties: remember sureties guarantee appearance, not innocence. {#bail-secures-appearance}
 - Charge carries *reclusion perpetua*: deny bail before conviction only when strong evidence is also shown. {#bail-exception-two-parts}
-- Writ of *habeas corpus* is suspended: keep bail intact and reject excessive bail. {#bail-survives-suspension}
+- Writ of *habeas corpus* is suspended: keep the right to bail intact. {#bail-survives-suspension}
 :::

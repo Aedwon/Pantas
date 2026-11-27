@@ -31,14 +31,14 @@ Test Section $2$ on a special anti-trafficking law that formerly imposed death a
 
 :::pair #nomenclature-picks-replacement
 Right: Laws using Revised Penal Code terms get *reclusion perpetua*; other laws get life imprisonment.
-Wrong: Swapping the two replacements, or applying *reclusion perpetua* to every law that had death.
+Wrong: Applying *reclusion perpetua* to every law that once imposed death, even outside the Revised Penal Code.
 Always read the violated statute's penalty naming style before picking the replacement.
 :::
 
 :::check
-A Revised Penal Code crime uses the code's named penalties and once carried death. Which replacement penalty applies under Section $2$?
+A court convicts an offender under a special anti-carnapping act that formerly carried death and sets sentences in plain years. Which replacement penalty applies?
 :::answer
-The answer is **Reclusion perpetua**. Republic Act No. $9346$, Section $2$ assigns *reclusion perpetua* whenever the violated law uses Revised Penal Code penalty names.
+The answer is **Life imprisonment**. Because the special statute does not use Revised Penal Code penalty names, Republic Act No. $9346$, Section $2$ requires life imprisonment.
 :::
 
 ### Republic Act No. $9346$, Section $3$: The Parole Restriction
@@ -58,7 +58,7 @@ Why bar parole for reduced death sentences? Congress replaced execution with sev
 
 :::pair #no-parole-after-reduction
 Right: Republic Act No. $9346$, Section $3$ bars parole when a death sentence is reduced to *reclusion perpetua*.
-Wrong: Treating the reduction as making parole automatic, or limiting the parole bar to unreduced death sentences.
+Wrong: Treating a reduction to *reclusion perpetua* under the Act as making parole automatic.
 Section $3$ expressly covers sentences reduced to *reclusion perpetua* under the Act.
 :::
 
@@ -76,53 +76,53 @@ The answer is **No**. Republic Act No. $9346$, Section $3$ bars parole for offen
 
 ## Examples
 
-### #1: Selecting the Replacement Penalty
+### #1: A Revised Penal Code Amendment
 
-A violated law formerly imposed death and uses the penalty names of the Revised Penal Code. Which replacement does Republic Act No. $9346$ require?
+A prosecutor secures a conviction for parricide under a Revised Penal Code rule that once carried death. That law uses terms like *prision mayor* and *reclusion temporal*. Under Republic Act No. $9346$, Section $2$, which penalty replaces death?
 
 **Solution:**
 
-1. Check the penalty names used by the violated law.
-2. Note that it uses Revised Penal Code penalty names.
+1. Inspect the statute's penalty names: *prision mayor* and *reclusion temporal* are Revised Penal Code penalty names.
+2. Apply Section $2$: offenses under laws using Revised Penal Code penalty names receive *reclusion perpetua*.
 
 Answer: *Reclusion perpetua* under Republic Act No. $9346$, Section $2$.
 
-**Check:** Section $2$ pairs Revised Penal Code nomenclature directly with *reclusion perpetua*, rather than life imprisonment.
+**Check:** Look at the statute's penalty names rather than guessing life imprisonment.
 
-### #2: A Law With Different Penalty Names
+### #2: A Special Decree With Fixed Years
 
-A special law formerly imposed death but does not use Revised Penal Code penalty names. Which replacement does Republic Act No. $9346$ require?
-
-**Solution:**
-
-1. Check the violated law's naming style: it does not use Revised Penal Code penalty names.
-2. Apply Section $2$: non-code statutes receive life imprisonment instead of *reclusion perpetua*.
-
-Answer: Life imprisonment under Republic Act No. $9346$, Section $2$.
-
-**Check:** Because the special law lacks Revised Penal Code penalty terms, *reclusion perpetua* cannot replace death here.
-
-### #3: Good Conduct After a Reduced Sentence
-
-A prisoner's death sentence was reduced to *reclusion perpetua* by reason of Republic Act No. $9346$. After $12$ years of spotless prison behavior, he claims good conduct earns him parole under Act No. $4103$. Does Section $3$ allow parole?
+A special anti-hijacking decree sets penalties in fixed $20$-to-$40$-year prison ranges and formerly imposed death. A court clerk writes *reclusion perpetua* on the commitment order instead of life imprisonment. Did the clerk apply Section $2$ correctly?
 
 **Solution:**
 
-1. Check why the prisoner holds this sentence: the death sentence was reduced to *reclusion perpetua* by reason of Republic Act No. $9346$.
-2. Check whether Section $3$ lists a good-conduct exception for reduced death sentences.
+1. Inspect the decree's wording: fixed $20$-to-$40$-year ranges are not Revised Penal Code penalty names.
+2. Apply Section $2$: non-code statutes that formerly carried death require life imprisonment, never *reclusion perpetua*.
+
+Answer: No, the clerk should have entered life imprisonment under Republic Act No. $9346$, Section $2$.
+
+**Check:** Only statutes using Revised Penal Code penalty names receive *reclusion perpetua*; all other covered laws receive life imprisonment.
+
+### #3: Comparing Two Parole Petitions
+
+Prisoner A serves a $6$-to-$10$-year robbery sentence and completes her minimum term. Prisoner B had a death sentence reduced to *reclusion perpetua* under Republic Act No. $9346$ and shows $12$ years of clean prison conduct. Both apply for parole under Act No. $4103$. Does Section $3$ bar either prisoner?
+
+**Solution:**
+
+1. Check Prisoner A's sentence against Act No. $4103$'s minimum-term rule and Republic Act No. $9346$, Section $3$.
+2. Check Prisoner B's reduced sentence and good conduct against Republic Act No. $9346$, Section $3$.
 
 :::try
-Finish the last step: state whether spotless prison behavior earns parole under Republic Act No. $9346$, Section $3$.
+Finish the last step: state whether Republic Act No. $9346$, Section $3$ bars parole for Prisoner A, Prisoner B, or both.
 :::answer
-The answer is **No, the prisoner remains ineligible for parole.** Republic Act No. $9346$, Section $3$ bars parole for death sentences reduced to *reclusion perpetua* by reason of the Act. Good conduct does not create an exception to Section $3$.
+The answer is **Section $3$ bars parole for Prisoner B, not Prisoner A.** Prisoner A serves an ordinary indeterminate sentence eligible for Act No. $4103$ parole after its minimum term. Section $3$ bars parole for death sentences reduced to *reclusion perpetua*, with no good-conduct exception.
 
-**Check:** Section $3$ expressly covers reduced death sentences, closing off Act No. $4103$ parole.
+**Check:** Only sentences tied to Republic Act No. $9346$'s death-penalty ban trigger Section $3$'s parole bar.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Law formerly carried death: match Revised Penal Code names to *reclusion perpetua* and other laws to life imprisonment. {#nomenclature-picks-replacement}
+- Violated law uses non-code penalty names: apply life imprisonment instead of defaulting to *reclusion perpetua*. {#nomenclature-picks-replacement}
 - Death sentence reduced to *reclusion perpetua*: block parole under Section $3$ of the Act. {#no-parole-after-reduction}
 - Prisoner asks to swap penalties for parole: apply the violated statute's naming rule instead. {#no-prisoner-penalty-choice}
 :::

@@ -87,18 +87,18 @@ Answer: Freedom from detention solely for political beliefs under Article III, S
 
 **Check:** Because the detention rests on political views alone, it directly violates Section $18(1)$.
 
-### #2: Work After Conviction
+### #2: Unpaid Labor While Awaiting Trial on Bail
 
-A person must perform work as part of lawful punishment after due conviction for a crime. Does Section $18$ contain an exception that may apply?
+A vendor charged with estafa posts bail while awaiting trial. Before any court judgment, a municipal officer orders him to sweep the public plaza every morning without pay as criminal punishment. Does Section $18(2)$'s exception allow that order?
 
 **Solution:**
 
-1. State the general rule: Article III, Section $18(2)$ bans involuntary servitude.
-2. Check the exception: Section $18(2)$ permits servitude as punishment for a crime after due conviction.
+1. Check the vendor's legal status: he has been charged with a crime, yet no court has duly convicted him.
+2. Apply Section $18(2)$: forced work as punishment is allowed only after due conviction, never on a mere accusation.
 
-Answer: Yes, the due-conviction punishment exception under Article III, Section $18(2)$ applies.
+Answer: No, the order violates Article III, Section $18(2)$'s ban on involuntary servitude.
 
-**Check:** Both conditions of the exception hold because a due conviction came before the lawful work punishment.
+**Check:** A pending charge while out on bail is an accusation, not the due conviction required by Section $18(2)$.
 
 ### #3: A Convicted Activist's Two Claims
 

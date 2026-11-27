@@ -35,7 +35,7 @@ Why keep the proof burden on the prosecution? The state brings charges with full
 
 :::pair #presumption-not-immunity
 Right: Presumption of innocence requires the prosecution to prove guilt at a lawful trial.
-Wrong: Treating presumption of innocence as automatic release or a pardon before trial.
+Wrong: Treating presumption of innocence as automatic release from every criminal proceeding.
 The presumption keeps the proof burden on the prosecution without barring lawful proceedings.
 :::
 
@@ -58,13 +58,13 @@ Test an arraignment where the charge read in court says only "unlawful conduct i
 
 :::pair #notice-vs-other-trial-rights
 Right: Asking what crime and acts are alleged invokes notice of the accusation's nature and cause.
-Wrong: Calling a request for the charge details a public-trial or witness-confrontation issue.
+Wrong: Calling a request for the crime charged and alleged acts a public-trial issue.
 Notice tells the accused what to answer, while public observation and confrontation govern how trial runs.
 :::
 
 :::pair #heard-by-self-and-counsel
 Right: Barring the accused and defense lawyer from answering breaks the right to be heard.
-Wrong: Treating a refusal to hear the defense as a speedy-disposition or subpoena issue.
+Wrong: Treating a court's refusal to hear the accused and counsel as a speedy-disposition issue.
 Each Section $14(2)$ guarantee stands on its own, so silencing the accused and counsel breaks the right to be heard.
 :::
 
@@ -108,11 +108,11 @@ A judge holds a prompt, public robbery trial. The court reads a clear charge nam
 
 **Solution:**
 
-1. Check notice: reading the crime and alleged acts gave notice of nature and cause.
-2. Check the refusal: silencing the accused and counsel blocks their reply to the prosecution.
+1. Check whether reading the store, date, and acts satisfied notice of nature and cause.
+2. Check which Section $14(2)$ safeguard covers letting the accused and defense counsel answer the charge.
 
 :::try
-Finish the last step: name the denied Section $14(2)$ right and explain why speed and openness do not cure it.
+Finish the last step: rule on notice, name any denied Section $14(2)$ right, and explain whether speed and openness cure it.
 :::answer
 The answer is **The right to be heard personally and through counsel is denied, and speed and openness do not cure it**. Section $14(2)$ protects each defense right separately. Holding a fast, public hearing never replaces hearing the accused and counsel.
 
@@ -123,6 +123,6 @@ The answer is **The right to be heard personally and through counsel is denied, 
 
 :::checklist
 - Accused claims presumption of innocence bars trial: keep the proof burden on the prosecution without excusing trial. {#presumption-not-immunity}
-- Accused asks what crime and acts are alleged: match that to notice, not public trial or witnesses. {#notice-vs-other-trial-rights}
+- Accused asks what crime and acts are alleged: match that to notice, not public trial. {#notice-vs-other-trial-rights}
 - Court hears only the prosecution: flag denial of the right to be heard personally and by counsel. {#heard-by-self-and-counsel}
 :::

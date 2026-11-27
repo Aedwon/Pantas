@@ -88,21 +88,21 @@ Answer: Section $7$ covers the contract record, and Section $8$ protects the tea
 
 **Check:** Naming the right section is only the start. Section $7$ still checks for legal limits on access, and Section $8$ requires a lawful purpose.
 
-### #2: The Limits of Record Access
+### #2: Official Contracts and Claimed Confidentiality
 
-A student researcher asks a city transport office for traffic survey data used to plan new bus routes. The office refuses the whole request, saying a statute makes part of the survey confidential. Does naming Section $7$ settle whether the whole survey must be released?
+A civic group requests a city's signed drainage-repair contract and payment vouchers. The city treasurer refuses the entire request, citing an internal memo labeling all procurement contracts confidential. She argues Section $7$ cannot override office policy. Rule on the treasurer's refusal under Section $7$.
 
 **Solution:**
 
-1. Confirm coverage: traffic survey data used to shape public policy falls within Section $7$.
-2. Test the refusal: Section $7$ grants access subject to limits provided by law, so an agency's bare statement does not end the review.
+1. Classify the requested contract and payment vouchers under Section $7$'s three record categories.
+2. Check what Section $7$ requires before an office may withhold covered official records as confidential.
 
 :::try
-Finish the last step: explain why neither Section $7$ alone nor the office's bare claim settles the request, and state what must be verified.
+Finish the last step: rule on the treasurer's refusal and explain why an internal memo does not end the Section $7$ review.
 :::answer
-The answer is **No, neither Section $7$ nor the office's statement decides the outcome until the cited statute is checked against the requested survey.** If the statute makes part of the dataset confidential, that part stays protected while non-confidential public data remains open.
+The answer is **The memo cannot justify a blanket refusal because Section $7$ covers official transaction records unless a law restricts access.** An office cannot invent confidentiality by memo, so officials must show a real statute restricting specific parts before withholding any record.
 
-**Check:** Policy research data is covered by Section $7$, yet valid statutory limits still apply once verified.
+**Check:** Official acts, transactions, and decisions sit inside Section $7$, and only a valid law can limit access to them.
 :::
 
 ## Traps to Watch For

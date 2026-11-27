@@ -67,7 +67,7 @@ The answer is **No**. Section $11$ covers quasi-judicial bodies and bars denying
 
 Section $12$ protects suspects under **custodial investigation** (police custody or serious restraint, including suspect invitations under Republic Act No. $7438$).
 
-Under Section $12(1)$, officers must warn a suspect of the right to remain silent. They must also tell the suspect about **competent and independent counsel**, preferably of the person's choice. Counsel is provided free if needed.
+Under Section $12(1)$, officers must warn a suspect of the right to remain silent. They must also tell the suspect about **competent and independent counsel**, preferably of the person's choice. If the person cannot afford counsel, one must be provided.
 
 Waiving these rights requires **both**:
 
@@ -99,47 +99,47 @@ The answer is **No**. Section $12(1)$ requires both a written waiver and the pre
 
 ## Examples
 
-### #1: Lot Taken for a Water Station
+### #1: Contract Duties and Later Law
 
-A city takes a family's lot for a public water pumping station. Officials refuse payment, saying the station serves all residents. What does Section $9$ require?
-
-**Solution:**
-
-1. Check the taking: private land is taken for public use.
-2. Apply Section $9$: public use requires paying **just compensation**.
-
-Answer: Just compensation to the owner.
-
-**Check:** Public use is why taking is allowed, so it never removes the duty to pay.
-
-### #2: Poverty at a Land Dispute Board
-
-A provincial land board hears evidence and resolves tenant claims. When an indigent farmer cannot pay for counsel, the board waives her docketing fee yet bars free legal aid. Did the board satisfy Section $11$?
+A farm co-op signs a five-year crop contract. Congress later cancels unpaid fees under existing contracts without any public-welfare basis. Does Section $10$ allow that law?
 
 **Solution:**
 
-1. Classify the board: hearing evidence and resolving disputes makes it quasi-judicial under Section $11$.
-2. Check both rights: waiving the filing fee never cures denying legal help for poverty.
+1. Agreed duty: the contract fixed a valid payment obligation.
+2. Apply Section $10$: erasing contract duties without a public-welfare basis impairs contracts.
 
-Answer: No, Section $11$ requires both free access and adequate legal assistance despite poverty.
+Answer: No, Section $10$ bars laws impairing contract obligations.
 
-**Check:** Courts and quasi-judicial bodies must protect filing access and legal help separately.
+**Check:** Valid contract duties cannot be erased without a valid public-welfare reason.
 
-### #3: Arson Questioning Without Counsel
+### #2: Filing Access at a Quasi-Judicial Board
 
-Police invite an indigent mechanic to the station for arson questioning. He tells two officers he waives silence, answers questions with no lawyer present, and signs a printed waiver afterward. How does Section $12$ apply?
+A regional labor board hears evidence and settles wage claims. An indigent janitor has a volunteer lawyer, yet the clerk rejects his complaint for unpaid fees. Does Section $11$ allow that refusal?
 
 **Solution:**
 
-1. Check custody and counsel: an invited suspect is under Section $12$, and indigent suspects must receive free counsel.
-2. Check the waiver: signing afterward without counsel present fails Section $12(1)$'s dual requirement.
+1. Classify the board: hearing evidence and deciding disputes makes it quasi-judicial.
+2. Check filing access: having counsel never excuses denying access for poverty.
+
+Answer: No, poverty cannot bar free access to a quasi-judicial board.
+
+**Check:** Section $11$ protects filing access and legal help separately.
+
+### #3: Witness Interview Versus Suspect Invitation
+
+Police ask a passing witness what truck sped past, and she answers freely. Later, officers invite a suspect to the precinct under Republic Act No. $7438$, lock the door, and take his signed waiver without counsel. Rule on both interviews and the waiver.
+
+**Solution:**
+
+1. Compare the witness reply and suspect invitation to see when custodial investigation begins.
+2. Test the signed waiver against Section $12(1)$'s waiver rules.
 
 :::try
-Finish the last step: rule on the waiver and the admissibility of his answers.
+Finish the last step: rule on Section $12$'s reach in both interviews and on the waiver.
 :::answer
-The answer is **The waiver fails without counsel's presence, so his answers are inadmissible under Section $12(3)$.** Under Section $12(1)$, a valid waiver needs both writing and counsel's presence, and officers must provide free counsel when a suspect cannot pay.
+The answer is **Section $12$ does not cover the witness's voluntary reply, yet it covers the invited suspect and invalidates his uncounseled waiver.** Under Republic Act No. $7438$, suspect invitations trigger Section $12$, so a waiver signed without counsel fails Section $12(1)$ and bars any resulting statement.
 
-**Check:** Writing alone never replaces counsel, and poverty never removes appointed counsel.
+**Check:** Custodial safeguards attach to a questioned suspect under restraint, and a valid waiver requires both writing and counsel's presence.
 :::
 
 ## Traps to Watch For

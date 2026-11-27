@@ -27,7 +27,7 @@ Test Section $21$ when prosecutors refile the same theft charge after a court al
 
 :::pair #jeopardy-vs-retroactive-laws
 Right: Section $21$ double jeopardy blocks a second criminal trial for the same offense after a proper ending.
-Wrong: Labeling a second prosecution for the same offense an *ex post facto* law or bill of attainder.
+Wrong: Labeling a second prosecution for the same offense protection against *ex post facto* laws.
 Check whether the facts describe a repeated prosecution rather than a backward penal law or trial-free legislative punishment.
 :::
 
@@ -59,7 +59,7 @@ Why require arraignment and a plea before jeopardy attaches? Before a valid plea
 
 :::pair #plea-required-for-jeopardy
 Right: Double jeopardy attaches only after a valid charge, competent court, arraignment, and a valid plea.
-Wrong: Treating a filed or withdrawn complaint before arraignment as enough to bar a later case.
+Wrong: Treating the filing of a complaint alone as enough to establish double jeopardy.
 Check that arraignment and a plea actually occurred, not merely filing of a complaint.
 :::
 
@@ -90,18 +90,18 @@ Answer: Double jeopardy under Article III, Section $21$ bars the second prosecut
 
 **Check:** All conditions of Rule $117$, Section $7$ hold, and an acquittal bars retrial even with no sentence served.
 
-### #2: A Complaint Without a Plea
+### #2: Unconsented Dismissal After Plea
 
-A complaint was filed, but the accused was never arraigned and entered no plea. Does filing alone establish the general double-jeopardy protection?
+An accused is arraigned and pleads not guilty in a proper court on a valid perjury charge. During trial, the case is dismissed without the accused's express consent. May prosecutors refile that same perjury charge later?
 
 **Solution:**
 
-1. Check the conditions: Rule $117$, Section $7$ requires arraignment and a valid plea before jeopardy attaches.
-2. Check the facts: only a complaint was filed, with no arraignment or plea.
+1. Check the first three conditions: valid charge, court with authority, arraignment, and a valid plea all occurred.
+2. Check the ending: dismissal without the accused's express consent completes first jeopardy under Rule $117$, Section $7$.
 
-Answer: No, filing a complaint alone does not establish double jeopardy.
+Answer: No, double jeopardy bars refiling the same perjury charge.
 
-**Check:** Without arraignment and a valid plea, the accused was never placed in first jeopardy.
+**Check:** A dismissal without the accused's express consent after a valid plea ends first jeopardy just like an acquittal.
 
 ### #3: Dismissal for Lack of Jurisdiction
 
@@ -110,7 +110,7 @@ An accused is arraigned and enters a not-guilty plea on a valid robbery charge i
 **Solution:**
 
 1. Check the four conditions: valid charge, arraignment, plea, and court with legal authority must all hold.
-2. Check the first court: the court lacked legal authority over the robbery case.
+2. Check each of the four Rule $117$, Section $7$ requirements against the dismissed first robbery case.
 
 :::try
 Finish the last step: rule on whether double jeopardy bars the new case and explain which Rule $117$ condition failed.
@@ -123,7 +123,7 @@ The answer is **No, double jeopardy does not bar the new case because the first 
 ## Traps to Watch For
 
 :::checklist
-- Second trial for the same crime: match it to Section $21$ double jeopardy, not Section $22$ laws. {#jeopardy-vs-retroactive-laws}
-- Complaint filed or dropped early: require arraignment and a valid plea before jeopardy attaches. {#plea-required-for-jeopardy}
+- Second trial for the same crime: match it to Section $21$ double jeopardy, not *ex post facto* laws. {#jeopardy-vs-retroactive-laws}
+- Complaint filed without arraignment: require arraignment and a valid plea before jeopardy attaches. {#plea-required-for-jeopardy}
 - Case ended in acquittal with no jail time: treat acquittal as triggering double jeopardy. {#acquittal-without-sentence}
 :::

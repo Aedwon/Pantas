@@ -32,7 +32,7 @@ Why require full and fair payment when the project helps everyone? One owner sho
 
 :::pair #public-use-still-pays
 Right: Taking private property for public use requires paying its full and fair value.
-Wrong: Treating public use or access to the finished project as excusing payment.
+Wrong: Claiming a public purpose lets the government take private property without paying.
 Public use explains why the taking is allowed, yet Section $9$ still requires full and fair payment.
 :::
 
@@ -76,19 +76,19 @@ The answer is **No**. You must examine both the rule's effect on contract duties
 
 ## Examples
 
-### #1: Land for a Road
+### #1: Leftover Budget vs. Full Value
 
-The government takes private land for a public road and refuses to pay for it. Which constitutional protection applies?
+A city takes a corner warehouse to build a fire station. Because the city's building budget is low, officials offer only the funds left in that account, which equals half the warehouse's market value. Does that satisfy Section $9$?
 
 **Solution:**
 
-1. Identify the action: private land is taken for public use.
-2. Apply Article III, Section $9$: taking for public use requires **just compensation**.
-3. Check the excuse: a public road does not make private land free.
+1. Identify the action: taking a private warehouse for a fire station is a taking for public use.
+2. Check the payment rule: Section $9$ requires **just compensation**, meaning the full and fair value of the property taken.
+3. Test the city's offer: leftover budget funds equal only half the fair value, falling short of full payment.
 
-Answer: Just compensation under Article III, Section $9$.
+Answer: No, Section $9$ requires full and fair value instead of whatever remains in the city's budget.
 
-**Check:** Section $9$ requires paying full and fair value whenever private property is taken for public use.
+**Check:** Budget limits never reduce just compensation below the full and fair value of the property taken.
 
 ### #2: A Later Law and a Contract
 
@@ -110,8 +110,8 @@ A town passes a safety rule requiring bakeries to keep ovens two meters from str
 
 **Solution:**
 
-1. Check the setback rule: limiting where ovens sit is a safety regulation, not a taking for public use.
-2. Check the clinic lot: taking half the yard transfers private land to public clinic use.
+1. Check whether the bakery oven-setback rule regulates property use or takes property for public use.
+2. Check whether taking half the baker's yard for a clinic is a taking for public use under Section $9$.
 
 :::try
 Finish the last step: state which action requires just compensation and explain why public clinic use does not excuse payment.

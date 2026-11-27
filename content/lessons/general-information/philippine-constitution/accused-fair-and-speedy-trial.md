@@ -38,7 +38,7 @@ Why check four factors instead of days alone? Storm pauses differ from repeated,
 
 :::pair #speedy-not-instant
 Right: Judge trial delay using all four factors: length, reason, assertion, and harm.
-Wrong: Treating any postponement as a violation, or deciding solely by elapsed time.
+Wrong: Treating any trial postponement as a speedy-trial violation without checking its reason.
 Sound scheduling reasons and lack of harm separate valid pauses from unreasonable delay.
 :::
 
@@ -61,13 +61,13 @@ Test a prompt, open courtroom where a judge privately coaches one side's witness
 
 :::pair #public-trial-lawful-limits
 Right: Public trial keeps the trial open to observation, subject only to lawful limits.
-Wrong: Opening only the verdict, or closing the room on a prosecutor's preference.
+Wrong: Claiming public attendance at trial depends entirely on the prosecution's preference.
 Lawful rules allow narrow exclusions for sensitive testimony while protecting open proceedings overall.
 :::
 
 :::pair #impartiality-independent-from-speed
 Right: Impartiality requires an unbiased judge even when the trial is fast and open.
-Wrong: Confusing judicial bias toward one side with speed, notice, or public access.
+Wrong: Calling a judge's open favoritism toward the prosecution a speed issue when the trial moves without delay.
 A fast, open hearing cannot cure a judge who takes sides.
 :::
 
@@ -112,7 +112,7 @@ During a criminal trial, a judge excludes spectators only while a young victim g
 **Solution:**
 
 1. Check the rule: Section $14(2)$ guarantees a public trial, subject to lawful limits.
-2. Check the basis: Rule $119$, Section $21$ permits excluding spectators for testimony offensive to decency or morals.
+2. Check whether excluding spectators only for that witness's sensitive testimony fits Rule $119$, Section $21$.
 
 :::try
 Finish the last step: rule on whether the partial closure breaks Section $14(2)$ and explain why.
@@ -125,7 +125,7 @@ The answer is **No, the partial closure does not violate Section $14(2)$**. Publ
 ## Traps to Watch For
 
 :::checklist
-- Postponement occurs in a criminal trial: check all four factors instead of counting days alone. {#speedy-not-instant}
-- Spectators are restricted at trial: verify a lawful rule rather than treating every limit as unlawful or allowing prosecutor preference. {#public-trial-lawful-limits}
+- Postponement occurs in a criminal trial: check its reason and all four factors instead of calling every delay a violation. {#speedy-not-instant}
+- Spectators are restricted at trial: require a lawful rule, not prosecutorial preference. {#public-trial-lawful-limits}
 - Trial is fast and open yet the judge takes sides: identify a breach of impartiality. {#impartiality-independent-from-speed}
 :::

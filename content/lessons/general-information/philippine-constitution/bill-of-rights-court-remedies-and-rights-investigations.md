@@ -30,7 +30,7 @@ Test Rule $102$ when police hold a student for three days without a warrant or c
 
 :::pair #habeas-corpus-vs-parole
 Right: *Habeas corpus* asks a court to check unlawful custody; parole is release after serving part of a sentence.
-Wrong: Asking for parole or asking Congress for an acquittal to challenge unlawful detention.
+Wrong: Asking for parole to make a court examine the legal basis for a person's detention.
 Match unlawful-detention checks to a judicial *habeas corpus* petition, never to parole or Congress.
 :::
 
@@ -42,7 +42,7 @@ The answer is **Parole**. Conditional release after partial sentence service com
 
 ### Article XIII, Section $18$: CHR Investigations and Quasi-Judicial Bodies
 
-Under **Article XIII, Section $18$**, the **Commission on Human Rights (CHR)** investigates violations of civil and political rights. It also gives protective measures and legal aid to underprivileged people.
+Under **Article XIII, Section $18$**, the **Commission on Human Rights (CHR)** investigates violations of civil and political rights. It also gives preventive measures and legal aid to underprivileged people.
 
 An investigation is not a criminal trial. The CHR cannot convict, acquit, impose prison sentences, or replace a trial court. Treating an unverified complaint as a conviction also violates fairness.
 
@@ -59,36 +59,36 @@ Why separate CHR investigations from court trials? An independent office gathers
 
 :::pair #chr-investigates-not-convicts
 Right: Under Article XIII, Section $18$, the CHR investigates civil and political rights violations and provides legal aid.
-Wrong: Asking the CHR to acquit a detainee or impose prison sentences on officers after an investigation.
+Wrong: Asking the CHR to impose a prison sentence on officers after an investigation.
 Keep investigative powers separate from a trial court's power to acquit or sentence.
 :::
 
 :::pair #complaint-not-conviction
 Right: A rights complaint starts fact-checking and never replaces a trial court or proves guilt.
-Wrong: Treating a complaint as a conviction without evidence, or letting the CHR decide criminal charges.
+Wrong: Treating a rights complaint as a criminal conviction without hearing evidence.
 Evidence must still be heard, and criminal charges belong to trial courts.
 :::
 
 :::check
-An indigent resident whose civil rights were violated asks the Commission on Human Rights for protective measures and legal aid. Does Article XIII, Section $18$ allow that help?
+An indigent resident whose civil rights were violated asks the Commission on Human Rights for preventive measures and legal aid. Does Article XIII, Section $18$ allow that help?
 :::answer
-The answer is **Yes**. Article XIII, Section $18$ authorizes the CHR to provide protective measures and legal aid to underprivileged people alongside investigating violations.
+The answer is **Yes**. Article XIII, Section $18$ authorizes the CHR to provide preventive measures and legal aid to underprivileged people alongside investigating violations.
 :::
 
 ## Examples
 
-### #1: Seeking Protection
+### #1: Testing Warrantless Custody in Court
 
-A family wants a court to examine the legal basis for a relative's detention. Which court remedy should it discuss with a lawyer?
+An arrested dockworker is held in a port jail for four days with no warrant, inquest, or court order. His wife wants a judge to review whether the custody is lawful and order his release if it is not. Which remedy brings him before a judge?
 
 **Solution:**
 
-1. Identify the goal: the family needs a judge to check whether custody is lawful.
-2. Match the remedy: a **writ of habeas corpus** orders the custodian to bring the detainee to court.
+1. Identify the goal: she wants a court to inspect the legal basis for his detention, not merely investigate officer misconduct.
+2. Match the remedy: under Article III, Section $15$ and Rule $102$, a writ of *habeas corpus* orders the custodian to produce him in court.
 
-Answer: A petition for a writ of *habeas corpus* under Article III, Section $15$ and Rule $102$.
+Answer: A petition for a writ of *habeas corpus*.
 
-**Check:** *Habeas corpus* directly tests detention legality in court, unlike parole or legislative action.
+**Check:** Unlike a CHR investigation or parole, *habeas corpus* directly tests detention legality before a judge.
 
 ### #2: CHR Complaint Against Jail Guards
 
@@ -96,7 +96,7 @@ A detainee files an abuse complaint with the CHR alleging beatings by station gu
 
 **Solution:**
 
-1. Check Article XIII, Section $18$: the CHR may investigate civil and political rights violations and offer protective aid.
+1. Check Article XIII, Section $18$: the CHR may investigate civil and political rights violations and offer preventive measures and legal aid.
 2. Check limits: the CHR cannot treat a complaint as proof of guilt or impose prison sentences.
 
 Answer: Investigate the reported violation and offer aid, leaving trial and sentencing to courts.
@@ -110,7 +110,7 @@ Police lock an uncharged worker in a precinct cell without a warrant. One cousin
 **Solution:**
 
 1. Check the detention issue: the family needs a court to review the legal basis for custody.
-2. Check the wrong steps: parole needs partial sentence service, and Congress cannot acquit people.
+2. Test each cousin's proposed step against Rule $102$ (*habeas corpus*), Act No. $4103$ (parole), and judicial vs. legislative powers.
 
 :::try
 Finish the last step: name the proper court petition and explain why parole and asking Congress both fail.
@@ -123,7 +123,7 @@ The answer is **A petition for a writ of habeas corpus fits, while parole and as
 ## Traps to Watch For
 
 :::checklist
-- Family challenges unlawful detention: file *habeas corpus* in court, not parole or a request to Congress. {#habeas-corpus-vs-parole}
-- Detainee reports abuse to the CHR: expect investigation and aid, not a CHR prison sentence or acquittal. {#chr-investigates-not-convicts}
-- Sworn complaint filed against officers: hear evidence and leave criminal charges to a trial court. {#complaint-not-conviction}
+- Family challenges unlawful detention: file *habeas corpus* in court, not a request for parole. {#habeas-corpus-vs-parole}
+- Detainee reports abuse to the CHR: expect investigation and aid, not a CHR prison sentence. {#chr-investigates-not-convicts}
+- Sworn complaint filed against officers: hear evidence rather than treating the complaint as a conviction. {#complaint-not-conviction}
 :::

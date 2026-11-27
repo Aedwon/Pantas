@@ -58,7 +58,7 @@ Why does abode require a court order? Moving someone's home uproots their daily 
 
 :::pair #abode-needs-court-order
 Right: Restricting abode needs a lawful court order within legal limits; restricting travel needs national security, public safety, or public health by law.
-Wrong: Relocating a person's home on national security grounds without a court order, or treating abode and travel rules as identical.
+Wrong: Using national security to choose or relocate a person's residence without a lawful court order.
 Whether officials cite public health or national security, always check if the order controls residence or travel first.
 :::
 
@@ -76,18 +76,18 @@ The answer is **Yes**. National security, as provided by law, is a valid Section
 
 ## Examples
 
-### #1: A Religious Voting Test
+### #1: A Religious Test for a Civil License
 
-A local charter bars residents from voting in barangay elections unless they hold membership in one recognized church. Which constitutional rule does that charter violate?
+A provincial ordinance lets residents apply for a public notary license only if they belong to one recognized church. Which Section $5$ rule does the ordinance violate?
 
 **Solution:**
 
-1. Identify the right affected: voting in a barangay election is a political right.
-2. Identify the condition: required church membership is a religious test.
+1. Identify the right affected: applying for a professional license is a civil right.
+2. Match the condition: requiring membership in one church is a religious test.
 
 Answer: No religious test for civil or political rights under Article III, Section $5$.
 
-**Check:** Requiring faith membership to vote directly violates Section $5$, unlike rules on bail, forced labor, or unpaid debt.
+**Check:** Section $5$ bars religious tests for both civil rights and political rights.
 
 ### #2: Establishment and Worship
 
@@ -108,8 +108,8 @@ A regional director orders a witness to relocate permanently to another province
 
 **Solution:**
 
-1. Classify the first action: forced relocation affects **liberty of abode**, which requires legal limits and a lawful court order.
-2. Classify the second action: blocking movement out of a quarantine zone affects the **right to travel**, which allows limits by law for public health.
+1. Identify whether forced permanent relocation falls under Section $6$'s abode rule or travel rule, and check what authority the director has.
+2. Identify which Section $6$ freedom the quarantine law restricts, and check the statute's ground.
 
 :::try
 Finish the last step: state the outcome for each action and explain why public safety cannot save the relocation order.
