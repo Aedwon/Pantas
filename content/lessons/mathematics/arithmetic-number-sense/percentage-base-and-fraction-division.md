@@ -20,7 +20,7 @@ A percent problem connects three numbers. The **base** is the whole or reference
 
 The **part** is the share taken from that base. The **rate** tells what fraction or percent of the base you take.
 
-<!-- ILLUSTRATION: One horizontal bar labeled "Base = 200 (100%)". The bar is drawn to scale and split in two. The shaded left part is 30% of the bar and is labeled "Part = 60 (Rate = 30%)". The unshaded right part is 70% of the bar and is labeled "140 (70%)". -->
+<!-- FIGURE WANTED: horizontal bar labeled "Base = 200 (100%)" split into a shaded left part labeled "Part = 60 (Rate = 30%)" and an unshaded right part labeled "140 (70%)" -->
 
 In "$30\%$ of $200$ is $60$," the base is $200$, the rate is $30\%$ (or $0.30$), and the part is $60$. In questions like this, the base sits right after the word "of."
 
@@ -31,10 +31,6 @@ $$\text{Part}=\text{Rate}\times\text{Base}$$
 $$\text{Base}=\dfrac{\text{Part}}{\text{Rate}}$$
 
 $$\text{Rate}=\dfrac{\text{Part}}{\text{Base}}$$
-
-<!-- ILLUSTRATION: A triangle split by a horizontal line. "Part" is in the top section. "Rate" and "Base" sit side by side in the bottom section with a multiplication sign between them. Cover Part to get Part = Rate times Base. Cover Base to get Base = Part divided by Rate. Cover Rate to get Rate = Part divided by Base. -->
-
-Cover the one you want: the other two show whether to multiply or divide.
 
 Try finding the base when $25\%$ of a number is $60$. Here the part is $60$, the rate is $0.25$, and the base is unknown. Divide the part by the rate, moving both decimal points $2$ places right so the divisor is a whole number:
 
