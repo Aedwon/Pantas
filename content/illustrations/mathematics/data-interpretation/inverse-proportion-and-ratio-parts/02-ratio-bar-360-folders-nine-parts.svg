@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 150" width="360" height="150">
+<title>One bar of 360 folders cut into 9 equal parts of 40: Unit A has 2 parts (80), Unit B 3 parts (120), Unit C 4 parts (160)</title>
+<rect width="360" height="150" rx="14" fill="#030303"/>
+<text x="180" y="28" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="180">360 folders = 9 equal parts (40 per part)</tspan></text>
+<rect x="27" y="40" width="68" height="36" fill="#050505" fill-opacity="0.45"/>
+<rect x="95" y="40" width="102" height="36" fill="#050505" fill-opacity="0.22"/>
+<rect x="197" y="40" width="136" height="36" fill="#010101" fill-opacity="0.14"/>
+<rect x="27" y="40" width="306" height="36" fill="none" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<line x1="61" y1="40" x2="61" y2="76" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7" fill="none"/>
+<line x1="95" y1="40" x2="95" y2="76" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7" fill="none"/>
+<line x1="129" y1="40" x2="129" y2="76" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7" fill="none"/>
+<line x1="163" y1="40" x2="163" y2="76" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7" fill="none"/>
+<line x1="197" y1="40" x2="197" y2="76" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7" fill="none"/>
+<line x1="231" y1="40" x2="231" y2="76" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7" fill="none"/>
+<line x1="265" y1="40" x2="265" y2="76" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7" fill="none"/>
+<line x1="299" y1="40" x2="299" y2="76" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7" fill="none"/>
+<path d="M28 84 V89 H94 V84" fill="none" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<path d="M96 84 V89 H196 V84" fill="none" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<path d="M198 84 V89 H332 V84" fill="none" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="61" y="110" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="700" fill="#010101"><tspan x="61">Unit A</tspan></text>
+<text x="61" y="126" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="61">2 parts = 80</tspan></text>
+<text x="146" y="110" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="700" fill="#010101"><tspan x="146">Unit B</tspan></text>
+<text x="146" y="126" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="146">3 parts = 120</tspan></text>
+<text x="265" y="110" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="700" fill="#010101"><tspan x="265">Unit C</tspan></text>
+<text x="265" y="126" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="265">4 parts = 160</tspan></text>
+</svg>

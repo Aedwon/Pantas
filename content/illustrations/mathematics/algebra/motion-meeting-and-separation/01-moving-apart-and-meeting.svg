@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 290" width="360" height="290">
+<title>Two roads: moving apart at 25 and 35 kph so the gap grows at 60 kph, and meeting from the ends of a starting gap so the gap closes at speed 1 + speed 2</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="290" rx="14" fill="url(#bg)"/>
+<text x="24" y="30" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="24">Moving apart</tspan></text>
+<line x1="24" y1="84" x2="336" y2="84" stroke="#020202" stroke-width="2" stroke-linecap="butt" fill="none" stroke-opacity="0.5"/>
+<circle cx="180" cy="84" r="8" fill="#010101" fill-opacity="0.7"/>
+<line x1="168" y1="84" x2="130" y2="84" stroke="#050505" stroke-width="3" stroke-linecap="butt" fill="none"/>
+<polygon points="130,76 118,84 130,92" fill="#050505"/>
+<line x1="192" y1="84" x2="242" y2="84" stroke="#050505" stroke-width="3" stroke-linecap="butt" fill="none"/>
+<polygon points="242,76 254,84 242,92" fill="#050505"/>
+<text x="143" y="68" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="143">25 kph</tspan></text>
+<text x="223" y="68" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="223">35 kph</tspan></text>
+<path d="M118 104 V112 H254 V104" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="186" y="132" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="186">gap grows at 25 + 35 = 60 kph</tspan></text>
+<line x1="24" y1="152" x2="336" y2="152" stroke="#040404" stroke-width="1.5" stroke-linecap="butt" fill="none" stroke-opacity="0.6"/>
+<text x="24" y="178" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101"><tspan x="24">Meeting</tspan></text>
+<line x1="30" y1="226" x2="330" y2="226" stroke="#020202" stroke-width="2" stroke-linecap="butt" fill="none" stroke-opacity="0.5"/>
+<circle cx="30" cy="226" r="8" fill="#050505"/>
+<circle cx="330" cy="226" r="8" fill="#010101" fill-opacity="0.7"/>
+<line x1="42" y1="226" x2="112" y2="226" stroke="#050505" stroke-width="3" stroke-linecap="butt" fill="none"/>
+<polygon points="112,218 124,226 112,234" fill="#050505"/>
+<line x1="318" y1="226" x2="262" y2="226" stroke="#050505" stroke-width="3" stroke-linecap="butt" fill="none"/>
+<polygon points="262,218 250,226 262,234" fill="#050505"/>
+<text x="80" y="210" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="80">speed 1</tspan></text>
+<text x="284" y="210" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="284">speed 2</tspan></text>
+<text x="180" y="210" text-anchor="middle" font-family="Geist, sans-serif" font-size="12" font-weight="400" fill="#010101"><tspan x="180">starting gap</tspan></text>
+<path d="M30 246 V254 H330 V246" fill="none" stroke="#020202" stroke-width="1.5" stroke-opacity="0.7"/>
+<text x="180" y="274" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="180">gap closes at speed 1 + speed 2</tspan></text>
+</svg>
