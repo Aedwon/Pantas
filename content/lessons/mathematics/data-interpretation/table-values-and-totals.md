@@ -12,22 +12,81 @@ keyPoints:
   - "Read the correct row and column with the stated units."
   - "Find totals and differences using only the requested values."
 ---
-
 ## Core Concept
 
-Tables and charts organize numbers so you can compare them quickly. Read the labels and units before doing any arithmetic.
+### Reading Rows, Columns, and Units
 
-### Reading a Table
+A table organizes numbers into horizontal **rows** and vertical **columns**. A row label names one category, and a column label names another. To find one entry, trace across the named row and down the named column until they meet.
 
-A table uses **rows** and **columns**. A row label names one category, and a column label names another.
+Always read the unit note next to the table title or column header before reporting an answer. A table in "thousands of pesos" scales its amounts by $1,000$. A table in "millions of pesos" scales its amounts by $1,000,000$.
 
-To find one value, trace across the correct row and down the correct column. The value where they meet belongs to both labels.
+Find the combined purchase cost in pesos from a table labeled "Office Purchases, in thousands of pesos" that lists chairs as $12$, desks as $8$, and lamps as $5$.
 
-Check the unit beside the table title or header. If the table says "thousands of pesos," a shown value of $18$ means $18,000$ pesos.
+1. Add the printed entries first.
 
-### Totals and Differences
+$$12+8+5=25$$
 
-For a total, add only the categories or time periods the question asks for. For a difference, subtract the smaller compared value from the larger one unless the question asks for a signed change.
+2. Multiply by $1,000$ for the stated unit.
+
+$$25\times1,000=25,000$$
+
+The combined expense is $25,000$ pesos.
+
+:::why
+Why convert the unit after adding? Adding small printed numbers like $12+8+5=25$ is faster and reduces zero errors. Multiplying by $1,000$ at the end scales every entry at once.
+:::
+
+:::pair #missing-unit-scale
+Right: $25\times1,000=25,000\text{ pesos}$
+Wrong: $25\text{ pesos}$
+The wrong answer used the printed total without the "thousands of pesos" unit from the table note. Check the unit caption before picking your final number.
+:::
+
+:::check
+A revenue table labeled "in millions of pesos" shows Product A as $3.2$ in 2024 and $4.8$ in 2025, and Product B as $2.5$ in 2024 and $5.1$ in 2025. What is the combined 2025 revenue of A and B, in pesos?
+:::answer
+The answer is $9,900,000$ pesos. Add only the 2025 entries, $4.8+5.1=9.9$, then multiply by $1,000,000$.
+:::
+
+### Finding Totals and Differences
+
+For a total, add only the rows or columns the question asks for. Check each heading carefully so an entry from a neighboring column does not slip into your sum.
+
+Suppose an expense table has a Paper column listing $12,000$, $15,000$, and $11,000$, right next to an Ink column listing $18,000$, $22,000$, and $19,000$. To find the three-month Paper total, add only the three Paper numbers:
+
+$$12,000+15,000+11,000=38,000$$
+
+:::pair #wrong-column-entry
+Right: $12,000+15,000+11,000=38,000$
+Wrong: $12,000+15,000+19,000=46,000$
+The wrong sum grabbed $19,000$ from the neighboring Ink column instead of $11,000$ from Paper. Trace the column heading down for every single entry.
+:::
+
+For "how many more X than Y" or "by how much does X exceed Y", find each group total first if needed, subtract Y from X, and check that X is larger. For a gap with no stated order, subtract the smaller value from the larger one. For an increase over time, subtract the earlier value from the later one. A negative result shows a fall, so skip it when you look for an increase.
+
+Find how many more female than male applicants there are. Three centers list Female applicants as $1,500$, $950$, and $750$, and Male applicants as $1,200$, $800$, and $650$.
+
+$$1,500+950+750=3,200$$
+
+$$1,200+800+650=2,650$$
+
+$$3,200-2,650=550$$
+
+There are $550$ more female applicants than male applicants.
+
+:::pair #reverse-difference-order
+Right: $3,200-2,650=550$
+Wrong: $2,650-3,200=-550$
+The wrong line subtracted female from male, the reverse order. For how many more female than male, subtract male from female and check that the result is positive.
+:::
+
+If the total is known and one entry is missing, subtract the known entries from the total. Find the missing entry when a total of $88$ has known entries $19$ and $33$:
+
+$$19+33=52$$
+
+$$88-52=36$$
+
+The missing entry is $36$.
 
 ## Examples
 
@@ -40,8 +99,8 @@ Use the table. What was the Operations expense in Quarter $3$, in pesos?
 **Solution:**
 
 1. Find the Operations row.
-2. Trace to the Quarter $3$ column. The value where they meet is $27$.
-3. The table is in thousands of pesos, so multiply by $1,000$.
+2. Trace across to the Quarter $3$ column. The cell where they meet reads $27$.
+3. Multiply by $1,000$ because the table unit is thousands of pesos.
 
 $$27\times1,000=27,000$$
 
@@ -55,36 +114,25 @@ Use the table. What was the total Administration expense for the four quarters, 
 
 **Solution:**
 
-1. Read the Administration row values.
+1. Read all four entries across the Administration row: $12$, $15$, $18$, and $11$.
+2. Add the four numbers.
 
 $$12+15+18+11=56$$
 
-2. The table is in thousands of pesos.
-
-$$56\times1,000=56,000$$
-
-The total Administration expense was $56,000$ pesos.
+:::try
+Finish the last step: convert $56$ into pesos using the table's unit.
+:::answer
+The answer is $56,000$ pesos. Multiply $56\times1,000=56,000$.
+:::
 
 ## Speed Tricks & Shortcuts
 
-### Read Labels Before Numbers
-
-First read the title, row labels, column labels, and units. This prevents mistakes before you calculate.
-
-### Mark the Needed Values
-
-For a table, follow only the row and column named in the question. For a chart, read only the bars, points, or slices you need.
+Read the title, row labels, column labels, and unit note before calculating anything. Mark or trace only the row and column named in the question so extra numbers do not pull your eye away.
 
 ## Traps to Watch For
 
-### #1: Ignoring the Unit Scale
-
-> A displayed number may stand for thousands or millions.
-
-If a table is in thousands of pesos, $27$ means $27,000$ pesos. Do not report $27$ pesos.
-
-### #2: Using the Wrong Row or Column
-
-> A table value belongs to both its row and its column.
-
-Reading the right row with the wrong column gives a different value. Trace both labels before choosing the cell.
+:::checklist
+- Table unit in thousands or millions, answer asked in pesos: multiply your sum or cell reading by the stated unit. {#missing-unit-scale}
+- Summing down a column or across a row: double-check the label on every entry so an adjacent column does not slip in. {#wrong-column-entry}
+- "How many more X than Y" or "exceed" questions: subtract Y from X and check that X is larger. {#reverse-difference-order}
+:::

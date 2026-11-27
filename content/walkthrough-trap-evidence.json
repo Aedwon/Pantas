@@ -1,0 +1,4857 @@
+{
+  "lessons": {
+    "lesson-algebra-age-word-problems": {
+      "change-both-ages": [
+        {
+          "questionId": "q-algebra-word-problems-0007",
+          "wrongChoice": "$18\\text{ years old}$",
+          "mistakeNote": "Omits the mother's six-year increase, giving 4a = 3(a + 6) instead of 4a + 6 = 3(a + 6)."
+        }
+      ],
+      "wrong-person-or-time": [
+        {
+          "questionId": "q-algebra-word-problems-0001",
+          "wrongChoice": "$14\\text{ years old}$",
+          "mistakeNote": "Reports Ben's age (m + 4 = 14) instead of Maya's age (m = 10)."
+        }
+      ]
+    },
+    "lesson-algebra-motion-meeting-and-separation": {
+      "speed-over-distance": [
+        {
+          "questionId": "q-algebra-word-problems-0002",
+          "wrongChoice": "$0.67\\text{ hours}$",
+          "mistakeNote": "Divides speed by distance (30 / 45) instead of distance by speed (45 / 30)."
+        }
+      ],
+      "subtract-instead-of-add": [
+        {
+          "questionId": "q-algebra-word-problems-0014",
+          "wrongChoice": "$18\\text{ hours}$",
+          "mistakeNote": "Subtracts 35 - 25 = 10 km/h (chase rate) instead of adding 25 + 35 = 60 km/h for opposite directions."
+        }
+      ],
+      "average-speeds-mistake": [
+        {
+          "questionId": "q-algebra-word-problems-0014",
+          "wrongChoice": "$6\\text{ hours}$",
+          "mistakeNote": "Averages the two speeds (30 km/h) before dividing 180 km instead of adding both speeds (60 km/h)."
+        }
+      ]
+    },
+    "lesson-algebra-motion-chase-problems": {
+      "add-speeds-in-chase": [
+        {
+          "questionId": "q-algebra-word-problems-0008",
+          "wrongChoice": "$0.4\\text{ hour}$",
+          "mistakeNote": "Adds 60 + 40 = 100 km/h instead of subtracting 60 - 40 = 20 km/h for a same-direction chase."
+        }
+      ],
+      "use-only-chaser-speed": [
+        {
+          "questionId": "q-algebra-word-problems-0008",
+          "wrongChoice": "$\\dfrac{2}{3}\\text{ hour}$",
+          "mistakeNote": "Divides the 40 km head start by the van's 60 km/h speed alone, ignoring that the jeepney keeps moving."
+        }
+      ],
+      "head-start-clock": [
+        {
+          "questionId": "q-algebra-word-problems-0008",
+          "wrongChoice": "$3\\text{ hours}$",
+          "mistakeNote": "Includes the jeepney's 1-hour head start (2 + 1 = 3) when the question asks for hours after the van starts."
+        }
+      ]
+    },
+    "lesson-algebra-work-rate-problems": {
+      "average-work-times": [
+        {
+          "questionId": "q-algebra-word-problems-0003",
+          "wrongChoice": "$4.5\\text{ hours}$",
+          "mistakeNote": "Averages the solo times (6 + 3)/2 = 4.5 instead of adding work rates 1/6 + 1/3."
+        }
+      ],
+      "rate-not-time": [
+        {
+          "questionId": "q-algebra-word-problems-0009",
+          "wrongChoice": "$\\dfrac{5}{24}\\text{ hour}$",
+          "mistakeNote": "Reports Bea's hourly work rate (5/24) instead of taking its reciprocal (24/5 = 4.8 hours)."
+        }
+      ],
+      "subtract-solo-times": [
+        {
+          "questionId": "q-algebra-word-problems-0009",
+          "wrongChoice": "$5\\text{ hours}$",
+          "mistakeNote": "Subtracts solo times directly (8 - 3 = 5) instead of subtracting rates (1/3 - 1/8)."
+        }
+      ]
+    },
+    "lesson-algebra-mixture-word-problems": {
+      "omit-original-volume": [
+        {
+          "questionId": "q-algebra-word-problems-0020",
+          "wrongChoice": "Use $0.30x$ on the right.",
+          "mistakeNote": "Omits the original 8 liters from the final volume, writing 0.30x instead of 0.30(8 + x)."
+        }
+      ],
+      "report-final-volume": [
+        {
+          "questionId": "q-algebra-word-problems-0016",
+          "wrongChoice": "$30\\text{ liters}$",
+          "mistakeNote": "Reports the final diluted volume (30 L) instead of subtracting the starting 12 L to get the added water (18 L)."
+        }
+      ]
+    },
+    "lesson-algebra-coin-and-digit-problems": {
+      "missing-coin-value": [
+        {
+          "questionId": "q-algebra-word-problems-0006",
+          "wrongChoice": "$5f+10t=20$",
+          "mistakeNote": "Sets the peso value expression 5f + 10t equal to the coin count (20) instead of the total peso value (160)."
+        }
+      ],
+      "reversed-digits": [
+        {
+          "questionId": "q-algebra-word-problems-0019",
+          "wrongChoice": "$48$",
+          "mistakeNote": "Reverses the tens and units digits, reporting 48 instead of 84."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-operation-priority-and-left-to-right": {
+      "power-not-product": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0016",
+          "wrongChoice": "$13$",
+          "mistakeNote": "Evaluates 2^3 as 2 * 3 = 6 instead of 2 * 2 * 2 = 8, giving 7 + 6 = 13."
+        }
+      ],
+      "multiply-before-divide": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0001",
+          "wrongChoice": "$3$",
+          "mistakeNote": "Multiplies 3 * 2 = 6 before dividing 18 / 3 in 18 / 3 * 2, breaking left-to-right order."
+        }
+      ],
+      "add-before-subtract": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0002",
+          "wrongChoice": "$6$",
+          "mistakeNote": "Adds 5 + 4 = 9 before subtracting from 15 in 15 - 5 + 4, breaking left-to-right order."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-grouping-and-fraction-bars": {
+      "multiply-into-power": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0004",
+          "wrongChoice": "$400$",
+          "mistakeNote": "Multiplies 4 * 5 = 20 before squaring in 4 * (8 - 3)^2, giving 20^2 = 400 instead of 4 * 25 = 100."
+        }
+      ],
+      "fraction-bar-not-grouped": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0018",
+          "wrongChoice": "$A=B$",
+          "mistakeNote": "Treats 48 / (6 + 2) as 48 / 6 + 2, ignoring the grouping effect of the fraction bar."
+        }
+      ],
+      "subtract-inside-denominator": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0009",
+          "wrongChoice": "$2$",
+          "mistakeNote": "Subtracts 10 - 3 = 7 before multiplying by 2 in the denominator of (4^2 + 6*2)/(10 - 3*2), giving 28/14 = 2."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-real-number-sets": {
+      "negative-whole-number": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0001",
+          "wrongChoice": "$-1$",
+          "mistakeNote": "Includes negative integers among whole numbers instead of keeping whole numbers nonnegative."
+        }
+      ],
+      "perfect-square-root": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0002",
+          "wrongChoice": "$\\sqrt{9}$",
+          "mistakeNote": "Assumes any number with a radical sign is irrational, missing that sqrt(9) = 3 is rational."
+        }
+      ],
+      "decimal-is-irrational": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0002",
+          "wrongChoice": "$0.75$",
+          "mistakeNote": "Treats a terminating decimal (0.75 = 3/4) as irrational."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-imaginary-unit-and-powers": {
+      "imaginary-part-coefficient": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0016",
+          "wrongChoice": "$-4i$",
+          "mistakeNote": "Gives the entire imaginary term -4i instead of the real coefficient b = -4 in a + bi."
+        }
+      ],
+      "last-digit-power-of-i": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0006",
+          "wrongChoice": "$-i$",
+          "mistakeNote": "Divides only the last digit 7 by 4 for i^57 instead of dividing the whole exponent 57 by 4."
+        }
+      ],
+      "negative-root-product": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0014",
+          "wrongChoice": "$3$",
+          "mistakeNote": "Drops i / treats negative square roots as positive real roots in sqrt(-36)*sqrt(-4)/sqrt(-16), getting 3 instead of 3i."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-complex-products-and-quotients": {
+      "i-squared-sign": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0008",
+          "wrongChoice": "$2 - 7i$",
+          "mistakeNote": "Treats i^2 as +1 instead of -1 in (3 + 2i)(4 - 5i), giving 12 - 10 - 7i = 2 - 7i."
+        }
+      ],
+      "missing-cross-terms": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0008",
+          "wrongChoice": "$12 - 10i$",
+          "mistakeNote": "Omits the cross terms (-15i and +8i) and replaces i^2 with i."
+        }
+      ],
+      "conjugate-denominator-sign": [
+        {
+          "questionId": "q-arithmetic-number-sense-real-imaginary-numbers-0011",
+          "wrongChoice": "$\\dfrac{5}{4}+\\dfrac{5}{4}i$",
+          "mistakeNote": "Evaluates the conjugate product (3 - i)(3 + i) as 9 - 1 = 8 instead of 9 + 1 = 10."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-commutative-and-associative-properties": {
+      "order-vs-grouping": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0001",
+          "wrongChoice": "$(3 + 5) + 4 = 3 + (5 + 4)$"
+        }
+      ],
+      "subtraction-order": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0004",
+          "wrongChoice": "Subtraction is commutative because the numerical value remains 2."
+        }
+      ],
+      "division-grouping": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0010",
+          "wrongChoice": "Division is not commutative, so changing the order of operands alters the result."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-identities-and-like-terms": {
+      "zero-multiplication": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0022",
+          "wrongChoice": "$-17+0=-17;\\ (-17)(0)=0$"
+        }
+      ],
+      "unlike-exponents": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0023",
+          "wrongChoice": "$-5$"
+        }
+      ],
+      "swapped-letters": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0024",
+          "wrongChoice": "$3xy+5yx+5x^2$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-additive-and-multiplicative-inverses": {
+      "reciprocal-sign": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0002",
+          "wrongChoice": "$\\dfrac{7}{4}$"
+        }
+      ],
+      "opposite-vs-reciprocal": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0002",
+          "wrongChoice": "$\\dfrac{4}{7}$"
+        }
+      ],
+      "zero-has-no-reciprocal": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0020",
+          "wrongChoice": "$r=0$ is the required number."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-distribution-and-common-factors": {
+      "first-term-only": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0003",
+          "wrongChoice": "$12x + 7$"
+        }
+      ],
+      "negative-times-negative": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0006",
+          "wrongChoice": "$-2x - 10$"
+        }
+      ],
+      "keep-one-inside": [
+        {
+          "questionId": "q-arithmetic-number-sense-properties-of-real-numbers-0016",
+          "wrongChoice": "$17(99)+1$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-prime-factors-and-powers": {
+      "one-is-not-prime": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0016",
+          "wrongChoice": "$1$ is the smallest prime."
+        }
+      ],
+      "stop-at-composite": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0001",
+          "wrongChoice": "$2^2 \\times 9 \\times 5$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-greatest-common-factor": {
+      "gcf-larger-exponent": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0020",
+          "wrongChoice": "Use $2^4\\times3^2\\times5$."
+        }
+      ],
+      "gcf-unshared-prime": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0007",
+          "wrongChoice": "$2,520$"
+        }
+      ],
+      "gcf-groups-vs-items": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0008",
+          "wrongChoice": "$48$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-least-common-multiple": {
+      "lcm-product-trap": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0003",
+          "wrongChoice": "$864$"
+        }
+      ],
+      "lcm-gcf-swap": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0003",
+          "wrongChoice": "$12$"
+        }
+      ],
+      "product-rule-missing": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0010",
+          "wrongChoice": "$6$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-same-remainder-numbers": {
+      "subtract-remainder": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0021",
+          "wrongChoice": "$N=36k-2$"
+        }
+      ],
+      "product-instead-of-lcm": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0021",
+          "wrongChoice": "$N=216k+2$"
+        }
+      ],
+      "forget-remainder": [
+        {
+          "questionId": "q-arithmetic-number-sense-prime-factorization-gcf-lcm-0018",
+          "wrongChoice": "$120$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-decimal-and-percent-conversions": {
+      "drop-whole-part": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0023",
+          "wrongChoice": "$\\dfrac{11}{40}$"
+        }
+      ],
+      "wrong-place-count": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0022",
+          "wrongChoice": "$\\dfrac{5}{8}$"
+        }
+      ],
+      "one-place-shift": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0018",
+          "wrongChoice": "Divide $2.5$ by $10$ only."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-fractions-and-mixed-forms": {
+      "divide-upside-down": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0001",
+          "wrongChoice": "$\\dfrac{800}{3}\\%$"
+        }
+      ],
+      "one-shift-to-percent": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0024",
+          "wrongChoice": "$0.4375$ and $4.375\\%$"
+        }
+      ],
+      "forget-percent-divide": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0025",
+          "wrongChoice": "$13.375$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-adding-and-multiplying-fractions": {
+      "leave-unsimplified": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0004",
+          "wrongChoice": "$\\dfrac{6}{9}$"
+        }
+      ],
+      "multiply-top-add-bottom": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0021",
+          "wrongChoice": "$\\dfrac{21}{17}$"
+        }
+      ],
+      "add-instead-of-multiply": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0021",
+          "wrongChoice": "$\\dfrac{71}{60}$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-multiplying-and-dividing-decimals": {
+      "count-both-decimal-places": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0027",
+          "wrongChoice": "$28.2$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0026",
+          "wrongChoice": "$3.6$"
+        }
+      ],
+      "extra-leading-zero": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0026",
+          "wrongChoice": "$0.0036$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-percentage-base-and-fraction-division": {
+      "wrong-percentage-base": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0020",
+          "wrongChoice": "$10.8$"
+        }
+      ],
+      "percent-decimal-shift": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0012",
+          "wrongChoice": "$5.5\\%$"
+        }
+      ],
+      "stop-at-the-base": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0020",
+          "wrongChoice": "$180$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-successive-percentages-and-increases": {
+      "add-successive-percents": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0013",
+          "wrongChoice": "$\\text{₱}\\dfrac{16800}{23}$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0014",
+          "wrongChoice": "$2.5\\%$"
+        }
+      ],
+      "apply-second-to-original": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0005",
+          "wrongChoice": "$\\text{₱}977.50$"
+        }
+      ],
+      "percent-more-as-of": [
+        {
+          "questionId": "q-arithmetic-number-sense-fractions-decimals-percentages-0019",
+          "wrongChoice": "Their multipliers are $1.20$ and $1.20$."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-direct-proportion-and-travel": {
+      "increasing-not-direct": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0016",
+          "wrongChoice": "$y=x+3$"
+        }
+      ],
+      "reverse-ratio-order": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0002",
+          "wrongChoice": "$18$ liters"
+        }
+      ],
+      "hours-to-minutes": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0012",
+          "wrongChoice": "$80$ minutes"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-inverse-proportion-and-remaining-work": {
+      "direct-instead-of-inverse": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0017",
+          "wrongChoice": "$8\\dfrac{1}{3}$ hours"
+        }
+      ],
+      "constant-product-not-sum": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0018",
+          "wrongChoice": "$2+8=4+6$"
+        }
+      ],
+      "use-total-not-remaining": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0019",
+          "wrongChoice": "$24$ days"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0021",
+          "wrongChoice": "$27$ days"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-partitive-proportion-and-differences": {
+      "add-parts-to-amount": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0004",
+          "wrongChoice": "$19$ passengers"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0020",
+          "wrongChoice": "$33$ meters"
+        }
+      ],
+      "one-share-not-total": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0020",
+          "wrongChoice": "$49$ meters"
+        }
+      ],
+      "reverse-ratio-order": [
+        {
+          "questionId": "q-arithmetic-number-sense-ratio-and-proportion-0011",
+          "wrongChoice": "$11 : 9$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-last-digit-divisibility": {
+      "add-digits-for-four": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0002",
+          "wrongChoice": "Use the digit sum; the number passes."
+        }
+      ],
+      "last-two-for-eight": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0007",
+          "wrongChoice": "$k = 3$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0007",
+          "wrongChoice": "$k = 5$"
+        }
+      ],
+      "ending-zero-passes-ten": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0022",
+          "wrongChoice": "$0$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-digit-sums-and-six": {
+      "three-instead-of-nine": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0003",
+          "wrongChoice": "$3$"
+        }
+      ],
+      "ends-in-six-for-six": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0004",
+          "wrongChoice": "$24,536$"
+        }
+      ],
+      "only-even-middle-digit": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0021",
+          "wrongChoice": "$8$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-divisibility-by-seven-and-eleven": {
+      "subtract-without-doubling": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0016",
+          "wrongChoice": "$31$"
+        }
+      ],
+      "total-sum-for-eleven": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0006",
+          "wrongChoice": "$d=2$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0018",
+          "wrongChoice": "Use $(1+2)+(3+4)$ instead."
+        }
+      ],
+      "zero-is-divisible": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0001",
+          "wrongChoice": "$0$ cannot be divided by nonzero integers."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-coprime-divisibility-tests": {
+      "overlapping-factors": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0005",
+          "wrongChoice": "Use $4$ and $6$; shared factors do not matter."
+        }
+      ],
+      "pass-only-one-test": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0010",
+          "wrongChoice": "$a = 4, b = 9$"
+        }
+      ],
+      "stop-at-first-case": [
+        {
+          "questionId": "q-arithmetic-number-sense-divisibility-rules-0012",
+          "wrongChoice": "$0$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-finding-number-patterns": {
+      "repeat-last-difference": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0023",
+          "wrongChoice": "$58$"
+        }
+      ],
+      "wrong-square-step": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0025",
+          "wrongChoice": "$52$"
+        }
+      ],
+      "repeat-same-operation": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0024",
+          "wrongChoice": "$608$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-odd-and-even-position-patterns": {
+      "reverse-position-order": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0029",
+          "wrongChoice": "$3,32$"
+        }
+      ],
+      "mix-position-groups": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0030",
+          "wrongChoice": "$22$"
+        }
+      ],
+      "copy-wrong-step": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0030",
+          "wrongChoice": "$38$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-arithmetic-sequence-terms": {
+      "off-by-one-steps": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0001",
+          "wrongChoice": "$65$"
+        }
+      ],
+      "report-difference-not-term": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0006",
+          "wrongChoice": "$4$"
+        }
+      ],
+      "forget-plus-one": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0021",
+          "wrongChoice": "$38$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-arithmetic-series-sums": {
+      "omit-divide-by-two": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0003",
+          "wrongChoice": "$350$"
+        }
+      ],
+      "wrong-step-count-in-sum": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0003",
+          "wrongChoice": "$190$"
+        }
+      ],
+      "extra-half-on-middle-term": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0019",
+          "wrongChoice": "The sum is $42$."
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-geometric-sequence-terms": {
+      "check-only-first-difference": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0002",
+          "wrongChoice": "Arithmetic, difference 3"
+        }
+      ],
+      "confuse-first-term-with-ratio": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0002",
+          "wrongChoice": "Geometric, ratio 3"
+        }
+      ],
+      "wrong-exponent-on-ratio": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0004",
+          "wrongChoice": "$192$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-finite-geometric-series": {
+      "omit-sum-denominator": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0008",
+          "wrongChoice": "$1210$"
+        }
+      ],
+      "report-last-term-not-sum": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0008",
+          "wrongChoice": "$405$"
+        }
+      ],
+      "add-count-instead-of-multiply": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0026",
+          "wrongChoice": "$23$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-infinite-geometric-series": {
+      "alternating-signs-diverge": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0007",
+          "wrongChoice": "$5 - 5 + 5 - 5 + \\dots$"
+        }
+      ],
+      "add-ratio-in-denominator": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0005",
+          "wrongChoice": "$9$"
+        }
+      ],
+      "divide-by-ratio-only": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0005",
+          "wrongChoice": "$36$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-harmonic-sequence-terms": {
+      "forget-final-reciprocal": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0016",
+          "wrongChoice": "$15$"
+        }
+      ],
+      "wrong-step-count-harmonic": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0016",
+          "wrongChoice": "$\\dfrac{1}{19}$"
+        }
+      ],
+      "flip-difference-instead": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0016",
+          "wrongChoice": "$\\dfrac{1}{4}$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-fibonacci-type-sequence-terms": {
+      "stop-at-earlier-term": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0018",
+          "wrongChoice": "$12$"
+        }
+      ],
+      "double-instead-of-add-prior-two": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0018",
+          "wrongChoice": "$24$"
+        }
+      ],
+      "add-instead-of-work-backward": [
+        {
+          "questionId": "q-arithmetic-number-sense-sequences-and-series-0022",
+          "wrongChoice": "$76$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-markup-on-cost": {
+      "markup-only-not-price": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0001",
+          "wrongChoice": "$\\text{₱}200.00$"
+        }
+      ],
+      "markup-is-not-profit": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0002",
+          "wrongChoice": "Php $160$"
+        }
+      ],
+      "wrong-percentage-base": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0006",
+          "wrongChoice": "$25\\%$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-commission-and-sales-tax": {
+      "wrong-commission-base": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0005",
+          "wrongChoice": "$\\text{₱}3,800.00$"
+        }
+      ],
+      "subtract-sales-tax": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0021",
+          "wrongChoice": "Php $2,820$"
+        }
+      ],
+      "stop-before-adding-tax": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0021",
+          "wrongChoice": "Php $3,000$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-simple-interest": {
+      "interest-instead-of-total": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0008",
+          "wrongChoice": "$\\text{₱}3,750.00$"
+        }
+      ],
+      "months-as-years": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0003",
+          "wrongChoice": "$\\text{₱}10,800.00$"
+        }
+      ],
+      "months-as-decimal-years": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0008",
+          "wrongChoice": "$\\text{₱}54,500.00$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-compound-interest": {
+      "simple-instead-of-compound": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0016",
+          "wrongChoice": "$1200$"
+        }
+      ],
+      "wrong-quarterly-period-rate": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0018",
+          "wrongChoice": "$1.04$"
+        }
+      ],
+      "rule-of-72-direction": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0020",
+          "wrongChoice": "$\\dfrac{1}{8}\\text{ year}$"
+        }
+      ]
+    },
+    "lesson-data-interpretation-table-values-and-totals": {
+      "missing-unit-scale": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0013",
+          "wrongChoice": "$25$"
+        }
+      ],
+      "wrong-column-entry": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0001",
+          "wrongChoice": "$46000$"
+        }
+      ],
+      "reverse-difference-order": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0007",
+          "wrongChoice": "$-550$"
+        }
+      ]
+    },
+    "lesson-data-interpretation-chart-scales-and-differences": {
+      "ignore-axis-unit": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0018",
+          "wrongChoice": "It represents $2.4$ visitors."
+        }
+      ],
+      "subtract-ticks-wrong-side": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0024",
+          "wrongChoice": "$5,000$ liters"
+        }
+      ],
+      "add-instead-of-subtract-chart": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0023",
+          "wrongChoice": "$600$ applications"
+        }
+      ]
+    },
+    "lesson-data-interpretation-averages-and-pie-chart-shares": {
+      "skip-zero-in-average": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0016",
+          "wrongChoice": "$15$"
+        }
+      ],
+      "total-instead-of-average": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0005",
+          "wrongChoice": "$28$ million pesos"
+        }
+      ],
+      "sum-instead-of-remaining-slice": [
+        {
+          "questionId": "q-data-interpretation-tables-and-charts-0022",
+          "wrongChoice": "$360,000$ pesos"
+        }
+      ]
+    },
+    "lesson-data-interpretation-percentage-change": {
+      "divide-by-new-value": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0001",
+          "wrongChoice": "$20\\%$"
+        }
+      ],
+      "label-change-as-percent": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0001",
+          "wrongChoice": "$10\\%$"
+        }
+      ],
+      "percent-from-zero": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0013",
+          "wrongChoice": "The percentage increase is exactly $100\\%$."
+        }
+      ]
+    },
+    "lesson-data-interpretation-percentages-and-ratios-of-groups": {
+      "other-part-as-total": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0006",
+          "wrongChoice": "$150\\%$"
+        }
+      ],
+      "reverse-ratio-order": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0002",
+          "wrongChoice": "$3:2$"
+        }
+      ],
+      "mismatched-ratio-units": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0018",
+          "wrongChoice": "$1:500$"
+        }
+      ]
+    },
+    "lesson-data-interpretation-unit-rates-and-direct-proportion": {
+      "wrong-unit-rate-order": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0022",
+          "wrongChoice": "$0.16$ pesos"
+        }
+      ],
+      "missing-hour-conversion": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0021",
+          "wrongChoice": "$7$ pages"
+        }
+      ],
+      "reverse-direct-scale": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0024",
+          "wrongChoice": "$300$ liters"
+        }
+      ]
+    },
+    "lesson-data-interpretation-inverse-proportion-and-ratio-parts": {
+      "total-instead-of-additional-machines": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0026",
+          "wrongChoice": "$12$ machines"
+        }
+      ],
+      "scale-time-like-direct": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0025",
+          "wrongChoice": "$7\\dfrac{1}{2}$ hours"
+        }
+      ],
+      "divide-equally-instead-of-ratio": [
+        {
+          "questionId": "q-data-interpretation-rates-ratios-and-percentages-in-context-0028",
+          "wrongChoice": "$120$ folders"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-signed-integer-operations": {
+      "subtract-negative": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0021",
+          "wrongChoice": "$-25$"
+        }
+      ],
+      "quotient-sign": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0021",
+          "wrongChoice": "$13$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-substituting-negative-numbers": {
+      "exponent-scope": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0008",
+          "wrongChoice": "$19$"
+        }
+      ],
+      "minus-before-negative": [
+        {
+          "questionId": "q-arithmetic-number-sense-order-of-operations-0008",
+          "wrongChoice": "$-1$"
+        }
+      ]
+    },
+    "lesson-arithmetic-number-sense-discounted-prices": {
+      "price-not-discount": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0004",
+          "wrongChoice": "$\\text{₱}120.00$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0009",
+          "wrongChoice": "$\\text{₱}725.00$"
+        }
+      ],
+      "successive-discounts": [
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0009",
+          "wrongChoice": "$\\text{₱}4,250.00$"
+        },
+        {
+          "questionId": "q-arithmetic-number-sense-business-math-0019",
+          "wrongChoice": "The equivalent discount is $30\\%$."
+        }
+      ]
+    },
+    "lesson-clerical-ability-character-string-filing": {
+      "whole-number-in-string": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0021",
+          "wrongChoice": "PR-21"
+        },
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0022",
+          "wrongChoice": "M-4, M-5, M-40"
+        }
+      ],
+      "longer-prefix-first": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0022",
+          "wrongChoice": "M-40, M-4, M-5"
+        }
+      ]
+    },
+    "lesson-clerical-ability-filing-patterns-and-surname-particles": {
+      "wrong-convention": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0019",
+          "wrongChoice": "Santos, Cora"
+        }
+      ],
+      "drop-particle": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0004",
+          "wrongChoice": "Rosa as the only surname unit"
+        }
+      ],
+      "rewrite-surname": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0004",
+          "wrongChoice": "Delarosa as a replacement surname"
+        }
+      ]
+    },
+    "lesson-clerical-ability-integer-subcode-filing": {
+      "dot-as-decimal": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0016",
+          "wrongChoice": "31.015"
+        }
+      ],
+      "early-prefix-carry": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0005",
+          "wrongChoice": "11-000"
+        }
+      ]
+    },
+    "lesson-clerical-ability-oldest-and-newest-date-order": {
+      "wrong-date-direction": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0010",
+          "wrongChoice": "Earliest historical date"
+        },
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0020",
+          "wrongChoice": "File 12, 2024-12-20"
+        }
+      ],
+      "month-beats-year": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0017",
+          "wrongChoice": "2024-12-31"
+        },
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0002",
+          "wrongChoice": "2025-01-10"
+        }
+      ],
+      "day-beats-month": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0006",
+          "wrongChoice": "2025-07-01"
+        }
+      ]
+    },
+    "lesson-clerical-ability-personal-name-filing-units": {
+      "reading-order": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0001",
+          "wrongChoice": "Juan, Carlos Dela Cruz"
+        },
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0006",
+          "wrongChoice": "First name"
+        }
+      ],
+      "skip-tie-breaker": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0002",
+          "wrongChoice": "Adams, Benjamin"
+        },
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0014",
+          "wrongChoice": "Reyes, Alina R."
+        }
+      ],
+      "later-unit-first": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0002",
+          "wrongChoice": "Adamson, Albert"
+        },
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0013",
+          "wrongChoice": "Caballero, Ana"
+        }
+      ]
+    },
+    "lesson-clerical-ability-suffixes-titles-and-filing-ties": {
+      "suffix-too-early": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0018",
+          "wrongChoice": "Santos, Leon, Jr."
+        },
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0007",
+          "wrongChoice": "Placed as the first unit"
+        }
+      ],
+      "city-before-initial": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0020",
+          "wrongChoice": "De la Vega, Ana M., Baguio"
+        }
+      ],
+      "guessed-tie-breaker": [
+        {
+          "questionId": "q-clerical-ability-alphabetic-filing-rules-0015",
+          "wrongChoice": "A universal rule for identical names"
+        }
+      ]
+    },
+    "lesson-clerical-ability-terminal-digit-filing-order": {
+      "leftmost-first": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0009",
+          "wrongChoice": "Leftmost primary digits"
+        },
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0023",
+          "wrongChoice": "01-01-13"
+        }
+      ],
+      "wrong-secondary-order": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0023",
+          "wrongChoice": "09-02-12"
+        }
+      ]
+    },
+    "lesson-clerical-ability-whole-number-and-decimal-filing": {
+      "text-sort-numbers": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0013",
+          "wrongChoice": "10, 11, 2, 3"
+        }
+      ],
+      "leading-zero-size": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0014",
+          "wrongChoice": "007 is greatest"
+        }
+      ],
+      "decimal-as-integer": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0015",
+          "wrongChoice": "7.1"
+        }
+      ]
+    },
+    "lesson-clerical-ability-year-first-and-stated-date-formats": {
+      "swap-month-day": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0024",
+          "wrongChoice": "2024-05-03"
+        }
+      ],
+      "display-order-slash": [
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0018",
+          "wrongChoice": "01/03/2025"
+        },
+        {
+          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0018",
+          "wrongChoice": "12/01/2025"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-analogy-functions-users-and-work": {
+      "property-not-function": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0001",
+          "wrongChoice": "Sharp"
+        }
+      ],
+      "material-not-tool": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0009",
+          "wrongChoice": "Canvas"
+        }
+      ],
+      "performer-not-creator": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0012",
+          "wrongChoice": "Conductor"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-analogy-meanings-and-double-pairs": {
+      "synonym-instead-of-opposite": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0007",
+          "wrongChoice": "Quick"
+        }
+      ],
+      "wrong-degree-direction": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0008",
+          "wrongChoice": "Mild"
+        }
+      ],
+      "half-double-analogy": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0015",
+          "wrongChoice": "Cow, forest"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-analogy-parts-types-and-products": {
+      "reverse-part-whole": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0020",
+          "wrongChoice": "Pages is to novel"
+        }
+      ],
+      "material-not-category": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0003",
+          "wrongChoice": "Wood"
+        }
+      ],
+      "nearby-event-not-product": [
+        {
+          "questionId": "q-logical-verbal-reasoning-word-analogies-0005",
+          "wrongChoice": "Downpour"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-combined-truth-values": {
+      "skip-second-negation": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0003",
+          "wrongChoice": "(T, T)"
+        }
+      ],
+      "ignore-parentheses": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0012",
+          "wrongChoice": "(F, F)"
+        }
+      ],
+      "negate-wrong-scope": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0013",
+          "wrongChoice": "(T, T)"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-conditional-truth-values": {
+      "false-if-gives-false": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0006",
+          "wrongChoice": "(F, F)"
+        }
+      ],
+      "reversed-conditional-values": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0007",
+          "wrongChoice": "(T, F)"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-deductive-group-arguments": {
+      "reverse-all-group": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0001",
+          "wrongChoice": "All warm-blooded animals are mammals."
+        },
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0002",
+          "wrongChoice": "All rectangles are squares."
+        }
+      ],
+      "true-conclusion-valid": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0008",
+          "wrongChoice": "Valid, true conclusion"
+        }
+      ],
+      "valid-not-sound": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007",
+          "wrongChoice": "Valid, sound"
+        },
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0007",
+          "wrongChoice": "Invalid, unsound"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-invalid-conditional-forms": {
+      "confirm-result-trap": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0003",
+          "wrongChoice": "Valid: condition confirmed"
+        }
+      ],
+      "deny-condition-trap": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004",
+          "wrongChoice": "Valid: result denied"
+        },
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0004",
+          "wrongChoice": "Invalid: premise contradicted"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-sequence-earlier-terms": {
+      "too-few-earlier-terms": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0018",
+          "wrongChoice": "11"
+        }
+      ],
+      "double-last-term": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0008",
+          "wrongChoice": "16"
+        }
+      ],
+      "skip-to-next-blank": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0008",
+          "wrongChoice": "21"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-sequence-letter-patterns": {
+      "off-by-one-position": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0013",
+          "wrongChoice": "V"
+        }
+      ],
+      "wraparound-miscount": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0016",
+          "wrongChoice": "H"
+        },
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0016",
+          "wrongChoice": "J"
+        }
+      ],
+      "force-letter-jump": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0019",
+          "wrongChoice": "J"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-sequence-moves": {
+      "wrong-step-size": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0002",
+          "wrongChoice": "7"
+        }
+      ],
+      "add-last-gap-in-ratio": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0003",
+          "wrongChoice": "90"
+        }
+      ],
+      "repeat-last-gap": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0005",
+          "wrongChoice": "16"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-sequence-positions-and-operations": {
+      "wrong-position-track": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0007",
+          "wrongChoice": "4"
+        }
+      ],
+      "repeat-wrong-step": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0017",
+          "wrongChoice": "14"
+        }
+      ],
+      "drop-second-operation": [
+        {
+          "questionId": "q-logical-verbal-reasoning-number-and-letter-sequences-0012",
+          "wrongChoice": "94"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-truth-tables-and-connectives": {
+      "missing-table-case": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0021",
+          "wrongChoice": "Keep every row as written."
+        }
+      ],
+      "one-true-for-and": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0002",
+          "wrongChoice": "(T, T)"
+        }
+      ],
+      "exclusive-or-mistake": [
+        {
+          "questionId": "q-logical-verbal-reasoning-truth-tables-propositional-logic-0001",
+          "wrongChoice": "(T, F)"
+        }
+      ]
+    },
+    "lesson-logical-verbal-reasoning-valid-conditional-forms": {
+      "real-world-doubt": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005",
+          "wrongChoice": "Invalid: another cause is possible"
+        },
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013",
+          "wrongChoice": "Nothing can be concluded about this shape."
+        }
+      ],
+      "reverse-chain": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0017",
+          "wrongChoice": "Every acknowledged parcel was scanned."
+        }
+      ],
+      "rule-out-both": [
+        {
+          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0018",
+          "wrongChoice": "The original is in neither place."
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns": {
+      "freeze-one-feature": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0004",
+          "wrongChoice": "Large black triangle"
+        }
+      ],
+      "repeat-neighbor-track": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0017",
+          "wrongChoice": "Square with four dots"
+        }
+      ],
+      "count-across-tracks": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0017",
+          "wrongChoice": "Circle with five dots"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-cuts-at-two-fold-lines": {
+      "split-a-crease-cut": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0012",
+          "wrongChoice": "Four separate interior openings"
+        }
+      ],
+      "merge-across-untouched-crease": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0008",
+          "wrongChoice": "One connected opening"
+        }
+      ],
+      "ignore-fold-join-in-three-folds": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0010",
+          "wrongChoice": "Eight separate openings"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-figure-counts-and-fills": {
+      "skip-a-count": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0002",
+          "wrongChoice": "Heptagon with seven sides"
+        }
+      ],
+      "repeat-last-fill": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0015",
+          "wrongChoice": "Black pentagon"
+        }
+      ],
+      "skip-cycle-restart": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0011",
+          "wrongChoice": "Fully filled square"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-figure-turns-and-positions": {
+      "double-turn-angle": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0001",
+          "wrongChoice": "Line pointing down"
+        }
+      ],
+      "assume-continuous-turn": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0010",
+          "wrongChoice": "Arrow pointing down"
+        }
+      ],
+      "skip-fourth-corner": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-series-0005",
+          "wrongChoice": "Dot at top-left"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-folded-layers-and-separate-holes": {
+      "multiply-folds-by-two": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0003",
+          "wrongChoice": "Six holes"
+        }
+      ],
+      "count-uncut-layers": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0007",
+          "wrongChoice": "It cuts only the uppermost layer"
+        }
+      ],
+      "open-all-folds-early": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0015",
+          "wrongChoice": "Four locations"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets": {
+      "stop-at-neighbor": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001",
+          "wrongChoice": "E"
+        },
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0014",
+          "wrongChoice": "D; a square"
+        }
+      ],
+      "flat-distance-opposite": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0013",
+          "wrongChoice": "A and F; B and C; D and E"
+        },
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0011",
+          "wrongChoice": "A"
+        }
+      ],
+      "count-guarantees-cube": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0002",
+          "wrongChoice": "Six connected squares must form a cube."
+        },
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0009",
+          "wrongChoice": "Check only whether six squares are present."
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry": {
+      "slant-changes-count": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0006",
+          "wrongChoice": "Parallelogram"
+        }
+      ],
+      "require-exact-four-sides": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0013",
+          "wrongChoice": "Hexagon"
+        }
+      ],
+      "ignore-diagonal-axis": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0007",
+          "wrongChoice": "Third square from the left"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details": {
+      "lines-not-regions": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0012",
+          "wrongChoice": "Third circle from the left"
+        }
+      ],
+      "outer-shape-over-inside-detail": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0004",
+          "wrongChoice": "Circle"
+        }
+      ],
+      "largest-count-over-relation": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0018",
+          "wrongChoice": "Hexagon"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-matrix-keeping-all-features": {
+      "keep-only-one-input": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0005",
+          "wrongChoice": "Square with only the upper-right ray"
+        }
+      ],
+      "copy-first-row-parts": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0005",
+          "wrongChoice": "Square with rays up and right"
+        }
+      ],
+      "erase-when-combining": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0006",
+          "wrongChoice": "Fully white square"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-matrix-keeping-shared-features": {
+      "keep-all-instead-of-shared": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0009",
+          "wrongChoice": "Square with all three diagonal rays"
+        }
+      ],
+      "copy-second-cell-instead": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0009",
+          "wrongChoice": "Square with the lower-right and lower-left rays"
+        }
+      ],
+      "stop-after-one-shared-mark": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0021",
+          "wrongChoice": "Top-left corner only"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules": {
+      "copy-row-above": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0008",
+          "wrongChoice": "Medium triangle with three dots"
+        }
+      ],
+      "repeat-in-latin-row": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0015",
+          "wrongChoice": "Circle"
+        }
+      ],
+      "copy-cell-above-blank": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0019",
+          "wrongChoice": "Square with dot at top-right"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-matrix-turns-and-counts": {
+      "copy-first-row-direction": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0001",
+          "wrongChoice": "Square with line pointing right"
+        }
+      ],
+      "change-turn-step-in-row": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0018",
+          "wrongChoice": "Line pointing down"
+        }
+      ],
+      "add-row-and-column-twice": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-matrices-0002",
+          "wrongChoice": "Circle with six dots"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-parallel-light-and-solid-shadows": {
+      "wrong-view-direction": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0004",
+          "wrongChoice": "A circle"
+        },
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012",
+          "wrongChoice": "A triangle from above; a circle from the side"
+        }
+      ],
+      "base-shape-always": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0010",
+          "wrongChoice": "They always retain the shape of the object's base."
+        }
+      ],
+      "slant-ellipse-error": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0003",
+          "wrongChoice": "An ellipse"
+        },
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0012",
+          "wrongChoice": "An ellipse from above; a triangle from the side"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule": {
+      "rule-excludes-more-than-one": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0021",
+          "wrongChoice": "Has a small outline"
+        }
+      ],
+      "rule-too-broad": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-figure-grouping-0010",
+          "wrongChoice": "At least three sides"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-turning-solids-without-mirror-flips": {
+      "axis-faces-stay": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0021",
+          "wrongChoice": "Circle, square, triangle"
+        }
+      ],
+      "move-all-faces-together": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0021",
+          "wrongChoice": "Star, square, cross"
+        }
+      ],
+      "reversed-corner-order": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0022",
+          "wrongChoice": "II only"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-uneven-folds-and-cut-layers": {
+      "guess-overlap-without-measuring": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0021",
+          "wrongChoice": "(10, 3) only, with no second hole"
+        }
+      ],
+      "assume-all-layers-cut": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0001",
+          "wrongChoice": "Two holes"
+        }
+      ],
+      "flip-both-directions-on-one-fold": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0021",
+          "wrongChoice": "(2, 5) and (10, 3)"
+        }
+      ]
+    },
+    "lesson-spatial-abstract-reasoning-unfolding-cuts-across-a-fold": {
+      "unfold-in-forward-order": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0009",
+          "wrongChoice": "Vertical first, then horizontal"
+        }
+      ],
+      "forget-to-flip-direction": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0017",
+          "wrongChoice": "Upward"
+        }
+      ],
+      "confuse-folded-corner-with-outer": [
+        {
+          "questionId": "q-spatial-abstract-reasoning-paper-folding-and-cutting-0004",
+          "wrongChoice": "Near the four original outer corners"
+        }
+      ]
+    },
+    "lesson-verbal-logic-best-supported-conclusions": {
+      "generalize-sample-to-all": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0016",
+          "wrongChoice": "Every employee favored the proposal."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0014",
+          "wrongChoice": "Every library visitor needs the building after dark."
+        }
+      ],
+      "most-vs-plurality": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0045",
+          "wrongChoice": "Most residents who submitted maps marked the bakery junction."
+        }
+      ],
+      "silence-or-equal-guess": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0044",
+          "wrongChoice": "Given equal access, students would still choose print more often."
+        }
+      ]
+    },
+    "lesson-verbal-logic-compound-assumptions": {
+      "negate-and-with-and": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0023",
+          "wrongChoice": "The gate is closed and the vehicle is unavailable."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0051",
+          "wrongChoice": "The battery fails and both memory cards are full."
+        }
+      ],
+      "negate-or-with-or": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0024",
+          "wrongChoice": "It was not submitted online, or it was not delivered in person."
+        }
+      ],
+      "mix-at-least-one-part": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0051",
+          "wrongChoice": "The battery fails or at least one memory card is full."
+        }
+      ]
+    },
+    "lesson-verbal-logic-must-be-true-conclusions": {
+      "one-requirement-to-all": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0003",
+          "wrongChoice": "Maria has met every hiring requirement."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0003",
+          "wrongChoice": "Maria has already been appointed to civil service."
+        }
+      ],
+      "reverse-or-deny-rule": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0007",
+          "wrongChoice": "Elena definitely lacks a master's degree."
+        }
+      ],
+      "some-means-some-not": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0013",
+          "wrongChoice": "Some inspectors are not auditors."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0039",
+          "wrongChoice": "At least one specimen in the tray is something other than a shell."
+        }
+      ]
+    },
+    "lesson-verbal-logic-needed-assumptions": {
+      "premise-as-conclusion": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0019",
+          "wrongChoice": "Some workers cannot visit on weekdays."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0019",
+          "wrongChoice": "Saturday reading rooms are often full."
+        }
+      ],
+      "helpful-not-needed": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0017",
+          "wrongChoice": "Replacement lamps will be more energy-efficient."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0005",
+          "wrongChoice": "Every customer prefers a digital invoice."
+        }
+      ],
+      "extreme-universal-claim": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0002",
+          "wrongChoice": "Every car user will stop driving at peak hours."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0012",
+          "wrongChoice": "Solar panels must meet every school power need."
+        }
+      ]
+    },
+    "lesson-verbal-logic-negating-assumptions": {
+      "all-to-none-overnegation": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0022",
+          "wrongChoice": "Every temporary employee has access to the archive."
+        }
+      ],
+      "some-to-not-all": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0021",
+          "wrongChoice": "Not all branch offices can do so."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0021",
+          "wrongChoice": "Some branch offices cannot do so."
+        }
+      ],
+      "flip-wrong-group": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0040",
+          "wrongChoice": "A sample accepted at intake was listed as rejected in the final log."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0022",
+          "wrongChoice": "No permanent employee has access to the archive."
+        }
+      ]
+    },
+    "lesson-verbal-logic-none-and-may": {
+      "reverse-none-rule": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0006",
+          "wrongChoice": "Every registered vehicle is inside the compound."
+        }
+      ],
+      "stretch-some-to-none": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0052",
+          "wrongChoice": "No observer can appear on the speakers' list at this meet."
+        }
+      ],
+      "may-to-must-certainty": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0025",
+          "wrongChoice": "A lack of quorum guarantees that the interview is postponed."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0034",
+          "wrongChoice": "School Confirms Shift to Online Classes Next Week"
+        }
+      ]
+    },
+    "lesson-verbal-logic-recognizing-bias": {
+      "opinion-as-bias": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0026",
+          "wrongChoice": "It expresses a position on a workplace policy under discussion."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0027",
+          "wrongChoice": "It recommends a supplier instead of leaving the choice open."
+        }
+      ],
+      "missing-detail-as-bias": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0027",
+          "wrongChoice": "It compares the delivery records of competing suppliers."
+        }
+      ],
+      "softened-loaded-phrase": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0038",
+          "wrongChoice": "A drainage plan for residents who understand the problem"
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0038",
+          "wrongChoice": "A drainage plan that even its critics should welcome"
+        }
+      ]
+    },
+    "lesson-verbal-logic-unsupported-causes-and-motives": {
+      "timing-as-cause": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0028",
+          "wrongChoice": "She approved it because reviewing the request forced agreement."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0018",
+          "wrongChoice": "Every delay is caused only by a busy period."
+        }
+      ],
+      "confounded-two-changes": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0046",
+          "wrongChoice": "The move proves that sunlight was the only cause of the increase."
+        }
+      ],
+      "guessed-motive": [
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0028",
+          "wrongChoice": "She approved it because she feared losing experienced staff."
+        },
+        {
+          "questionId": "q-verbal-logic-assumptions-and-conclusions-0047",
+          "wrongChoice": "The proposal faced strong opposition during the town hall meeting."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-english-word-jobs": {
+      "adjective-vs-adverb": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0004",
+          "wrongChoice": "Adverb"
+        }
+      ],
+      "class-by-habit": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0017",
+          "wrongChoice": "Verb"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0009",
+          "wrongChoice": "Verb"
+        }
+      ],
+      "ly-ending-trap": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0018",
+          "wrongChoice": "Adverb"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-joining-words-phrases-and-clauses": {
+      "location-phrase-adverb": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0006",
+          "wrongChoice": "Adverb"
+        }
+      ],
+      "but-linking-clauses": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0007",
+          "wrongChoice": "Preposition"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0007",
+          "wrongChoice": "Adverb"
+        }
+      ],
+      "phrase-or-clause": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0019",
+          "wrongChoice": "Preposition"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0020",
+          "wrongChoice": "(1) Adverb, (2) Adjective, (3) Adverb, (4) Preposition"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-groups-and-indefinite-pronouns": {
+      "collective-unit-vs-members": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0005",
+          "wrongChoice": "Have"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0006",
+          "wrongChoice": "Are"
+        }
+      ],
+      "indefinite-singular-verb": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0008",
+          "wrongChoice": "Seem"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0007",
+          "wrongChoice": "Are"
+        }
+      ],
+      "some-most-noun-after-of": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0010",
+          "wrongChoice": "Is"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0009",
+          "wrongChoice": "Have"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-agreement-with-joined-subjects": {
+      "joined-by-and-plural": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0011",
+          "wrongChoice": "Is"
+        }
+      ],
+      "proximity-first-subject": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0012",
+          "wrongChoice": "Was"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0020",
+          "wrongChoice": "Was, was"
+        }
+      ],
+      "split-clause-agreement": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0017",
+          "wrongChoice": "The students were not late, and the teacher were not late."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pokus-at-papel-ng-paksa": {
+      "paksa-may-ang-o-si": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0018",
+          "wrongChoice": "Ng"
+        }
+      ],
+      "panatilihin-ang-aspekto": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0024",
+          "wrongChoice": "Sinusulat ni Mara ang mahalagang liham."
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0024",
+          "wrongChoice": "Susulatin ni Mara ang mahalagang liham."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-mga-gamit-ng-pananda": {
+      "ng-para-sa-gumagawa": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0019",
+          "wrongChoice": "Ang"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0019",
+          "wrongChoice": "Sa"
+        }
+      ],
+      "sa-para-sa-tagatanggap": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0023",
+          "wrongChoice": "Lugar na ginanapan ng paghahatid"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0023",
+          "wrongChoice": "Gumagawa ng paghahatid ng katibayan"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-clear-pronoun-reference-and-singular-they": {
+      "reject-singular-they": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0014",
+          "wrongChoice": "No, because every use of \"their\" requires a plural antecedent."
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0003",
+          "wrongChoice": "His"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0004",
+          "wrongChoice": "Its"
+        }
+      ],
+      "everybody-and-they-verbs": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0017",
+          "wrongChoice": "Everybody have said they are ready for the afternoon activity."
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0017",
+          "wrongChoice": "Everybody has said they is ready for the afternoon activity."
+        }
+      ],
+      "ambiguous-antecedent": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0016",
+          "wrongChoice": "Michelle's, because the nearest name always controls possessives."
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0009",
+          "wrongChoice": "\"She\" must always refer to the woman named closest to it."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pronouns-for-groups-and-joined-antecedents": {
+      "group-unit-vs-members": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0005",
+          "wrongChoice": "Their"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0006",
+          "wrongChoice": "Their"
+        }
+      ],
+      "joined-by-and-one-person": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0010",
+          "wrongChoice": "Sofia alone, because her name comes first"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0010",
+          "wrongChoice": "Her sister alone, because she is named closest"
+        }
+      ],
+      "mixed-nor-forced-gender": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0008",
+          "wrongChoice": "Neither the coach nor the players brought his own required equipment."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-mga-anyo-ng-panghalip-panao": {
+      "pangkat-ng-ang": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0013",
+          "wrongChoice": "Niya"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0013",
+          "wrongChoice": "Kaniya"
+        }
+      ],
+      "bilang-at-gumawa-sa-ng": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0012",
+          "wrongChoice": "Nila"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0012",
+          "wrongChoice": "Namin"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0012",
+          "wrongChoice": "Ninyo"
+        }
+      ],
+      "anyong-sa-para-sa-tatanggap": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0021",
+          "wrongChoice": "sila"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0021",
+          "wrongChoice": "nila"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0021",
+          "wrongChoice": "para sa kaniya"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-tinutukoy-at-pagmamay-ari-sa-panghalip": {
+      "ayos-ng-pagmamay-ari": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0022",
+          "wrongChoice": "Ako"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0022",
+          "wrongChoice": "Ko"
+        }
+      ],
+      "tayo-laban-sa-kami": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0023",
+          "wrongChoice": "Tayo"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0023",
+          "wrongChoice": "Sila"
+        }
+      ],
+      "walang-kasarian-ang-siya": [
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0011",
+          "wrongChoice": "Tumutukoy lamang sa babae"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0011",
+          "wrongChoice": "Tumutukoy lamang sa lalaki"
+        },
+        {
+          "questionId": "q-grammar-and-structure-pronoun-antecedent-agreement-0011",
+          "wrongChoice": "Ginagamit lamang para sa mga bagay"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-present-habits-and-ongoing-actions": {
+      "habit-wrong-tense": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0032",
+          "wrongChoice": "sorted"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0032",
+          "wrongChoice": "is sort"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0032",
+          "wrongChoice": "sorting"
+        }
+      ],
+      "wider-present-project": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0020",
+          "wrongChoice": "Writing that must be happening at the exact second she speaks"
+        }
+      ],
+      "stative-verb-progressive": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0022",
+          "wrongChoice": "I am knowing how to use the filing system."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-past-events-and-future-meaning": {
+      "keep-stated-past-time": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0001",
+          "wrongChoice": "Change \"bought\" to \"buys\" while keeping \"yesterday.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0001",
+          "wrongChoice": "Change both action verbs to future forms with \"will.\""
+        }
+      ],
+      "will-is-simple-future": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0015",
+          "wrongChoice": "Present perfect"
+        }
+      ],
+      "justified-tense-shift": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0006",
+          "wrongChoice": "No, because every coordinated sentence must use one tense throughout."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-present-perfect-links-to-now": {
+      "full-verb-group": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0016",
+          "wrongChoice": "Simple past"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0016",
+          "wrongChoice": "Past perfect"
+        }
+      ],
+      "still-true-now": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0012",
+          "wrongChoice": "We had lived here until last month, and then we left."
+        }
+      ],
+      "finished-past-time": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0033",
+          "wrongChoice": "has submitted"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0033",
+          "wrongChoice": "has submit"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-past-perfect-earlier-completion": {
+      "mark-earlier-past": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0005",
+          "wrongChoice": "Cooked"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0005",
+          "wrongChoice": "Cooks"
+        }
+      ],
+      "before-already-orders": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0014",
+          "wrongChoice": "Any action that happened first must always use past perfect instead."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0014",
+          "wrongChoice": "The later event must always use past perfect instead of simple past."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-recognizing-active-and-passive-voice": {
+      "check-subject-not-by-phrase": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0002",
+          "wrongChoice": "Passive voice because the ball receives the action"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0003",
+          "wrongChoice": "Active voice because the dog is the actor"
+        }
+      ],
+      "be-plus-adjective": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0013",
+          "wrongChoice": "\"Happy\" must be a past participle whenever it follows a form of \"be.\""
+        }
+      ],
+      "keep-unknown-agent-passive": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0023",
+          "wrongChoice": "The administrator has changed the access codes."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0023",
+          "wrongChoice": "The access codes were changed."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-changing-voice-and-get-passives": {
+      "swap-roles-correctly": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0004",
+          "wrongChoice": "The novel wrote a famous author."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0007",
+          "wrongChoice": "The committee was approved by the new budget during the meeting."
+        }
+      ],
+      "preserve-tense-and-aspect": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0004",
+          "wrongChoice": "A famous author was writing the novel."
+        }
+      ],
+      "get-plus-participle": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0019",
+          "wrongChoice": "A linking construction with \"got\" meaning ownership of an object"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0019",
+          "wrongChoice": "An active clause with the window as the actor causing the break"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-modals-ability-and-permission": {
+      "base-form-after-modal": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0021",
+          "wrongChoice": "The assistant can prepares the minutes without help."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0021",
+          "wrongChoice": "The assistant can prepared the minutes without help."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0021",
+          "wrongChoice": "The assistant can preparing the minutes without help."
+        }
+      ],
+      "no-to-after-modal": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0028",
+          "wrongChoice": "to answer"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0028",
+          "wrongChoice": "answers"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0028",
+          "wrongChoice": "answering"
+        }
+      ],
+      "could-permission-vs-ability": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0029",
+          "wrongChoice": "I could type before I entered college."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0029",
+          "wrongChoice": "The records could arrive later this afternoon."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-modals-requirements-and-possibility": {
+      "optional-vs-banned": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0030",
+          "wrongChoice": "Applicants must not bring a printed sheet."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0030",
+          "wrongChoice": "Applicants have to bring a printed reference sheet."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0030",
+          "wrongChoice": "Applicants should bring a printed reference sheet."
+        }
+      ],
+      "might-shows-possibility": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0031",
+          "wrongChoice": "A strict requirement"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0031",
+          "wrongChoice": "Permission to enter"
+        }
+      ],
+      "must-conclusion-vs-rule": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0024",
+          "wrongChoice": "A polite request for permission; an obligation to use the room"
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0024",
+          "wrongChoice": "General ability in the past; a strong conclusion from evidence"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-kalagayan-ng-kilos": {
+      "piliin-ayon-sa-kalagayan": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0001",
+          "wrongChoice": "Naglilinis"
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0001",
+          "wrongChoice": "Maglilinis"
+        }
+      ],
+      "tapos-laban-sa-katatapos": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0011",
+          "wrongChoice": "Parehong perpektibong katatapos dahil parehong natapos ang kilos."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0011",
+          "wrongChoice": "Kontemplatibo ang ikalawa dahil may salitang lang."
+        }
+      ],
+      "kadarating-ay-katatapos": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0002",
+          "wrongChoice": "Imperpektibo"
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0002",
+          "wrongChoice": "Perpektibo na walang pahiwatig na katatapos lamang"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pagbuo-ng-anyo-ng-pandiwa": {
+      "huwag-ilipat-ang-mag": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009",
+          "wrongChoice": "Panatilihin ang magkakain dahil lahat ng kontemplatibo ay may mag-."
+        }
+      ],
+      "kumain-kontemplatibo-walang-um": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009",
+          "wrongChoice": "Palitan ang magkakain ng kumakain."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0009",
+          "wrongChoice": "Palitan ang magkakain ng kumain."
+        }
+      ],
+      "basahin-ang-buong-pandiwa": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0025",
+          "wrongChoice": "Imperpektibo ang una; kontemplatibo ang ikalawa."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-ugnayan-ng-pandiwa-at-paksa": {
+      "hanapin-ang-may-ang-o-si": [
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0011",
+          "wrongChoice": "Pokus sa tagaganap (ang bata)"
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0003",
+          "wrongChoice": "Ang pagkain ang paksa; pokus sa layon."
+        }
+      ],
+      "ganapan-laban-sa-direksiyon": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0012",
+          "wrongChoice": "Parehong ganapan dahil parehong lugar ang bakuran."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0012",
+          "wrongChoice": "Direksiyon ang una; ganapan ang ikalawa."
+        }
+      ],
+      "tagatanggap-kagamitan-at-sanhi": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0006",
+          "wrongChoice": "Tagaganap, dahil ang kusinero ang nagluto."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0026",
+          "wrongChoice": "Kagamitan ang una dahil ginamit ang mga bisita; tagatanggap ang ikalawa dahil nakinabang ang lapis."
+        },
+        {
+          "questionId": "q-grammar-and-structure-tenses-and-voice-0026",
+          "wrongChoice": "Parehong tagaganap dahil si Mara ang gumagawa ng mga kilos."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-phrases-and-understood-subjects": {
+      "phrase-vs-dependent-clause": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0001",
+          "wrongChoice": "Dependent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0001",
+          "wrongChoice": "Independent clause"
+        }
+      ],
+      "command-has-understood-you": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0011",
+          "wrongChoice": "A dependent clause with a missing main clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0011",
+          "wrongChoice": "A noun phrase because it names an action"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-independent-and-dependent-clauses": {
+      "short-clause-is-complete": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0002",
+          "wrongChoice": "Prepositional phrase"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0002",
+          "wrongChoice": "Dependent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0003",
+          "wrongChoice": "Dependent clause"
+        }
+      ],
+      "subordinator-makes-dependent": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0004",
+          "wrongChoice": "Independent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0008",
+          "wrongChoice": "Independent clause"
+        }
+      ],
+      "event-noun-vs-verb": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0017",
+          "wrongChoice": "After the bus trip"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0017",
+          "wrongChoice": "During the bus journey"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-relative-clauses-and-main-thoughts": {
+      "relative-is-dependent": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0016",
+          "wrongChoice": "Independent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0016",
+          "wrongChoice": "Prepositional phrase"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0016",
+          "wrongChoice": "Noun phrase"
+        }
+      ],
+      "stop-before-main-verb": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0019",
+          "wrongChoice": "Who found the road closed"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0019",
+          "wrongChoice": "The driver who found the road closed"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0019",
+          "wrongChoice": "Delayed our delivery"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-connectors-for-reason-and-contrast": {
+      "comma-by-clause-order": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0009",
+          "wrongChoice": "No: the comma should be removed entirely."
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0010",
+          "wrongChoice": "Yes: a comma is always required regardless of clause order."
+        }
+      ],
+      "fragment-is-not-sentence": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0006",
+          "wrongChoice": "It is a complete independent sentence."
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0006",
+          "wrongChoice": "It is a run-on with two main clauses."
+        }
+      ],
+      "two-dependent-clauses": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0005",
+          "wrongChoice": "Because the store was closed, while we walked back home."
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0015",
+          "wrongChoice": "Although she reviewed it carefully, because the manager still had questions."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-finite-verbs-and-ing-groups": {
+      "ing-is-not-finite": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0021",
+          "wrongChoice": "preparing"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0021",
+          "wrongChoice": "to submit"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0021",
+          "wrongChoice": "closing"
+        }
+      ],
+      "ing-group-not-clause": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0007",
+          "wrongChoice": "Independent finite clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0007",
+          "wrongChoice": "Dependent finite clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0007",
+          "wrongChoice": "Prepositional phrase"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-infinitive-phrases-and-nonfinite-clauses": {
+      "infinitive-not-finite-clause": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0022",
+          "wrongChoice": "Independent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0022",
+          "wrongChoice": "Finite dependent clause"
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0022",
+          "wrongChoice": "Complete formal sentence"
+        }
+      ],
+      "long-infinitive-still-fragment": [
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0023",
+          "wrongChoice": "To revise the policy before the next inspection."
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0023",
+          "wrongChoice": "To have the policy revised before the inspection."
+        },
+        {
+          "questionId": "q-grammar-and-structure-phrases-and-clauses-0023",
+          "wrongChoice": "To revise the policy and to notify all employees."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-simple-and-compound-sentences": {
+      "compound-parts-still-simple": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0001",
+          "wrongChoice": "Compound"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0001",
+          "wrongChoice": "Compound-complex"
+        }
+      ],
+      "but-so-semicolon-are-compound": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0002",
+          "wrongChoice": "Complex"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0002",
+          "wrongChoice": "Compound-complex"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0017",
+          "wrongChoice": "Simple"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0017",
+          "wrongChoice": "Complex"
+        }
+      ],
+      "compound-subject-not-compound": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0013",
+          "wrongChoice": "The dog and cat played together in the yard."
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0013",
+          "wrongChoice": "The dog played while the cat slept in the yard."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-complex-and-compound-complex-sentences": {
+      "multiple-dependents-still-complex": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0015",
+          "wrongChoice": "Compound-complex"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0003",
+          "wrongChoice": "Compound"
+        }
+      ],
+      "missed-second-main-or-dep": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0004",
+          "wrongChoice": "Compound"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0004",
+          "wrongChoice": "Complex"
+        }
+      ],
+      "after-phrase-vs-clause": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0018",
+          "wrongChoice": "After rehearsal ended, the musicians left the hall."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-misplaced-modifiers-and-clear-meaning": {
+      "wrong-noun-attachment": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0001",
+          "wrongChoice": "The waiter served pasta to the customer covered in cheese."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0001",
+          "wrongChoice": "Covered in cheese, the waiter served pasta to the customer."
+        }
+      ],
+      "smooth-but-wrong-target": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0013",
+          "wrongChoice": "The teacher wearing a blue jacket spoke to the student after class."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0013",
+          "wrongChoice": "The teacher, who wore a blue jacket, spoke to the student after class."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-dangling-modifiers-and-their-subjects": {
+      "passive-or-later-pronoun": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0002",
+          "wrongChoice": "After finishing the marathon, a warm bath was enjoyed by her."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0002",
+          "wrongChoice": "After finishing the marathon, the warmth of the bath amazed her."
+        }
+      ],
+      "activity-noun-subject": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0014",
+          "wrongChoice": "Excited about the trip, packing the suitcases was finished a week early."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0007",
+          "wrongChoice": "Exhausted from the long hike, pitching the tents took the campers an hour."
+        }
+      ],
+      "while-ing-no-subject": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0009",
+          "wrongChoice": "While approaching the gate, the barking of a dog startled Liza."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0020",
+          "wrongChoice": "After arriving at the house, dinner was served to the guests in the hall."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-scope-of-small-modifiers": {
+      "only-before-wrong-part": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0011",
+          "wrongChoice": "Only the ticket admits a guest on Saturday, according to the notice."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0011",
+          "wrongChoice": "The ticket admits only a guest on Saturday, according to the notice."
+        }
+      ],
+      "rigid-only-rules": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0008",
+          "wrongChoice": "It always limits just the next word, regardless of the surrounding context."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0008",
+          "wrongChoice": "It limits nouns alone, even when it appears directly before a verb."
+        }
+      ],
+      "almost-before-verb-vs-quantity": [
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0010",
+          "wrongChoice": "The cyclists almost rode to school every day during the term."
+        },
+        {
+          "questionId": "q-grammar-and-structure-modifiers-0019",
+          "wrongChoice": "The curator almost displayed all the vases during the evening exhibition."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-matching-forms-in-lists": {
+      "fix-only-two-items": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0005",
+          "wrongChoice": "Change \"painting\" to \"to paint.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0005",
+          "wrongChoice": "Change \"singing\" to \"to sing.\""
+        }
+      ],
+      "changing-meaning-in-pair": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0010",
+          "wrongChoice": "She enjoys hiking and swims in the lake."
+        },
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0010",
+          "wrongChoice": "She enjoys hiking and to swim in the lake."
+        }
+      ],
+      "noun-list-vs-clause": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0009",
+          "wrongChoice": "Change \"its plans for the future\" to \"planning for the future.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0009",
+          "wrongChoice": "Change \"analyzing its financial growth\" to \"it grew financially.\""
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-shared-words-in-parallel-lists": {
+      "mixed-form-under-shared-word": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0003",
+          "wrongChoice": "The manual explains how to install, updating, and repairing the software."
+        }
+      ],
+      "partial-list-fix": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0013",
+          "wrongChoice": "Change \"setting\" to \"set\" but keep \"saving money.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0013",
+          "wrongChoice": "Change only \"track\" to \"tracking\" and keep the rest."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-parallel-pairs-and-comparisons": {
+      "mismatched-correlative-pair": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0002",
+          "wrongChoice": "Change \"it was educational\" to \"to educate people.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0002",
+          "wrongChoice": "Change \"fun\" to \"enjoyably\" while keeping the rest."
+        }
+      ],
+      "misplaced-correlative-connector": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0017",
+          "wrongChoice": "Applicants may either submit online or a mailed application."
+        }
+      ],
+      "comparing-unlike-things": [
+        {
+          "questionId": "q-grammar-and-structure-parallelism-0008",
+          "wrongChoice": "The cost of a bus trip is lower than taking a taxi to the same destination."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-commas-in-lists-and-joined-clauses": {
+      "comma-between-verb-and-list": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0005",
+          "wrongChoice": "I bought, apples, bananas, and oranges."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0005",
+          "wrongChoice": "I bought apples, bananas and, oranges."
+        }
+      ],
+      "comma-after-joining-word": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0006",
+          "wrongChoice": "She studied hard and, she passed the exam."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0006",
+          "wrongChoice": "She studied hard and she, passed the exam."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-commas-with-openings-and-extra-information": {
+      "splitting-opening-or-subject": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0007",
+          "wrongChoice": "After, the meeting we went home."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0007",
+          "wrongChoice": "After the meeting we, went home."
+        }
+      ],
+      "missing-commas-on-extra-info": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0008",
+          "wrongChoice": "My brother who lives in Cebu is visiting this week."
+        }
+      ],
+      "commas-on-identifying-clause": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0014",
+          "wrongChoice": "The students, who missed the test, must report today."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-semicolons-and-comma-splices": {
+      "comma-splice-same-topic": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0001",
+          "wrongChoice": "Keep the comma because the clauses concern the same concert."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0019",
+          "wrongChoice": "The train was late, the passengers remained calm."
+        }
+      ],
+      "semicolon-before-dependent-part": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0003",
+          "wrongChoice": "She loves reading; because she visits the library every weekend."
+        }
+      ],
+      "semicolons-in-complex-list": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0009",
+          "wrongChoice": "We visited Manila, Philippines, Tokyo, Japan, and Seoul, Korea."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0009",
+          "wrongChoice": "We visited Manila; Philippines, Tokyo; Japan, and Seoul; Korea."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-apostrophes-for-ownership-and-contractions": {
+      "singular-name-possessive": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0010",
+          "wrongChoice": "Marias book was left on the table."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0010",
+          "wrongChoice": "Marias' book was left on the table."
+        }
+      ],
+      "contraction-apostrophe-spot": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0011",
+          "wrongChoice": "I dont want to go outside today."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0011",
+          "wrongChoice": "I do'nt want to go outside today."
+        }
+      ],
+      "its-vs-its-contraction": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0002",
+          "wrongChoice": "It's"
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0002",
+          "wrongChoice": "Its'"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-capital-letters-in-names-titles-and-quotes": {
+      "title-before-name-vs-role": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0004",
+          "wrongChoice": "We met president Reyes yesterday at the company office."
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0017",
+          "wrongChoice": "We met the President yesterday during the afternoon visit."
+        }
+      ],
+      "quoted-word-capitalized": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0018",
+          "wrongChoice": "The word \"Meeting\" appears twice in the short announcement."
+        }
+      ],
+      "quoted-sentence-lowercase": [
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0013",
+          "wrongChoice": "She said, \"please close the door.\""
+        },
+        {
+          "questionId": "q-grammar-and-structure-punctuation-and-capitalization-0013",
+          "wrongChoice": "She said, \"Please Close The Door.\""
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-removing-needless-repeated-meaning": {
+      "adding-more-repeated-words": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0012",
+          "wrongChoice": "Please return back again the library books by Friday."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0012",
+          "wrongChoice": "Please keep the library books until Friday and take them home."
+        }
+      ],
+      "blanket-cut-of-timing": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0016",
+          "wrongChoice": "It must be deleted because every warning contains the same timing detail."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0016",
+          "wrongChoice": "It proves every repeated phrase should be removed in formal writing."
+        }
+      ],
+      "blind-deletion-rule": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0019",
+          "wrongChoice": "Whether every pair of words with related meanings must lose one word."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-keeping-needed-repetition": {
+      "cutting-or-changing-first-repeat": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0013",
+          "wrongChoice": "Could you please repeat again once more what you just said?"
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0013",
+          "wrongChoice": "Could you please change what you just said into a new idea?"
+        }
+      ],
+      "missing-prior-repeat": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0021",
+          "wrongChoice": "It says the instruction has never been repeated."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0021",
+          "wrongChoice": "It requires the officer to change the instruction."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-editing-negative-concord": {
+      "keeping-negative-concord-in-formal": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0002",
+          "wrongChoice": "She doesn't want no help with the project."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0002",
+          "wrongChoice": "She wants some help with the project after all."
+        }
+      ],
+      "math-cancellation-on-dialect": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0006",
+          "wrongChoice": "The speaker must have seen something unusual after all."
+        }
+      ],
+      "erasing-or-narrowing-absence": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0014",
+          "wrongChoice": "There is somebody at the office right now, waiting inside."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0014",
+          "wrongChoice": "There isn't somebody specific at the office right now."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-qualified-negatives-and-near-negatives": {
+      "qualified-negative-extremes": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0020",
+          "wrongChoice": "The proposal is unreasonable and should be rejected outright."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0020",
+          "wrongChoice": "The proposal is perfectly reasonable in every respect."
+        }
+      ],
+      "not-with-near-negative": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0004",
+          "wrongChoice": "I can't hardly hear you from over here."
+        },
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0018",
+          "wrongChoice": "Scarcely no supplies remained after the last group left."
+        }
+      ],
+      "seldom-as-never": [
+        {
+          "questionId": "q-grammar-and-structure-redundancy-and-double-negatives-0022",
+          "wrongChoice": "The employee never requests any extra time."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-finding-subjects-and-matching-verbs": {
+      "verb-s": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0001",
+          "wrongChoice": "Bark"
+        }
+      ],
+      "nearest-noun": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0003",
+          "wrongChoice": "Are"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0004",
+          "wrongChoice": "Is"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0014",
+          "wrongChoice": "Tutors"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pangalan-kilos-at-pandiwari": {
+      "bata-pangngalan-hindi-pang-uri": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0013",
+          "wrongChoice": "Pang-uri"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0013",
+          "wrongChoice": "Panghalip"
+        }
+      ],
+      "pandiwa-kilos-hindi-pangngalan": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0015",
+          "wrongChoice": "Pangngalan"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0015",
+          "wrongChoice": "Pang-abay"
+        }
+      ],
+      "pandiwari-bilang-pangngalan": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0024",
+          "wrongChoice": "Pandiwang nagsasaad ng ginawa ng kawani"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0024",
+          "wrongChoice": "Pang-abay na nagsasaad ng lugar ng kilos"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pang-uri-at-pang-abay": {
+      "matapang-pang-uri-hindi-pang-abay": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0012",
+          "wrongChoice": "Pang-abay"
+        }
+      ],
+      "mabilis-pang-abay-hindi-pang-uri": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0016",
+          "wrongChoice": "Pang-uri"
+        }
+      ],
+      "pangkat-na-panlunan": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0023",
+          "wrongChoice": "ng mga kawani"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0023",
+          "wrongChoice": "ang mga kahon"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-pang-ukol-pangatnig-at-pandamdam": {
+      "pang-ukol-laban-sa-pangatnig": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0021",
+          "wrongChoice": "Pangatnig"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0021",
+          "wrongChoice": "Pang-abay"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0021",
+          "wrongChoice": "Pangngalan"
+        }
+      ],
+      "pandamdam-laban-sa-pangngalan": [
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0022",
+          "wrongChoice": "Pangngalan"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0022",
+          "wrongChoice": "Pangatnig"
+        },
+        {
+          "questionId": "q-grammar-and-structure-parts-of-speech-0022",
+          "wrongChoice": "Pandiwa"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-aspekto-at-paksa-sa-filipino": {
+      "aspekto-ayon-sa-kalagayan": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0021",
+          "wrongChoice": "Kumain"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0021",
+          "wrongChoice": "Kakain"
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0021",
+          "wrongChoice": "Kakakain lamang"
+        }
+      ],
+      "bilang-ng-paksa-at-pandiwa": [
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0022",
+          "wrongChoice": "Kumain na ng tanghalian ang mga kawani."
+        },
+        {
+          "questionId": "q-grammar-and-structure-subject-verb-agreement-0022",
+          "wrongChoice": "Kakain pa lamang ng tanghalian ang mga kawani."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-mga-pahiwatig-ng-oras": {
+      "panatilihin-ang-oras-at-aspekto": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0005",
+          "wrongChoice": "Magsusumite si Elena ng ulat kahapon."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0005",
+          "wrongChoice": "Nagsumite si Elena ng ulat kahapon."
+        }
+      ],
+      "tuwing-paulit-ulit-na-kilos": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0004",
+          "wrongChoice": "Sapagkat natapos na ang lahat ng paglilinis."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0004",
+          "wrongChoice": "Sapagkat katatapos lamang nilang maglinis."
+        }
+      ],
+      "nagpapatuloy-sa-nakaraan": [
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0010",
+          "wrongChoice": "Perpektibo, dahil kahapon naganap ang pangyayari."
+        },
+        {
+          "questionId": "q-grammar-and-structure-filipino-verb-aspect-and-focus-0010",
+          "wrongChoice": "Kontemplatibo, dahil hindi pa tapos ang ulat."
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-payak-at-tambalang-pangungusap": {
+      "sugnay-na-makapag-iisa": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0022",
+          "wrongChoice": "Dahil inayos ng kawani ang pila."
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0022",
+          "wrongChoice": "Kapag inayos ng kawani ang pila."
+        }
+      ],
+      "payak-laban-sa-tambalan": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0010",
+          "wrongChoice": "Payak"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0010",
+          "wrongChoice": "Hugnayan"
+        }
+      ],
+      "pangatnig-sa-pagpipilian": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0023",
+          "wrongChoice": "at"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0023",
+          "wrongChoice": "ngunit"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0023",
+          "wrongChoice": "dahil"
+        }
+      ]
+    },
+    "lesson-grammar-and-structure-hugnayan-langkapan-at-ayos-ng-salaysay": {
+      "hugnayan-laban-sa-tambalan": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0011",
+          "wrongChoice": "Tambalan"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0011",
+          "wrongChoice": "Payak"
+        }
+      ],
+      "langkapan-bilangin-ang-bawat-sugnay": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0012",
+          "wrongChoice": "Tambalan"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0012",
+          "wrongChoice": "Hugnayan"
+        }
+      ],
+      "ayos-ng-pananda-sa-salaysay": [
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0021",
+          "wrongChoice": "Una, sa huli, pagkatapos"
+        },
+        {
+          "questionId": "q-grammar-and-structure-sentence-structure-0021",
+          "wrongChoice": "Sa huli, pagkatapos nito, una"
+        }
+      ]
+    },
+    "lesson-vocabulary-affect-and-effect": {
+      "influence-verb": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0001",
+          "wrongChoice": "Effect",
+          "mistakeNote": "Uses effect (bring about) where influence is meant."
+        }
+      ],
+      "base-form": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0001",
+          "wrongChoice": "Affects",
+          "mistakeNote": "Adds -s after the modal will."
+        }
+      ],
+      "bring-about": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0013",
+          "wrongChoice": "Affected",
+          "mistakeNote": "Uses affect (influence) where effect (bring about) is meant."
+        }
+      ]
+    },
+    "lesson-vocabulary-baybay-ng-hiram-na-salita": {
+      "huwag-alisin-ang-u": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0012",
+          "wrongChoice": "kwento",
+          "mistakeNote": "Drops the u from the first syllable."
+        }
+      ],
+      "isingit-ang-w": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0012",
+          "wrongChoice": "kuento",
+          "mistakeNote": "Omits the w before the e."
+        }
+      ]
+    },
+    "lesson-vocabulary-checking-longer-spellings": {
+      "known-base": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0009",
+          "wrongChoice": "Definate",
+          "mistakeNote": "Writes -ate for the -ite ending of definite."
+        }
+      ],
+      "doubled-pairs": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0007",
+          "wrongChoice": "Comittee",
+          "mistakeNote": "Drops one m from the double m in committee."
+        },
+        {
+          "questionId": "q-vocabulary-spelling-rules-0005",
+          "wrongChoice": "Acommodate",
+          "mistakeNote": "Drops the double c in accommodate."
+        }
+      ]
+    },
+    "lesson-vocabulary-comparisons-and-human-actions": {
+      "metaphor-or-simile": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0005",
+          "wrongChoice": "Simile",
+          "mistakeNote": "Calls 'The classroom was a zoo' a simile though it has no like or as."
+        }
+      ],
+      "as-if-personification": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0003",
+          "wrongChoice": "An explicit comparison",
+          "mistakeNote": "Takes 'as if' for the device and misses the human act of complaining."
+        }
+      ]
+    },
+    "lesson-vocabulary-contrast-and-inference-clues": {
+      "contrast-target": [
+        {
+          "questionId": "q-vocabulary-context-clues-0004",
+          "wrongChoice": "Talkative",
+          "mistakeNote": "Picks the contrast word (chatted endlessly) as the meaning of taciturn."
+        }
+      ],
+      "contrast-other-side": [
+        {
+          "questionId": "q-vocabulary-context-clues-0014",
+          "wrongChoice": "Wasteful",
+          "mistakeNote": "Picks the word describing the son, not the frugal shopkeeper."
+        }
+      ]
+    },
+    "lesson-vocabulary-definitions-examples-and-synonyms": {
+      "restatement-not-reaction": [
+        {
+          "questionId": "q-vocabulary-context-clues-0011",
+          "wrongChoice": "Rude",
+          "mistakeNote": "Takes the listeners' reaction as the meaning of candid."
+        }
+      ],
+      "sentence-meaning": [
+        {
+          "questionId": "q-vocabulary-context-clues-0008",
+          "wrongChoice": "Punishment",
+          "mistakeNote": "Uses the common meaning of sanction instead of the one the sentence supports."
+        }
+      ]
+    },
+    "lesson-vocabulary-doubling-final-consonants": {
+      "begin-stress": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0003",
+          "wrongChoice": "Begining",
+          "mistakeNote": "Fails to double n in a word stressed on the last syllable."
+        }
+      ],
+      "refer-stress": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0015",
+          "wrongChoice": "Refered",
+          "mistakeNote": "Fails to double r before -ed."
+        }
+      ],
+      "visit-stress": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0020",
+          "wrongChoice": "Visitting, beginning",
+          "mistakeNote": "Doubles the t in visit, which is stressed on the first syllable."
+        }
+      ]
+    },
+    "lesson-vocabulary-english-word-elements": {
+      "mal-versus-bene": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0002",
+          "wrongChoice": "Benevolent",
+          "mistakeNote": "Reverses mal- (bad) into bene- (good)."
+        }
+      ],
+      "omni-all-what": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0007",
+          "wrongChoice": "All-powerful",
+          "mistakeNote": "Reads omniscient as all-powerful instead of all-knowing."
+        }
+      ]
+    },
+    "lesson-vocabulary-feeling-strength-and-formality": {
+      "approving-tone": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0019",
+          "wrongChoice": "Stingy",
+          "mistakeNote": "Uses a disapproving word where the tone is approving."
+        }
+      ],
+      "mild-intensity": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0021",
+          "wrongChoice": "enraged",
+          "mistakeNote": "Raises mild annoyance to extreme anger."
+        }
+      ],
+      "formal-register": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0022",
+          "wrongChoice": "get going",
+          "mistakeNote": "Keeps casual wording in a formal notice."
+        }
+      ]
+    },
+    "lesson-vocabulary-idioms-and-literal-meanings": {
+      "start-over": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0001",
+          "wrongChoice": "To abandon the attempt",
+          "mistakeNote": "Reads back to square one as giving up."
+        }
+      ],
+      "naghigpit-ng-sinturon": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0019",
+          "wrongChoice": "Naghanda sa paglalakbay",
+          "mistakeNote": "Reads the idiom literally as preparing for a trip."
+        }
+      ]
+    },
+    "lesson-vocabulary-its-and-it-is-or-it-has": {
+      "owner-apostrophe": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0002",
+          "wrongChoice": "It's",
+          "mistakeNote": "Uses it's (it is/has) for possession."
+        }
+      ],
+      "extra-apostrophe": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0002",
+          "wrongChoice": "Its'",
+          "mistakeNote": "Adds a trailing apostrophe to its."
+        }
+      ],
+      "has-not-owner": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0015",
+          "wrongChoice": "Its, its",
+          "mistakeNote": "Writes Its for it has."
+        }
+      ]
+    },
+    "lesson-vocabulary-kasingkahulugan-at-kasalungat": {
+      "kasingkahulugan": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0003",
+          "wrongChoice": "Natupad",
+          "mistakeNote": "Picks the opposite of the figurative result, fulfillment instead of ruin."
+        }
+      ],
+      "kasalungat": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0004",
+          "wrongChoice": "Mahirap",
+          "mistakeNote": "Picks the synonym of maralita instead of the antonym."
+        }
+      ]
+    },
+    "lesson-vocabulary-letters-sounds-and-vowel-order": {
+      "belief-order": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0001",
+          "wrongChoice": "Beleif",
+          "mistakeNote": "Swaps ie to ei in belief."
+        }
+      ],
+      "seize-exception": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0017",
+          "wrongChoice": "Sieze",
+          "mistakeNote": "Applies i before e to the exception seize."
+        }
+      ]
+    },
+    "lesson-vocabulary-meaning-and-grammar-in-context": {
+      "fast-meaning": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0012",
+          "wrongChoice": "To finish a task quickly",
+          "mistakeNote": "Uses the common meaning of fast against the context clue."
+        }
+      ],
+      "decide-grammar": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0023",
+          "wrongChoice": "decision",
+          "mistakeNote": "Puts a noun where a verb is needed."
+        }
+      ]
+    },
+    "lesson-vocabulary-ng-at-nang": {
+      "pagmamay-ari": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0014",
+          "wrongChoice": "Nang",
+          "mistakeNote": "Uses nang for ownership."
+        }
+      ],
+      "dami": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0016",
+          "wrongChoice": "Nang",
+          "mistakeNote": "Uses nang before a quantity."
+        }
+      ],
+      "noong": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0012",
+          "wrongChoice": "Ng",
+          "mistakeNote": "Uses ng where nang means noong."
+        }
+      ]
+    },
+    "lesson-vocabulary-opposite-roles": {
+      "same-exchange": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0024",
+          "wrongChoice": "The supplier bought the printer.",
+          "mistakeNote": "Gives the supplier the buyer's role."
+        }
+      ],
+      "borrow-lend": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0020",
+          "wrongChoice": "Return",
+          "mistakeNote": "Gives a later step of the borrower instead of the lender's role."
+        }
+      ]
+    },
+    "lesson-vocabulary-opposites-with-levels-and-two-states": {
+      "not-hot": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0026",
+          "wrongChoice": "It must be cold.",
+          "mistakeNote": "Treats not hot as the opposite extreme."
+        }
+      ],
+      "two-labels": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0025",
+          "wrongChoice": "partially available",
+          "mistakeNote": "Invents a middle label in a two-label system."
+        }
+      ]
+    },
+    "lesson-vocabulary-paghahambing-pagbibigay-katauhan-at-pagmamalabis": {
+      "tulad-hindi-wangis": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0012",
+          "wrongChoice": "Pagwawangis",
+          "mistakeNote": "Calls a kasing- comparison a metaphor."
+        },
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0013",
+          "wrongChoice": "Pagtutulad",
+          "mistakeNote": "Calls a direct equation with no marker a simile."
+        }
+      ],
+      "labis-hindi-tulad": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0011",
+          "wrongChoice": "Pagtutulad",
+          "mistakeNote": "Sees parang and ignores the deliberate exaggeration."
+        }
+      ],
+      "katauhan-hindi-hambing": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0014",
+          "wrongChoice": "Tahasang paghahambing",
+          "mistakeNote": "Calls human action given to the sun a comparison."
+        }
+      ]
+    },
+    "lesson-vocabulary-panlaping-kabilaan-at-laguhan": {
+      "kabilaan-ka-an": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0011",
+          "wrongChoice": "Pag- at -an",
+          "mistakeNote": "Names the wrong prefix for kabataan."
+        }
+      ],
+      "laguhan-hindi-kabilaan": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0004",
+          "wrongChoice": "Kabilaan",
+          "mistakeNote": "Ignores the infix inside the root."
+        }
+      ]
+    },
+    "lesson-vocabulary-prefix-clues-in-context": {
+      "prefix-meaning": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0027",
+          "wrongChoice": "not finished",
+          "mistakeNote": "Mixes up unfair with a different base meaning."
+        }
+      ],
+      "real-prefix": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0028",
+          "wrongChoice": "Every initial un means not.",
+          "mistakeNote": "Treats every initial un as a prefix, so uncle becomes not cle."
+        }
+      ]
+    },
+    "lesson-vocabulary-roots-bases-and-valid-splits": {
+      "stem-before-suffix": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0021",
+          "wrongChoice": "-ness",
+          "mistakeNote": "Names the suffix as its own stem."
+        }
+      ],
+      "inflammable": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0014",
+          "wrongChoice": "Protected from fire",
+          "mistakeNote": "Reads in- as not in inflammable."
+        }
+      ]
+    },
+    "lesson-vocabulary-sila-at-sina": {
+      "bago-ang-pangalan": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0004",
+          "wrongChoice": "Sila",
+          "mistakeNote": "Uses the pronoun before names."
+        }
+      ],
+      "pamalit": [
+        {
+          "questionId": "q-vocabulary-confusing-words-0009",
+          "wrongChoice": "Sina",
+          "mistakeNote": "Uses the name marker as a pronoun."
+        }
+      ]
+    },
+    "lesson-vocabulary-silent-e-with-suffixes": {
+      "soft-g": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0014",
+          "wrongChoice": "Courageous",
+          "mistakeNote": "Marks courageous as misspelled by dropping the e before -ous after soft g."
+        }
+      ],
+      "truly": [
+        {
+          "questionId": "q-vocabulary-spelling-rules-0019",
+          "wrongChoice": "Truely",
+          "mistakeNote": "Keeps the silent e before -ly in truly."
+        }
+      ]
+    },
+    "lesson-vocabulary-similar-and-opposite-meanings": {
+      "heavy-rain": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0029",
+          "wrongChoice": "powerful rain",
+          "mistakeNote": "Uses a synonym of heavy in the wrong word partnership."
+        }
+      ],
+      "mitigate-opposite": [
+        {
+          "questionId": "q-vocabulary-synonyms-and-antonyms-0002",
+          "wrongChoice": "Alleviate",
+          "mistakeNote": "Picks a synonym of mitigate as its opposite."
+        }
+      ]
+    },
+    "lesson-vocabulary-sound-and-opposing-words": {
+      "repeated-sound": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0007",
+          "wrongChoice": "Onomatopoeia",
+          "mistakeNote": "Calls repeated initial sounds onomatopoeia."
+        }
+      ],
+      "opposing-words": [
+        {
+          "questionId": "q-vocabulary-idioms-and-figures-of-speech-0009",
+          "wrongChoice": "Hyperbole",
+          "mistakeNote": "Calls the contradictory pair deafening silence hyperbole."
+        }
+      ]
+    },
+    "lesson-vocabulary-suffixes-and-word-jobs": {
+      "ly-adverb": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0022",
+          "wrongChoice": "Which officer was present",
+          "mistakeNote": "Reads the -ly adverb as describing a noun."
+        }
+      ],
+      "friendly-adjective": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0023",
+          "wrongChoice": "Adverb of manner",
+          "mistakeNote": "Treats friendly as an adverb because it ends in -ly."
+        }
+      ]
+    },
+    "lesson-vocabulary-suffixes-for-qualities-and-absence": {
+      "ful-less": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0024",
+          "wrongChoice": "without; full of",
+          "mistakeNote": "Swaps the meanings of -ful and -less."
+        }
+      ],
+      "ness-noun": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0025",
+          "wrongChoice": "Describes a kind person",
+          "mistakeNote": "Treats -ness as making an adjective for a person."
+        }
+      ]
+    },
+    "lesson-vocabulary-ugat-unlapi-gitlapi-at-hulapi": {
+      "ugat-hindi-panlapi": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0003",
+          "wrongChoice": "Pinag",
+          "mistakeNote": "Takes the prefix as the root."
+        }
+      ],
+      "ugat-hindi-buo": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0010",
+          "wrongChoice": "Ginawa",
+          "mistakeNote": "Leaves the infix on the root."
+        }
+      ],
+      "puwesto-ng-um": [
+        {
+          "questionId": "q-vocabulary-root-words-prefixes-suffixes-0016",
+          "wrongChoice": "Dahil palaging unlapi ang um-.",
+          "mistakeNote": "Names the affix by its letters, not its position."
+        }
+      ]
+    },
+    "lesson-vocabulary-word-partners-feeling-and-grammar": {
+      "charged-partner": [
+        {
+          "questionId": "q-vocabulary-context-clues-0016",
+          "wrongChoice": "Accused",
+          "mistakeNote": "Ignores the hotel and invoice partners."
+        }
+      ],
+      "furnish-grammar": [
+        {
+          "questionId": "q-vocabulary-context-clues-0021",
+          "wrongChoice": "furniture",
+          "mistakeNote": "Puts a noun where a verb is needed."
+        }
+      ],
+      "qualified-meaning": [
+        {
+          "questionId": "q-vocabulary-context-clues-0019",
+          "wrongChoice": "Certified",
+          "mistakeNote": "Uses the common meaning of qualified, not the one the context supports."
+        }
+      ]
+    },
+    "lesson-language-application-clause-punctuation-checks": {
+      "comma-splice": [
+        {
+          "questionId": "q-language-application-error-identification-0020",
+          "wrongChoice": "Mika was the cashier on duty, she counted the receipts.",
+          "mistakeNote": "Joins two independent clauses with only a comma."
+        }
+      ],
+      "run-on-or-case": [
+        {
+          "questionId": "q-language-application-error-identification-0020",
+          "wrongChoice": "Mika was the cashier on duty she counted the receipts.",
+          "mistakeNote": "Runs two independent clauses together with no mark or joining word."
+        }
+      ],
+      "however-splice": [
+        {
+          "questionId": "q-language-application-error-identification-0009",
+          "wrongChoice": "No error",
+          "mistakeNote": "Treats however like a coordinating conjunction, so a comma alone seems enough to join the clauses."
+        }
+      ]
+    },
+    "lesson-language-application-modal-meaning-checks": {
+      "modal-meaning": [
+        {
+          "questionId": "q-language-application-error-identification-0021",
+          "wrongChoice": "might register",
+          "mistakeNote": "Uses a possibility modal where the policy states a requirement."
+        }
+      ],
+      "modal-plus-to": [
+        {
+          "questionId": "q-language-application-error-identification-0022",
+          "wrongChoice": "might to arrive",
+          "mistakeNote": "Inserts to after the modal might."
+        }
+      ],
+      "modal-verb-ending": [
+        {
+          "questionId": "q-language-application-error-identification-0021",
+          "wrongChoice": "must registers",
+          "mistakeNote": "Adds an -s ending to the verb after a modal."
+        }
+      ]
+    },
+    "lesson-language-application-modifiers-and-matching-forms": {
+      "dangling-opening": [
+        {
+          "questionId": "q-language-application-error-identification-0018",
+          "wrongChoice": "After inspecting the roof, repairs were approved by the engineer.",
+          "mistakeNote": "Gives the opening action to repairs instead of the engineer."
+        }
+      ],
+      "parallel-list": [
+        {
+          "questionId": "q-language-application-error-identification-0002",
+          "wrongChoice": "No error",
+          "mistakeNote": "Accepts a to-plus-verb phrase among base verbs in a list."
+        }
+      ],
+      "like-comparison": [
+        {
+          "questionId": "q-language-application-error-identification-0004",
+          "wrongChoice": "No error",
+          "mistakeNote": "Accepts a rating compared with the physical models."
+        }
+      ]
+    },
+    "lesson-language-application-past-time-checks": {
+      "past-time-clue": [
+        {
+          "questionId": "q-language-application-error-identification-0019",
+          "wrongChoice": "are being delivered",
+          "mistakeNote": "Uses an ongoing present form with the past clue yesterday."
+        }
+      ],
+      "participle-after-had": [
+        {
+          "questionId": "q-language-application-error-identification-0014",
+          "wrongChoice": "No error",
+          "mistakeNote": "Accepts a base verb after had."
+        }
+      ],
+      "which-event-gets-had": [
+        {
+          "questionId": "q-language-application-error-identification-0008",
+          "wrongChoice": "finished inspecting the fiscal records,",
+          "mistakeNote": "Changes the later event instead of the earlier one."
+        }
+      ]
+    },
+    "lesson-language-application-phrases-and-sentence-types": {
+      "phrase-vs-dependent": [
+        {
+          "questionId": "q-language-application-error-identification-0024",
+          "wrongChoice": "after the lengthy staff meeting",
+          "mistakeNote": "Counts a phrase with no subject and verb as a clause."
+        }
+      ],
+      "standalone-clause": [
+        {
+          "questionId": "q-language-application-error-identification-0024",
+          "wrongChoice": "the clerk resigned yesterday",
+          "mistakeNote": "Calls a complete thought dependent."
+        }
+      ],
+      "count-all-clauses": [
+        {
+          "questionId": "q-language-application-error-identification-0023",
+          "wrongChoice": "Two independent clauses with no dependent clause",
+          "mistakeNote": "Overlooks the dependent although clause."
+        }
+      ]
+    },
+    "lesson-language-application-pronoun-reference-checks": {
+      "who-vs-whom": [
+        {
+          "questionId": "q-language-application-error-identification-0006",
+          "wrongChoice": "No error",
+          "mistakeNote": "Accepts an object form as the subject of a clause."
+        }
+      ],
+      "object-after-preposition": [
+        {
+          "questionId": "q-language-application-error-identification-0013",
+          "wrongChoice": "No error",
+          "mistakeNote": "Accepts a subject form as a preposition's object."
+        }
+      ],
+      "unclear-pronoun": [
+        {
+          "questionId": "q-language-application-error-identification-0007",
+          "wrongChoice": "No error",
+          "mistakeNote": "Assumes the context shows which of two men the pronoun means."
+        }
+      ]
+    },
+    "lesson-language-application-subject-and-verb-checks": {
+      "nearest-noun": [
+        {
+          "questionId": "q-language-application-error-identification-0001",
+          "wrongChoice": "No error",
+          "mistakeNote": "Misses the singular head every one because plural laptops sits near the verb."
+        }
+      ],
+      "mass-noun-some": [
+        {
+          "questionId": "q-language-application-error-identification-0016",
+          "wrongChoice": "Some of the information in these notes are confidential for legal reasons.",
+          "mistakeNote": "Matches the verb to plural notes instead of the mass noun information."
+        }
+      ],
+      "collective-unit": [
+        {
+          "questionId": "q-language-application-error-identification-0010",
+          "wrongChoice": "is presenting",
+          "mistakeNote": "Marks a singular verb as an error because a panel has several members."
+        }
+      ]
+    },
+    "lesson-language-application-word-meaning-checks": {
+      "check-opposite-direction": [
+        {
+          "questionId": "q-language-application-error-identification-0029",
+          "wrongChoice": "understandable",
+          "mistakeNote": "Picks a similar meaning when the question asks for the opposite."
+        },
+        {
+          "questionId": "q-language-application-error-identification-0029",
+          "wrongChoice": "straightforward",
+          "mistakeNote": "Picks a word that fits the sentence but is not the opposite."
+        }
+      ],
+      "read-every-word-part": [
+        {
+          "questionId": "q-language-application-error-identification-0030",
+          "wrongChoice": "Full of helpful guidance",
+          "mistakeNote": "Reads helpful and ignores the prefix un-."
+        },
+        {
+          "questionId": "q-language-application-error-identification-0030",
+          "wrongChoice": "Able to give useful help",
+          "mistakeNote": "Focuses on help and loses the negative prefix."
+        }
+      ]
+    },
+    "lesson-language-application-cause-and-effect-order": {
+      "resulting-before-cause": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0011",
+          "wrongChoice": "1, 3, 2, 4",
+          "mistakeNote": "Puts 'The resulting reactions' before the reactions it points back to."
+        }
+      ],
+      "cause-first-forced": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0018",
+          "wrongChoice": "2, 4, 3, 1",
+          "mistakeNote": "Forces cause-first order on a narrative that signals result first."
+        }
+      ]
+    },
+    "lesson-language-application-completion-articles-and-lists": {
+      "article-by-spelling": [
+        {
+          "questionId": "q-language-application-sentence-completion-0023",
+          "wrongChoice": "the, a",
+          "mistakeNote": "Picks 'a' for 'unused' by spelling instead of its vowel sound."
+        }
+      ],
+      "preposition-pattern": [
+        {
+          "questionId": "q-language-application-sentence-completion-0016",
+          "wrongChoice": "on",
+          "mistakeNote": "Borrows 'on' from 'focused on' instead of the partner 'interested in'."
+        }
+      ],
+      "mixed-list-form": [
+        {
+          "questionId": "q-language-application-sentence-completion-0024",
+          "wrongChoice": "to notify",
+          "mistakeNote": "Breaks an -ing list with a to-plus-verb item."
+        }
+      ]
+    },
+    "lesson-language-application-completion-meaning-clues": {
+      "synonym-after-far-from": [
+        {
+          "questionId": "q-language-application-sentence-completion-0014",
+          "wrongChoice": "poised",
+          "mistakeNote": "Repeats the calm quality after 'Far from being' instead of its opposite."
+        }
+      ],
+      "one-blank-only": [
+        {
+          "questionId": "q-language-application-sentence-completion-0003",
+          "wrongChoice": "orthodox ... hostility",
+          "mistakeNote": "Second blank fits but the first blank contradicts 'replace the entire structure'."
+        }
+      ]
+    },
+    "lesson-language-application-completion-natural-phrases": {
+      "wrong-partner": [
+        {
+          "questionId": "q-language-application-sentence-completion-0017",
+          "wrongChoice": "do",
+          "mistakeNote": "Uses a general action verb instead of the usual partner 'make a decision'."
+        }
+      ],
+      "idiom-by-parts": [
+        {
+          "questionId": "q-language-application-sentence-completion-0025",
+          "wrongChoice": "turn a blind eye to",
+          "mistakeNote": "Picks an eye idiom that means ignore when the sentence needs watch."
+        }
+      ]
+    },
+    "lesson-language-application-completion-past-time": {
+      "present-for-past": [
+        {
+          "questionId": "q-language-application-sentence-completion-0018",
+          "wrongChoice": "finds",
+          "mistakeNote": "Uses a present form after the past clue 'Last Tuesday'."
+        }
+      ],
+      "had-for-unfinished": [
+        {
+          "questionId": "q-language-application-sentence-completion-0026",
+          "wrongChoice": "had checked",
+          "mistakeNote": "Treats an interrupted, half-done action as finished."
+        }
+      ]
+    },
+    "lesson-language-application-completion-word-forms": {
+      "wrong-job": [
+        {
+          "questionId": "q-language-application-sentence-completion-0010",
+          "wrongChoice": "eloquent",
+          "mistakeNote": "Puts an adjective after an action verb where an adverb is needed."
+        }
+      ],
+      "plural-subject-s": [
+        {
+          "questionId": "q-language-application-sentence-completion-0021",
+          "wrongChoice": "sorts",
+          "mistakeNote": "Gives a singular verb to the plural subject 'assistants'."
+        }
+      ],
+      "verb-pattern": [
+        {
+          "questionId": "q-language-application-sentence-completion-0022",
+          "wrongChoice": "learning ... organizing",
+          "mistakeNote": "Uses an -ing form after 'want', which takes 'to' plus the base verb."
+        }
+      ]
+    },
+    "lesson-language-application-details-and-supported-inferences": {
+      "wrong-day": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0023",
+          "wrongChoice": "Before the counter closes on Monday",
+          "mistakeNote": "Takes the day from the closure line instead of the line that names the collection day."
+        }
+      ],
+      "adding-a-guess": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0024",
+          "wrongChoice": "She found that the dispatch log contained an error.",
+          "mistakeNote": "Treats checking as finding an error that the text never reports."
+        }
+      ]
+    },
+    "lesson-language-application-main-ideas-and-details": {
+      "widening-the-claim": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0021",
+          "wrongChoice": "Replace all online services with telephone calls.",
+          "mistakeNote": "Turns an added option into a full replacement."
+        }
+      ],
+      "claim-not-in-text": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0022",
+          "wrongChoice": "The branch has ended all waiting at the counter.",
+          "mistakeNote": "Picks a claim that sounds like the point but is not stated in the text."
+        }
+      ]
+    },
+    "lesson-language-application-openings-and-reference-links": {
+      "reference-before-source": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0001",
+          "wrongChoice": "1, 2, 4, 3",
+          "mistakeNote": "Opens with a sentence that says 'that audit' before the audit is introduced."
+        },
+        {
+          "questionId": "q-language-application-paragraph-organization-0004",
+          "wrongChoice": "1, 2, 3, 4",
+          "mistakeNote": "Puts 'these structural innovations' before the sentence that introduces them."
+        }
+      ],
+      "the-noun-link": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0012",
+          "wrongChoice": "2, 4, 3, 1",
+          "mistakeNote": "Places the findings with 'The study' before the sentence that introduces the study."
+        }
+      ]
+    },
+    "lesson-language-application-time-and-step-order": {
+      "first-before-next": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0002",
+          "wrongChoice": "1, 2, 4, 3",
+          "mistakeNote": "Puts the step marked 'Next' before the step marked 'First'."
+        }
+      ],
+      "prerequisite-step": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0016",
+          "wrongChoice": "1, 2, 4, 3",
+          "mistakeNote": "Removes the cover before the power is isolated."
+        }
+      ]
+    },
+    "lesson-language-application-transition-links": {
+      "contrast-before-claim": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0007",
+          "wrongChoice": "1, 2, 4, 3",
+          "mistakeNote": "Opens with 'However' before the methods it contrasts are introduced."
+        }
+      ],
+      "example-before-idea": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0003",
+          "wrongChoice": "1, 2, 3, 4",
+          "mistakeNote": "Opens with 'For example' before the general statement it illustrates."
+        }
+      ]
+    },
+    "lesson-language-application-kayarian-at-sugnay": {
+      "parirala-hindi-sugnay": [
+        {
+          "questionId": "q-language-application-error-identification-0025",
+          "wrongChoice": "sa loob ng bagong tanggapan",
+          "mistakeNote": "A phrase with no predicate is called a dependent clause."
+        }
+      ],
+      "bilangin-ang-lahat-ng-sugnay": [
+        {
+          "questionId": "q-language-application-error-identification-0026",
+          "wrongChoice": "Tambalan dahil walang sugnay na di-makapag-iisa.",
+          "mistakeNote": "Skips the dependent clause that starts with habang."
+        },
+        {
+          "questionId": "q-language-application-error-identification-0026",
+          "wrongChoice": "Hugnayan dahil iisa ang sugnay na makapag-iisa.",
+          "mistakeNote": "Counts only one independent clause."
+        }
+      ]
+    },
+    "lesson-language-application-pagkakasunod-at-sanhi": {
+      "ito-ay-may-naunang-binanggit": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0017",
+          "wrongChoice": "1, 2, 4, 3",
+          "mistakeNote": "Places 'reklamong ito' before the complaint is introduced."
+        },
+        {
+          "questionId": "q-language-application-paragraph-organization-0017",
+          "wrongChoice": "2, 3, 1, 4",
+          "mistakeNote": "Places 'pulong na iyon' before the meeting is named."
+        }
+      ],
+      "bunga-hindi-sanhi": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0025",
+          "wrongChoice": "Humingi siya ng bagong kopya ng listahan.",
+          "mistakeNote": "Names the effect as the cause."
+        }
+      ]
+    },
+    "lesson-language-application-pagkumpleto-ng-pangungusap": {
+      "anyo-ayon-sa-panahon": [
+        {
+          "questionId": "q-language-application-sentence-completion-0027",
+          "wrongChoice": "ipapadala",
+          "mistakeNote": "Uses a future form with kahapon."
+        }
+      ],
+      "pang-ugnay-ng-pagsalungat": [
+        {
+          "questionId": "q-language-application-sentence-completion-0028",
+          "wrongChoice": "kaya",
+          "mistakeNote": "Uses a result connector where the two ideas contrast."
+        }
+      ],
+      "likas-at-akma-sa-kahulugan": [
+        {
+          "questionId": "q-language-application-sentence-completion-0029",
+          "wrongChoice": "matinding tulong",
+          "mistakeNote": "Picks a natural-sounding pair that does not fit the meaning."
+        }
+      ]
+    },
+    "lesson-language-application-paksa-at-balangkas": {
+      "sobra-ang-ideya": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0026",
+          "wrongChoice": "Karatula lamang ang kailangan sa bawat tanggapan.",
+          "mistakeNote": "Overstates the main idea with 'lamang'."
+        }
+      ],
+      "dagdag-sa-paliwanag": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0026",
+          "wrongChoice": "Hindi na kailangan ang mga kawani sa tamang pila.",
+          "mistakeNote": "Adds a claim the passage never makes."
+        }
+      ],
+      "detalye-mula-sa-talata": [
+        {
+          "questionId": "q-language-application-paragraph-organization-0027",
+          "wrongChoice": "Silbi ng talaan: halaga ng gamit at gastos sa pagkukumpuni.",
+          "mistakeNote": "Puts in a detail that is not in the passage."
+        }
+      ]
+    },
+    "lesson-language-application-wastong-gamit-at-panahon": {
+      "posibilidad-hindi-panahon": [
+        {
+          "questionId": "q-language-application-error-identification-0027",
+          "wrongChoice": "bukas",
+          "mistakeNote": "Picks a time word as the possibility word."
+        }
+      ],
+      "panahon-ng-karanasan": [
+        {
+          "questionId": "q-language-application-error-identification-0028",
+          "wrongChoice": "matutuwa",
+          "mistakeNote": "Uses a future form for an experience that already happened."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-main-point-and-topic-sentence": {
+      "detail-or-main": [
+        {
+          "questionId": "rc-cs-mi-0010",
+          "wrongChoice": "Community trust and financial discipline help stores survive.",
+          "mistakeNote": "Picks a broad main-idea sentence when asked for a supporting detail."
+        }
+      ],
+      "problem-only": [
+        {
+          "questionId": "q-comprehension-skills-main-idea-0018",
+          "wrongChoice": "\"Kapag hindi siya nakadalo, halos walang nakagagawa ng ibang tungkulin.\"",
+          "mistakeNote": "Picks the sentence that names only the original problem as the topic sentence."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-implied-main-point": {
+      "unsupported-motive": [
+        {
+          "questionId": "rc-cs-mi-0003",
+          "wrongChoice": "She rejected the original proposals because of severe budget limitations.",
+          "mistakeNote": "Adds a reason no detail gives."
+        }
+      ],
+      "one-detail-preference": [
+        {
+          "questionId": "rc-cs-mi-0003",
+          "wrongChoice": "She favors youth athletic activities over local agricultural projects.",
+          "mistakeNote": "Stretches one detail into a preference."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-main-idea-scope": {
+      "too-narrow": [
+        {
+          "questionId": "rc-cs-mi-0015",
+          "wrongChoice": "Cleaning Plastic: The Project's Only Environmental Goal",
+          "mistakeNote": "Names one detail and calls it the only goal."
+        }
+      ],
+      "too-broad": [
+        {
+          "questionId": "rc-cs-mi-0015",
+          "wrongChoice": "The Complete History of Quezon Fishpond Construction",
+          "mistakeNote": "Covers a much larger subject than the passage."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-main-idea-across-paragraphs": {
+      "one-side-only": [
+        {
+          "questionId": "rc-cs-mi-0001",
+          "wrongChoice": "Safe nearby recreation was a need identified by the youth.",
+          "mistakeNote": "Takes one group's supporting point as the whole passage's main idea."
+        }
+      ],
+      "detail-as-rule": [
+        {
+          "questionId": "rc-cs-mi-0006",
+          "wrongChoice": "Weekly wholesale buying is the only requirement for survival.",
+          "mistakeNote": "Turns one detail into the only rule."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-paragraph-links-and-patterns": {
+      "points-forward": [
+        {
+          "questionId": "q-comprehension-skills-authors-purpose-tone-pov-0021",
+          "wrongChoice": "Visits to collect a completed sample; comparison of two services.",
+          "mistakeNote": "Links the pointing phrase to a later action instead of what came before."
+        }
+      ],
+      "pattern-inside": [
+        {
+          "questionId": "q-comprehension-skills-authors-purpose-tone-pov-0021",
+          "wrongChoice": "Visits made after revision of the instructions; cause and effect.",
+          "mistakeNote": "Names a pattern inside the passage instead of the one organizing it."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-visual-data-conclusions": {
+      "units-not-counts": [
+        {
+          "questionId": "q-comprehension-skills-inferencing-and-conclusions-0027",
+          "wrongChoice": "2 visitors",
+          "mistakeNote": "Subtracts unit counts and skips the scale."
+        }
+      ],
+      "same-morning": [
+        {
+          "questionId": "q-comprehension-skills-inferencing-and-conclusions-0028",
+          "wrongChoice": "Monday and Tuesday",
+          "mistakeNote": "Opens the window on the high days instead of the following morning."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-paksa-at-pangunahing-ideya": {
+      "paksa-hindi-buong-ideya": [
+        {
+          "questionId": "q-comprehension-skills-main-idea-0017",
+          "wrongChoice": "Tumutulong ang malinaw na tungkulin sa pagpapatuloy ng gawain.",
+          "mistakeNote": "A full statement about the topic was chosen when only the topic name was asked."
+        }
+      ],
+      "detalye-hindi-pangunahing-ideya": [
+        {
+          "questionId": "q-comprehension-skills-main-idea-0016",
+          "wrongChoice": "Ang pinakamahalagang layunin ng hardin ay ang pagdami ng talaan.",
+          "mistakeNote": "A tool (the record) was made the main goal instead of the whole passage's point."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-balangkas-at-ugnayan": {
+      "detalye-bilang-pamagat": [
+        {
+          "questionId": "q-comprehension-skills-main-idea-0021",
+          "wrongChoice": "Paglalagay ng pisara: pagbabago ng tanggapan at hiwalay na mesa.",
+          "mistakeNote": "One detail (the board) was made the main idea of the outline."
+        }
+      ],
+      "dito-ay-bunga": [
+        {
+          "questionId": "q-comprehension-skills-main-idea-0022",
+          "wrongChoice": "Ipinapakilala nito ang sanhi ng unang pagtatayo ng tanggapan.",
+          "mistakeNote": "A sentence starting with Dahil dito gives a result, but was read as a cause."
+        }
+      ],
+      "hindi-ayon-sa-oras": [
+        {
+          "questionId": "q-comprehension-skills-main-idea-0022",
+          "wrongChoice": "Inilalarawan nito ang pangyayaring naganap bago ang lahat ng pagbabago.",
+          "mistakeNote": "The result sentence was placed before the changes, as if paragraph order were event order."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-hinuha-mula-sa-detalye": {
+      "hinuha-na-walang-batayan": [
+        {
+          "questionId": "q-comprehension-skills-inferencing-and-conclusions-0023",
+          "wrongChoice": "Palitan ang lahat ng kawani na sumasagot sa mga tanong.",
+          "mistakeNote": "Adds a decision about staff that no detail in the passage supports."
+        }
+      ],
+      "hinuha-na-lampas-sa-teksto": [
+        {
+          "questionId": "q-comprehension-skills-inferencing-and-conclusions-0024",
+          "wrongChoice": "Hindi na kailanman mangangailangan ng tulong ang mga bisita.",
+          "mistakeNote": "Stretches 'more visitors' to 'never' beyond what the text says."
+        }
+      ],
+      "isang-detalye-lamang": [
+        {
+          "questionId": "q-comprehension-skills-inferencing-and-conclusions-0024",
+          "wrongChoice": "Ang talaan ng silid ay inilagay sa tabi ng pasukan.",
+          "mistakeNote": "A true detail chosen as the implied main idea, but it covers only one part of the passage."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-paghatol-at-ebidensya": {
+      "hindi-sakop-ng-pagsubok": [
+        {
+          "questionId": "q-comprehension-skills-inferencing-and-conclusions-0025",
+          "wrongChoice": "Napatunayan ang pakinabang para sa bawat bago at sanay na kawani.",
+          "mistakeNote": "Extends a result from experienced staff only to new staff who were not tested."
+        }
+      ],
+      "kulang-hindi-walang-bisa": [
+        {
+          "questionId": "q-comprehension-skills-inferencing-and-conclusions-0025",
+          "wrongChoice": "Napatunayang walang pakinabang ang mga bagong lalagyan.",
+          "mistakeNote": "Limited evidence was read as proof of no benefit."
+        }
+      ],
+      "iisang-sanhi": [
+        {
+          "questionId": "q-comprehension-skills-inferencing-and-conclusions-0026",
+          "wrongChoice": "Ang mga lalagyan lamang ang maaaring sanhi ng mas maayos na trabaho.",
+          "mistakeNote": "Names one cause although another change (staff experience) happened at the same time."
+        }
+      ]
+    },
+    "lesson-comprehension-skills-filipino-meaning-clues": {
+      "ugaling-hindi-ipinakita": [
+        {
+          "questionId": "q-comprehension-skills-context-clues-in-passages-0024",
+          "wrongChoice": "mahigpit sa paniningil ng utang",
+          "mistakeNote": "A trait the passage never shows was chosen because receipts relate to payment."
+        }
+      ],
+      "literal-lamang": [
+        {
+          "questionId": "q-comprehension-skills-context-clues-in-passages-0025",
+          "wrongChoice": "ginamitan ng pang-ayos ng buhok",
+          "mistakeNote": "Only the literal meaning of suyod (hair comb) was used; envelopes are being searched, not hair."
+        }
+      ]
+    }
+  }
+}
