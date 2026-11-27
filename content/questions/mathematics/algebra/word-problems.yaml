@@ -218,7 +218,7 @@ questions:
     type: word-problem
     difficulty: medium
     stem: |
-      A chemistry teacher in Cebu needs 20 liters of a $20\%$ salt solution. She has a $10\%$ salt solution and a $30\%$ salt solution available. How many liters of the $30\%$ salt solution should she mix with the $10\%$ solution to obtain the desired mixture? Assume the volumes add and no liquid or salt is lost.
+      A chemistry teacher in Cebu needs 20 liters of a $20\%$ salt solution. She has a $10\%$ salt solution and a $30\%$ salt solution available. How many liters of the $30\%$ salt solution should she mix with the $10\%$ solution to obtain the desired mixture? All percentages are by volume. Assume the volumes add and no liquid or salt is lost.
     choices:
       - text: '$10\text{ liters}$'
         correct: true
@@ -356,7 +356,7 @@ questions:
     type: word-problem
     difficulty: hard
     stem: |
-      How many liters of pure water must be added to 12 liters of a $25\%$ sugar solution to dilute it into a $10\%$ sugar solution? Assume the volumes add and no liquid or sugar is lost.
+      How many liters of pure water must be added to 12 liters of a $25\%$ sugar solution to dilute it into a $10\%$ sugar solution? All percentages are by volume. Assume the volumes add and no liquid or sugar is lost.
     choices:
       - text: '$18\text{ liters}$'
         correct: true

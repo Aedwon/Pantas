@@ -1734,9 +1734,9 @@
     "lesson": "lesson-algebra-work-rate-problems"
   },
   "q-algebra-word-problems-0010": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "b6f36a2f662198b39609059b417865da0172999247eff9a676f756146f8e315c",
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/fix-mixture-by-volume-r1.md",
+    "hash": "307fad1ff983dcb15fb35835a1ef0f91475c3c056dd791345c4a3805d3138d80",
     "lesson": "lesson-algebra-mixture-word-problems"
   },
   "q-algebra-word-problems-0011": {
@@ -1770,9 +1770,9 @@
     "lesson": "lesson-algebra-work-rate-problems"
   },
   "q-algebra-word-problems-0016": {
-    "approvedAt": "2026-11-19",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "a4ec05d0a553a9a344483b90687500acd0288ce34b076d9dadf76b79bc249248",
+    "approvedAt": "2026-11-27",
+    "evidence": "docs/content/verification/fix-mixture-by-volume-r1.md",
+    "hash": "2181f81ab5c7219fe9c1f438146564ceb2dc67f70b322f1ea44a130f0829f63a",
     "lesson": "lesson-algebra-mixture-word-problems"
   },
   "q-algebra-word-problems-0017": {
