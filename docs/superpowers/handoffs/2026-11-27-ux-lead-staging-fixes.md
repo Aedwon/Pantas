@@ -22,6 +22,24 @@ Source: his words, verbatim, are in `docs/workflow/process-improvement.md`, entr
 - Goldens: the walk-through reader goldens change (spacing). Update run 46018857223 started on the branch; its PNGs must be copied into `test/goldens/` and the full CI run must pass before integration.
 - Not yet done: full CI on the branch; a capture sheet of the new spacing for his visual check; his staging check.
 
+## Returning student skips onboarding: account records, proposal and legal read (Nov 28, after the opening)
+
+Manager's success test: a returning student signs in and does not go through onboarding again. Nothing built for this until the manager relays a choice.
+
+What the account already stores on the server (read-only code survey, no hosted reads):
+- Terms: `users/{uid}/server/acceptance {version, acceptedAt}` from `recordSetupAcceptance` (named accounts). `version` is the checkbox wording version (2026-11-09), not the legal texts version (2026-11-28). Clients cannot read `server/**` (`firestore.rules`), and no callable returns it.
+- Age: nothing for adults (no age, no adult mark). Only former minors have `server/guardianConsent {ageGroup, adultSince, status, ageCheckNoticeVersion}`. The device keeps the age group.
+- Exam, exam date, study days: `server/settings` written by `setExamSettings` on web only; no read callable. Name, exam date, study days, terms time and version are account prefs restored by sync for Pro only. The chosen listed exam and "reminders shown" are device only.
+- Sign-in runs no restore; the only "data arrived" signal is sync's up-to-date state, Pro only.
+
+Codex GPT 6.2 Sol high read (one run, account b, read-only), verdict verbatim: "terms skip allowed if the same account's valid assent covers the applicable Terms; age skip not allowed on the setup acceptance record alone." Points: the Terms say acceptance is given "when you set up Pantas" and only a material worsening change needs new acceptance (Section 12), so prior assent by the same account carries across devices (Civil Code 1318 to 1319, RA 8792 s16); the privacy policy's "When you set up Pantas, the age screen asks" and the screen's "We only ask this once" would need one qualifying sentence if age is skipped; legacy guardian-confirmed minors exist; the stored version is the checkbox wording, not the documents shown; a restore must not stamp a notice the student never saw; fall back to the full flow when the record cannot be read; keep age blocks, guardian limits and closed accounts.
+
+Proposal (lead):
+- Terms skip now: one read callable on named sign-in returns the acceptance record and guardian status (about 2 reads per sign-in, rule 7 fine). Record present and the account not withdrawn or closing: write the local markers from the account's own record and skip Terms. Missing or unreadable: full flow. Going forward the acceptance record also stores the legal texts version shown.
+- Age skip needs a new account record: when a named account passes the age check, store its age group (never the age), the notice version and the time on the server, and read it in the same callable. Accounts without it are asked once more, then never again. This is new collection: privacy policy sentence change under rule 5 (agent draft, Codex critique, Aedwon checks) and, once the app is public, the rule 9 email before it takes effect.
+- Exam picker, exam date, study days, name: Pro already restores them. For Free, the smallest path is a server copy of those four answers in the same record (native included), read by the same callable; also a privacy-policy-listed collection.
+- Recommendation: build terms skip plus the age record and the Free settings copy together, so a returning student sees no onboarding step at all (only Reminders on a new phone, which is a device permission). Estimate: about 1 day build and tests, plus the legal sentence and its Codex critique.
+
 ## Next
 
 1. Copy the CI goldens, push, full CI green.
