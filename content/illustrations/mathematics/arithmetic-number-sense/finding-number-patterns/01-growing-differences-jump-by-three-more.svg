@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 180" width="360" height="180">
+<title>Terms 6, 11, 19, 30, 44 with jumps of 5, 8, 11, 14 below them and a second jump of 3 between each pair of jumps</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="180" rx="14" fill="url(#bg)"/>
+<rect x="24" y="30" width="48" height="40" rx="6" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="90" y="30" width="48" height="40" rx="6" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="156" y="30" width="48" height="40" rx="6" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="222" y="30" width="48" height="40" rx="6" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="288" y="30" width="48" height="40" rx="6" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="48" y="56" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">6</text>
+<text x="114" y="56" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">11</text>
+<text x="180" y="56" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">19</text>
+<text x="246" y="56" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">30</text>
+<text x="312" y="56" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">44</text>
+<path d="M58 70 C58 108 104 108 104 78" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="104,70 100,78 108,78" fill="#050505"/>
+<path d="M124 70 C124 108 170 108 170 78" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="170,70 166,78 174,78" fill="#050505"/>
+<path d="M190 70 C190 108 236 108 236 78" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="236,70 232,78 240,78" fill="#050505"/>
+<path d="M256 70 C256 108 302 108 302 78" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="302,70 298,78 306,78" fill="#050505"/>
+<text x="81" y="120" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">+5</text>
+<text x="147" y="120" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">+8</text>
+<text x="213" y="120" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">+11</text>
+<text x="279" y="120" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">+14</text>
+<path d="M92 128 C92 148 136 148 136 134" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="136,128 132,134 140,134" fill="#020202"/>
+<path d="M158 128 C158 148 202 148 202 134" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="202,128 198,134 206,134" fill="#020202"/>
+<path d="M224 128 C224 148 268 148 268 134" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="268,128 264,134 272,134" fill="#020202"/>
+<text x="114" y="168" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">+3</text>
+<text x="180" y="168" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">+3</text>
+<text x="246" y="168" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">+3</text>
+</svg>

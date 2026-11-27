@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 205" width="360" height="205">
+<title>Terms 2, 5, 7, 12, 19 with arcs from the two earlier terms into each new term, labeled 2 + 5 = 7, 5 + 7 = 12 and 7 + 12 = 19</title>
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#030303"/><stop offset="1" stop-color="#030303"/></linearGradient>
+</defs>
+<rect width="360" height="205" rx="14" fill="url(#bg)"/>
+<rect x="23" y="84" width="50" height="40" rx="6" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="89" y="84" width="50" height="40" rx="6" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="155" y="84" width="50" height="40" rx="6" fill="#050505" fill-opacity="0.22" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="221" y="84" width="50" height="40" rx="6" fill="#050505" fill-opacity="0.22" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="287" y="84" width="50" height="40" rx="6" fill="#050505" fill-opacity="0.22" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="48" y="110" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">2</text>
+<text x="114" y="110" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">5</text>
+<text x="180" y="110" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">7</text>
+<text x="246" y="110" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">12</text>
+<text x="312" y="110" text-anchor="middle" font-family="Geist, sans-serif" font-size="17" font-weight="700" fill="#010101">19</text>
+<path d="M60 84 C60 24 178 24 178 77" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="178,84 174,77 182,77" fill="#050505"/>
+<path d="M126 84 C126 48 168 48 168 77" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="168,84 164,77 172,77" fill="#050505"/>
+<text x="119" y="28" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">2 + 5 = 7</text>
+<path d="M192 84 C192 24 310 24 310 77" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="310,84 306,77 314,77" fill="#050505"/>
+<path d="M258 84 C258 48 300 48 300 77" fill="none" stroke="#050505" stroke-width="2" stroke-linecap="round"/>
+<polygon points="300,84 296,77 304,77" fill="#050505"/>
+<text x="251" y="28" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">7 + 12 = 19</text>
+<path d="M126 124 C126 184 244 184 244 131" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="244,124 240,131 248,131" fill="#020202"/>
+<path d="M192 124 C192 160 234 160 234 131" fill="none" stroke="#020202" stroke-width="2" stroke-linecap="round"/>
+<polygon points="234,124 230,131 238,131" fill="#020202"/>
+<text x="185" y="195" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">5 + 7 = 12</text>
+</svg>

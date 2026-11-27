@@ -13,9 +13,89 @@ keyPoints:
 ---
 ## Core Concept
 
-Odd positions are $1,3,5,\dots$. Even positions are $2,4,6,\dots$. Read every other term to check these two groups.
+### Splitting Odd and Even Positions
 
-A pattern rule should fit every shown step. A short list can fit more than one rule. Use the rule stated in the question, or look for a simple rule that fits the whole list and the answer choices.
+Some sequences weave two separate lists together. **Odd positions** are positions $1,3,5,7,\dots$, and **even positions** are positions $2,4,6,8,\dots$.
+
+When one rule does not fit neighboring terms, read every other term to separate the two groups.
+
+Look at $4,81,8,27,16,9,\dots$ and find the next two terms in order.
+
+1. Read the odd positions (first, third, fifth): $4,8,16$. Each term doubles.
+
+$$4\times2=8$$
+
+$$8\times2=16$$
+
+2. Read the even positions (second, fourth, sixth): $81,27,9$. Each term divides by $3$.
+
+$$81\div3=27$$
+
+$$27\div3=9$$
+
+3. The seventh position is odd, so continue the odd group first.
+
+$$16\times2=32$$
+
+4. The eighth position is even, so continue the even group second.
+
+$$9\div3=3$$
+
+The next two numbers are $32,3$.
+
+<!-- ILLUSTRATION: Six boxes in a row hold the terms 4, 81, 8, 27, 16, 9. Arcs above the row join the odd-position terms 4, 8 and 16, labeled "odd positions: × 2", so each is twice the one before it. Arcs below the row join the even-position terms 81, 27 and 9, labeled "even positions: ÷ 3", so each is a third of the one before it. The two groups are separate lists woven together. -->
+
+:::pair #reverse-position-order
+Right: $32,3$
+Wrong: $3,32$
+Position $7$ is odd and position $8$ is even. Write the odd-position answer first, then the even-position answer.
+:::
+
+:::why
+Why can one sequence hold two unrelated rules? Every other position skips the terms between, so the odd group and the even group never touch each other.
+:::
+
+### Testing Every Step and Finding Missing Terms
+
+A rule must fit every shown term in its group, not only the first two terms. When a blank sits in the middle of a sequence, count its position first. Then check both neighbors in that same group.
+
+Find the missing term in $7,50,12,43,17,\square,22,29$, where each group has a constant difference.
+
+1. Count positions from left to right. The blank is in position $6$, which is even.
+
+2. Pull out the even-position terms: $50,43,\square,29$.
+
+3. Find the step from the first two even-position terms.
+
+$$43-50=-7$$
+
+4. Subtract $7$ from $43$ to fill the blank.
+
+$$43-7=36$$
+
+5. Check the next step in the even group to make sure the rule holds through the end.
+
+$$36-7=29$$
+
+Since $29$ matches the eighth term, the missing term is $36$. Check every shown jump in the group, because two different rules can match the same first two numbers.
+
+:::pair #mix-position-groups
+Right: $\square=43-7=36$
+Wrong: $\square=17+5=22$
+The odd positions hold $7,12,17,22$, which rise by $5$. Position $6$ is even, so it belongs with $50,43,29$, not with the odd-position rule $+5$.
+:::
+
+:::pair #copy-wrong-step
+Right: $43-7=36$
+Wrong: $43-5=38$
+Subtracting $5$ borrows the step of the odd positions ($7,12,17,22$ rise by $5$) and applies it to an even-position term. Compute the step inside the matching group.
+:::
+
+:::check
+Find the missing term in $6,40,10,34,\square,28,18,22$, where each group has a constant difference.
+:::answer
+The answer is $14$. The blank is in position $5$, which is odd. The odd-position terms $6,10,\square,18$ go up by $4$, so $10+4=14$ and $14+4=18$.
+:::
 
 ## Examples
 
@@ -25,28 +105,36 @@ What number most reasonably completes the sequence $2,20,5,18,8,16,\dots$?
 
 **Solution:**
 
-1. Neighboring terms do not have a constant difference or ratio. Check every other term, starting at the first position.
+1. Neighboring terms do not have a constant difference or ratio. Check every other term starting at the first position: $2,5,8$.
 
-$$5-2=3,\quad8-5=3$$
+$$5-2=3$$
 
-2. Check the terms in the even positions.
+$$8-5=3$$
 
-$$18-20=-2,\quad16-18=-2$$
+2. Check the terms in the even positions: $20,18,16$.
 
-3. The odd-position terms increase by $3$. The even-position terms decrease by $2$. The next term is in an odd position.
+$$18-20=-2$$
 
-$$8+3=11$$
+$$16-18=-2$$
+
+3. The odd-position terms increase by $3$, and the even-position terms decrease by $2$. Count positions: six terms are shown, so the next term is in position $7$.
+
+:::try
+Finish the last step: find the seventh term.
+:::answer
+The answer is $11$. Position $7$ is odd, and the odd-position terms go up by $3$, so add $3$ to the fifth term: $8+3=11$.
+:::
 
 ## Speed Tricks & Shortcuts
 
 ### Pattern Check
 
-If a sequence is not arithmetic or geometric, write the differences between terms first. If those do not help, check the sum of the two terms before each term. Then check alternating operations and separate odd-position and even-position terms.
+If a sequence is not arithmetic or geometric, check the differences between neighboring terms first. If those do not help, check whether each term is the sum of the two terms before it. Then check alternating operations and separate odd-position and even-position lists.
 
 ## Traps to Watch For
 
-### #1: Forcing the Wrong Pattern
-
-> A rule must fit every shown step in the sequence.
-
-A rule that matches only the first few terms is not enough. Check the whole given pattern before choosing the next term.
+:::checklist
+- Asked for two next numbers: continue the group that matches the next position first, then the other group ($32,3$). {#reverse-position-order}
+- Finding a missing term in a mixed list: count its position first and stay inside its own group ($43-7=36$). {#mix-position-groups}
+- Calculating the step for an even or odd group: use terms from that same group only ($43-7=36$, never borrow the other group's step). {#copy-wrong-step}
+:::

@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 200" width="360" height="200">
+<title>Harmonic terms 1/3, 1/7, 1/11 flip to the reciprocals 3, 7, 11, which rise by +4 each step</title>
+<rect width="360" height="200" rx="14" fill="#030303"/>
+<rect x="30" y="16" width="80" height="36" rx="6" fill="#010101" fill-opacity="0.1" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="140" y="16" width="80" height="36" rx="6" fill="#010101" fill-opacity="0.1" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="250" y="16" width="80" height="36" rx="6" fill="#010101" fill-opacity="0.1" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="70" y="40" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">1/3</text>
+<text x="180" y="40" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">1/7</text>
+<text x="290" y="40" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">1/11</text>
+<line x1="70" y1="62" x2="70" y2="102" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="180" y1="62" x2="180" y2="102" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<line x1="290" y1="62" x2="290" y2="102" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="70,54 66,63 74,63" fill="#020202"/>
+<polygon points="180,54 176,63 184,63" fill="#020202"/>
+<polygon points="290,54 286,63 294,63" fill="#020202"/>
+<polygon points="70,110 66,101 74,101" fill="#020202"/>
+<polygon points="180,110 176,101 184,101" fill="#020202"/>
+<polygon points="290,110 286,101 294,101" fill="#020202"/>
+<text x="80" y="86" text-anchor="start" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">flip</text>
+<text x="190" y="86" text-anchor="start" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">flip</text>
+<text x="300" y="86" text-anchor="start" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">flip</text>
+<rect x="30" y="112" width="80" height="36" rx="6" fill="#050505" fill-opacity="0.35" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="140" y="112" width="80" height="36" rx="6" fill="#050505" fill-opacity="0.35" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="250" y="112" width="80" height="36" rx="6" fill="#050505" fill-opacity="0.35" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="70" y="136" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">3</text>
+<text x="180" y="136" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">7</text>
+<text x="290" y="136" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="600" fill="#010101">11</text>
+<path d="M70 152 Q125 186 180 152" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M180 152 Q235 186 290 152" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="180,152 175.5,159.7 171.1,153.0" fill="#020202"/>
+<polygon points="290,152 285.5,159.7 281.1,153.0" fill="#020202"/>
+<text x="125" y="190" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">+4</text>
+<text x="235" y="190" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">+4</text>
+</svg>
