@@ -50,6 +50,12 @@
 - Manager approved the plan (about 11:06 PM) and corrected the bar: it uses 200, 60 and 30% to match line 25 beside it.
 - P0 done (`3b9719190`, `walkthrough-work/figure-pipeline-notes.md`): pictures are SVG files on the existing ILLUSTRATION route (lead ruling); no new code figure kind.
 - Paused 11:35 PM for the opening: no workers or Codex running; timer E-206 paused. Next on resume: draw the Percentage Base bar and triangle, then the batch 2a slim pass.
+- Resumed about 12:45 AM Nov 28 on the manager's message (policy main `be4ec2f41`; worktree clean at `17bb39130`, no partial worker changes).
+- Batch 2a (12 lessons): slimmed in 2 rounds; 18 pictures drawn (11 batch, 7 pilot) as SVG; lead moved commission and decimal markers to the text whose numbers they show. Pre-check PASS (0 Blockers, 4 Majors fixed by the lead), recompute PASS (0 mismatches). Codex read 1 (b): FAIL 3 Blockers (1 question file: `ratio-and-proportion.yaml` 0020, for the release lead), 19 Majors; fixed by pattern (`51c5ad43a`). Codex read 2, the last (b, target `4dd7e1e48`): FAIL 2 Blockers, both in `motion-meeting-and-separation` (rule scope), 13 Majors. Meeting drops to batch 2b. Majors fixed once, lead checked every diff (`fea953716`).
+- Batch 2a PASS for 11 lessons. Export root: `content/cse-mixture-fixes-r1` `44de8b5a6` plus the 11 lessons, the 7 pilot lessons with their picture markers, and 18 SVGs from `fea953716`; main `8ed6a0b4f` tools: `build_content_export.dart` exit 0 (52 existing gap-tag warnings, none from these lessons), `lesson_checks.dart --root` exit 0, SVG preflight 0 failures. Not verified: the full two-theme SVG draw (fails in a main checkout on a missing generated `assets/seed/content.db`), and Aedwon's look on staging.
+- Lead ruling: a picture label that is one stated step from the text beside it (140 = 200 - 60; 125% = 100% + 25%; Php 1,200) counts as matching; sent to the manager to overrule.
+- Batch 2b (12 lessons plus meeting): slimmed (`d2f798587`), checks clean; 6 of 7 pictures drawn; chart-scales held (its new marker comes before the existing figure, so the existing `01-` file must become `02-`).
+- Batch 2c: writer A's 6 lessons slimmed (`93ce78211`); writer B's 5 not started.
 
 ## Session 5 (Nov 27, from 2:20 PM Manila, E-198)
 
