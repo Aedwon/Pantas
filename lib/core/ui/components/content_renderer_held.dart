@@ -112,8 +112,10 @@ extension HeldFlowBuilder on ContentRenderer {
             }
           }
         }
+        // A walk-through lesson shows its solutions open, so the plate starts
+        // on the solution's figure.
         final signal =
-            open.putIfAbsent(item.number, () => ValueNotifier(false));
+            open.putIfAbsent(item.number, () => ValueNotifier(_walk));
         add(
           _Slot(
             _exampleCard(

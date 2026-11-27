@@ -109,7 +109,7 @@ void main() {
 
     // Step 3: Consent
     expect(find.text('Terms and Privacy'), findsOneWidget);
-    await tester.tap(find.text('I agree to the '));
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -171,7 +171,7 @@ void main() {
     await tester.tap(find.text('Get Started'));
     await tester.pumpAndSettle();
     await continueAsAdult(tester);
-    await tester.tap(find.text('I agree to the '));
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();

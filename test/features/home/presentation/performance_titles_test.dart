@@ -64,12 +64,12 @@ void main() {
     await tester.tap(find.text('Lessons'));
     await tester.pumpAndSettle();
     for (final line in [topic.title, topic.subtext!]) {
-      final text = tester.widget<Text>(find.text(line));
+      final text = tester.widget<Text>(find.textContaining(line));
       expect(text.overflow, isNot(TextOverflow.ellipsis), reason: line);
       expect(text.maxLines, isNull, reason: line);
     }
     expect(
-      tester.getSize(find.text(topic.title)).height,
+      tester.getSize(find.textContaining(topic.title)).height,
       greaterThan(24),
       reason: 'the title wrapped onto a second line',
     );
@@ -84,7 +84,8 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(page(web: false));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Language Proficiency (English & Filipino)'));
+    await tester
+        .tap(find.textContaining('Language Proficiency (English & Filipino)'));
     await tester.pumpAndSettle();
     final subjectLabel = find.text('LANGUAGE PROFICIENCY (ENGLISH & FILIPINO)');
     expect(subjectLabel, findsOneWidget);
@@ -130,7 +131,7 @@ void main() {
             .selectedRow ==
         0;
     expect(tinted(), isFalse);
-    await tester.tap(find.text(topic.title));
+    await tester.tap(find.textContaining(topic.title));
     await tester.pumpAndSettle();
     expect(tinted(), isTrue);
     panel.complete();

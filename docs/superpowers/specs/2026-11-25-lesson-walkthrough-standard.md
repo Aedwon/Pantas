@@ -63,6 +63,16 @@ Every lesson walks the reader through each rule, the way a tutor would at a tabl
 - An independent checker finds no wrong number or false rule in any rewritten lesson.
 - After rollout, in-lesson quiz accuracy for rewritten lessons is compared with before, from real use.
 
+### Revision, November 27, 2026 (approved: "okay go ahead with your reco")
+
+The rewrite of every CSE lesson looped through rewrites and re-audits (process-improvement entry "Walk-through lessons loop through rewrites and re-audits", Nov 27). Most audit findings sat in the practice parts this format adds, from Gemini and Claude writers alike. This revision replaces "every lesson" (What changes, first line, and rule 12).
+
+1. **Scope.** The format applies only where students solve problems in steps: Math for every exam (CSE, college entrance tests, PSHS-NCE); then physics and chemistry calculation lessons; then step-based reasoning (series, analogies, logic, clerical). Spatial, abstract and mechanical reasoning wait until figures can be drawn. Grammar, vocabulary, language application, reading comprehension, General Information, and the fact-based parts of biology and earth science keep their current lessons. Their walk-through drafts stay on their branches, unused.
+2. **Slimmer format.** Rule 7 (a "Check" line on every worked example) is dropped. Rule 6 becomes one Quick Check per lesson, not one per rule. Rules 1 to 5 and 8 to 11 stay.
+3. **Practice in math.** A Quick Check or try may be the same kind of problem as the example with new numbers or a new context. This is the worked-example-then-practice pairing with strong evidence. It still may not print its answer above it or leave only one possible choice.
+4. **Order and caps.** A pilot of about 10 CSE Math lessons comes first, with automatic checks for the recurring mistakes built before writing. Each batch gets at most 2 Codex full reads. Blockers (a wrong answer, a false rule, an answer that can be copied) must be 0. Majors are fixed once after the last read and checked by the lead, with no further read for Majors alone. If the pilot does not pass within 2 reads, work stops and the manager brings him options. Otherwise the rest of Math follows, then physics and chemistry, then step-based reasoning.
+5. **Pictures are drawn, not deferred** (Aedwon, Nov 27, about 10:50 PM: "okay both. moving forward if a lesson needs a visual (for the learners' benefit) can you add them? there are some things better illustrated than just in words"). When a lesson is better understood with a picture, the batch draws it before the lesson ships, in the approved figure style, with the same checks as the text (a recompute of every number shown). A hidden "figure wanted" note is no longer enough for a lesson that ships. Rule 10's limit stays: a picture must explain, never decorate. First case: Percentage Base and Fraction Division gets its part-and-whole bar and the part, rate and base triangle in the next Math batch. Spatial, abstract and mechanical reasoning no longer wait only for drawing capacity; they follow in the order above, with their pictures drawn.
+
 ---
 
 ## Part B: for agents

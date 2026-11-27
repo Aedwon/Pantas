@@ -1559,4 +1559,42 @@ void main() {
       });
     });
   });
+
+  test('a failed first read at sign-in is retried, so a paid account turns Pro',
+      () {
+    // Before the exam-switch fix, a preferences refresh rebuilt the gateway and
+    // read again by accident; without it, a failed first read left Free.
+    fakeAsync((async) {
+      final start = DateTime.utc(2026, 11, 2, 4);
+      DateTime clock() => start.add(async.elapsed);
+      var reads = 0;
+      final gateway = WebPaymentGateway(
+        callable: (_, __) async => null,
+        readGrants: (_) async {
+          reads++;
+          if (reads == 1) throw Exception('offline');
+          return [
+            _grant(
+              'pantas_cs_monthly',
+              ends: start.add(const Duration(days: 30)),
+            ),
+          ];
+        },
+        refreshClaims: (_) async {},
+        openUrl: (_) async => true,
+        now: clock,
+        followClock: true,
+      );
+      unawaited(gateway.logIn('paid'));
+      async.flushMicrotasks();
+      expect(gateway.cachedEntitlement?.proIsActive ?? false, isFalse);
+
+      async.elapse(const Duration(seconds: 6));
+
+      expect(reads, 2);
+      expect(gateway.cachedEntitlement?.proIsActive, isTrue);
+      unawaited(gateway.clearIdentity());
+      async.flushMicrotasks();
+    });
+  });
 }

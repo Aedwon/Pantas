@@ -40,8 +40,14 @@ const _second = StudyLesson(
   isBookmarked: false,
 );
 const _longTopic = 'Spatial & Abstract (Non-Verbal) Reasoning';
+// Long enough to pass two lines in the test font and in real Geist. Another
+// test file in the same process can load Geist (loadGoldenFonts), which is
+// narrower than the test font, so a title of two lines in one is one in the
+// other only if it is this long.
 const _longTitle = 'Sets and Set Notation (Unions, Intersections, Subsets, '
-    'Venn Diagrams) and Their Everyday Uses in Exam Questions About Groups';
+    'Venn Diagrams) and Their Everyday Uses in Exam Questions About Groups, '
+    'Including Worked Examples With Overlapping Groups, Complements, and '
+    'Counting Rules for Three Sets at Once, Explained Step by Step';
 
 void main() {
   setUp(() => debugWebPlatformOverride = true);

@@ -6,17 +6,19 @@ void main() {
     final document = legalDocumentFallbacks['teens'];
     expect(document, isNotNull);
     expect(document!.title, 'Notice for teens');
-    expect(document.updatedAt, DateTime.utc(2026, 11, 11));
+    expect(document.updatedAt, legalTextsPublishedAt);
     final text =
         document.sections.map((s) => '${s.heading}\n${s.body}').join('\n');
-    expect(text, contains('This notice is for teens ages 13 to 17'));
+    expect(text, contains('If you are under 18, this notice explains'));
+    expect(text, contains('New sign-ups are for people 18 or older.'));
+    expect(text, isNot(contains('Balayon')));
     expect(
       text,
       contains('I withdraw my permission for my child to use Pantas.'),
     );
     expect(
       text,
-      contains('Our database security records: 730 days after the event.'),
+      contains('we normally clear database audit logs after 730 days'),
     );
     expect(text, contains('dpo@pantas.study'));
     for (final omitted in [
@@ -38,22 +40,12 @@ void main() {
 
   test('web terms describe prepaid access and lawful remedies', () {
     final sections = legalDocumentFallbacks['terms']!.sections;
-    final subscriptions =
-        sections.singleWhere((s) => s.heading == 'Subscriptions').body;
-    expect(
-      subscriptions,
-      contains('Web purchases do not renew automatically.'),
-    );
-    expect(
-      subscriptions,
-      contains('our internal complaint process is deemed exhausted'),
-    );
-    expect(
-      subscriptions,
-      contains('do not limit any remedy Philippine law gives you'),
-    );
+    final all = sections.map((s) => s.body).join('\n');
+    expect(all, contains('Web purchases do not renew automatically.'));
+    expect(all, contains('our internal process is deemed exhausted'));
+    expect(all, contains('Philippine law gives you remedies'));
     final limits = sections
-        .singleWhere((s) => s.heading == 'Limits of responsibility')
+        .singleWhere((s) => s.heading == '10. Limits of responsibility')
         .body;
     expect(limits, contains('gross negligence'));
     expect(limits, isNot(contains('](')));
@@ -86,8 +78,11 @@ void main() {
     );
     expect(
       document.sections.last.body,
-      'We notify you before we change the processing described here. If a '
-      'change needs new permission, we ask before starting it.',
+      'Before a change to what we collect, why we use it, how long we keep '
+      'it or who receives it, we tell affected users in the app, and by '
+      'email if we have an address. The change takes effect after that '
+      'notice. If a change needs new permission, we ask before applying '
+      'it. Changing the version date alone is not notice or permission.',
     );
   });
 
@@ -96,7 +91,7 @@ void main() {
 
     expect(document, isNotNull);
     expect(document!.title, 'Terms of Service');
-    expect(document.updatedAt, DateTime.utc(2026, 11, 11));
+    expect(document.updatedAt, legalTextsPublishedAt);
   });
 
   test('terms fallback includes intellectual property clause', () {
@@ -105,7 +100,7 @@ void main() {
     expect(
       document!.sections.map((section) => section.body).join('\n'),
       allOf([
-        contains('protected by copyright'),
+        contains('protected by applicable intellectual property laws'),
         contains('machine-learning'),
         contains('written permission'),
       ]),
@@ -137,28 +132,20 @@ void main() {
       final at = headings.indexOf('Optional usage sharing');
       expect(at, isNonNegative);
       expect(headings[at + 1], 'Speed and error reports');
+      final body = sections[at + 1].body;
       expect(
-        sections[at + 1].body,
-        'To find slow screens and errors, the web app sends short technical '
-        'reports. They include the app version, whether this is a first '
-        'visit, a return visit or the first visit after an update, your '
-        'browser family, your screen-size group, loading times, and error '
-        'messages, counts and locations in our code. We filter common '
-        'identifiers, such as email addresses, before a report is sent. '
-        'Error text may still contain personal information. We do not '
-        'deliberately include your answers or lesson content.\n\n'
-        'Reports have no dedicated account ID or IP address field. Sending '
-        'a report uses your sign-in session, including a guest session, to '
-        'check the request and to limit how many reports are sent. We '
-        "exclude this function's request logs from our default log "
-        'storage. Google processes connection information to deliver '
-        'requests.\n\n'
-        'We keep the stored report logs for 30 days. These reports are on '
-        'by default and are separate from optional usage sharing. The '
-        'switch in Settings, then About, stops future reports from this '
-        'browser or device. Repeat this on other devices. Email '
-        'dpo@pantas.study for help, or for requests about reports already '
-        'collected.',
+        body,
+        startsWith(
+          'To find slow screens and errors, and to learn which screens are '
+          'used, the web app sends short technical reports.',
+        ),
+      );
+      expect(
+        body,
+        contains(
+          'We keep the stored report logs for 30 days. These reports are on '
+          'by default and are separate from optional usage sharing.',
+        ),
       );
     });
 
@@ -169,7 +156,9 @@ void main() {
       expect(
         body,
         contains(
-          '\u2022 Google (Firebase and Google Cloud): accounts, our servers, '
+          '\u2022 Google (Firebase and Google Cloud): accounts, our servers '
+          'and database, security checks that confirm requests come from the '
+          'real Pantas app (Firebase App Check with reCAPTCHA Enterprise), '
           'optional usage reports, and speed and error reports.',
         ),
       );
@@ -184,8 +173,10 @@ void main() {
         contains(
           '\u2022 Speed and error reports, security records, trial codes, '
           "and a guardian request's contact and request details: our "
-          'legitimate interest in keeping Pantas working, safe and fair '
-          '(Section 12(f)). We keep each to what we need.',
+          'legitimate interest in keeping Pantas working, safe and fair, in '
+          'learning which screens are used so we can improve them, and in '
+          'stopping repeat free trials (Section 12(f)). We keep each to what '
+          'we need.',
         ),
       );
     });
@@ -200,5 +191,38 @@ void main() {
         }
       }
     });
+  });
+
+  test('the owner name appears only in the Privacy Policy and the Terms', () {
+    String all(String id) => legalDocumentFallbacks[id]!
+        .sections
+        .map((s) => '${s.heading}\n${s.body}')
+        .join('\n');
+    expect(all('privacy'), contains('Aerol Dwayne Daños Balayon'));
+    expect(all('terms'), contains('Aerol Dwayne Daños Balayon'));
+    expect(all('teens'), isNot(contains('Balayon')));
+    for (final id in ['privacy', 'terms', 'teens']) {
+      expect(all(id), contains('Pantas Online Tutorial Services'));
+    }
+  });
+
+  test('the Data Protection Officer is named by title and contact', () {
+    for (final id in ['privacy', 'teens']) {
+      final text =
+          legalDocumentFallbacks[id]!.sections.map((s) => s.body).join();
+      expect(text, contains('Data Protection Officer: dpo@pantas.study'));
+      expect(text, isNot(contains('He is also the Data Protection Officer')));
+    }
+  });
+
+  test('the texts say an account needs age 18 or older for now', () {
+    String all(String id) =>
+        legalDocumentFallbacks[id]!.sections.map((s) => s.body).join();
+    expect(all('terms'), contains('You must be 18 or older to create'));
+    expect(all('terms'), isNot(contains('You must be 13 or older')));
+    expect(all('privacy'), contains('New sign-ups are for people 18 or older'));
+    for (final id in ['privacy', 'teens']) {
+      expect(all(id), isNot(contains('below 13')));
+    }
   });
 }

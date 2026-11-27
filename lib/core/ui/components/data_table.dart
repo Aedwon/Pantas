@@ -49,6 +49,7 @@ class PantasTableCell {
     this.semanticLabel,
   })  : text = null,
         subtitle = null,
+        trailing = null,
         bold = false,
         indent = 0;
 
@@ -60,13 +61,18 @@ class PantasTableCell {
     this.bold = false,
     this.indent = 0,
     this.subtitle,
+    this.trailing,
+    this.semanticLabel,
   })  : child = null,
-        width = null,
-        semanticLabel = null;
+        width = null;
 
   final Widget? child;
   final double? width;
   final String? text;
+
+  /// A quiet note set after [text] in `text-secondary`, such as a count in
+  /// brackets. It wraps with the text, so it is never cut off.
+  final String? trailing;
 
   /// A second line under [text] in `text-secondary` (a subject's topic count).
   final String? subtitle;
@@ -220,6 +226,14 @@ class _PantasDataTableState extends State<PantasDataTable> {
     ];
     String? textOf(Object? cell) =>
         cell is PantasTableCell ? cell.text : cell as String?;
+    // The text with its trailing note, as it is measured and wrapped.
+    String? fullTextOf(Object? cell) {
+      final text = textOf(cell);
+      final note = cell is PantasTableCell ? cell.trailing : null;
+      // A no-break space keeps the note on the line of the name's last word.
+      return text == null || note == null ? text : '$text $note';
+    }
+
     final subStyle = PantasType.webRowSub.copyWith(color: colors.textSecondary);
     TextStyle styleOf(Object? cell) => cell is PantasTableCell && cell.bold
         ? bodyStyle.copyWith(fontWeight: FontWeight.w600)
@@ -247,7 +261,7 @@ class _PantasDataTableState extends State<PantasDataTable> {
                   ? cell.width!
                   : math.max(
                         measure(
-                          textOf(cell) ?? widget.emptyCell,
+                          fullTextOf(cell) ?? widget.emptyCell,
                           styleOf(cell),
                         ),
                         cell is PantasTableCell && cell.subtitle != null
@@ -266,9 +280,19 @@ class _PantasDataTableState extends State<PantasDataTable> {
     ];
     // The pinned column never takes more than 60% of the table, so the other
     // columns stay in view; a longer name wraps and its row grows.
-    final cap = maxWidth.isFinite
+    var cap = maxWidth.isFinite
         ? (last > 0 ? maxWidth * .6 : maxWidth)
         : double.infinity;
+    // A list drawn without a header (Performance) must show every column in
+    // its card, never scroll the percent out of it: the name takes what the
+    // other columns leave, and wraps. A name may still not shrink under 40%.
+    if (!widget.showHeader && maxWidth.isFinite && last > 0) {
+      var rest = 0.0;
+      for (var c = 1; c <= last; c++) {
+        rest += naturals[c];
+      }
+      cap = math.max(maxWidth - rest, maxWidth * .4);
+    }
     // The header never wraps, so the pinned column keeps at least its width.
     final headFirst = !widget.showHeader
         ? 0.0
@@ -312,8 +336,9 @@ class _PantasDataTableState extends State<PantasDataTable> {
         return height;
       }
 
-      final height = lines(textOf(cell) ?? widget.emptyCell, styleOf(cell)) +
-          (sub == null ? 0 : PantasSpace.s2 + lines(sub, subStyle));
+      final height =
+          lines(fullTextOf(cell) ?? widget.emptyCell, styleOf(cell)) +
+              (sub == null ? 0 : PantasSpace.s2 + lines(sub, subStyle));
       return math.max(rowHeight, height + PantasSpace.s20);
     }
 
@@ -423,7 +448,7 @@ class _PantasDataTableState extends State<PantasDataTable> {
     }
 
     String? labelOf(Object? cell) => cell is PantasTableCell
-        ? (cell.semanticLabel ?? cell.text)
+        ? (cell.semanticLabel ?? fullTextOf(cell))
         : (cell as String?) ?? widget.emptyCell;
 
     bool opened(int r) =>
@@ -437,17 +462,38 @@ class _PantasDataTableState extends State<PantasDataTable> {
       final height = k == null ? rowHeights[r] : childHeights[r]![k];
       final empty = textOf(value) == null && value is! PantasTableCell;
       final sub = value is PantasTableCell ? value.subtitle : null;
-      final text = Text(
-        textOf(value) ?? widget.emptyCell,
-        maxLines: c == 0 ? null : 1,
-        softWrap: c == 0,
-        overflow: TextOverflow.clip,
-        style: styleOf(value).copyWith(
-          color: empty ? colors.textSecondary : colors.textPrimary,
-          fontFeatures:
-              column.numeric ? const [FontFeature.tabularFigures()] : null,
-        ),
+      final textStyle = styleOf(value).copyWith(
+        color: empty ? colors.textSecondary : colors.textPrimary,
+        fontFeatures:
+            column.numeric ? const [FontFeature.tabularFigures()] : null,
       );
+      final note = value is PantasTableCell ? value.trailing : null;
+      final text = note == null
+          ? Text(
+              textOf(value) ?? widget.emptyCell,
+              maxLines: c == 0 ? null : 1,
+              softWrap: c == 0,
+              overflow: TextOverflow.clip,
+              style: textStyle,
+            )
+          : Text.rich(
+              TextSpan(
+                text: textOf(value) ?? widget.emptyCell,
+                children: [
+                  TextSpan(
+                    text: ' $note',
+                    style: TextStyle(
+                      color: colors.textSecondary,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ],
+              ),
+              maxLines: c == 0 ? null : 1,
+              softWrap: c == 0,
+              overflow: TextOverflow.clip,
+              style: textStyle,
+            );
       final content = value is PantasTableCell && value.child != null
           ? value.child!
           : Padding(

@@ -50,3 +50,16 @@ Rollbacks and revision lists: `Pantas-private/releases/2026-11-26-money-path-pro
   paid; PayMongo's retry succeeds. This is by design (`paymentNotYetPaid`).
 - A staging payment run must pause the prod test webhook while prod runs test keys, or the event reaches prod and leaves a
   stray follow-up there (one from Nov 24 is still pending on prod; delete it only with the manager's OK).
+
+## Update, Nov 26, 12:25 PM Manila: done
+
+- Live key in (secret version 2, live webhook for the paid and refund events; this account offers no dispute events, so
+  chargebacks follow deploy guide 6b step 7). Payment functions deployed with #139. A real ₱49 QR Ph payment granted
+  Weekly Pro through the live webhook; the recorded refund ended it. Test-key secret version destroyed, prod test webhook
+  disabled. Launch log: "Nov 26 (Manila), live PayMongo payments on prod".
+- Checkout stays admin-only until the opening ship sets `PAYMONGO_CHECKOUT_OPEN=true` (integrator, Nov 28 6:00 AM Manila).
+- Pro display fixes merged for the opening build: #145 (Pro showed Free after onboarding) and #149 (Free flash on an exam
+  switch, plus a retry after a failed sign-in read).
+- Still open, owner CSE release lead: six display-only items in the private residuals note. Android-only limits noted in
+  #145 and #149 need a follow-up before any native release.
+- E-185 closed: 1 h 44 min active, 12 h 29 min wall (velocity log).

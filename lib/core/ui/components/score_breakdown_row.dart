@@ -35,6 +35,7 @@ class ScoreBreakdownRow extends StatelessWidget {
   })  : _accuracy = total == 0 ? 0 : correct / total,
         valueText = null,
         subtitle = null,
+        count = null,
         chevron = false;
 
   const ScoreBreakdownRow.value({
@@ -43,6 +44,7 @@ class ScoreBreakdownRow extends StatelessWidget {
     required this.divider,
     this.valueText,
     this.subtitle,
+    this.count,
     this.chevron = false,
     this.animatedAccuracy,
     super.key,
@@ -59,6 +61,10 @@ class ScoreBreakdownRow extends StatelessWidget {
 
   /// A second line under the name, in `text-secondary`.
   final String? subtitle;
+
+  /// A quiet note after the name, such as a count in brackets, in
+  /// `text-secondary`. It wraps with the name, so it is never cut off.
+  final String? count;
 
   /// A 16 chevron at the end of the top line: the row opens a page.
   final bool chevron;
@@ -106,10 +112,27 @@ class ScoreBreakdownRow extends StatelessWidget {
     // The name wraps to a second line instead of being cut: a long subject
     // such as "Language Proficiency (English & Filipino)" must read in full
     // on a phone, where the count and the percent sit beside it.
-    final nameText = Text(
-      name,
-      style: PantasType.webRowTitleSettings.copyWith(color: c.textPrimary),
-    );
+    final nameStyle =
+        PantasType.webRowTitleSettings.copyWith(color: c.textPrimary);
+    final nameText = count == null
+        ? Text(name, style: nameStyle)
+        : Text.rich(
+            TextSpan(
+              text: name,
+              children: [
+                TextSpan(
+                  // A no-break space keeps the count on the line of the
+                  // name's last word.
+                  text: ' $count',
+                  style: TextStyle(
+                    color: c.textSecondary,
+                    fontWeight: FontWeight.w400,
+                  ),
+                ),
+              ],
+            ),
+            style: nameStyle,
+          );
     final title = subtitle == null
         ? nameText
         : Column(

@@ -81,7 +81,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
       expect(find.byType(PantasDataTable), findsOneWidget);
-      expect(find.text('Mathematics'), findsOneWidget);
+      expect(find.textContaining('Mathematics'), findsOneWidget);
       expect(find.text('1 topic'), findsOneWidget);
       expect(find.text('60%'), findsOneWidget);
       // PF_Subjects draws no header row (ruling E-155, U23).
@@ -109,14 +109,14 @@ void main() {
       page(web: true, cell: dsShellCells.last, opened: opened),
     );
     await tester.pumpAndSettle();
-    expect(find.text('Geometry'), findsNothing);
+    expect(find.textContaining('Geometry'), findsNothing);
     // Focus the subject row and press Enter.
-    Focus.of(tester.element(find.text('Mathematics'))).requestFocus();
+    Focus.of(tester.element(find.textContaining('Mathematics'))).requestFocus();
     await tester.pump();
     await tester.sendKeyEvent(LogicalKeyboardKey.enter);
     await tester.pumpAndSettle();
-    expect(find.text('Geometry'), findsOneWidget);
-    Focus.of(tester.element(find.text('Geometry'))).requestFocus();
+    expect(find.textContaining('Geometry'), findsOneWidget);
+    Focus.of(tester.element(find.textContaining('Geometry'))).requestFocus();
     await tester.pump();
     await tester.sendKeyEvent(LogicalKeyboardKey.enter);
     await tester.pump();
@@ -135,7 +135,7 @@ void main() {
       await tester.pumpAndSettle();
       expect(tester.takeException(), isNull);
       expect(find.byType(ScoreBreakdownRow), findsOneWidget);
-      expect(find.text('Mathematics'), findsOneWidget);
+      expect(find.textContaining('Mathematics'), findsOneWidget);
       expect(find.text('1 topic'), findsOneWidget);
       expect(find.text('60%'), findsOneWidget);
     });

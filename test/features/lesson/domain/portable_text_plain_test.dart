@@ -1,4 +1,5 @@
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/remote/lesson_markdown.dart';
 import 'package:pantas/features/lesson/domain/portable_text_plain.dart';
 
 Map<String, dynamic> block(String text, {String style = 'normal'}) => {
@@ -66,5 +67,44 @@ void main() {
 
   test('an empty body is an empty string', () {
     expect(portableTextToPlain(const []), '');
+  });
+
+  test('the words inside walk-through blocks are searchable, in order', () {
+    final blocks = lessonBlocksFromMarkdown(
+      [
+        ':::check',
+        'Q one.',
+        ':::answer',
+        'A one.',
+        ':::',
+        '',
+        ':::try',
+        'P one.',
+        ':::answer',
+        'A two.',
+        ':::',
+        '',
+        ':::why',
+        'W one.',
+        ':::',
+        '',
+        ':::pair #p-one',
+        'Right: R one.',
+        'Wrong: X one.',
+        'N one.',
+        ':::',
+        '',
+        ':::checklist',
+        '- Cue: move one. {#p-one}',
+        '- Bare move {#p-one}',
+        ':::',
+      ].join('\n'),
+    );
+
+    expect(
+      portableTextToPlain(blocks),
+      'Q one. A one. P one. A two. W one. R one. X one. N one. '
+      'Cue: move one. Bare move',
+    );
   });
 }
