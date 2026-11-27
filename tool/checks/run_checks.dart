@@ -33,6 +33,7 @@ import 'walkthrough_emphasis_check.dart';
 import 'walkthrough_example_connection_check.dart';
 import 'walkthrough_fence_line_check.dart';
 import 'walkthrough_fresh_instance_check.dart';
+import 'walkthrough_giveaway_check.dart';
 import 'walkthrough_hard_break_check.dart';
 import 'walkthrough_slim_format_check.dart';
 import 'walkthrough_trap_pair_check.dart';
@@ -50,6 +51,7 @@ const allChecks = <Check>[
   WalkthroughEmphasisCheck(),
   WalkthroughFenceLineCheck(),
   WalkthroughSlimFormatCheck(),
+  WalkthroughGiveawayCheck(),
   ShellRoutePushCheck(),
   SyncMutationsTypedReadCheck(),
   MockBlueprintTopicsCheck(),

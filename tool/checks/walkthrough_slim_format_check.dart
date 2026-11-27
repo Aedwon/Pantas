@@ -37,7 +37,7 @@ List<Violation> checkWalkthroughSlimFormat(String sourceId, String markdown) {
           Violation(
             '$sourceId:$line',
             'more than one :::check block (this is check $checks); a '
-            'lesson has one Quick Check',
+                'lesson has one Quick Check',
           ),
         );
       }
@@ -46,7 +46,7 @@ List<Violation> checkWalkthroughSlimFormat(String sourceId, String markdown) {
         Violation(
           '$sourceId:$line',
           'has a **Check:** line; the slim format dropped the per-example '
-          'Check line',
+              'Check line',
         ),
       );
     }
