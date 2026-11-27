@@ -56,6 +56,12 @@
 - Lead ruling: a picture label that is one stated step from the text beside it (140 = 200 - 60; 125% = 100% + 25%; Php 1,200) counts as matching; sent to the manager to overrule.
 - Batch 2b (12 lessons plus meeting): slimmed (`d2f798587`), checks clean; 6 of 7 pictures drawn; chart-scales held (its new marker comes before the existing figure, so the existing `01-` file must become `02-`).
 - Batch 2c: writer A's 6 lessons slimmed (`93ce78211`); writer B's 5 not started.
+- Batch 2b (13 lessons incl. meeting): pre-check PASS (0 Blockers, 6 Majors fixed), recompute 0 mismatches; Codex read 1 FAIL (1 lesson Blocker, 2 question-file Blockers: `order-of-operations.yaml` 0019, `word-problems.yaml` 0022, for the release lead; 23 Majors), fixed; read 2 PASS (0 Blockers, 11 Majors), fixed once and lead-checked (`5d1a6ddb9`). Export on the root plus 2a and 2b passes (chart-scales old `01-` file deleted on the root; the existing chart is now `02-`).
+- Batch 2c (11): pre-check FAIL (1 Blocker, prime test), fixed; Codex read 1 FAIL (4 Blockers, 11 Majors), fixed; read 2 FAIL (1 Blocker, `real-number-sets` try), so Real Number Sets drops to 2d; 10 lessons PASS, 9 Majors fixed once (`d39bffb93`). Export on the root plus 2a to 2c passes.
+- Lead error caught before shipping: Operation Priority and Grouping carried the split's 4-part numbering in the 2b hand-off; restored to the live 3-part numbering (`8ad01f238`), manager told. Every handed-off lesson's front matter was compared with the root; no other numbering difference. Plan step 7 now includes that compare.
+- Real Number Sets code figure: label overflow on narrow phones (app drawing code), sent to the manager for the UX lane.
+- Batch 2d (12 incl. Real Number Sets): slimmed; 10 pictures drawn; pre-check PASS (0 Blockers, 12 Majors fixed), recompute 0 mismatches; Codex read 1 running on `6a5213882`. The split pair needs the parent retired, the topic renumbered and `order-of-operations.yaml` question changes to ship; proposed to the manager as a release-lead question-process change.
+- Codex: account b only (a 401, c error in `codex-pick --status`); b at 69% of its 5-hour window at about 4:00 AM (resets 6:00 AM).
 
 ## Session 5 (Nov 27, from 2:20 PM Manila, E-198)
 

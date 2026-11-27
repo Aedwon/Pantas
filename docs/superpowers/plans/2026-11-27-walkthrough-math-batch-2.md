@@ -66,8 +66,10 @@ run is ever in flight. Slim passes of the next batch may run while Codex reads t
 6. Majors fixed once after the last read; the lead checks each fix. No further read for Majors.
 7. **Export**: the pilot's step 5 scratch root (main's tools plus the checks branch, the content root, the batch's lesson
    files, `content/walkthrough-trap-evidence.json`, and the batch's figure files). `build_content_export.dart` exit 0 and
-   `lesson_checks.dart --root` exit 0. The figure checks below exit 0. **Send the manager the exact file paths, figure files
-   included.**
+   `lesson_checks.dart --root` exit 0. The figure checks below exit 0. Compare every handed-off lesson's front matter
+   (`part`, `partCount`, `ordering`, `_id`, `isActive`) with the root; a difference ships only with the change that needs
+   it (added Nov 28 after the lead found 4-part numbering in the 2b hand-off). **Send the manager the exact file paths,
+   figure files included.**
 
 ## Pictures (spec revision point 5)
 
