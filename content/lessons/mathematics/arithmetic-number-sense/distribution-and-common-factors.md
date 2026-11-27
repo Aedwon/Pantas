@@ -24,6 +24,8 @@ $$4(3x+7)=4(3x)+4(7)$$
 
 $$4(3x)+4(7)=12x+28$$
 
+Picture a rectangle $4$ tall and $3x+7$ wide. Here $x$ is a positive length.
+
 <!-- ILLUSTRATION: a rectangle 4 tall and 3x + 7 wide, cut into two parts. The left part is 3x wide and has area 4 × 3x = 12x. The right part is 7 wide and has area 4 × 7 = 28. The whole rectangle is 4(3x + 7) = 12x + 28, so the 4 multiplies each part and not only the first. The widths are not drawn to scale. -->
 
 In symbols:
@@ -116,11 +118,15 @@ $$4(2x-3y)=8x-12y$$
 
 $$-2(x+5y)=-2x-10y$$
 
-3. Put the parts together and group like terms.
+3. Put the parts together. The $x$ terms are like terms, and so are the $y$ terms, so group each kind together.
 
 $$8x-12y-2x-10y=(8x-2x)+(-12y-10y)$$
 
-4. Combine each pair of like terms.
+4. Combine the $x$ terms, then the $y$ terms.
+
+$$8-2=6$$
+
+$$-12-10=-22$$
 
 $$(8x-2x)+(-12y-10y)=6x-22y$$
 

@@ -47,7 +47,7 @@ The answer is $35$.
 
 ### Powers and Roots Come Before Multiplying
 
-An **exponent** tells how many copies of the base to multiply. So $2^3$ means $2\times 2\times 2=8$, not $2\times 3=6$.
+A positive whole-number **exponent** tells how many copies of the base to multiply. So $2^3$ means $2\times 2\times 2=8$, not $2\times 3=6$.
 
 A **root** undoes a power. For example, the square root $\sqrt{49}=7$ because $7^2=49$.
 
@@ -126,7 +126,7 @@ Evaluate $16 \div 4 \times 2 + 3$.
 1. There are no grouping symbols, exponents, or roots.
 2. Multiply and divide from left to right.
 
-$$16 \div 4 \times 2 = 4 \times 2$$
+$$16 \div 4 = 4$$
 
 $$4 \times 2 = 8$$
 

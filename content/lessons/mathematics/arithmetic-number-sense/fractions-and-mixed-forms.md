@@ -40,12 +40,12 @@ $$0.6\times 100=60$$
 That is $60\%$.
 
 :::why
-Why divide top by bottom? A fraction bar means division: $\dfrac{3}{8}$ means $3$ wholes shared among $8$ equal parts, which is $3\div 8$.
+Why divide top by bottom? A fraction bar means division. Share $3$ wholes equally among $8$ people. Each person gets $3\div 8$, or $\dfrac{3}{8}$ of a whole.
 :::
 
 :::pair #divide-upside-down
 Right: $\dfrac{3}{8}=3\div 8=0.375$, which is $37.5\%$
-Wrong: $\dfrac{3}{8}=8\div 3\approx 2.67$, which is $266.7\%$
+Wrong: $\dfrac{3}{8}=8\div 3=2.666\ldots$, which is about $266.7\%$
 Divide the top number by the bottom number. Because $3$ is smaller than $8$, $\dfrac{3}{8}$ is less than $1$, so under $100\%$.
 :::
 

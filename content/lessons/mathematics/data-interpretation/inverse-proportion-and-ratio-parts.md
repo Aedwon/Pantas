@@ -20,7 +20,7 @@ In an **inverse proportion**, one quantity goes up while the other goes down so 
 
 $$\text{workers}\times\text{time}=\text{total work}$$
 
-$9$ identical machines finish a fixed scanning job in $8$ hours. Find how many machines finish the same job in $6$ hours.
+$9$ identical machines finish a fixed scanning job in $8$ hours. Each machine scans at the same steady rate in both cases. Find how many machines finish the same job in $6$ hours.
 
 1. Multiply to find the fixed total work in machine-hours:
 
@@ -42,15 +42,21 @@ Sometimes part of the job finishes before the team size changes. Subtract the co
 
 $8$ clerks, all at the same steady rate, can finish a batch in $15$ hours. After all $8$ work for $5$ hours, $2$ clerks leave. Find the hours the $6$ remaining clerks need.
 
+The total work, in clerk-hours:
+
 $$8\times15=120$$
+
+The completed work, in clerk-hours:
 
 $$8\times5=40$$
 
+The remaining work, in clerk-hours:
+
 $$120-40=80$$
 
-$$\dfrac{80}{6}=13\dfrac{1}{3}\text{ hours}$$
+The hours for $6$ clerks:
 
-The $120$, $40$ and $80$ are clerk-hours of work.
+$$\dfrac{80}{6}=13\dfrac{1}{3}\text{ hours}$$
 
 <!-- ILLUSTRATION: one horizontal bar of 120 clerk-hours, labeled "Total 8 × 15 = 120 clerk-hours", drawn to scale. The first third, 40 clerk-hours, is shaded and labeled "Done 8 × 5 = 40". The remaining two thirds are labeled "Left 120 - 40 = 80". Under the left part, a bracket reads "80 / 6 = 13 1/3 hours for 6 clerks", so the remaining work is divided by the remaining workers. -->
 
@@ -81,6 +87,12 @@ To divide a total in a ratio such as $2:3:4$:
 1. Add all ratio terms to count the total parts.
 2. Divide the total amount by the number of parts to find $1$ part.
 3. Multiply $1$ part by the requested term or difference of terms.
+
+A $60,000$-peso fund reserves $10,000$ pesos first, and the rest is split in the ratio $1:4$. The amount to split is the fund minus the reserve:
+
+$$60,000-10,000=50,000$$
+
+Then $1+4=5$ parts, and $\dfrac{50,000}{5}=10,000$ per part. The shares are $10,000$ and $40,000$ pesos.
 
 $360$ folders are divided among Units A, B, and C in the ratio $2:3:4$. Find how many more folders Unit C gets than Unit A.
 

@@ -77,7 +77,7 @@ $$\dfrac{21}{60}=\dfrac{7}{20}$$
 Notice that $3$ in the numerator and $12$ in the denominator both divide by $3$, giving $1$ and $4$. Simplifying first gives $\dfrac{1\times 7}{5\times 4}=\dfrac{7}{20}$ right away.
 
 :::why
-Why does multiplying two fractions smaller than $1$ give an even smaller answer? Taking part of a part leaves a smaller piece than you started with, just like taking half of half a cake leaves a quarter.
+Why does multiplying two fractions that are greater than $0$ and less than $1$ give an even smaller answer? Taking part of a part leaves a smaller piece than you started with, just like taking half of half a cake leaves a quarter.
 :::
 
 :::pair #multiply-top-add-bottom

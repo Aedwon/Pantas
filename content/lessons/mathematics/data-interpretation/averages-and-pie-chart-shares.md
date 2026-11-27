@@ -60,9 +60,9 @@ The answer is $14$ items. The sum is $0+9+13+26=48$ over $4$ days, so the averag
 
 A pie chart shows how one whole total is split into parts. All slices in the circle together equal $100\%$. To find a slice amount, use the full pie as the total, not one slice as a separate whole.
 
-When a slice gives a percentage and you know the total amount for the full pie, find the slice amount with:
+When a slice gives a percentage and you know the total amount for the full pie, write the percentage as a decimal, then find the slice amount with:
 
-$$\text{Part}=\dfrac{\text{percent}}{100}\times\text{total}$$
+$$\text{Part}=\text{share as a decimal}\times\text{total}$$
 
 If one slice has no percentage printed on it, add the percentages of the other slices and subtract from $100\%$ first.
 
@@ -76,9 +76,9 @@ $$45\%+30\%=75\%$$
 
 $$100\%-75\%=25\%$$
 
-3. Multiply $25\%$ (or $0.25$) by the total fund.
+3. Write $25\%$ as the decimal $0.25$, then multiply by the total fund.
 
-$$\dfrac{25}{100}\times480,000=120,000$$
+$$0.25\times480,000=120,000$$
 
 Supplies receives $120,000$ pesos.
 
@@ -89,6 +89,14 @@ The wrong line stopped after adding the known slices. Subtract that $75\%$ from 
 :::
 
 When the total is known and a question asks how much larger one slice is than another on the same pie chart, subtract the two percentages first, then multiply once by the total.
+
+On a $200,000$-peso pie, one slice is $40\%$ and another is $25\%$. The first slice is larger by:
+
+$$40\%-25\%=15\%$$
+
+$$0.15\times200,000=30,000$$
+
+The first slice is $30,000$ pesos larger.
 
 ## Examples
 

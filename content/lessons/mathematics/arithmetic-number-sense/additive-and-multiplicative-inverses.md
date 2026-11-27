@@ -73,7 +73,7 @@ Changing the sign without flipping gives the additive inverse. Check that the pr
 :::check
 The multiplicative inverse of a number is $-\dfrac{1}{9}$. What is the number?
 :::answer
-The answer is $-9$. Flip $-\dfrac{1}{9}$ and keep the minus sign to get $-\dfrac{9}{1}=-9$. The product $(-9)\left(-\dfrac{1}{9}\right)$ is $1$.
+The answer is $-9$. The number and $-\dfrac{1}{9}$ multiply to $1$, so each is the other's reciprocal. Flip $-\dfrac{1}{9}$ and keep the minus sign to get $-\dfrac{9}{1}=-9$. The product $(-9)\left(-\dfrac{1}{9}\right)$ is $1$.
 :::
 
 ### Why Zero Has No Multiplicative Inverse

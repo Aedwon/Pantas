@@ -48,6 +48,14 @@ The wrong line divided Facility Y by Facility X alone instead of their combined 
 
 To combine two subgroups (such as two branches), add the parts and add the totals first, then divide. Do not add their two percentages, because each is a share of a different group.
 
+At one branch, $6$ of $10$ ratings are excellent. At another, $9$ of $30$ are. Add the parts, then add the totals:
+
+$$6+9=15\text{ excellent},\qquad 10+30=40\text{ ratings}$$
+
+$$\dfrac{15}{40}=0.375$$
+
+Together, $37.5\%$ of the ratings are excellent.
+
 :::check
 A camp has $60$ Grade 6 pupils and $40$ Grade 5 pupils. Of the Grade 6 pupils, $15$ wear glasses. What percent of the Grade 6 pupils wear glasses?
 :::answer
@@ -58,7 +66,7 @@ The answer is $25\%$. The matching total is the $60$ Grade 6 pupils, so $\dfrac{
 
 A **ratio** such as $A:B$ compares two amounts in that exact order. Put the quantity named first on the left and the quantity named second on the right.
 
-Make sure both quantities use the **same unit** before writing or reducing the ratio. To compare $1.5$ million pesos for Road Works with $750$ thousand pesos for Drainage, convert $1.5$ million into thousands first:
+If the amounts measure the same kind of thing, write them in the **same unit** before you reduce the ratio. To compare $1.5$ million pesos for Road Works with $750$ thousand pesos for Drainage, convert $1.5$ million into thousands first:
 
 $$1.5\times1,000=1,500\text{ thousand pesos}$$
 

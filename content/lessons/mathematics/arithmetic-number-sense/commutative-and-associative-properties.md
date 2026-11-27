@@ -108,6 +108,14 @@ Wrong: $5-3$ and $3-5$ both equal $2$, so subtraction is commutative
 Ignoring the minus sign gives $2$ both times. Because $2$ and $-2$ sit on opposite sides of $0$, swapping order changes the answer.
 :::
 
+Swap the order of $12$ and $4$ in a division:
+
+$$12\div 4=3$$
+
+$$4\div 12=\dfrac{1}{3}$$
+
+Since $3$ and $\dfrac{1}{3}$ are different numbers, division is not commutative.
+
 Work out $(12\div 4)\div 2$:
 
 $$12\div 4=3$$

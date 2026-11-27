@@ -18,7 +18,7 @@ keyPoints:
 
 **Rate** tells how much distance an object covers in each unit of time. **Kph** means kilometers per hour, and **km** means kilometers.
 
-Distance equals rate times time:
+At a steady speed, distance equals rate times time:
 
 $$d=rt$$
 
@@ -26,7 +26,15 @@ Here $d$ is distance, $r$ is rate, and $t$ is time. Divide to solve for time or 
 
 $$t=\dfrac{d}{r},\qquad r=\dfrac{d}{t}$$
 
-Keep the units matched: a rate in kph needs distance in km and time in hours. For a multi-part trip, find total distance and total time first, then divide total distance by total time to get the average speed for the whole trip.
+Keep the units matched: a rate in kph needs distance in km and time in hours. For a multi-part trip, find each part's time first. Then divide total distance by total time to get the **average speed** for the whole trip.
+
+A van drives $60\text{ km}$ out at $30\text{ kph}$ and the same $60\text{ km}$ back at $60\text{ kph}$. Find its average speed for the round trip.
+
+$$\dfrac{60}{30}=2\text{ hours out},\qquad \dfrac{60}{60}=1\text{ hour back}$$
+
+$$\dfrac{60+60}{2+1}=\dfrac{120}{3}=40\text{ kph}$$
+
+Averaging $30$ and $60$ to get $45$ kph is wrong, because the van spends more time at the slower speed.
 
 Find the trip time. A tricycle drives $45\text{ km}$ at a steady speed of $30\text{ kph}$.
 
@@ -51,7 +59,9 @@ Add the two speeds only when the objects move in opposite directions along the s
 
 If they move the same direction, subtract the speeds.
 
-Use the combined speed as $r$ in $d=rt$ only for the time both objects move. For moving apart, $d$ is the final gap. If the second one starts later, subtract the gap at the moment it starts. For meeting, $d$ is the gap at the moment the second one starts.
+Use the combined speed as $r$ in $d=rt$ only for the time both objects move. There are two gaps to tell apart: the gap already open when the second object starts, and the final gap. For moving apart from the same spot, $d$ is the final gap minus the gap already open. For meeting, $d$ is the gap at the moment the second object starts.
+
+For example, the $25$ kph boat leaves one hour before the $35$ kph boat, so $25$ km is already open when the second boat starts. If the final gap is $85$ km, then $d=85-25=60$ km. The two boats open that $60$ km at $60$ kph, which takes $1$ shared hour.
 
 Find when two boats are $180\text{ km}$ apart. They leave the same port at the same time in opposite directions, at $25\text{ kph}$ and $35\text{ kph}$.
 
@@ -59,7 +69,7 @@ $$25+35=60$$
 
 <!-- ILLUSTRATION: two horizontal straight-road diagrams stacked. The top one, "Moving apart", has a center dot with two arrows pointing opposite ways: the left arrow is labeled "25 kph" and the right arrow "35 kph". A bracket beneath is labeled "gap grows at 25 + 35 = 60 kph". The bottom one, "Meeting", has two dots at the ends of a segment labeled "starting gap" with arrows pointing toward each other: the left arrow is labeled "speed 1" and the right arrow "speed 2". A bracket beneath is labeled "gap closes at speed 1 + speed 2". -->
 
-Let $t$ be the hours after leaving.
+Let $t$ be the hours after leaving. Use $d=rt$ with the $180$ km gap and the $60$ kph separation rate:
 
 $$180=60t$$
 
@@ -84,7 +94,7 @@ Both boats move at the same time, so do not average their speeds. Add both speed
 :::
 
 :::check
-Two runners start $24\text{ km}$ apart at the same time and run toward each other at steady speeds of $5\text{ kph}$ and $7\text{ kph}$. How many hours until they meet?
+Two runners start $24\text{ km}$ apart on the same straight road at the same time and run toward each other at steady speeds of $5\text{ kph}$ and $7\text{ kph}$. How many hours until they meet?
 :::answer
 The answer is $2$ hours. Add their speeds to get $5+7=12$ kph, then divide $24\div 12=2$.
 :::

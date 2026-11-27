@@ -62,7 +62,7 @@ A fraction bar groups the entire top (**numerator**) and the entire bottom (**de
 
 $$\dfrac{\text{numerator}}{\text{denominator}}=(\text{numerator})\div(\text{denominator})$$
 
-Work out the whole numerator and the whole denominator before dividing. Inside each part, powers and multiplication still go before addition and subtraction.
+Work out the whole numerator and the whole denominator before dividing. Inside each part, powers and multiplication still go before addition and subtraction. If the bottom is $0$, the fraction is undefined.
 
 Evaluate $\dfrac{4^2+6\times 2}{10-3\times 2}$.
 
@@ -85,7 +85,7 @@ Now divide:
 $$\dfrac{28}{4}=7$$
 
 :::why
-Why can you not divide $48$ by $6$ first in $\dfrac{48}{6+2}$? The bar sits under all of $6+2$, so the whole sum $8$ is the divisor. Dividing by $6$ first breaks the group apart.
+Why can you not divide $48$ by $6$ first in $\dfrac{48}{6+2}$? The whole sum $6+2$ sits below the fraction bar, so the whole sum $8$ is the divisor. Dividing by $6$ first breaks the group apart.
 :::
 
 Next, a fraction with a sum on the bottom, $\dfrac{48}{6+2}$.
@@ -158,7 +158,7 @@ $$9+20=29$$
 
 $$2^3=8$$
 
-$$6-8+4=-2+4$$
+$$6-8=-2$$
 
 $$-2+4=2$$
 
