@@ -4891,7 +4891,7 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Staging (about 18:06 UTC Nov 26):** export from main's tools; plan 6 question-set updates, 6 Pro documents, 1,475 unchanged, 0 lessons; uploaded; re-plan 0 differences. Rule 7: before 14,155 reads and 1,187 writes this quota day, expected about 4,500 reads, after 17,402 and 1,213. Rollback: re-upload 7dcc42ad6.
 - **Prod:** untouched. r10 uploads 22b8ccc2f after the opening steps: expect 51 updates (45 lessons, 6 question sets) and 6 Pro documents. Rollback stays 0f5a846a4.
 
-### Nov 27, about 2:50 PM Manila: Reading Comprehension walk-through continues; passed walk-through batches join the launch-day content upload (Aedwon, operations manager)
+### Nov 27, about 2:30 PM Manila: Reading Comprehension walk-through continues; passed walk-through batches join the launch-day content upload (Aedwon, operations manager)
 
 - **Context:** a new manager thread took over at 1:28 PM; the old manager timed out on every heartbeat from 6:33 AM to 1:17 PM, so the 6:45 AM lesson lead restart never ran and both lesson lanes sat idle until 2:25 PM.
 - **Asked (Aedwon):** "why do we need to rewrite reading comp and similar subjects btw?"
@@ -4899,7 +4899,7 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Aedwon, verbatim:** "okay continue as approved. if possible let's include this new lesson spec in tomorrow's launch".
 - **Effect (manager):** Reading Comprehension continues as approved. Every walk-through batch with a full Codex PASS (0 Blockers, 0 Majors) by 3:00 AM Manila Saturday goes live in the content upload right after the 6:00 AM opening steps, with the stacked-line and Grammar question fixes, after a staging check. Batches that miss it follow as later content uploads (allowed under his "A"). The opening does not wait for any batch. Codex account b stays one run at a time across both lesson lanes. The integrator alone moves passed batches to the content root.
 
-### Nov 27, about 6:00 PM Manila: walk-through word growth from rewritten checks; live Reasoning example teaches a false rule (manager, rule 4)
+### Nov 27, about 3:15 PM Manila: walk-through word growth from rewritten checks; live Reasoning example teaches a false rule (manager, rule 4)
 
 - **Context:** under the new required steps (process-improvement, "Grammar walk-through lessons fail every Codex audit round"), whole Quick Check and try rewrites grew 10 of 18 Language Application lessons by 2 to 17 words and 18 of 24 Reasoning lessons by 1 to 39 words, against the lane's Nov 26 no-growth rule. The Claude lesson lead's earlier commit message wrongly said no lesson grew (a counting bug).
 - **Options (Claude lesson lead):** (a) accept up to 20 words of growth per lesson from rewritten checks only, trimming the two Reasoning lessons over 20 (about 15 minutes; recommended); (b) trim every grown lesson back to its old count before Codex (about 1 hour each for two subjects plus a re-check; Language Application likely misses its 7:24 PM Codex slot).
@@ -4907,7 +4907,7 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Ruling (manager):** (a). His correction was about added explanation, not a fresh practice sentence. Growth of up to 20 words per lesson is allowed only inside rewritten Quick Checks and tries, with no new narration, and every lesson stays at or under 900 words before a tap. Each Codex brief asks Codex to flag wordiness as a Major.
 - **Live defect found:** `content/lessons/reasoning/spatial-abstract-reasoning/figure-turns-and-positions.md` Example 3 "Growing Turns" on the live content root says the turns are 45, 90 and 135 degrees; the arrows it names (up, upper-right, lower-right, lower-left) turn 45, 90 and 90. The manager confirmed it on 22b8ccc2f. Routed to the integrator (r10 brief) for step 4: the walk-through version replaces it if Reasoning passes; otherwise the example and its figure marker are removed and references renumbered. No replacement example is invented.
 
-### Nov 27, about 7:00 PM Manila: pre-check gate before a Codex read is 0 Blockers (manager, rule 4)
+### Nov 27, about 3:30 PM Manila: pre-check gate before a Codex read is 0 Blockers (manager, rule 4)
 
 - **Context:** the blind pre-checks under the Nov 27 process-improvement entry: Language Application 12 Blockers and 11 Majors, then 1 and 5; Reasoning 13 and 28, then 20 and 45 (a fresh reader found more copy-the-example checks); Math 8 and 25. The Claude lesson lead asked whether the gate is 0 Blockers (a) or 0 Blockers and 0 Majors (b), recommending (a) for Reasoning and Math and (b) for Language Application.
 - **Searched:** the process-improvement entry "Grammar walk-through lessons fail every Codex audit round (Nov 27)", fix 1, whose gate is items "answered by copying visible text, using the Codex brief's own Blocker list".

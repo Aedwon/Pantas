@@ -128,7 +128,7 @@ pass 15, retire or merge one first.
 
 ### Grammar walk-through lessons fail every Codex audit round (Nov 27)
 
-- His words (about 4:15 PM Manila Nov 27): "why is grammar always failing? this has happened many times already".
+- His words (about 2:45 PM Manila Nov 27): "why is grammar always failing? this has happened many times already".
 - Wrong: the 52 Grammar walk-through lessons have failed every Codex read since Nov 26: round 2 (0 Blockers, 9 Majors), round 3, round 4, round 5 (42 Blockers, 52 Majors), round 6, the round 7 delta, and round 8 (22 Blockers, 85 Majors, 5 Minors, `codex-grammar-r8-full.md` on `content/lesson-walkthrough-cse-r1` ecc329dd1). Round 8 still lists 16 round 6 and round 7 findings as open, several "in a new choice set". Each round costs about a quarter of Codex b's 5-hour window plus a Claude fix and verify cycle. Grammar will not make the launch-day upload.
 - Why it got through:
   1. Fixers change only the rows they are given. A row such as "only one choice matches the printed list" was fixed by writing new choices, and the new choices gave the answer away the same way. Nothing required the fixer to test the new version against the pattern.
