@@ -51,9 +51,11 @@ Why read the base before multiplying? Two totals often appear in the same questi
 :::
 
 :::check
-A store has Php $40,000$ in revenue and Php $28,000$ in costs. An agent earns $5\%$ commission on net profit. How much commission does the agent earn?
+A store has Php $50,000$ in revenue. Its net profit is $30\%$ of revenue. An agent earns $6\%$ commission on net profit. How much commission does the agent earn?
 :::answer
-The answer is Php $600$. Net profit is $40,000-28,000=12,000$, and $12,000\times0.05=600$.
+The answer is Php $900$. Net profit is $50,000\times0.30=15,000$, and $15,000\times0.06=900$.
+
+**Check:** The commission is $900$, which is $1.8\%$ of revenue, and $0.30\times0.06=0.018$.
 :::
 
 ### Sales Tax and Total Price
@@ -95,9 +97,11 @@ The wrong answer stopped at the taxable subtotal. Check whether the question ask
 :::
 
 :::check
-An item has a taxable price of Php $1,500$. A $4\%$ sales tax is added. What is the total price?
+An item has a taxable price of Php $2,000$. With sales tax added, the total price is Php $2,140$. What is the sales tax rate?
 :::answer
-The answer is Php $1,560$. The tax is $1,500\times0.04=60$, and $1,500+60=1,560$.
+The answer is $7\%$. The tax is $2,140-2,000=140$, and $\dfrac{140}{2,000}=0.07$.
+
+**Check:** $2,000\times0.07=140$, and $2,000+140=2,140$.
 :::
 
 ## Examples

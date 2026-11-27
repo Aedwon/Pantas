@@ -91,9 +91,11 @@ The first $4$ days of work are already finished. Divide only the remaining $80$ 
 :::
 
 :::check
-A camp has food for $30$ hikers for $12$ days. After $2$ days, $5$ hikers leave. How many more days will the remaining food last?
+A camp has food for $20$ hikers for $18$ days. After $6$ days, $4$ more hikers arrive. How many more days will the remaining food last?
 :::answer
-The answer is $12\text{ days}$. Total food is $30\times12=360$ hiker-days. Two days use $30\times2=60$, leaving $300$ hiker-days for $25$ hikers, and $300\div25=12$.
+The answer is $10\text{ days}$. Total food is $20\times18=360$ hiker-days. Six days use $20\times6=120$, leaving $240$ hiker-days for $24$ hikers, and $240\div24=10$.
+
+**Check:** The $24$ hikers eat $24\times10=240$ hiker-days, and $120+240=360$ is all the food.
 :::
 
 ## Examples

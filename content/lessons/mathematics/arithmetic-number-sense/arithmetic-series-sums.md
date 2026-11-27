@@ -101,9 +101,11 @@ The middle term is already the average of the sequence, so do not multiply by $\
 :::
 
 :::check
-An arithmetic sequence has $9$ terms and middle term $14$. What is its sum?
+An arithmetic sequence has $11$ terms. Its first term is $6$ and its last term is $46$. What is its sum?
 :::answer
-The answer is $126$. Multiply the middle term by the count: $9\times14=126$.
+The answer is $286$. The middle term is the average of the first and last terms: $\dfrac{6+46}{2}=26$. Then $S_{11}=11\times26=286$.
+
+**Check:** The common difference is $\dfrac{46-6}{10}=4$, so the $6$th term is $6+5(4)=26$, which is the middle term.
 :::
 
 ## Examples

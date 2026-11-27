@@ -49,9 +49,11 @@ The wrong line used simple interest, adding Php $100$ each year. Compound intere
 :::
 
 :::check
-A deposit of Php $2,000$ earns $5\%$ interest compounded annually. What is the balance after $2$ years?
+A deposit of Php $8,000$ earns $5\%$ interest compounded annually for $3$ years. How much interest does it earn in total?
 :::answer
-The answer is Php $2,205$. Year $1$ gives $2,000\times1.05=2,100$, and Year $2$ gives $2,100\times1.05=2,205$.
+The answer is Php $1,261$. The balances are $8,000\times1.05=8,400$, then $8,400\times1.05=8,820$, then $8,820\times1.05=9,261$. The interest is $9,261-8,000=1,261$.
+
+**Check:** $1.05^3=1.157625$, and $8,000\times1.157625=9,261$.
 :::
 
 ### Matching Rate and Periods to Compounding Frequency

@@ -91,9 +91,11 @@ Zero is its own additive inverse because $0+0=0$. For multiplication, $0\times 0
 :::
 
 :::check
-Can any real number $s$ make $0\times s=5$ true?
+How many real numbers $s$ make $0\times s+3=3$ true?
 :::answer
-The answer is no. Multiplying $0$ by any real number always equals $0$, never $5$.
+The answer is every real number. Since $0\times s=0$ for any $s$, the left side is always $0+3=3$.
+
+**Check:** Try $s=-7$: $0\times(-7)+3=0+3=3$.
 :::
 
 ## Examples

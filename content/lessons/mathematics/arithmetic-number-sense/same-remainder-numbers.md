@@ -96,9 +96,11 @@ Here $120$ divides evenly by $6$, $8$, and $10$ with remainder $0$. Always add t
 :::
 
 :::check
-Find the smallest integer greater than $20$ that leaves remainder $5$ when divided by $6$ and $9$.
+Find the smallest integer greater than $40$ that leaves remainder $3$ when divided by $4$, $5$ and $10$.
 :::answer
-The answer is $23$. The LCM of $6$ and $9$ is $18$; $k=0$ gives $5$ (not greater than $20$), and $k=1$ gives $18+5=23$.
+The answer is $43$. The LCM of $4$, $5$ and $10$ is $20$, so $N=20k+3$. Then $k=0$ gives $3$ and $k=1$ gives $23$, and neither is greater than $40$. Next, $k=2$ gives $43$.
+
+**Check:** $43=4(10)+3$, $43=5(8)+3$ and $43=10(4)+3$.
 :::
 
 ## Examples

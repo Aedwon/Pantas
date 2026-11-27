@@ -53,9 +53,11 @@ Here $72$ is only the $40\%$ part, not the whole set. Find the base before takin
 :::
 
 :::check
-If $20\%$ of a number is $54$, what is the number?
+A shop sold $54$ shirts, which is $20\%$ of its stock. How many shirts were not sold?
 :::answer
-The answer is $270$. Divide the part by the decimal rate: $54\div0.20=5,400\div20=270$.
+The answer is $216$ shirts. The stock is the base: $54\div0.20=5,400\div20=270$. Then $270-54=216$.
+
+**Check:** The unsold shirts are $80\%$ of the stock, and $0.80\times270=216$.
 :::
 
 ### Dividing Fractions to Find a Rate
@@ -93,9 +95,11 @@ Why does multiplying by the reciprocal work? Writing $\dfrac{3}{5}\div\dfrac{4}{
 :::
 
 :::check
-What percent of $\dfrac{3}{4}$ is $\dfrac{9}{20}$?
+$\dfrac{3}{10}$ is what percent of $\dfrac{3}{8}$?
 :::answer
-The answer is $60\%$. Divide $\dfrac{9}{20}\div\dfrac{3}{4}=\dfrac{9}{20}\times\dfrac{4}{3}=\dfrac{36}{60}=\dfrac{3}{5}=0.60$, then multiply by $100\%$ to get $60\%$.
+The answer is $80\%$. The base is $\dfrac{3}{8}$ and the part is $\dfrac{3}{10}$. Divide $\dfrac{3}{10}\div\dfrac{3}{8}=\dfrac{3}{10}\times\dfrac{8}{3}=\dfrac{24}{30}=\dfrac{4}{5}=0.80$, then multiply by $100\%$ to get $80\%$.
+
+**Check:** $0.80\times\dfrac{3}{8}=0.80\times0.375=0.30=\dfrac{3}{10}$.
 :::
 
 ## Examples

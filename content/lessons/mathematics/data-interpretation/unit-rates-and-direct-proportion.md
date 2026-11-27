@@ -59,9 +59,11 @@ Dividing by $45$ minutes gives pages per minute. Multiply by $60$ to convert fro
 :::
 
 :::check
-A machine packs $180$ bottles in $15$ minutes at a constant rate. How many bottles does it pack per hour?
+A machine packs bottles at a constant $12$ bottles per minute. How many bottles does it pack in $40$ minutes?
 :::answer
-The answer is $720$ bottles per hour. First find the rate per minute: $\dfrac{180}{15}=12$. Then multiply by $60$: $12\times60=720$.
+The answer is $480$ bottles. Multiply the rate by the time: $12\times40=480$.
+
+**Check:** Divide back: $\dfrac{480}{40}=12$ bottles per minute.
 :::
 
 ### Scaling with Direct Proportion

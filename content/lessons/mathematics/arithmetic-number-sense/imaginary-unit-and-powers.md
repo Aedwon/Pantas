@@ -94,9 +94,11 @@ Never drop the minus signs inside negative roots or use $\sqrt{ab}$ before pulli
 "Simplify" means write an equal expression in a simpler form.
 
 :::check
-Simplify $\sqrt{-49}\cdot\sqrt{-25}$.
+Simplify $\dfrac{\sqrt{-81}}{\sqrt{-9}}$.
 :::answer
-The answer is $-35$. Rewrite each root first: $(7i)(5i)=35i^2=35(-1)=-35$.
+The answer is $3$. Rewrite each root first: $\dfrac{9i}{3i}=3$.
+
+**Check:** $3\times\sqrt{-9}=3(3i)=9i=\sqrt{-81}$.
 :::
 
 ## Mnemonics & Memory Aids

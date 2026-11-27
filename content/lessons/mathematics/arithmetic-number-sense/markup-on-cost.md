@@ -49,9 +49,11 @@ Why does multiplying by $1.25$ give Php $1,000$ in one step? The cost is the who
 :::
 
 :::check
-A shirt costs Php $400$ and gets a $30\%$ markup based on cost. What is its listed price?
+A shirt is listed at Php $650$ after a $30\%$ markup based on cost. What was its cost?
 :::answer
-The answer is Php $520$. The markup is $400\times0.30=120$, so the listed price is $400+120=520$.
+The answer is Php $500$. The listed price is $1.30\times\text{cost}$, so the cost is $650\div1.30=500$.
+
+**Check:** The markup is $500\times0.30=150$, and $500+150=650$.
 :::
 
 ### Markup Versus Profit and Expenses
@@ -111,9 +113,11 @@ Dividing the Php $5$ markup by cost gives the rate on cost, not on selling price
 :::
 
 :::check
-An item costs Php $300$ and sells for Php $400$. What percent of the selling price is the markup amount?
+An item costs Php $380$ and sells for Php $500$. What percent of the selling price is the markup amount?
 :::answer
-The answer is $25\%$. The markup is $400-300=100$, and dividing by the selling price gives $\dfrac{100}{400}=0.25=25\%$.
+The answer is $24\%$. The markup is $500-380=120$, and dividing by the selling price gives $\dfrac{120}{500}=0.24=24\%$.
+
+**Check:** $24\%$ of $500$ is $0.24\times500=120$, and $380+120=500$.
 :::
 
 ## Examples

@@ -83,9 +83,11 @@ Adding $5$ equal terms of $18$ means multiplying $5\times18$, not adding $5+18$.
 :::
 
 :::check
-A geometric sequence has $9$ terms, a first term of $7$, and a common ratio of $1$. What is the sum of its last $4$ terms?
+A geometric sequence has $9$ terms, a first term of $7$, and a common ratio of $1$. What is the sum of its middle $3$ terms?
 :::answer
-The answer is $28$. Because $r=1$, every term is $7$, so the last $4$ terms sum to $4\times7=28$.
+The answer is $21$. Because $r=1$, every term is $7$, so the middle $3$ terms (the $4$th, $5$th and $6$th) sum to $3\times7=21$.
+
+**Check:** All $9$ terms sum to $63$. Remove the first $3$ and the last $3$ terms ($6\times7=42$): $63-42=21$.
 :::
 
 ## Examples

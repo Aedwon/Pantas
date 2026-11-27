@@ -66,9 +66,11 @@ The wrong line multiplied $2\times 3=6$. An exponent multiplies the base by itse
 :::
 
 :::check
-Evaluate $\sqrt{64}+3^2$.
+Evaluate $5\times\sqrt{64}-3^2$.
 :::answer
-The answer is $17$. Find the root ($\sqrt{64}=8$) and the power ($3^2=9$) first, then add $8+9=17$.
+The answer is $31$. Find the root ($\sqrt{64}=8$) and the power ($3^2=9$) first. Multiply next ($5\times 8=40$), then subtract ($40-9=31$).
+
+**Check:** Work backward: $31+9=40$, and $40\div 5=8=\sqrt{64}$.
 :::
 
 ### Left to Right for Tied Operations

@@ -34,9 +34,11 @@ $$0.10\times 10=1$$
 There is $1$ liter of pure vinegar.
 
 :::check
-How many liters of pure sugar are in $40$ liters of a $15\%$ sugar solution?
+A $45$-liter sugar solution holds $18$ liters of pure sugar. What is its concentration, as a percent?
 :::answer
-The answer is $6$ liters. Multiply $0.15\times 40=6$.
+The answer is $40\%$. Divide the pure amount by the total: $18\div 45=0.40$.
+
+**Check:** $0.40\times 45=18$ liters of pure sugar.
 :::
 
 ### Balancing Pure Amounts When Mixing
@@ -76,9 +78,11 @@ When adding pure water to dilute $12$ liters of a $25\%$ solution to a $10\%$ so
 :::
 
 :::check
-A shop has $4$ liters of a $50\%$ solution and adds $x$ liters of a $10\%$ solution to make a $20\%$ solution. What expression gives the pure amount in the final mixture?
+A shop has $4$ liters of a $50\%$ solution and adds $x$ liters of a $10\%$ solution to make a $20\%$ solution. How many liters of the $10\%$ solution must be added?
 :::answer
-The answer is $0.20(4+x)$. Multiply the final concentration $0.20$ by the combined volume $4+x$.
+The answer is $12$ liters. Set the starting pure amounts equal to the final pure amount: $0.50(4)+0.10x=0.20(4+x)$. Then $2+0.10x=0.80+0.20x$, so $1.2=0.10x$ and $x=12$.
+
+**Check:** Pure amount $2+0.10(12)=3.2$ liters, total volume $4+12=16$ liters, and $\dfrac{3.2}{16}=0.20$.
 :::
 
 ## Examples

@@ -97,9 +97,11 @@ Going from $0$ to $12$ is not $100\%$. Doubling a nonzero number gives $100\%$ g
 :::
 
 :::check
-Weekly sales go from $0$ units to $15$ units. Can you compute an ordinary percentage increase?
+Weekly sales fall from $5$ units to $0$ units. What is the percentage change?
 :::answer
-No, it is undefined. Because the starting value is $0$, dividing by $0$ is not allowed.
+The answer is $-100\%$, a $100\%$ decrease. The change is $0-5=-5$, and $\dfrac{-5}{5}=-1$, so the percentage change is $-1\times100\%=-100\%$.
+
+**Check:** Take $100\%$ of the starting $5$ away: $5-5=0$, the new value.
 :::
 
 ## Examples

@@ -52,9 +52,11 @@ Never average solo times. The faster worker can paint the wall in $3$ hours alon
 :::
 
 :::check
-Worker A can build a fence in $6$ hours, and Worker B can build the same fence in $6$ hours. What is their combined rate, and how many hours will they take together?
+Three workers can each build the same fence alone in $10$, $15$ and $30$ hours. What is their combined rate, and how many hours will they take together?
 :::answer
-The answer is $\dfrac{1}{3}$ fence per hour, and $3$ hours. Add $\dfrac{1}{6}+\dfrac{1}{6}=\dfrac{2}{6}=\dfrac{1}{3}$, then flip it: $1\div\dfrac{1}{3}=3$.
+The answer is $\dfrac{1}{5}$ fence per hour, and $5$ hours. Add $\dfrac{1}{10}+\dfrac{1}{15}+\dfrac{1}{30}=\dfrac{3}{30}+\dfrac{2}{30}+\dfrac{1}{30}=\dfrac{6}{30}=\dfrac{1}{5}$, then flip it: $1\div\dfrac{1}{5}=5$.
+
+**Check:** In $5$ hours they build $\dfrac{5}{10}+\dfrac{5}{15}+\dfrac{5}{30}=\dfrac{1}{2}+\dfrac{1}{3}+\dfrac{1}{6}=1$ fence.
 :::
 
 ### Finding a Missing Solo Time
@@ -88,9 +90,11 @@ Solo times cannot be subtracted directly. Turn both times into hourly rates firs
 :::
 
 :::check
-Two printers complete a job together in $2$ hours. Printer X alone takes $6$ hours. How many hours would Printer Y take alone?
+Two printers complete a job together in $4$ hours. Printer X prints $\dfrac{1}{6}$ of the job each hour. How many hours would Printer Y take alone?
 :::answer
-The answer is $3$ hours. Subtract rates: $\dfrac{1}{2}-\dfrac{1}{6}=\dfrac{3}{6}-\dfrac{1}{6}=\dfrac{1}{3}$, so Printer Y takes $3$ hours.
+The answer is $12$ hours. The shared rate is $\dfrac{1}{4}$, so Y's rate is $\dfrac{1}{4}-\dfrac{1}{6}=\dfrac{3}{12}-\dfrac{2}{12}=\dfrac{1}{12}$. Flip it: $1\div\dfrac{1}{12}=12$.
+
+**Check:** $\dfrac{1}{6}+\dfrac{1}{12}=\dfrac{3}{12}=\dfrac{1}{4}$, which is $4$ hours together.
 :::
 
 ## Examples

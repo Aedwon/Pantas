@@ -114,30 +114,24 @@ The digit is $7$.
 
 A shipping company packs exactly $6$ books per box. Which inventory count can be packed with no books left over?
 
-- A) $24,532$
-- B) $24,534$
-- C) $24,536$
-- D) $24,538$
+- A) $36,418$
+- B) $36,420$
+- C) $36,422$
+- D) $36,424$
 
 **Solution:**
 
 1. A number divisible by $6$ must pass the tests for $2$ and $3$. All four choices end in an even digit, so every choice passes the test for $2$.
-2. Add the digits of each choice to test $3$.
+2. Add the digits of each choice to test $3$. Choice A first.
 
-$$2+4+5+3+2=16$$
-
-$$2+4+5+3+4=18$$
-
-$$2+4+5+3+6=20$$
-
-$$2+4+5+3+8=22$$
+$$3+6+4+1+8=22$$
 
 :::try
-Finish the last step: pick the choice whose digit sum is divisible by $3$.
+Finish the last step: add the digits of B, C and D, then pick the choice that is divisible by $6$.
 :::answer
-The answer is B, $24,534$. Only $18$ is divisible by $3$ ($18\div3=6$).
+The answer is B, $36,420$. The digit sums are $15$, $17$ and $19$ for B, C and D. Only $15$ is divisible by $3$ ($15\div3=5$).
 
-**Check:** Divide $24,534\div6=4,089$ boxes with $0$ books left over. None of $16$, $20$, or $22$ divides evenly by $3$.
+**Check:** Divide $36,420\div6=6,070$ boxes with $0$ books left over. None of $22$, $17$, or $19$ divides evenly by $3$.
 :::
 
 ## Speed Tricks & Shortcuts

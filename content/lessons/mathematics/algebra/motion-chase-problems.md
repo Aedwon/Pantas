@@ -70,9 +70,11 @@ Check when the question starts the clock. "After the van starts" asks for $2$ ho
 :::
 
 :::check
-A cyclist rides at $15$ kph with a $10\text{ km}$ head start. A second cyclist chases along the same straight road at $20$ kph. How many hours will the second cyclist take to catch up?
+A cyclist rides at $14$ kph with an $8\text{ km}$ head start. A second cyclist chases along the same straight road at $18$ kph. How many kilometers does the second cyclist ride before catching up?
 :::answer
-The answer is $2$ hours. Subtract the speeds: $20-15=5$ kph. Divide the gap by the closing rate: $10\div 5=2$.
+The answer is $36\text{ km}$. The closing rate is $18-14=4$ kph, so the catch-up time is $8\div 4=2$ hours. The chaser rides $18\times 2=36$ km.
+
+**Check:** The first cyclist rides $14\times 2=28$ km, and $28+8=36$ km is where they meet.
 :::
 
 ## Examples

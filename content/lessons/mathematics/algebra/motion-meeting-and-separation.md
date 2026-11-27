@@ -41,9 +41,11 @@ The wrong line divided speed by distance. Always put distance on top: $\text{km}
 :::
 
 :::check
-A bus covers $120\text{ km}$ at a steady speed of $40\text{ kph}$. How many hours does the trip take?
+A bus travels at a steady speed of $40\text{ kph}$ for $3.5$ hours. How many kilometers does it cover?
 :::answer
-The answer is $3$ hours. Divide distance by speed: $t=\dfrac{120}{40}=3$.
+The answer is $140\text{ km}$. Multiply speed by time: $d=40\times 3.5=140$.
+
+**Check:** Divide back: $\dfrac{140}{40}=3.5$ hours.
 :::
 
 ### Adding Speeds When Moving Apart or Meeting

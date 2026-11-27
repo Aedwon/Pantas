@@ -43,9 +43,11 @@ Adding $0$ keeps $-17$ unchanged, so $0$ is the additive identity. Multiplying b
 :::
 
 :::check
-Find the value of $x$ that makes $(x+0)(1)=-9$ true.
+Find the value of $x$ that makes $(x+0)(1)+5=-4$ true.
 :::answer
-The answer is $-9$. Adding $0$ and multiplying by $1$ leave $-9$ unchanged.
+The answer is $-9$. Adding $0$ and multiplying by $1$ leave $x$ unchanged, so $x+5=-4$ and $x=-4-5=-9$.
+
+**Check:** $(-9+0)(1)+5=-9+5=-4$.
 :::
 
 ### Terms and Coefficients

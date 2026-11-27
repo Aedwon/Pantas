@@ -116,24 +116,24 @@ The answer is $\dfrac{1}{8}$.
 
 ### #2: Percent to Decimal and Fraction
 
-Express $35\%$ as a decimal and as a fraction in simplest form.
+Express $45\%$ as a decimal and as a fraction in simplest form.
 
 **Solution:**
 
-1. Divide $35$ by $100$ to get the decimal, moving the point $2$ places left.
+1. Divide $45$ by $100$ to get the decimal, moving the point $2$ places left.
 
-$$35\div 100=0.35$$
+$$45\div 100=0.45$$
 
-2. Write $35\%$ as a fraction over $100$.
+2. Write $45\%$ as a fraction over $100$.
 
-$$35\%=\dfrac{35}{100}$$
+$$45\%=\dfrac{45}{100}$$
 
 :::try
-Finish the last step: simplify $\dfrac{35}{100}$ to lowest terms.
+Finish the last step: simplify $\dfrac{45}{100}$ to lowest terms.
 :::answer
-The answer is $0.35$ and $\dfrac{7}{20}$. Divide both $35$ and $100$ by $5$ to get $\dfrac{7}{20}$.
+The answer is $0.45$ and $\dfrac{9}{20}$. Divide both $45$ and $100$ by $5$ to get $\dfrac{9}{20}$.
 
-**Check:** Multiply $\dfrac{7}{20}\times \dfrac{5}{5}=\dfrac{35}{100}=0.35=35\%$. Both answers match $35\%$.
+**Check:** Multiply $\dfrac{9}{20}\times \dfrac{5}{5}=\dfrac{45}{100}=0.45=45\%$. Both answers match $45\%$.
 :::
 
 ## Traps to Watch For

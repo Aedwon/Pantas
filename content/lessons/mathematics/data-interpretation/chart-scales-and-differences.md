@@ -87,9 +87,11 @@ When a question asks "how many more" or "decrease," subtract the two readings in
 :::
 
 :::check
-A bar chart reports applications in hundreds, with tick steps of $0.5$. Office A reaches $2$ ticks above $6$, and Office B reaches $1$ tick below $6$. How many more applications did Office A process than Office B?
+A bar chart reports applications in thousands, with tick steps of $2$. Office A reaches $4$ ticks above $10$, and Office B reaches $1$ tick above $10$. How many more applications did Office A process than Office B?
 :::answer
-The answer is $150$ applications. Office A is $6+2\times0.5=7$, Office B is $6-0.5=5.5$, and $(7-5.5)\times100=150$.
+The answer is $6,000$ applications. Office A is $10+4\times2=18$, Office B is $10+2=12$, and $(18-12)\times1,000=6,000$.
+
+**Check:** The bars are $4-1=3$ ticks apart, and $3\times2=6$ thousand.
 :::
 
 ## Examples

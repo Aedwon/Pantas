@@ -149,7 +149,7 @@ $$u=6$$
 $$t=9-6=3$$
 
 :::try
-Finish the last step: use $t=3$ and $u=6$ to find the original two-digit number.
+Finish the last step: use $u=6$ and $t=3$ to write the original two-digit number.
 :::answer
 The answer is $36$. Using $10t+u$, $10(3)+6=36$.
 

@@ -38,9 +38,11 @@ $$m=10$$
 Maya is $10$ years old now, and Ben is $10+4=14$ years old.
 
 :::check
-Liza is $3$ years older than Marco, and the sum of their ages is $21$. How old is Marco?
+Noel is twice as old as his cousin Dina, and the sum of their ages is $27$. How old is Noel?
 :::answer
-The answer is $9$ years old. Let $m$ be Marco's age, so $m+(m+3)=21$, which gives $2m+3=21$, $2m=18$, and $m=9$.
+The answer is $18$ years old. Let $d$ be Dina's age, so Noel is $2d$ and $d+2d=27$. Then $3d=27$ and $d=9$, so Noel is $2(9)=18$.
+
+**Check:** $9+18=27$, and $18$ is twice $9$.
 :::
 
 ### Shifting Ages Forward and Back
@@ -98,9 +100,11 @@ Match your final answer to the exact person and time in the question. Here $m$ s
 :::
 
 :::check
-Rico is $r=9$ years old now, and his uncle is $5r$. If a question asks for his uncle's age now, what is the answer?
+Rico is $r=9$ years old now, and his uncle is $5r$. How old was his uncle $5$ years ago?
 :::answer
-The answer is $45$ years old. Multiply $5(9)=45$.
+The answer is $40$ years old. The uncle is $5(9)=45$ now, so $5$ years ago he was $45-5=40$.
+
+**Check:** The age gap stays the same. Now it is $45-9=36$, and $5$ years ago it was $40-4=36$.
 :::
 
 ## Examples

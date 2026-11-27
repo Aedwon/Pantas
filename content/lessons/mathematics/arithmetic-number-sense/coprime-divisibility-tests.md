@@ -89,9 +89,11 @@ The ending $0$ often gives a smaller answer than $5$ or $8$. Check every valid e
 :::
 
 :::check
-If $21x4y$ is divisible by $45$ and $y=5$, what is $x$?
+If $5x4y$ is divisible by $45$, what are all the possible pairs $(x,y)$?
 :::answer
-The answer is $x=6$. The digit sum is $2+1+x+4+5=12+x$, and the only multiple of $9$ from $12$ to $21$ is $18$, so $x=6$.
+The answers are $(0,0)$, $(9,0)$ and $(4,5)$. By the rule for $5$, $y$ is $0$ or $5$. The digit sum is $9+x+y$. For $y=0$, $9+x$ must be a multiple of $9$, so $x=0$ or $x=9$. For $y=5$, $14+x$ must be $18$, so $x=4$.
+
+**Check:** $5,040\div45=112$, $5,940\div45=132$ and $5,445\div45=121$.
 :::
 
 ## Examples

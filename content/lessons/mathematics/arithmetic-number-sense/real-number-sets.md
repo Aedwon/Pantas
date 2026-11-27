@@ -77,9 +77,11 @@ Only decimals that never end and never repeat are irrational. A decimal that sto
 :::
 
 :::check
-Is $\sqrt{25}$ rational or irrational?
+Is $\sqrt{50}$ rational or irrational?
 :::answer
-The answer is rational. Because $25$ is a perfect square, $\sqrt{25}=5=\dfrac{5}{1}$.
+The answer is irrational. The number $50$ is not a perfect square, and $7^2=49$ and $8^2=64$ are the nearest squares. So $\sqrt{50}$ does not stop or repeat as a decimal.
+
+**Check:** $\sqrt{50}$ lies between $7$ and $8$, so it is not an integer.
 :::
 
 ## Mnemonics & Memory Aids
@@ -97,7 +99,7 @@ Irrational numbers sit inside Real numbers beside Rational numbers, never inside
 Which statement is false?
 
 A) Every integer is rational.
-B) $\sqrt{49}$ is irrational.
+B) $\sqrt{12}\times\sqrt{3}$ is irrational.
 C) Every irrational number is real.
 D) A repeating nonterminating decimal is rational.
 
@@ -109,9 +111,9 @@ D) A repeating nonterminating decimal is rational.
 :::try
 Finish the last step: check statements B and D, and state which choice is the false statement.
 :::answer
-The answer is B. Since $49$ is a perfect square, $\sqrt{49}=7$ is rational, so B is false. Statement D is true because a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction.
+The answer is B. Multiply under one root: $\sqrt{12}\times\sqrt{3}=\sqrt{36}=6$, which is rational, so B is false. Statement D is true because a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction.
 
-**Check:** Re-read B: $\sqrt{49}=7=\dfrac{7}{1}$ is an integer fraction, so it cannot be irrational.
+**Check:** Re-read B: $6=\dfrac{6}{1}$ is an integer fraction, so it cannot be irrational.
 :::
 
 ## Traps to Watch For
