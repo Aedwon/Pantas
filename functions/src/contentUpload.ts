@@ -424,7 +424,14 @@ export async function writeContent(db: Firestore, items: ContentItem[], pros: Pr
     const listed = digest([...BANK_KINDS].flatMap((kind) =>
       [...(stored.get(kind) ?? new Map<string, string>())].map(([id, version]) => `${kind}/${id}:${version}`)).sort());
     if (!marker.exists || marker.get('bankVersion') !== listed) {
-      for (const kind of BANK_KINDS) if (!indexStale.has(kind)) await scan(kind);
+      for (const kind of BANK_KINDS) {
+        if (indexStale.has(kind)) continue;
+        const list = stored.get(kind) ?? new Map<string, string>();
+        await scan(kind);
+        const found = stored.get(kind) ?? new Map<string, string>();
+        // A list the scan confirms stays as it is (no rewrite); only a list that differs is replaced.
+        if (found.size === list.size && [...found].every(([id, version]) => list.get(id) === version)) indexStale.delete(kind);
+      }
     }
   }
   const existing = new Map<string, string>();
