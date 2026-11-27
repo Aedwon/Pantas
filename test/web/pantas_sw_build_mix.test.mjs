@@ -61,6 +61,11 @@ function world() {
   const w = {
     build: null, offline: false, stores: new Map(), controller: null, requests: [], tamper: {}, events: [],
     dropAfter: null, windows: 1, extraHeaders: {}, chromium: true, cacheModes: {},
+    // Each open window is a client with an id; a reload gives every window a new one (a new document).
+    // `clientIds` names the windows exactly when a test needs one tab to stay while another goes.
+    generation: 1, clientIds: null,
+    // What the edge answers at an address that is not in the deployed build (a root file of an older build).
+    edge: {},
   };
   const strip2 = (url) => url.split('?')[0];
   w.caches = {
@@ -93,6 +98,7 @@ function world() {
     if (w.offline) throw new TypeError('offline');
     if (w.dropAfter !== null && w.requests.length > w.dropAfter) throw new TypeError('connection lost');
     const path = strip2(url).replace(ORIGIN, '');
+    if (path in w.edge) return basic(w.edge[path], path);
     if (!w.build) return new Response('', {status: 404});
     const served = builds[w.build].served;
     if (!(path in served) || path === 'pantas_sw.js') return new Response('', {status: 404});
@@ -120,7 +126,7 @@ function worker(w, source, version) {
       clients: {
         claim: async () => w.events.push({event: 'claim', version}),
         get: async () => undefined,
-        matchAll: async () => Array.from({length: w.windows}, () => ({})),
+        matchAll: async () => (w.clientIds ?? Array.from({length: w.windows}, (_, i) => `w${w.generation}.${i}`)).map((id) => ({id})),
       },
     },
     caches: w.caches,
@@ -314,7 +320,7 @@ test('Dart files fetched after a newer deploy are not stored in the older build 
 test('a stamped build serves every file a page loads from its own folder, none from the root', () => {
   const {served} = build('B');
   const root = Object.keys(served).filter((path) => path && !path.includes('/'));
-  assert.deepEqual(root.sort(), ['drift_worker.js', 'favicon.png', 'index.html', 'manifest.json', 'og-image.png', 'pantas_sw.js', 'version.json', 'README.md', 'flutter_service_worker.js'].sort());
+  assert.deepEqual(root.sort(), ['.last_build_id', 'drift_worker.js', 'favicon.png', 'index.html', 'manifest.json', 'og-image.png', 'pantas_sw.js', 'version.json', 'README.md', 'flutter_service_worker.js'].sort());
   const page = served[''];
   for (const [, path] of page.matchAll(/src="([^"]+)"/g)) assert.ok(path.startsWith(folderOf('B')), path);
 });
@@ -728,16 +734,20 @@ test('item 2: any b/<id>/ path is served from whichever build cache holds it', a
   assert.equal((await get(w, 'b/other-123456789abc/main.dart.js')).id, 'miss');
 });
 
-test('item 3: installs prune at their end and keep only the new build and the one in charge', async () => {
+test('item 3: installs prune at their end and keep the new build, the one in charge and the one that waited until now', async () => {
   const w = world();
   deploy(w, 'B');
   await takeOver(w, await install(w, 'B'));
   await pageLoad(w);
   // B stays in charge (a window is open). C, D and E install one after the other, none takes over.
+  // The worker that waited is the registration's waiting worker until the new one has installed
+  // (audit 3 item 2), so it is kept one install longer; the cache count stays bounded at three.
+  let waited = null;
   for (const id of ['C', 'D', 'E']) {
     deploy(w, id);
     await install(w, id);
-    assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf(id)].sort(), `after installing ${id}`);
+    assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf(id), ...(waited ? [cacheOf(waited)] : [])].sort(), `after installing ${id}`);
+    waited = id;
   }
 });
 
@@ -750,10 +760,11 @@ test('item 3: an activation cannot delete a successor\'s cache that is being fil
   assert.ok(w.stores.has(`pantas-build-D-${'0'.repeat(12)}`), 'D\'s cache survived C\'s activation');
 });
 
-test('item 3: the install that makes B the older build removes the oldest, and today\'s worker\'s cache goes with it', async () => {
+test('item 3: once no window runs the older build, the install that follows removes its cache, today\'s worker\'s included', async () => {
   const w = await deployedBUnderA({prod: true});
   await takeOver(w, await install(w, 'B')); // B in charge: A's cache is kept for tabs still on A
   assert.ok(w.stores.has('pantas-shell-A'));
+  w.generation++; // the A tab reloaded into B: no window runs A any more
   deploy(w, 'C');
   await install(w, 'C');
   assert.equal(w.stores.has('pantas-shell-A'), false, 'A\'s cache is pruned when C installs');
@@ -834,4 +845,124 @@ test('a page and files served from the cache carry the edge security headers of 
   const page = await w.controller.fetch('', {navigate: true});
   assert.match(page.headers.get('content-security-policy'), /frame-ancestors 'self'/);
   assert.equal(page.headers.get('x-content-type-options'), 'nosniff');
+});
+
+// ---- Audit 3, items 2 and 3 (E-210): what a worker may delete ----
+
+// Holds one request of an install open, so a test can run another worker's takeover in the middle.
+function holdRequest(w, path) {
+  const network = w.network;
+  let release;
+  let reached;
+  const gate = new Promise((resolve) => (release = resolve));
+  const hit = new Promise((resolve) => (reached = resolve));
+  w.network = async (request) => {
+    if (keyOf(request) === ORIGIN + path) {
+      reached();
+      await gate;
+    }
+    return network(request);
+  };
+  return {hit, release};
+}
+
+test('audit 3 item 2: C waiting, D installing, C takes over: C keeps its cache and navigation works online and offline', async () => {
+  const {w, c} = await waitingC();
+  deploy(w, 'D'); // the server now serves D
+  const hold = holdRequest(w, inFolder('D', 'sqlite3.wasm'));
+  const d = worker(w, workerOf(build('D')), 'D');
+  const installing = d.install();
+  await hold.hit;
+  // C's page asks C to take over while D is still installing. C accepts; its activate event has not run yet.
+  assert.deepEqual(await c.message({type: 'pantas-take-over'}), {ok: true});
+  hold.release();
+  await installing; // D's install ends and prunes
+  await takeOver(w, c); // C's activate event runs
+  assert.ok(w.stores.has(cacheOf('C')), 'D\'s install deleted the cache of the worker taking over');
+  const online = await get(w, '', {navigate: true});
+  assert.equal(online.id, 'C', 'online, the page is C\'s even though the server serves D');
+  assert.deepEqual((await offlineSet(w)).builds, ['C']);
+  assert.deepEqual((await offlineSet(w)).misses, []);
+});
+
+test('audit 3 item 2: an install never deletes the cache of the worker that is waiting', async () => {
+  const {w} = await waitingC();
+  deploy(w, 'D');
+  await install(w, 'D');
+  assert.ok(w.stores.has(cacheOf('C')), 'C is the registration\'s waiting worker while D finishes installing');
+  assert.ok(w.stores.has(cacheOf('B')) && w.stores.has(cacheOf('D')));
+});
+
+test('audit 3 item 2: an install never deletes the cache of a build another install is still filling', async () => {
+  const {w} = await waitingC();
+  deploy(w, 'D');
+  // Hold D's write of one file: its cache is half filled while a newer install runs.
+  const open = w.caches.open;
+  let reached;
+  let release;
+  const hit = new Promise((resolve) => (reached = resolve));
+  const gate = new Promise((resolve) => (release = resolve));
+  w.caches.open = async (name) => {
+    const cache = await open(name);
+    if (name !== cacheOf('D')) return cache;
+    return {
+      ...cache,
+      put: async (request, response) => {
+        if (keyOf(request).endsWith('sqlite3.wasm')) {
+          reached();
+          await gate;
+        }
+        return cache.put(request, response);
+      },
+    };
+  };
+  const installing = worker(w, workerOf(build('D')), 'D').install();
+  await hit;
+  deploy(w, 'E');
+  await install(w, 'E'); // a newer install ends and prunes while D still fills its cache
+  assert.ok(w.stores.has(cacheOf('D')), 'D\'s half-filled cache was deleted by another install');
+  release();
+  await installing;
+  assert.ok(w.stores.get(cacheOf('D')).size > 1);
+});
+
+test('audit 3 item 3: an identical B registering again keeps A\'s cache while an A window is open, and A\'s page still gets A\'s parts', async () => {
+  const w = await deployedBUnderA({prod: true});
+  await takeOver(w, await install(w, 'B'));
+  await install(w, 'B'); // the same stamped build registers again
+  assert.ok(w.stores.has('pantas-shell-A'), 'A\'s cache is deleted while an A window is open');
+  w.offline = true;
+  const answer = await get(w, 'main.dart.js_1.part.js');
+  assert.equal(answer.id, 'A', 'A\'s page asks for a part: A\'s cache answers');
+});
+
+test('audit 3 item 3: when the window that ran A is gone, the next install removes A\'s cache', async () => {
+  const w = await deployedBUnderA({prod: true});
+  await takeOver(w, await install(w, 'B'));
+  w.generation++; // the A tab closed or reloaded into B
+  await install(w, 'B');
+  assert.equal(w.stores.has('pantas-shell-A'), false);
+});
+
+test('audit 3 item 3: a root part A\'s cache lacks gets the secured 503 even when the edge answers it with another build\'s bytes', async () => {
+  const w = await deployedBUnderA({prod: true});
+  await takeOver(w, await install(w, 'B'));
+  await install(w, 'B');
+  w.edge['main.dart.js_9.part.js'] = build('B').served[inFolder('B', 'main.dart.js_1.part.js')];
+  const answer = await w.controller.fetch('main.dart.js_9.part.js');
+  assert.equal(answer.status, 503, 'another build\'s bytes were served to an A page');
+  assert.equal(answer.headers.get('cache-control'), 'no-store');
+  // Online or offline, the same.
+  w.offline = true;
+  assert.equal((await w.controller.fetch('main.dart.js_9.part.js')).status, 503);
+});
+
+test('audit 3 item 3: with A\'s cache gone, a root part is still never another build\'s bytes', async () => {
+  const w = await deployedBUnderA({prod: true});
+  await takeOver(w, await install(w, 'B'));
+  w.generation++;
+  await install(w, 'B');
+  assert.equal(w.stores.has('pantas-shell-A'), false);
+  w.edge['main.dart.js_1.part.js'] = build('B').served[inFolder('B', 'main.dart.js_1.part.js')];
+  assert.equal((await w.controller.fetch('main.dart.js_1.part.js')).status, 503);
 });
