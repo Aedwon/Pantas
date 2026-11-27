@@ -126,6 +126,16 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### A content upload left prod's exam summaries invalid for 5 minutes (Nov 28)
+
+- Words: none from Aedwon; found by the CSE release lead r10 during the Math pilot prod upload (1:17 AM Manila).
+- Wrong: `upload_content.mjs` marks the bank invalid, writes the changed lessons, then writes every exam summary in batches of up to 400. On a slow link the summary batch hit Firestore's 60 s deadline twice, so the run exited 1 after the lessons were live and the marker stayed invalid; every content call then read the whole bank (the costly cold path of the Nov 21 entry) until the third run passed at 17:22 UTC. It had happened once on staging the same night (Math pilot staging upload) and was retried then without a rule.
+- Why it got through: the tool's own design is safe (an invalid marker makes readers scan, not break), so a failed run looks harmless; the upload steps in briefs check the re-plan's update count, not its "exam summaries" field, and nothing says to rerun at once.
+- Fix:
+  1. Required step (every content upload, staging and prod, now): read the upload's exit code; if it is not 0, rerun the same upload at once until it exits 0. The re-plan after it must say both "update":0 and "exam summaries: unchanged"; anything else is not done.
+  2. Tool fix proposed to the manager (needs his yes; changes the shared upload tool, about 30 min): write summary documents in small batches and retry a batch that times out, with a test that fails on the current single 400-document batch.
+  Cost of this instance: prod 17,914 reads for the quota day after it (9,668 before; most of the rise is the uploads' own plans), no errors.
+
 ### Walk-through lesson spacing and nesting found by Aedwon on staging (Nov 27)
 
 - His words (about 10:20 PM Manila Nov 27, reading the Math pilot lessons on staging): "card in card, isnt this against UI rules? or the design system, not sure but i think this could be better-designed" / "spacing. i think things after the WRONG example need just a bit more space" / "same with these equations also, juuust a bit more space after it so that they look visually equal to its above spacing". Also found: sign out lands on onboarding, not the first page.
