@@ -66,9 +66,9 @@ Counting across both tracks treats position number as dot count. Count only with
 :::
 
 :::check
-A series shows an up triangle, a circle with $1$ dot, a right triangle, a circle with $2$ dots, and a down triangle. What belongs in the sixth position?
+A series shows a left arrow, a circle with $2$ dots, an up arrow, a circle with $4$ dots, and a right arrow. What belongs in the sixth position?
 :::answer
-The answer is a **circle with $3$ dots**. Position $6$ is even, and the even positions ($2, 4, 6$) are circles rising by $1$ dot each time.
+The answer is a **circle with $6$ dots**. Position $6$ is even, and the even positions ($2, 4, 6$) are circles rising by $2$ dots each time.
 :::
 
 ## Examples

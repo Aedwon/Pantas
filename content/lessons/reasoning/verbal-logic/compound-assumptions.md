@@ -63,9 +63,9 @@ Keeping *or* leaves one option true (such as in-person delivery). An *or* claim 
 :::
 
 :::check
-"The water came from the barrel or cistern (or both)." If false, what holds?
+"The clinic is open on Saturday or on Sunday or on a holiday." If this is false, what holds?
 :::answer
-The answer is **The sample came from neither source.** Ruling out one source or ruling out a mix still leaves *or* true.
+The answer is **The clinic is closed on Saturday, on Sunday, and on holidays.** An *or* claim fails only when every part fails, so closing on one or two of those days still leaves it true.
 :::
 
 ### Negating Combined Parts Inside And/Or
@@ -121,8 +121,10 @@ A claim says a footbridge crosses the creek and meets the school path. It crosse
 
 A buoy report assumes, "The radio transmitter is active, and at least one of the two depth sensors is calibrated." Which is the exact negation?
 
-(A) The radio transmitter is off, and both depth sensors are uncalibrated.
-(B) The radio transmitter is off, or at least one depth sensor is uncalibrated.
+(A) The radio transmitter is off, and neither depth sensor is calibrated.
+
+(B) The radio transmitter is off, or neither depth sensor is uncalibrated.
+
 (C) The radio transmitter is off, or neither depth sensor is calibrated.
 
 **Solution:**
@@ -133,9 +135,9 @@ A buoy report assumes, "The radio transmitter is active, and at least one of the
 :::try
 Finish the last step: negate "at least one of the two depth sensors is calibrated" and choose (B) or (C).
 :::answer
-The answer is **(C) The radio transmitter is off, or neither depth sensor is calibrated.** "At least one calibrated" becomes false only when zero sensors are calibrated (*neither*), while (B) leaves the other sensor calibrated.
+The answer is **(C) The radio transmitter is off, or neither depth sensor is calibrated.** "At least one calibrated" becomes false only when zero sensors are calibrated (*neither is calibrated*), while (B) says both are calibrated.
 
-**Check:** With an active transmitter, one calibrated sensor, and one uncalibrated sensor, the original holds and (C) is false, whereas (B) would wrongly mark it false.
+**Check:** With an active transmitter and no calibrated sensor, the original fails, so its negation must hold: (C) holds, while (B) is false.
 :::
 
 ## Speed Tricks & Shortcuts

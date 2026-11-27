@@ -32,9 +32,9 @@ Passing one required exam finishes only that single requirement, not unmentioned
 :::
 
 :::check
-"If a typhoon signal is raised, classes are suspended. Classes were suspended." Must a typhoon signal have been raised?
+"If the fire alarm sounds, everyone leaves the building. The fire alarm sounded at $10$ a.m." Must everyone have left the building?
 :::answer
-The answer is **no (undetermined)**. The rule runs from the signal to suspension, never backward; a flood or power outage could suspend classes too.
+The answer is **yes**. The rule runs from the alarm to leaving, and the alarm did sound, so the result follows.
 :::
 
 ### Reading "All" Without Reversing It
@@ -121,8 +121,10 @@ Statement: "All candidates who score above $80\%$ pass the exam. Juan scored $85
 
 Every specimen in an exhibit tray is cataloged. Some specimens in the tray are shells. What must also be true?
 
-(A) Every cataloged shell is in the exhibit tray.
+(A) Some cataloged shells are not in the exhibit tray.
+
 (B) At least one specimen in the tray is not a shell.
+
 (C) Some cataloged specimens are shells.
 
 **Solution:**
@@ -134,9 +136,9 @@ Every specimen in an exhibit tray is cataloged. Some specimens in the tray are s
 :::try
 Finish the last step: compare (A) and (C) against the two premises.
 :::answer
-The answer is **(C) Some cataloged specimens are shells.** Since that shell sits in the tray, Premise $1$ forces it to be cataloged too, giving at least one cataloged shell. Choice (A) wrongly sweeps in shells outside the tray.
+The answer is **(C) Some cataloged specimens are shells.** Since that shell sits in the tray, Premise $1$ forces it to be cataloged too, giving at least one cataloged shell. Choice (A) names shells outside the tray, which the premises never mention.
 
-**Check:** Picture $1$ cataloged shell in the tray and $1$ cataloged shell in storage: both premises hold, (A) and (B) fail, and (C) holds.
+**Check:** Picture a tray holding only cataloged shells, with nothing cataloged elsewhere: both premises hold, (A) and (B) fail, and (C) holds.
 :::
 
 ## Speed Tricks & Shortcuts

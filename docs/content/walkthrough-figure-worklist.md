@@ -426,3 +426,6 @@ Markers hidden by changing `ILLUSTRATION:` to `FIGURE WANTED:` so the content ex
 
 3. `content/lessons/language-proficiency/language-application/past-time-checks.md` (`## Core Concept` -> `### Order of Two Past Events`):
    `<!-- FIGURE WANTED: timeline with two points: earlier X labeled "had already resolved (past perfect)" to the left of later X labeled "finished inspecting (simple past)" -->`
+
+4. `content/lessons/reasoning/spatial-abstract-reasoning/figure-turns-and-positions.md` (`## Examples` -> `### #3: Growing Turns`), added by the lead Nov 27: the drawn figure `04-arrows-pointing-up-upper-right.svg` (removed on this branch) showed the fourth arrow lower-left, which makes turns of 45, 90 and 90 degrees and fits no rule; the live lesson's text claimed 45, 90 and 135. Redraw with the fourth arrow pointing left and choices down, right, up, upper-left:
+   `<!-- FIGURE WANTED: arrows pointing up, upper-right, lower-right, and left in four equal frames, followed by a blank; choices arrows pointing down, right, up, and upper-left; do not label turn angles (redraw of 04-arrows-pointing-up-upper-right.svg, whose fourth arrow points lower-left and fits no turn rule) -->`

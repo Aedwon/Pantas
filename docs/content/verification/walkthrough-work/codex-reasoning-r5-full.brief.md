@@ -22,6 +22,8 @@ Standard to audit against (all of these):
 4. Every `:::pair` Wrong line shows the mistake of a non-correct choice cited for that pair in `content/walkthrough-trap-evidence.json`, from a question whose `lesson:` is that lesson.
 5. Grade 5 English in lesson prose, American spelling, no em or en dashes, `\dfrac` not top-level `\frac`.
 
+Wordiness (manager ruling, Nov 27): pre-check fixes could add up to 20 pre-tap words per lesson, only inside rewritten Quick Checks and tries. Flag any wordiness as a Major: added narration, a line a reader would not miss, or a check or try longer than it needs to be.
+
 Format: `Severity | file:line | problem | fix`, Blocker (false rule or answer, unsolvable or ambiguous item, answer given away, broken structure), Major (missing connection, citation mismatch, misleading wording, wordiness, reused instance), Minor (style).
 
 End `rs-r5.md` with `REASONING VERDICT: PASS` or `REASONING VERDICT: FAIL (N Blockers, M Majors, K Minors)`, then `STAGE-DONE`. PASS means zero Blockers and zero Majors.

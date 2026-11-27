@@ -34,9 +34,9 @@ Time order never proves cause. Report sequence ("after") instead of inventing "b
 :::
 
 :::check
-Vendors moved stalls to a covered court on the same morning the city closed part of the road, with no reason recorded. Is "The vendors moved because of the closure" supported?
+A bakery added a delivery service in June. Its owner wrote in the yearly report, "We started delivery because customers kept asking for it." Is "The bakery started delivery because of customer requests" supported?
 :::answer
-The answer is **no**. Same-morning timing supports only "on the morning of the closure," leaving the reason open.
+The answer is **yes**. The owner states the reason directly, so the claim does not rest on timing or a guess.
 :::
 
 ### Checking Whether Two Changes Happened at Once
@@ -122,9 +122,11 @@ Carlo approved a revised schedule after reading staff feedback. No reason is giv
 
 Across observed school days, rainier days had lower attendance than drier days. No causes were tested. Which conclusion is best supported?
 
-(A) Rain is the only reason pupils miss class.
+(A) Rain explains why pupils miss class.
+
 (B) Giving every pupil a raincoat always ends absences.
-(C) Rainier days are associated with lower attendance.
+
+(C) Attendance was lower on rainier days.
 
 **Solution:**
 
@@ -134,9 +136,9 @@ Across observed school days, rainier days had lower attendance than drier days. 
 :::try
 Finish the last step: compare (A) and (C) against the data.
 :::answer
-The answer is **(C) Rainier days are associated with lower attendance.** Without causal tests or ruling out other factors, the data show an association rather than proving in (A) that rain is the sole cause of every absence.
+The answer is **(C) Attendance was lower on rainier days.** Without causal tests or ruling out other factors, the data show two patterns going together, not the cause that (A) claims.
 
-**Check:** "Associated with" matches "went together in the records" without claiming an untested cause.
+**Check:** "Lower on rainier days" matches "went together in the records" without claiming an untested cause.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -100,9 +100,9 @@ A cube has star top, circle bottom, triangle front, square right, cross back, do
 
 **Solution:**
 
-1. Vertical axis keeps **star** on top.
-2. Front (**triangle**) moves to right.
-3. Left (**dot**) moves to front.
+1. Front (**triangle**) moves to right.
+2. Left (**dot**) moves to front.
+3. Vertical axis keeps **star** on top.
 
 :::try
 Finish the last step: list the clockwise order of the three faces at the top-front-right corner (viewed from outside), starting from the top face.

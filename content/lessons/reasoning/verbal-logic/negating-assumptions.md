@@ -69,7 +69,7 @@ A treasurer assumes, "At least one receipt in the folder lacks a signature." Whi
 The answer is **Every receipt in the folder is signed.** Zero unsigned receipts makes "at least one lacks a signature" false.
 :::
 
-### Keeping the Same Group and Condition
+### Negating with Named Groups
 
 Keep the starting group and property fixed. Never swap sides.
 
@@ -82,13 +82,19 @@ Negate: "No sample rejected at intake was listed as accepted in the final log."
 :::pair #flip-wrong-group
 Right: the negation of "No sample rejected at intake was listed as accepted" is **A rejected sample was listed as accepted.**
 Wrong: A sample accepted at intake was listed as rejected in the final log.
-Swapping *rejected* and *accepted* checks the wrong starting group. Keep the exact group fixed when negating.
+Swapping *rejected* and *accepted* checks the wrong starting group.
 :::
 
 :::check
-Why is "No night guard has a key" not the negation of "No day guard has a key"?
+Which is the negation of "No Grade 6 pupil has a library card"?
+
+(A) At least one Grade 5 pupil has a library card.
+
+(B) Every Grade 6 pupil has a library card.
+
+(C) At least one Grade 6 pupil has a library card.
 :::answer
-The answer is **It switches the group from day guards to night guards.** A negation must test the exact same group.
+The answer is **(C)**. *No* negates to *at least one* for the same group. (A) switches to Grade 5, and (B) goes too far.
 :::
 
 ## Examples
@@ -132,19 +138,21 @@ A team assumes, "Some evening-shift staff hold a first-aid certificate." Which f
 A records officer assumes every form returned by a class adviser contained at least one parent signature. Which finding is the exact logical negation of that assumption (just enough to make it false)?
 
 (A) A parent left some returned forms unsigned even though another parent signed each one.
-(B) No form returned by any class adviser contained a parent signature.
+
+(B) An adviser returned a form with only one parent signature.
+
 (C) An adviser returned a form with no parent signature.
 
 **Solution:**
 
 1. Outer quantifier: *every* form returned by a class adviser.
-2. *Every* fails when one such form fails.
+2. Ask what one finding would make that *every* claim false.
 3. Drop (A): another parent still signed each form.
 
 :::try
 Finish the last step: compare (B) and (C) to pick the exact negation.
 :::answer
-The answer is **(C) An adviser returned a form with no parent signature.** Negating "at least one signature" on one returned form gives zero parent signatures on that form. Choice (B) wrongly demands every returned form fail (and only disproves the assumption when at least one form was returned; with zero returned forms, both (B) and the assumption hold vacuously).
+The answer is **(C) An adviser returned a form with no parent signature.** Negating "at least one signature" on one returned form gives zero parent signatures on that form. Choice (B) shows a form with one signature, which still meets "at least one."
 
 **Check:** One form from the named group ("returned by a class adviser") with zero parent signatures breaks the *every* rule.
 :::

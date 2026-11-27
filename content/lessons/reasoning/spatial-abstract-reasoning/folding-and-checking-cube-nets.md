@@ -56,7 +56,7 @@ A staircase net steps down from A to B, right to C, down to D, right to E, and d
 The answer is **D**. B folds down to front, C turns to right, and D folds from C onto the bottom across from A.
 :::
 
-### Rejecting Nets That Overlap
+### Testing Nets with Six Squares
 
 Six connected squares do not guarantee a cube net. Every square must hit a different face: top, bottom, front, back, left, right. Two squares on one face fail.
 
@@ -74,9 +74,9 @@ Matching the $6$ faces of a cube is not enough. Fold every square to verify that
 :::
 
 :::check
-A row of $4$ squares A, B, C, D has E attached above A and F attached above C. Does it fold into a cube?
+A row of $4$ squares A, B, C, D has E attached above B and F attached below C. Does it fold into a cube?
 :::answer
-The answer is **no**. A through D wrap around the four sides, while E and F both fold onto the top and overlap.
+The answer is **yes**. A through D wrap around the four sides, E folds onto the top, and F folds onto the bottom, so all six faces differ.
 :::
 
 ## Examples

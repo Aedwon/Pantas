@@ -71,9 +71,9 @@ A corner dot keeps symmetry along the diagonal through that corner and the cente
 :::
 
 :::check
-Four figures are shown: a rectangle, an isosceles triangle, a regular hexagon, and a scalene triangle with three unequal sides. Which figure has no reflection axis?
+Four figures are shown: a rectangle with two pairs of equal sides, an isosceles triangle with two equal sides, a regular hexagon with six equal sides, and a triangle with no equal sides. Which figure has no reflection axis?
 :::answer
-The answer is the **scalene triangle**. With all three sides unequal, no fold line makes matching halves.
+The answer is the **triangle with no equal sides**. With all three sides unequal, no fold line makes matching halves.
 :::
 
 ## Examples

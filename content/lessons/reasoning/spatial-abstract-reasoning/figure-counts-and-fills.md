@@ -83,9 +83,9 @@ The first three figures grow toward full, which hides the reset. Check figure $4
 :::
 
 :::check
-A series of triangles repeats the fill cycle white, gray, black, white, gray, ______. What fill belongs in the sixth triangle?
+A series of triangles is filled white, gray, gray, black, white, gray, gray, ______. What fill belongs in the eighth triangle?
 :::answer
-The answer is **black**. The three-state cycle is white, gray, black, so black follows gray.
+The answer is **black**. The group white, gray, gray, black repeats, and the eighth triangle sits in the slot where the first group has black.
 :::
 
 ## Examples

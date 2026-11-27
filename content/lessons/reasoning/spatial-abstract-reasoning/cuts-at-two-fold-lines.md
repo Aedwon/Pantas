@@ -34,9 +34,9 @@ Four layers make $4$ separate holes only when the cut touches no crease. Check w
 :::
 
 :::check
-A square is folded once vertically, and a semicircle is cut with its flat edge right on the vertical fold. How many openings appear when opened, and what shape is it?
+A square is folded once vertically, and a triangle is cut with one whole side right on the vertical fold. How many openings appear when opened, and what shape is it?
 :::answer
-The answer is **one circular opening**. Both halves meet along their flat edges on the fold to form one circle.
+The answer is **one four-sided opening (a kite)**. The triangle and its mirror copy meet along that shared side on the fold.
 :::
 
 ### Cuts on One Fold Line in a Multi-Fold Packet
@@ -64,9 +64,9 @@ Touching one crease joins pairs across that fold, reducing $8$ separate holes to
 :::
 
 :::check
-A square is folded vertically, then horizontally, then vertically again. A small notch sits only on the horizontal crease, away from both vertical creases. How many connected openings appear when fully opened?
+A square is folded vertically, then horizontally, then vertically again. A small quarter-circle is cut at the packet corner where the horizontal crease meets the last vertical crease, away from the outer edges. How many connected openings appear when fully opened?
 :::answer
-The answer is **four connected openings**. Opening the untouched last vertical fold makes $2$ spots on the horizontal crease, opening the touched horizontal fold joins each into $2$ openings, and opening the first vertical fold doubles them to $4$.
+The answer is **two connected openings**. The $8$ layers meet in groups of $4$ at the corner where the two creases cross. Each group joins into $1$ circle, and $8 \div 4 = 2$.
 :::
 
 ## Examples

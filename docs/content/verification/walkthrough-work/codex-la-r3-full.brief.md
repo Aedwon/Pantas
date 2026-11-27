@@ -24,6 +24,8 @@ Standard to audit against (all of these):
 5. Filipino lessons: simple Filipino, no Taglish, a short English meaning gloss for a hard grammar term at its first use in teaching prose only (Aedwon's Oct 4 decision; not in headings, stems, example sentences, Right/Wrong lines or checklists; no cognate-only glosses such as aspekto (aspect)).
 6. Grade 5 English in lesson prose, American spelling, no em or en dashes.
 
+Wordiness (manager ruling, Nov 27): pre-check fixes could add up to 20 pre-tap words per lesson, only inside rewritten Quick Checks and tries. Flag any wordiness as a Major: added narration, a line a reader would not miss, or a check or try longer than it needs to be.
+
 Format: `Severity | file:line | problem | fix`, Blocker (false rule or answer, answer given away, broken structure), Major (missing connection, citation mismatch, misleading wording, wordiness, reused instance, text that needs a hidden figure), Minor (style).
 First list each Fable round 2 finding that is still open, one line each (skip closed ones).
 

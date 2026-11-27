@@ -32,9 +32,9 @@ Taking a side can still be fair when backed by facts. Bias appears in unsupporte
 :::
 
 :::check
-A school paper calls the Grade $10$ debaters "confident speakers" and the equally trained Grade $9$ debaters "loud show-offs." What shows bias?
+A newsletter says, "The new canteen manager is a hero, and the old manager was a clueless disaster." It gives no sales or complaint records. What shows bias?
 :::answer
-The answer is **Similar groups are described in unequal terms.** Praising one team while mocking an equally trained team favors Grade $10$ unfairly.
+The answer is **It praises one manager and insults the other with no evidence.** Name-calling without records favors the new manager unfairly.
 :::
 
 ### One-Sided Evidence and One-Sided Sources
@@ -55,9 +55,9 @@ Comparing records can support a fair choice. Bias comes from showing only wins f
 :::
 
 :::check
-A newsletter claims to share what residents think about a new bus route. It interviews only residents of the street that asked for it and quotes them accurately. What creates the bias?
+A report on a proposed market fee quotes three vendors and three shoppers. The group that wants the fee dropped chose all six speakers, and every quote is accurate. What creates the bias?
 :::answer
-The answer is **The interviews favored one viewpoint.** Accurate quotes cannot balance a newsletter that left out every other resident.
+The answer is **One side chose the speakers.** Equal numbers and accurate quotes cannot balance a list that only one side picked.
 :::
 
 ### Rewriting a Biased Phrase into Neutral Words
@@ -117,7 +117,9 @@ A report states, "Our favored supplier is clearly the only sensible choice." It 
 A barangay bulletin calls a curfew rule "a smart rule for decent families." Which revision best removes bias while keeping the subject?
 
 (A) A long-needed curfew rule for the barangay
-(B) A curfew rule that even its critics should accept
+
+(B) A proposed curfew rule for responsible families
+
 (C) A proposed curfew rule for families
 
 **Solution:**
@@ -128,7 +130,7 @@ A barangay bulletin calls a curfew rule "a smart rule for decent families." Whic
 :::try
 Finish the last step: compare (B) and (C) to choose the best revision.
 :::answer
-The answer is **(C) A proposed curfew rule for families.** Choice (B) still tells critics what to accept, whereas (C) states only what the rule is and whom it serves.
+The answer is **(C) A proposed curfew rule for families.** Choice (B) still praises some families as "responsible," whereas (C) states only what the rule is and whom it serves.
 
 **Check:** Both supporters and critics can agree on (C) as a factual description.
 :::

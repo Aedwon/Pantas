@@ -66,9 +66,9 @@ Stopping after $1$ fold reflects the punch across only that $1$ crease. Count vi
 :::
 
 :::check
-A square has $3$ complete half-folds ($8$ layers) and an interior punch through all $8$ layers away from every crease. If you open only the last fold and keep the other two closed, how many hole locations do you see?
+A rectangle has $5$ complete half-folds ($32$ layers) and an interior punch through all $32$ layers away from every crease. If you open only the last $3$ folds and keep the first two closed, how many hole locations do you see?
 :::answer
-The answer is **$2$ locations**. Opening only the last fold doubles the single punch once across that crease, while the other folds still hold $4$ layers together at each spot.
+The answer is **$8$ locations**. Each opened fold doubles the locations once ($1\to2\to4\to8$), while the two closed folds still hold $4$ layers together at each spot.
 :::
 
 ## Examples

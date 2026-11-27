@@ -80,9 +80,9 @@ Validity checks only the link from premises to conclusion. Soundness checks both
 :::
 
 :::check
-Evaluate: "All fish live in trees. A tuna is a fish. Therefore, a tuna lives in a tree." Is it valid? Is it sound?
+Evaluate: "Some students play chess. Some chess players are teachers. Therefore, some students are teachers." Assume both premises are true. Is it valid? Is it sound?
 :::answer
-The answer is **valid, unsound**. The circle link forces the conclusion, so it is valid, while the first premise is false in real life.
+The answer is **invalid, so unsound**. The two overlaps can sit apart: the chess players who are students need not be the ones who are teachers. A sound argument must be valid first.
 :::
 
 ## Examples

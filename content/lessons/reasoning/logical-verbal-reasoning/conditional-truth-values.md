@@ -38,9 +38,9 @@ It is tempting to mark $F \rightarrow F$ as false because both inputs are false.
 :::
 
 :::check
-If $P$ is true and $Q$ is true, evaluate $P \rightarrow Q$.
+A rule says "If a bus is full ($P$), the driver skips the stop ($Q$)." A bus is full and the driver stops anyway. Evaluate $P \rightarrow Q$ for this bus.
 :::answer
-The answer is **$T$** (true). Both parts are true, so $T \rightarrow T = T$ and the promise is kept.
+The answer is **$F$** (false). The bus is full ($P=T$) and the driver did not skip ($Q=F$), so the rule is broken.
 :::
 
 ### Swapping the Direction
@@ -59,9 +59,9 @@ The wrong answer swaps the two directions. Always look at the letter sitting rig
 :::
 
 :::check
-With $P$ false and $Q$ true, evaluate $P \rightarrow Q$ and $Q \rightarrow P$, in that order.
+With $P$ false and $Q$ true, evaluate $Q \rightarrow P$ and $P \rightarrow Q$, in that order.
 :::answer
-The answer is **$(T, F)$**. $P \rightarrow Q$ is $F \rightarrow T = T$, while $Q \rightarrow P$ is $T \rightarrow F = F$.
+The answer is **$(F, T)$**. $Q \rightarrow P$ is $T \rightarrow F = F$, while $P \rightarrow Q$ is $F \rightarrow T = T$.
 :::
 
 ## Examples

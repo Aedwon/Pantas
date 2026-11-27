@@ -33,9 +33,9 @@ Worker schedules are a premise backing the recommendation, not the claim being p
 :::
 
 :::check
-"The canteen should display ingredient lists. Some students skip dishes with unknown ingredients, and staff already keep written recipes." What is the conclusion?
+"Morning waits at the clinic are long, and afternoon slots stay empty. The clinic should offer afternoon bookings, since it already has staff on duty then." What is the conclusion?
 :::answer
-The answer is **The canteen should display ingredient lists.** The students' needs and the recipes are premises supporting that action.
+The answer is **The clinic should offer afternoon bookings.** The long waits, the empty slots, and the staff on duty are premises supporting that action.
 :::
 
 ### Testing Necessary Assumptions by Negation
@@ -112,8 +112,10 @@ Statement: "All employees who finish the training program will receive a promoti
 
 After Municipality Y began a waste-sorting program, landfill volume fell. The report concludes the program caused at least some of the fall. Which unstated assumption is necessary?
 
-(A) The program was the only thing that changed.
+(A) The program was the biggest change that year.
+
 (B) Landfill volume fell after the program began.
+
 (C) Other changes are not the whole cause.
 
 **Solution:**
@@ -124,7 +126,7 @@ After Municipality Y began a waste-sorting program, landfill volume fell. The re
 :::try
 Finish the last step: negate (A) and (C) to choose the needed assumption.
 :::answer
-The answer is **(C) Other changes are not the whole cause.** Negating (C) means other changes caused the *entire* drop, leaving zero causal role for the program. Negating (A) only means something else also changed, which still lets the program cause part of the drop.
+The answer is **(C) Other changes are not the whole cause.** Negating (C) means other changes caused the *entire* drop, leaving zero causal role for the program. Negating (A) only means a bigger change happened, which still lets the program cause part of the drop.
 
 **Check:** The conclusion claims *at least some* role, not the *only* cause, so ruling out a full outside cause is enough.
 :::

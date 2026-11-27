@@ -31,9 +31,9 @@ The first fold made is buried under the second fold. Always reverse the folding 
 :::
 
 :::check
-A square is folded horizontally, then vertically, then horizontally again. In what order do you open the three folds?
+A square is folded vertically, then vertically again, then horizontally. In what order do you open the three folds?
 :::answer
-The answer is **last horizontal, then vertical, then first horizontal**. Work backward from the newest fold to the oldest fold.
+The answer is **horizontal, then second vertical, then first vertical**. Work backward from the newest fold to the oldest fold.
 :::
 
 ### Reflecting Distance and Direction Across Each Fold
@@ -62,9 +62,9 @@ The meeting corner of the two creases is the center of the flat sheet. Check whi
 :::
 
 :::check
-A square is folded horizontally, bottom onto top. An arrow cut in the upper half points up and sits $3$ centimeters from the fold. When opened, which way does its copy point, and how far is it from the fold?
+A square is folded horizontally, bottom onto top. An arrow cut in the upper half points to the right and sits $5$ centimeters from the fold. When opened, which way does its copy point, and how far is it from the fold?
 :::answer
-The answer is **downward, $3$ centimeters from the fold**. A horizontal fold flips up to down and keeps the $3$-centimeter distance unchanged.
+The answer is **to the right, $5$ centimeters from the fold on the other side**. A horizontal fold flips only up and down, so a sideways arrow keeps its direction and its distance.
 :::
 
 ## Examples

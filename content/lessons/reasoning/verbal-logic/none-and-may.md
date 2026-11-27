@@ -31,7 +31,7 @@ Wrong: Every registered vehicle is inside the compound.
 Being allowed inside does not mean every registered vehicle entered. *No* keeps two groups apart without filling one group with everything eligible.
 :::
 
-What follows: "No judge is also listed as a speaker. Some observers are on the judges' list, and no other limits are given."
+What follows: "No judge is also listed as a speaker. Some observers are on the judges' list."
 
 1. At least $1$ observer sits on the judges' list.
 2. Because no judge is a speaker, that observer cannot be on the speakers' list.
@@ -48,9 +48,9 @@ Only observers who serve as judges are barred from speaking. Never stretch *some
 :::
 
 :::check
-At a plant fair, the list of plants for sale shares no plants with the list on loan. Which label reveals an error: "For sale and grown by students" or "For sale and on loan"?
+At a fair, no plant sold at the stall is lent to a school. Plant 7 was lent to a school. Which note on Plant 7 is an error: "Grown by students", "Lent again in June", or "Also sold at the stall"?
 :::answer
-The answer is **"For sale and on loan."** Zero overlap means no plant can sit on both lists at once.
+The answer is **"Also sold at the stall."** Zero overlap means a plant lent to a school cannot also be sold at the stall.
 :::
 
 ### Keeping "May" as Possibility
@@ -61,7 +61,7 @@ What follows: "The interview may be postponed if the panel lacks a quorum."
 
 1. Condition: the panel lacks a quorum.
 2. Effect of *may*: **A lack of quorum allows possible postponement.**
-3. It never guarantees postponement, and never guarantees what happens with a full quorum.
+3. It guarantees neither postponement nor the outcome with a full quorum.
 
 :::pair #may-to-must-certainty
 Right: "The interview may be postponed if the panel lacks a quorum" means **A lack of quorum allows possible postponement.**
@@ -70,9 +70,15 @@ Wrong: A lack of quorum guarantees that the interview is postponed.
 :::
 
 :::check
-A circular says, "Classes may shift online next week." Does this confirm classes will shift online next week?
+A notice says, "The ferry may leave late if the wind is strong." Which statement follows?
+
+(A) The ferry will leave late in strong wind.
+
+(B) The ferry could still leave on time in strong wind.
+
+(C) The ferry will leave on time when the wind is calm.
 :::answer
-The answer is **no**. *May* states only that an online shift is possible, leaving the decision open.
+The answer is **(B)**. *May* leaves both outcomes open, so a late departure is possible but not certain. The notice says nothing about calm wind.
 :::
 
 ## Examples
@@ -101,26 +107,30 @@ A health center says, "Walk-in consultations may resume on Friday." A radio host
 
 **Check:** Both statements name Friday and walk-in consultations, so only the certainty changed.
 
-### #3: Combining "No" and "Some"
+### #3: A Volunteer List
 
-A training roster lists supervisors, trainees, and mentors. No supervisor is listed as a trainee. Some mentors are listed as supervisors. Which conclusion follows?
+Premises: "Some volunteers are drivers. No driver is a minor." Which conclusion follows?
 
-(A) No mentor can appear on the trainees' list.
-(B) Mentors outside the supervisors' list must be trainees.
-(C) Some mentors are not trainees.
+(A) No volunteer is a minor.
+
+(B) Some minors are not volunteers.
+
+(C) Some volunteers are not minors.
 
 **Solution:**
 
-1. Premise $1$: *Supervisors* and *Trainees* have zero overlap.
-2. Premise $2$: at least $1$ mentor sits in *Supervisors*.
-3. Drop (B): mentors outside *Supervisors* have no rule forcing them into *Trainees*.
+Let's test each choice against the two premises:
+
+1. Premise $1$: at least $1$ volunteer sits in *Drivers*.
+2. Premise $2$: *Drivers* and *Minors* have zero overlap.
+3. Drop (A): nothing keeps volunteers who do not drive out of *Minors*.
 
 :::try
-Finish the last step: compare (A) and (C) against the two premises.
+Finish the last step: compare (B) and (C) against the two premises.
 :::answer
-The answer is **(C) Some mentors are not trainees.** Any mentor in *Supervisors* is excluded from *Trainees*, giving at least $1$ mentor who is not a trainee. Choice (A) wrongly stretches that limit to every mentor.
+The answer is **(C) Some volunteers are not minors.** A volunteer who drives sits outside *Minors*. Choice (B) needs at least $1$ minor, and the premises never say one exists.
 
-**Check:** Picture $1$ mentor who is a supervisor and $1$ mentor who is a trainee: both premises hold, (A) fails, and (C) holds.
+**Check:** Picture a group with no minors at all: both premises hold, (B) fails, and (C) still holds through the volunteer who drives.
 :::
 
 ## Speed Tricks & Shortcuts

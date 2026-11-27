@@ -100,13 +100,13 @@ An opaque sphere is projected by parallel light onto a flat screen perpendicular
 
 **Solution:**
 
-1. Look at the sphere along the parallel rays before turning: every cross-section is a circle of the same radius, so the shadow is a **circle**.
+1. Look at the sphere along the parallel rays before turning: its outer rim is the same distance from the center in every direction.
 2. Turn the sphere in place while keeping the screen perpendicular to the rays.
 
 :::try
-Finish the last step: state what happens to the shadow outline after the turn.
+Finish the last step: name the shadow shape after the turn and say whether the turn changed it.
 :::answer
-The answer is **It stays a circle.** A sphere has the exact same circular width from every direction and has no flat faces or corners, so turning it never changes the shadow.
+The answer is **a circle, unchanged.** A sphere has the exact same width from every direction and has no flat faces or corners, so turning it never changes the shadow.
 
 **Check:** Unlike a flat disk (which thins into a line when turned edge-on) or a cube (which can project a six-sided outline from a corner), a sphere looks identical from every angle.
 :::

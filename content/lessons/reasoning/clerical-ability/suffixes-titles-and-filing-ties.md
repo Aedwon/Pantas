@@ -37,9 +37,9 @@ Unit $2$ (*Leo* vs. *Leon*) already broke the tie. Never compare a suffix before
 :::
 
 :::check
-Sort by surname, given name, then suffix alphabetically. Which comes first: *Cruz, Ramon, Sr.* or *Cruz, Ramon, Jr.*?
+Sort by surname, given name, then suffix alphabetically. Which comes first: *Lim, Dan, Sr.*, *Lim, Dan, III*, or *Lim, Daniel, II*?
 :::answer
-The answer is **Cruz, Ramon, Jr.** Surnames and given names tie, and *Jr.* precedes *Sr.* alphabetically.
+The answer is **Lim, Dan, III**. *Dan* ends sooner than *Daniel*, so *Daniel* goes last. For the two *Dan* records, *III* comes before *Sr.* alphabetically (*I* before *S*).
 :::
 
 ### Breaking Ties with a Stated Unit

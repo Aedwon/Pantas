@@ -34,9 +34,9 @@ Three small figures and two large figures leave two figures out, not one. Count 
 :::
 
 :::check
-Four figures are shown: a small circle ($1$ dot), large square ($1$ dot), small triangle ($1$ dot), and large pentagon ($2$ dots). Why does "small outline" fail, and which rule works?
+Four figures are shown: a gray square, a white rectangle, a gray rhombus, and a white triangle. Why does "gray fill" fail, and which rule works?
 :::answer
-The answer is **contains $1$ dot**. "Small outline" excludes $2$ figures (square and pentagon), while "contains $1$ dot" excludes only the pentagon.
+The answer is **has four sides**. "Gray fill" excludes $2$ figures (rectangle and triangle), while "has four sides" excludes only the triangle.
 :::
 
 ### Narrowing a Too-Broad Rule
@@ -58,7 +58,7 @@ Why do phrases like "at least" or "closed boundary" trap learners? They describe
 :::
 
 :::check
-Four figures are shown: a square, two rectangles, and a slanted parallelogram. "Has four sides" fits all four. What rule groups three and excludes the parallelogram?
+Four figures are shown: a square, two rectangles, and a slanted parallelogram. "Has four sides" fits all four. What rule about the corner angles groups three and excludes the parallelogram?
 :::answer
 The answer is **four square corners** (right angles). The first three have square corners, while the slanted parallelogram does not.
 :::

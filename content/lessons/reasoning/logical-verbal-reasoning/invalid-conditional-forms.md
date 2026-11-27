@@ -40,9 +40,9 @@ Passing is the result ($Q$), not the condition ($P$) after *if*. Confirming $Q$ 
 :::
 
 :::check
-"If a student lives in Baguio, they live in Luzon. Ana lives in Luzon. Therefore, Ana lives in Baguio." Is this argument valid?
+"If a parcel is sent by air, it arrives in two days. Rina's parcel arrived in two days. Therefore, it was sent by air." Is this argument valid?
 :::answer
-The answer is **no (invalid)**. Living in Luzon is the result ($Q$); Ana could live in another city in Luzon, such as Manila or Clark.
+The answer is **no (invalid)**. Arriving in two days is the result ($Q$); a fast courier by road could also deliver in two days.
 :::
 
 ### Denying the Antecedent
@@ -72,9 +72,9 @@ Premise $2$ denies *rain* (the condition after *if*), not *wet ground* (the resu
 :::
 
 :::check
-"If a store has a sale, the line is long. Today there is no sale. Therefore, the line is not long." Is this argument valid?
+"If a clinic is open, its door is unlocked. The door is locked. Therefore, the clinic is not open." Is this argument valid?
 :::answer
-The answer is **no (invalid)**. Denying the condition ("no sale") leaves other causes open, such as a holiday rush.
+The answer is **yes (valid)**. This denies the result ($Q$), not the condition. An open clinic would have an unlocked door, so a locked door rules it out.
 :::
 
 ## Examples

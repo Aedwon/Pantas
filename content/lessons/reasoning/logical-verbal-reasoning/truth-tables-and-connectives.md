@@ -56,9 +56,9 @@ One true input makes **or** true, never **and**. For **and**, even a single $F$ 
 :::
 
 :::check
-If $P$ is false and $Q$ is true, evaluate $P \land Q$.
+"The quiz is on Monday and it is in Room 4." The quiz is on Monday, but it is in Room 6. Is the statement true?
 :::answer
-The answer is **$F$** (false). Both parts must be true for **and** to be true, and $P$ is false.
+The answer is **false**. Both parts must be true for **and** to be true, and the room part is false.
 :::
 
 ### The Inclusive Or Rule
@@ -82,9 +82,9 @@ The wrong pair treats **or** as exclusive when both inputs are true. Inclusive *
 :::
 
 :::check
-Ana brings a pen and a pencil. Is "she brings a pen or a pencil" true under inclusive **or**?
+Joy packs a ruler and an eraser. Is "Joy packs a pen or a pencil or a ruler" true under inclusive **or**?
 :::answer
-The answer is **true**. Inclusive **or** is true when at least one part is true, including both.
+The answer is **true**. Inclusive **or** is true when at least one part is true, and the ruler is packed.
 :::
 
 ## Examples

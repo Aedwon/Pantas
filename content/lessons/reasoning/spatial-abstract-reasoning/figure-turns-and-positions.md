@@ -33,9 +33,9 @@ Down is a main compass point, so it is tempting to skip the diagonal step. Measu
 :::
 
 :::check
-An arrow points up, then right, then down. What direction comes next?
+An arrow points lower-left, then upper-left, then upper-right. What direction comes next?
 :::answer
-The answer is **left**. Each step turns $90^\circ$ clockwise ($0^\circ, 90^\circ, 180^\circ$), so $180^\circ+90^\circ=270^\circ$ (left).
+The answer is **lower-right**. Each step turns $90^\circ$ clockwise ($225^\circ, 315^\circ, 45^\circ$), so $45^\circ+90^\circ=135^\circ$ (lower-right).
 :::
 
 ### Alternating vs. Continuous Turns
@@ -126,7 +126,7 @@ The dot appears at the **top-left** corner.
 
 The arrows in a series point up, upper-right, lower-right, then left. Which direction completes the series: down, right, up, or upper-left?
 
-<!-- ILLUSTRATION: arrows pointing up, upper-right, lower-right, and lower-left in four equal frames, followed by a blank; choices arrows pointing down, up, upper-right, and upper-left; do not label turn angles -->
+<!-- FIGURE WANTED: arrows pointing up, upper-right, lower-right, and left in four equal frames, followed by a blank; choices arrows pointing down, right, up, and upper-left; do not label turn angles (redraw of 04-arrows-pointing-up-upper-right.svg, whose fourth arrow points lower-left and fits no turn rule) -->
 
 **Solution:**
 

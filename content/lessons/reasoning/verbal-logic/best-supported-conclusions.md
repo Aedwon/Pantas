@@ -64,9 +64,9 @@ First place does not mean over $50\%$. Also keep what was counted fixed: map che
 :::
 
 :::check
-Corner A gets $40$ votes, Corner B gets $35$, and Corner C gets $25$ ($1$ vote per form). Did *most* forms pick Corner A?
+A class chose a pet: the dog got $55$ votes, the cat $30$, and the fish $15$ ($1$ vote per form). Did *most* forms pick the dog?
 :::answer
-The answer is **no**. Corner A won most often ($40$ of $100$), which is under half ($50$).
+The answer is **yes**. The dog got $55$ of $100$ forms, which is over half ($50$).
 :::
 
 ### Avoiding Unmeasured Explanations and Combined Totals
@@ -125,19 +125,21 @@ A plant trialed two fruit crates. Slotted crates had less damage on long routes;
 
 Before a later-hours trial, several workers arrived after closing. During the trial, those same workers used the library after their shifts during the added evening and weekend hours. Which conclusion is best supported?
 
-(A) Every library visitor needs the building after dark.
-(B) Longer hours prove all visitors read more books.
+(A) Later hours help all library visitors use the library.
+
+(B) Later hours help some workers read more books.
+
 (C) Later hours help some workers use the library.
 
 **Solution:**
 
 1. Observed: several workers using the library during the added hours.
-2. Drop (A): *several workers* does not cover *every library visitor*.
+2. Drop (A): *several workers* does not cover *all library visitors*.
 
 :::try
 Finish the last step: compare (B) and (C) against what the trial actually measured.
 :::answer
-The answer is **(C) Later hours help some workers use the library.** The trial saw those workers use the library during the added hours, whereas (B) adds all visitors and unmeasured book counts.
+The answer is **(C) Later hours help some workers use the library.** The trial saw those workers use the library during the added hours, whereas (B) adds book counts nobody measured.
 
 **Check:** Those added evening and weekend hours were unavailable before the trial, and both "some workers" and "use the library" match the exact trial observations.
 :::
