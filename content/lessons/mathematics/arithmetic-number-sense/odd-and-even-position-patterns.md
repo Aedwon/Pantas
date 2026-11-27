@@ -19,9 +19,9 @@ Some sequences weave two separate lists together. **Odd positions** are position
 
 When one rule does not fit neighboring terms, read every other term to separate the two groups.
 
-<!-- FIGURE WANTED: six term boxes for 4, 81, 8, 27, 16, 9 in a row; teal top arcs link the 1st, 3rd, and 5th terms (4, 8, 16) labeled "odd positions: x 2"; gray bottom arcs link the 2nd, 4th, and 6th terms (81, 27, 9) labeled "even positions: / 3" -->
-
 Look at $4,81,8,27,16,9,\dots$ and find the next two terms in order.
+
+<!-- ILLUSTRATION: Six boxes in a row hold the terms 4, 81, 8, 27, 16, 9. Arcs above the row join the odd-position terms 4, 8 and 16, labeled "odd positions: × 2", so each is twice the one before it. Arcs below the row join the even-position terms 81, 27 and 9, labeled "even positions: ÷ 3", so each is a third of the one before it. The two groups are separate lists woven together. -->
 
 1. Read the odd positions (first, third, fifth): $4,8,16$. Each term doubles.
 

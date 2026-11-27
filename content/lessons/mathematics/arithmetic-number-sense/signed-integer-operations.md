@@ -19,8 +19,6 @@ keyPoints:
 
 A **signed integer** is a whole number with a plus or minus sign, such as $5$, $-3$, or $-12$. On a number line, positive numbers sit to the right of $0$ and negative numbers sit to the left.
 
-<!-- FIGURE WANTED: number line from -6 to 6 with 0 in the middle; a teal bracket from 0 to -6 labeled "6 steps" and the label |-6| = 6 under it -->
-
 The **absolute value** of a number is how far it is from $0$. We write it between two bars. A distance is never negative, so an absolute value is never negative.
 
 Find the absolute values of $-6$ and $6$:
@@ -30,6 +28,8 @@ $$|-6|=6$$
 $$|6|=6$$
 
 Both numbers are $6$ steps from $0$. They only sit on different sides.
+
+<!-- ILLUSTRATION: A number line from -6 to 6 with 0 in the middle. A bracket runs from 0 left to -6 and is labeled "6 steps". Under it is the label |-6| = 6, showing that the absolute value of -6 is its distance from 0. -->
 
 ### Adding Two Numbers with the Same Sign
 
@@ -52,11 +52,11 @@ $$(-5)+(-3)=-8$$
 
 A positive number and a negative number walk in opposite directions. Part of one walk undoes the other.
 
-<!-- FIGURE WANTED: number line from -8 to 2; arrow from 0 left to -7 labeled "-7"; second arrow from -7 right 4 steps to -3 labeled "+4"; the point -3 circled -->
-
 Start at $0$ and walk $7$ steps left to $-7$. Then walk $4$ steps right.
 
 You stop at $-3$. The $4$ steps right undid $4$ of the $7$ steps left, so $3$ steps left remain.
+
+<!-- ILLUSTRATION: A number line from -8 to 2. A first arrow runs from 0 left 7 steps to -7 and is labeled "-7". A second arrow runs from -7 right 4 steps to -3 and is labeled "+4". The point -3 is circled, showing the walk stops at -3. -->
 
 1. Ignore the signs. Subtract the smaller absolute value from the larger one.
 2. Keep the sign of the number that is farther from $0$.

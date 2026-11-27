@@ -63,6 +63,8 @@ $$11-8=3$$
 
 $$14-11=3$$
 
+<!-- ILLUSTRATION: Five boxes in a row hold the terms 6, 11, 19, 30, 44. Arcs below the row show the jumps between neighboring terms: +5, +8, +11, +14. Below those, three smaller arcs show the second jumps between neighboring jumps: +3, +3, +3. Every jump is 3 more than the one before it, so the next jump is 14 + 3 = 17. -->
+
 Each difference is $3$ more than the one before it, so the next difference is:
 
 $$14+3=17$$

@@ -33,8 +33,6 @@ Write the parentheses even when they seem extra. They cost nothing, and they sto
 
 An exponent applies only to what sits right before it. If that is a closing parenthesis, the exponent applies to everything inside the parentheses. If it is a number or a letter, the exponent applies to that number or letter alone.
 
-<!-- FIGURE WANTED: two side-by-side panels. Left: (-3)^2 with a teal outline around "(-3)" joined to the exponent 2, then = (-3) x (-3) = 9. Right: -3^2 with a teal outline around only "3" joined to the exponent 2, the minus sign outside it, then = -(3 x 3) = -9 -->
-
 Compare $(-3)^2$ and $-3^2$:
 
 $$(-3)^2=(-3)\times(-3)=9$$
@@ -44,6 +42,8 @@ Here the exponent applies to $-3$, so you multiply two negatives. Same signs giv
 $$-3^2=-(3\times3)=-9$$
 
 Here the exponent applies to $3$ only. You square $3$ to get $9$, then the minus sign in front makes it $-9$.
+
+<!-- ILLUSTRATION: Two side-by-side panels. Left panel: (-3)^2 with an outline around all of "(-3)" joined to the exponent 2, so the exponent reaches the negative sign too, then = (-3) x (-3) = 9. Right panel: -3^2 with an outline around only the "3" joined to the exponent 2, and the minus sign outside the outline, then = -(3 x 3) = -9. -->
 
 :::why
 Why does the exponent go first in $-3^2$? Powers come before multiplying, and the minus sign in front works like multiplying by $-1$. So $-3^2$ means $-1\times3^2$, which is $-1\times9=-9$.

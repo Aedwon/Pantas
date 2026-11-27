@@ -39,6 +39,8 @@ $$7+12=19$$
 
 The sequence is $2,5,7,12,19,\dots$, so the fifth term is $19$.
 
+<!-- ILLUSTRATION: Five boxes in a row hold the terms 2, 5, 7, 12, 19. Arcs from the two terms before each new term point into it. Above the row, arcs from 2 and 5 into 7 are labeled "2 + 5 = 7", and arcs from 7 and 12 into 19 are labeled "7 + 12 = 19". Below the row, arcs from 5 and 7 into 12 are labeled "5 + 7 = 12". Every term after the first two is the sum of the two terms right before it. -->
+
 :::pair #stop-at-earlier-term
 Right: Term $5$ is $7+12=19$.
 Wrong: Term $4$ is $5+7=12$.
