@@ -180,10 +180,14 @@ tool/cloudflare-app/deploy.sh prod build/web
 connection. The stamp moves every file a page loads into `b/<id>/` and the page names those URLs; the root keeps only
 the page, the worker, `version.json`, `manifest.json` and the icons. The stamp writes the build id and a SHA-256 for
 every startup file into the service worker. `deploy.sh` runs
-`tool/deploy/check_worker_stamp.mjs` on the folder it stages, before anything is uploaded. The guard refuses an
-unstamped build, one changed after the stamp, one missing a file the app boots from (the database worker, sqlite3.wasm,
-the renderer, the helper scripts) and one built without `--no-web-resources-cdn`. Run the stamp again after any change
-to `build/web`.
+`tool/deploy/check_worker_stamp.mjs --target prod|staging` on the folder it stages, before anything is uploaded. The
+guard refuses an unstamped build, one changed after the stamp (its build id is recomputed from the bytes, so changed
+bytes under an unchanged address show even when the list was refreshed), one missing a file the app boots from (the
+database worker, sqlite3.wasm, the renderer, the helper scripts, the RevenueCat script, any deferred part
+`main.dart.js` names, any font `FontManifest.json` names), a build for the other environment (told apart by the App
+Check site key the build step passed), a root file that differs from prod's (`drift_worker.js` and the RevenueCat
+script: the worker that shipped before build folders caches both at their root addresses) and one built without
+`--no-web-resources-cdn`. Run the stamp again after any change to `build/web`.
 
 **The first release with build folders only rolls forward.** After phones hold it, the guard refuses a build with the
 worker that shipped before (it has no build constant). Roll back by deploying an earlier stamped build; the plan is
@@ -455,12 +459,13 @@ of Firebase Hosting, which bills every byte (security audit S-01). Code and tool
 - **Rollback** (about a minute): detach the Worker's custom domain (Cloudflare Workers, the Worker,
   Settings, Domains; or the API), then add back the DNS-only CNAME `app.pantas.study` →
   `pantas-prod.web.app` (staging: `staging.pantas.study` → `pantas-staging-app.web.app`), TTL auto.
-  Firebase holds only the tiny page now, so first put the full build back on Firebase from the same
-  local build: `firebase deploy --only hosting:app --public build/web --project pantas-prod` (staging:
-  add `--config firebase.staging.json`, project `pantas-staging`). The last full-build prod release
-  before the tiny page is Hosting version 13ccf513774445d7 (Nov 25); while it is still current,
-  `firebase hosting:clone pantas-prod@13ccf513774445d7 pantas-prod:live` restores it server side with
-  no download (staging: `pantas-staging-app@079f1717da10b22f`).
+  Firebase holds only the tiny page now, so first put the full build back on Firebase from a local
+  stamped build: `tool/deploy/firebase_rollback.sh prod build/web` (staging: `staging`). The script runs
+  the same guard as the Worker deploy (`check_worker_stamp.mjs --target prod`) before it publishes, so a
+  rollback cannot ship an unstamped build, a build for the other environment, or the worker that shipped
+  before build folders. Do not publish `build/web` with a bare `firebase deploy`, and do not clone the
+  Hosting release from before build folders (version 13ccf513774445d7, Nov 25): it carries the old worker,
+  and once phones hold a stamped build it would put the build mix back.
 - **The tiny Firebase page** (closes S-01 on `pantas-prod.web.app` and `pantas-prod.firebaseapp.com`;
   checklist S6; live since Nov 25, after his real Google sign-in through app.pantas.study at 13:10 UTC,
   Fable 5.2 ruling A). `hosting/retired` holds `index.html` (sends every path on to app.pantas.study)

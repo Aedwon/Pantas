@@ -64,7 +64,11 @@ export function buildFiles(id, prod = false) {
     'icons/Icon-192.png': `png ${m}`,
     'assets/AssetManifest.bin': `bin ${m}`,
     'assets/AssetManifest.bin.json': JSON.stringify({note: m}),
-    'assets/FontManifest.json': JSON.stringify({note: m}),
+    // Shaped like Flutter's: each font names a file under assets/. The deploy guard checks them.
+    'assets/FontManifest.json': JSON.stringify([
+      {family: 'MaterialIcons', note: m, fonts: [{asset: 'fonts/MaterialIcons-Regular.otf'}]},
+      {family: 'Geist', fonts: [{asset: 'assets/fonts/Geist-Regular.ttf'}]},
+    ]),
     'assets/fonts/MaterialIcons-Regular.otf': `otf ${m}`,
     'assets/assets/fonts/Geist-Regular.ttf': `ttf ${m}`,
     // In the build output, not in the startup set.

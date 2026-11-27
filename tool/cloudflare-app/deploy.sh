@@ -19,6 +19,6 @@ rm -rf "$here/dist/__" "$here/dist/.last_build_id" "$here/dist/README.md"
 # Refuse a folder that is not a complete stamped release (E-184): a worker stamped for exactly
 # these files, every file a page loads in its build folder, the renderer and database files present.
 # It checks the staged folder, the exact bytes that are uploaded, before anything is.
-node "$here/../deploy/check_worker_stamp.mjs" "$here/dist"
+node "$here/../deploy/check_worker_stamp.mjs" "$here/dist" --target "$env"
 cp "$here/headers.$env" "$here/dist/_headers"
 cd "$here" && npx -y wrangler@4.162.0 deploy -c "wrangler.$env.jsonc"

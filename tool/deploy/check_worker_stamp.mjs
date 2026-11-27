@@ -10,12 +10,14 @@
 // before them is refused here, because once phones hold a stamped build, deploying
 // the old worker would put the mixing back. Roll back by deploying an earlier
 // stamped build.
-// Usage: node tool/deploy/check_worker_stamp.mjs [build/web]
+// Usage: node tool/deploy/check_worker_stamp.mjs [build/web] --target staging|prod [--pins pins.json]
+// Run by tool/cloudflare-app/deploy.sh and tool/deploy/firebase_rollback.sh.
+// `--pins` replaces PINNED_ROOT_FILES; the tests use it with stand-in bytes.
 import {createHash} from 'node:crypto';
 import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {buildFolder, FIXED_ADDRESS, fingerprints, listHash, workerBuild} from '../web/stamp_worker_version.mjs';
+import {buildFolder, FIXED_ADDRESS, fingerprints, listHash, recomputedVersion, workerBuild} from '../web/stamp_worker_version.mjs';
 
 // What the app cannot boot without, inside the build folder.
 const REQUIRED = [
@@ -24,15 +26,22 @@ const REQUIRED = [
   'canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm', 'canvaskit/chromium/canvaskit.js', 'canvaskit/chromium/canvaskit.wasm',
 ];
 // At the root, and in the worker's list. The database worker keeps one address for every build.
-const REQUIRED_AT_ROOT = ['index.html', 'pantas_sw.js', 'version.json', 'manifest.json', 'drift_worker.js'];
-const ROOT_IN_LIST = ['drift_worker.js'];
+const REQUIRED_AT_ROOT = ['index.html', 'pantas_sw.js', 'version.json', 'manifest.json', 'drift_worker.js', FIXED_ADDRESS[0]];
+const ROOT_IN_LIST = ['drift_worker.js', FIXED_ADDRESS[0]];
 // Root files that prod serves today and that every build must serve byte for byte. The worker
 // that shipped before build folders caches them at these addresses and serves them to a page
 // of the new build, so any other bytes would be a mix (fix list items 1 and 5, Nov 26).
 // drift_worker.js: unchanged since the first web commit (5cd9f119c).
+// The RevenueCat script: the file of the locked purchases_flutter 10.8.0 (pubspec.lock). It is
+// pinned from the locked package, because nothing here may read prod; a test checks the pin
+// against the package whenever it is installed. A new SDK needs a new address first.
 export const PINNED_ROOT_FILES = {
   'drift_worker.js': '88a90a723fd84013c92fe5106fd0b4d324279224195f94ea33bcae94477ef2a0',
+  [FIXED_ADDRESS[0]]: '58dce52022d4ddfd7154fde667bc1343e87b6b6bbdc3a596dade262125248010',
 };
+// Every flavor's code is in every build, so the flavor shows only in what the build step
+// passes in: the App Check site key. This is staging's public key (tool/deploy/staging_web.sh).
+const STAGING_SITE_KEY = '6Lcp8xUuAAAAAICQRMX8-J2JYzU5dxKsj8Qp3sQa';
 // Files a page loads. None may sit at the root of a release.
 const LOADED_AT_ROOT = /^(main\.dart\.[\w.]+|flutter(_bootstrap)?\.js|sqlite3\.wasm|pantas_(?!sw\.js$)[\w-]+\.js|assets\/.*|canvaskit\/.*)$/;
 const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
@@ -45,7 +54,7 @@ function listFiles(dir, root = dir) {
 }
 
 /** Returns a list of problems; empty means the worker matches the build and the build is complete. */
-export function stampProblems(dir) {
+export function stampProblems(dir, {pins = PINNED_ROOT_FILES, target = null} = {}) {
   const path = join(dir, 'pantas_sw.js');
   if (!existsSync(path)) return ['pantas_sw.js is missing'];
   let build;
@@ -80,7 +89,7 @@ export function stampProblems(dir) {
   for (const name of ROOT_IN_LIST) {
     if (existsSync(join(dir, name)) && !(name in build.files)) problems.push(`required file missing from the worker's list: ${name}`);
   }
-  for (const [name, hash] of Object.entries(PINNED_ROOT_FILES)) {
+  for (const [name, hash] of Object.entries(pins)) {
     if (existsSync(join(dir, name)) && sha256(readFileSync(join(dir, name))) !== hash) {
       problems.push(`${name} differs from the file prod serves today: the worker that shipped before build folders would serve its own copy to this build's page`);
     }
@@ -113,15 +122,73 @@ export function stampProblems(dir) {
   if (existsSync(metadata) && JSON.parse(readFileSync(metadata, 'utf8')).pantasBuildVersion !== build.id) {
     problems.push('version.json names another build than the worker');
   }
+  problems.push(...runtimeProblems(dir, build));
+  // The build id names an address that browsers keep for a year. Bytes that changed under an
+  // unchanged id would be served to phones that hold the old ones, even with a refreshed list.
+  if (folders.length === 1) {
+    try {
+      if (recomputedVersion(dir) !== build.id) {
+        problems.push(`the build id ${build.id} does not match the bytes of this build: run node tool/web/stamp_worker_version.mjs again`);
+      }
+    } catch (error) {
+      problems.push(`the build id could not be checked: ${error.message}`);
+    }
+  }
+  if (target) problems.push(...targetProblems(dir, build, target));
   return problems;
 }
 
+// What the running app asks for by name: the deferred parts main.dart.js names and the fonts
+// FontManifest.json names. Each must be in the build and in the worker's list, or the app
+// would stop at that screen or font, online or offline.
+function runtimeProblems(dir, build) {
+  const problems = [];
+  const need = (what, file) => {
+    if (!existsSync(join(dir, build.base, file))) problems.push(`${what}, which is not in the build`);
+    else if (!(build.base + file in build.files)) problems.push(`${what}, which is not in the worker's list`);
+  };
+  const main = join(dir, build.base, 'main.dart.js');
+  if (existsSync(main)) {
+    const names = new Set(readFileSync(main, 'utf8').match(/main\.dart\.js_\d+\.part\.js/g) ?? []);
+    for (const name of names) need(`main.dart.js names ${name}`, name);
+  }
+  const manifest = join(dir, build.base, 'assets/FontManifest.json');
+  if (existsSync(manifest)) {
+    let fonts = [];
+    try {
+      fonts = JSON.parse(readFileSync(manifest, 'utf8')).flatMap(family => family.fonts ?? []);
+    } catch {
+      problems.push('FontManifest.json is not a font list');
+    }
+    for (const {asset} of fonts) need(`FontManifest.json names ${asset}`, `assets/${asset}`);
+  }
+  return problems;
+}
+
+function targetProblems(dir, build, target) {
+  const main = join(dir, build.base, 'main.dart.js');
+  if (!existsSync(main)) return [];
+  const forStaging = readFileSync(main, 'utf8').includes(STAGING_SITE_KEY);
+  if (target === 'staging' && !forStaging) return ['this build was not built for staging (it lacks staging\'s App Check site key): rebuild with tool/deploy/staging_web.sh'];
+  if (target === 'prod' && forStaging) return ['this build was built for staging, not prod (it carries staging\'s App Check site key)'];
+  return [];
+}
+
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const dir = process.argv[2] ?? 'build/web';
-  const problems = stampProblems(dir);
+  const args = process.argv.slice(2);
+  const option = name => (args.includes(name) ? args[args.indexOf(name) + 1] : undefined);
+  const dir = args.find((arg, index) => !arg.startsWith('--') && !(index > 0 && args[index - 1].startsWith('--'))) ?? 'build/web';
+  const target = option('--target');
+  if (!['staging', 'prod'].includes(target)) {
+    console.error('Usage: node tool/deploy/check_worker_stamp.mjs [build/web] --target staging|prod [--pins pins.json]');
+    process.exit(2);
+  }
+  const pinsFile = option('--pins');
+  const pins = pinsFile ? JSON.parse(readFileSync(pinsFile, 'utf8')) : PINNED_ROOT_FILES;
+  const problems = stampProblems(dir, {pins, target});
   if (problems.length) {
     console.error(`Refusing ${dir}:\n- ${problems.join('\n- ')}`);
     process.exit(1);
   }
-  console.log(`Worker stamp matches ${dir}`);
+  console.log(`Worker stamp matches ${dir} (${target})`);
 }

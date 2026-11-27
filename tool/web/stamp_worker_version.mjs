@@ -20,7 +20,8 @@
 //
 // Usage: node tool/web/stamp_worker_version.mjs [build/web]
 import {createHash} from 'node:crypto';
-import {existsSync, mkdirSync, readdirSync, readFileSync, renameSync, rmSync, rmdirSync, statSync, writeFileSync} from 'node:fs';
+import {cpSync, existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, renameSync, rmSync, rmdirSync, statSync, writeFileSync} from 'node:fs';
+import {tmpdir} from 'node:os';
 import {dirname, join, relative} from 'node:path';
 
 const BOOTSTRAP = 'flutter_bootstrap.js';
@@ -168,6 +169,24 @@ function unstamp(dir) {
   rmSync(join(dir, FOLDERS), {recursive: true, force: true});
   const page = join(dir, PAGE);
   writeFileSync(page, readFileSync(page, 'utf8').split(folder).join(''));
+}
+
+/**
+ * The version the stamp would give this tree now: the bytes of a stamped build, put back
+ * the way Flutter wrote them (in a copy) and hashed. The deploy guard compares it with the
+ * version the build carries, so changed bytes under an unchanged immutable address show.
+ */
+export function recomputedVersion(dir) {
+  const copy = mkdtempSync(join(tmpdir(), 'pantas-version-'));
+  try {
+    cpSync(dir, copy, {recursive: true});
+    unstamp(copy);
+    const match = readFileSync(join(copy, BOOTSTRAP), 'utf8').match(TOKEN);
+    if (!match) throw new Error(`No registerWorker("...") version in ${BOOTSTRAP}.`);
+    return `${match[1].split('-')[0]}-${buildHash(copy)}`;
+  } finally {
+    rmSync(copy, {recursive: true, force: true});
+  }
 }
 
 export function stamp(dir) {
