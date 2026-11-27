@@ -15,7 +15,8 @@ const _minMathChars = 9;
 
 final _frontmatterPattern = RegExp(r'^---\r?\n[\s\S]*?\r?\n---(?:\r?\n|$)');
 final _commentPattern = RegExp(r'<!--[\s\S]*?-->');
-final _walkthroughPattern = RegExp(r'^:::(?:check|try)(?:\s|$)', multiLine: true);
+final _walkthroughPattern =
+    RegExp(r'^:::(?:check|try)(?:\s|$)', multiLine: true);
 final _mathPattern = RegExp(r'\$\$([\s\S]+?)\$\$|\$([^$\n]+?)\$');
 final _choiceGroupPattern = RegExp(r'\(([^()/]+(?:/[^()/]+)+)\)');
 final _listMarkerPattern = RegExp(r'^(?:[-*+]\s+|\d+\.\s+)');
@@ -250,14 +251,13 @@ List<Violation> checkWalkthroughFreshInstances(
         i++;
       }
       final stem = stemLines.join('\n');
-      final repeat =
-          _repeated(earlier, stem, isTry: opener.group(1) == 'try');
+      final repeat = _repeated(earlier, stem, isTry: opener.group(1) == 'try');
       if (repeat != null) {
         found.add(
           Violation(
             '$sourceId:$startLine',
             ':::${opener.group(1)} repeats earlier lesson text '
-            '"$repeat"; use a fresh instance of the rule',
+                '"$repeat"; use a fresh instance of the rule',
           ),
         );
       }

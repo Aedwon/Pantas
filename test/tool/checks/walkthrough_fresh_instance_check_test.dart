@@ -164,7 +164,7 @@ Agree.
       checkWalkthroughFreshInstances(
         'plain',
         '## Core Concept\n\n- The dog barks every morning.\n\n'
-        'The dog barks every morning.\n',
+            'The dog barks every morning.\n',
       ),
       isEmpty,
     );
