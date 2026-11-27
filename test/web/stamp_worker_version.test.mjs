@@ -222,6 +222,54 @@ test('url() with spaces, a ./ prefix, either quote or none follows the folder', 
   assert.equal(read(dir, 'index.html'), page);
 });
 
+// Audit 2 leftover, kept open by audit 3: href = "..." (spaces around the equals sign) still pointed
+// at a font the stamp had moved. Every spelling HTML allows for a reference must follow the file.
+test('audit 3: every spelling of a local reference follows its file into the folder', () => {
+  const font = 'assets/assets/fonts/Geist-Regular.ttf';
+  const dir = pageWith(
+    `<link rel="preload" href = "${font}" as="font">` +
+    `<link rel="preload" href\n=\n'./${font}' as="font">` +
+    `<link rel="preload" HREF=${font} as="font">` +
+    `<link rel="preload" href=" ${font} " as="font">` +
+    `<img srcset="icons/Icon-192.png 1x, ${font} 2x">` +
+    `<style>@import "${font}"; @import './${font}'; @import url( ${font} );</style>` +
+    '<div style="background: url( ./icons/Icon-192.png ); font-family: x"></div>' +
+    '<script   src = "./flutter_bootstrap.js" ></script><script SRC=pantas_pwa.js></script>');
+  const version = stamp(dir);
+  const page = read(dir, 'index.html');
+  assert.ok(!page.includes('./assets/') && !/["'= ]assets\/assets/.test(page), `a reference still points at the moved font: ${page}`);
+  assert.equal(page.split(`b/${version}/${font}`).length - 1, 8, page);
+  assert.ok(page.includes(`href = "b/${version}/${font}"`), 'the spacing the author wrote is kept');
+  assert.ok(page.includes(`href=" b/${version}/${font} "`));
+  assert.ok(page.includes(`HREF=b/${version}/${font}`));
+  assert.ok(page.includes(`src = "./b/${version}/flutter_bootstrap.js"`));
+  assert.ok(page.includes(`SRC=b/${version}/pantas_pwa.js`));
+  assert.ok(page.includes('icons/Icon-192.png 1x'), 'a file at the root keeps its address');
+  assert.equal(stamp(dir), version, 'stamping again is stable');
+  assert.equal(read(dir, 'index.html'), page);
+});
+
+test('audit 3: a reference in a comment or an inline script is not a page reference', () => {
+  const html = '<!-- <script src="gone.js"></script> --><script>var s = document.createElement("script"); s.src = "elsewhere.js"; a.href = "x.html";</script>' +
+    '<script src="flutter_bootstrap.js"></script>';
+  const dir = pageWith(html);
+  const version = stamp(dir);
+  assert.equal(read(dir, 'index.html'), html.replace('src="flutter_bootstrap.js"', `src="b/${version}/flutter_bootstrap.js"`));
+});
+
+test('audit 3: an unresolved reference in any spelling is refused, by name', () => {
+  for (const html of [
+    '<script src="flutter_bootstrap.js"></script><link href = "missing.css" rel="stylesheet">',
+    '<script src="flutter_bootstrap.js"></script><link href=missing.css rel="stylesheet">',
+    "<script src=\"flutter_bootstrap.js\"></script><link href\n=\n'./missing.css' rel=\"stylesheet\">",
+    '<script src="flutter_bootstrap.js"></script><img srcset="missing.png 1x">',
+    '<script src="flutter_bootstrap.js"></script><style>@import "missing.css";</style>',
+    '<script src="flutter_bootstrap.js"></script><div style="background: url( missing.png )"></div>',
+  ]) {
+    assert.throws(() => stamp(pageWith(html)), /index\.html names .*missing.*, which is not in the build/, html);
+  }
+});
+
 test('a query or fragment after a local file is kept', () => {
   const dir = pageWith('<script src="flutter_bootstrap.js?x=1"></script><link href="manifest.json#a" rel="manifest">');
   const version = stamp(dir);

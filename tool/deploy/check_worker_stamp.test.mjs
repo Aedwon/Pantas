@@ -438,6 +438,19 @@ test('a page that names a script outside the build folder is refused', () => {
   done(build);
 });
 
+test('audit 3: a page that still names a moved file at the root, in any spelling, is refused', () => {
+  for (const reference of ['href = "assets/assets/fonts/Geist-Regular.ttf"', 'href=assets/assets/fonts/Geist-Regular.ttf', 'href = "missing.css"']) {
+    const build = stamped();
+    edit(build.dir, 'index.html', text => text + `<link rel="preload" ${reference}>`);
+    assert.match(stampProblems(build.dir).join('\n'), /index\.html names (assets\/assets\/fonts\/Geist-Regular\.ttf|missing\.css), which is not in the build/, reference);
+    done(build);
+  }
+  const fine = stamped();
+  edit(fine.dir, 'index.html', text => text + `<link rel="preload" href = "./${fine.base}assets/assets/fonts/Geist-Regular.ttf"><!-- href="gone.css" -->`);
+  assert.deepEqual(stampProblems(fine.dir).filter(problem => /names/.test(problem)), []);
+  done(fine);
+});
+
 test('a worker whose list does not match its own hash, or a second build folder, is refused', () => {
   const build = stamped();
   edit(build.dir, 'pantas_sw.js', text => text.replace(/"list":"[0-9a-f]{12}"/, '"list":"000000000000"'));

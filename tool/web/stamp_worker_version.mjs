@@ -164,6 +164,55 @@ export function buildHash(dir) {
   return hash.digest('hex').slice(0, 12);
 }
 
+/** True for a reference to a file of this build: not a scheme address, a path from the root or a fragment. */
+export const isLocal = target => target !== '' && !/^([a-z][a-z0-9+.-]*:|\/|#)/i.test(target);
+
+/**
+ * Calls `change(reference)` for every reference to a file in a page and puts back what it returns:
+ * `src`, `href` and `poster` attributes (any case, any spaces or line breaks around the equals sign,
+ * either quote or none, and spaces inside the quotes), each address of a `srcset`, and `url()` and
+ * `@import "..."` in style blocks and style attributes. Comments, and the text of scripts, are left alone.
+ * Shared by the stamp (which rewrites) and the deploy guard (which checks what is left).
+ */
+export function mapReferences(html, change) {
+  const value = /(?:"([^"]*)"|'([^']*)'|([^\s"'<>`=]+))/;
+  const attribute = new RegExp(`(\\b(?:src|href|poster)\\s*=\\s*)${value.source}`, 'gi');
+  const srcset = new RegExp(`(\\bsrcset\\s*=\\s*)(?:"([^"]*)"|'([^']*)')`, 'gi');
+  const url = /\burl\((\s*)(["']?)([^"')]*?)\2(\s*)\)/g;
+  const imported = /(@import\s*)(["'])([^"']*)\2/g;
+  const quoted = (head, double, single, bare) => {
+    if (bare !== undefined) return head + change(bare);
+    const quote = double !== undefined ? '"' : "'";
+    return `${head}${quote}${change(double ?? single)}${quote}`;
+  };
+  const inTag = tag => tag
+    .replace(attribute, (all, head, double, single, bare) => quoted(head, double, single, bare))
+    .replace(srcset, (all, head, double, single) => {
+      const quote = double !== undefined ? '"' : "'";
+      const candidates = (double ?? single).split(',').map(candidate => {
+        const [, before, address, after] = /^(\s*)(\S*)([\s\S]*)$/.exec(candidate);
+        return before + (address ? change(address) : address) + after;
+      });
+      return `${head}${quote}${candidates.join(',')}${quote}`;
+    })
+    .replace(url, (all, before, quote, target, after) => `url(${before}${quote}${change(target)}${quote}${after})`);
+  const inStyle = text => text
+    .replace(url, (all, before, quote, target, after) => `url(${before}${quote}${change(target)}${quote}${after})`)
+    .replace(imported, (all, head, quote, target) => `${head}${quote}${change(target)}${quote}`);
+  // Comments and script text are copied as they are; a start tag gets its attributes read;
+  // everything else outside a script (style blocks) gets its url() and @import read.
+  return html.replace(/(<!--[\s\S]*?-->)|(<script\b[^>]*>[\s\S]*?<\/script\s*>)|(<[a-zA-Z][^>]*>)|([^<]+)/gi,
+    (all, comment, script, tag, text) => {
+      if (comment) return comment;
+      if (script) {
+        const [, open, body, close] = /^(<script\b[^>]*>)([\s\S]*?)(<\/script\s*>)$/i.exec(script);
+        return inTag(open) + body + close;
+      }
+      if (tag) return inTag(tag);
+      return text === undefined ? all : inStyle(text);
+    });
+}
+
 const move = (dir, from, to) => {
   mkdirSync(dirname(join(dir, to)), {recursive: true});
   renameSync(join(dir, from), join(dir, to));
@@ -231,24 +280,21 @@ export function stamp(dir) {
   const moved = files(dir).filter(name => !atRoot(name));
   const movedSet = new Set(moved);
   const pagePath = join(dir, PAGE);
-  // Every local reference in the page, in any valid form (spaces, a ./ prefix, either quote),
-  // follows its file into the folder. One that names nothing is refused: it would be left
-  // pointing at the root, where the file no longer is.
-  const isLocal = target => target !== '' && !/^([a-z][a-z0-9+.-]*:|\/|#)/i.test(target);
+  // Every local reference in the page, in any valid form (see mapReferences), follows its file
+  // into the folder. One that names nothing is refused: it would be left pointing at the
+  // root, where the file no longer is.
   // The folder goes in after any ./ prefix and the rest of the text stays as written, so
   // removing the folder gives the page back exactly (stamping again keeps the same id).
   const follow = reference => {
-    const [, path, suffix] = /^([^?#]*)(.*)$/s.exec(reference);
+    const [, lead, body, tail] = /^(\s*)([\s\S]*?)(\s*)$/.exec(reference);
+    const [, path, suffix] = /^([^?#]*)(.*)$/s.exec(body);
     if (!isLocal(path)) return reference;
     const [, prefix, name] = /^((?:\.\/)*)(.*)$/s.exec(path);
-    if (movedSet.has(name)) return prefix + folder + name + suffix;
+    if (movedSet.has(name)) return lead + prefix + folder + name + suffix + tail;
     if (existsSync(join(dir, name)) && statSync(join(dir, name)).isFile()) return reference;
     throw new Error(`${PAGE} names ${name}, which is not in the build.`);
   };
-  // Scripts and links, and url() in the page's own styles (the welcome and splash fonts).
-  writeFileSync(pagePath, readFileSync(pagePath, 'utf8')
-    .replace(/\b(src|href)=(["'])([^"']*)\2/g, (all, attribute, quote, target) => `${attribute}=${quote}${follow(target)}${quote}`)
-    .replace(/\burl\((\s*)(["']?)([^"')]*?)\2(\s*)\)/g, (all, before, quote, target, after) => `url(${before}${quote}${follow(target)}${quote}${after})`));
+  writeFileSync(pagePath, mapReferences(readFileSync(pagePath, 'utf8'), follow));
   for (const name of moved) move(dir, name, folder + name);
   // Last: every file is final, so these are the hashes the worker verifies.
   const list = fingerprints(dir);

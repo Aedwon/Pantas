@@ -17,7 +17,7 @@ import {createHash} from 'node:crypto';
 import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {buildFolder, FIXED_ADDRESS, fingerprints, listHash, recomputedVersion, workerBuild} from '../web/stamp_worker_version.mjs';
+import {buildFolder, FIXED_ADDRESS, fingerprints, isLocal, listHash, mapReferences, recomputedVersion, workerBuild} from '../web/stamp_worker_version.mjs';
 import {importMap, SDK_FILES, SDK_FOLDER, SDK_PATHS} from '../web/firebase_sdk.mjs';
 
 // What the app cannot boot without, inside the build folder.
@@ -123,9 +123,20 @@ export function stampProblems(dir, {pins = PINNED_ROOT_FILES, target = null} = {
   }
   if (existsSync(join(dir, 'index.html'))) {
     const page = readFileSync(join(dir, 'index.html'), 'utf8');
-    for (const [, name] of page.matchAll(/<script[^>]*\bsrc=["']([^"']+)["']/g)) {
+    for (const [, name] of page.matchAll(/<script[^>]*\bsrc\s*=\s*["']?([^"'\s>]+)/g)) {
       if (!name.replace(/^(\.\/)+/, '').startsWith(build.base)) problems.push(`index.html loads ${name} from outside ${build.base}`);
     }
+    // Every local reference, in any spelling, names a file the build has. The stamp rewrites them and
+    // refuses a missing one; this is the same reading of the page applied to the folder that ships.
+    mapReferences(page, reference => {
+      const [, , body] = /^(\s*)([\s\S]*?)\s*$/.exec(reference);
+      const path = /^([^?#]*)/.exec(body)[1];
+      const name = path.replace(/^(\.\/)+/, '');
+      if (isLocal(path) && !(existsSync(join(dir, name)) && statSync(join(dir, name)).isFile())) {
+        problems.push(`index.html names ${name}, which is not in the build`);
+      }
+      return reference;
+    });
     // FlutterFire imports each SDK file from gstatic; the import map sends every one of those
     // addresses to our copy. A missing or changed map sends the app to Google again, and a
     // phone with no connection to Google never opens its storage (E-210).
