@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
+import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
@@ -194,7 +195,8 @@ class OnboardingWelcomeStep extends StatelessWidget {
 }
 
 /// "Already have an account? Sign in": a returning student signs in before
-/// onboarding. "Sign in" is the link; its tap target is 44 px.
+/// onboarding. "Sign in" is the system's text button, 48 high so it meets the
+/// phone tap-target guideline.
 class _SignInLine extends StatelessWidget {
   const _SignInLine({required this.onSignIn, required this.color});
   final VoidCallback onSignIn;
@@ -208,29 +210,13 @@ class _SignInLine extends StatelessWidget {
       crossAxisAlignment: WrapCrossAlignment.center,
       children: [
         Text('Already have an account?', style: style),
-        // ds-raw: PantasButton is a full-width action; this is an inline link
-        TextButton(
+        PantasButton(
+          label: 'Sign in',
           onPressed: onSignIn,
-          style: ButtonStyle(
-            minimumSize: const WidgetStatePropertyAll(
-              // 48 high: the Android tap-target guideline, above the 44 floor.
-              Size(PantasSize.targetTouch, PantasSize.field),
-            ),
-            padding: const WidgetStatePropertyAll(
-              EdgeInsets.symmetric(horizontal: PantasSpace.s8),
-            ),
-            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-            visualDensity: VisualDensity.standard,
-            foregroundColor: WidgetStatePropertyAll(context.colors.accent),
-            overlayColor: const WidgetStatePropertyAll(Colors.transparent),
-          ),
-          child: Text(
-            'Sign in',
-            style: style.copyWith(
-              color: context.colors.accent,
-              fontWeight: FontWeight.w600,
-            ),
-          ),
+          kind: PantasButtonKind.tertiary,
+          tone: PantasButtonTone.accent,
+          height: PantasSize.field,
+          horizontalPadding: PantasSpace.s8,
         ),
       ],
     );

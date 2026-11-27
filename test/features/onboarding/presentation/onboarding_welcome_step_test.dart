@@ -88,7 +88,7 @@ void main() {
       disableAnimations: true,
     );
     expect(find.text('Already have an account?'), findsOneWidget);
-    final link = find.widgetWithText(TextButton, 'Sign in');
+    final link = find.widgetWithText(PantasButton, 'Sign in');
     expect(link, findsOneWidget);
     expect(tester.getSize(link).height, greaterThanOrEqualTo(44));
     expect(tester.getSize(link).width, greaterThanOrEqualTo(44));
@@ -106,11 +106,13 @@ void main() {
       viewportSize: const Size(1440, 900),
       disableAnimations: true,
     );
-    final link = find.widgetWithText(TextButton, 'Sign in');
+    final link = find.widgetWithText(PantasButton, 'Sign in');
     expect(link, findsOneWidget);
     expect(
       tester.getTopLeft(link).dy,
-      greaterThan(tester.getBottomLeft(find.byType(WebButton)).dy),
+      greaterThan(
+        tester.getBottomLeft(find.widgetWithText(WebButton, 'Get Started')).dy,
+      ),
     );
     await tester.tap(link);
     expect(taps, 1);
