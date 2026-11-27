@@ -31,7 +31,9 @@ $$3,7,11,\dots$$
 
 2. Subtract neighboring terms to check for a constant difference.
 
-$$7-3=4,\quad11-7=4$$
+$$7-3=4$$
+
+$$11-7=4$$
 
 The reciprocals form an arithmetic sequence with common difference $d=4$.
 
@@ -45,21 +47,19 @@ $$\dfrac{1}{6},\dfrac{1}{3},\dfrac{1}{2},\dots$$
 
 $$\dfrac{1}{6},\dfrac{2}{6},\dfrac{3}{6},\dots$$
 
-The reciprocals increase by $d=\dfrac{1}{6}$ each step, so $6,3,2,\dots$ is also harmonic. The fourth reciprocal is $\dfrac{4}{6}=\dfrac{2}{3}$, and flipping back gives $\dfrac{3}{2}$.
+The reciprocals increase by $d=\dfrac{1}{6}$ each step, so $6,3,2,\dots$ is harmonic. The fourth reciprocal is $\dfrac{4}{6}$.
+
+$$\dfrac{4}{6}=\dfrac{2}{3}$$
+
+Flipping back gives the fourth term, $\dfrac{3}{2}$.
 
 :::why
 Why not subtract neighboring harmonic terms directly? In $\dfrac{1}{3},\dfrac{1}{7},\dfrac{1}{11}$, the differences keep changing because the steady $+4$ step lives in the flipped fractions, not in the original terms.
 :::
 
-:::check
-Write the reciprocal arithmetic sequence for $\dfrac{1}{4},\dfrac{1}{9},\dfrac{1}{14},\dots$ and find its common difference.
-:::answer
-The arithmetic sequence is $4,9,14,\dots$ with common difference $5$. Flip each fraction and subtract: $9-4=5$.
-:::
-
 ### Finding a Harmonic Term in Three Steps
 
-Because the reciprocals form an arithmetic sequence, you can find any harmonic term in three steps:
+Because the reciprocals form an arithmetic sequence, you can find any harmonic term in three steps. Here $n$ is a term's position, starting at $1$.
 
 1. Flip each given term to write the reciprocal arithmetic sequence.
 2. Find the $n^{\text{th}}$ term of that arithmetic sequence using $a_n=a_1+(n-1)d$.
@@ -69,9 +69,13 @@ Find the fourth term of $\dfrac{1}{3},\dfrac{1}{7},\dfrac{1}{11},\dots$.
 
 1. Flip the terms to get $3,7,11,\dots$, so $a_1=3$ and $d=4$.
 
-2. Use $n-1=4-1=3$ steps to find $a_4$ in the arithmetic sequence.
+2. Find $a_4$ in the arithmetic sequence.
 
-$$a_4=3+(4-1)(4)=3+12=15$$
+$$4-1=3$$
+
+$$3\times4=12$$
+
+$$a_4=3+12=15$$
 
 3. Flip $15$ back to return to the harmonic sequence: $\dfrac{1}{15}$.
 
@@ -94,9 +98,9 @@ The common difference $4$ only tells how much each denominator grows. Finish fin
 :::
 
 :::check
-Find the fifth term of the harmonic sequence $\dfrac{1}{2},\dfrac{1}{6},\dfrac{1}{10},\dots$.
+Find the fifth term of the harmonic sequence $12,6,4,\dots$.
 :::answer
-The answer is $\dfrac{1}{18}$. The reciprocals $2,6,10,\dots$ have $d=4$, so $a_5=2+4(4)=18$, and flipping back gives $\dfrac{1}{18}$.
+The answer is $\dfrac{12}{5}$. The reciprocals $\dfrac{1}{12},\dfrac{2}{12},\dfrac{3}{12}$ have $d=\dfrac{1}{12}$, so $a_5=\dfrac{1}{12}+4\left(\dfrac{1}{12}\right)=\dfrac{5}{12}$. Flipping back gives $\dfrac{12}{5}$.
 :::
 
 ## Examples
@@ -109,18 +113,22 @@ Find the $6^{\text{th}}$ term of the harmonic sequence $\dfrac{1}{2},\dfrac{1}{5
 
 1. Flip each term to form the reciprocal arithmetic sequence: $2,5,8,\dots$.
 
-2. Read $a_1=2$ and compute $d=5-2=3$.
+2. Read $a_1=2$ and find $d$.
 
-3. Find the $6^{\text{th}}$ term of this arithmetic sequence using $n-1=6-1=5$ steps.
+$$d=5-2=3$$
 
-$$a_6=2+(6-1)(3)=2+15=17$$
+3. Find the $6^{\text{th}}$ term of this arithmetic sequence.
+
+$$6-1=5$$
+
+$$5\times3=15$$
+
+$$a_6=2+15=17$$
 
 :::try
 Finish the last step: return from the arithmetic term $17$ to the $6^{\text{th}}$ harmonic term.
 :::answer
 The answer is $\dfrac{1}{17}$. Taking the reciprocal of $17$ returns to the harmonic sequence.
-
-**Check:** List the first six arithmetic reciprocals one by one, adding $3$ each time: $2,5,8,11,14,17$. The sixth reciprocal is $17$, so the sixth harmonic term is $\dfrac{1}{17}$.
 :::
 
 ## Traps to Watch For
@@ -128,5 +136,5 @@ The answer is $\dfrac{1}{17}$. Taking the reciprocal of $17$ returns to the harm
 :::checklist
 - Finishing the arithmetic step: take the reciprocal one last time to return to the harmonic term ($\dfrac{1}{15}$, not $15$). {#forget-final-reciprocal}
 - Counting steps to position $n$ in the reciprocal sequence: use $n-1$ steps from $a_1$ ($a_4=3+3(4)=15$). {#wrong-step-count-harmonic}
-- Knowing the common difference $d$: finish computing $a_n$ before taking the reciprocal, never flip $d$ itself. {#flip-difference-instead}
+- Knowing the common difference $d$: finish computing $a_n$ before taking the reciprocal, and do not flip $d$ itself. {#flip-difference-instead}
 :::

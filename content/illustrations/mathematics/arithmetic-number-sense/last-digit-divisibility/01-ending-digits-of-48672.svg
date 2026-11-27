@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 160" width="360" height="160">
+<title>The number 48,672 with brackets under its last 1, 2 and 3 digits for the tests of 2, 4 and 8</title>
+<rect width="360" height="160" rx="14" fill="#030303"/>
+<rect x="120" y="14" width="40" height="44" rx="6" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.5"/>
+<rect x="166" y="14" width="40" height="44" rx="6" fill="#010101" fill-opacity="0.08" stroke="#020202" stroke-width="1.2" stroke-opacity="0.5"/>
+<rect x="212" y="14" width="40" height="44" rx="6" fill="#050505" fill-opacity="0.22" stroke="#050505" stroke-width="1.5"/>
+<rect x="258" y="14" width="40" height="44" rx="6" fill="#050505" fill-opacity="0.22" stroke="#050505" stroke-width="1.5"/>
+<rect x="304" y="14" width="40" height="44" rx="6" fill="#050505" fill-opacity="0.22" stroke="#050505" stroke-width="1.5"/>
+<text x="140" y="45" text-anchor="middle" font-family="Geist, sans-serif" font-size="22" font-weight="700" fill="#010101">4</text>
+<text x="186" y="45" text-anchor="middle" font-family="Geist, sans-serif" font-size="22" font-weight="700" fill="#010101">8</text>
+<text x="232" y="45" text-anchor="middle" font-family="Geist, sans-serif" font-size="22" font-weight="700" fill="#010101">6</text>
+<text x="278" y="45" text-anchor="middle" font-family="Geist, sans-serif" font-size="22" font-weight="700" fill="#010101">7</text>
+<text x="324" y="45" text-anchor="middle" font-family="Geist, sans-serif" font-size="22" font-weight="700" fill="#010101">2</text>
+<path d="M214 64 V76 H342 V64" stroke="#050505" stroke-width="2" fill="none"/>
+<path d="M260 92 V104 H342 V92" stroke="#050505" stroke-width="2" fill="none"/>
+<path d="M306 120 V132 H342 V120" stroke="#050505" stroke-width="2" fill="none"/>
+<text x="206" y="74" text-anchor="end" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="206">last 3 digits: 672</tspan><tspan x="206" dy="15" font-weight="400">test 8: 672 ÷ 8 = 84</tspan></text>
+<text x="252" y="102" text-anchor="end" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="252">last 2 digits: 72</tspan><tspan x="252" dy="15" font-weight="400">test 4</tspan></text>
+<text x="298" y="130" text-anchor="end" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101"><tspan x="298">last digit: 2</tspan><tspan x="298" dy="15" font-weight="400">test 2</tspan></text>
+</svg>

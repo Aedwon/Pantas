@@ -30,6 +30,8 @@ The factors need not be prime, only coprime. If the two factors share a factor l
 
 For example, $4\times6=24$, yet testing $4$ and $6$ does not test $24$. The number $12$ passes both $4$ and $6$, even though $12$ is not divisible by $24$. To test $24$, use $3$ and $8$, which are coprime.
 
+<!-- ILLUSTRATION: Two rows of prime tiles. The number 4 is the tiles 2 and 2. The number 6 is the tiles 2 and 3. The first 2 tile in each row is the shared factor 2 and is outlined in both rows. Below the rows: the tiles needed for both are 2 x 2 x 3 = 12, so passing the tests for 4 and 6 only proves divisibility by 12. Testing 24 needs 2 x 2 x 2 x 3. -->
+
 :::pair #overlapping-factors
 Right: test $24$ using $3$ and $8$, which are coprime
 Wrong: test $24$ using $4$ and $6$, because $4\times6=24$

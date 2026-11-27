@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence. The symbol $S_n$ means the sum of the first $n$ terms, $a_1$ is the first term, $a_n$ is the $n^{\text{th}}$ term, and $d$ is the common difference.
+A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence. Here $n$ is the number of terms, and $a_n$ is the term in position $n$, counting from $1$. The symbol $S_n$ means the sum of the first $n$ terms, $a_1$ is the first term, and $d$ is the common difference.
 
 ### Sum Using First and Last Terms
 
@@ -26,9 +26,9 @@ $$7+16=23$$
 
 $$10+13=23$$
 
-Every pair has the same sum, $23$. There are $6$ terms, which make $\dfrac{6}{2}=3$ pairs, so the sum is $3\times23=69$.
+In this arithmetic series, every pair has the same sum, $23$. There are $6$ terms, which make $\dfrac{6}{2}=3$ pairs, so the sum is $3\times23=69$.
 
-In general, $\dfrac{n}{2}$ pairs each sum to $a_1+a_n$:
+For an arithmetic series with $n$ terms, the sum is:
 
 $$S_n=\dfrac{n}{2}(a_1+a_n)$$
 
@@ -39,13 +39,7 @@ Why does every outside-in pair give the same sum? Moving one step inward from th
 :::pair #omit-divide-by-two
 Right: $S_{10}=\dfrac{10}{2}(4+31)=5(35)=175$
 Wrong: $S_{10}=10(4+31)=350$
-Each pair holds two terms, so $10$ terms make $\dfrac{10}{2}=5$ pairs, not $10$ pairs. Never drop the division by $2$.
-:::
-
-:::check
-Find the sum of the arithmetic series $3+7+11+15+19+23$.
-:::answer
-The answer is $78$. There are $6$ terms, so $S_6=\dfrac{6}{2}(3+23)=3(26)=78$.
+Each pair holds two terms, so $10$ terms make $\dfrac{10}{2}=5$ pairs, not $10$ pairs.
 :::
 
 ### Sum Using the Common Difference
@@ -62,31 +56,29 @@ $$2a_1=2(4)=8$$
 
 2. Multiply $n-1=9$ by $d=3$.
 
-$$(10-1)(3)=9(3)=27$$
+$$9\times3=27$$
 
 3. Add those two parts.
 
 $$8+27=35$$
 
-4. Multiply by $\dfrac{n}{2}=\dfrac{10}{2}=5$.
+4. Halve $n$.
+
+$$\dfrac{10}{2}=5$$
+
+5. Multiply by the bracket.
 
 $$S_{10}=5(35)=175$$
 
 :::pair #wrong-step-count-in-sum
 Right: $a_{10}=4+9(3)=31$, then $S_{10}=5(4+31)=175$
 Wrong: $a_{10}=4+10(3)=34$, then $S_{10}=5(4+34)=190$
-Using $10$ steps instead of $9$ makes the tenth term one step too large. Always use $n-1$ inside the bracket.
-:::
-
-:::check
-Find the sum of the first $8$ terms of $5,9,13,17,\dots$.
-:::answer
-The answer is $152$. Compute $S_8=\dfrac{8}{2}\left[2(5)+7(4)\right]=4(10+28)=4(38)=152$.
+Using $10$ steps instead of $9$ makes the tenth term one step too large.
 :::
 
 ### Middle-Term Average for Odd Counts
 
-When a finite arithmetic sequence has an odd number of terms, the middle term equals the average of all the terms. Multiply that middle term by the number of terms $n$:
+When a finite arithmetic sequence has an odd number of terms, the middle term equals the average of all the terms. It is also the average of the first and last terms. Multiply that middle term by the number of terms $n$:
 
 $$S_n=n\times(\text{middle term})$$
 
@@ -104,15 +96,13 @@ The middle term is already the average of the sequence, so do not multiply by $\
 An arithmetic sequence has $11$ terms. Its first term is $6$ and its last term is $46$. What is its sum?
 :::answer
 The answer is $286$. The middle term is the average of the first and last terms: $\dfrac{6+46}{2}=26$. Then $S_{11}=11\times26=286$.
-
-**Check:** The common difference is $\dfrac{46-6}{10}=4$, so the $6$th term is $6+5(4)=26$, which is the middle term.
 :::
 
 ## Examples
 
 ### #1: Arithmetic Series in a Word Problem
 
-A theater has $20$ seats in the first row, $24$ in the second, and $28$ in the third. Each row has $4$ more seats than the row before it. If there are $15$ rows, what is the total number of seats?
+Find the total seats in a theater. The first row has $20$ seats, the second has $24$, and the third has $28$. Each row has $4$ more seats than the row before it. There are $15$ rows.
 
 **Solution:**
 
@@ -128,17 +118,19 @@ $$14\times4=56$$
 
 $$40+56=96$$
 
-4. Multiply by $\dfrac{15}{2}$.
+4. Halve $96$.
 
-$$S_{15}=\dfrac{15}{2}(96)=15\times48=720$$
+$$\dfrac{96}{2}=48$$
+
+5. Multiply by $n=15$.
+
+$$S_{15}=15\times48=720$$
 
 The theater has $720$ seats.
 
-**Check:** Since $n=15$ is odd, find the middle row (row $8$): $a_8=20+7(4)=48$. Multiply by $15$: $15\times48=720$. Both methods agree.
-
 ### #2: Finding a Term From a Sum Formula
 
-The sum of the first $n$ terms of a sequence is $S_n=n^2+4n$. What is its sixth term?
+Find the sixth term of a sequence whose sum of the first $n$ terms is $S_n=n^2+4n$.
 
 **Solution:**
 
@@ -146,24 +138,30 @@ The sum of the first $n$ terms of a sequence is $S_n=n^2+4n$. What is its sixth 
 
 2. Compute $S_6$.
 
-$$S_6=6^2+4(6)=36+24=60$$
+$$6^2=36$$
+
+$$4(6)=24$$
+
+$$S_6=36+24=60$$
 
 3. Compute $S_5$.
 
-$$S_5=5^2+4(5)=25+20=45$$
+$$5^2=25$$
+
+$$4(5)=20$$
+
+$$S_5=25+20=45$$
 
 :::try
 Finish the last step: find $a_6=S_6-S_5$.
 :::answer
 The answer is $15$. Subtract the two sums: $a_6=60-45=15$.
-
-**Check:** Find the first three terms to see the pattern: $a_1=S_1=1+4=5$, $a_2=S_2-S_1=12-5=7$, and $a_3=S_3-S_2=21-12=9$. The sequence is $5,7,9,\dots$, with $d=2$, so $a_6=5+5(2)=15$, which matches.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Using $S_n=\dfrac{n}{2}(a_1+a_n)$: always divide $n$ by $2$, so $S_{10}=\dfrac{10}{2}(4+31)=175$. {#omit-divide-by-two}
+- Using $S_n=\dfrac{n}{2}(a_1+a_n)$: divide $n$ by $2$, so $S_{10}=\dfrac{10}{2}(4+31)=175$. {#omit-divide-by-two}
 - Using $S_n=\dfrac{n}{2}\left[2a_1+(n-1)d\right]$: use $n-1$ steps inside the bracket, not $n$. {#wrong-step-count-in-sum}
 - Using the middle-term shortcut for an odd count: multiply $n\times\text{middle term}$ without dividing by $2$ ($7\times12=84$). {#extra-half-on-middle-term}
 :::

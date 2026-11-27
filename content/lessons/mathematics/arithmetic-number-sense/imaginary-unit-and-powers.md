@@ -47,6 +47,8 @@ $$i^1=i,\qquad i^2=-1,\qquad i^3=-i,\qquad i^4=1$$
 
 After $i^4$, the pattern starts over at $i$. For any larger positive whole-number exponent, divide the whole exponent by $4$ and use the remainder: remainder $1$ gives $i$, $2$ gives $-1$, $3$ gives $-i$, and $0$ gives $1$.
 
+<!-- ILLUSTRATION: Four boxes in a loop, read clockwise from the top left: i^1 = i (remainder 1), i^2 = -1 (remainder 2), i^3 = -i (remainder 3), and i^4 = 1 (remainder 0). Arrows run from each box to the next, and a last arrow runs from the i^4 box back to the i^1 box, so the powers repeat every 4 steps. -->
+
 Find $i^{57}$. Divide $57$ by $4$:
 
 $$57=4(14)+1$$

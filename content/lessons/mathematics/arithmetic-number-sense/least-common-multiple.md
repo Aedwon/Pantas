@@ -65,9 +65,9 @@ The answer is $120$. Since $8=2^3$, $12=2^2\times 3$ and $20=2^2\times 5$, the l
 
 Use the LCM when events start together and repeat at fixed intervals, and you need their next shared time.
 
-<!-- FIGURE WANTED: two parallel timelines from 0 to 60 minutes; top bar marks 15, 30, 45, 60; bottom bar marks 20, 40, 60; vertical teal dashed line at 60 labeled "LCM = 60 min" -->
-
 For example, if one jeepney returns every $15$ minutes and another every $20$ minutes, they next meet at the LCM of $15$ and $20$, which is $60$ minutes. Check the time window carefully to see whether the starting time counts.
+
+<!-- ILLUSTRATION: Two parallel timelines from 0 to 60 minutes on the same scale. The top timeline, "Every 15 minutes", has marks at 15, 30, 45 and 60. The bottom timeline, "Every 20 minutes", has marks at 20, 40 and 60. A vertical dashed accent line at 60 joins the two timelines and is labeled "LCM = 60 min", the first minute where both have a mark. -->
 
 ### The Product Rule for Two Numbers
 

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 170" width="360" height="170">
+<title>Number line with marks at 2, 38 and 74, each 36 apart, from N = 36k + 2</title>
+<rect width="360" height="170" rx="14" fill="#030303"/>
+<text x="180" y="30" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">N = 36k + 2</text>
+<line x1="24" y1="100" x2="336" y2="100" stroke="#020202" stroke-width="2" fill="none"/>
+<path d="M47 94 C47 62 173 62 173 94" stroke="#050505" stroke-width="2.5" fill="none"/>
+<polygon points="173,94 167,84 179,84" fill="#050505"/>
+<path d="M173 94 C173 62 299 62 299 94" stroke="#050505" stroke-width="2.5" fill="none"/>
+<polygon points="299,94 293,84 305,84" fill="#050505"/>
+<text x="110" y="64" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">+36</text>
+<text x="236" y="64" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">+36</text>
+<circle cx="47" cy="100" r="6" fill="#050505"/>
+<circle cx="173" cy="100" r="6" fill="#050505"/>
+<circle cx="299" cy="100" r="6" fill="#050505"/>
+<text x="47" y="126" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">2</text>
+<text x="173" y="126" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">38</text>
+<text x="299" y="126" text-anchor="middle" font-family="Geist, sans-serif" font-size="16" font-weight="700" fill="#010101">74</text>
+<text x="47" y="148" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="400" fill="#020202">k = 0</text>
+<text x="173" y="148" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="400" fill="#020202">k = 1</text>
+<text x="299" y="148" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="400" fill="#020202">k = 2</text>
+</svg>

@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-The symbol $a_1$ means the first term, $a_n$ is the $n^{\text{th}}$ term, $r$ is the common ratio, $n$ is the number of terms being added, and $S_n$ is the sum of the first $n$ terms.
+The symbol $a_1$ means the first term, $r$ is the common ratio, $n$ is the number of terms being added, $a_n$ is the term in position $n$ (counting from $1$), and $S_n$ is the sum of the first $n$ terms.
 
 ### Sum When the Ratio Is Not One
 
@@ -24,21 +24,29 @@ When $n$ is large, listing every term takes too long. When $r\ne1$, one formula 
 
 $$S_n=\dfrac{a_1(1-r^n)}{1-r}$$
 
-If $r>1$, flipping both subtractions to $\dfrac{a_1(r^n-1)}{r-1}$ gives the exact same value and keeps both top and bottom positive.
+If $r>1$, flipping both subtractions to $\dfrac{a_1(r^n-1)}{r-1}$ gives the same value and keeps both top and bottom positive.
 
-Test the formula on $2,6,18,54,\dots$ with $a_1=2$, $r=3$, and $n=4$.
+Test the flipped form on $2,6,18,54,\dots$ with $a_1=2$, $r=3$, and $n=4$.
 
 1. Compute $r^n$.
 
 $$3^4=81$$
 
-2. Subtract $1$ from $81$ and from $3$.
+2. Subtract $1$ from $81$.
 
-$$81-1=80,\quad3-1=2$$
+$$81-1=80$$
 
-3. Multiply by $a_1=2$ and divide by $2$.
+3. Subtract $1$ from $r=3$.
 
-$$S_4=\dfrac{2(80)}{2}=80$$
+$$3-1=2$$
+
+4. Multiply $80$ by $a_1=2$.
+
+$$2\times80=160$$
+
+5. Divide by $2$.
+
+$$S_4=\dfrac{160}{2}=80$$
 
 :::why
 Why does this formula work? Multiply the sum $S_n$ by $r$ and subtract that new line from $S_n$. Every middle term cancels in pairs, leaving $(1-r)S_n=a_1(1-r^n)$, and dividing by $1-r$ gives $S_n$.
@@ -47,7 +55,7 @@ Why does this formula work? Multiply the sum $S_n$ by $r$ and subtract that new 
 :::pair #omit-sum-denominator
 Right: $S_5=\dfrac{5(3^5-1)}{3-1}=\dfrac{5(242)}{2}=605$
 Wrong: $S_5=5(3^5-1)=1,210$
-Leaving out $r-1=2$ in the denominator doubles the real sum. Always keep $1-r$ (or $r-1$) underneath.
+Leaving out $r-1=2$ in the denominator doubles the real sum. Keep $1-r$ (or $r-1$) underneath.
 :::
 
 :::pair #report-last-term-not-sum
@@ -56,25 +64,25 @@ Wrong: $a_5=5(3^4)=405$
 $405$ is only the fifth term, not the sum of all five terms. Check whether the question asks for a term or a sum.
 :::
 
-:::check
-Find the sum of the first $4$ terms of the geometric sequence $5,10,20,40,\dots$.
-:::answer
-The answer is $75$. Here $a_1=5$, $r=2$, and $n=4$, so $S_4=\dfrac{5(2^4-1)}{2-1}=5(15)=75$.
-:::
-
 ### Sum When the Ratio Is One
 
 You cannot use $\dfrac{a_1(1-r^n)}{1-r}$ when $r=1$ because $1-1=0$ in the denominator, and division by $0$ is undefined.
 
-When $r=1$, multiplying by $1$ never changes a number, so every term in the sequence equals $a_1$. Adding $n$ copies of $a_1$ is simply multiplication:
+When $r=1$, multiplying by $1$ leaves a number unchanged, so every term in the sequence equals $a_1$. Adding $n$ copies of $a_1$ is simply multiplication:
 
 $$S_n=na_1$$
 
-Suppose a geometric sequence has $6$ terms with $a_1=12$ and $r=1$. Every term is $12$, so:
+Find the sum of $6$ terms with $a_1=12$ and $r=1$. Every term is $12$.
 
 $$S_6=6(12)=72$$
 
-Notice that the same idea works if a question asks for the sum of only the last $5$ terms when $r=1$. Suppose a geometric sequence has $12$ terms, a first term of $18$, and $r=1$. Every term is $18$, and only $5$ of those terms are requested, so the sum of the last $5$ terms is $5\times18=90$, not $12\times18=216$.
+The same idea works for part of a sequence. Find the sum of the last $5$ of $12$ terms, with first term $18$ and $r=1$. Every term is $18$, and only $5$ terms are requested.
+
+$$5\times18=90$$
+
+The sum of all $12$ terms would be a different amount.
+
+$$12\times18=216$$
 
 :::pair #add-count-instead-of-multiply
 Right: The sum of $5$ terms of $18$ is $5\times18=90$.
@@ -86,43 +94,51 @@ Adding $5$ equal terms of $18$ means multiplying $5\times18$, not adding $5+18$.
 A geometric sequence has $9$ terms, a first term of $7$, and a common ratio of $1$. What is the sum of its middle $3$ terms?
 :::answer
 The answer is $21$. Because $r=1$, every term is $7$, so the middle $3$ terms (the $4$th, $5$th and $6$th) sum to $3\times7=21$.
-
-**Check:** All $9$ terms sum to $63$. Remove the first $3$ and the last $3$ terms ($6\times7=42$): $63-42=21$.
 :::
 
 ## Examples
 
 ### #1: Finite Geometric Series
 
-Find the sum of the first $6$ terms of the geometric sequence $3,6,12,24,\dots$.
+Find the sum of the first $6$ terms of the geometric sequence $3,6,12,24,\dots$ from $a_1$, $r$ and $n$.
 
 **Solution:**
 
-1. Read $a_1=3$, $r=\dfrac{6}{3}=2$, and $n=6$.
+1. Read $a_1=3$ and $n=6$, then find $r$.
+
+$$r=\dfrac{6}{3}=2$$
 
 2. Since $r\ne1$, use the finite geometric-series formula. Start with the power $2^6$.
 
 $$2^6=64$$
 
-3. Subtract inside the parentheses and denominator.
+3. Subtract $r^n$ from $1$.
 
-$$1-64=-63,\quad1-2=-1$$
+$$1-64=-63$$
 
-4. Multiply by $a_1=3$ and divide by $-1$.
+4. Subtract $r$ from $1$.
 
-$$S_6=\dfrac{3(-63)}{-1}=\dfrac{-189}{-1}=189$$
+$$1-2=-1$$
+
+5. Multiply by $a_1=3$.
+
+$$3\times(-63)=-189$$
+
+6. Divide by $-1$.
+
+$$S_6=\dfrac{-189}{-1}=189$$
 
 The sum is $189$.
 
-**Check:** List all $6$ terms and add them directly: $3+6+12+24+48+96$. Pair or add left to right: $9+12=21$, $21+24=45$, $45+48=93$, $93+96=189$. Both agree.
-
 ### #2: Finite Geometric Series with $r=1$
 
-A geometric series has $8$ terms, and every term is $5$. What is the sum?
+Find the sum of $8$ terms when every term is $5$.
 
 **Solution:**
 
-1. Since every term is the same nonzero number $5$, the common ratio is $r=\dfrac{5}{5}=1$.
+1. Since every term is the same nonzero number $5$, the common ratio is a division of equal numbers.
+
+$$r=\dfrac{5}{5}=1$$
 
 2. With $r=1$, use $S_n=na_1$ where $n=8$ and $a_1=5$.
 
@@ -130,14 +146,12 @@ A geometric series has $8$ terms, and every term is $5$. What is the sum?
 Finish the last step: compute $S_8=8(5)$.
 :::answer
 The answer is $40$. Multiplying $8\times5$ gives $40$.
-
-**Check:** Add eight copies of $5$: $5+5+5+5+5+5+5+5=40$. That matches $8\times5=40$.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Using the finite sum formula when $r\ne1$: always divide by $1-r$ (or $r-1$), so $S_5=\dfrac{5(3^5-1)}{3-1}=605$. {#omit-sum-denominator}
+- Using the finite sum formula when $r\ne1$: divide by $1-r$ (or $r-1$), so $S_5=\dfrac{5(3^5-1)}{3-1}=605$. {#omit-sum-denominator}
 - Asked for a sum of $n$ terms: add all $n$ terms instead of stopping at $a_n$ ($S_5=605$, not $a_5=405$). {#report-last-term-not-sum}
 - Adding $n$ equal terms when $r=1$: multiply $n\times a_1$, not $n+a_1$ ($5\times18=90$). {#add-count-instead-of-multiply}
 :::

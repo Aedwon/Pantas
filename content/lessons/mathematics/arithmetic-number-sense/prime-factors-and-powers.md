@@ -46,8 +46,6 @@ The answer is $31$. None of $2, 3, 5$ divides $31$, so it is prime, and $30$ is 
 
 **Prime factorization** means writing an integer greater than $1$ as a product of prime numbers only. Divide out small primes step by step until every leftover factor is prime.
 
-<!-- FIGURE WANTED: factor tree for 60 branching into 2 and 30, 30 into 2 and 15, 15 into 3 and 5, with prime leaves 2, 2, 3, 5 circled in teal and written below as 60 = 2^2 x 3 x 5 -->
-
 Factor $60$ into primes. Divide by $2$ while the number is even, then move to $3$:
 
 $$60=2\times 30$$
@@ -67,6 +65,8 @@ $$2^3=2\times 2\times 2=8$$
 A **prime power** has a prime number as its base. For $60$, there are two $2$s, one $3$, and one $5$:
 
 $$60=2^2\times 3\times 5$$
+
+<!-- ILLUSTRATION: A factor tree for 60. 60 splits into 2 and 30. 30 splits into 2 and 15. 15 splits into 3 and 5. The prime leaves 2, 2, 3 and 5 are circled, and below the tree is written 60 = 2^2 x 3 x 5. -->
 
 Factor $72$ the same way: divide by $2$ three times to get $9$, then split $9$:
 

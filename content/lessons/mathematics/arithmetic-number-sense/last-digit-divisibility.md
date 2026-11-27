@@ -40,6 +40,8 @@ Test $48,672$ for $8$. Look at the last $3$ digits: $672$.
 
 $$672\div8=84$$
 
+<!-- ILLUSTRATION: The number 48,672 as five digit boxes: 4, 8, 6, 7, 2. Three stepped brackets under the right end of the row show how many ending digits each divisor reads. The last digit, 2, is tested for 2. The last 2 digits, 72, are tested for 4. The last 3 digits, 672, are tested for 8, and 672 / 8 = 84. -->
+
 It divides evenly, so $48,672$ is divisible by $8$. Now change the hundreds digit to $3$ to get $48,372$.
 
 $$372\div8=46\text{ remainder }4$$

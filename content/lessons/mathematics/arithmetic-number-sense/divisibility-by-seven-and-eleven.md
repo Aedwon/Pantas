@@ -53,8 +53,6 @@ The answer is yes. First, $138-2(6)=126$. Then $12-2(6)=0$, and $0$ is a multipl
 
 To test if a number is divisible by $11$, split the digits into two alternating groups (the first, third, fifth, and so on in one group; the second, fourth, sixth, and so on in the other).
 
-<!-- FIGURE WANTED: six digit boxes for 3, 5, 4, 2, b, 1 in a row; teal top arcs link the 1st, 3rd, and 5th digits (3, 4, b) labeled "odd positions: 3 + 4 + b"; gray bottom arcs link the 2nd, 4th, and 6th digits (5, 2, 1) labeled "even positions: 5 + 2 + 1" -->
-
 1. Add the digits in each alternating group.
 2. Subtract one group total from the other (either order works).
 3. If the difference is $0$ or a multiple of $11$ (such as $11$, $-11$, or $22$), the number is divisible by $11$.
@@ -76,6 +74,8 @@ Subtract the two totals.
 $$4-15=-11$$
 
 Since $-11$ is a multiple of $11$, $2,728$ passes.
+
+<!-- ILLUSTRATION: Four digit boxes in a row for the number 2,728: 2, 7, 2, 8. An accent arc above the boxes links the 1st and 3rd digits (2 and 2) and is labeled "odd positions: 2 + 2 = 4". A gray arc below the boxes links the 2nd and 4th digits (7 and 8) and is labeled "even positions: 7 + 8 = 15". Under both, the difference is 4 - 15 = -11. -->
 
 A difference of $0$ also passes, because $0$ is divisible by every nonzero integer.
 

@@ -56,6 +56,8 @@ $$36(2)+2=74$$
 
 Consecutive answers are $L=36$ apart.
 
+<!-- ILLUSTRATION: A number line with three marks at 2, 38 and 74, spaced to scale. Two equal jumps, each labeled +36, lead from 2 to 38 and from 38 to 74. Under the marks are k = 0, k = 1 and k = 2. Above the line is the formula N = 36k + 2. -->
+
 :::why
 Why does $k=0$ give $N=2$? When you divide $2$ by $4$, $6$, or $9$, each divisor fits $0$ times with $2$ left over. That makes $r$ the smallest nonnegative answer, even when a question asks for a larger number.
 :::

@@ -14,7 +14,7 @@ keyPoints:
 ---
 ## Core Concept
 
-A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence. As before, $a_1$ is the first term, $a_n$ is the $n^{\text{th}}$ term, and $n$ is the position.
+A **sequence** is an ordered list of numbers called **terms**. A **series** is a sum of terms from a sequence. As before, $a_1$ is the first term, $a_n$ is the $n^{\text{th}}$ term, and $n$ is the position of a term, counting from $1$.
 
 ### Identifying a Geometric Sequence and Ratio
 
@@ -28,17 +28,21 @@ $$12\div6=2$$
 
 $$24\div12=2$$
 
-Every quotient equals $2$, so the sequence is geometric with $r=2$.
+Each quotient is $2$, so the sequence is geometric with $r=2$.
 
-A geometric sequence can also shrink when $r$ is a fraction between $0$ and $1$, or switch signs when $r$ is negative. Check $81,27,9,3,\dots$:
+A geometric sequence can shrink when $r$ is a fraction between $0$ and $1$, or switch signs when $r$ is negative. Check $81,27,9,3,\dots$:
 
-$$27\div81=\dfrac{1}{3},\quad9\div27=\dfrac{1}{3}$$
+$$27\div81=\dfrac{1}{3}$$
 
-Here $r=\dfrac{1}{3}$. Because consecutive ratios always match, any three consecutive terms $a_1,a_2,a_3$ satisfy $\dfrac{a_2}{a_1}=\dfrac{a_3}{a_2}$, or $a_2^2=a_1a_3$. For example, in $4,x,36$:
+$$9\div27=\dfrac{1}{3}$$
 
-$$x^2=4\times36=144$$
+Here $r=\dfrac{1}{3}$. In a geometric sequence with nonzero terms, consecutive ratios match, so any three consecutive terms $a_1,a_2,a_3$ satisfy $\dfrac{a_2}{a_1}=\dfrac{a_3}{a_2}$, or $a_2^2=a_1a_3$. Find the middle term $x$ in $4,x,36$:
 
-So $x=12$ (or $x=-12$ if negative terms are allowed).
+$$x^2=4\times36$$
+
+$$x^2=144$$
+
+So $x=12$, or $x=-12$ if negative terms are allowed.
 
 :::pair #check-only-first-difference
 Right: For $3,6,12,24,\dots$, $6\div3=2$ and $12\div6=2$, so it is geometric with ratio $2$.
@@ -50,12 +54,6 @@ The first jump is $+3$, but the next jump is $12-6=6$. Check at least two consec
 Right: $r=\dfrac{6}{3}=2$
 Wrong: $r=a_1=3$
 The number $3$ is the first term $a_1$, not the multiplier. Divide a term by the term before it to get $r=2$.
-:::
-
-:::check
-Find the common ratio of the geometric sequence $5,15,45,135,\dots$.
-:::answer
-The answer is $3$. Divide neighboring terms: $15\div5=3$ and $45\div15=3$.
 :::
 
 ### Finding Any Geometric Term
@@ -74,15 +72,19 @@ $$n-1=6-1=5$$
 
 2. Raise $r=2$ to the fifth power.
 
-$$2^5=2\times2\times2\times2\times2=32$$
+$$2^5=32$$
 
 3. Multiply by $a_1=3$.
 
 $$a_6=3\times32=96$$
 
-Try the same steps when $r$ is a fraction. Find the fifth term of $81,27,9,3,\dots$, where $a_1=81$ and $r=\dfrac{1}{3}$.
+Find the fifth term of $81,27,9,3,\dots$, where $a_1=81$ and $r=\dfrac{1}{3}$.
 
-$$a_5=81\left(\dfrac{1}{3}\right)^{5-1}=81\left(\dfrac{1}{3}\right)^4=81\times\dfrac{1}{81}=1$$
+$$5-1=4$$
+
+$$\left(\dfrac{1}{3}\right)^4=\dfrac{1}{81}$$
+
+$$a_5=81\times\dfrac{1}{81}=1$$
 
 :::why
 Why is the exponent $n-1$ instead of $n$? You start at $a_1$ with $0$ multiplications by $r$, so $a_2$ multiplies once ($r^1$), $a_3$ multiplies twice ($r^2$), and $a_6$ multiplies five times ($r^5$).
@@ -91,13 +93,13 @@ Why is the exponent $n-1$ instead of $n$? You start at $a_1$ with $0$ multiplica
 :::pair #wrong-exponent-on-ratio
 Right: $a_6=3(2^{6-1})=3(2^5)=96$
 Wrong: $a_6=3(2^6)=3(64)=192$
-Using exponent $6$ multiplies by $2$ one extra time. Always use exponent $n-1=5$.
+Using exponent $6$ multiplies by $2$ one extra time. Use exponent $n-1=5$.
 :::
 
 :::check
-A geometric sequence has $a_1=4$ and $r=3$. What is its fourth term?
+A geometric sequence has $a_1=2$ and $a_2=10$. What is its fourth term?
 :::answer
-The answer is $108$. Use exponent $4-1=3$: $a_4=4(3^3)=4(27)=108$.
+The answer is $250$. The ratio is $r=10\div2=5$, so $a_4=2(5^3)=2(125)=250$.
 :::
 
 ## Examples
@@ -114,7 +116,9 @@ Find the $8^{\text{th}}$ term of the geometric sequence $3,-6,12,-24,\dots$.
 
 $$r=\dfrac{-6}{3}=-2$$
 
-Check with the next pair: $\dfrac{12}{-6}=-2$.
+Check with the next pair.
+
+$$\dfrac{12}{-6}=-2$$
 
 2. Find the exponent for the $8^{\text{th}}$ term.
 
@@ -128,8 +132,6 @@ $$(-2)^7=-128$$
 Finish the last step: multiply $a_1=3$ by $(-2)^7=-128$.
 :::answer
 The answer is $-384$. Multiplying $3\times(-128)$ gives $-384$.
-
-**Check:** Watch the sign and size step by step. The terms alternate $+,-,+,-$, so every even position is negative, and doubling $3$ seven times gives $3,6,12,24,48,96,192,384$. Position $8$ is $-384$.
 :::
 
 ## Traps to Watch For

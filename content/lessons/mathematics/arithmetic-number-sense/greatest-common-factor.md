@@ -42,6 +42,8 @@ $$\text{GCF}=4\times 3$$
 
 $$\text{GCF}=12$$
 
+<!-- ILLUSTRATION: Two rows of prime tiles. 48 = 2^4 x 3 is the tiles 2, 2, 2, 2, 3. 180 = 2^2 x 3^2 x 5 is the tiles 2, 2, 3, 3, 5. In each row the shared tiles 2, 2, 3 come first and are outlined. The other tiles are not outlined, and the 5 tile is marked "only in 180". Below: GCF = 2^2 x 3 = 12. -->
+
 :::why
 Why use the smaller exponent? A shared factor must fit inside every number. Since $180$ only has two factors of $2$, a common factor cannot hold four factors of $2$.
 :::
