@@ -135,6 +135,22 @@ test('an upload keeps the index of ids it did not touch, and an unchanged re-run
   assert.equal(db.writes, before);
 });
 
+// Other worktrees still hold the tool without the list. Their upload changes lessons and the marker but
+// leaves the list behind; a later re-upload of the earlier version (a rollback) must not be planned as
+// "unchanged" from that stale list.
+test('a list left behind by an upload that did not update it is not trusted: a rollback still writes', async () => {
+  const db = memoryDb();
+  const v1 = lessons(3);
+  const v2 = lessons(3, 'changed');
+  await writeContent(db, v1, [], {});
+  const staleIndex = structuredClone(db.stored.get(indexPath('lessons')));
+  await writeContent(db, v2, [], {});
+  db.stored.set(indexPath('lessons'), staleIndex);
+  const result = await writeContent(db, v1, [], {});
+  assert.deepEqual(result.counts, {create: 0, update: 3, unchanged: 0});
+  assert.equal(db.stored.get('content/lessons/items/lesson-0001').version, v1[1].data.version);
+});
+
 test('the read guard runs before a fallback scan, and a refusal stops the run before any write', async () => {
   const seeded = memoryDb();
   await writeContent(seeded, lessons(5), [], {});
