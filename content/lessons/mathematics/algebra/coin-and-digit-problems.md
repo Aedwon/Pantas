@@ -28,7 +28,9 @@ $$5f+10t=160$$
 
 Multiply the count equation by $5$ so $f$ matches: $5f+5t=100$. Subtract it from the value equation:
 
-$$5t=160-100=60$$
+$$5t=160-100$$
+
+$$5t=60$$
 
 $$t=12$$
 
@@ -41,9 +43,9 @@ Keep count and value in separate equations. Because $5f+10t$ gives total pesos, 
 :::
 
 :::check
-A purse has $9$ coins made of $5$-peso and $20$-peso coins, worth $90$ pesos in all. How many $5$-peso coins are there?
+A purse has $12$ coins made of $5$-peso and $20$-peso coins, worth $135$ pesos in all. How many pesos are in $5$-peso coins?
 :::answer
-The answer is $6$. With $x$ five-peso and $y$ twenty-peso coins, $x+y=9$ and $5x+20y=90$. Multiplying the first by $5$ and subtracting gives $15y=45$, so $y=3$ and $x=9-3=6$.
+The answer is $35$ pesos. With $x$ five-peso and $y$ twenty-peso coins, $x+y=12$ and $5x+20y=135$. Multiplying the first by $5$ and subtracting gives $15y=75$, so $y=5$ and $x=12-5=7$. The $5$-peso coins are worth $5\times7=35$ pesos.
 :::
 
 ### Place Value in Two-Digit Numbers

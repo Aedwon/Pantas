@@ -57,9 +57,9 @@ $$900\div1.20=750$$
 The cost is Php $750$.
 
 :::check
-A shirt is listed at Php $650$ after a $30\%$ markup based on cost. What was its cost?
+A shirt is listed at Php $650$ after a $30\%$ markup based on cost. How many pesos is the markup?
 :::answer
-The answer is Php $500$. The listed price is $1.30\times\text{cost}$, so the cost is $650\div1.30=500$.
+The answer is Php $150$. The cost is $650\div1.30=500$, so the markup is $650-500=150$.
 :::
 
 ### Markup Versus Profit and Expenses
@@ -170,6 +170,6 @@ The answer is $37.5\%$. Dividing the Php $750$ markup by the Php $2,000$ selling
 
 :::checklist
 - Asked for the selling or listed price: add the markup amount to the cost ($800+200=1,000$, not $200$ alone). {#markup-only-not-price}
-- Asked for profit when selling expenses are given: subtract expenses from the markup ($160-45=115$). {#markup-is-not-profit}
+- Asked for profit at the listed price when selling expenses are given: subtract expenses from the markup ($160-45=115$). {#markup-is-not-profit}
 - Asked for percent of selling price versus percent of cost: put the stated base in the denominator ($\dfrac{5}{25}=20\%$ of selling price). {#wrong-percentage-base}
 :::

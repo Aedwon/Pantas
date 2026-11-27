@@ -70,9 +70,9 @@ Check when the question starts the clock. "After the van starts" asks for $2$ ho
 :::
 
 :::check
-A cyclist leaves at $12$ kph. Two hours later, a second cyclist follows on the same road at $16$ kph. How many hours after the second cyclist starts until the catch-up?
+A cyclist leaves at $12$ kph. Two hours later, a second cyclist follows on the same road at $16$ kph. How many kilometers from the start does the second cyclist catch the first?
 :::answer
-The answer is $6$ hours. The head start is $12\times 2=24$ km and the closing rate is $16-12=4$ kph, so $24\div 4=6$.
+The answer is $96$ km. The head start is $12\times 2=24$ km and the closing rate is $16-12=4$ kph, so the catch-up takes $24\div 4=6$ hours. The second cyclist rides $16\times 6=96$ km.
 :::
 
 ## Examples
