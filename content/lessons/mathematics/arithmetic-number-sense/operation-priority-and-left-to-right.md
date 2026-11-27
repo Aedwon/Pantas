@@ -6,8 +6,8 @@ subject: "subject-mathematics"
 topic: "topic-arithmetic-number-sense"
 isActive: true
 part: 1
-partCount: 4
-ordering: 0
+partCount: 3
+ordering: 1
 keyPoints:
   - 'Apply the order of operations and the left-to-right rule.'
   - 'Evaluate powers and roots before multiplication and addition.'
