@@ -57,3 +57,9 @@
 | arithmetic-number-sense/signed-integer-operations | line 55, "Adding Two Numbers with Different Signs", the FIGURE WANTED note above "Start at 0 and walk 7 steps left" | Confirmed, keep: a number line from -8 to 2 with a walk from 0 left to -7 and then 4 steps right to -3, so the learner sees the shorter walk undo part of the longer one | Number line -8 to 2; first arrow "-7"; second arrow "+4"; circled point "-3" (the text beside it prints the same walks and the stop at -3) | Existing FIGURE WANTED note at line 55 |
 | arithmetic-number-sense/substituting-negative-numbers | line 36, "What an Exponent Applies To", the FIGURE WANTED note above "Compare (-3)^2 and -3^2" | Confirmed, keep: two panels, one outlining "(-3)" under the exponent and one outlining only "3", so the learner sees what the exponent reaches | Left panel (-3)^2 = (-3) x (-3) = 9; right panel -3^2 = -(3 x 3) = -9 (the text beside it prints the same two chains) | Existing FIGURE WANTED note at line 36 |
 | arithmetic-number-sense/finite-geometric-series | no new row; the existing "none" row from Writer A stands. Only the kept Quick Check changed (a sum with r not 1 for the sequence 2, 8, ...), and it needs no picture | none | none | None (Writer B, batch 2d) |
+
+## For later
+
+| Lesson | Picture | Why held | Fix needed |
+| --- | --- | --- | --- |
+| arithmetic-number-sense/infinite-geometric-series | the halving bar of total 2 (pieces 1, 1/2, 1/4, 1/8, gap 1/8) | Codex 2d read 2 Blocker: the leader line labeled the gap "approaches 2"; the lesson shipped without the picture (lead ruling, Nov 28) | Label the gap "shrinks to 0" and attach "filled length approaches 2" to the filled part; place it after "the running total approaches 2"; read it in the next Codex batch |
