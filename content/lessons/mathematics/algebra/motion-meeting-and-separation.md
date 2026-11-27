@@ -57,11 +57,11 @@ Add the two speeds only when the objects move in opposite directions along the s
 1. Moving apart from the same starting spot in opposite directions.
 2. Moving toward each other from opposite ends of a starting gap.
 
-If they move the same direction, subtract the speeds.
+If they move the same direction, the gap changes at the faster speed minus the slower speed. For $35$ kph and $25$ kph, that is $35-25=10$ kph. The gap grows if the faster object is ahead and shrinks if it is behind.
 
 Use the combined speed as $r$ in $d=rt$ only for the time both objects move. There are two gaps to tell apart: the gap already open when the second object starts, and the final gap. For moving apart from the same spot, $d$ is the final gap minus the gap already open. For meeting, $d$ is the gap at the moment the second object starts.
 
-For example, the $25$ kph boat leaves one hour before the $35$ kph boat, so $25$ km is already open when the second boat starts. If the final gap is $85$ km, then $d=85-25=60$ km. The two boats open that $60$ km at $60$ kph, which takes $1$ shared hour.
+For example, two boats leave the same port in opposite directions. The $25$ kph boat starts one hour before the $35$ kph boat, so $25$ km is already open when the second boat starts. If the final gap is $85$ km, then $d=85-25=60$ km. The two boats open that $60$ km at $60$ kph, which takes $1$ shared hour.
 
 Find when two boats are $180\text{ km}$ apart. They leave the same port at the same time in opposite directions, at $25\text{ kph}$ and $35\text{ kph}$.
 

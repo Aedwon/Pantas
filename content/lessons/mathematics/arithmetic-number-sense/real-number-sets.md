@@ -19,7 +19,7 @@ keyPoints:
 Numbers belong to nested sets, like smaller boxes sitting inside larger boxes.
 
 - **Natural numbers** are the counting numbers $1,2,3,\dots$. Some books include $0$, so follow the rule stated in the question.
-- **Whole numbers** add $0$ to the counting numbers: $0,1,2,3,\dots$. Fractions and negative numbers are not whole numbers.
+- **Whole numbers** add $0$ to the counting numbers: $0,1,2,3,\dots$. Negative numbers are not whole numbers. A fraction is whole only when it equals a whole number, such as $\dfrac{6}{3}=2$, not $\dfrac{1}{2}$.
 - **Integers** include all whole numbers and their opposites: $\dots,-2,-1,0,1,2,\dots$.
 
 Sort $5$, $0$, and $-4$ by set. The number $5$ is natural, whole, and an integer.
@@ -36,7 +36,7 @@ Whole numbers start at $0$, so a negative number is not whole. When natural numb
 
 A **rational number** can be written as a fraction $\dfrac{p}{q}$ of two integers, with $q\ne 0$. Every integer $n$ equals $\dfrac{n}{1}$, so every integer is rational. Decimals that stop (like $0.75$) or repeat forever (like $0.333\dots$) are rational too.
 
-An **irrational number** is a real number that cannot be written as an integer fraction. Its decimal goes on forever without repeating. Common examples are $\pi$ and square roots of integers that are not perfect squares, such as $\sqrt{2}$ and $\sqrt{7}$.
+An **irrational number** is a real number that cannot be written as an integer fraction. Its decimal goes on forever without repeating. Common examples are $\pi$ and square roots of non-negative integers that are not perfect squares, such as $\sqrt{2}$ and $\sqrt{7}$.
 
 Rational and irrational numbers never overlap. Together, they make up all **real numbers**.
 
@@ -52,7 +52,7 @@ $$\sqrt{7}\approx 2.64575\dots$$
 
 Because $9$ is a perfect square, $\sqrt{9}$ equals $3$, so it is rational. Because $7$ is not a perfect square, $\sqrt{7}$ never ends or repeats, so it is irrational.
 
-Two irrational square roots can still multiply to a rational number if their product is a perfect square:
+For positive numbers, $\sqrt{a}\times\sqrt{b}=\sqrt{ab}$. So two irrational square roots can still multiply to a rational number if the numbers under the roots multiply to a perfect square:
 
 $$\sqrt{2}\times\sqrt{8}=\sqrt{16}$$
 

@@ -90,7 +90,7 @@ $$(2i)(3i)=6i^2$$
 $$6i^2=6(-1)=-6$$
 
 :::pair #negative-root-product
-Right: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{(6i)(2i)}{4i}=\dfrac{-12}{4i}=\dfrac{-3}{i}=3i$
+Right: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{(6i)(2i)}{4i}=\dfrac{-12}{4i}=\dfrac{-3}{i}=\dfrac{-3i}{i^2}=3i$
 Wrong: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{6\cdot 2}{4}=3$
 Do not drop the minus signs inside negative roots or use $\sqrt{ab}$ before pulling out $i$. Write each negative root in $i$ form first.
 :::
@@ -161,7 +161,7 @@ The answer is $6i$. Multiplying top and bottom by $i$ gives $\dfrac{-6i}{i^2}=\d
 
 ## Speed Tricks & Shortcuts
 
-Any four consecutive powers of $i$ add to $0$, because $i+(-1)+(-i)+1=0$. Also, $\dfrac{1}{i}=-i$, since $i(-i)=-i^2=1$.
+Any four consecutive powers of $i$ add to $0$, because $i+(-1)+(-i)+1=0$. For $i+i^2+\dots+i^{10}$, the first $8$ terms make two groups of four, which add to $0$. The leftover terms are $i^9+i^{10}=i+(-1)=-1+i$. Also, $\dfrac{1}{i}=-i$, since $i(-i)=-i^2=1$.
 
 ## Traps to Watch For
 

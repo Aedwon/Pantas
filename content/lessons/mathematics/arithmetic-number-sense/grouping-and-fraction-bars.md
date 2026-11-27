@@ -170,7 +170,7 @@ The answer is $14.5$. Divide the numerator by the denominator: $29\div 2=14.5$.
 
 ## Speed Tricks & Shortcuts
 
-When there are no grouping symbols around them, plus and minus signs split a long line into separate pieces. In $5\times 4-3^2+20\div 5$, you can work out the three pieces at once: $5\times 4=20$, $3^2=9$, and $20\div 5=4$.
+When there are no grouping symbols around them, addition and subtraction between terms split a long line into separate pieces. A minus sign stays attached to its number, such as the minus in $-4$. In $5\times 4-3^2+20\div 5$, you can work out the three pieces at once: $5\times 4=20$, $3^2=9$, and $20\div 5=4$.
 
 $$20-9=11$$
 

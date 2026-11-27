@@ -126,19 +126,15 @@ The six-digit number $3a42b1$ is divisible by $11$. If $a=5$, what is the value 
 **Solution:**
 
 1. Replace $a$ with $5$. The number is $3542b1$.
-2. Add the alternating digits in two groups.
+2. Add the digits in the odd positions ($3+4+b$) and in the even positions ($5+2+1$).
 
 $$3+4+b=7+b$$
 
 $$5+2+1=8$$
 
-3. Subtract the second total from the first total.
+3. Subtract the second total from the first total. Since $b$ is a digit from $0$ to $9$, the difference goes from $-1$ to $8$. The only multiple of $11$ in that range is $0$.
 
-$$(7+b)-8=b-1$$
-
-4. Since $b$ is a digit from $0$ to $9$, $b-1$ goes from $-1$ to $8$. The only multiple of $11$ in that range is $0$.
-
-$$b-1=0$$
+$$(7+b)-8=b-1=0$$
 
 :::try
 Finish the last step: find $b$, then write the six-digit number.

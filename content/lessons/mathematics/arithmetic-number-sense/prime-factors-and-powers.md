@@ -24,7 +24,7 @@ Notice that $2$ is the only even prime. Every even number greater than $2$ also 
 
 A **composite number** is an integer greater than $1$ with more than two positive factors. For example, $12$ divides by $1, 2, 3, 4, 6,$ and $12$. Odd numbers can be composite too: $9=3\times 3$ and $21=3\times 7$.
 
-To test a number below $49$, such as $29$, check whether $2, 3, 5$ divide it evenly. None of them divides $29$, so $29$ is prime.
+For a whole number from $6$ to $48$, it is prime if none of $2$, $3$ and $5$ divides it. For example, none of them divides $29$, so $29$ is prime. The numbers $2$, $3$ and $5$ are prime, and $1$ is neither prime nor composite.
 
 :::why
 Why is $1$ neither prime nor composite? A prime needs two distinct positive factors, $1$ and itself. The number $1$ has only one positive factor, $1$, so it fits neither group.
@@ -39,7 +39,7 @@ A prime must have two positive factors. Counting $1$ as prime puts an extra $1$ 
 :::check
 What is the smallest prime number greater than $30$?
 :::answer
-The answer is $31$. None of $2, 3, 5$ divides $31$, so it is prime, and $30$ is not.
+The answer is $31$. None of $2, 3, 5$ divides $31$, so it is prime.
 :::
 
 ### Prime Factorization and Powers

@@ -17,18 +17,15 @@ keyPoints:
 
 Two positive integers are **relatively prime**, or **coprime**, when their only common positive factor is $1$.
 
-- $3$ and $8$ are coprime: factors of $3$ are $1,3$; factors of $8$ are $1,2,4,8$. Their only shared factor is $1$.
+- $3$ and $8$ are coprime: the factors of $3$ are $1,3$, and of $8$ are $1,2,4,8$. They share only $1$.
 - $4$ and $6$ are **not** coprime: both divide by $2$, so they share a factor larger than $1$.
 
 ### Combining Coprime Factors
 
-If $a$ and $b$ are coprime positive integers, a number is divisible by $ab$ exactly when it passes the test for $a$ **and** the test for $b$. Here $ab$ means $a\times b$.
+If $a$ and $b$ are coprime positive integers, a number is divisible by $ab$ exactly when it passes the test for $a$ **and** the test for $b$.
+For example, $8$ and $9$ are coprime and $8\times9=72$. Passing both $8$ and $9$ proves a number is divisible by $72$. The factors need not be prime, only coprime.
 
-For example, $8$ and $9$ are coprime and $8\times9=72$. Passing both $8$ and $9$ proves a number is divisible by $72$.
-
-The factors need not be prime, only coprime. If the two factors share a factor larger than $1$, passing both tests does not prove divisibility by their product.
-
-For example, $4\times6=24$, yet testing $4$ and $6$ does not test $24$. The number $12$ passes both $4$ and $6$, even though $12$ is not divisible by $24$. To test $24$, use $3$ and $8$, which are coprime.
+If the factors share a factor, passing both tests does not prove divisibility by their product. For example, $4\times6=24$, yet testing $4$ and $6$ does not test $24$. The number $12$ passes both $4$ and $6$, even though $12$ is not divisible by $24$.
 
 <!-- ILLUSTRATION: Two rows of prime tiles. The number 4 is the tiles 2 and 2. The number 6 is the tiles 2 and 3. The first 2 tile in each row is the shared factor 2 and is outlined in both rows. Below the rows: the tiles needed for both are 2 x 2 x 3 = 12, so passing the tests for 4 and 6 only proves divisibility by 12. Testing 24 needs 2 x 2 x 2 x 3. -->
 
@@ -50,35 +47,35 @@ The answer is no. The factors $6$ and $10$ share the factor $2$, and $30$ passes
 
 ### Testing Two Unknown Digits
 
-When a number has two missing digits $x$ and $y$ and the divisor has a last-digit factor ($4$, $5$, $8$, or $10$), start with the last-digit test. It limits the ending digit $y$ to a few choices. Then test each valid $y$ with the digit-sum or alternating-sum test ($3$, $9$, or $11$) to find $x$.
+When a number has two missing digits $x$ and $y$, the divisor has a last-digit factor ($4$, $5$, $8$, or $10$), and $x$ is outside the digits that factor reads, start with the last-digit test. It limits the ending digit $y$ to a few choices. Then test each valid $y$ with the digit-sum or alternating-sum test to find $x$.
 
 Find $x$ and $y$ in $32x1y$, a multiple of $45$. Since $45=5\times9$ and $5,9$ are coprime, test $5$ first, then $9$.
 
 1. By the rule for $5$, $y$ can only be $0$ or $5$.
 
-$$y=0\text{ or }y=5$$
+2. Test $y=0$ with the rule for $9$. Since $x$ is a digit, the digit sum is from $6$ to $15$. The only multiple of $9$ there is $9$.
 
-2. Test $y=0$ with the rule for $9$. Add the digits:
+$$3+2+x+1+0=6+x=9$$
 
-$$3+2+x+1+0=6+x$$
+$$x=9-6=3$$
 
-Since $x$ is a digit, $6+x$ is from $6$ to $15$. The only multiple of $9$ there is $9$.
+3. Test $y=5$ with the rule for $9$. Since $x$ is a digit, the digit sum is from $11$ to $20$. The only multiple of $9$ there is $18$.
 
-$$6+x=9$$
+$$3+2+x+1+5=11+x=18$$
 
-$$x=3$$
-
-3. Test $y=5$ with the rule for $9$. Add the digits:
-
-$$3+2+x+1+5=11+x$$
-
-Since $x$ is a digit, $11+x$ is from $11$ to $20$. The only multiple of $9$ there is $18$.
-
-$$11+x=18$$
-
-$$x=7$$
+$$x=18-11=7$$
 
 So $(x,y)$ is $(3,0)$ or $(7,5)$.
+
+If the range holds two multiples of $9$, keep both. In $5x31$, $9+x$ is from $9$ to $18$, so $x=0$ or $9$.
+
+For $99=9\times11$, take $2a6,3b5$. The $11$ difference is from $-9$ to $9$, so it must be $0$ and $a=b$.
+
+$$(2+6+b)-(a+3+5)=b-a=0$$
+
+The digit sum $16+2a$ is even and at most $34$, so it is $18$ and $a=b=1$.
+
+$$2+a+6+3+a+5=16+2a=18$$
 
 :::pair #pass-only-one-test
 Right: in $3a4,5b2$, divisible by $99$, check both $9$ and $11$
@@ -89,7 +86,7 @@ Passing one factor test is not enough. In $344,592$, the alternating sum is $(3+
 :::pair #stop-at-first-case
 Right: in $32x1y$, test both $y=0$ and $y=5$ when finding the largest product or sum
 Wrong: stop after testing $y=0$ and report $x\times y=0$
-The ending $0$ gives $3\times0=0$, but $y=5$ gives $7\times5=35$. Check every valid ending before choosing the greatest or least value.
+The ending $0$ gives $3\times0=0$, but $y=5$ gives $7\times5=35$.
 :::
 
 ## Examples
@@ -102,23 +99,17 @@ The five-digit number $5x34y$ is a multiple of $72$. Find $x+y$.
 
 1. Split $72$ into coprime factors: $72=8\times9$. Test $8$ first, then $9$.
 2. The last $3$ digits form $34y$, from $340$ to $349$. Divide by $8$: $344\div8=43$ is the only multiple of $8$ in that range, so $y=4$.
-3. Substitute $y=4$ into $5x34y$ to get $5x344$, then apply the rule for $9$.
+3. Substitute $y=4$ into $5x34y$ to get $5x344$, then apply the rule for $9$. Since $x$ is from $0$ to $9$, the digit sum goes from $16$ to $25$. The only multiple of $9$ in that range is $18$.
 
-$$5+x+3+4+4=16+x$$
+$$5+x+3+4+4=16+x=18$$
 
-4. Since $x$ is from $0$ to $9$, $16+x$ goes from $16$ to $25$. The only multiple of $9$ in that range is $18$.
+4. Subtract $16$ from both sides.
 
-$$16+x=18$$
-
-$$x=2$$
+$$x=18-16=2$$
 
 5. Add the two digits.
 
-$$x+y=2+4$$
-
-$$x+y=6$$
-
-The sum is $6$.
+$$x+y=2+4=6$$
 
 ### #2: Checking Every Case for a Maximum
 
@@ -128,27 +119,19 @@ The five-digit number $74x3y$ is divisible by $36$. What is the greatest possibl
 
 1. Split $36$ into coprime factors: $36=4\times9$. Test $4$ first, then $9$.
 2. For divisibility by $4$, the last $2$ digits $3y$ must divide by $4$. The multiples of $4$ from $30$ to $39$ are $32$ and $36$, so $y=2$ or $y=6$.
-3. First case ($y=2$): add the digits of $74x32$.
+3. First case ($y=2$): add the digits of $74x32$. Since $x$ is a digit, the sum is from $16$ to $25$. The only multiple of $9$ there is $18$.
 
-$$7+4+x+3+2=16+x$$
+$$7+4+x+3+2=16+x=18$$
 
-The only multiple of $9$ from $16$ to $25$ is $18$.
-
-$$16+x=18$$
-
-$$x=2$$
+$$x=18-16=2$$
 
 With $y=2$, the sum is $x+y=2+2=4$.
 
-4. Second case ($y=6$): add the digits of $74x36$.
+4. Second case ($y=6$): add the digits of $74x36$. The sum is from $20$ to $29$. The only multiple of $9$ there is $27$.
 
-$$7+4+x+3+6=20+x$$
+$$7+4+x+3+6=20+x=27$$
 
-The only multiple of $9$ from $20$ to $29$ is $27$.
-
-$$20+x=27$$
-
-$$x=7$$
+$$x=27-20=7$$
 
 :::try
 Finish the last step: find $x+y$ for the second case and compare it with the first case to pick the greatest sum.
@@ -170,10 +153,12 @@ The answer is $13$. In the second case, $x+y=7+6=13$, which is greater than $4$ 
 - $88=8\times11$
 - $99=9\times11$
 
+For $88=8\times11$, take $561,1y6$. The multiples of $8$ from $106$ to $196$ that end in $6$ are $136$ and $176$, so $y=3$ or $7$. The $11$ difference is $(5+1+3)-(6+1+6)=-4$ for $y=3$ and $(5+1+7)-(6+1+6)=0$ for $y=7$. So $y=7$.
+
 ## Traps to Watch For
 
 :::checklist
 - Splitting a composite divisor: pick two factors that share only $1$, such as $3$ and $8$ for $24$. {#overlapping-factors}
-- Testing a divisor with coprime factors: verify both factor tests, never stop after passing just one. {#pass-only-one-test}
-- Finding a largest or smallest sum or product of missing digits: test every valid ending digit first. {#stop-at-first-case}
+- Testing a divisor with coprime factors: verify both factor tests. {#pass-only-one-test}
+- Finding a largest or smallest sum or product of missing digits: test every valid ending. {#stop-at-first-case}
 :::

@@ -76,6 +76,14 @@ $$720\div15=48$$
 
 <!-- ILLUSTRATION: two stacked number cards. The top card shows 0.72 and the bottom card shows 0.015, with a division sign between them. Three curved hop arrows move the decimal point 3 places right on 0.015 to give 15. Three curved hop arrows move the decimal point 3 places right on 0.72, with one highlighted 0 added at the end, to give 720. Below, 720 ÷ 15 = 48. Both points move the same number of places. -->
 
+When the quotient is not a whole number, the point in the answer sits directly above the point in the dividend. Find $7.5\div0.2$. Moving both points $1$ place right gives:
+
+$$7.5\div0.2=75\div2$$
+
+Write $75$ as $75.0$ and divide. The number $2$ goes into $7$ three times and into $15$ seven times, with $1$ left. Put the point in the answer above the point in $75.0$. Then $2$ goes into $10$ five times.
+
+$$75\div2=37.5$$
+
 Never divide by $0$. An expression such as $4.8\div0$ has no answer and is **undefined**.
 
 :::why

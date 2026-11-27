@@ -76,8 +76,8 @@ When the missing digit is in the middle of a multiple of $6$, it does not need t
 
 :::pair #only-even-middle-digit
 Right: in $42d18$, $d$ can be $0$, $3$, $6$, or $9$ because the last digit $8$ is already even
-Wrong: in $42d18$, $d$ must be even, so $d=9$ is ruled out
-The last digit $8$ already satisfies the $2$ test. Any digit from $0$ to $9$ that makes the digit sum a multiple of $3$ works for $d$.
+Wrong: in $42d18$, $d$ must be even, so the greatest choice is $d=8$
+The last digit $8$ already satisfies the $2$ test. With $d=8$ the digit sum is $4+2+8+1+8=23$, which fails $3$. Any digit from $0$ to $9$ that makes the digit sum a multiple of $3$ works for $d$.
 :::
 
 ## Examples
@@ -88,15 +88,11 @@ The five-digit number $47x81$ is divisible by $9$. What is the value of the digi
 
 **Solution:**
 
-1. Add the digits of $47x81$.
+1. Add the digits of $47x81$. Since $x$ is a single digit from $0$ to $9$, the sum goes from $20$ to $29$. The only multiple of $9$ in that range is $27$.
 
-$$4+7+x+8+1=20+x$$
+$$4+7+x+8+1=20+x=27$$
 
-2. Since $x$ is a single digit from $0$ to $9$, the sum $20+x$ goes from $20$ to $29$. The only multiple of $9$ in that range is $27$.
-
-$$20+x=27$$
-
-3. Subtract $20$ from both sides.
+2. Subtract $20$ from both sides.
 
 $$x=27-20$$
 

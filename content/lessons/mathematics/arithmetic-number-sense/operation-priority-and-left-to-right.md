@@ -62,7 +62,7 @@ $$7+8=15$$
 :::pair #power-not-product
 Right: $\sqrt{49}+2^3=7+8=15$
 Wrong: $\sqrt{49}+2^3=7+6=13$
-The wrong line multiplied $2\times 3=6$. An exponent counts copies of the base, so $2^3=2\times 2\times 2=8$.
+The wrong line multiplied $2\times 3=6$. The $3$ in $2^3$ tells us to multiply three copies of $2$, so $2^3=2\times 2\times 2=8$.
 :::
 
 ### Left to Right for Tied Operations

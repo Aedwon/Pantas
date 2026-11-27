@@ -46,7 +46,7 @@ Wrong: $\dfrac{180}{120}=1.5$, which is $150\%$
 The wrong line divided Facility Y by Facility X alone instead of their combined total. When asked for a share of a combined group, add all parts to form the denominator first.
 :::
 
-To combine two subgroups (such as two branches), add the parts and add the totals first, then divide. Do not add their two percentages, because each is a share of a different group.
+To combine two separate groups that do not overlap (such as two branches), add the parts and add the totals first, then divide. Do not add their two percentages, because each is a share of a different group.
 
 At one branch, $6$ of $10$ ratings are excellent. At another, $9$ of $30$ are. Add the parts, then add the totals:
 
@@ -95,7 +95,7 @@ The wrong ratio swapped the order. Write the numbers in the exact order the ques
 :::pair #mismatched-ratio-units
 Right: $1.5\text{ million}:750\text{ thousand}=1,500:750=2:1$
 Wrong: $1.5:750=1:500$
-The wrong line mixed millions with thousands. When the units differ, convert both numbers to the same unit before simplifying.
+The wrong line mixed millions with thousands. Both amounts here are money, so write both in pesos or both in thousands of pesos before simplifying.
 :::
 
 ## Examples

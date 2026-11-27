@@ -160,6 +160,6 @@ When products share a common factor, factor it out before multiplying if the lef
 
 :::checklist
 - Multiplying a number into parentheses: multiply every term inside, not only the first, so $4(3x+7)=12x+28$. {#first-term-only}
-- A negative factor outside parentheses: multiply every inner sign by that negative factor, so $-2(x-5)=-2x+10$. {#negative-times-negative}
+- A negative factor outside parentheses: multiply every term inside the parentheses by that negative factor, so $-2(x-5)=-2x+10$. {#negative-times-negative}
 - Factoring out a common factor when a term equals that factor: keep $1$ inside the parentheses, so $17(99)+17(1)=17(99+1)$. {#keep-one-inside}
 :::

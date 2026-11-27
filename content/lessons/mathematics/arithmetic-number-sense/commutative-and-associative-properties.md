@@ -166,22 +166,12 @@ Evaluate $25\times (4\times 17)+15$.
 
 **Solution:**
 
-1. Look at the multiplication $25\times (4\times 17)$. Use the associative property to group $25$ and $4$ together first.
-
-$$25\times (4\times 17)+15=(25\times 4)\times 17+15$$
-
-2. Multiply the easy pair inside the parentheses.
-
-$$25\times 4=100$$
-
-3. Put $100$ back in place of $25\times 4$.
-
-$$100\times 17+15$$
+1. Multiplication comes before adding, so work on $25\times (4\times 17)$ first. The associative property lets you choose which two factors to multiply first. Look for a pair with an easy product.
 
 :::try
-Finish the last step: find the value of $100\times 17+15$.
+Finish the last step: choose the pair of factors in $25\times 4\times 17$ to multiply first, regroup, and find the value of $25\times (4\times 17)+15$.
 :::answer
-The answer is $1,715$. First $100\times 17=1,700$, and then $1,700+15=1,715$.
+The answer is $1,715$. Group $25$ and $4$: $(25\times 4)\times 17+15=100\times 17+15=1,700+15=1,715$.
 :::
 
 ## Traps to Watch For

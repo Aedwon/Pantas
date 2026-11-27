@@ -16,7 +16,7 @@ keyPoints:
 
 ### Inverse Proportion for a Fixed Job
 
-In an **inverse proportion**, one quantity goes up while the other goes down so their product stays the same. This happens when a fixed job is shared by workers or machines all working at the same unchanged rate.
+In an **inverse proportion**, two quantities have a product that stays the same. In a fixed job with positive worker counts and times, more workers or machines at the same unchanged rate means less time.
 
 $$\text{workers}\times\text{time}=\text{total work}$$
 

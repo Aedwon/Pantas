@@ -18,7 +18,7 @@ keyPoints:
 
 To turn a fraction into a decimal, divide the numerator (top) by the denominator (bottom). Some answers end cleanly; others have digits that repeat forever.
 
-To turn a decimal into a percentage, multiply by $100$ (move the decimal point $2$ places right) and attach $\%$. To turn a percentage back into a decimal, divide by $100$ (move $2$ places left).
+To turn a decimal into a percentage, multiply by $100$ (move the decimal point $2$ places right) and attach $\%$. To turn a percentage back into a decimal, drop the $\%$ sign and divide the number by $100$ (move $2$ places left).
 
 So to turn a fraction into a percentage:
 
@@ -82,7 +82,7 @@ Next, $12.5\%$ as a decimal.
 :::pair #forget-percent-divide
 Right: $12.5\%=12.5\div 100=0.125$
 Wrong: $12.5\%=12.5$
-A percentage is out of $100$, so divide by $100$ before calculating. Adding $12.5$ without dividing treats $12.5\%$ as $12.5$ wholes.
+A percentage is out of $100$, so drop the percent sign and divide the number by $100$ before calculating. Adding $12.5$ without dividing treats $12.5\%$ as $12.5$ wholes.
 :::
 
 "Express" means write the same value in the form the question names. "Evaluate" means find the final number answer.
@@ -152,5 +152,5 @@ The symbol $\approx$ means "is about equal to." If a decimal repeats forever, ke
 :::checklist
 - Turning a fraction into a decimal: divide the numerator by the denominator. {#divide-upside-down}
 - Changing a decimal to a percentage: move the decimal point $2$ places right, so $0.4375$ is $43.75\%$. {#one-shift-to-percent}
-- Combining a percentage with decimals: divide the percentage by $100$ first, so $12.5\%$ is $0.125$. {#forget-percent-divide}
+- Combining a percentage with decimals: drop the percent sign and divide the number by $100$ first, so $12.5\%$ is $0.125$. {#forget-percent-divide}
 :::

@@ -51,7 +51,7 @@ Why use the smaller exponent? A shared factor must fit inside every number. Sinc
 :::pair #gcf-larger-exponent
 Right: for $48=2^4\times 3$ and $180=2^2\times 3^2\times 5$, the GCF is $2^2\times 3=12$
 Wrong: for $48=2^4\times 3$ and $180=2^2\times 3^2\times 5$, the GCF is $2^4\times 3^2\times 5=720$
-The wrong line picked the larger powers and even kept $5$. That gives the LCM ($720$), which does not divide $48$.
+The wrong line picked the larger powers and even kept $5$. That is a multiple of both numbers ($720$), which does not divide $48$.
 :::
 
 :::pair #gcf-unshared-prime

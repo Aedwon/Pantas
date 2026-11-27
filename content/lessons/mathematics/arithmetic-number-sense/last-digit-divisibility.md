@@ -31,9 +31,9 @@ If a number has fewer digits than the rule needs, test the whole number.
 Test $5,116$ for $2$ and $4$. The last digit is $6$ (even), so it passes $2$. The last $2$ digits form $16$, and $16\div4=4$, so $5,116$ passes $4$.
 
 :::pair #add-digits-for-four
-Right: for $4,516$, test the last $2$ digits ($16\div4=4$)
-Wrong: for $4,516$, add all digits ($4+5+1+6=16$)
-Adding the digits does not test $4$. Read the last $2$ digits together as one two-digit number.
+Right: for $1,326$, test the last $2$ digits ($26\div4=6$ remainder $2$, so it fails $4$)
+Wrong: for $1,326$, add all digits ($1+3+2+6=12$, so it passes $4$)
+Adding the digits does not test $4$, and here it gives the wrong verdict. Read the last $2$ digits together as one two-digit number.
 :::
 
 Test $48,672$ for $8$. Look at the last $3$ digits: $672$.
