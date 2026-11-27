@@ -118,6 +118,13 @@ commits.
 - After each Codex read.
 - At a second-read Blocker (findings plus options), or at 3:00 AM.
 
+## Manager acceptance and the limit rule (Nov 27, about 5:30 PM Manila)
+
+Manager: "plan accepted, including the slim-format check and leaving out the signed-integer pair. Go with step 2."
+Added rule from Aedwon, relayed: "the 6 AM opening must not lose Claude usage to the pilot. If you or a worker hits a Claude
+limit at any point before 3 AM, stop for the night at once, commit WIP, tell me in one line, and do not resume until I
+message you after the opening."
+
 ## Caps
 
 At most 2 Claude workers at once; 1 Codex run at a time through `codex-pick`; files changed only with Edit or Write; one

@@ -28,12 +28,6 @@ $$5\%=0.05$$
 
 $$12.5\%=0.125$$
 
-:::check
-Write $35\%$ as a decimal.
-:::answer
-The answer is $0.35$. Divide $35$ by $100$: move the decimal point two places to the left.
-:::
-
 ### Finding the Discount
 
 A **discount** is money taken off a price. The **listed price** is the price before the discount.
@@ -47,12 +41,6 @@ Find the $25\%$ discount on a Php $800$ bag:
 $$\text{Discount}=800\times0.25=200$$
 
 The discount is Php $200$.
-
-:::check
-A shirt is listed at Php $500$ with a $20\%$ discount. How much is the discount?
-:::answer
-The answer is Php $100$. Multiply the listed price by the rate: $500\times0.20=100$.
-:::
 
 ### Finding the Price After a Discount
 
@@ -83,9 +71,9 @@ Why do both ways agree? The $25\%$ you take off and the $75\%$ you keep make up 
 Way $2$ takes one step instead of two. It saves even more time when there are two discounts.
 
 :::check
-A jacket is listed at Php $1,200$ with a $15\%$ discount. What do you pay?
+A jacket is listed at Php $1,200$ with a $15\%$ discount. Mia pays with a Php $1,500$ bill. How much change does she get?
 :::answer
-The answer is Php $1,020$. You still pay $100\%-15\%=85\%$, and $1,200\times0.85=1,020$.
+The answer is Php $480$. She pays $100\%-15\%=85\%$ of the listed price: $1,200\times0.85=1,020$. Her change is $1,500-1,020=480$.
 :::
 
 ### Two Discounts in a Row
@@ -105,12 +93,6 @@ The wrong way takes the $10\%$ from Php $1,000$. The second discount comes from 
 
 :::why
 Why is the total discount less than $30\%$? The second $10\%$ is taken from Php $800$, so it is only Php $80$, not Php $100$. The total discount is $200+80=280$, which is $28\%$ of Php $1,000$.
-:::
-
-:::check
-A Php $2,000$ watch gets successive discounts of $10\%$ and $20\%$. What is the final price?
-:::answer
-The answer is Php $1,440$. First take $10\%$ off: $2,000\times0.90=1,800$. Then take $20\%$ off the new price: $1,800\times0.80=1,440$.
 :::
 
 ## Examples
@@ -135,8 +117,6 @@ $$\text{Final price}=1,500\times0.80=1,200$$
 
 The final selling price is Php $1,200$.
 
-**Check:** Use Way $1$. The discount is $1,500\times0.20=300$, and $1,500-300=1,200$. Both ways agree.
-
 ### #2: Successive Discounts
 
 A laptop listed at Php $30,000$ is given successive trade discounts of $20\%$ and $15\%$. What is the net price of the laptop?
@@ -155,8 +135,6 @@ $$\text{After }20\%\text{ off}=30,000\times0.80=24,000$$
 Finish the last step: find $85\%$ of Php $24,000$.
 :::answer
 The answer is Php $20,400$. Multiply $24,000\times0.85=20,400$.
-
-**Check:** The total discount is $30,000-20,400=9,600$. That is $\dfrac{9,600}{30,000}=0.32$, or $32\%$. It is less than $20\%+15\%=35\%$, as it should be.
 :::
 
 ## Speed Tricks & Shortcuts

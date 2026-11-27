@@ -18,7 +18,7 @@ keyPoints:
 
 A table organizes numbers into horizontal **rows** and vertical **columns**. A row label names one category, and a column label names another. To find one entry, trace across the named row and down the named column until they meet.
 
-Always read the unit note next to the table title or column header before reporting an answer. A table in "thousands of pesos" scales every printed number by $1,000$. A table in "millions of pesos" scales every number by $1,000,000$.
+Always read the unit note next to the table title or column header before reporting an answer. A table in "thousands of pesos" scales its amounts by $1,000$. A table in "millions of pesos" scales its amounts by $1,000,000$.
 
 Suppose a table labeled "Office Purchases, in thousands of pesos" lists chairs as $12$, desks as $8$, and lamps as $5$.
 
@@ -43,9 +43,9 @@ The wrong answer used the printed total without the "thousands of pesos" unit fr
 :::
 
 :::check
-A revenue table labeled "in millions of pesos" lists $3.2$ for Product A and $4.8$ for Product B. What is their combined revenue in pesos?
+A revenue table labeled "in millions of pesos" shows Product A as $3.2$ in 2024 and $4.8$ in 2025, and Product B as $2.5$ in 2024 and $5.1$ in 2025. What is the combined 2025 revenue of A and B, in pesos?
 :::answer
-The answer is $8,000,000$ pesos. Add $3.2+4.8=8$, then multiply by $1,000,000$ to get $8,000,000$.
+The answer is $9,900,000$ pesos. Add only the 2025 entries, $4.8+5.1=9.9$, then multiply by $1,000,000$.
 :::
 
 ### Finding Totals and Differences
@@ -80,12 +80,6 @@ Wrong: $2,650-3,200=-550$
 The wrong line reversed the subtraction order. When a question asks how many more, subtract the smaller count from the larger count to get a positive answer.
 :::
 
-:::check
-In a crop table, Rice yields are $450$, $520$, and $380$ metric tons, and Corn yields are $300$, $280$, and $410$ metric tons. By how many metric tons does total Rice exceed total Corn?
-:::answer
-The answer is $360$ metric tons. Rice totals $450+520+380=1,350$, Corn totals $300+280+410=990$, and $1,350-990=360$.
-:::
-
 ## Examples
 
 ### #1: Finding a Row-Column Value
@@ -104,8 +98,6 @@ $$27\times1,000=27,000$$
 
 The Operations expense was $27,000$ pesos.
 
-**Check:** In the Operations row, Quarter $2$ is $24$ and Quarter $4$ is $23$, so $27$ thousand ($27,000$ pesos) fits right in line with the rest of that row.
-
 ### #2: Finding a Total from a Table
 
 <!-- ILLUSTRATION: table titled "Quarterly Office Expenses, in thousands of pesos" with columns Quarter 1, Quarter 2, Quarter 3, Quarter 4 and rows Administration 12, 15, 18, 11; Operations 20, 24, 27, 23; Training 8, 10, 9, 12 -->
@@ -123,8 +115,6 @@ $$12+15+18+11=56$$
 Finish the last step: convert $56$ into pesos using the table's unit.
 :::answer
 The answer is $56,000$ pesos. Multiply $56\times1,000=56,000$.
-
-**Check:** Each quarter's Administration expense is near $14$ thousand ($11$ to $18$), and $4\times14,000=56,000$ pesos, which matches.
 :::
 
 ## Speed Tricks & Shortcuts

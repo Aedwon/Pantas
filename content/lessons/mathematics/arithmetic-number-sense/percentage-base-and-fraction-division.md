@@ -16,13 +16,13 @@ keyPoints:
 
 ### Percentage Part, Rate, and Base
 
-Every percent problem connects three numbers. The **base** is the whole or reference amount.
+A percent problem connects three numbers. The **base** is the whole or reference amount.
 
 The **part** is the share taken from that base. The **rate** tells what fraction or percent of the base you take.
 
 <!-- FIGURE WANTED: horizontal bar labeled "Base = 200 (100%)" split into a shaded left part labeled "Part = 60 (Rate = 30%)" and an unshaded right part labeled "140 (70%)" -->
 
-In "$30\%$ of $200$ is $60$," the base is $200$, the rate is $30\%$ (or $0.30$), and the part is $60$. Notice that the base sits right after the word "of."
+In "$30\%$ of $200$ is $60$," the base is $200$, the rate is $30\%$ (or $0.30$), and the part is $60$. In questions like this, the base sits right after the word "of."
 
 Change the rate to a decimal before using these three formulas:
 
@@ -56,8 +56,6 @@ Here $72$ is only the $40\%$ part, not the whole set. Find the base before takin
 A shop sold $54$ shirts, which is $20\%$ of its stock. How many shirts were not sold?
 :::answer
 The answer is $216$ shirts. The stock is the base: $54\div0.20=5,400\div20=270$. Then $270-54=216$.
-
-**Check:** The unsold shirts are $80\%$ of the stock, and $0.80\times270=216$.
 :::
 
 ### Dividing Fractions to Find a Rate
@@ -70,7 +68,7 @@ $$\dfrac{a}{b}\div\dfrac{c}{d}=\dfrac{a}{b}\times\dfrac{d}{c}$$
 
 Here $b$, $c$, and $d$ cannot be $0$.
 
-Suppose a problem asks: what percent of $\dfrac{4}{5}$ is $\dfrac{3}{5}$? The number after "of" is the base, so the base is $\dfrac{4}{5}$ and the part is $\dfrac{3}{5}$.
+Suppose a problem asks: what percent of $\dfrac{4}{5}$ is $\dfrac{3}{5}$? In this question, the number after "of" is the base, so the base is $\dfrac{4}{5}$ and the part is $\dfrac{3}{5}$.
 
 1. Divide the part by the base to find the rate.
 
@@ -92,14 +90,6 @@ Multiplying by $100$ moves the decimal point $2$ places right, not $1$. A rate o
 
 :::why
 Why does multiplying by the reciprocal work? Writing $\dfrac{3}{5}\div\dfrac{4}{5}$ as a big fraction and multiplying top and bottom by $\dfrac{5}{4}$ turns the bottom into $\dfrac{4}{5}\times\dfrac{5}{4}=1$. Only the top remains: $\dfrac{3}{5}\times\dfrac{5}{4}$.
-:::
-
-:::check
-$\dfrac{3}{10}$ is what percent of $\dfrac{3}{8}$?
-:::answer
-The answer is $80\%$. The base is $\dfrac{3}{8}$ and the part is $\dfrac{3}{10}$. Divide $\dfrac{3}{10}\div\dfrac{3}{8}=\dfrac{3}{10}\times\dfrac{8}{3}=\dfrac{24}{30}=\dfrac{4}{5}=0.80$, then multiply by $100\%$ to get $80\%$.
-
-**Check:** $0.80\times\dfrac{3}{8}=0.80\times0.375=0.30=\dfrac{3}{10}$.
 :::
 
 ## Examples
@@ -132,32 +122,28 @@ $$0.15\times180=27$$
 
 There are $27$ questions.
 
-**Check:** Compare the percents: $15\%$ is less than half of $40\%$ (half of $40\%$ is $20\%$, which is $36$ questions). So $27$ questions is slightly less than $36$, which makes sense.
-
 ### #2: Fraction Division to Find a Rate
 
-What percent of $\dfrac{5}{8}$ is $\dfrac{1}{4}$?
+What percent of $\dfrac{2}{5}$ is $\dfrac{7}{20}$?
 
 **Solution:**
 
-1. Identify the base after "of." The base is $\dfrac{5}{8}$ and the part is $\dfrac{1}{4}$.
+1. Identify the base after "of." The base is $\dfrac{2}{5}$ and the part is $\dfrac{7}{20}$.
 
-$$\text{Rate}=\dfrac{1}{4}\div\dfrac{5}{8}$$
+$$\text{Rate}=\dfrac{7}{20}\div\dfrac{2}{5}$$
 
-2. Multiply by the reciprocal of $\dfrac{5}{8}$.
+2. Multiply by the reciprocal of $\dfrac{2}{5}$.
 
-$$\text{Rate}=\dfrac{1}{4}\times\dfrac{8}{5}$$
+$$\text{Rate}=\dfrac{7}{20}\times\dfrac{5}{2}$$
 
 3. Multiply numerators and denominators, then simplify.
 
-$$\text{Rate}=\dfrac{8}{20}=\dfrac{2}{5}=0.40$$
+$$\text{Rate}=\dfrac{35}{40}=\dfrac{7}{8}=0.875$$
 
 :::try
-Finish the last step: change the decimal rate $0.40$ to a percent.
+Finish the last step: change the decimal rate $0.875$ to a percent.
 :::answer
-The answer is $40\%$. Multiply $0.40\times100\%=40\%$.
-
-**Check:** Compare $\dfrac{1}{4}$ and $\dfrac{5}{8}$ using a common denominator of $8$. Since $\dfrac{1}{4}=\dfrac{2}{8}$, the question asks what percent $2$ eighths is of $5$ eighths. That is $\dfrac{2}{5}=40\%$.
+The answer is $87.5\%$. Multiply $0.875\times100\%=87.5\%$.
 :::
 
 ## Speed Tricks & Shortcuts

@@ -16,7 +16,7 @@ keyPoints:
 
 ### Measuring Change from the Original Value
 
-**Percentage change** compares how much a number went up or down against where it started. Always divide by the **original** value, never the new value.
+**Percentage change** compares how much a number went up or down against where it started. For a change from an earlier value to a later one, divide by the **original** value, not the new value.
 
 $$\text{Change}=\text{new}-\text{original}$$
 
@@ -49,7 +49,7 @@ The drop starts from $100$, so $\dfrac{-20}{100}=-20\%$. The rise back up starts
 :::pair #divide-by-new-value
 Right: $\dfrac{50-40}{40}\times100\%=\dfrac{10}{40}\times100\%=25\%$
 Wrong: $\dfrac{50-40}{50}\times100\%=\dfrac{10}{50}\times100\%=20\%$
-The wrong line divided by the new value ($50$) instead of the original value ($40$). Always put the earlier starting number in the denominator.
+The wrong line divided by the new value ($50$) instead of the original value ($40$). Put the starting number in the denominator.
 :::
 
 :::pair #label-change-as-percent
@@ -73,9 +73,9 @@ $$\dfrac{14}{50}\times100\%=28\%$$
 Averaging the two separate rates gives $\dfrac{40\%+20\%}{2}=30\%$, which is wrong because the larger category ($30$) grew more slowly than the smaller category ($20$).
 
 :::check
-A fund rises from $60$ thousand pesos to $69$ thousand pesos. What is the percentage increase?
+A fund falls from $60$ thousand pesos to $54$ thousand pesos. What is the percentage change?
 :::answer
-The answer is $15\%$. The change is $69-60=9$, and dividing by the original $60$ gives $\dfrac{9}{60}\times100\%=15\%$.
+The answer is $-10\%$. The change is $54-60=-6$, and dividing by the original $60$ gives $\dfrac{-6}{60}\times100\%=-10\%$.
 :::
 
 ### When the Original Value Is Zero
@@ -94,14 +94,6 @@ Because the original value is $0$, $\dfrac{12}{0}$ is undefined. You cannot repo
 Right: Undefined, because the starting count is $0$
 Wrong: The percentage increase is $100\%$
 Going from $0$ to $12$ is not $100\%$. Doubling a nonzero number gives $100\%$ growth, whereas dividing by $0$ has no value.
-:::
-
-:::check
-Weekly sales fall from $5$ units to $0$ units. What is the percentage change?
-:::answer
-The answer is $-100\%$, a $100\%$ decrease. The change is $0-5=-5$, and $\dfrac{-5}{5}=-1$, so the percentage change is $-1\times100\%=-100\%$.
-
-**Check:** Take $100\%$ of the starting $5$ away: $5-5=0$, the new value.
 :::
 
 ## Examples
@@ -126,8 +118,6 @@ $$0.30\times100\%=30\%$$
 
 The budget increased by $30\%$.
 
-**Check:** Find $30\%$ of the original $50$ million: $50\times0.30=15$. Adding $50+15=65$ million pesos, which matches $2021$.
-
 ### #2: Percentage Decrease
 
 A supply cost fell from $80,000$ pesos to $68,000$ pesos. Find the signed percentage change.
@@ -146,8 +136,6 @@ $$\dfrac{-12,000}{80,000}=-0.15$$
 Finish the last step: multiply $-0.15$ by $100\%$ to write the signed percentage change.
 :::answer
 The answer is $-15\%$, meaning a $15\%$ decrease. Multiply $-0.15\times100\%=-15\%$.
-
-**Check:** Ten percent of $80,000$ is $8,000$, and $5\%$ is $4,000$, so $15\%$ is $8,000+4,000=12,000$. Taking $12,000$ off $80,000$ leaves $68,000$, which matches.
 :::
 
 ## Traps to Watch For

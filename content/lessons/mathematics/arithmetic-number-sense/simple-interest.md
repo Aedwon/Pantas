@@ -47,12 +47,6 @@ Wrong: $\text{Total to repay}=\text{Php }3,750$
 Php $3,750$ is only the interest. When a question asks for the total amount to repay or the final balance, add the original principal back in.
 :::
 
-:::check
-An investment of Php $12,000$ earns $4\%$ simple annual interest for $2$ years. How much interest does it earn?
-:::answer
-The answer is Php $960$. Multiply $12,000\times0.04\times2=960$.
-:::
-
 ### Matching the Time Unit to the Rate
 
 The time unit in $T$ must match the time period of the rate $R$. When the rate is annual and the time is given in months, divide the months by $12$ to convert to years.
@@ -82,9 +76,9 @@ A year has $12$ months, not $10$. Divide $15$ by $12$ to get $1.25$, not $1.5$.
 :::
 
 :::check
-A loan of Php $8,000$ has a $5\%$ simple annual interest rate for $18$ months. How much interest is owed?
+A loan of Php $8,000$ has a $5\%$ simple annual interest rate for $18$ months. What total amount is owed?
 :::answer
-The answer is Php $600$. Convert $18$ months to $\dfrac{18}{12}=1.5$ years, then multiply $8,000\times0.05\times1.5=600$.
+The answer is Php $8,600$. Convert $18$ months to $\dfrac{18}{12}=1.5$ years. The interest is $8,000\times0.05\times1.5=600$, so the total is $8,000+600=8,600$.
 :::
 
 ## Examples
@@ -113,36 +107,32 @@ $$T=\dfrac{4,500}{900}=5$$
 
 It will take $5$ years.
 
-**Check:** In $1$ year, Php $15,000$ earns $15,000\times0.06=900$ pesos. In $5$ years, it earns $5\times900=4,500$ pesos, which matches.
-
 ### #2: Finding the Annual Rate from Months
 
-An investor places Php $25,000$ in a fund. After $18$ months, the investment is worth Php $28,000$. What annual simple interest rate did the investment earn?
+An investor places Php $25,000$ in a fund. After $18$ months, the investment is worth Php $26,500$. What annual simple interest rate did the investment earn?
 
 **Solution:**
 
 1. Subtract the original principal from the final value to find the interest earned.
 
-$$I=28,000-25,000=3,000$$
+$$I=26,500-25,000=1,500$$
 
 2. Convert $18$ months into years by dividing by $12$.
 
 $$T=\dfrac{18}{12}=1.5$$
 
-3. Substitute $I=3,000$, $P=25,000$, and $T=1.5$ into $I=PRT$.
+3. Substitute $I=1,500$, $P=25,000$, and $T=1.5$ into $I=PRT$.
 
-$$3,000=25,000\times R\times1.5$$
+$$1,500=25,000\times R\times1.5$$
 
 4. Multiply $25,000$ by $1.5$.
 
-$$3,000=37,500R$$
+$$1,500=37,500R$$
 
 :::try
-Finish the last step: divide $3,000$ by $37,500$ and write the rate as a percent.
+Finish the last step: divide $1,500$ by $37,500$ and write the rate as a percent.
 :::answer
-The answer is $8\%$. Divide $R=\dfrac{3,000}{37,500}=0.08$, which is $8\%$.
-
-**Check:** At $8\%$ per year, Php $25,000$ earns $25,000\times0.08=2,000$ pesos in $1$ year. In $1.5$ years it earns $2,000\times1.5=3,000$ pesos, bringing the total to $25,000+3,000=28,000$ pesos.
+The answer is $4\%$. Divide $R=\dfrac{1,500}{37,500}=0.04$, which is $4\%$.
 :::
 
 ## Traps to Watch For

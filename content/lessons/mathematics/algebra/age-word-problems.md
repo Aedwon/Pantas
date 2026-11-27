@@ -37,14 +37,6 @@ $$m=10$$
 
 Maya is $10$ years old now, and Ben is $10+4=14$ years old.
 
-:::check
-Noel is twice as old as his cousin Dina, and the sum of their ages is $27$. How old is Noel?
-:::answer
-The answer is $18$ years old. Let $d$ be Dina's age, so Noel is $2d$ and $d+2d=27$. Then $3d=27$ and $d=9$, so Noel is $2(9)=18$.
-
-**Check:** $9+18=27$, and $18$ is twice $9$.
-:::
-
 ### Shifting Ages Forward and Back
 
 Time passes at the same rate for everyone. If Ana is $a$ years old now, then in $6$ years she will be $a+6$. Every other person's age also goes up by $6$ in those $6$ years.
@@ -68,7 +60,7 @@ $$a=12$$
 Ana is $12$ years old now.
 
 :::why
-Why does the gap between two ages stay the same? Each year adds $1$ to both people, so $(4a+6)-(a+6)=4a-a=3a$. Only the ratio changes as time passes.
+Why does the gap between two ages stay the same? Each year adds $1$ to both people, so $(4a+6)-(a+6)=4a-a=3a$. The ratio changes as time passes.
 :::
 
 :::pair #change-both-ages
@@ -97,14 +89,6 @@ Ana will be $22$ years old in $4$ years.
 Right: Maya's age now is $m=10$, so the answer is $10$ years old.
 Wrong: Ben's age is $10+4=14$, so the answer is $14$ years old.
 Match your final answer to the exact person and time in the question. Here $m$ stands for Maya, while $14$ is Ben's age.
-:::
-
-:::check
-Rico is $r=9$ years old now, and his uncle is $5r$. How old was his uncle $5$ years ago?
-:::answer
-The answer is $40$ years old. The uncle is $5(9)=45$ now, so $5$ years ago he was $45-5=40$.
-
-**Check:** The age gap stays the same. Now it is $45-9=36$, and $5$ years ago it was $40-4=36$.
 :::
 
 ## Examples
@@ -137,8 +121,6 @@ $$b=6$$
 $$3(6)=18$$
 
 Ana is $18$ years old now.
-
-**Check:** Now Ana is $18$ and Ben is $6$, so Ana is $3$ times Ben's age ($18=3\times 6$). In $6$ years they will be $24$ and $12$, and $24=2(12)$.
 
 ### #2: Past and Future Ages
 
@@ -187,8 +169,6 @@ $$2m=22$$
 Finish the last step: divide $22$ by $2$ to find Mia's age today.
 :::answer
 The answer is $11$ years old. Dividing $22\div 2=11$ gives $m=11$.
-
-**Check:** Using $L=2(11)+7=29$, five years ago they were $24$ and $6$ ($24=4\times 6$). In $7$ years they will be $36$ and $18$ ($36=2\times 18$).
 :::
 
 ## Traps to Watch For

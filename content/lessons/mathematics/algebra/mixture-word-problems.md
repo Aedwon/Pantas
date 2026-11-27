@@ -33,14 +33,6 @@ $$0.10\times 10=1$$
 
 There is $1$ liter of pure vinegar.
 
-:::check
-A $45$-liter sugar solution holds $18$ liters of pure sugar. What is its concentration, as a percent?
-:::answer
-The answer is $40\%$. Divide the pure amount by the total: $18\div 45=0.40$.
-
-**Check:** $0.40\times 45=18$ liters of pure sugar.
-:::
-
 ### Balancing Pure Amounts When Mixing
 
 When two solutions are mixed under the standard assumption that volumes add and no liquid or pure material is lost, both the volumes and the pure amounts add up:
@@ -78,11 +70,9 @@ When adding pure water to dilute $12$ liters of a $25\%$ solution to a $10\%$ so
 :::
 
 :::check
-A shop has $4$ liters of a $50\%$ solution and adds $x$ liters of a $10\%$ solution to make a $20\%$ solution. How many liters of the $10\%$ solution must be added?
+A cook mixes $6$ liters of a $25\%$ sugar solution with $14$ liters of a $45\%$ sugar solution. Assume the volumes add. What is the concentration of the mixture, as a percent?
 :::answer
-The answer is $12$ liters. Set the starting pure amounts equal to the final pure amount: $0.50(4)+0.10x=0.20(4+x)$. Then $2+0.10x=0.80+0.20x$, so $1.2=0.10x$ and $x=12$.
-
-**Check:** Pure amount $2+0.10(12)=3.2$ liters, total volume $4+12=16$ liters, and $\dfrac{3.2}{16}=0.20$.
+The answer is $39\%$. The pure sugar adds: $0.25(6)+0.45(14)=1.5+6.3=7.8$ liters. The total is $6+14=20$ liters, and $7.8\div 20=0.39$.
 :::
 
 ## Examples
@@ -124,36 +114,32 @@ $$x=16$$
 
 Add $16$ liters of the $20\%$ solution.
 
-**Check:** The pure alcohol is $0.20(16)+4=3.2+4=7.2$ liters, and the total volume is $16+8=24$ liters. Dividing gives $\dfrac{7.2}{24}=0.30$, or $30\%$.
-
 ### #2: Diluting With Pure Water
 
-How many liters of pure water must be added to $15$ liters of a $20\%$ salt solution to dilute it into a $12\%$ salt solution? Assume the volumes add and no liquid or salt is lost.
+How many liters of pure water must be added to $20$ liters of a $30\%$ salt solution to dilute it into a $24\%$ salt solution? Assume the volumes add and no liquid or salt is lost.
 
 **Solution:**
 
-1. Find the pure salt in the starting $15$ liters.
+1. Find the pure salt in the starting $20$ liters.
 
-$$0.20(15)=3$$
+$$0.30(20)=6$$
 
-2. Pure water adds $0$ salt, so the final mixture still holds $3$ liters of salt. Let $w$ be the liters of water added, so the final volume is $15+w$.
+2. Pure water adds $0$ salt, so the final mixture still holds $6$ liters of salt. Let $w$ be the liters of water added, so the final volume is $20+w$.
 
-$$0.12(15+w)=3$$
+$$0.24(20+w)=6$$
 
 3. Expand the left side.
 
-$$1.8+0.12w=3$$
+$$4.8+0.24w=6$$
 
-4. Subtract $1.8$ from both sides.
+4. Subtract $4.8$ from both sides.
 
-$$0.12w=1.2$$
+$$0.24w=1.2$$
 
 :::try
-Finish the last step: divide $1.2$ by $0.12$ to find how many liters of water to add.
+Finish the last step: divide $1.2$ by $0.24$ to find how many liters of water to add.
 :::answer
-The answer is $10$ liters. Dividing $1.2\div 0.12=10$ gives $w=10$.
-
-**Check:** Adding $10$ liters of water makes a final volume of $15+10=25$ liters. With $3$ liters of pure salt, $\dfrac{3}{25}=0.12$, or $12\%$.
+The answer is $5$ liters. Dividing $1.2\div 0.24=5$ gives $w=5$.
 :::
 
 ## Speed Tricks & Shortcuts

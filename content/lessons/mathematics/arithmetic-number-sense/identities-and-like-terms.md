@@ -46,8 +46,6 @@ Adding $0$ keeps $-17$ unchanged, so $0$ is the additive identity. Multiplying b
 Find the value of $x$ that makes $(x+0)(1)+5=-4$ true.
 :::answer
 The answer is $-9$. Adding $0$ and multiplying by $1$ leave $x$ unchanged, so $x+5=-4$ and $x=-4-5=-9$.
-
-**Check:** $(-9+0)(1)+5=-9+5=-4$.
 :::
 
 ### Terms and Coefficients
@@ -92,12 +90,6 @@ Wrong: $6xy+5yx$ cannot be combined
 Multiplication can swap order, so $yx$ equals $xy$. Terms with the same letters and exponents are like terms even when the letters sit in reverse order.
 :::
 
-:::check
-Combine like terms in $5m+3m^2-2m+4$.
-:::answer
-The answer is $3m^2+3m+4$. Only $5m$ and $-2m$ are like terms, giving $3m$.
-:::
-
 ## Examples
 
 "Evaluate" means find the final number answer. "Simplify" means write an equal expression in a simpler form.
@@ -122,8 +114,6 @@ $$48+25=73$$
 
 The answer is $73$.
 
-**Check:** Notice adding $0$ and multiplying by $1$ cannot change $48$. So the problem is simply $48+25=73$.
-
 ### #2: Collecting Like Terms
 
 Simplify $7x^2-3x+4-2x^2+8x-9$.
@@ -146,8 +136,6 @@ $$-3x+8x=(-3+8)x=5x$$
 Finish the last step: combine the plain numbers $4-9$, and write the final simplified expression.
 :::answer
 The answer is $5x^2+5x-5$. First $4-9=-5$, and the three unlike terms $5x^2$, $5x$, and $-5$ stay separate.
-
-**Check:** Plug in $x=2$. The original expression gives $7(4)-3(2)+4-2(4)+8(2)-9=28-6+4-8+16-9=25$. The result gives $5(4)+5(2)-5=20+10-5=25$. Both give $25$.
 :::
 
 ## Traps to Watch For

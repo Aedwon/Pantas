@@ -49,9 +49,9 @@ The zero right after the decimal point still takes one place. Count all $4$ plac
 :::
 
 :::check
-Write $0.24$ as a fraction in simplest form.
+Write $0.18$ as a fraction in simplest form.
 :::answer
-The answer is $\dfrac{6}{25}$. Two decimal places give $\dfrac{24}{100}$, and dividing top and bottom by $4$ gives $\dfrac{6}{25}$.
+The answer is $\dfrac{9}{50}$. Two decimal places give $\dfrac{18}{100}$, and dividing top and bottom by $2$ gives $\dfrac{9}{50}$.
 :::
 
 ### Percentages to Decimals and Fractions
@@ -79,13 +79,7 @@ Why does dividing by $100$ move the decimal point two places left? Each place le
 :::pair #one-place-shift
 Right: $2.5\%=2.5\div 100=0.025$
 Wrong: $2.5\%=0.25$
-Moving the decimal point only $1$ place left divides by $10$, not $100$. Always shift $2$ places left and add a leading zero when needed.
-:::
-
-:::check
-Write $0.085$ as a percentage.
-:::answer
-The answer is $8.5\%$. Multiply by $100$: $0.085\times 100\%=8.5\%$.
+Moving the decimal point only $1$ place left divides by $10$, not $100$. Shift $2$ places left and add a leading zero when needed.
 :::
 
 ## Examples
@@ -112,8 +106,6 @@ $$\dfrac{5}{40}=\dfrac{5\div 5}{40\div 5}=\dfrac{1}{8}$$
 
 The answer is $\dfrac{1}{8}$.
 
-**Check:** Divide $1\div 8=0.125$, which matches the starting decimal.
-
 ### #2: Percent to Decimal and Fraction
 
 Express $45\%$ as a decimal and as a fraction in simplest form.
@@ -131,9 +123,7 @@ $$45\%=\dfrac{45}{100}$$
 :::try
 Finish the last step: simplify $\dfrac{45}{100}$ to lowest terms.
 :::answer
-The answer is $0.45$ and $\dfrac{9}{20}$. Divide both $45$ and $100$ by $5$ to get $\dfrac{9}{20}$.
-
-**Check:** Multiply $\dfrac{9}{20}\times \dfrac{5}{5}=\dfrac{45}{100}=0.45=45\%$. Both answers match $45\%$.
+The answer is $\dfrac{9}{20}$. Divide both $45$ and $100$ by $5$.
 :::
 
 ## Traps to Watch For
