@@ -136,6 +136,7 @@ pass 15, retire or merge one first.
   2. Tool fix proposed to the manager (needs his yes; changes the shared upload tool, about 30 min): write summary documents in small batches and retry a batch that times out, with a test that fails on the current single 400-document batch.
   Cost of this instance: prod 17,914 reads for the quota day after it (9,668 before; most of the rise is the uploads' own plans), no errors.
 - Repeat (Nov 28, 1:43 to 1:47 AM Manila): the mixture-question prod upload timed out three times on the summaries before a fourth run passed; four failures in one night across staging and prod. The manager gave the yes for the tool fix (item 2 above), which the CSE release lead r10 builds next.
+- Done (Nov 28, about 2:05 AM Manila; manager: "yes, fix the upload tool now"): PR #163 (f51242b90). Batches stay under 2 MB as well as 400 writes, and a batch that fails with DEADLINE_EXCEEDED or UNAVAILABLE is rebuilt and resent up to 4 times; tests in `functions/test/content-upload.test.mjs` failed first on the old path. Staging proof: the ratio 0020 upload wrote the summaries on its first run (43 s), then prod on its first run (38 s). The required step in fix 1 stays: an upload that still exits non-zero is rerun at once, and the re-plan must show summaries unchanged.
 
 ### Walk-through lesson spacing and nesting found by Aedwon on staging (Nov 27)
 
