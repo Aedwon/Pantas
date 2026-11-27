@@ -515,7 +515,7 @@ Measured costs (code audit Nov 21 on main c6feb916b):
 
 | Step | Reads |
 |---|---|
-| Content upload plan or re-plan against the database | about 1,500 each |
+| Content upload plan or re-plan against the database | about 6 each (the version list); about 1,500 with `--full-scan` or a missing list |
 | Content export and the CLI dry run (no database) | 0; use it for source-only checks |
 | **A whole-bank scan** (every lesson and question set): the first exam-settings save, new lesson read, mock setup preview or mock start on a server instance, and again after its 5-minute cache ends | **about 1,460 each** until the exam content summaries ship; then 2 to 3 |
 | getContent, one item | 7 to 58 |
