@@ -6,12 +6,15 @@ import {spawnSync} from 'node:child_process';
 import test from 'node:test';
 import {createHash} from 'node:crypto';
 import {FIXED_ADDRESS, fingerprints, listHash, stamp} from '../web/stamp_worker_version.mjs';
-import {constantOf, writeBuild} from '../../test/web/fixtures/sw_fixture_build.mjs';
+import {constantOf, sdkStandIn, writeBuild} from '../../test/web/fixtures/sw_fixture_build.mjs';
+import {SDK_FILES, SDK_FOLDER, SDK_PATHS} from '../web/firebase_sdk.mjs';
 import {PINNED_ROOT_FILES, stampProblems as realProblems} from './check_worker_stamp.mjs';
 
 const script = new URL('./check_worker_stamp.mjs', import.meta.url).pathname;
 const repo = new URL('../../', import.meta.url).pathname;
-const canvasKit = ['canvaskit.js', 'canvaskit.wasm', 'chromium/canvaskit.js', 'chromium/canvaskit.wasm'];
+// The app pins full CanvasKit in every browser (E-210, audit 2 High 5), so only this variant
+// is stored and required. The chromium variant is never asked for.
+const canvasKit = ['canvaskit.js', 'canvaskit.wasm'];
 const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 
 // The RevenueCat script is 780 KB, too large to keep in the repository, so a fixture build
@@ -19,7 +22,9 @@ const sha = bytes => createHash('sha256').update(bytes).digest('hex');
 // locked package below.
 const PURCHASES = FIXED_ADDRESS[0];
 const FIXTURE_PURCHASES = 'purchases script as prod serves it';
-const pins = {...PINNED_ROOT_FILES, [PURCHASES]: sha(FIXTURE_PURCHASES)};
+// The Firebase SDK files are 1.2 MB of Google's bytes: a fixture build carries stand-ins too.
+const standInPins = Object.fromEntries(Object.keys(SDK_FILES).map(name => [SDK_FOLDER + name, sha(sdkStandIn(name))]));
+const pins = {...PINNED_ROOT_FILES, ...standInPins, [PURCHASES]: sha(FIXTURE_PURCHASES)};
 const pinsFile = join(mkdtempSync(join(tmpdir(), 'stamp-pins-')), 'pins.json');
 writeFileSync(pinsFile, JSON.stringify(pins));
 const stampProblems = (dir, options = {}) => realProblems(dir, {pins, ...options});
@@ -108,7 +113,7 @@ test('restamping a changed build makes it pass again', () => {
 // ---- The required-file list (Revision 1, item 4) ----
 
 const required = base => [
-  'index.html', 'pantas_sw.js', 'version.json', 'manifest.json', 'drift_worker.js', PURCHASES,
+  'index.html', 'pantas_sw.js', 'version.json', 'manifest.json', 'drift_worker.js', PURCHASES, ...SDK_PATHS,
   ...['flutter_bootstrap.js', 'main.dart.js', 'pantas_pwa.js', 'pantas_history.js', 'pantas_welcome.js', 'pantas_splash.js',
     'sqlite3.wasm', 'assets/AssetManifest.bin', 'assets/FontManifest.json',
     ...canvasKit.map(name => `canvaskit/${name}`)].map(name => base + name),
@@ -166,6 +171,56 @@ test('item 5: the pinned bytes are those of the locked purchases_flutter package
   assert.equal(PINNED_ROOT_FILES[PURCHASES], sha(readFileSync(file)),
     `purchases_flutter is ${version}: a new SDK file is a new file at an address today's worker already caches; ` +
     'serve it under a new address or give the worker a rule before changing the pin');
+});
+
+// ---- The Firebase SDK served from our own address (E-210, cold offline start) ----
+
+test('E-210: the real pins are the SDK files in web/firebase_sdk, byte for byte', () => {
+  for (const [name, hash] of Object.entries(SDK_FILES)) {
+    assert.equal(PINNED_ROOT_FILES[SDK_FOLDER + name], hash, name);
+  }
+});
+
+test('E-210: a build whose Firebase SDK file has other bytes is refused, naming the file', () => {
+  const build = stamped();
+  const path = SDK_PATHS[1];
+  edit(build.dir, path, text => text + '// another SDK');
+  stamp(build.dir); // the stamp is honest about the new bytes; the guard still refuses them
+  const problems = stampProblems(build.dir).join('\n');
+  assert.match(problems, new RegExp(`${path.replace(/[.]/g, '\\.')} differs from the pinned Firebase SDK file`));
+  done(build);
+});
+
+test('E-210: a build missing a Firebase SDK file is refused, whether or not the worker lists it', () => {
+  for (const path of SDK_PATHS) {
+    const build = stamped();
+    rmSync(join(build.dir, path));
+    stamp(build.dir);
+    assert.match(stampProblems(build.dir).join('\n'), new RegExp(`required file missing: ${path.replace(/[.]/g, '\\.')}`));
+    done(build);
+  }
+});
+
+test('E-210: a build whose page does not send every SDK address to our copy is refused', () => {
+  const none = stamped();
+  edit(none.dir, 'index.html', text => text.replace(/<script type="importmap">.*?<\/script>/s, ''));
+  assert.match(stampProblems(none.dir).join('\n'), /index\.html has no import map/);
+  done(none);
+  const partial = stamped();
+  edit(partial.dir, 'index.html', text => text.replace(/"https:[^"]*firebase-auth\.js":"[^"]*",?/, ''));
+  assert.match(stampProblems(partial.dir).join('\n'), /import map does not send .*firebase-auth\.js/);
+  done(partial);
+  const elsewhere = stamped();
+  edit(elsewhere.dir, 'index.html', text => text.replace('./firebase_sdk/', './b/other/'));
+  assert.match(stampProblems(elsewhere.dir).join('\n'), /import map does not send/);
+  done(elsewhere);
+});
+
+test('E-210: the renderer pin: a build that lacks the chromium variant passes, and the guard no longer asks for it', () => {
+  const build = stamped();
+  assert.ok(!existsSync(join(build.dir, build.base, 'canvaskit/chromium')));
+  assert.deepEqual(stampProblems(build.dir), []);
+  done(build);
 });
 
 test('High 6: a deferred part the app names but the build lacks is refused', () => {

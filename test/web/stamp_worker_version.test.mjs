@@ -318,7 +318,7 @@ function withCanvasKit({local}) {
   return dir;
 }
 
-test('canvaskit joins the set, both variants, only when the build serves it itself', () => {
+test('canvaskit joins the set, full variant only, and only when the build serves it itself', () => {
   const cdn = withCanvasKit({local: false});
   stamp(cdn);
   assert.ok(!Object.keys(stampedOf(cdn).files).some(path => path.includes('canvaskit/')));
@@ -326,14 +326,32 @@ test('canvaskit joins the set, both variants, only when the build serves it itse
   const version = stamp(local);
   const folder = `b/${version}/canvaskit/`;
   const {files} = stampedOf(local);
-  // Every browser installs both (audit 2, High 5), so the constant carries no variant list.
   assert.equal(stampedOf(local).variants, undefined);
-  for (const path of ['canvaskit.js', 'canvaskit.wasm', 'chromium/canvaskit.js', 'chromium/canvaskit.wasm']) {
+  for (const path of ['canvaskit.js', 'canvaskit.wasm']) {
     assert.ok(folder + path in files, path);
   }
-  for (const left of ['canvaskit.js.symbols', 'skwasm.wasm', 'chromium/canvaskit.js.symbols']) {
+  // The bootstrap pins full CanvasKit in every browser (E-210, audit 2 High 5), so the
+  // chromium variant is never asked for and is not downloaded by an update.
+  for (const left of ['canvaskit.js.symbols', 'skwasm.wasm', 'chromium/canvaskit.js', 'chromium/canvaskit.wasm',
+    'chromium/canvaskit.js.symbols']) {
     assert.ok(!(folder + left in files), `${left} is not in the set`);
   }
+});
+
+// E-210: the Firebase SDK files sit at root addresses named by the SDK version and are in the
+// set (verified by hash, stored by the worker), so the app starts with no connection.
+test('the Firebase SDK files stay at the root, in the set, and the page keeps its import map as written', () => {
+  const dir = build('main code');
+  const map = '{"imports":{"https://www.gstatic.com/firebasejs/1.0.0/firebase-app.js":"./firebase_sdk/1.0.0/firebase-app.js"}}';
+  writeFileSync(join(dir, 'index.html'),
+    `<html><script type="importmap">${map}</script><script src="pantas_pwa.js"></script></html>`);
+  mkdirSync(join(dir, 'firebase_sdk', '1.0.0'), {recursive: true});
+  writeFileSync(join(dir, 'firebase_sdk', '1.0.0', 'firebase-app.js'), 'sdk');
+  const version = stamp(dir);
+  assert.ok(existsSync(join(dir, 'firebase_sdk/1.0.0/firebase-app.js')), 'still at the root');
+  assert.ok(!existsSync(join(dir, `b/${version}/firebase_sdk`)), 'not in the build folder');
+  assert.ok('firebase_sdk/1.0.0/firebase-app.js' in stampedOf(dir).files, 'in the set');
+  assert.ok(read(dir, 'index.html').includes(map), 'the import map is unchanged');
 });
 
 test('the list matches the build output after the bootstrap is stamped', () => {

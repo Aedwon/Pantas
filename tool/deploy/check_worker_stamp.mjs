@@ -18,16 +18,21 @@ import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {buildFolder, FIXED_ADDRESS, fingerprints, listHash, recomputedVersion, workerBuild} from '../web/stamp_worker_version.mjs';
+import {importMap, SDK_FILES, SDK_FOLDER, SDK_PATHS} from '../web/firebase_sdk.mjs';
 
 // What the app cannot boot without, inside the build folder.
 const REQUIRED = [
   'flutter_bootstrap.js', 'main.dart.js', 'pantas_pwa.js', 'pantas_history.js', 'pantas_welcome.js', 'pantas_splash.js',
   'sqlite3.wasm', 'assets/AssetManifest.bin', 'assets/FontManifest.json',
-  'canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm', 'canvaskit/chromium/canvaskit.js', 'canvaskit/chromium/canvaskit.wasm',
+  // Full CanvasKit only: the bootstrap pins it in every browser, so the chromium variant is never asked for.
+  'canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm',
 ];
 // At the root, and in the worker's list. The database worker keeps one address for every build.
-const REQUIRED_AT_ROOT = ['index.html', 'pantas_sw.js', 'version.json', 'manifest.json', 'drift_worker.js', FIXED_ADDRESS[0]];
-const ROOT_IN_LIST = ['drift_worker.js', FIXED_ADDRESS[0]];
+// The Firebase SDK files sit at root addresses that carry the SDK version (E-210): the page's
+// import map sends FlutterFire's imports there, and the worker stores them, so the app starts
+// with no connection.
+const REQUIRED_AT_ROOT = ['index.html', 'pantas_sw.js', 'version.json', 'manifest.json', 'drift_worker.js', FIXED_ADDRESS[0], ...SDK_PATHS];
+const ROOT_IN_LIST = ['drift_worker.js', FIXED_ADDRESS[0], ...SDK_PATHS];
 // Root files that prod serves today and that every build must serve byte for byte. The worker
 // that shipped before build folders caches them at these addresses and serves them to a page
 // of the new build, so any other bytes would be a mix (fix list items 1 and 5, Nov 26).
@@ -38,6 +43,8 @@ const ROOT_IN_LIST = ['drift_worker.js', FIXED_ADDRESS[0]];
 export const PINNED_ROOT_FILES = {
   'drift_worker.js': '88a90a723fd84013c92fe5106fd0b4d324279224195f94ea33bcae94477ef2a0',
   [FIXED_ADDRESS[0]]: '58dce52022d4ddfd7154fde667bc1343e87b6b6bbdc3a596dade262125248010',
+  // The Firebase SDK: Google's bytes for the version FlutterFire pins (tool/web/firebase_sdk.mjs).
+  ...Object.fromEntries(Object.entries(SDK_FILES).map(([name, hash]) => [SDK_FOLDER + name, hash])),
 };
 // Every flavor's code is in every build, so the flavor shows only in what the build step
 // passes in: the App Check site key. This is staging's public key (tool/deploy/staging_web.sh).
@@ -91,7 +98,9 @@ export function stampProblems(dir, {pins = PINNED_ROOT_FILES, target = null} = {
   }
   for (const [name, hash] of Object.entries(pins)) {
     if (existsSync(join(dir, name)) && sha256(readFileSync(join(dir, name))) !== hash) {
-      problems.push(`${name} differs from the file prod serves today: the worker that shipped before build folders would serve its own copy to this build's page`);
+      problems.push(SDK_PATHS.includes(name)
+        ? `${name} differs from the pinned Firebase SDK file: the page would run SDK code nobody checked`
+        : `${name} differs from the file prod serves today: the worker that shipped before build folders would serve its own copy to this build's page`);
     }
   }
   for (const name of REQUIRED) {
@@ -113,6 +122,22 @@ export function stampProblems(dir, {pins = PINNED_ROOT_FILES, target = null} = {
     const page = readFileSync(join(dir, 'index.html'), 'utf8');
     for (const [, name] of page.matchAll(/<script[^>]*\bsrc=["']([^"']+)["']/g)) {
       if (!name.replace(/^(\.\/)+/, '').startsWith(build.base)) problems.push(`index.html loads ${name} from outside ${build.base}`);
+    }
+    // FlutterFire imports each SDK file from gstatic; the import map sends every one of those
+    // addresses to our copy. A missing or changed map sends the app to Google again, and a
+    // phone with no connection to Google never opens its storage (E-210).
+    const map = /<script type="importmap">\s*([\s\S]*?)\s*<\/script>/.exec(page);
+    if (!map) problems.push('index.html has no import map for the Firebase SDK: the app would load it from Google, and fail with no connection');
+    else {
+      let imports = {};
+      try {
+        imports = JSON.parse(map[1]).imports ?? {};
+      } catch {
+        problems.push('the import map in index.html is not JSON');
+      }
+      for (const [address, target] of Object.entries(importMap().imports)) {
+        if (imports[address] !== target) problems.push(`the import map does not send ${address} to ${target}`);
+      }
     }
     for (const name of ['pantas_pwa.js', 'flutter_bootstrap.js']) {
       if (!new RegExp(`["'](\\./)*${build.base}${name.replace('.', '\\.')}["']`).test(page)) problems.push(`index.html does not load ${build.base}${name}`);

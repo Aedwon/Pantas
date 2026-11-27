@@ -13,6 +13,12 @@ import {mkdirSync, readFileSync, readdirSync, statSync, writeFileSync} from 'nod
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {stamp} from '../../../tool/web/stamp_worker_version.mjs';
+import {SDK_FILES, SDK_FOLDER, importMap} from '../../../tool/web/firebase_sdk.mjs';
+
+// The bytes a fixture build holds for each Firebase SDK file (the real files are 1.2 MB; the
+// deploy guard test pins these stand-ins). Like the database worker they sit at a root address
+// and carry no build marker: the address names the SDK version, so every build shares them.
+export const sdkStandIn = name => `// firebase sdk stand-in ${name}\n`;
 
 const here = dirname(fileURLToPath(import.meta.url));
 const repo = join(here, '..', '..', '..');
@@ -40,8 +46,10 @@ export function buildFiles(id, prod = false) {
   const m = marker(id);
   const base = `// ${m}\n`;
   return {
-    'index.html': `<!doctype html><!-- ${m} --><script>${push(id, 'index')}</script>` +
+    'index.html': `<!doctype html><!-- ${m} --><script type="importmap">${JSON.stringify(importMap())}</script>` +
+      `<script>${push(id, 'index')}</script>` +
       `<script src="pantas_pwa.js"></script><script src="flutter_bootstrap.js"></script>`,
+    ...Object.fromEntries(Object.keys(SDK_FILES).map(name => [SDK_FOLDER + name, sdkStandIn(name)])),
     'flutter_bootstrap.js': bootstrap(id, prod),
     'flutter.js': `${base}`,
     // Like dart2js: a deferred part is found next to the script that asks for it.

@@ -60,7 +60,7 @@ function basic(body, path = 'x', stored = null, extra = {}) {
 function world() {
   const w = {
     build: null, offline: false, stores: new Map(), controller: null, requests: [], tamper: {}, events: [],
-    dropAfter: null, windows: 1, extraHeaders: {}, chromium: true,
+    dropAfter: null, windows: 1, extraHeaders: {}, chromium: true, cacheModes: {},
   };
   const strip2 = (url) => url.split('?')[0];
   w.caches = {
@@ -89,6 +89,7 @@ function world() {
   w.network = async (request) => {
     const url = keyOf(request);
     w.requests.push(url);
+    w.cacheModes[url] = request.cache;
     if (w.offline) throw new TypeError('offline');
     if (w.dropAfter !== null && w.requests.length > w.dropAfter) throw new TypeError('connection lost');
     const path = strip2(url).replace(ORIGIN, '');
@@ -657,8 +658,10 @@ function rendererBuild(id) {
 
 // Audit 2, High 5: a service worker cannot see every feature Flutter checks to choose a
 // renderer (ImageDecoder is not exposed to it), so it could skip the variant Flutter then
-// asks for, and an offline start would fail. Both variants are installed in every browser.
-test('both renderer variants are installed in every browser, so Flutter\'s own choice is always there offline', async () => {
+// asks for, and an offline start would fail. The bootstrap now pins full CanvasKit in every
+// browser (web/flutter_bootstrap.js, tested in flutter_bootstrap_pin.test.mjs), so the worker
+// installs that one variant everywhere and an update downloads half the renderer bytes.
+test('the full renderer is installed in every browser and the chromium variant never is', async () => {
   for (const chromium of [true, false]) {
     const w = world();
     w.chromium = chromium;
@@ -666,14 +669,30 @@ test('both renderer variants are installed in every browser, so Flutter\'s own c
     deploy(w, 'R');
     await takeOver(w, await install(w, 'R'));
     const cached = [...w.stores.get(cacheOf('R')).keys()].map((url) => url.replace(ORIGIN, ''));
-    for (const name of ['canvaskit.js', 'canvaskit.wasm', 'chromium/canvaskit.js', 'chromium/canvaskit.wasm']) {
+    for (const name of ['canvaskit.js', 'canvaskit.wasm']) {
       assert.ok(cached.includes(`${folderOf('R')}canvaskit/${name}`), `${name} (chromium browser: ${chromium})`);
     }
-    w.offline = true;
-    for (const name of ['canvaskit/chromium/canvaskit.wasm', 'canvaskit/canvaskit.wasm']) {
-      assert.equal((await get(w, inFolder('R', name))).id, 'R', `${name} offline (chromium browser: ${chromium})`);
+    for (const name of ['chromium/canvaskit.js', 'chromium/canvaskit.wasm']) {
+      assert.ok(!cached.includes(`${folderOf('R')}canvaskit/${name}`), `${name} is not stored (chromium browser: ${chromium})`);
     }
+    w.offline = true;
+    assert.equal((await get(w, inFolder('R', 'canvaskit/canvaskit.wasm'))).id, 'R', `offline (chromium browser: ${chromium})`);
   }
+});
+
+// E-210: the Firebase SDK files are the same bytes in every build and their address carries the
+// SDK version, so an update may take them from the HTTP cache (the hash still guards them);
+// the other root files are read past it. Without this every update downloads 1.2 MB again.
+test('an install reads the SDK files through the HTTP cache and the other root files past it', async () => {
+  const w = world();
+  build('R', {});
+  deploy(w, 'R');
+  await install(w, 'R');
+  const mode = (path) => w.cacheModes[ORIGIN + path];
+  assert.equal(mode('firebase_sdk/12.17.0/firebase-app.js'), 'default');
+  assert.equal(mode('firebase_sdk/12.17.0/firebase-firestore-pipelines.js'), 'default');
+  assert.equal(mode('drift_worker.js'), 'reload');
+  assert.equal(mode('manifest.json'), 'reload');
 });
 
 test('the build constant no longer carries a renderer variant list', () => {

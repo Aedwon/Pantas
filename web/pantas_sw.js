@@ -230,15 +230,18 @@ async function sha256(bytes) {
 
 const INSTALL_PARALLEL = 6;
 
-// Every file of the set. Both CanvasKit variants are in it: Flutter picks one with
-// checks a service worker cannot all make (ImageDecoder is not exposed to it), so
-// guessing could skip the one Flutter asks for and the app would not start offline.
+// Every file of the set. Of CanvasKit only the full variant is in it: the bootstrap
+// pins that variant in every browser (Flutter's own choice rests on checks a service
+// worker cannot make, such as ImageDecoder), so nothing else is ever asked for.
 
 // Files in a build folder never change under their address, and the hash guards
-// them, so any cached copy will do. The few files at the root are read past every
-// HTTP cache.
+// them, so any cached copy will do. So do the Firebase SDK files: their address carries
+// the SDK version and every build shares them, so an update need not download them again.
+// The few other files at the root are read past every HTTP cache.
+const SDK_FOLDER = 'firebase_sdk/';
+
 function sourceRequest(path) {
-  return path.startsWith(BUILD.base)
+  return path.startsWith(BUILD.base) || path.startsWith(SDK_FOLDER)
     ? new Request(SCOPE + path)
     : new Request(SCOPE + path, { cache: 'reload' });
 }

@@ -51,7 +51,11 @@ const ROOT_FILES = new Set([
 // web plugin hard-codes it), so it cannot follow the folder. It is in the startup set, so a
 // controlled page gets the copy its build verified.
 export const FIXED_ADDRESS = ['assets/packages/purchases_flutter/assets/web/purchases_js_hybrid_mappings.js'];
-const atRoot = name => ROOT_FILES.has(name) || name.startsWith('icons/') || FIXED_ADDRESS.includes(name);
+// The Firebase SDK files: the page's import map names them at these root addresses, which carry
+// the SDK version, so every build shares one copy and the map (and the page's security policy
+// hash for it) does not change with the build (E-210, tool/web/firebase_sdk.mjs).
+const SDK_ROOT = 'firebase_sdk/';
+const atRoot = name => ROOT_FILES.has(name) || name.startsWith('icons/') || name.startsWith(SDK_ROOT) || FIXED_ADDRESS.includes(name);
 
 function files(dir, root = dir) {
   if (!existsSync(dir)) return [];
@@ -67,20 +71,20 @@ function files(dir, root = dir) {
 // build), the worker itself (the browser updates it), og-image.png (link previews),
 // README.md, .last_build_id, flutter_service_worker.js (Flutter's own worker, never
 // registered), assets/NOTICES (the licenses page only), source maps, and every
-// canvaskit file except the two variants a dart2js build can use (below).
+// canvaskit file except the full variant (below).
 const EXACT = new Set([
   'flutter.js', 'flutter_bootstrap.js', 'main.dart.js', 'main.dart.mjs', 'main.dart.wasm', 'sqlite3.wasm',
 ]);
+// At the root and in the set: the page, what a fixed address needs, and (below) the Firebase SDK.
 const ROOT_SET = new Set([PAGE, 'manifest.json', 'favicon.png', 'drift_worker.js']);
 const PARTS = /^main\.dart\.(js|mjs)_\d+\.part\.(js|mjs)$|^main\.dart\.wasm_\d+\.part\.wasm$/;
 const HELPERS = /^pantas_(?!sw\.js$)[\w-]+\.js$/;
 const EXCLUDED = new Set(['assets/NOTICES']);
-// The two CanvasKit builds Flutter picks from. Flutter's choice rests on checks a service
-// worker cannot all make, so the worker installs both in every browser.
-const VARIANTS = {
-  standard: ['canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm'],
-  chromium: ['canvaskit/chromium/canvaskit.js', 'canvaskit/chromium/canvaskit.wasm'],
-};
+// The one CanvasKit build the app uses: full, in every browser. web/flutter_bootstrap.js pins it
+// (canvasKitVariant), so Flutter never asks for the chromium variant, which a browser would
+// otherwise get on Flutter's own checks that a service worker cannot all make (audit 2, High 5).
+// Storing only this one halves the renderer bytes an update downloads.
+const RENDERER = ['canvaskit/canvaskit.js', 'canvaskit/canvaskit.wasm'];
 
 /** The build folder inside `dir` ('b/<id>/'), or '' for a tree that is not stamped. */
 export function buildFolder(dir) {
@@ -98,9 +102,11 @@ function localCanvasKit(dir, folder) {
 /** The final paths (relative to the scope) of the startup set of a stamped tree. */
 export function startupSet(dir) {
   const folder = buildFolder(dir);
-  const canvasKit = new Set(localCanvasKit(dir, folder) ? Object.values(VARIANTS).flat() : []);
+  const canvasKit = new Set(localCanvasKit(dir, folder) ? RENDERER : []);
   return files(dir).filter(path => {
-    if (!folder || !path.startsWith(folder)) return ROOT_SET.has(path) || path.startsWith('icons/') || FIXED_ADDRESS.includes(path);
+    if (!folder || !path.startsWith(folder)) {
+      return ROOT_SET.has(path) || path.startsWith('icons/') || path.startsWith(SDK_ROOT) || FIXED_ADDRESS.includes(path);
+    }
     const name = path.slice(folder.length);
     if (EXCLUDED.has(name) || name.endsWith('.map')) return false;
     return EXACT.has(name) || PARTS.test(name) || HELPERS.test(name) || name.startsWith('assets/') || canvasKit.has(name);
@@ -250,6 +256,6 @@ if (import.meta.url === `file://${process.argv[1]}`) {
   console.log(`Service worker version: ${stamp(dir)}`);
   const inSet = new Set(startupSet(dir));
   const bytes = [...inSet].reduce((sum, name) => sum + statSync(join(dir, name)).size, 0);
-  console.log(`Startup set: ${inSet.size} files, ${(bytes / 1048576).toFixed(1)} MB (both renderer variants, installed in every browser)`);
+  console.log(`Startup set: ${inSet.size} files, ${(bytes / 1048576).toFixed(1)} MB (full CanvasKit only, pinned in every browser)`);
   console.log(`Left out: ${files(dir).filter(name => !inSet.has(name)).join(', ')}`);
 }

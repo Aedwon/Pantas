@@ -115,10 +115,16 @@ try {
   console.log(`requests that reached the server while down: ${state.served.length}`);
   console.log(`off-origin requests blocked, first visit:\n  ${[...blocked['first visit']].join('\n  ') || 'none'}`);
   console.log(`off-origin requests blocked, cold offline:\n  ${[...blocked['cold offline']].join('\n  ') || 'none'}`);
+  // The Firebase SDK is served from our own address (E-210): nothing may ask Google for it.
+  const asked = [...blocked['first visit'], ...blocked['cold offline']].filter(url => /\/firebasejs\//.test(url));
+  if (asked.length) {
+    failed = true;
+    console.log(`FAIL: the page still asked another address for the Firebase SDK:\n  ${asked.join('\n  ')}`);
+  }
   if (!coldReady) {
     failed = true;
     console.log('FAIL: with a cold HTTP cache and every off-origin request blocked, the app did not become ready (engine, storage and start)');
-  } else {
+  } else if (!failed) {
     console.log('PASS: the app and its storage are ready from the worker alone');
   }
 } finally {

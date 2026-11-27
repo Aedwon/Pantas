@@ -53,6 +53,21 @@ dart compile js --no-source-maps -O2 tool/web/drift_worker.dart -o web/drift_wor
 
 The `.deps` output is a compiler intermediate, not a runtime requirement.
 
+## Firebase SDK and renderer (E-210, cold offline start)
+
+`firebase_sdk/<version>/` holds the Firebase JavaScript SDK files FlutterFire's web plugins import
+from `https://www.gstatic.com/firebasejs/<version>/`. They are Google's unmodified files (Apache
+License 2.0; `firebase-app.js` keeps its license header), taken from those addresses and checked by
+SHA-256 in `tool/web/firebase_sdk.mjs` (`node tool/web/firebase_sdk.mjs` downloads and checks them).
+The import map at the top of `index.html` sends each gstatic address to the copy, so FlutterFire keeps
+its own loading code and version, and the app starts with no connection to Google. The version is the
+one the locked `firebase_core_web` pins (`test/web/firebase_sdk.test.mjs` compares them). When
+`firebase_core_web` or a Firebase web plugin changes, that test fails until the list is updated.
+The files stay at root addresses (the stamp does not move them); the worker stores and verifies them.
+
+`flutter_bootstrap.js` pins full CanvasKit (`canvasKitVariant: 'full'`) in every browser, so the
+worker stores that one renderer and the chromium variant is never downloaded.
+
 ## Blocked content path
 
 The native signed seed uses SQLCipher and requires a pinned bootstrap secret to
