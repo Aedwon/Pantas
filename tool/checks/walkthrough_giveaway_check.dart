@@ -679,10 +679,10 @@ class WalkthroughGiveawayCheck extends Check {
 
   @override
   String get origin =>
-      'Nov 27 process entry "Grammar walk-through lessons fail every Codex '
-      'audit round": a Quick Check or try whose key is printed above it, '
-      'sits in its own stem, or is the only choice matching printed text '
-      'passed every in-lane check and failed the Codex read';
+      'Nov 27 process entry "Grammar walk-through lessons fail every '
+      'outside audit round": a Quick Check or try whose key is printed above '
+      'it, sits in its own stem, or is the only choice matching printed text '
+      'passed every in-lane check and failed the outside audit read';
 
   @override
   List<Violation> run(String root) =>
