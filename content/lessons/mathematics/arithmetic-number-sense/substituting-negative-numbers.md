@@ -105,13 +105,9 @@ $$\dfrac{12}{(-2)}=-6$$
 
 $$x^2-3xy+\dfrac{12}{x}=4-(-18)+(-6)$$
 
-6. Subtracting $-18$ is the same as adding $18$:
+6. Subtracting $-18$ is the same as adding $18$.
 
-:::pair #minus-before-negative
-Right: $4-(-18)+(-6)=4+18+(-6)$
-Wrong: $4-(-18)+(-6)=4-18+(-6)$
-The wrong line kept only one minus sign. A minus sign before $-18$ makes a plus, so the wrong line ends at $-20$ instead of $16$.
-:::
+$$4-(-18)+(-6)=4+18+(-6)$$
 
 7. Add from left to right.
 
@@ -120,6 +116,12 @@ $$4+18=22$$
 $$22+(-6)=16$$
 
 The answer is $16$.
+
+:::pair #minus-before-negative
+Right: $4-(-18)+(-6)=4+18+(-6)$
+Wrong: $4-(-18)+(-6)=4-18+(-6)$
+The wrong line kept only one minus sign. A minus sign before $-18$ makes a plus, so the wrong line ends at $-20$ instead of $16$.
+:::
 
 ### #2: Two Negative Values
 
@@ -150,7 +152,7 @@ $$(-3)(-1)=3$$
 $$2a^2-ab+b^3=18-3+(-1)$$
 
 :::try
-Finish the last step: $18-3+(-1)$.
+Finish the last step: find the value of $2a^2-ab+b^3$.
 :::answer
 The answer is $14$. First $18-3=15$. Then $15+(-1)=14$.
 :::

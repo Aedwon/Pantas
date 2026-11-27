@@ -21,8 +21,6 @@ When one rule does not fit neighboring terms, read every other term to separate 
 
 Look at $4,81,8,27,16,9,\dots$ and find the next two terms in order.
 
-<!-- ILLUSTRATION: Six boxes in a row hold the terms 4, 81, 8, 27, 16, 9. Arcs above the row join the odd-position terms 4, 8 and 16, labeled "odd positions: × 2", so each is twice the one before it. Arcs below the row join the even-position terms 81, 27 and 9, labeled "even positions: ÷ 3", so each is a third of the one before it. The two groups are separate lists woven together. -->
-
 1. Read the odd positions (first, third, fifth): $4,8,16$. Each term doubles.
 
 $$4\times2=8$$
@@ -44,6 +42,8 @@ $$16\times2=32$$
 $$9\div3=3$$
 
 The next two numbers are $32,3$.
+
+<!-- ILLUSTRATION: Six boxes in a row hold the terms 4, 81, 8, 27, 16, 9. Arcs above the row join the odd-position terms 4, 8 and 16, labeled "odd positions: × 2", so each is twice the one before it. Arcs below the row join the even-position terms 81, 27 and 9, labeled "even positions: ÷ 3", so each is a third of the one before it. The two groups are separate lists woven together. -->
 
 :::pair #reverse-position-order
 Right: $32,3$
@@ -117,12 +117,12 @@ $$18-20=-2$$
 
 $$16-18=-2$$
 
-3. The odd-position terms increase by $3$, and the even-position terms decrease by $2$. Count positions: six terms are shown, so the next term is in position $7$, which is odd.
+3. The odd-position terms increase by $3$, and the even-position terms decrease by $2$. Count positions: six terms are shown, so the next term is in position $7$.
 
 :::try
-Finish the last step: find the seventh term using the odd-position rule.
+Finish the last step: find the seventh term.
 :::answer
-The answer is $11$. The odd-position terms go up by $3$, so add $3$ to the fifth term: $8+3=11$.
+The answer is $11$. Position $7$ is odd, and the odd-position terms go up by $3$, so add $3$ to the fifth term: $8+3=11$.
 :::
 
 ## Speed Tricks & Shortcuts

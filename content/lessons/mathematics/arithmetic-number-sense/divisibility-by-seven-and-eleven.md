@@ -86,7 +86,7 @@ Every nonzero integer divides $0$ evenly. Only dividing *by* $0$ is undefined.
 :::
 
 :::why
-Why does $0$ pass the $11$ test? Because $0=11\times0$, leaving no remainder. For example, $1,331$ has alternating sums $1+3=4$ and $3+1=4$, difference $4-4=0$, and $1,331=11\times121$.
+Why do the signs alternate? Each place value is a multiple of $11$ plus or minus $1$: $10=11-1$, $100=99+1$, and $1,000=1,001-1$. So a tens digit counts with a minus sign, a hundreds digit with a plus sign, and so on. The number differs from its alternating sum by a multiple of $11$. For example, $1,331$ has alternating sums $1+3=4$ and $3+1=4$, difference $4-4=0$, and $1,331=11\times121$.
 :::
 
 ## Examples

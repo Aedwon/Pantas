@@ -16,7 +16,7 @@ keyPoints:
 
 ### Rules for $2$, $4$, and $8$
 
-An integer is **divisible** by a nonzero integer when dividing leaves a remainder of $0$. A **factor** divides a number evenly. A **multiple** is the product of an integer and another integer.
+An integer is **divisible** by a nonzero integer when dividing leaves a remainder of $0$. A **factor** divides a number evenly. A **multiple** of $8$ is $8$ times an integer. In general, a multiple of $n$ is $n$ times an integer.
 
 Divisibility rules let you check digits instead of doing long division. For a negative integer, test its positive value, because the minus sign does not change whether the remainder is $0$.
 

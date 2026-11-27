@@ -17,7 +17,7 @@ keyPoints:
 
 ### Numbers Below Zero
 
-A **signed integer** is a whole number with a plus or minus sign, such as $5$, $-3$, or $-12$. On a number line, positive numbers sit to the right of $0$ and negative numbers sit to the left.
+A **signed integer** is a counting number, its negative, or $0$, written with a plus or minus sign, such as $5$, $-3$, or $-12$. On a number line, positive numbers sit to the right of $0$ and negative numbers sit to the left.
 
 The **absolute value** of a number is how far it is from $0$. We write it between two bars. A distance is never negative, so an absolute value is never negative.
 

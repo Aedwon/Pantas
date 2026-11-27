@@ -22,9 +22,9 @@ Numbers belong to nested sets, like smaller boxes sitting inside larger boxes.
 - **Whole numbers** add $0$ to the counting numbers: $0,1,2,3,\dots$. Negative numbers are not whole numbers. A fraction is whole only when it equals a whole number, such as $\dfrac{6}{3}=2$, not $\dfrac{1}{2}$.
 - **Integers** include all whole numbers and their opposites: $\dots,-2,-1,0,1,2,\dots$.
 
-Sort $5$, $0$, and $-4$ by set. The number $5$ is natural, whole, an integer, a rational number and a real number.
+Sort $5$, $0$, and $-4$ by the three sets above. The number $5$ is natural, whole and an integer.
 
-The number $0$ is whole, an integer, a rational number and a real number. It is not natural when natural numbers start at $1$. The number $-4$ is an integer, a rational number and a real number. It is not a natural or whole number.
+The number $0$ is whole and an integer. It is not natural when natural numbers start at $1$. The number $-4$ is an integer. It is not a natural or whole number. The next section adds the rational and real sets.
 
 :::pair #negative-whole-number
 Right: $-1$ is an integer, not a whole number.
@@ -39,6 +39,8 @@ A **rational number** can be written as a fraction $\dfrac{p}{q}$ of two integer
 An **irrational number** is a real number that cannot be written as an integer fraction. Its decimal goes on forever without repeating. Common examples are $\pi$ and square roots of non-negative integers that are not perfect squares, such as $\sqrt{2}$ and $\sqrt{7}$.
 
 Rational and irrational numbers never overlap. Together, they make up all **real numbers**.
+
+Now finish the sort of $5$, $0$ and $-4$. Each one is an integer, so each is rational: $5=\dfrac{5}{1}$, $0=\dfrac{0}{1}$ and $-4=\dfrac{-4}{1}$. Each rational number is also a real number. So $5$ is a rational number and a real number as well, $0$ is too, and $-4$ is too.
 
 <!-- FIGURE: {"kind": "concept-diagram", "type": "nested-boxes", "boxes": ["Natural Numbers", "Whole Numbers", "Integers", "Rational Numbers", "Irrational Numbers", "Real Numbers"], "semanticsLabel": "A nested boxes diagram showing Natural Numbers inside Whole Numbers, Integers, Rational Numbers, with Irrational Numbers beside them inside Real Numbers."} -->
 
@@ -109,9 +111,9 @@ D) A repeating nonterminating decimal is rational.
 3. Check D: a repeating decimal like $0.333\dots=\dfrac{1}{3}$ can be written as an integer fraction, so D is true.
 
 :::try
-Finish the last step: multiply $\sqrt{12}\times\sqrt{3}$ under one root, then use the value to say whether B is true, and name the false statement.
+Finish the last step. Check B: put $\sqrt{12}\times\sqrt{3}$ under one root. What is its exact value?
 :::answer
-The answer is B. $\sqrt{12}\times\sqrt{3}=\sqrt{36}=6$, which is rational, so B is false.
+The answer is $6$. $\sqrt{12}\times\sqrt{3}=\sqrt{36}=6$. Since $6$ is rational, B is false, so B is the false statement.
 :::
 
 ## Traps to Watch For

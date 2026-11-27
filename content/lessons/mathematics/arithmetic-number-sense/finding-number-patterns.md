@@ -191,10 +191,10 @@ $$16+3=19$$
 
 $$19\times2=38$$
 
-3. Every shown step fits the alternating rule. Since the last step multiplied by $2$, the next step adds $3$.
+3. Every shown step fits the alternating rule. The last step took $19$ to $38$.
 
 :::try
-Finish the last step: $38+3$.
+Finish the last step: find the next term after $38$.
 :::answer
 The answer is $41$. The last step multiplied, so the next step adds $3$ to $38$.
 :::

@@ -52,6 +52,8 @@ $$S_4=\dfrac{160}{2}=80$$
 Why does this formula work? Multiply the sum $S_n$ by $r$ and subtract that new line from $S_n$. Every middle term cancels in pairs, leaving $(1-r)S_n=a_1(1-r^n)$, and dividing by $1-r$ gives $S_n$.
 :::
 
+Take $a_1=5$, $r=3$ and $n=5$.
+
 :::pair #omit-sum-denominator
 Right: $S_5=\dfrac{5(3^5-1)}{3-1}=\dfrac{5(242)}{2}=605$
 Wrong: $S_5=5(3^5-1)=1,210$
@@ -140,10 +142,10 @@ Find the sum of $8$ terms when every term is $5$.
 
 $$r=\dfrac{5}{5}=1$$
 
-2. With $r=1$, use $S_n=na_1$ where $n=8$ and $a_1=5$.
+2. With $r=1$, find the sum from $n=8$ and $a_1=5$.
 
 :::try
-Finish the last step: compute $S_8=8(5)$.
+Finish the last step: find $S_8$.
 :::answer
 The answer is $40$. Multiplying $8\times5$ gives $40$.
 :::

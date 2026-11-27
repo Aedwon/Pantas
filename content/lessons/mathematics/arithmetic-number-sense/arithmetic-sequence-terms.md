@@ -177,9 +177,9 @@ $$83-7=76$$
 $$\dfrac{76}{4}=19$$
 
 :::try
-Finish the last step: add $1$ to count the first term and find $n$.
+Finish the count: the $19$ gaps are known, so how many terms are in $7,11,15,\dots,83$?
 :::answer
-The answer is $20$. Including the first term gives $n=19+1=20$.
+The answer is $20$. The $19$ gaps do not count the first term, so $n=19+1=20$.
 :::
 
 ## Speed Tricks & Shortcuts

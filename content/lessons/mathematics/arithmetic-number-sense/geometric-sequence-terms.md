@@ -129,7 +129,7 @@ $$n-1=8-1=7$$
 $$(-2)^7=-128$$
 
 :::try
-Finish the last step: multiply $a_1=3$ by $(-2)^7=-128$.
+Finish the last step: find $a_8$.
 :::answer
 The answer is $-384$. Multiplying $3\times(-128)$ gives $-384$.
 :::

@@ -42,7 +42,7 @@ The sum $24$ passes $3$, not $9$. Check that your digit sum divides evenly by $9
 :::
 
 :::why
-Why does adding digits work for $3$ and $9$? Notice that $10=9+1$, $100=99+1$, and $1,000=999+1$. Each place value leaves a remainder of $1$ when divided by $9$ or $3$, so the number leaves the same remainder as its digit sum.
+Why does adding digits work for $3$ and $9$? Take a nonnegative whole number. Notice that $10=9+1$, $100=99+1$, and $1,000=999+1$. Each place value leaves a remainder of $1$ when divided by $9$ or $3$, so the number leaves the same remainder as its digit sum. To test a negative integer for divisibility, ignore the minus sign.
 :::
 
 :::check

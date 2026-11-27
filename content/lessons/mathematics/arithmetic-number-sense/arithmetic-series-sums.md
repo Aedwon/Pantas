@@ -38,6 +38,8 @@ $$S_n=\dfrac{n}{2}(a_1+a_n)$$
 Why does every outside-in pair give the same sum? Moving one step inward from the left adds $d$, and moving one step inward from the right subtracts $d$, so those two changes cancel.
 :::
 
+Take the series $4+7+10+\dots+31$, which has $10$ terms.
+
 :::pair #omit-divide-by-two
 Right: $S_{10}=\dfrac{10}{2}(4+31)=5(35)=175$
 Wrong: $S_{10}=10(4+31)=350$
@@ -155,7 +157,7 @@ $$4(5)=20$$
 $$S_5=25+20=45$$
 
 :::try
-Finish the last step: find $a_6=S_6-S_5$.
+Use $S_6$ and $S_5$ to find $a_6$.
 :::answer
 The answer is $15$. Subtract the two sums: $a_6=60-45=15$.
 :::

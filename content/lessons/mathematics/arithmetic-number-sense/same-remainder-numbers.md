@@ -82,7 +82,7 @@ The answer is $28$. The LCM of $6$, $8$, and $12$ is $24$, so $N=24k+4$. Then $k
 
 ### Checking the Size Condition
 
-Adding the remainder to $L$ (which uses $k=1$) is not always the final answer. Test $k=0$, $k=1$, $k=2$, and so on against the size condition in the question.
+Adding the remainder to $L$ (which uses $k=1$) is not always the final answer. For a nonnegative answer, start at $k=0$ and test $k=1$, $k=2$, and so on against the size condition in the question.
 
 - For $k=0$, $N=r$. If $r$ already meets the condition, $r$ is the smallest answer.
 - If the question requires a number larger than $r$, move up to $k=1$ or higher until the condition holds.

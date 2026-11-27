@@ -33,6 +33,8 @@ $$(10+2i)-(6-3i)=10+2i-6+3i$$
 
 $$10+2i-6+3i=4+5i$$
 
+Adding the same two numbers keeps both signs: $(10+2i)+(6-3i)=10+2i+6-3i=16-i$.
+
 :::pair #imaginary-part-coefficient
 Right: in $3-4i$, the imaginary part is $-4$.
 Wrong: in $3-4i$, the imaginary part is $-4i$.
@@ -89,8 +91,10 @@ $$(2i)(3i)=6i^2$$
 
 $$6i^2=6(-1)=-6$$
 
+To divide by $i$, use $\dfrac{1}{i}=-i$, because $i(-i)=-i^2=1$.
+
 :::pair #negative-root-product
-Right: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{(6i)(2i)}{4i}=\dfrac{-12}{4i}=\dfrac{-3}{i}$, then multiply top and bottom by $i$: $\dfrac{-3i}{i^2}=\dfrac{-3i}{-1}=3i$
+Right: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{(6i)(2i)}{4i}=\dfrac{-12}{4i}=\dfrac{-3}{i}=-3(-i)=3i$
 Wrong: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{6\cdot 2}{4}=3$
 Do not drop the minus signs inside negative roots or use $\sqrt{ab}$ before pulling out $i$. Write each negative root in $i$ form first.
 :::
