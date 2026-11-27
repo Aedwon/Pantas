@@ -16,6 +16,7 @@ import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
@@ -155,7 +156,15 @@ String _spoken(List<Map<String, Object?>> runs) {
 
 /// Draws one lesson part for the reader, or null when [block] is not a
 /// walk-through part this build knows.
-Widget? buildWalkPart(BuildContext context, Map<String, Object?> block) {
+///
+/// [inSolution] is true for a part inside an example's solution panel. "Try
+/// the last step" there is not a card: a rule sets it off (Aedwon, Nov 28,
+/// board option A).
+Widget? buildWalkPart(
+  BuildContext context,
+  Map<String, Object?> block, {
+  bool inSolution = false,
+}) {
   switch (block['_type']) {
     case 'walkCheck':
       return WalkCheckCard(
@@ -168,6 +177,7 @@ Widget? buildWalkPart(BuildContext context, Map<String, Object?> block) {
         label: 'Try the last step',
         question: _maps(block['prompt']),
         answer: _maps(block['answer']),
+        ruled: inSolution,
       );
     case 'walkWhy':
       return WalkWhy(body: _maps(block['body']));
@@ -784,12 +794,17 @@ class WalkCheckCard extends StatefulWidget {
     required this.label,
     required this.question,
     required this.answer,
+    this.ruled = false,
     super.key,
   });
 
   final String label;
   final List<Map<String, Object?>> question;
   final List<Map<String, Object?>> answer;
+
+  /// Draws no card: a 1 px rule on top instead of a fill, border, radius and
+  /// padding. For "Try the last step" inside a solution panel.
+  final bool ruled;
 
   @override
   State<WalkCheckCard> createState() => _WalkCheckCardState();
@@ -835,62 +850,76 @@ class _WalkCheckCardState extends State<WalkCheckCard> {
       };
     }
     final button = _showButton(context);
+    final column = Column(
+      key: widget.ruled ? const ValueKey('walk-try') : null,
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        if (widget.ruled) ...[
+          SizedBox(
+            height: PantasBorder.ring,
+            child: ColoredBox(
+              key: const ValueKey('walk-try-rule'),
+              color: c.separator,
+            ),
+          ),
+          const SizedBox(height: PantasSpace.s14),
+        ],
+        ExcludeSemantics(
+          child: Text(
+            widget.label.toUpperCase(),
+            style: _labelType(c.accent),
+          ),
+        ),
+        const SizedBox(height: PantasSpace.s6),
+        _content(context, widget.question),
+        WalkReveal(
+          key: const ValueKey('walk-button-reveal'),
+          open: !_revealed,
+          child: Padding(
+            padding: const EdgeInsets.only(top: PantasSpace.s12),
+            child: Focus(
+              focusNode: _button,
+              child: wide
+                  ? Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [button],
+                    )
+                  : button,
+            ),
+          ),
+        ),
+        Semantics(
+          liveRegion: true,
+          child: WalkReveal(
+            key: const ValueKey('walk-answer-reveal'),
+            open: _revealed,
+            child: Padding(
+              padding: const EdgeInsets.only(top: PantasSpace.s12),
+              child: Focus(
+                focusNode: _answer,
+                child: _answerPanel(context, answer),
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
     return Semantics(
       container: true,
       label: widget.label,
-      child: Container(
-        key: const ValueKey('walk-card'),
-        padding: EdgeInsets.all(wide ? PantasSpace.s20 : PantasSpace.s16),
-        decoration: BoxDecoration(
-          color: c.surface,
-          border: Border.all(color: c.separator),
-          borderRadius: BorderRadius.circular(_cardRadius),
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            ExcludeSemantics(
-              child: Text(
-                widget.label.toUpperCase(),
-                style: _labelType(c.accent),
+      child: widget.ruled
+          ? column
+          : Container(
+              key: const ValueKey('walk-card'),
+              padding: EdgeInsets.all(wide ? PantasSpace.s20 : PantasSpace.s16),
+              decoration: BoxDecoration(
+                color: c.surface,
+                border: Border.all(color: c.separator),
+                borderRadius: BorderRadius.circular(_cardRadius),
               ),
+              child: column,
             ),
-            const SizedBox(height: PantasSpace.s6),
-            _content(context, widget.question),
-            WalkReveal(
-              key: const ValueKey('walk-button-reveal'),
-              open: !_revealed,
-              child: Padding(
-                padding: const EdgeInsets.only(top: PantasSpace.s12),
-                child: Focus(
-                  focusNode: _button,
-                  child: wide
-                      ? Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [button],
-                        )
-                      : button,
-                ),
-              ),
-            ),
-            Semantics(
-              liveRegion: true,
-              child: WalkReveal(
-                key: const ValueKey('walk-answer-reveal'),
-                open: _revealed,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: PantasSpace.s12),
-                  child: Focus(
-                    focusNode: _answer,
-                    child: _answerPanel(context, answer),
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 

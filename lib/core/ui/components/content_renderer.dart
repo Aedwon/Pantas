@@ -837,6 +837,7 @@ class ContentRenderer extends StatelessWidget {
     String? marker,
     ReaderSection section = ReaderSection.plain,
     bool step = false,
+    bool inSolution = false,
   }) {
     final type = string(block['_type']);
     switch (type) {
@@ -912,7 +913,7 @@ class ContentRenderer extends StatelessWidget {
         // Walk-through parts draw only in the reader; a block of a type this
         // build does not know keeps the fallback.
         return (readerFigures && type.startsWith('walk')
-                ? buildWalkPart(context, block)
+                ? buildWalkPart(context, block, inSolution: inSolution)
                 : null) ??
             fallback(context);
     }
@@ -1092,7 +1093,13 @@ class ContentRenderer extends StatelessWidget {
         // block before it; a card inside a solution has 8 above and 16 under;
         // every other part has 18 under.
         _ when type == 'walkWhy' => (-PantasSpace.s10, PantasSpace.s18),
-        _ when (type == 'walkCheck' || type == 'walkTry') && solution => (
+        // Try the last step in a solution is not a card: its rule sits 16
+        // under the work (board option A, `.tryA` margin-top 16).
+        _ when type == 'walkTry' && solution => (
+            PantasSpace.s16,
+            PantasSpace.s16,
+          ),
+        _ when type == 'walkCheck' && solution => (
             PantasSpace.s8,
             PantasSpace.s16,
           ),
@@ -1110,6 +1117,7 @@ class ContentRenderer extends StatelessWidget {
         marker: marker,
         section: plain.section,
         step: solution && list == 'number',
+        inSolution: solution,
       );
       // A heading a checklist line points at: its anchor is a tap-back target.
       final anchor = block['anchor'];

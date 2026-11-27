@@ -1184,6 +1184,79 @@ void main() {
       });
     }
 
+    // Aedwon picked option A for "Try the last step" (Nov 28): inside a
+    // solution it is no card. A 1 px rule 16 under the work and 14 above the
+    // label replaces the fill, border and radius.
+    for (final dark in [false, true]) {
+      testWidgets(
+          'Try inside a solution is a ruled part, not a card in a card, '
+          '${dark ? 'dark' : 'light'}', (tester) async {
+        await _pump(
+          tester,
+          [
+            _p('Examples', style: 'h2'),
+            ..._example(
+              2,
+              tail: [
+                _try('Finish the last step.', ['The answer is 1.']),
+              ],
+            ),
+          ],
+          dark: dark,
+        );
+        final panel = tester.element(_key('reader-solution-panel'));
+        // (a) Nothing between the solution panel and the Try content draws a
+        // fill, a border or a radius.
+        final tryPart = tester.element(_key('walk-try'));
+        final drawn = <Widget>[];
+        void check(Widget w) {
+          final d = switch (w) {
+            Container(decoration: final BoxDecoration? d) => d,
+            DecoratedBox(decoration: final BoxDecoration d) => d,
+            _ => null,
+          };
+          if (d != null &&
+              (d.color != null || d.border != null || d.borderRadius != null)) {
+            drawn.add(w);
+          }
+          if (w is ColoredBox || w is Material || w is PhysicalModel) {
+            drawn.add(w);
+          }
+        }
+
+        check(tryPart.widget);
+        tryPart.visitAncestorElements((e) {
+          // The panel's own fill is the solution panel; stop there.
+          final w = e.widget;
+          if (w is DecoratedBox &&
+              w.decoration == (panel.widget as Container).decoration) {
+            return false;
+          }
+          check(e.widget);
+          return true;
+        });
+        expect(drawn, isEmpty);
+        // (b) The rule is 1 px in the separator color, 16 under the work and
+        // 14 above the label.
+        final rule = _key('walk-try-rule');
+        final ruleBox = tester.widget<ColoredBox>(rule);
+        expect(ruleBox.color, _c(dark).separator);
+        final ruleRect = tester.getRect(rule);
+        expect(ruleRect.height, 1);
+        final work = tester.getRect(_rich('Work for step 2.'));
+        expect(ruleRect.top - work.bottom, 16);
+        final label = tester.getRect(find.text('TRY THE LAST STEP'));
+        expect(label.top - ruleRect.bottom, 14);
+        // The rule runs the width of the part.
+        expect(ruleRect.width, tester.getRect(_key('walk-try')).width);
+        // The group keeps its name for a screen reader.
+        expect(
+          find.bySemanticsLabel(RegExp('^Try the last step')),
+          findsOneWidget,
+        );
+      });
+    }
+
     // Aedwon on staging (Nov 27): the space after a Wrong line and after a
     // display formula looked smaller than the space before it. The gap below
     // must equal the gap above, measured between the rendered boxes.
