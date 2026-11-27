@@ -18,8 +18,6 @@ Check your rule against every shown step. Then test each answer choice against a
 
 An **interleaved pattern** mixes two separate patterns. Read the first, third, fifth, and later odd positions as one series. Read the second, fourth, sixth, and later even positions as another.
 
-The trap calls this Example $4$ from the original lesson; it is Example $1$ here.
-
 ## Examples
 
 ### #1: Two Features and Answer Choices
@@ -65,7 +63,7 @@ A choice may have the right fill but the wrong size. Combine the results after c
 
 > Use size levels shown or defined in the question.
 
-Small, medium, and large alone do not name a next size. Example $4$ supplies extra large as the next available size. Check the fill too before choosing it.
+Small, medium, and large alone do not name a next size. Example $1$ supplies extra large as the next available size. Check the fill too before choosing it.
 
 ### #3: Missing Two Mixed Patterns
 

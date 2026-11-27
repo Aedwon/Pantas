@@ -139,7 +139,7 @@ Some series use equal turns, as in Example $1$. Others use growing turns. Repeat
 
 > Use size levels shown or defined in the question.
 
-Small, medium, and large alone do not name a next size. Example $4$ supplies extra large as the next available size. Check the fill too before choosing it.
+Small, medium, and large alone do not name a next size. Example $1$ supplies extra large as the next available size. Check the fill too before choosing it.
 
 ### #5: Missing Two Mixed Patterns
 

@@ -39,9 +39,14 @@ the same cut: #6 Growing Turns and its marker deleted, #7 Two Mixed Patterns bec
 line matches the part. Its figure 07 (the arrows) is deleted and 08 is renamed 07, so files keep
 matching marker order (README invariant). The parent is not served.
 
-Found, not fixed (outside this brief): the live part `combined-and-mixed-figure-patterns.md` line 21
-carries the same kind of stray editor line ("The trap calls this Example $4$ from the original
-lesson; it is Example $1$ here.") and its trap line 68 cites "Example $4$", which is its Example 1.
+Added on the manager's word ("yes, include combined-and-mixed-figure-patterns in step 4. Remove the
+stray editor line, and point the reference at the example it means. Make no other wording changes"):
+the live part `combined-and-mixed-figure-patterns.md` loses its stray editor line ("The trap calls
+this Example $4$ from the original lesson; it is Example $1$ here."), and its trap "Inventing a Size"
+now cites Example $1$ (its "Two Features and Answer Choices", the extra-large size example). The split
+check holds trap bodies exact against the retired parent, so the parent's copy of that trap line
+also reads Example $1$; the parent is not served. Word diff over the lessons: only the two stray
+lines removed and "$4$" to "$1$" twice, plus the Growing Turns cuts above.
 
 Keys, choices, rationales and explanations are unchanged in (a) and (b). In (a) the stem keeps the
 one-unit convention, which the "Their" note relies on ("follow the stated one-unit convention"),
