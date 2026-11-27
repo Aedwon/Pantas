@@ -50,7 +50,21 @@ Privacy Policy coverage check (shipped text, `lib/features/legal/domain/legal_do
 - Name: the Google sign-in name is listed under Account; the name typed in onboarding is a study setting, same coverage as above.
 - Not checked: the "How we use" purposes section line by line for a restore purpose.
 
-## Next
+## State at close (Nov 28, about 1:50 AM Manila)
+
+- His decision, verbatim: "also i think the best way is to just let users input age again and select their exam". Built step 1 only: `getSetupAcceptance` (read-only callable) plus the onboarding Terms gate; a named account whose record holds the current wording skips Terms, restored with the original time, sharing untouched; everything else falls back to Terms. Age and exam asked again; Pro sync unchanged. Logged in the launch log on main (2d9b90d6a).
+- Option A built 1:1 (board v13), goldens from CI run 46037818146.
+- Branch head 944b99f2b: full CI green (run 46043580950), functions emulator tests included.
+- Capture sheet: `~/Documents/Projects/Pantas-private/ux/2026-11-28-spacing-sheet/` and a private page, https://claude.ai/artifact/HeLNeRRqVQnrzsKMNgxHgc (data URIs need a script, which the shell rule forbids).
+- E-205 closed in the velocity log on this branch.
+
+## Next (for the release lead and the manager)
+
+1. Staging: web build from this branch and a functions deploy that includes `getSetupAcceptance` (rule 7: one callable, one document read per returning sign-in, no new scheduled or minimum-instance cost). Without the deploy the client shows Terms as before.
+2. His visual check on staging: spacing, option A, sign out to Welcome, the Sign in link, a returning sign-in that skips Terms.
+3. Prod web stays frozen until the service worker fix passes audit and the 48-hour soak (his "A", Nov 26).
+
+## Earlier next steps (done)
 
 1. Copy the CI goldens, push, full CI green.
 2. Capture sheet (one sheet, phone dark, before and after) for his spacing check.
