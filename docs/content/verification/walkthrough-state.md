@@ -22,6 +22,14 @@
 
 **Current state (Nov 26, 8:40 PM Manila): see `docs/superpowers/handoffs/2026-11-26-claude-lesson-lead-cse-walkthrough-s2.md` (session 2), after the session 1 note `2026-11-26-claude-lesson-lead-cse-walkthrough.md`. The table above is the previous lead's and is out of date for Batches 1 to 4b.** Short form: Grammar round 5 Codex FAIL (42 Blockers, 52 Majors, `walkthrough-work/codex-grammar-r5.md`); Vocabulary fixed and verified, not audited; Math and Reasoning fresh-instance sweeps done and independently re-solved; fresh-instance check on the checks branch (`d68e902fc`); Language Application partly fixed, citations not merged; Reading Comprehension not started.
 
+## Session 5 (Nov 27, from 2:20 PM Manila, E-198)
+
+- Policy read: `origin/main` `3fd9fdf0e`. Manager thread now `c517ddef-dfdb-4aa6-9f0a-401e7c34873d`. The planned 6:45 AM restart never came; the lane was idle from 3 AM. No worker was running and the worktree was clean at `f898f6967`, so there were no partial changes.
+- Baseline at `f898f6967`: parser (renderer `ux/walkthrough-renderer-r1` `9e0bd559b`) 207/207, `lesson_checks.dart` (`tools/walkthrough-checks-r1` `3048ee151`) exit 0.
+- Codex b at 2:24 PM: 5-hour 0%, weekly 13%. Order on b, one run at a time across lanes (manager): (1) Grammar full read, (2) the GI lead's 6b, 7 and 8 audits, (3) Vocabulary full read after the GI lead posts in this thread.
+- Run 3, Grammar round 8 full read, started 2:26 PM (workdir: session scratchpad `codex/g-r8`).
+- Reading Comprehension scope, found in the question files: the 40 CSE lessons are the ones linked from the 8 CSE-tagged files in `content/questions/reading-comprehension/comprehension-skills/`. All are in `content/lessons/reading-comprehension/comprehension-skills/`: 30 English, 10 Filipino (the table above says 32 and 8; it is wrong). None is in walk-through form. Pre-tap words now 159 to 444. Chunks: R1 main idea and data (6), R2 titles and details (6), R3 sequencing and fact/opinion (6), R4 context clues and inference (6), R5 purpose, tone and point of view (6), F1 (5), F2 (5). Brief: `walkthrough-work/reading-writer-brief.md` (`674e96406`). R1 and F1 writers started 2:50 PM (2 Claude workers).
+
 ## Session 3 (Nov 26, from 8:33 PM Manila, E-198)
 
 Policy read: `origin/main` `68c2a5d5e` (then `5810f9bd6`, this session's velocity row). Manager rulings on the session 2 handoff (rule 4):
