@@ -4942,3 +4942,7 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Manager answer:** not before midnight. The approved legal texts take effect Nov 28, and checkout refuses a date mismatch; opening Friday would need a date change, a rebuild and a new proof (about 2 to 3 hours). The earliest clean time is just after midnight, with no change to anything he approved. The release lead is already warm, so it is slightly cheaper than a 5:30 AM wake-up. Current users are few (the closed beta's last daily report showed one tester plus his own account), so the low-traffic reason for 6 AM is weak. Offered: 12:05 AM, 6 AM, or 6 PM Saturday.
 - **Aedwon, verbatim:** "okay, 12:05 AM it is. that would be even better correct?"
 - **Effect (manager):** the opening is Saturday Nov 28, 12:05 AM Manila (Nov 27 16:05 UTC), same plan and build. r10 checks for jobs near midnight Manila and moves its wake-up to 11:35 PM; manager backups at 11:50 PM and 1:15 AM. The Math pilot pauses its Claude work at 11:40 PM (a running Codex read may finish) and resumes on r10's "opening done" report; the 3 AM stop is dropped.
+
+### Nov 27, creator early access (security lead)
+
+- One creator given early access and a year of Pro; details in Pantas-private; no email sent, per Aedwon. Policy main 7317c8028.
