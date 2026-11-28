@@ -493,10 +493,10 @@ void main() {
         };
     final sections = jsonEncode({
       'sections': [
-        part('Verbal Ability', 20, 10, 0),
-        part('Analytical Ability', 10, 25, 0),
+        part('Verbal Ability', 20, 10, 10),
+        part('Analytical Ability', 10, 5, 5),
         part('Numerical Ability', 30, 0, 0),
-        part('General Information', 0, 0, 5),
+        part('General Information', 0, 0, 0),
       ],
     });
     for (final examId in ['exam_cse_pro', 'exam_cse_sub']) {
@@ -512,7 +512,7 @@ void main() {
               strictMode: false,
               sampledQuestionsJson: jsonEncode([]),
               scoreRaw: const Value(60),
-              scoreTotal: const Value(100),
+              scoreTotal: const Value(90),
               sectionResultsJson: Value(sections),
               startedAt: taken,
               lastFlushedAt: taken,
@@ -530,9 +530,9 @@ void main() {
 
     final record = await container.read(recordProvider.future);
     final byName = {for (final m in record.mocks) m.blueprintName: m.percent};
-    // 60 of 95 weighted points, against 60 of 100 questions.
-    expect(byName['exam_cse_pro'], 63);
-    expect(byName['exam_cse_sub'], 60);
+    // 62.5 of 95 weighted points, against 60 of 90 items.
+    expect(byName['exam_cse_pro'], 66);
+    expect(byName['exam_cse_sub'], 67);
   });
 
   test('the accuracy series is empty below two points', () async {

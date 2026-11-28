@@ -22,48 +22,59 @@ SectionResult _section(
       timeSeconds: 0,
     );
 
-// Verbal 20 of 30, Analytical 10 of 35, Numerical 30 of 30, and no answer in
-// General Information. Its 5 points of weight drop out, leaving 95.
+// Items on the paper: Verbal 40 (20 right, 10 wrong, 10 blank), Analytical 20
+// (10 right, 5 wrong, 5 blank), Numerical 30 (all right). General Information
+// is not on the paper, so its 5 points of weight drop out, leaving 95.
 final _worked = [
-  _section('Verbal Ability', correct: 20, wrong: 10, blank: 0),
-  _section('Analytical Ability', correct: 10, wrong: 25, blank: 0),
+  _section('Verbal Ability', correct: 20, wrong: 10, blank: 10),
+  _section('Analytical Ability', correct: 10, wrong: 5, blank: 5),
   _section('Numerical Ability', correct: 30, wrong: 0, blank: 0),
-  _section('General Information', correct: 0, wrong: 0, blank: 5),
+  _section('General Information', correct: 0, wrong: 0, blank: 0),
 ];
 
 void main() {
-  test('CSE Professional mock score is weighted, empty areas drop out', () {
-    // (30 * 20/30 + 35 * 10/35 + 30 * 30/30) / 95
+  test('CSE Professional mock score is weighted, blanks count as wrong', () {
+    // (30 * 20/40 + 35 * 10/20 + 30 * 30/30) / 95
     expect(
       mockScorePercent(examId: 'exam_cse_pro', sections: _worked),
-      closeTo(60 / 95 * 100, 1e-9),
+      closeTo(62.5 / 95 * 100, 1e-9),
     );
   });
 
   test('other exams stay unweighted', () {
-    // 60 correct of 100 questions.
+    // 60 correct of 90 items.
     for (final examId in ['exam_cse_sub', 'custom_track', null]) {
       expect(
         mockScorePercent(examId: examId, sections: _worked),
-        closeTo(60, 1e-9),
+        closeTo(60 / 90 * 100, 1e-9),
         reason: '$examId',
       );
     }
     expect(
       mockScorePercent(examId: 'exam_upcat', sections: _worked),
-      closeTo((60 - 35 / 4) / 100 * 100, 1e-9),
+      closeTo((60 - 15 / 4) / 90 * 100, 1e-9),
     );
   });
 
-  test('a blank does not count against a part the student did answer', () {
+  test('a part left entirely blank counts as 0, it is not dropped', () {
     final sections = [
-      _section('Verbal Ability', correct: 10, wrong: 0, blank: 20),
-      _section('Analytical Ability', correct: 0, wrong: 10, blank: 25),
+      _section('Verbal Ability', correct: 10, wrong: 0, blank: 0),
+      _section('Analytical Ability', correct: 0, wrong: 0, blank: 10),
     ];
-    // Verbal 10 of 10 answered, Analytical 0 of 10 answered.
+    // (30 * 1 + 35 * 0) / 65
     expect(
       mockScorePercent(examId: 'exam_cse_pro', sections: sections),
       closeTo(30 / 65 * 100, 1e-9),
+    );
+  });
+
+  test('blanks inside a part lower it', () {
+    final sections = [
+      _section('Verbal Ability', correct: 10, wrong: 0, blank: 10),
+    ];
+    expect(
+      mockScorePercent(examId: 'exam_cse_pro', sections: sections),
+      closeTo(50, 1e-9),
     );
   });
 
@@ -117,7 +128,7 @@ void main() {
       lastFlushedAt: DateTime.utc(2026, 9),
       updatedAt: DateTime.utc(2026, 9),
       scoreRaw: 60,
-      scoreTotal: 100,
+      scoreTotal: 90,
       totalTimeSeconds: 100,
       sectionResultsJson: jsonEncode({
         'sections': [
@@ -136,9 +147,9 @@ void main() {
       }),
     );
     final decoded = decodeMockResults(attempt)!;
-    expect(decoded.percent, closeTo(60 / 95 * 100, 1e-9));
+    expect(decoded.percent, closeTo(62.5 / 95 * 100, 1e-9));
     expect(decoded.scoreRaw, 60);
-    expect(decoded.scoreTotal, 100);
+    expect(decoded.scoreTotal, 90);
   });
 
   test('sections saved without wrong and blank counts count by their total',

@@ -109,7 +109,8 @@ class WeakTopic {
 /// Percent units, never a rounded stored decimal. UPCAT deducts a quarter
 /// per wrong answer; blanks do not change the earned points. CSE Professional
 /// weights its parts as Home's overall accuracy does (Aedwon, 28 November):
-/// each part's correct over answered, a part with no answers dropping out.
+/// each part's correct over its items on the paper, so a blank scores as
+/// wrong, as in the real exam. A part not on the paper drops out.
 /// Counts are all a saved result holds, so an old result is read the same way.
 double mockScorePercent({
   required String? examId,
@@ -123,11 +124,8 @@ double mockScorePercent({
     parts[part.key] = (
       area: part,
       correct: (before?.correct ?? 0) + section.correct,
-      // A result saved without wrong counts has only its total to go on.
-      answered: (before?.answered ?? 0) +
-          (section.wrong == null
-              ? section.total
-              : section.correct + section.wrong!),
+      // Every item on the paper counts, so a blank scores as wrong.
+      answered: (before?.answered ?? 0) + section.total,
     );
   }
   if (parts.isNotEmpty) {
