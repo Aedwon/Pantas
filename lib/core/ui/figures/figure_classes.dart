@@ -1,5 +1,6 @@
-/// Which way each figure type goes in the held reader (spec "Placing
-/// figures", rule 6). Plain Dart, so a check can read it.
+/// Which list each figure type is on. The two-column held reader that used the
+/// lists is gone (Nov 29, Immersion); every figure now sits inline, and the CI
+/// check keeps the lists complete. Plain Dart, so a check can read it.
 ///
 /// A type is named by its kind and, where it has one, its type: `kind/type`.
 /// Every type in a shipped lesson is on exactly one list. A check fails on a
@@ -76,7 +77,7 @@ const wideFigureTypes = <String>{
   'shape-row',
 };
 
-/// Figures that sit in the figure column, 360 px wide (260 px under 1280).
+/// Figures that once sat in the figure column.
 const marginFigureTypes = <String>{
   'chart/bar',
   'chart/pie',

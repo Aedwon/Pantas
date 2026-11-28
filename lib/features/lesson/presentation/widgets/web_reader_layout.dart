@@ -7,12 +7,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
-import 'package:pantas/core/ui/components/figure_highlight.dart';
-import 'package:pantas/core/ui/components/held_reader.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/reader_blocks.dart';
-import 'package:pantas/core/ui/components/reader_figure_placement.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/components/walkthrough_parts.dart';
 import 'package:pantas/core/ui/ds.dart';
@@ -37,20 +34,18 @@ import 'package:pantas/features/lesson/presentation/widgets/reader_section_line.
 import 'package:pantas/features/lesson/presentation/widgets/reader_tap.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.dart';
 
-/// The lesson column on wide web.
+/// The lesson column on wide web, always one centered column with its figures
+/// inline.
 ///
-/// With full width on, a lesson with figures uses the held layout
-/// (`HeldMetrics`): text on the left, figures on the right. A lesson with none
-/// keeps one centered column, 800 px. With full width off, every lesson is one
-/// centered 680 px column with its figures inline. With no saved choice, full
-/// width is on for a lesson with figures and off for a text-only lesson.
+/// With full width on (Immersion) the column and the text grow with the
+/// window: see [immersionColumnWidth]. With it off the column is 680 px and
+/// the text 18 px. With no saved choice, full width is on.
 abstract final class WebReaderMetrics {
-  /// The lesson column for a window [maxWidth] wide, when the lesson has no
-  /// figures to put beside it.
+  /// The lesson column for a window [maxWidth] wide.
   static double columnWidth(double maxWidth, {required bool fullWidth}) {
-    final wanted = fullWidth ? readerFullWidthMax : readerStandardWidth;
+    if (fullWidth) return immersionColumnWidth(maxWidth);
     final room = maxWidth - 2 * 56;
-    return wanted < room ? wanted : room;
+    return readerStandardWidth < room ? readerStandardWidth : room;
   }
 }
 
@@ -802,7 +797,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     // distance from the top once the new layout is in place.
     final anchor = _readingAnchor();
     if (anchor != null) {
-      // Twice: the held layout settles one frame after it is built.
+      // Twice: the new layout settles one frame after it is built.
       for (var pass = 0; pass < 2; pass++) {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           if (mounted) _restoreAnchor(anchor);
@@ -822,12 +817,8 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   Widget build(BuildContext context) {
     final t = context.webTokens;
     final reader = widget.reader;
-    final held = lessonHasMarginFigures(
-      [for (final b in reader.lesson.bodyJson) b],
-    );
-    // Aedwon's pick B, Nov 28: with no saved choice the toggle is on for a
-    // lesson with figures and off for a text-only lesson. A saved choice wins.
-    final fullWidth = ref.watch(readerFullWidthProvider) ?? held;
+    // Aedwon, Nov 29: full width is on for every lesson. A saved choice wins.
+    final fullWidth = ref.watch(readerFullWidthProvider) ?? true;
     final groups = <List<Map<String, dynamic>>>[];
     final headings = <String?>[];
     for (final block in reader.lesson.bodyJson) {
@@ -909,18 +900,6 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
       ],
     );
     final columnBody = walk ? WalkScope(child: columnContent) : columnContent;
-    // Aedwon, Nov 28: full width is what turns the two-column layout on.
-    final heldLesson = held && fullWidth
-        ? _HeldLessonBody(
-            key: ValueKey(('web-reader-held', reader.lesson.id)),
-            reader: reader,
-            groups: groups,
-            anchors: _anchors,
-            footer: widget.footer,
-          )
-        : null;
-    final Widget? heldBody =
-        heldLesson != null && walk ? WalkScope(child: heldLesson) : heldLesson;
     return LetterShortcuts(
       bindings: {if (ending == null) 'b': _bookmark},
       also: {
@@ -975,7 +954,6 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                   ),
                                 ),
                               );
-                          if (heldBody != null) return scroll(heldBody);
                           // Top-aligned: a short lesson starts under the bar,
                           // not centered down the window.
                           return Align(
@@ -994,7 +972,18 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                 child: scroll(
                                   SizedBox(
                                     key: const ValueKey('web-reader-column'),
-                                    child: columnBody,
+                                    // The scope sits here, and the lesson
+                                    // below it is built once, so a change of
+                                    // window width rescales the text without
+                                    // the bar's slide rebuilding the lesson.
+                                    child: fullWidth
+                                        ? ReaderImmersion(
+                                            bodySize: immersionBodySize(
+                                              constraints.maxWidth,
+                                            ),
+                                            child: columnBody,
+                                          )
+                                        : columnBody,
                                   ),
                                   side: PantasSpace.s14,
                                 ),
@@ -1415,132 +1404,6 @@ class WebReaderNext extends StatelessWidget {
           ),
         ),
       ),
-    );
-  }
-}
-
-/// The lesson of the held layout: the topic and title, then the text and
-/// figure columns, then the footer.
-///
-/// It keeps the figures that the stack cap sent back into the text, and the
-/// signal of each example, so a rebuild of the page keeps both. It is built
-/// once for a lesson, so the bar sliding away does not rebuild the lesson.
-class _HeldLessonBody extends StatefulWidget {
-  const _HeldLessonBody({
-    required this.reader,
-    required this.groups,
-    required this.anchors,
-    required this.footer,
-    super.key,
-  });
-
-  final ReaderContext reader;
-  final List<List<Map<String, dynamic>>> groups;
-  final List<GlobalKey> anchors;
-  final Widget footer;
-
-  @override
-  State<_HeldLessonBody> createState() => _HeldLessonBodyState();
-}
-
-class _HeldLessonBodyState extends State<_HeldLessonBody> {
-  Set<int> _inline = {};
-  final _open = <int, ValueNotifier<bool>>{};
-  final _highlights = FigureHighlights();
-
-  @override
-  void dispose() {
-    _highlights.dispose();
-    for (final signal in _open.values) {
-      signal.dispose();
-    }
-    super.dispose();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final t = context.webTokens;
-    final reader = widget.reader;
-    final height = MediaQuery.sizeOf(context).height;
-    return LayoutBuilder(
-      builder: (context, box) {
-        final m =
-            HeldMetrics.forWidth(box.maxWidth) ?? HeldMetrics.forWidth(1024)!;
-        // Sections are told apart by space alone, so the anchor of a section
-        // is its heading's block.
-        var group = widget.groups.isNotEmpty &&
-                widget.groups.first.isNotEmpty &&
-                widget.groups.first.first['style'] != 'h2'
-            ? 1
-            : 0;
-        final flow = ContentRenderer(
-          blocks: [for (final g in widget.groups) ...g],
-          readerFigures: true,
-        ).heldFlow(context, inline: _inline, open: _open);
-        final entries = <HeldEntry>[
-          for (final e in flow.entries)
-            if (e.major)
-              HeldEntry(
-                kind: e.kind,
-                above: e.above,
-                below: e.below,
-                list: e.list,
-                major: true,
-                child: KeyedSubtree(
-                  key: group < widget.anchors.length
-                      ? widget.anchors[group++]
-                      : null,
-                  child: e.child,
-                ),
-              )
-            else
-              e,
-        ];
-        return FigureHighlightScope(
-          highlights: _highlights,
-          child: LessonTextScale(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(left: m.pageLeft),
-                  child: ConstrainedBox(
-                    constraints: const BoxConstraints(maxWidth: 1000),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(reader.topicName, style: t.sub),
-                        const SizedBox(height: PantasSpace.s6),
-                        Text(
-                          reader.lesson.title,
-                          style: PantasType.webH1
-                              .copyWith(color: t.colors.textPrimary),
-                        ),
-                        const SizedBox(height: PantasSpace.s32),
-                      ],
-                    ),
-                  ),
-                ),
-                HeldReader(
-                  metrics: m,
-                  viewportHeight: height,
-                  entries: entries,
-                  figures: flow.figures,
-                  onOverCap: (ids) {
-                    if (_inline.containsAll(ids)) return;
-                    setState(() => _inline = {..._inline, ...ids});
-                  },
-                ),
-                const SizedBox(height: PantasSpace.s20),
-                Padding(
-                  padding: EdgeInsets.only(left: m.pageLeft),
-                  child: SizedBox(width: m.textWidth, child: widget.footer),
-                ),
-              ],
-            ),
-          ),
-        );
-      },
     );
   }
 }

@@ -1,6 +1,7 @@
-// The wide held reader with a picture (an SVG illustration): an age problems
-// lesson whose paragraph picture sits in the figure column, with a Why? and a
-// pair after it in the text. At 1440 and 1100, light and dark.
+// The wide reader in Immersion with a picture (an SVG illustration): an age
+// problems lesson whose paragraph picture sits inline in the one centered
+// column, with a Why? and a pair after it. At 1440, 1100 and 1728, light and
+// dark.
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -15,7 +16,7 @@ void main() {
 
   for (final dark in [false, true]) {
     goldenScreen(
-      'held_pictures_${dark ? 'dark' : 'light'}',
+      'immersion_pictures_${dark ? 'dark' : 'light'}',
       (tester, width) async {
         final db = inMemoryDatabase();
         addTearDown(db.close);
@@ -51,7 +52,7 @@ void main() {
         });
         return target;
       },
-      widths: const [1440, 1100],
+      widths: const [1440, 1100, 1728],
     );
   }
 }

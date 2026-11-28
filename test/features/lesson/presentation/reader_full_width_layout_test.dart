@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/domain/lesson.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/reader_full_width.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/lesson/presentation/lesson_page.dart';
@@ -78,8 +79,8 @@ void main() {
     addTearDown(scroll.dispose);
     addTearDown(offset.dispose);
     addTearDown(progress.dispose);
-    // Aedwon's pick B, Nov 28: with no saved choice a text-only lesson starts
-    // at the standard width, so these tests save nothing first.
+    // Aedwon, Nov 29: with no saved choice full width is on (Immersion), so
+    // the tests that save nothing see the wide column.
   });
 
   Future<void> pump(WidgetTester tester, double width) async {
@@ -127,16 +128,16 @@ void main() {
   final column = find.byKey(const ValueKey('web-reader-column'));
   final control = find.byKey(const ValueKey('web-reader-width-control'));
 
-  testWidgets('the column stays 680 px until the student widens it', (
+  testWidgets('the column opens at full width, 825 px at 1920', (
     tester,
   ) async {
     await pump(tester, 1920);
-    expect(tester.getSize(column).width, 680);
-    expect(find.byTooltip('Full width'), findsOneWidget);
-    expect(find.byTooltip('Standard width'), findsNothing);
+    expect(tester.getSize(column).width, 825);
+    expect(find.byTooltip('Standard width'), findsOneWidget);
+    expect(find.byTooltip('Full width'), findsNothing);
   });
 
-  testWidgets('a button in the top bar toggles an 800 px column', (
+  testWidgets('a button in the top bar toggles the 680 px column', (
     tester,
   ) async {
     await pump(tester, 1920);
@@ -151,30 +152,18 @@ void main() {
 
     await tester.tap(control);
     await tester.pumpAndSettle();
-    expect(tester.getSize(column).width, 800);
-    expect(find.byTooltip('Standard width'), findsOneWidget);
+    expect(tester.getSize(column).width, 680);
+    expect(find.byTooltip('Full width'), findsOneWidget);
 
     await tester.tap(control);
     await tester.pumpAndSettle();
-    expect(tester.getSize(column).width, 680);
-    expect(find.byTooltip('Full width'), findsOneWidget);
+    expect(tester.getSize(column).width, 825);
+    expect(find.byTooltip('Standard width'), findsOneWidget);
   });
 
   testWidgets('the control says whether full width is on', (tester) async {
     await pump(tester, 1920);
     final semantics = tester.ensureSemantics();
-    await tester.pumpAndSettle();
-    expect(
-      tester.getSemantics(semanticsOf('Full width')),
-      isSemantics(
-        isButton: true,
-        hasToggledState: true,
-        isToggled: false,
-        hasTapAction: true,
-        label: 'Full width',
-      ),
-    );
-    await tester.tap(control);
     await tester.pumpAndSettle();
     expect(
       tester.getSemantics(semanticsOf('Standard width')),
@@ -186,6 +175,18 @@ void main() {
         label: 'Standard width',
       ),
     );
+    await tester.tap(control);
+    await tester.pumpAndSettle();
+    expect(
+      tester.getSemantics(semanticsOf('Full width')),
+      isSemantics(
+        isButton: true,
+        hasToggledState: true,
+        isToggled: false,
+        hasTapAction: true,
+        label: 'Full width',
+      ),
+    );
     semantics.dispose();
   });
 
@@ -193,26 +194,32 @@ void main() {
     await pump(tester, 1920);
     await tester.tap(control);
     await tester.pumpAndSettle();
-    expect(await prefs.deviceValue('reader_full_width'), '1');
+    expect(await prefs.deviceValue('reader_full_width'), '0');
   });
 
-  testWidgets('a saved choice opens every lesson at full width', (
-    tester,
-  ) async {
+  testWidgets('a saved off opens every lesson at 680 px', (tester) async {
+    await prefs.setDeviceValue('reader_full_width', '0');
+    await pump(tester, 1920);
+    await tester.pumpAndSettle();
+    expect(tester.getSize(column).width, 680);
+    expect(find.byTooltip('Full width'), findsOneWidget);
+  });
+
+  testWidgets('a saved on opens every lesson at full width', (tester) async {
     await prefs.setDeviceValue('reader_full_width', '1');
     await pump(tester, 1920);
     await tester.pumpAndSettle();
-    expect(tester.getSize(column).width, 800);
+    expect(tester.getSize(column).width, 825);
     expect(find.byTooltip('Standard width'), findsOneWidget);
   });
 
-  testWidgets('figures take the width of the wider column', (tester) async {
+  testWidgets('figures take the width of the column', (tester) async {
     await pump(tester, 1920);
     final frame = find.byKey(const ValueKey('reader-figure-frame'));
-    expect(tester.getSize(frame).width, 680);
+    expect(tester.getSize(frame).width, 825);
     await tester.tap(control);
     await tester.pumpAndSettle();
-    expect(tester.getSize(frame).width, 800);
+    expect(tester.getSize(frame).width, 680);
     expect(tester.getSize(frame).width, tester.getSize(column).width);
   });
 
@@ -228,56 +235,7 @@ void main() {
       shortName: 'CSE',
     );
     await SyncActiveContextStore(db).clearStable();
-    await prefs.setDeviceValue('reader_full_width', '1');
-    tester.view
-      ..physicalSize = const Size(1920, 900)
-      ..devicePixelRatio = 1;
-    addTearDown(() {
-      tester.view
-        ..resetPhysicalSize()
-        ..resetDevicePixelRatio();
-    });
-    final never = Completer<ReaderContext?>();
-    await tester.pumpWidget(
-      ProviderScope(
-        overrides: [
-          appDatabaseProvider.overrideWithValue(db),
-          contentDatabaseProvider.overrideWithValue(content),
-          appPreferencesRepositoryProvider.overrideWithValue(prefs),
-          readerContextProvider('l1').overrideWith((_) => never.future),
-        ],
-        child: MaterialApp(
-          theme: buildLightTheme(web: true),
-          home: const LessonPage(lessonId: 'l1'),
-        ),
-      ),
-    );
-    await tester.pumpAndSettle();
-    final skeleton = find.byType(ReaderSkeleton);
-    expect(skeleton, findsOneWidget);
-    expect(
-      tester
-          .getSize(
-            find.ancestor(of: skeleton, matching: find.byType(SizedBox)).first,
-          )
-          .width,
-      800,
-    );
-    await tester.pumpWidget(const SizedBox());
-  });
-
-  testWidgets('the loading frame is 680 px with no saved choice', (
-    tester,
-  ) async {
-    final content = openTestContentDatabase();
-    await seedContentExam(
-      content,
-      examId: 'e',
-      code: 'CSE',
-      name: 'CSE',
-      shortName: 'CSE',
-    );
-    await SyncActiveContextStore(db).clearStable();
+    await prefs.setDeviceValue('reader_full_width', '0');
     tester.view
       ..physicalSize = const Size(1920, 900)
       ..devicePixelRatio = 1;
@@ -315,6 +273,55 @@ void main() {
     await tester.pumpWidget(const SizedBox());
   });
 
+  testWidgets('the loading frame is at full width with no saved choice', (
+    tester,
+  ) async {
+    final content = openTestContentDatabase();
+    await seedContentExam(
+      content,
+      examId: 'e',
+      code: 'CSE',
+      name: 'CSE',
+      shortName: 'CSE',
+    );
+    await SyncActiveContextStore(db).clearStable();
+    tester.view
+      ..physicalSize = const Size(1920, 900)
+      ..devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view
+        ..resetPhysicalSize()
+        ..resetDevicePixelRatio();
+    });
+    final never = Completer<ReaderContext?>();
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(content),
+          appPreferencesRepositoryProvider.overrideWithValue(prefs),
+          readerContextProvider('l1').overrideWith((_) => never.future),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: const LessonPage(lessonId: 'l1'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final skeleton = find.byType(ReaderSkeleton);
+    expect(skeleton, findsOneWidget);
+    expect(
+      tester
+          .getSize(
+            find.ancestor(of: skeleton, matching: find.byType(SizedBox)).first,
+          )
+          .width,
+      825,
+    );
+    await tester.pumpWidget(const SizedBox());
+  });
+
   group('a lesson with no figures is one centered column', () {
     for (final width in [
       1024.0,
@@ -331,17 +338,18 @@ void main() {
         // The left outline is gone at every width.
         expect(find.byKey(const ValueKey('web-reader-outline')), findsNothing);
         expect(find.text('IN THIS LESSON'), findsNothing);
-        final standard = tester.getRect(column);
-        expect(standard.width, 680);
-        expect(standard.center.dx, closeTo(width / 2, .01));
+        final full = tester.getRect(column);
+        expect(full.width, immersionColumnWidth(width));
+        expect(full.width, greaterThanOrEqualTo(660));
+        expect(full.width, lessThanOrEqualTo(825));
+        expect(full.left, greaterThanOrEqualTo(56));
+        expect(full.center.dx, closeTo(width / 2, .01));
 
         await tester.tap(control);
         await tester.pumpAndSettle();
-        final full = tester.getRect(column);
-        expect(full.width, greaterThanOrEqualTo(680));
-        expect(full.width, lessThanOrEqualTo(800));
-        expect(full.left, greaterThanOrEqualTo(56));
-        expect(full.center.dx, closeTo(width / 2, .01));
+        final standard = tester.getRect(column);
+        expect(standard.width, 680);
+        expect(standard.center.dx, closeTo(width / 2, .01));
         expect(tester.takeException(), isNull);
       });
     }
