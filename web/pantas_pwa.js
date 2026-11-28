@@ -57,48 +57,42 @@
 
   // The page loads its own build's files from b/<id>/, so it needs no worker to run
   // the right code. This only registers the worker (in the background, for the
-  // next visit and for offline) and, before Flutter starts, does one quick local
-  // check: if an update is already installed and waiting, and this is the only
-  // window, the worker takes over and the page reloads into the new build.
-  // Resolves true when that reload is under way (the caller must not start
-  // Flutter), false otherwise. Never rejects and never waits long.
+  // next visit and for offline) and asks the browser once to look for a newer worker,
+  // so one can install while the app is in use. A waiting worker is never asked to
+  // take over here: it becomes active when the browser has no Pantas tab open for the
+  // older worker, and a reload alone does not update. Resolves false (the caller
+  // starts Flutter) after a quick local look-up. Never rejects and never waits long.
   function registerWorker(version) {
     buildVersion = version;
-    window.pantasUpdate.currentVersion = version;
-    scheduleUpdateCheck();
-    var swapping;
+    var started;
     if (!('serviceWorker' in navigator)) {
-      swapping = Promise.resolve(false);
+      started = Promise.resolve(false);
     } else {
       try {
         navigator.serviceWorker
           .register('pantas_sw.js?v=' + encodeURIComponent(version))
           .catch(function () {});
       } catch (_) {}
-      // A takeover asked for here belongs to this start. When the page stops waiting
-      // and starts Flutter, the request expires: a late answer must not reload the app.
-      var startup = {expired: false};
-      swapping = withTimeout(
+      started = withTimeout(
         registration().then(function (found) {
-          return swap(found, startup);
+          if (found) {
+            try {
+              Promise.resolve(found.update()).catch(function () {});
+            } catch (_) {}
+          }
+          return false;
         }),
-        STARTUP_SWAP_MS,
+        STARTUP_LOOKUP_MS,
         false
-      ).then(function (result) {
-        if (!result) {
-          startup.expired = true;
-          if (startup.release) startup.release();
-        }
-        return result;
-      });
+      );
     }
-    return swapping.then(function (result) {
+    return started.then(function (result) {
       mark('page.worker');
       return result;
     });
   }
 
-  var STARTUP_SWAP_MS = 2500;
+  var STARTUP_LOOKUP_MS = 2500;
   var ASK_MS = 3000;
 
   // The result of `promise`, or `fallback` when it is slower than `ms`. A
@@ -180,27 +174,18 @@
     });
   }
 
-  // Asks the waiting worker to take over and reloads into the new build. The
-  // worker agrees only when this is the only window of the app: a window of the
-  // older build then never meets a page of the newer one. Resolves true when the
+  // Asks the waiting worker to take over and reloads into the new build. Only the
+  // Update Required button calls this (updateNow): the screen cannot be dismissed, so
+  // the worker takes over whatever other windows are open. Resolves true when the
   // worker took over (the reload follows once it controls this page), false when
-  // nothing was waiting, the worker refused or did not answer, or `gate` (a start
-  // that has stopped waiting) expired.
-  // With a `gate` (the start of the page) it resolves true only once the reload is under
-  // way, and never reloads after the gate expired: a start that is not released by then
-  // runs Flutter on the build it has (the caller's limit expires the gate and ends the wait).
-  function swap(found, gate) {
+  // nothing was waiting or the worker did not answer.
+  function swap(found) {
     return readyBuild(found).then(function (id) {
-      if (!id || (gate && gate.expired)) return false;
+      if (!id) return false;
       var reloading = false;
-      var reloaded;
-      var reloadStarted = new Promise(function (resolve) {
-        reloaded = resolve;
-      });
       function reload() {
-        if (reloading || (gate && gate.expired)) return;
+        if (reloading) return;
         reloading = true;
-        reloaded(true);
         window.location.reload();
       }
       // Reload only when the asked worker controls the page: another worker taking
@@ -211,91 +196,19 @@
         });
       }
       function onChange() {
-        if (gate && gate.expired) {
-          navigator.serviceWorker.removeEventListener('controllerchange', onChange);
-          return;
-        }
         reloadIfControlled();
       }
       navigator.serviceWorker.addEventListener('controllerchange', onChange);
-      // When the start gives up waiting, nothing may stay listening for a reload.
-      if (gate) {
-        gate.release = function () {
-          navigator.serviceWorker.removeEventListener('controllerchange', onChange);
-        };
-      }
       return ask(found.waiting, {type: 'pantas-take-over'}).then(function (reply) {
-        if (!reply || reply.ok !== true || (gate && gate.expired)) {
+        if (!reply || reply.ok !== true) {
           navigator.serviceWorker.removeEventListener('controllerchange', onChange);
           return false;
         }
         // The worker is activating. Check once more after a while, in case the
         // change of controller was missed.
         setTimeout(reloadIfControlled, 5000);
-        return gate ? reloadStarted : true;
+        return true;
       });
-    });
-  }
-
-  // Detection only. The app chooses a safe point and flushes local writes before
-  // calling apply. An update is available when a worker that verified its whole
-  // build is waiting, never merely because the server names a newer build: a
-  // build whose install failed must not make the page reload again and again.
-  var checkingUpdate = null;
-  var updateTimer = null;
-  function checkUpdate() {
-    if (checkingUpdate) return checkingUpdate;
-    if (buildVersion === null) return Promise.resolve({available: false, version: null});
-    var timeout;
-    checkingUpdate = Promise.race([
-      registration()
-        .then(function (found) {
-          if (!found) return null;
-          // Ask the browser to look for a new worker now; it would otherwise check once a day.
-          return Promise.resolve(found.update()).then(
-            function () {
-              return found;
-            },
-            function () {
-              return found;
-            }
-          );
-        })
-        .then(readyBuild)
-        .then(function (id) {
-          return {available: id !== null, version: id};
-        }),
-      new Promise(function (_, reject) {
-        timeout = setTimeout(function () {
-          reject(new Error('Version check timed out'));
-        }, 4000);
-      }),
-    ]).finally(function () {
-      clearTimeout(timeout);
-      checkingUpdate = null;
-    });
-    return checkingUpdate;
-  }
-  function scheduleUpdateCheck() {
-    if (!window.document || updateTimer !== null) return;
-    updateTimer = setTimeout(function () {
-      updateTimer = null;
-      scheduleUpdateCheck();
-      if (document.visibilityState === 'visible') return checkUpdate().catch(function () {});
-    }, 5 * 60 * 1000);
-  }
-  window.pantasUpdate = {
-    currentVersion: null,
-    check: checkUpdate,
-    // Takes over into the waiting build when this is the only window. With another
-    // window open it does nothing: that window may still be running this build.
-    apply: function () {
-      return registration().then(swap);
-    },
-  };
-  if (window.document) {
-    document.addEventListener('visibilitychange', function () {
-      if (document.visibilityState === 'visible') return checkUpdate().catch(function () {});
     });
   }
 
@@ -331,8 +244,8 @@
     buildVersion: function () {
       return buildVersion;
     },
-    // Forced update: asks the browser for the newest worker, takes over into it
-    // when one is ready and this is the only window, and reloads. It never
+    // Forced update (the Update Required button): asks the browser for the newest worker,
+    // takes over into it when one is ready, and reloads. It never
     // unregisters the worker or deletes a cache, so a lost connection leaves the
     // installed build bootable. Always reloads.
     updateNow: function () {

@@ -66,6 +66,8 @@ function world() {
     generation: 1, clientIds: null,
     // What the edge answers at an address that is not in the deployed build (a root file of an older build).
     edge: {},
+    // The registration's installing and waiting workers, and the browser's Web Locks (null: a browser without them).
+    installing: null, waiting: null, locks: makeLocks(),
   };
   const strip2 = (url) => url.split('?')[0];
   w.caches = {
@@ -107,38 +109,95 @@ function world() {
   return w;
 }
 
-// Loads one worker. `version` is the ?v= value of its URL.
+// The browser's Web Locks for the origin: exclusive, first come first served, and a request
+// that is not yet granted ends with an AbortError when its signal fires.
+function makeLocks() {
+  const waiting = [];
+  let busy = false;
+  const next = () => {
+    if (busy || !waiting.length) return;
+    busy = true;
+    waiting.shift().grant();
+  };
+  return {
+    names: [],
+    isHeld: () => busy,
+    request(name, options, callback) {
+      this.names.push(name);
+      return new Promise((resolve, reject) => {
+        const entry = {
+          grant: async () => {
+            try {
+              resolve(await callback());
+            } catch (error) {
+              reject(error);
+            } finally {
+              busy = false;
+              next();
+            }
+          },
+        };
+        options.signal?.addEventListener('abort', () => {
+          const at = waiting.indexOf(entry);
+          if (at >= 0) {
+            waiting.splice(at, 1);
+            reject(Object.assign(new Error('The request was aborted.'), {name: 'AbortError'}));
+          }
+        });
+        waiting.push(entry);
+        next();
+      });
+    },
+  };
+}
+
+// Loads one worker. `version` is the ?v= value of its URL. Like a browser, it shows itself as the
+// registration's installing worker while its install event runs, and as the waiting worker after.
 function worker(w, source, version) {
   const handlers = {};
   const waits = [];
+  const self = {
+    location: {href: ORIGIN + `pantas_sw.js?v=${version}`, origin: 'https://app.test'},
+    get registration() {
+      return {scope: ORIGIN, installing: w.installing, waiting: w.waiting};
+    },
+    navigator: w.locks ? {locks: w.locks} : {},
+    addEventListener: (type, fn) => (handlers[type] = fn),
+    skipWaiting: async () => {
+      w.events.push({event: 'skipWaiting', version, stores: new Map([...w.stores].map(([k, v]) => [k, v.size]))});
+    },
+    clients: {
+      claim: async () => w.events.push({event: 'claim', version}),
+      get: async () => undefined,
+      matchAll: async () => (w.clientIds ?? Array.from({length: w.windows}, (_, i) => `w${w.generation}.${i}`)).map((id) => ({id})),
+    },
+  };
   const context = {
     URL, Request, Response, Headers, Promise, Set, Map, Math, Object, Array, JSON, Error, TypeError, console,
-    TransformStream, ReadableStream, setTimeout, clearTimeout, Date, crypto, Uint8Array, ArrayBuffer, String,
+    TransformStream, ReadableStream, clearTimeout, Date, crypto, Uint8Array, ArrayBuffer, String, AbortController,
+    // The lock's time limit (ten seconds) is shortened so a test of a lock nobody releases ends at once.
+    setTimeout: (fn, ms) => setTimeout(fn, Math.min(ms, 30)),
     // A Chromium browser has both of these; another browser lacks the first.
     Intl: w.chromium ? {v8BreakIterator: function () {}, Segmenter: function () {}} : {Segmenter: function () {}},
-    self: {
-      location: {href: ORIGIN + `pantas_sw.js?v=${version}`, origin: 'https://app.test'},
-      registration: {scope: ORIGIN},
-      addEventListener: (type, fn) => (handlers[type] = fn),
-      skipWaiting: async () => {
-        w.events.push({event: 'skipWaiting', version, stores: new Map([...w.stores].map(([k, v]) => [k, v.size]))});
-      },
-      clients: {
-        claim: async () => w.events.push({event: 'claim', version}),
-        get: async () => undefined,
-        matchAll: async () => (w.clientIds ?? Array.from({length: w.windows}, (_, i) => `w${w.generation}.${i}`)).map((id) => ({id})),
-      },
-    },
+    self,
     caches: w.caches,
     fetch: (request) => w.network(request),
   };
   vm.runInNewContext(source, context);
   const lifecycle = async (type) => {
     const pending = [];
+    if (type === 'install') w.installing = handle;
+    // An activating worker is the registration's active worker, no longer its waiting one.
+    if (type === 'activate' && w.waiting === handle) w.waiting = null;
     handlers[type]({waitUntil: (p) => pending.push(p)});
-    await Promise.all(pending);
+    try {
+      await Promise.all(pending);
+      if (type === 'install') w.waiting = handle;
+    } finally {
+      if (type === 'install') w.installing = null;
+    }
   };
-  return {
+  const handle = {
     version,
     handlers,
     install: () => lifecycle('install'),
@@ -167,6 +226,7 @@ function worker(w, source, version) {
       return response;
     },
   };
+  return handle;
 }
 
 // What the page gets for one file through the controlling worker. 'miss' is a
@@ -517,9 +577,12 @@ test('a held-open B window: C installed and waiting, a deferred part loaded offl
   assert.equal(skips(w, 'C').length, 0);
 });
 
-test('the waiting worker takes over when its page asks and is the only window', async () => {
+// Takeover case 2 of 2 (case 1 is the move off today's worker): the Update Required button.
+// Nothing else asks a waiting worker to take over, and it does so whatever other windows are
+// open: the screen it answers cannot be dismissed, and a reload alone no longer updates.
+test('Update Required: the waiting worker takes over when asked, with another window open, and deletes nothing', async () => {
   const {w, c} = await waitingC();
-  w.windows = 1;
+  w.windows = 2;
   assert.deepEqual(await c.message({type: 'pantas-take-over'}), {ok: true});
   assert.equal(skips(w, 'C').length, 1);
   await takeOver(w, c);
@@ -527,15 +590,41 @@ test('the waiting worker takes over when its page asks and is the only window', 
   const r = await offlineSet(w);
   assert.deepEqual(r.builds, ['C']);
   assert.deepEqual(r.misses, []);
+  w.offline = true;
+  assert.equal((await get(w, part('B', 2))).id, 'B', 'the window still on B keeps its files');
 });
 
-test('a second window stops the takeover: apply cannot take over while another window is open', async () => {
+// Item 4c: the taking-over worker marks its own cache and sweeps nothing; the next natural
+// activation (no Pantas tab open) sweeps.
+test('Update Required takeover: the taking-over worker deletes nothing, and the next natural activation sweeps', async () => {
   const {w, c} = await waitingC();
-  w.windows = 2;
-  const reply = await c.message({type: 'pantas-take-over'});
-  assert.equal(reply.ok, false);
+  await c.message({type: 'pantas-take-over'});
+  const before = JSON.stringify([...w.stores].map(([name, store]) => [name, [...store.keys()].sort()]));
+  await takeOver(w, c);
+  assert.equal(JSON.stringify([...w.stores].map(([name, store]) => [name, [...store.keys()].sort()])), before, 'C activated and deleted nothing');
+  assert.ok(w.stores.get(cacheOf('C')).has(ORIGIN + 'pantas-build-takeover'), 'its own cache says it took over');
+  // Later D arrives and waits; every Pantas tab closes; D activates by itself.
+  deploy(w, 'D');
+  const d = await install(w, 'D');
+  assert.equal(skips(w, 'D').length, 0, 'D waits');
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C'), cacheOf('D')].sort());
+  await takeOver(w, d);
+  assert.deepEqual(buildCaches(w), [cacheOf('D')], 'only the new build\'s cache remains');
+  assert.ok(!w.stores.get(cacheOf('D')).has(ORIGIN + 'pantas-build-takeover'));
+  assert.deepEqual((await offlineSet(w)).builds, ['D']);
+});
+
+// Item 4g: a reload does nothing to a waiting worker. Only a natural activation or the Update
+// Required message moves it.
+test('a waiting worker stays waiting: nothing but the browser or the Update Required message activates it', async () => {
+  const {w, c} = await waitingC();
+  for (const path of ['', 'index.html', 'quiz/start']) await get(w, path, {navigate: true});
+  await pageLoad(w);
   assert.equal(skips(w, 'C').length, 0);
-  assert.deepEqual((await offlineSet(w)).builds, ['B']);
+  assert.equal(w.waiting, c);
+  assert.deepEqual((await offlineSet(w)).builds, ['B'], 'the page keeps its build');
+  for (const type of ['pantas-build-id', 'pantas-hello', 'pantas-update']) await c.message({type});
+  assert.equal(skips(w, 'C').length, 0);
 });
 
 test('the worker reports its stamped build id to the page', async () => {
@@ -734,21 +823,187 @@ test('item 2: any b/<id>/ path is served from whichever build cache holds it', a
   assert.equal((await get(w, 'b/other-123456789abc/main.dart.js')).id, 'miss');
 });
 
-test('item 3: installs prune at their end and keep the new build, the one in charge and the one that waited until now', async () => {
+// Item 4a: an install deletes nothing, however many arrive while tabs stay open.
+test('item 4a: two tabs open on B, C installs and waits: no cache is deleted, and both tabs keep working offline', async () => {
   const w = world();
   deploy(w, 'B');
   await takeOver(w, await install(w, 'B'));
+  w.windows = 2;
   await pageLoad(w);
-  // B stays in charge (a window is open). C, D and E install one after the other, none takes over.
-  // The worker that waited is the registration's waiting worker until the new one has installed
-  // (audit 3 item 2), so it is kept one install longer; the cache count stays bounded at three.
-  let waited = null;
-  for (const id of ['C', 'D', 'E']) {
+  deploy(w, 'C');
+  const before = w.stores.get(cacheOf('B')).size;
+  const deletes = [];
+  const remove = w.caches.delete;
+  w.caches.delete = async (name) => {
+    deletes.push(name);
+    return remove(name);
+  };
+  const c = await install(w, 'C');
+  assert.deepEqual(deletes, [], 'nothing was deleted');
+  assert.equal(skips(w, 'C').length, 0);
+  assert.equal(w.waiting, c);
+  assert.equal(w.stores.get(cacheOf('B')).size, before);
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C')].sort());
+  const offline = await offlineSet(w);
+  assert.deepEqual(offline.builds, ['B']);
+  assert.deepEqual(offline.misses, []);
+  // C, D and E install one after the other, none takes over: every cache stays.
+  for (const id of ['D', 'E']) {
     deploy(w, id);
     await install(w, id);
-    assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf(id), ...(waited ? [cacheOf(waited)] : [])].sort(), `after installing ${id}`);
-    waited = id;
   }
+  assert.deepEqual(buildCaches(w), ['B', 'C', 'D', 'E'].map(cacheOf).sort());
+  assert.deepEqual((await offlineSet(w)).builds, ['B']);
+  assert.deepEqual(deletes, []);
+});
+
+// Item 4b: with no Pantas tab open the browser activates the waiting worker by itself, and
+// that activation sweeps: today's worker's caches go too.
+test('item 4b: all tabs closed, C activates naturally: only C\'s cache remains', async () => {
+  const {w, c} = await waitingC();
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C')].sort());
+  await takeOver(w, c);
+  assert.deepEqual(buildCaches(w), [cacheOf('C')].sort());
+  assert.deepEqual([...w.stores.keys()], [cacheOf('C')], 'nothing else of ours is left');
+  assert.deepEqual((await offlineSet(w)).builds, ['C']);
+  assert.deepEqual((await offlineSet(w)).misses, []);
+});
+
+test('item 4b: the sweep takes today\'s worker\'s cache and the notes cache of the earlier design with it', async () => {
+  const w = await deployedBUnderA({prod: true});
+  await takeOver(w, await install(w, 'B')); // leaving today's worker: B takes over, A's cache stays
+  assert.ok(w.stores.has('pantas-shell-A'));
+  (await w.caches.open('pantas-meta')).put(ORIGIN + 'pantas-active-build', new Response('x'));
+  (await w.caches.open('something-else')).put(ORIGIN + 'x', new Response('x'));
+  deploy(w, 'C');
+  const c = await install(w, 'C');
+  assert.ok(w.stores.has('pantas-shell-A'), 'an install deletes nothing');
+  await takeOver(w, c);
+  assert.deepEqual([...w.stores.keys()].sort(), [cacheOf('C'), 'something-else'].sort(), 'only caches of ours go');
+});
+
+// Item 4d, audit 4's Blocker: B's first activation had not run when C installed, and C's install
+// pruned B. An install deletes nothing now, so B's cache is there when B activates.
+test('item 4d: B\'s first activation paused, C installs: B\'s cache survives, and B\'s activation sweeps nothing', async () => {
+  const w = world();
+  deploy(w, 'B');
+  const b = await install(w, 'B'); // takes over (first install), activation not run yet
+  assert.equal(skips(w, 'B').length, 1);
+  deploy(w, 'C');
+  const c = await install(w, 'C');
+  assert.equal(skips(w, 'C').length, 0, 'C waits');
+  assert.ok(w.stores.has(cacheOf('B')), 'B\'s cache survived C\'s install');
+  await b.activate();
+  w.controller = b;
+  assert.ok(w.stores.has(cacheOf('B')) && w.stores.has(cacheOf('C')), 'B\'s activation deleted nothing');
+  assert.equal((await offlineSet(w)).misses.length, 0);
+  assert.deepEqual((await offlineSet(w)).builds, ['B']);
+  assert.ok(c);
+});
+
+// Item 4e: the lock. A sweep that is deleting holds it, and an install that arrives waits for it.
+test('item 4e: a sweep and an install at the same time: the install\'s cache is never deleted', async () => {
+  const {w, c} = await waitingC();
+  deploy(w, 'D');
+  // Hold the sweep in the middle of its deletes.
+  const remove = w.caches.delete;
+  let reached;
+  let release;
+  const hit = new Promise((resolve) => (reached = resolve));
+  const gate = new Promise((resolve) => (release = resolve));
+  w.caches.delete = async (name) => {
+    reached();
+    await gate;
+    return remove(name);
+  };
+  w.waiting = null; // C is activating by itself: nothing else installs or waits yet
+  const sweeping = c.activate();
+  await hit;
+  assert.equal(w.locks.isHeld(), true, 'the sweep holds the lock while it deletes');
+  // A new worker D starts to install now. It reads the files, then has to wait for the lock to write.
+  const d = worker(w, workerOf(build('D')), 'D');
+  const installing = d.install();
+  await new Promise((done) => setImmediate(done));
+  assert.ok(!w.stores.has(cacheOf('D')) || w.stores.get(cacheOf('D')).size === 0, 'D has not written while the sweep holds the lock');
+  release();
+  await sweeping;
+  await installing;
+  assert.ok(w.stores.has(cacheOf('D')), 'D\'s cache exists');
+  assert.ok(w.stores.get(cacheOf('D')).has(ORIGIN + 'pantas-build-complete'), 'and it is whole');
+  assert.equal(w.locks.isHeld(), false);
+  assert.equal(w.waiting, d);
+});
+
+test('item 4e: a sweep that finds a worker waiting or installing deletes nothing', async () => {
+  const {w, c} = await waitingC();
+  deploy(w, 'D');
+  const d = await install(w, 'D'); // D waits behind C
+  assert.equal(w.waiting, d);
+  w.waiting = null;
+  w.installing = d; // seen as installing
+  await takeOver(w, c);
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C'), cacheOf('D')].sort(), 'installing: nothing deleted');
+  w.installing = null;
+  w.waiting = d; // seen as waiting
+  await c.activate();
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C'), cacheOf('D')].sort(), 'waiting: nothing deleted');
+  w.waiting = null;
+  await c.activate();
+  assert.deepEqual(buildCaches(w), [cacheOf('C')], 'nothing installing or waiting: swept');
+});
+
+// Item 4f: without Web Locks there is no sweep, and the install completes.
+test('item 4f: no navigator.locks: no sweep, and the install still completes', async () => {
+  const w = world();
+  w.locks = null;
+  deploy(w, 'B');
+  const b = await install(w, 'B');
+  await takeOver(w, b);
+  await pageLoad(w);
+  deploy(w, 'C');
+  const c = await install(w, 'C');
+  assert.ok(w.stores.get(cacheOf('C')).has(ORIGIN + 'pantas-build-complete'), 'C\'s install completed and stored its whole set');
+  await takeOver(w, c); // natural activation without the API
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C')].sort(), 'no sweep');
+  assert.deepEqual((await offlineSet(w)).builds, ['C']);
+});
+
+test('item 4f: a lock nobody releases: the sweep gives up, the install goes on and checks its cache', async () => {
+  const {w, c} = await waitingC();
+  w.locks.request('pantas-cache-lock', {}, () => new Promise(() => {})); // another holder that never lets go
+  await takeOver(w, c); // the sweep waits for the lock, times out and deletes nothing
+  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C')].sort());
+  deploy(w, 'D');
+  const d = await install(w, 'D'); // cannot get the lock within its limit: proceeds
+  assert.ok(w.stores.get(cacheOf('D')).has(ORIGIN + 'pantas-build-complete'));
+  assert.equal(w.waiting, d);
+});
+
+test('item 4f: an install without the lock whose cache a sweep deleted halfway puts back what is missing', async () => {
+  const w = world();
+  w.locks = null;
+  deploy(w, 'B');
+  await takeOver(w, await install(w, 'B'));
+  deploy(w, 'C');
+  // Another worker's sweep deletes C's cache after C has written a few files.
+  const open = w.caches.open;
+  let puts = 0;
+  w.caches.open = async (name) => {
+    const cache = await open(name);
+    if (name !== cacheOf('C')) return cache;
+    return {
+      ...cache,
+      put: async (request, response) => {
+        await cache.put(request, response);
+        if (++puts === 3) w.stores.delete(cacheOf('C'));
+      },
+    };
+  };
+  await install(w, 'C');
+  const cache = w.stores.get(cacheOf('C'));
+  const files = Object.keys(constantOf(build('C').served).files);
+  for (const path of files) assert.ok(cache.has(ORIGIN + path), `${path} is stored`);
+  assert.ok(cache.has(ORIGIN + 'pantas-build-complete'));
 });
 
 test('item 3: an activation cannot delete a successor\'s cache that is being filled', async () => {
@@ -758,17 +1013,6 @@ test('item 3: an activation cannot delete a successor\'s cache that is being fil
   await c.message({type: 'pantas-take-over'});
   await takeOver(w, c);
   assert.ok(w.stores.has(`pantas-build-D-${'0'.repeat(12)}`), 'D\'s cache survived C\'s activation');
-});
-
-test('item 3: once no window runs the older build, the install that follows removes its cache, today\'s worker\'s included', async () => {
-  const w = await deployedBUnderA({prod: true});
-  await takeOver(w, await install(w, 'B')); // B in charge: A's cache is kept for tabs still on A
-  assert.ok(w.stores.has('pantas-shell-A'));
-  w.generation++; // the A tab reloaded into B: no window runs A any more
-  deploy(w, 'C');
-  await install(w, 'C');
-  assert.equal(w.stores.has('pantas-shell-A'), false, 'A\'s cache is pruned when C installs');
-  assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C')].sort());
 });
 
 test('item 4: a tab still on today\'s build gets its root deferred parts from today\'s cache after the new worker took over', async () => {
@@ -936,12 +1180,21 @@ test('audit 3 item 3: an identical B registering again keeps A\'s cache while an
   assert.equal(answer.id, 'A', 'A\'s page asks for a part: A\'s cache answers');
 });
 
-test('audit 3 item 3: when the window that ran A is gone, the next install removes A\'s cache', async () => {
+test('audit 3 item 3: the install of a build again never takes a mark of an earlier takeover along, and removes no cache', async () => {
   const w = await deployedBUnderA({prod: true});
   await takeOver(w, await install(w, 'B'));
-  w.generation++; // the A tab closed or reloaded into B
-  await install(w, 'B');
-  assert.equal(w.stores.has('pantas-shell-A'), false);
+  assert.ok(w.stores.get(cacheOf('B')).has(ORIGIN + 'pantas-build-takeover'));
+  deploy(w, 'C');
+  const c = await install(w, 'C'); // C waits behind B
+  await c.message({type: 'pantas-take-over'});
+  await takeOver(w, c); // Update Required: B's cache stays
+  deploy(w, 'B');
+  const again = await install(w, 'B'); // a rollback installs B again: its cache is whole, with its old mark
+  assert.ok(w.stores.has(cacheOf('B')));
+  assert.ok(!w.stores.get(cacheOf('B')).has(ORIGIN + 'pantas-build-takeover'), 'the old mark is cleared');
+  assert.equal(skips(w, 'B').length, 1, 'B waits this time, because C\'s cache exists');
+  await takeOver(w, again); // a natural activation: it sweeps
+  assert.deepEqual([...w.stores.keys()], [cacheOf('B')]);
 });
 
 test('audit 3 item 3: a root part A\'s cache lacks gets the secured 503 even when the edge answers it with another build\'s bytes', async () => {
@@ -980,8 +1233,8 @@ test('audit 3 item 8: two builds with different SDK folders: the older page gets
 test('audit 3 item 3: with A\'s cache gone, a root part is still never another build\'s bytes', async () => {
   const w = await deployedBUnderA({prod: true});
   await takeOver(w, await install(w, 'B'));
-  w.generation++;
-  await install(w, 'B');
+  deploy(w, 'C');
+  await takeOver(w, await install(w, 'C')); // C waits, then activates by itself and sweeps A's cache
   assert.equal(w.stores.has('pantas-shell-A'), false);
   w.edge['main.dart.js_1.part.js'] = build('B').served[inFolder('B', 'main.dart.js_1.part.js')];
   assert.equal((await w.controller.fetch('main.dart.js_1.part.js')).status, 503);

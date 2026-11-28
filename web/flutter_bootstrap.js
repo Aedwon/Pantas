@@ -10,19 +10,15 @@
 // folder, so this page can only ever run the files of its own build. Without the
 // line (a dev run) everything loads from the root, as before.
 //
-// The page does not wait for the worker. The one thing it does first is a quick
-// local check: when an update is already installed and waiting, and this is the
-// only window, the worker takes over and the page reloads into the new build
-// before Flutter starts.
+// The page does not wait for the worker beyond a quick local look-up. A waiting
+// worker is never asked to take over here: a reload alone does not update.
 (async function () {
   var pwa = window.pantasPwa;
-  var swapping = false;
   if (pwa && pwa.registerWorker) {
     try {
-      swapping = await pwa.registerWorker({{flutter_service_worker_version}});
+      await pwa.registerWorker({{flutter_service_worker_version}});
     } catch (_) {}
   }
-  if (swapping) return;
   try {
     performance.mark('page.loader');
   } catch (_) {}

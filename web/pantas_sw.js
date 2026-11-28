@@ -22,22 +22,26 @@
 // Files in the set are served from that cache only, online or offline; nothing
 // outside the set is ever stored. A new build reaches a page through a new worker.
 //
-// Taking over. A worker that has stored its whole set becomes active at once only
-// when no other build is installed (the first visit, or the move from the worker
-// that shipped before build folders). Otherwise it waits, so a window that runs
-// the older build keeps its own cache. The page asks a waiting worker to take over
-// when it is the only window, at a safe point.
+// Wait, then sweep (revision 2). A worker that has stored its whole set normally
+// waits: the browser activates it only when no Pantas tab is open, so no page can
+// then run an older build. Only two cases take over at once (skipWaiting): the first
+// install and the move from the worker that shipped before build folders (no other
+// build cache exists), and the Update Required button (the page asks a waiting worker
+// to take over). A reload alone never updates a page.
 //
-// Caches. Activation deletes nothing: a window may still run the older build, and
-// the worker serves any b/<id>/ file from whichever build cache holds it (the
-// address carries the build). Each successful install prunes at its end. A worker
-// deletes a build cache only when that build is not its own, not the build in charge,
-// not the build of a worker that is taking over, waiting or installing, and no window
-// that was open when a newer build took over is still open (that window may run it).
-// Notes in the META cache say which is which. While the worker that shipped before
-// build folders is in charge, its caches stay too. Its root deferred parts are served
-// from them, and only from them, to tabs that still run that build: a root file is
-// never answered with another build's bytes.
+// Caches. The worker serves any b/<id>/ file from whichever build cache holds it (the
+// address carries the build), so a page keeps working on its own build while a newer
+// one waits. Install deletes nothing. A worker deletes other caches only in an
+// activation that did not follow skipWaiting (so no page runs an older build), only when
+// the registration has no installing or waiting worker, and then keeps only its own
+// build cache. A worker that took over marks its own cache and deletes nothing; the next
+// natural activation sweeps. One Web Lock is held by install while it writes its cache and
+// by the sweep while it deletes; without the Web Locks API, or when the lock is not had
+// within a time limit, the sweep does not run and the install goes on without it (and
+// checks afterwards that nothing it wrote was deleted). While the worker that shipped before
+// build folders has tabs, its caches stay: its root deferred parts are served from them, and
+// only from them, to tabs that still run that build. A root file is never answered with
+// another build's bytes.
 //
 // Unstamped (dev, where the constant is null): the older network-first and
 // cache-first behavior below, kept so a local run needs no stamp. Release scripts
@@ -57,20 +61,16 @@ const CACHE_PREFIX = 'pantas-shell-';
 const CACHE = BUILD ? 'pantas-build-' + BUILD.id + '-' + BUILD.list : CACHE_PREFIX + VERSION;
 // Written last, with the list's hash, so a cache that has it holds this whole list.
 const COMPLETE = 'pantas-build-complete';
-// Notes between workers, one small entry each (see prune). ACTIVE: the build in charge,
-// written at activation. TAKING_OVER: written before skipWaiting, so no install prunes a
-// cache between the worker agreeing to take over and its activation. WAITING: the build
-// that finished installing and waits. INSTALLING + cache name: that cache is being filled (the time it began).
-// HELD: for each older build cache, the windows open when a newer build took over; one of
-// them may still run that build.
-const META = 'pantas-meta';
-const ACTIVE = 'pantas-active-build';
-const TAKING_OVER = 'pantas-taking-over-build';
-const WAITING = 'pantas-waiting-build';
-const INSTALLING = 'pantas-installing-build/';
-const HELD = 'pantas-held-builds';
-// An install that began longer ago than this is taken as dead, so its cache can go.
-const INSTALL_FRESH_MS = 15 * 60 * 1000;
+// Written into a build's own cache before its worker calls skipWaiting, so the activation
+// that follows knows it must not sweep (a page may still run an older build). A worker's
+// global scope does not survive from install to activation, so the fact lives in the cache.
+const TAKEOVER = 'pantas-build-takeover';
+// The one Web Lock, held by install while it writes its cache and by the sweep while it
+// deletes. A request that is not granted within this time is given up, never waited on.
+const LOCK = 'pantas-cache-lock';
+const LOCK_WAIT_MS = 10000;
+// The notes cache of the previous design of this branch: swept like any other cache of ours.
+const NOTES_CACHE = 'pantas-meta';
 const BUILD_PREFIX = 'pantas-build-';
 const SCOPE = self.registration.scope;
 const NETWORK_TIMEOUT_MS = 4000;
@@ -203,7 +203,7 @@ self.addEventListener('message', (event) => {
     } catch (_) {}
   };
   if (event.data.type === 'pantas-build-id') reply({ id: BUILD.id });
-  if (event.data.type === 'pantas-take-over') event.waitUntil(takeOver(reply));
+  if (event.data.type === 'pantas-take-over') event.waitUntil(takeOverOnRequest(reply));
 });
 
 self.addEventListener('fetch', (event) => {
@@ -288,163 +288,169 @@ function storedHeaders(source) {
   return headers;
 }
 
-async function hasCompleteCache() {
+// True when this build's cache holds its whole list (the marker is written last).
+async function isCompleteCache() {
   if (!(await caches.has(CACHE))) return false;
-  const existing = await caches.open(CACHE);
-  const marker = await existing.match(SCOPE + COMPLETE);
-  if (marker && (await marker.text()) === BUILD.list) return true;
-  await caches.delete(CACHE); // left by an install that did not finish
+  const marker = await (await caches.open(CACHE)).match(SCOPE + COMPLETE);
+  return !!marker && (await marker.text()) === BUILD.list;
+}
+
+async function hasCompleteCache() {
+  if (await isCompleteCache()) return true;
+  if (await caches.has(CACHE)) await caches.delete(CACHE); // left by an install that did not finish
   return false;
+}
+
+// Runs `work` holding the lock. Resolves {held: true, value}, or {held: false} when the
+// browser has no Web Locks API or the lock was not granted within LOCK_WAIT_MS. It never
+// waits without a limit, and never throws for a lock that could not be had.
+async function withLock(work) {
+  const locks = self.navigator && self.navigator.locks;
+  if (!locks || typeof locks.request !== 'function' || typeof AbortController !== 'function') return { held: false };
+  const abort = new AbortController();
+  const timer = setTimeout(() => abort.abort(), LOCK_WAIT_MS);
+  try {
+    const value = await locks.request(LOCK, { signal: abort.signal }, async () => {
+      clearTimeout(timer);
+      return work();
+    });
+    return { held: true, value };
+  } catch (error) {
+    if (error && error.name === 'AbortError') return { held: false };
+    throw error;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
+// Under the lock when it can be had, otherwise without it.
+async function underLock(work) {
+  const locked = await withLock(work);
+  return locked.held ? locked.value : work();
+}
+
+async function fetchAll() {
+  const paths = Object.keys(BUILD.files);
+  const verified = [];
+  let next = 0;
+  let failed = false;
+  const lane = async () => {
+    while (!failed && next < paths.length) {
+      const path = paths[next++];
+      try {
+        verified.push(await fetchVerified(path));
+      } catch (error) {
+        failed = true;
+        throw error;
+      }
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(INSTALL_PARALLEL, paths.length) }, lane));
+  return verified;
+}
+
+// Writes the files given, then the marker last. A failure removes the cache and throws.
+async function storeFiles(files) {
+  try {
+    const cache = await caches.open(CACHE);
+    for (const { path, bytes, headers } of files) {
+      await cache.put(SCOPE + path, new Response(bytes, { status: 200, headers }));
+    }
+    await cache.put(SCOPE + COMPLETE, new Response(BUILD.list));
+  } catch (error) {
+    await caches.delete(CACHE);
+    throw error;
+  }
+}
+
+// The files of `verified` this build's cache lacks, or all of them when the cache is gone
+// (another worker's sweep, which this install did not hold the lock against).
+async function missingFiles(verified) {
+  if (!(await caches.has(CACHE))) return verified;
+  const cache = await caches.open(CACHE);
+  const have = new Set((await cache.keys()).map((request) => request.url));
+  const lacking = verified.filter(({ path }) => !have.has(SCOPE + path));
+  return !lacking.length && !have.has(SCOPE + COMPLETE) ? verified : lacking;
 }
 
 // Stores the whole set or nothing. A failure throws, so the browser keeps the
 // worker it has and tries again at the next update check.
 async function installBuild() {
-  // Says this cache is being filled, so no other install prunes it half done.
-  await writeNote(INSTALLING + CACHE, String(Date.now()));
-  try {
-    await fillAndPrune();
-  } finally {
-    await clearNote(INSTALLING + CACHE);
-  }
-}
-
-// The caches other installs are filling now.
-async function installingCaches() {
-  if (!(await caches.has(META))) return [];
-  const meta = await caches.open(META);
-  const names = [];
-  for (const request of await meta.keys()) {
-    const name = request.url.startsWith(SCOPE + INSTALLING) ? request.url.slice((SCOPE + INSTALLING).length) : null;
-    if (!name || name === CACHE) continue;
-    const began = Number(await (await meta.match(request.url)).text());
-    if (Date.now() - began < INSTALL_FRESH_MS) names.push(name);
-  }
-  return names;
-}
-
-async function fillAndPrune() {
-  if (!(await hasCompleteCache())) {
-    const paths = Object.keys(BUILD.files);
-    const verified = [];
-    let next = 0;
-    let failed = false;
-    const lane = async () => {
-      while (!failed && next < paths.length) {
-        const path = paths[next++];
-        try {
-          verified.push(await fetchVerified(path));
-        } catch (error) {
-          failed = true;
-          throw error;
-        }
-      }
-    };
-    await Promise.all(Array.from({ length: Math.min(INSTALL_PARALLEL, paths.length) }, lane));
-    try {
-      const cache = await caches.open(CACHE);
-      for (const { path, bytes, headers } of verified) {
-        await cache.put(SCOPE + path, new Response(bytes, { status: 200, headers }));
-      }
-      await cache.put(SCOPE + COMPLETE, new Response(BUILD.list));
-    } catch (error) {
-      await caches.delete(CACHE);
-      throw error;
-    }
-  }
-  await prune();
-  // With no other build installed (first visit, or the worker that shipped before
-  // build folders) nothing can be mixed, so take over at once. Otherwise wait: a
-  // window of the other build may be open. The page asks when it is safe.
-  const names = await caches.keys();
-  if (!names.some((name) => name.startsWith(BUILD_PREFIX) && name !== CACHE)) {
-    await self.skipWaiting();
+  const complete = await underLock(hasCompleteCache);
+  if (complete) {
+    // An identical build installing again: an old takeover mark is not about this install.
+    await underLock(clearTakeoverMark);
   } else {
-    // Written after the prune, so the prune above still kept the build that waited before.
-    await writeNote(WAITING, CACHE);
+    const verified = await fetchAll();
+    await underLock(() => storeFiles(verified));
+    // An install that could not get the lock may have lost files to a sweep. Put back what is
+    // missing, with the marker last; the bytes are the ones already verified.
+    for (let attempt = 0; attempt < 3; attempt++) {
+      const lacking = await missingFiles(verified);
+      if (!lacking.length) break;
+      await underLock(() => storeFiles(lacking));
+    }
+    if ((await missingFiles(verified)).length) throw new Error('the cache of this build keeps losing files');
   }
+  // With no other build installed (first visit, or the worker that shipped before build
+  // folders) nothing can be mixed, so take over at once. Otherwise wait: the browser
+  // activates this worker when no Pantas tab is open.
+  const others = (await caches.keys()).filter((name) => name.startsWith(BUILD_PREFIX) && name !== CACHE);
+  if (!others.length) await takeOver();
 }
 
-async function readNote(key) {
-  if (!(await caches.has(META))) return null;
-  const stored = await (await caches.open(META)).match(SCOPE + key);
-  return stored ? stored.text() : null;
+async function clearTakeoverMark() {
+  if (await caches.has(CACHE)) await (await caches.open(CACHE)).delete(SCOPE + TAKEOVER);
 }
 
-async function readJson(key) {
-  try {
-    return JSON.parse((await readNote(key)) || 'null');
-  } catch (_) {
-    return null;
-  }
-}
-
-async function writeNote(key, text) {
-  await (await caches.open(META)).put(SCOPE + key, new Response(text));
-}
-
-async function clearNote(key) {
-  if (await caches.has(META)) await (await caches.open(META)).delete(SCOPE + key);
-}
-
-async function windowIds() {
-  const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
-  return windows.map((client) => client.id);
-}
-
-// Runs only after this build's whole set is stored. A build cache goes only when that
-// build is not this worker's own, not the one in charge, not that of a worker taking over,
-// waiting or installing, and no window that was open when a newer build took over is open
-// now. The worker that shipped before build folders keeps its caches until a stamped build
-// is in charge: its tabs may still ask for their root deferred parts.
-// The notes are read in this order on purpose: a takeover that finishes during the prune
-// leaves its build either in TAKING_OVER (read first) or in ACTIVE, with HELD already written.
-async function prune() {
-  const taking = await readNote(TAKING_OVER);
-  const active = await readNote(ACTIVE);
-  const waiting = await readNote(WAITING);
-  const installing = await installingCaches();
-  const held = (await readJson(HELD)) || {};
-  const open = new Set(await windowIds());
-  const keep = new Set([CACHE, taking, active, waiting, ...installing]);
-  for (const name of await caches.keys()) {
-    const stamped = name.startsWith(BUILD_PREFIX);
-    const earlier = name.startsWith(CACHE_PREFIX);
-    if ((!stamped && !earlier) || keep.has(name)) continue;
-    if (earlier && !active) continue;
-    if ((held[name] || []).some((id) => open.has(id))) continue;
-    await caches.delete(name);
-  }
-}
-
-// The page's request to take over. Only when its window is the only one: another
-// window may be running the older build. Keeping one build per window of the app means
-// two tabs never share a database across two versions of the code.
-async function takeOver(reply) {
-  const windows = await self.clients.matchAll({ type: 'window', includeUncontrolled: true });
-  if (windows.length > 1) {
-    reply({ ok: false, windows: windows.length });
-    return;
-  }
-  // Before skipWaiting, so an install that ends from now on keeps this cache.
-  await writeNote(TAKING_OVER, CACHE);
+// Marks this build's cache, then skips waiting. The mark comes first so the activation that
+// follows, possibly in a fresh worker scope, knows it followed a takeover and sweeps nothing.
+async function takeOver() {
+  if (!(await caches.has(CACHE))) return false;
+  await (await caches.open(CACHE)).put(SCOPE + TAKEOVER, new Response('1'));
   await self.skipWaiting();
-  reply({ ok: true });
+  return true;
 }
 
-// Deletes nothing: a window may still run the older build and needs its cache.
-// First the windows open now are noted against every other build cache: one of them may run
-// it, and its cache stays while that window does. Then the note of the build in charge, so no
-// install can prune this build's cache once it is in charge. Both before the claim.
+// The Update Required button's request: the minimum-build gate leaves the page unusable, so
+// the waiting worker takes over now, whatever other windows are open. They keep their own
+// build from the retained caches, and nothing is deleted here.
+async function takeOverOnRequest(reply) {
+  reply({ ok: await takeOver() });
+}
+
+async function tookOver() {
+  if (!(await caches.has(CACHE))) return false;
+  return !!(await (await caches.open(CACHE)).match(SCOPE + TAKEOVER));
+}
+
+function registrationBusy() {
+  const registration = self.registration;
+  return !!(registration.installing || registration.waiting);
+}
+
+// Deletes every cache of ours but this build's. Only under the lock (never without it), only
+// when no other worker is installing or waiting (checked again under the lock), and only when
+// this build's own cache is whole, so a sweep never leaves a page with nothing.
+async function sweep() {
+  if (registrationBusy()) return;
+  await withLock(async () => {
+    if (registrationBusy() || !(await isCompleteCache())) return;
+    for (const name of await caches.keys()) {
+      const ours = name.startsWith(BUILD_PREFIX) || name.startsWith(CACHE_PREFIX) || name === NOTES_CACHE;
+      if (ours && name !== CACHE) await caches.delete(name);
+    }
+  });
+}
+
+// A natural activation (the browser had no tab for an older worker to serve) sweeps. An
+// activation that follows a takeover deletes nothing: a window may run an older build.
 async function activateBuild() {
-  const open = await windowIds();
-  const held = {};
-  for (const name of await caches.keys()) {
-    if (name !== CACHE && (name.startsWith(BUILD_PREFIX) || name.startsWith(CACHE_PREFIX))) held[name] = open;
+  try {
+    if (!(await tookOver())) await sweep();
+  } catch (_) {
+    // A sweep that fails leaves caches for the next one; it never stops the activation.
   }
-  await writeNote(HELD, JSON.stringify(held));
-  await writeNote(ACTIVE, CACHE);
-  await clearNote(TAKING_OVER);
   await self.clients.claim();
 }
 

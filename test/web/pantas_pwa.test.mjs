@@ -87,29 +87,18 @@ test('a page with a worker already controlling it starts at once when nothing is
   assert.deepEqual(page.posted, []);
 });
 
-test('an update already installed and waiting takes over before Flutter starts, when this is the only window', async () => {
+test('an update already waiting is left alone at the start: the page starts Flutter on the build it has', async () => {
   const { pwa, page } = load({
     controller: 'https://app.example/pantas_sw.js?v=old', waiting: { id: 'next' }, waitingAtLoad: true,
   });
-  assert.equal(await pwa.registerWorker('old'), true, 'the caller must not start Flutter');
-  assert.deepEqual(page.posted.map((m) => m.type).slice(0, 2), ['pantas-build-id', 'pantas-take-over']);
-  // The reload waits for the answer to "who controls the page now".
-  await new Promise((done) => setImmediate(done));
-  assert.equal(page.reloads(), 1);
-});
-
-test('with another window open the page starts Flutter on the build it has', async () => {
-  const { pwa, page } = load({
-    controller: 'https://app.example/pantas_sw.js?v=old', waiting: { id: 'next', windowsOk: false }, waitingAtLoad: true,
-  });
   assert.equal(await pwa.registerWorker('old'), false);
+  assert.deepEqual(page.posted, []);
   assert.equal(page.reloads(), 0);
 });
 
-test('a worker that never answers cannot hold the start longer than the limit', async () => {
-  const { pwa, page } = load({
-    controller: 'https://app.example/pantas_sw.js?v=old', waiting: { id: 'next' }, silentWaiting: true, waitingAtLoad: true,
-  });
+test('a registration look-up that never answers cannot hold the start longer than the limit', async () => {
+  const { pwa, page } = load({ controller: 'https://app.example/pantas_sw.js?v=old' });
+  page.sw.getRegistration = () => new Promise(() => {});
   const starting = pwa.registerWorker('old');
   await new Promise((done) => setImmediate(done));
   page.fire(2500);

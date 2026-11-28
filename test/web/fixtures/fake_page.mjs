@@ -20,7 +20,7 @@ class FakeChannel {
  *  controller    script URL of the worker that controlled the page at load, or null
  *  supported     false for a browser without service workers
  *  registerFails true when register() rejects
- *  waiting       {id, windowsOk} a verified waiting worker, or null
+ *  waiting       {id} a verified waiting worker, or null
  *  waitingAtLoad true when it is already waiting as the page loads; otherwise a test
  *                attaches it with page.arrive(), like an install that finishes later
  *  silentWaiting true when the waiting worker never answers
@@ -60,10 +60,8 @@ export function loadPage({
         else port.postMessage({id: waiting.id});
       }
       if (message.type === 'pantas-take-over') {
-        const ok = waiting.windowsOk !== false;
         const answer = () => {
-          port.postMessage({ok});
-          if (!ok) return;
+          port.postMessage({ok: true});
           // The real worker skips waiting and claims the page: it becomes the controller, and
           // a controllerchange follows. `controls: false` is a claim by some other worker.
           if (waiting.controls !== false) sw.controller = waitingWorker;
