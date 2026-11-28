@@ -16,24 +16,24 @@ keyPoints:
 
 ### Building the Filing Key
 
-**Alphabetic filing** puts records in letter order, from $A$ to $Z$. A **filing key** is the set of name parts used to sort a record. Each part is one **filing unit**.
+**Alphabetic filing** puts records in letter order, from $A$ to $Z$. A **filing key** is the parts used to sort a record, such as names, titles, or cities. Each part is one **filing unit**. This lesson covers personal names.
 
-Personal names have three main parts:
+A personal name has these parts:
 
 - **Given name**: the first personal name
-- **Middle name or initial**: the name or letter between given name and surname
-- **Surname**: the family name, or last name
+- **Middle name or initial**: between given name and surname
+- **Surname**: the family name
 
-One common rule puts units in this order: surname (Unit $1$), given name (Unit $2$), middle name or initial (Unit $3$). Follow only the rule stated or shown in the question.
+In these questions, one common rule puts the units in this order: surname (Unit $1$), given name (Unit $2$), middle name or initial (Unit $3$). Follow the rule the question states or shows.
 
-Index *Juan Antonio Santos* by surname, given name, then middle name:
+Find the index entry for *Juan Antonio Santos*, filed by surname, given name, then middle name:
 
 - Unit $1$ (surname): *Santos*
 - Unit $2$ (given name): *Juan*
 - Unit $3$ (middle name): *Antonio*
 - Index entry: **Santos, Juan Antonio**
 
-Place a comma after Unit $1$. Keep multi-word surnames like *Dela Cruz* together in Unit $1$.
+In these questions, a comma follows Unit $1$, and a multi-word surname such as *Dela Cruz* stays together in Unit $1$.
 
 :::pair #reading-order
 Right: **Dela Cruz, Juan Carlos**
@@ -41,22 +41,16 @@ Wrong: **Juan, Carlos Dela Cruz**
 The wrong entry uses reading order, starting with the given name. Move the whole surname to Unit $1$.
 :::
 
-:::check
-A registry indexes surname, given name, then middle initial. How should *Paolo R. Dela Rosa* be indexed?
-:::answer
-The answer is **Dela Rosa, Paolo R.** *Dela Rosa* is one surname (Unit $1$), *Paolo* is the given name (Unit $2$), and *R.* is the middle initial (Unit $3$).
-:::
-
 ### Comparing One Unit at a Time
 
-Compare records one unit at a time, starting at Unit $1$. Move to Unit $2$ only when Unit $1$ matches completely. Move to Unit $3$ only when Units $1$ and $2$ both match.
+In these questions, compare records one unit at a time, starting at Unit $1$. Move to Unit $2$ when Unit $1$ matches completely, and to Unit $3$ when Units $1$ and $2$ both match.
 
-Compare letters from left to right. If a shorter complete unit ends and another begins with those same letters, the shorter unit comes first.
+Compare letters from left to right. If a shorter complete unit ends where another unit continues with the same letters, the shorter unit comes first.
 
-Sort *Cabal, Nora*, *Caballero, Ana*, and *Cabral, Lina* by surname, then given name:
+Find the filing order of *Cabal, Nora*, *Caballero, Ana*, and *Cabral, Lina*, sorted by surname, then given name:
 
-- Unit $1$: *Cabal* ends after $5$ letters, so it precedes *Caballero*.
-- Compare *Caballero* and *Cabral*: *Cab* matches, and the fourth letter *a* comes before *r*.
+- Unit $1$: *Cabal* ends after $5$ letters where *Caballero* continues, so *Cabal* comes first.
+- *Caballero* and *Cabral* match through *Cab*. They first differ at letter $4$: *a* comes before *r*.
 - Order: **Cabal, Nora**, **Caballero, Ana**, **Cabral, Lina**.
 
 :::why
@@ -66,26 +60,26 @@ Why does *Cabal, Nora* beat *Caballero, Ana* even though *Ana* comes before *Nor
 :::pair #skip-tie-breaker
 Right: **Adams, Arthur** before **Adams, Benjamin**
 Wrong: stop after *Adams* and put **Adams, Benjamin** first
-Both records tie on Unit $1$ (*Adams*). Compare Unit $2$ next: *Arthur* comes before *Benjamin*.
+Both records tie on Unit $1$ (*Adams*). They first differ in Unit $2$: *Arthur* comes before *Benjamin*.
 :::
 
 :::pair #later-unit-first
 Right: **Cabal, Nora** before **Caballero, Ana**
 Wrong: **Caballero, Ana** first because *Ana* comes before *Nora*
-*Ana* and *Nora* sit in Unit $2$. Never let an earlier given name beat a surname difference.
+*Ana* and *Nora* sit in Unit $2$. Unit $1$ already differs, so they are not compared.
 :::
 
 :::check
-Using surname, given name, then middle name, which comes first: *Garcia, Nico Perez* or *Garcia, Nico Mendoza*?
+Sort by surname, given name, then middle name: *Garcia, Nico Perez*, *Garcia, Beth Zamora*, and *Garcia, Nico Mendoza*.
 :::answer
-The answer is **Garcia, Nico Mendoza**. Units $1$ and $2$ tie, so Unit $3$ decides: *Mendoza* comes before *Perez*.
+The answer is **Garcia, Beth Zamora**, **Garcia, Nico Mendoza**, **Garcia, Nico Perez**. Unit $1$ ties. In Unit $2$, *Beth* comes before *Nico*. The two *Nico* entries first differ in Unit $3$: *Mendoza* comes before *Perez*.
 :::
 
 ## Examples
 
 ### #1: Basic Personal-Name Indexing
 
-A registry indexes surname as Unit $1$, given name as Unit $2$, and middle name as Unit $3$. How should "Marco Luis Navarro" be indexed?
+Find the index entry for "Marco Luis Navarro" when a registry files by surname, given name, then middle name.
 
 **Solution:**
 
@@ -94,43 +88,36 @@ A registry indexes surname as Unit $1$, given name as Unit $2$, and middle name 
 3. Unit $3$ (middle name): *Luis*.
 4. Index entry: **Navarro, Marco Luis**.
 
-**Check:** Unit $1$ is the family name (*Navarro*), followed by a comma, then *Marco* and *Luis*.
-
 ### #2: Shorter Complete Surname
 
-A registry compares surname first, then given name, letter by letter. A shorter complete unit comes before a longer one beginning with it. Which comes first: *Cruz, Paolo*, *Cruzado, Ana*, *Cuenco, Luis*, or *Cruz, Ramon*?
+Find the filing order of *Cruz, Paolo*, *Cruzado, Ana*, *Cuenco, Luis*, and *Cruz, Ramon*, by surname, then given name. A shorter complete unit comes first.
 
 **Solution:**
 
-1. Compare Unit $1$: *Cruz* ends after $4$ letters, before *Cruzado* and *Cuenco*.
-2. Both *Cruz, Paolo* and *Cruz, Ramon* tie on Unit $1$.
-3. Compare Unit $2$ for those two entries: *Paolo* comes before *Ramon*.
-4. First entry: **Cruz, Paolo**.
-
-**Check:** Surnames order as *Cruz*, *Cruzado*, *Cuenco*, and *P* comes before *R* in Unit $2$.
+1. Unit $1$: *Cuenco* first differs from the others at letter $2$ (*r* before *u*), so it goes last. *Cruz* ends where *Cruzado* continues, so *Cruz* comes before *Cruzado*.
+2. Both *Cruz* entries tie on Unit $1$, so they first differ in Unit $2$: *Paolo* comes before *Ramon* ($P$ before $R$).
+3. Order: **Cruz, Paolo**, **Cruz, Ramon**, **Cruzado, Ana**, **Cuenco, Luis**.
 
 ### #3: Three-Unit Tie-Break
 
-Sort by surname, given name, then middle initial: *Reyes, Alina R.*, *Reyes, Anita A.*, *Reyes, Alina M.*, and *Reyes, Arlene B.* Which entry belongs first?
+Find the filing order of *Reyes, Ana R.*, *Reyes, Anabel B.*, *Reyes, Alma Z.*, and *Reyes, Ana M.*, sorted by surname, given name, then middle initial.
 
 **Solution:**
 
 1. Unit $1$: all four entries tie on *Reyes*.
-2. Unit $2$: *Alina* comes before *Anita* ($Al$ before $An$) and *Arlene* ($Al$ before $Ar$).
-3. Both *Reyes, Alina R.* and *Reyes, Alina M.* tie on Unit $2$.
+2. Unit $2$: *Alma* first differs from the others at letter $2$ (*l* before *n*), so **Reyes, Alma Z.** is first.
+3. Unit $2$: *Ana* ends where *Anabel* continues, so both *Ana* entries come before **Reyes, Anabel B.**
 
 :::try
-Finish the last step: compare Unit $3$ for the two *Alina* entries to pick which comes first.
+Finish the last step: the two *Ana* entries tie on Units $1$ and $2$. Compare Unit $3$, then write the full order.
 :::answer
-The answer is **Reyes, Alina M.** Comparing middle initials, *M.* comes before *R.*
-
-**Check:** *Anita A.* has an earlier middle initial ($A.$), but Unit $2$ (*Alina* vs. *Anita*) decides before Unit $3$; between the two *Alina* records, *M.* precedes *R.*
+The answer is **Reyes, Alma Z.**, **Reyes, Ana M.**, **Reyes, Ana R.**, **Reyes, Anabel B.** In Unit $3$, *M.* comes before *R.*, and *Anabel* was already placed last by Unit $2$.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Surname-first rule on a full name: put the entire surname in Unit $1$, not the given name. {#reading-order}
-- Shared surname: move to Unit $2$ (given name), then Unit $3$ (middle name). {#skip-tie-breaker}
-- Early given name on a later surname: never let Unit $2$ or Unit $3$ override Unit $1$. {#later-unit-first}
+- Surname-first rule on a full name: the whole surname is Unit $1$. {#reading-order}
+- Shared surname: compare Unit $2$, then Unit $3$. {#skip-tie-breaker}
+- Surnames differ: stop at Unit $1$, whatever the given names are. {#later-unit-first}
 :::

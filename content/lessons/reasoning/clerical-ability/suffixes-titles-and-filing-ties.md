@@ -18,115 +18,99 @@ keyPoints:
 
 A **suffix** follows a name, such as *Jr.*, *Sr.*, *II*, or *III*. A **title** comes before a name, such as *Mr.*, *Ms.*, or *Dr.*
 
-Follow the stated rule for suffixes and titles:
+- If a system keeps the suffix as the final unit, compare it after the earlier name units tie. In these questions, *Jr.* and *Sr.* compare alphabetically (*J* before *S*), not by age.
+- If a system ignores titles, drop *Dr.*, *Mr.*, or *Ms.* before sorting.
 
-- If a system keeps suffixes as the final unit, compare them only after all earlier name units tie. Compare *Jr.* and *Sr.* alphabetically (*J* before *S*), not by age.
-- If a system ignores titles, drop *Dr.*, *Mr.*, or *Ms.* before sorting. Use a title only when the rule includes it.
-
-Sort *Santos, Leo, Jr.*, *Santos, Leo, Sr.*, and *Santos, Leon, Jr.* by surname, given name, then suffix alphabetically:
+Find the filing order of *Santos, Leo, Jr.*, *Santos, Leo, Sr.*, and *Santos, Leon, Jr.*, sorted by surname, given name, then suffix alphabetically:
 
 - Unit $1$ (surname): all three tie on *Santos*.
-- Unit $2$ (given name): *Leo* ends sooner than *Leon*, so both *Leo* entries precede *Leon*.
-- Unit $3$ (suffix, for *Leo* only): *Jr.* precedes *Sr.*
+- Unit $2$ (given name): *Leo* ends where *Leon* continues, so both *Leo* entries come before *Leon*.
+- Unit $3$ (suffix): the two *Leo* entries first differ here, and *Jr.* comes before *Sr.*
 - Order: **Santos, Leo, Jr.**, **Santos, Leo, Sr.**, **Santos, Leon, Jr.**
 
 :::pair #suffix-too-early
 Right: **Santos, Leo, Sr.** before **Santos, Leon, Jr.**
 Wrong: **Santos, Leon, Jr.** before **Santos, Leo, Sr.** because *Jr.* starts with *J*
-Unit $2$ (*Leo* vs. *Leon*) already broke the tie. Never compare a suffix before earlier name units match.
-:::
-
-:::check
-Sort by surname, given name, then suffix alphabetically. Ignore titles. Which comes first: *Mr. Tan, Bert, Jr.*, *Tan, Benito, Sr.*, or *Tan, Bert, II*?
-:::answer
-The answer is **Tan, Benito, Sr.** After dropping *Mr.*, all three tie on *Tan*. Unit $2$ decides: *Benito* comes before *Bert* (*n* before *r*), so the suffix is never used.
+Unit $2$ (*Leo* vs. *Leon*) already broke the tie. In these questions, the suffix is compared only when the units before it tie.
 :::
 
 ### Breaking Ties with a Stated Unit
 
-When all name units tie, move to the next unit named by the rule, such as **city**.
+When the earlier units tie, compare the next unit the rule names, such as **city**. Use a tie-breaker the task states. Offices differ, so do not guess one, such as birth date.
 
-Never invent a tie-breaker. Do not use birth date, years of service, or city size unless the rule states it. If identical names have no stated tie-breaker, you still need the next filing unit.
-
-Sort *De la Vega, Ana L., Cebu*, *De la Vega, Ana L., Davao*, and *De la Vega, Ana M., Baguio* by surname, given name, middle initial, then city:
+Find the filing order of *De la Vega, Ana L., Cebu*, *De la Vega, Ana L., Davao*, and *De la Vega, Ana M., Baguio*, sorted by surname, given name, middle initial, then city:
 
 - Units $1$ and $2$: all three tie on *De la Vega, Ana*.
-- Unit $3$ (middle initial): *L.* precedes *M.*, so *Ana M., Baguio* goes last.
-- Unit $4$ (city, for *Ana L.* only): *Cebu* precedes *Davao*.
+- Unit $3$ (middle initial): *L.* comes before *M.*, so *Ana M., Baguio* goes last.
+- Unit $4$ (city): the two *Ana L.* entries first differ here, and *Cebu* comes before *Davao*.
 - Order: **De la Vega, Ana L., Cebu**, **De la Vega, Ana L., Davao**, **De la Vega, Ana M., Baguio**.
 
 :::pair #city-before-initial
 Right: **De la Vega, Ana L., Cebu** before **De la Vega, Ana M., Baguio**
 Wrong: **De la Vega, Ana M., Baguio** first because *Baguio* precedes *Cebu*
-Middle initials *L.* and *M.* differ. Compare city only after every name unit ties.
+Middle initials *L.* and *M.* differ, so Unit $3$ decides. City is compared after the name units tie.
 :::
 
 :::pair #guessed-tie-breaker
 Right: with identical names and no tie-break rule, ask for the system's next filing unit
 Wrong: sort identical names by birth date or assume one universal rule
-Offices choose different tie-breakers. Use city or another field only when the task states it.
+Offices choose different tie-breakers. Use city or another field when the task states it.
 :::
 
 :::why
-Why can't two offices share one universal tie-breaker? A clinic may use birth date, while a mailroom uses city. Each registry defines its own next unit.
+Why do offices not share one tie-breaker? A clinic may use birth date, while a mailroom uses city. Each registry defines its own next unit.
 :::
 
 :::check
-Two records are both for *Mark Tan*, in *Iloilo* and *Bacolod*. The rule names city as the next unit. Which comes first?
+A registry files by surname, given name, suffix, then city. Sort *Tan, Mark, Sr., Bacolod*; *Tan, Mark, Jr., Iloilo*; and *Tan, Mark, Jr., Aklan*.
 :::answer
-The answer is **Mark Tan, Bacolod**. Full names tie, and *Bacolod* comes before *Iloilo* alphabetically.
+The answer is **Tan, Mark, Jr., Aklan**, **Tan, Mark, Jr., Iloilo**, **Tan, Mark, Sr., Bacolod**. Units $1$ and $2$ tie. In Unit $3$, *Jr.* comes before *Sr.*, so *Bacolod* goes last. The two *Jr.* entries first differ in Unit $4$: *Aklan* comes before *Iloilo*.
 :::
 
 ## Examples
 
 ### #1: Suffix as a Later Filing Unit
 
-A filing system indexes surname, given name, then suffix alphabetically. Which comes first: *Reyes, Paolo, Sr.*, *Reyes, Paolo, Jr.*, or *Reyes, Paul, Jr.*?
+Find the filing order of *Reyes, Paolo, Sr.*, *Reyes, Paolo, Jr.*, and *Reyes, Paul, Jr.*, filed by surname, given name, then suffix alphabetically.
 
 **Solution:**
 
 1. Unit $1$: all three tie on *Reyes*.
-2. Unit $2$: *Paolo* precedes *Paul* (*o* before *u*), so both *Paolo* entries beat *Paul*.
-3. Unit $3$ (for *Paolo*): *Jr.* precedes *Sr.* alphabetically.
-4. First entry: **Reyes, Paolo, Jr.**
-
-**Check:** *Paul* stays behind *Paolo* even though its suffix is *Jr.*, and for the two *Paolo* records, *Jr.* precedes *Sr.*
+2. Unit $2$: *Paolo* and *Paul* first differ at letter $3$ (*o* before *u*), so both *Paolo* entries come before *Paul*.
+3. Unit $3$: the two *Paolo* entries first differ here, and *Jr.* comes before *Sr.*
+4. Order: **Reyes, Paolo, Jr.**, **Reyes, Paolo, Sr.**, **Reyes, Paul, Jr.**
 
 ### #2: Ignoring Titles When Stated
 
-A registry files by surname, then given name, and omits titles from the filing key. Write the filing key that comes first among *Dr. Ben Cruz*, *Ms. Ana Cruz*, and *Mr. Carlo Cruz*.
+Find the filing order of *Dr. Ben Cruz*, *Ms. Ana Cruz*, and *Mr. Carlo Cruz* when a registry files by surname, then given name, and omits titles from the filing key.
 
 **Solution:**
 
-1. Drop *Dr.*, *Ms.*, and *Mr.* as stated.
-2. Unit $1$: all three tie on *Cruz*.
-3. Unit $2$: *Ana* comes before *Ben* and *Carlo*.
-4. First filing key: **Cruz, Ana**.
-
-**Check:** Dropping the titles gives *Cruz, Ben*, *Cruz, Ana*, and *Cruz, Carlo*; after tying on *Cruz*, *Ana* precedes *Ben* and *Carlo*, so **Cruz, Ana** comes first.
+1. Drop *Dr.*, *Ms.*, and *Mr.* as stated. The keys are *Cruz, Ben*, *Cruz, Ana*, and *Cruz, Carlo*.
+2. Unit $1$ ties on *Cruz*. Unit $2$: *Ana*, *Ben*, and *Carlo* first differ at letter $1$ ($A$, $B$, $C$).
+3. Order: **Cruz, Ana**, **Cruz, Ben**, **Cruz, Carlo**.
 
 ### #3: Full Name Tie with City
 
-Sort by surname, given name, middle initial, then city. Ignore surname spaces only when comparing. Which comes first: *Delgado, Aaron A., Manila*, *De la Rosa, Joy P., Tarlac*, *De la Rosa, Joy T., Albay*, or *De la Rosa, Joy P., Naga*?
+Find the first entry when sorting by surname, given name, middle initial, then city. Ignore surname spaces only when comparing. The entries are *Delgado, Aaron A., Manila*, *De la Rosa, Joy P., Tarlac*, *De la Rosa, Joy T., Albay*, and *De la Rosa, Joy P., Naga*.
 
 **Solution:**
 
-1. Unit $1$: *delarosa* precedes *delgado* ($a$ before $g$). Drop *Delgado, Aaron A., Manila*.
-2. Unit $2$: the remaining three tie on *Joy*.
-3. Unit $3$: *P.* precedes *T.*, so drop *De la Rosa, Joy T., Albay*.
+1. Unit $1$: *delarosa* and *delgado* first differ at letter $4$ (*a* before *g*), so *Delgado, Aaron A., Manila* is not first.
+2. Unit $2$: the three *De la Rosa* entries tie on *Joy*.
+3. Unit $3$: *P.* comes before *T.*, so *De la Rosa, Joy T., Albay* is not first.
+4. The two *Joy P.* entries tie on Units $1$ to $3$, so they first differ in Unit $4$.
 
 :::try
-Finish the last step: compare Unit $4$ for the remaining two records to pick the first entry.
+Finish the last step: compare the cities of the two *Joy P.* entries to pick the first entry.
 :::answer
-The answer is **De la Rosa, Joy P., Naga**. Both remaining records match on every name unit, and *Naga* precedes *Tarlac*.
-
-**Check:** Earlier units eliminated *Aaron* (by surname) and *Albay* (by middle initial) before Unit $4$, leaving *Naga* before *Tarlac* on the city tie-break.
+The answer is **De la Rosa, Joy P., Naga**. *Naga* comes before *Tarlac* in Unit $4$.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- A suffix or title appears in a name: compare it only in its stated unit, or drop it if ignored. {#suffix-too-early}
-- A city looks early alphabetically: verify every earlier name unit tied before using the tie-breaker. {#city-before-initial}
-- Identical names with no tie-break rule: do not guess birth date; ask for the next filing unit. {#guessed-tie-breaker}
+- Suffix or title in a name: compare a suffix after earlier units tie; drop a title if ignored. {#suffix-too-early}
+- A city looks early alphabetically: compare it after the name units tie. {#city-before-initial}
+- Identical names and no tie-break rule: use the next unit the task names, not a guess. {#guessed-tie-breaker}
 :::
