@@ -15,89 +15,29 @@ keyPoints:
 ---
 ## Core Concept
 
-### The Imaginary Unit and Complex Numbers
-
 No real number squares to $-1$. The **imaginary unit** $i$ is defined by:
 
 $$i^2=-1$$
 
-For any positive real number $k$, write $\sqrt{-k}=i\sqrt{k}$. For example, $\sqrt{-9}=3i$ and $\sqrt{-16}=4i$.
+It is also written as $i=\sqrt{-1}$ when square roots are extended to complex numbers. For a positive real number $k$, write $\sqrt{-k}=i\sqrt{k}$.
 
-A **complex number** has standard form $a+bi$, where $a$ and $b$ are real numbers. Here $a$ is the **real part**, and $b$ is the **imaginary part**.
+A **complex number** has the form $a+bi$, where $a$ and $b$ are real numbers. The number $a$ is the **real part**, and $b$ is the **imaginary part**.
 
-If $b=0$, the number is real, so every real number has form $a+0i$. If $a=0$ and $b\ne 0$, it is **purely imaginary**.
+If $b=0$, the number is real. If $a=0$ and $b\ne0$, it is purely imaginary.
 
-To add or subtract complex numbers, combine real parts and $i$ terms separately. Subtract $6-3i$ from $10+2i$ (flip both signs in the second group):
+### Powers of $i$
 
-$$(10+2i)-(6-3i)=10+2i-6+3i$$
-
-$$10+2i-6+3i=4+5i$$
-
-Adding the same two numbers keeps both signs: $(10+2i)+(6-3i)=10+2i+6-3i=16-i$.
-
-:::pair #imaginary-part-coefficient
-Right: in $3-4i$, the imaginary part is $-4$.
-Wrong: in $3-4i$, the imaginary part is $-4i$.
-In $a+bi$, the imaginary part $b$ is only the real coefficient in front of $i$, with its sign. Do not include $i$ itself.
-:::
-
-### The Four-Step Cycle of Powers of i
-
-In exam questions, **evaluate** means find the final number answer. The powers of $i$ repeat every $4$ steps:
-
-$$i^1=i,\qquad i^2=-1,\qquad i^3=-i,\qquad i^4=1$$
-
-After $i^4$, the pattern starts over at $i$. For any larger positive whole-number exponent, divide the whole exponent by $4$ and use the remainder: remainder $1$ gives $i$, $2$ gives $-1$, $3$ gives $-i$, and $0$ gives $1$.
-
-<!-- ILLUSTRATION: Four boxes in a loop, read clockwise from the top left: i^1 = i (remainder 1), i^2 = -1 (remainder 2), i^3 = -i (remainder 3), and i^4 = 1 (remainder 0). Arrows run from each box to the next, and a last arrow runs from the i^4 box back to the i^1 box, so the powers repeat every 4 steps. -->
-
-Find $i^{57}$. Divide $57$ by $4$:
-
-$$57=4(14)+1$$
-
-The remainder is $1$, so:
-
-$$i^{57}=i^1$$
+The powers of $i$ repeat every $4$ powers:
 
 $$i^1=i$$
 
-:::why
-Why can you group the factors of $i^{57}$ in fours? Since $i^4=1$, every four factors of $i$ multiply to $1$: $i^{57}=(i^4)^{14}\cdot i^1=1^{14}\cdot i=i$.
-:::
+$$i^2=-1$$
 
-:::pair #last-digit-power-of-i
-Right: to find $i^{57}$, $57=4(14)+1$, so $i^{57}=i^1=i$
-Wrong: to find $i^{57}$, last digit $7=4(1)+3$, so $i^{57}=i^3=-i$
-Do not divide only the last digit by $4$. The tens digit can change the remainder, so check the whole exponent.
-:::
+$$i^3=-i$$
 
-:::check
-Evaluate $2i^{43}+1$ and write the answer as $a+bi$.
-:::answer
-The answer is $1-2i$. Since $43=4(10)+3$, $i^{43}=i^3=-i$, so $2(-i)+1=1-2i$.
-:::
+$$i^4=1$$
 
-### Multiplying Square Roots of Negatives
-
-For nonnegative real numbers, $\sqrt{a}\cdot\sqrt{b}=\sqrt{ab}$. That rule fails when both numbers under the square root are negative. Rewrite each negative square root with $i$ before multiplying or dividing.
-
-Find $\sqrt{-4}\cdot\sqrt{-9}$:
-
-$$\sqrt{-4}=2i,\qquad\sqrt{-9}=3i$$
-
-$$\sqrt{-4}\cdot\sqrt{-9}=(2i)(3i)$$
-
-$$(2i)(3i)=6i^2$$
-
-$$6i^2=6(-1)=-6$$
-
-To divide by $i$, use $\dfrac{1}{i}=-i$, because $i(-i)=-i^2=1$.
-
-:::pair #negative-root-product
-Right: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{(6i)(2i)}{4i}=\dfrac{-12}{4i}=\dfrac{-3}{i}=-3(-i)=3i$
-Wrong: $\dfrac{\sqrt{-36}\cdot\sqrt{-4}}{\sqrt{-16}}=\dfrac{6\cdot 2}{4}=3$
-Do not drop the minus signs inside negative roots or use $\sqrt{ab}$ before pulling out $i$. Write each negative root in $i$ form first.
-:::
+Then the same pattern starts again. For a large positive exponent, divide the exponent by $4$ and use the remainder to find its place in the cycle. A remainder of $0$ matches $i^4=1$.
 
 ## Mnemonics & Memory Aids
 
@@ -105,7 +45,9 @@ Do not drop the minus signs inside negative roots or use $\sqrt{ab}$ before pull
 
 ## Examples
 
-### #1: Simplifying Large Powers of i
+### #1: Simplifying Large Powers of $i$
+
+"Evaluate" means find the final number answer.
 
 Evaluate $i^{143}+i^{2024}$.
 
@@ -115,62 +57,32 @@ Evaluate $i^{143}+i^{2024}$.
 
 $$143=4(35)+3$$
 
-$$i^{143}=i^3$$
-
-$$i^3=-i$$
+$$i^{143}=i^3=-i$$
 
 2. Divide $2024$ by $4$. The remainder is $0$.
 
 $$2024=4(506)$$
 
-$$i^{2024}=i^4$$
+$$i^{2024}=1$$
 
-$$i^4=1$$
+3. Add the two results.
 
-3. Add the two results and write in $a+bi$ form.
-
-$$i^{143}+i^{2024}=-i+1$$
-
-$$-i+1=1-i$$
-
-The answer is $1-i$.
-
-### #2: Multiplying and Dividing Negative Square Roots
-
-"Simplify" means write an equal expression in a simpler form.
-
-Simplify $\dfrac{\sqrt{-16}\cdot\sqrt{-9}}{\sqrt{-4}}$.
-
-**Solution:**
-
-1. Rewrite every negative square root using $i$.
-
-$$\sqrt{-16}=4i,\qquad\sqrt{-9}=3i,\qquad\sqrt{-4}=2i$$
-
-2. Multiply the numerator and replace $i^2$ with $-1$.
-
-$$(4i)(3i)=12i^2$$
-
-$$12i^2=-12$$
-
-3. Divide by the denominator $2i$.
-
-$$\dfrac{-12}{2i}=\dfrac{-6}{i}$$
-
-:::try
-Finish the last step: multiply top and bottom of $\dfrac{-6}{i}$ by $i$ and replace $i^2$ with $-1$.
-:::answer
-The answer is $6i$. Multiplying top and bottom by $i$ gives $\dfrac{-6i}{i^2}=\dfrac{-6i}{-1}=6i$.
-:::
+$$i^{143}+i^{2024}=-i+1=1-i$$
 
 ## Speed Tricks & Shortcuts
 
-Any four consecutive powers of $i$ add to $0$, because $i+(-1)+(-i)+1=0$. For $i+i^2+\dots+i^{10}$, the first $8$ terms make two groups of four, which add to $0$. The leftover terms are $i^9+i^{10}=i+(-1)=-1+i$. Also, $\dfrac{1}{i}=-i$, since $i(-i)=-i^2=1$.
+- **Large powers of $i$.** Divide the exponent by $4$. Use only the remainder to find the answer in the repeating cycle.
 
 ## Traps to Watch For
 
-:::checklist
-- Imaginary part of $a+bi$: read only the real coefficient $b$ with its sign, without $i$. {#imaginary-part-coefficient}
-- Large powers of $i$: divide the whole exponent by $4$, not just the last digit. {#last-digit-power-of-i}
-- Square roots of negatives: rewrite with $i$ before multiplying or dividing. {#negative-root-product}
-:::
+### #1: Multiplying Square Roots of Negative Real Numbers
+
+> Rewrite negative square roots using $i$ before multiplying them.
+
+For nonnegative real numbers $a$ and $b$, the rule $\sqrt{a}\sqrt{b}=\sqrt{ab}$ works. If both numbers under the square roots are negative, using that rule can give the wrong sign.
+
+For example:
+
+$$\sqrt{-4}\sqrt{-9}=(2i)(3i)=6i^2=-6$$
+
+Multiplying the numbers under the roots first would give $\sqrt{36}=6$. That is the wrong answer here.
