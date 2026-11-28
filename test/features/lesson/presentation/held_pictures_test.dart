@@ -5,9 +5,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/content/remote/lesson_markdown.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/held_reader.dart';
+import 'package:pantas/core/ui/components/lesson_svg.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
@@ -221,6 +223,120 @@ void main() {
     expect(find.byType(HeldReader), findsNothing);
     expect(find.byKey(const ValueKey('web-reader-column')), findsOneWidget);
   });
+
+  test('the size is kept per URL and a URL past the bound still reads', () {
+    final first = pictureUri(360, 208);
+    expect(lessonSvgRatio(first), closeTo(360 / 208, 1e-9));
+    expect(lessonSvgRatio(first), closeTo(360 / 208, 1e-9));
+    // More than 64 other URLs push the first one out; it reads again.
+    for (var i = 0; i < 70; i++) {
+      expect(lessonSvgRatio(pictureUri(100.0 + i, 50)), isNotNull);
+    }
+    expect(lessonSvgRatio(first), closeTo(360 / 208, 1e-9));
+    expect(lessonSvgRatio('data:image/svg+xml;base64,@@@'), isNull);
+    expect(lessonSvgRatio('data:image/svg+xml;base64,@@@'), isNull);
+  });
+
+  testWidgets(
+      'a picture in an example solution takes the plate and shows when '
+      'the solution opens', (tester) async {
+    await _pump(tester, 1440, [
+      heading('Worked Examples', 'h2'),
+      heading('Example 1', 'h3'),
+      paragraph('Anna is twice as old as Ben.'),
+      paragraph('Solution:'),
+      paragraph('Ben is 12.'),
+      pictureBlock(pictureUri(360, 208)),
+    ]);
+    // In the figure column, not in the card.
+    expect(find.byKey(_plate), findsOneWidget);
+    expect(find.byType(SvgPicture), findsOneWidget);
+    expect(find.byKey(const ValueKey('reader-figure-frame')), findsNothing);
+    expect(tester.getRect(find.byKey(_plate)).left, 172 + 640 + 56);
+    double opacity() => tester
+        .widget<AnimatedOpacity>(
+          find
+              .ancestor(
+                of: find.byKey(_plate),
+                matching: find.byType(AnimatedOpacity),
+              )
+              .first,
+        )
+        .opacity;
+    // The plate starts on the problem, which has no figure here, so the
+    // solution's picture is hidden until the solution opens.
+    expect(opacity(), 0);
+    await tester.tap(find.byKey(const ValueKey('reader-solution-button')));
+    await tester.pumpAndSettle();
+    expect(opacity(), 1);
+  });
+
+  testWidgets(
+      'walk-through: a picture after a Why? and a pair goes to the column '
+      'and the parts render as before', (tester) async {
+    final blocks = lessonBlocksFromMarkdown(r'''
+## Core Concept
+
+### Ages Today
+
+Anna is twice as old as Ben.
+
+:::why
+Why call Ben's age $x$? Then Anna is $2x$.
+:::
+
+:::pair #age-sum
+Right: $x + 2x = 36$
+Wrong: $x + 2 = 36$
+Anna is twice Ben, so her age is $2x$.
+:::
+
+Check the sum of both ages.
+
+One more line about the ages.
+
+Another line about the ages, so the passage is long enough for the plate.
+
+A third line about the ages.
+
+A fourth line about the ages.
+
+A fifth line about the ages.
+
+A last line about the ages.
+''');
+    final at = blocks.indexWhere(
+      (b) => b.toString().contains('Check the sum'),
+    );
+    await _pump(tester, 1440, [
+      ...blocks.sublist(0, at + 1),
+      pictureBlock(pictureUri(360, 208)),
+      ...blocks.sublist(at + 1),
+    ]);
+    expect(find.byType(HeldReader), findsOneWidget);
+    final plate = tester.getRect(find.byKey(_plate));
+    expect(plate.left, 172 + 640 + 56);
+    final paragraph =
+        tester.getRect(find.textContaining('Check the sum').first);
+    expect((plate.top - paragraph.top).abs(), lessThan(24));
+    // The parts are in the text column, as before.
+    expect(find.byKey(const ValueKey('walk-pair-right')), findsOneWidget);
+    expect(find.byKey(const ValueKey('walk-pair-wrong')), findsOneWidget);
+    expect(
+      tester.getRect(find.byKey(const ValueKey('walk-pair-right'))).right,
+      lessThanOrEqualTo(172 + 640),
+    );
+    final why = find.byKey(const ValueKey('walk-why-button'));
+    expect(why, findsOneWidget);
+    expect(find.byKey(const ValueKey('walk-why-panel')), findsNothing);
+    await tester.tap(why);
+    await tester.pumpAndSettle();
+    expect(find.byKey(const ValueKey('walk-why-panel')), findsOneWidget);
+  });
+
+  // A picture cannot be authored inside a Why? panel: the walk-through parser
+  // refuses a figure or illustration marker inside a :::why block (see
+  // walkthrough_markdown.dart), so there is no panel picture to place.
 
   testWidgets('390: the picture stays inline in the text', (tester) async {
     tester.view

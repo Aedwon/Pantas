@@ -126,7 +126,25 @@ Uint8List? lessonDataUrlBytes(String url) {
 /// Null when the URL is not an SVG `data:` URL, is damaged, or its markup
 /// gives no size. A remote picture has no size until it loads, so it is null
 /// too. Callers keep such a picture inline, which is always safe.
+///
+/// The answer is kept per URL (64 at most, oldest dropped), because the held
+/// reader asks again on every build.
 double? lessonSvgRatio(String url) {
+  if (_ratios.containsKey(url)) {
+    final kept = _ratios.remove(url);
+    _ratios[url] = kept;
+    return kept;
+  }
+  final ratio = _readSvgRatio(url);
+  _ratios[url] = ratio;
+  if (_ratios.length > _ratiosLimit) _ratios.remove(_ratios.keys.first);
+  return ratio;
+}
+
+final _ratios = <String, double?>{};
+const _ratiosLimit = 64;
+
+double? _readSvgRatio(String url) {
   if (!url.startsWith('data:') || !isLessonSvg(url)) return null;
   final bytes = lessonDataUrlBytes(url);
   if (bytes == null) return null;
