@@ -131,12 +131,13 @@ void main() {
             expect(tester.takeException(), isNull);
             if (find.byType(HeldReader).evaluate().isEmpty) {
               // Every figure of this lesson is wide art or there is none:
-              // the single centered 680 px column.
+              // the single centered column. Full width is the default since
+              // Aedwon's Nov 28 decision, so it is 800 px.
               expect(
                 tester
                     .getSize(find.byKey(const ValueKey('web-reader-column')))
                     .width,
-                680,
+                800,
               );
               return;
             }

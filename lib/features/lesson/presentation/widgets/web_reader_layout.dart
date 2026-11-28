@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
@@ -38,9 +39,10 @@ import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.
 
 /// The lesson column on wide web.
 ///
-/// A lesson with figures uses the held layout (`HeldMetrics`): text on the
-/// left, figures on the right. A lesson with none keeps one centered column,
-/// 680 px, or 800 px when the student chose full width.
+/// With full width on (the default), a lesson with figures uses the held
+/// layout (`HeldMetrics`): text on the left, figures on the right. A lesson
+/// with none keeps one centered column, 800 px. With full width off, every
+/// lesson is one centered 680 px column with its figures inline.
 abstract final class WebReaderMetrics {
   /// The lesson column for a window [maxWidth] wide, when the lesson has no
   /// figures to put beside it.
@@ -741,7 +743,71 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     );
   }
 
+  /// The paragraphs of the lesson in reading order, with their distance from
+  /// the top of the reader.
+  List<(RenderParagraph, double)> _paragraphs() {
+    final layout = context.findRenderObject();
+    final content = _contentKey.currentContext?.findRenderObject();
+    if (layout is! RenderBox || content == null) return const [];
+    final found = <(RenderParagraph, double)>[];
+    void visit(RenderObject object) {
+      if (object is RenderParagraph && object.attached && object.hasSize) {
+        final dy = object.localToGlobal(Offset.zero, ancestor: layout).dy;
+        found.add((object, dy));
+      }
+      object.visitChildren(visit);
+    }
+
+    visit(content);
+    return found;
+  }
+
+  /// The first paragraph at or below the bar, as its text, which of the
+  /// paragraphs with that text it is, and its distance from the top.
+  (String, int, double)? _readingAnchor() {
+    final all = _paragraphs();
+    for (final (paragraph, dy) in all) {
+      final text = paragraph.text.toPlainText();
+      if (dy < _barHeight || text.isEmpty) continue;
+      final nth = all
+          .takeWhile((p) => p.$1 != paragraph)
+          .where((p) => p.$1.text.toPlainText() == text)
+          .length;
+      return (text, nth, dy);
+    }
+    return null;
+  }
+
+  /// Scrolls at once so the anchor's paragraph is as far from the top as it
+  /// was, within the scroll range.
+  void _restoreAnchor((String, int, double) anchor) {
+    final controller = widget.controller;
+    if (!controller.hasClients) return;
+    final (text, nth, dy) = anchor;
+    final same = [
+      for (final (paragraph, now) in _paragraphs())
+        if (paragraph.text.toPlainText() == text) now,
+    ];
+    if (nth >= same.length) return;
+    final position = controller.position;
+    final target = (position.pixels + same[nth] - dy)
+        .clamp(position.minScrollExtent, position.maxScrollExtent);
+    if ((target - position.pixels).abs() >= .5) controller.jumpTo(target);
+  }
+
   void _setFullWidth(bool value) {
+    // The layouts differ in width and height, so keep the text being read
+    // where it is: the paragraph nearest the top is put back at the same
+    // distance from the top once the new layout is in place.
+    final anchor = _readingAnchor();
+    if (anchor != null) {
+      // Twice: the held layout settles one frame after it is built.
+      for (var pass = 0; pass < 2; pass++) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) _restoreAnchor(anchor);
+        });
+      }
+    }
     // The choice applies at once. A failed save leaves it on for this visit.
     unawaited(
       ref
@@ -840,7 +906,8 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     final held = lessonHasMarginFigures(
       [for (final b in reader.lesson.bodyJson) b],
     );
-    final heldLesson = held
+    // Aedwon, Nov 28: full width is what turns the two-column layout on.
+    final heldLesson = held && fullWidth
         ? _HeldLessonBody(
             key: ValueKey(('web-reader-held', reader.lesson.id)),
             reader: reader,
@@ -981,10 +1048,8 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                   const Spacer(),
                                   if (ending == null) ...[
                                     const SizedBox(width: PantasSpace.s12),
-                                    if (heldBody == null) ...[
-                                      _widthControl(t, fullWidth: fullWidth),
-                                      const SizedBox(width: PantasSpace.s12),
-                                    ],
+                                    _widthControl(t, fullWidth: fullWidth),
+                                    const SizedBox(width: PantasSpace.s12),
                                     PantasIconButton(
                                       tooltip: withLetterKey(
                                         context,
