@@ -285,5 +285,6 @@ Direction B "Clarity": Apple principles, no liquid glass. Geist everywhere; Sour
 ## Full-width toggle drives the two-column reader (Nov 28)
 - Aedwon: "what? that doesn't make sense. the reason we added the 2 column layout was to make the toggle more useful".
 - The full-width toggle shows on every lesson at 1024 and up. On: the two-column layout when the lesson has figures or pictures, else the 800 px column. Off: the 680 px column with figures inline. Default on. A saved choice stays as saved.
+- Default (Aedwon picked B, Nov 28): with no saved choice, on for lessons with figures or pictures, off for text-only lessons; a saved choice wins.
 - There is no left panel to hide: the "In this lesson" outline was removed with the held reader (Nov 24). Under 1024 the phone layout is unchanged.
 - Replaces ruling 4 of `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md` ("Width control: hidden on a lesson with margin figures").

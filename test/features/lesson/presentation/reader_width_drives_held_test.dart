@@ -1,6 +1,7 @@
 // Aedwon, Nov 28: "the reason we added the 2 column layout was to make the
 // toggle more useful". The full-width toggle shows on every lesson and turns
-// the two-column (held) layout on. Default on. See docs/design/DECISIONS.md,
+// the two-column (held) layout on. Default (pick B): on for a lesson with
+// figures, off for a text-only lesson; a saved choice wins. See docs/design/DECISIONS.md,
 // "Full-width toggle drives the two-column reader (Nov 28)".
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -133,10 +134,89 @@ void main() {
     expect(tester.getSize(column).width, 680);
   });
 
-  testWidgets('with no saved choice the toggle starts on', (tester) async {
+  // Aedwon picked B, Nov 28: with no saved choice the toggle is on for a
+  // lesson with figures and off for a text-only lesson.
+  testWidgets('no saved choice, figures: held, the toggle is on', (
+    tester,
+  ) async {
     await pump(tester, 1440, withPicture());
     expect(find.byType(HeldReader), findsOneWidget);
     expect(find.byTooltip('Standard width'), findsOneWidget);
+  });
+
+  testWidgets('no saved choice, text only: the 680 column, toggle off', (
+    tester,
+  ) async {
+    await pump(tester, 1440, plain());
+    expect(find.byType(HeldReader), findsNothing);
+    expect(tester.getSize(column).width, 680);
+    expect(find.byTooltip('Full width'), findsOneWidget);
+    expect(find.byTooltip('Standard width'), findsNothing);
+  });
+
+  testWidgets('saved 1, text only: the 800 column', (tester) async {
+    await pump(tester, 1440, plain(), saved: '1');
+    expect(tester.getSize(column).width, 800);
+    expect(find.byTooltip('Standard width'), findsOneWidget);
+  });
+
+  testWidgets('the toggle state follows each lesson without a saved choice', (
+    tester,
+  ) async {
+    final semantics = tester.ensureSemantics();
+    await pump(tester, 1440, withPicture());
+    expect(
+      tester.getSemantics(find.byTooltip('Standard width')),
+      isSemantics(
+        isButton: true,
+        hasToggledState: true,
+        isToggled: true,
+        hasTapAction: true,
+        label: 'Standard width',
+      ),
+    );
+    await tester.pumpWidget(const SizedBox());
+    await pump(tester, 1440, plain());
+    expect(
+      tester.getSemantics(find.byTooltip('Full width')),
+      isSemantics(
+        isButton: true,
+        hasToggledState: true,
+        isToggled: false,
+        hasTapAction: true,
+        label: 'Full width',
+      ),
+    );
+    semantics.dispose();
+  });
+
+  testWidgets('turning it on from the text-only default is saved and kept', (
+    tester,
+  ) async {
+    await pump(tester, 1440, plain());
+    await tester.tap(control);
+    await tester.pumpAndSettle();
+    expect(tester.getSize(column).width, 800);
+    expect(await prefs.deviceValue('reader_full_width'), '1');
+    // The next text-only lesson follows the saved choice, not the default.
+    await tester.pumpWidget(const SizedBox());
+    await pump(tester, 1440, plain());
+    expect(tester.getSize(column).width, 800);
+  });
+
+  testWidgets('turning it off from the figures default is saved and kept', (
+    tester,
+  ) async {
+    await pump(tester, 1440, withPicture());
+    await tester.tap(control);
+    await tester.pumpAndSettle();
+    expect(find.byType(HeldReader), findsNothing);
+    expect(await prefs.deviceValue('reader_full_width'), '0');
+    // The next lesson with figures follows the saved choice, not the default.
+    await tester.pumpWidget(const SizedBox());
+    await pump(tester, 1440, withPicture());
+    expect(find.byType(HeldReader), findsNothing);
+    expect(tester.getSize(column).width, 680);
   });
 
   testWidgets('a saved 0 stays off', (tester) async {

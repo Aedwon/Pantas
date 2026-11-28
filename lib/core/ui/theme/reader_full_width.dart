@@ -12,19 +12,21 @@ const double readerStandardWidth = 680;
 /// line-length studies tested. Aedwon chose 800 px from the preview.
 const double readerFullWidthMax = 800;
 
-/// Whether the student widened the wide web lesson column, remembered on this
-/// device the way the lesson text size is.
+/// The student's saved full width choice, remembered on this device the way
+/// the lesson text size is. Null means no choice is saved.
+///
+/// Aedwon picked B, Nov 28: with no saved choice the reader decides per
+/// lesson. On for a lesson with figures or pictures, off for a text-only
+/// lesson. A saved choice wins for every lesson.
 final readerFullWidthProvider =
-    StateNotifierProvider<ReaderFullWidthController, bool>((ref) {
+    StateNotifierProvider<ReaderFullWidthController, bool?>((ref) {
   return ReaderFullWidthController(
     ref.watch(appPreferencesRepositoryProvider),
   );
 });
 
-class ReaderFullWidthController extends StateNotifier<bool> {
-  // Aedwon, Nov 28: with no saved choice the toggle starts on, so a lesson
-  // with figures opens in the two-column layout.
-  ReaderFullWidthController(this._preferences) : super(true) {
+class ReaderFullWidthController extends StateNotifier<bool?> {
+  ReaderFullWidthController(this._preferences) : super(null) {
     unawaited(_load());
   }
 
@@ -37,9 +39,11 @@ class ReaderFullWidthController extends StateNotifier<bool> {
     final revision = _revision;
     try {
       final raw = await _preferences.deviceValue(_key);
-      if (mounted && revision == _revision && raw == '0') state = false;
+      if (mounted && revision == _revision && (raw == '0' || raw == '1')) {
+        state = raw == '1';
+      }
     } on Exception {
-      // An unavailable preference keeps the default, full width.
+      // An unavailable preference counts as no saved choice.
     }
   }
 

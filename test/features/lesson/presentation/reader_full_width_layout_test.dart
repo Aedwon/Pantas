@@ -78,9 +78,8 @@ void main() {
     addTearDown(scroll.dispose);
     addTearDown(offset.dispose);
     addTearDown(progress.dispose);
-    // Aedwon, Nov 28: full width is on by default. These tests start from the
-    // standard width, so they save that choice first.
-    await prefs.setDeviceValue('reader_full_width', '0');
+    // Aedwon's pick B, Nov 28: with no saved choice a text-only lesson starts
+    // at the standard width, so these tests save nothing first.
   });
 
   Future<void> pump(WidgetTester tester, double width) async {
@@ -263,6 +262,55 @@ void main() {
           )
           .width,
       800,
+    );
+    await tester.pumpWidget(const SizedBox());
+  });
+
+  testWidgets('the loading frame is 680 px with no saved choice', (
+    tester,
+  ) async {
+    final content = openTestContentDatabase();
+    await seedContentExam(
+      content,
+      examId: 'e',
+      code: 'CSE',
+      name: 'CSE',
+      shortName: 'CSE',
+    );
+    await SyncActiveContextStore(db).clearStable();
+    tester.view
+      ..physicalSize = const Size(1920, 900)
+      ..devicePixelRatio = 1;
+    addTearDown(() {
+      tester.view
+        ..resetPhysicalSize()
+        ..resetDevicePixelRatio();
+    });
+    final never = Completer<ReaderContext?>();
+    await tester.pumpWidget(
+      ProviderScope(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(content),
+          appPreferencesRepositoryProvider.overrideWithValue(prefs),
+          readerContextProvider('l1').overrideWith((_) => never.future),
+        ],
+        child: MaterialApp(
+          theme: buildLightTheme(web: true),
+          home: const LessonPage(lessonId: 'l1'),
+        ),
+      ),
+    );
+    await tester.pumpAndSettle();
+    final skeleton = find.byType(ReaderSkeleton);
+    expect(skeleton, findsOneWidget);
+    expect(
+      tester
+          .getSize(
+            find.ancestor(of: skeleton, matching: find.byType(SizedBox)).first,
+          )
+          .width,
+      680,
     );
     await tester.pumpWidget(const SizedBox());
   });

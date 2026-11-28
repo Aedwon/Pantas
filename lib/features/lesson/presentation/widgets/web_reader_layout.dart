@@ -39,10 +39,11 @@ import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.
 
 /// The lesson column on wide web.
 ///
-/// With full width on (the default), a lesson with figures uses the held
-/// layout (`HeldMetrics`): text on the left, figures on the right. A lesson
-/// with none keeps one centered column, 800 px. With full width off, every
-/// lesson is one centered 680 px column with its figures inline.
+/// With full width on, a lesson with figures uses the held layout
+/// (`HeldMetrics`): text on the left, figures on the right. A lesson with none
+/// keeps one centered column, 800 px. With full width off, every lesson is one
+/// centered 680 px column with its figures inline. With no saved choice, full
+/// width is on for a lesson with figures and off for a text-only lesson.
 abstract final class WebReaderMetrics {
   /// The lesson column for a window [maxWidth] wide, when the lesson has no
   /// figures to put beside it.
@@ -820,8 +821,13 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   @override
   Widget build(BuildContext context) {
     final t = context.webTokens;
-    final fullWidth = ref.watch(readerFullWidthProvider);
     final reader = widget.reader;
+    final held = lessonHasMarginFigures(
+      [for (final b in reader.lesson.bodyJson) b],
+    );
+    // Aedwon's pick B, Nov 28: with no saved choice the toggle is on for a
+    // lesson with figures and off for a text-only lesson. A saved choice wins.
+    final fullWidth = ref.watch(readerFullWidthProvider) ?? held;
     final groups = <List<Map<String, dynamic>>>[];
     final headings = <String?>[];
     for (final block in reader.lesson.bodyJson) {
@@ -903,9 +909,6 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
       ],
     );
     final columnBody = walk ? WalkScope(child: columnContent) : columnContent;
-    final held = lessonHasMarginFigures(
-      [for (final b in reader.lesson.bodyJson) b],
-    );
     // Aedwon, Nov 28: full width is what turns the two-column layout on.
     final heldLesson = held && fullWidth
         ? _HeldLessonBody(
