@@ -918,7 +918,7 @@ questions:
     stem: |
       A clinic's report assumes, “No sample rejected at intake was listed as accepted in the final log.” Which audit finding is precisely the negation of that assumption?
     choices:
-      - text: "A rejected sample was listed as accepted."
+      - text: "A sample rejected at intake was listed as accepted in the final log."
         correct: true
       - text: "A sample accepted at intake was listed as rejected in the final log."
         rationale: |
@@ -930,7 +930,7 @@ questions:
         rationale: |
           A missing entry may be a problem. Check if the claim bans missing entries or entries marked as accepted.
     explanation: |
-      The report rules out even one rejected sample listed as accepted. Finding a single case makes the claim false.
+      The report rules out even one sample that was rejected at intake and then listed as accepted in the final log. Finding a single such sample makes the claim false.
 
   - id: q-verbal-logic-assumptions-and-conclusions-0041
     approved: true

@@ -24732,9 +24732,9 @@
     "lesson": "lesson-verbal-logic-must-be-true-conclusions"
   },
   "q-verbal-logic-assumptions-and-conclusions-0040": {
-    "approvedAt": "2026-11-20",
-    "evidence": "docs/content/verification/cet-split.md",
-    "hash": "c1464db6ea374fbac0430aef4c3c18c93b891386569f1d6e44149641a684d0a6",
+    "approvedAt": "2026-11-28",
+    "evidence": "docs/content/verification/c11-recheck-r1.md",
+    "hash": "2e462faaf9e0f9f13bc723d3c1c3f113ce0bbe9492f96a714e038c2b1ccd12ea",
     "lesson": "lesson-verbal-logic-negating-assumptions"
   },
   "q-verbal-logic-assumptions-and-conclusions-0041": {
