@@ -383,12 +383,14 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
 
   for (final mock in mockAttemptsRows) {
     final counts = mockAccuracy[mock.id];
-    if (counts == null || counts.total == 0) continue;
+    // Accuracy is over answered items only. A blank is not an answer.
+    final answered = mockAnswered[mock.id] ?? 0;
+    if (counts == null || answered == 0) continue;
     final week = PantasDates.weekStart(mock.startedAt.toLocal());
     final before = weeklyAttempts[week] ?? (correct: 0, total: 0);
     weeklyAttempts[week] = (
       correct: before.correct + counts.correct,
-      total: before.total + counts.total
+      total: before.total + answered
     );
   }
 

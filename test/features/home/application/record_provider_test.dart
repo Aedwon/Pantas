@@ -793,6 +793,144 @@ void main() {
     expect(record.questionsAnswered, 27);
   });
 
+  group("weekly accuracy leaves a mock's blanks out", () {
+    String practiceItems(int total, int correct) => jsonEncode(
+          List.generate(
+            total,
+            (i) => {
+              'questionId': 'q_$i',
+              'questionVersion': 1,
+              'chosenChoiceId': 'c1',
+              'correctChoiceId': i < correct ? 'c1' : 'c2',
+              'responseMs': 0,
+            },
+          ),
+        );
+
+    Future<void> practice(String id, DateTime day, int total, int correct) =>
+        db.into(db.attemptsLocal).insert(
+              AttemptsLocalCompanion.insert(
+                id: id,
+                examId: 'exam_upcat',
+                origin: const Value('today_topic'),
+                startedAt: day,
+                completedAt: Value(day.add(const Duration(minutes: 5))),
+                itemsJson: practiceItems(total, correct),
+              ),
+            );
+
+    test('a local mock adds its answered items, not its paper size', () async {
+      // Week one: 10 practice items with 8 right, plus a 170-item paper with
+      // 25 right, 5 wrong and 140 blank. 33 of 40 answered is 82.5 percent.
+      final week1 = DateTime(2026, 7, 14);
+      final week2 = DateTime(2026, 7, 21);
+      await practice('p1', week1, 10, 8);
+      await practice('p2', week2, 2, 1);
+      await db.into(db.mockAttempts).insert(
+            MockAttemptsCompanion.insert(
+              id: 'mock_1',
+              userId: 'local',
+              examId: 'exam_upcat',
+              blueprintId: 'bp_1',
+              blueprintName: 'Full UPCAT Simulation',
+              durationMinutes: 120,
+              status: 'completed',
+              strictMode: false,
+              sampledQuestionsJson: jsonEncode([]),
+              scoreRaw: const Value(25),
+              scoreTotal: const Value(170),
+              sectionResultsJson: Value(
+                jsonEncode({
+                  'sections': [
+                    {
+                      'sectionId': 's',
+                      'name': 'Science',
+                      'correct': 25,
+                      'wrong': 5,
+                      'blank': 140,
+                      'total': 170,
+                      'retiredCount': 0,
+                      'timeSeconds': 600,
+                    },
+                  ],
+                }),
+              ),
+              startedAt: week1,
+              lastFlushedAt: week1,
+              submittedAt: Value(week1.add(const Duration(minutes: 10))),
+              updatedAt: week1,
+            ),
+          );
+      container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+        ],
+      );
+
+      final record = await container.read(recordProvider.future);
+
+      expect(record.accuracySeries, hasLength(2));
+      expect(
+        record.accuracySeries.first.accuracy,
+        closeTo(33 / 40 * 100, 1e-9),
+      );
+      expect(record.accuracySeries.last.accuracy, closeTo(50, 1e-9));
+    });
+
+    test('a mock with no answered items adds nothing', () async {
+      final week1 = DateTime(2026, 7, 14);
+      final week2 = DateTime(2026, 7, 21);
+      await practice('p1', week1, 10, 8);
+      await practice('p2', week2, 2, 1);
+      await db.into(db.mockAttempts).insert(
+            MockAttemptsCompanion.insert(
+              id: 'mock_1',
+              userId: 'local',
+              examId: 'exam_upcat',
+              blueprintId: 'bp_1',
+              blueprintName: 'Full UPCAT Simulation',
+              durationMinutes: 120,
+              status: 'completed',
+              strictMode: false,
+              sampledQuestionsJson: jsonEncode([]),
+              scoreRaw: const Value(0),
+              scoreTotal: const Value(170),
+              sectionResultsJson: Value(
+                jsonEncode({
+                  'sections': [
+                    {
+                      'sectionId': 's',
+                      'name': 'Science',
+                      'correct': 0,
+                      'wrong': 0,
+                      'blank': 170,
+                      'total': 170,
+                      'retiredCount': 0,
+                      'timeSeconds': 600,
+                    },
+                  ],
+                }),
+              ),
+              startedAt: week1,
+              lastFlushedAt: week1,
+              submittedAt: Value(week1.add(const Duration(minutes: 10))),
+              updatedAt: week1,
+            ),
+          );
+      container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          contentDatabaseProvider.overrideWithValue(contentDb),
+        ],
+      );
+
+      final record = await container.read(recordProvider.future);
+
+      expect(record.accuracySeries.first.accuracy, closeTo(80, 1e-9));
+    });
+  });
+
   test('a mock keeps its local calendar day in the record', () async {
     final taken = DateTime(2026, 11, 26, 23, 30);
     await db.into(db.mockAttempts).insert(
