@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 166" width="360" height="166">
+<title>Five terms 5, 9, 13, 17, 21 joined by four +4 jumps, which are 4 steps and not 5</title>
+<rect width="360" height="166" rx="14" fill="#030303"/>
+<rect x="12" y="70" width="56" height="40" rx="6" fill="#010101" fill-opacity="0.1" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="82" y="70" width="56" height="40" rx="6" fill="#010101" fill-opacity="0.1" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="152" y="70" width="56" height="40" rx="6" fill="#010101" fill-opacity="0.1" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="222" y="70" width="56" height="40" rx="6" fill="#010101" fill-opacity="0.1" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<rect x="292" y="70" width="56" height="40" rx="6" fill="#050505" fill-opacity="0.35" stroke="#020202" stroke-width="1.2" stroke-opacity="0.7"/>
+<text x="19.5" y="95" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">a</text>
+<text x="28" y="98" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101">1</text>
+<text x="39.5" y="95" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">= 5</text>
+<text x="89.5" y="95" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">a</text>
+<text x="98" y="98" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101">2</text>
+<text x="109.5" y="95" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">= 9</text>
+<text x="155.5" y="95" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">a</text>
+<text x="164" y="98" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101">3</text>
+<text x="175.5" y="95" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">= 13</text>
+<text x="225.5" y="95" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">a</text>
+<text x="234" y="98" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101">4</text>
+<text x="245.5" y="95" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">= 17</text>
+<text x="295.5" y="95" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">a</text>
+<text x="304" y="98" text-anchor="start" font-family="Geist, sans-serif" font-size="12" font-weight="600" fill="#010101">5</text>
+<text x="315.5" y="95" text-anchor="start" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">= 21</text>
+<path d="M40 68 Q75 28 110 68" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M110 68 Q145 28 180 68" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M180 68 Q215 28 250 68" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M250 68 Q285 28 320 68" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round"/>
+<polygon points="110,68 101.7,64.6 107.7,59.4" fill="#020202"/>
+<polygon points="180,68 171.7,64.6 177.7,59.4" fill="#020202"/>
+<polygon points="250,68 241.7,64.6 247.7,59.4" fill="#020202"/>
+<polygon points="320,68 311.7,64.6 317.7,59.4" fill="#020202"/>
+<text x="75" y="40" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">+4</text>
+<text x="145" y="40" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">+4</text>
+<text x="215" y="40" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">+4</text>
+<text x="285" y="40" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">+4</text>
+<path d="M40 120 V128 H320 V120" fill="none" stroke="#020202" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="180" y="150" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="600" fill="#010101">4 steps (n - 1), not 5</text>
+</svg>

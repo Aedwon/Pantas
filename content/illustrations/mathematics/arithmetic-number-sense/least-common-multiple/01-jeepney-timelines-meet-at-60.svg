@@ -23,6 +23,6 @@
 <text x="133.3" y="132" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">20</text>
 <text x="226.7" y="132" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">40</text>
 <text x="320" y="132" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="600" fill="#010101">60</text>
-<line x1="320" y1="36" x2="320" y2="162" stroke="#050505" stroke-width="2" stroke-dasharray="5 4" fill="none"/>
+<line x1="320" y1="36" x2="320" y2="162" stroke="#050505" stroke-width="2" stroke-dasharray="4 18 5 4 5 4 5 4 5 4 5 4 5 4 5 22 5 4 5 4 5" fill="none"/>
 <text x="326" y="182" text-anchor="end" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">LCM = 60 min</text>
 </svg>
