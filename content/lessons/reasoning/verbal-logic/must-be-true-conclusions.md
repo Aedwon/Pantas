@@ -57,7 +57,7 @@ Being outside the supervisor group does not deny the degree. The rule places no 
 
 (C) Rico may or may not be a guard at the gate.
 :::answer
-The answer is **(C)**. The rule runs from guard to badge, not from badge to guard. A clerk or a visitor could also wear a badge.
+The answer is **(C)**. The rule runs from guard to badge, not from badge to guard. Rico could be a guard wearing his badge, or a visitor wearing one; both cases fit the rule. So neither (A) nor (B) must be true.
 :::
 
 ### Reading "Some" Without Adding Exceptions
@@ -128,7 +128,7 @@ Find what must also be true. Every book on the cart is labeled. Some books on th
 :::try
 Finish the last step: compare (A) and (C) against the two premises.
 :::answer
-The answer is **(C) Some labeled books are novels.** Choice (A) names novels off the cart, which the premises never mention. Premise $1$ labels the cart's novel, so some labeled book is a novel.
+The answer is **(C) Some labeled books are novels.** Choice (A) can fail: every novel could be on the cart, and the premises stay true. Premise $1$ labels the cart's novel, so some labeled book is a novel.
 :::
 
 ## Speed Tricks & Shortcuts

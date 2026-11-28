@@ -43,9 +43,7 @@ In $a+bi$, the imaginary part $b$ is only the real coefficient in front of $i$, 
 
 ### The Four-Step Cycle of Powers of i
 
-In exam questions, **evaluate** means find the final number answer. The powers of $i$ repeat every $4$ steps:
-
-$$i^1=i,\qquad i^2=-1,\qquad i^3=-i,\qquad i^4=1$$
+In exam questions, **evaluate** means find the final number answer. The powers of $i$ repeat every $4$ steps: $i^1=i$, $i^2=-1$, $i^3=-i$, and $i^4=1$.
 
 After $i^4$, the pattern starts over at $i$. For any larger positive whole-number exponent, divide the whole exponent by $4$ and use the remainder: remainder $1$ gives $i$, $2$ gives $-1$, $3$ gives $-i$, and $0$ gives $1$.
 
