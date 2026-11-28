@@ -81,7 +81,9 @@ For nonnegative real numbers, $\sqrt{a}\cdot\sqrt{b}=\sqrt{ab}$. That rule fails
 
 Find $\sqrt{-4}\cdot\sqrt{-9}$:
 
-$$\sqrt{-4}=2i,\qquad\sqrt{-9}=3i$$
+$$\sqrt{-4}=2i$$
+
+$$\sqrt{-9}=3i$$
 
 $$\sqrt{-4}\cdot\sqrt{-9}=(2i)(3i)$$
 
@@ -143,7 +145,11 @@ Simplify $\dfrac{\sqrt{-16}\cdot\sqrt{-9}}{\sqrt{-4}}$.
 
 1. Rewrite every negative square root using $i$.
 
-$$\sqrt{-16}=4i,\qquad\sqrt{-9}=3i,\qquad\sqrt{-4}=2i$$
+$$\sqrt{-16}=4i$$
+
+$$\sqrt{-9}=3i$$
+
+$$\sqrt{-4}=2i$$
 
 2. Multiply the numerator and replace $i^2$ with $-1$.
 
