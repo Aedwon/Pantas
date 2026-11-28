@@ -644,7 +644,10 @@ class _ReaderFallback extends ConsumerWidget {
                       child: SizedBox(
                         width: WebReaderMetrics.columnWidth(
                           box.maxWidth,
-                          fullWidth: ref.watch(readerFullWidthProvider),
+                          // With no saved choice the standard width, since the
+                          // lesson is not known yet.
+                          fullWidth:
+                              ref.watch(readerFullWidthProvider) ?? false,
                         ),
                         child: child,
                       ),
