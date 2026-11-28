@@ -113,7 +113,7 @@ void main() {
       await toLesson(tester);
       expect(find.text('Try Pantas'), findsOneWidget);
       expect(find.text('Skip'), findsOneWidget);
-      expect(find.text('MATHEMATICS · ARITHMETIC'), findsOneWidget);
+      expect(find.text('MATHEMATICS: ARITHMETIC'), findsOneWidget);
       expect(find.text('Core Concept'), findsOneWidget);
       expect(find.text('Divide by 125.'), findsOneWidget);
       expect(find.text('Never shown.'), findsNothing);
@@ -169,12 +169,12 @@ void main() {
         (tester) async {
       await pumpFirstRun(tester, progressJson: q1);
       expect(find.text('MATHEMATICS'), findsOneWidget);
-      expect(find.text('MATHEMATICS · ARITHMETIC'), findsNothing);
+      expect(find.text('MATHEMATICS: ARITHMETIC'), findsNothing);
     });
 
     testWidgets('the wide question eyebrow adds the topic', (tester) async {
       await pumpFirstRun(tester, width: 1440, progressJson: q1);
-      expect(find.text('MATHEMATICS · ARITHMETIC'), findsOneWidget);
+      expect(find.text('MATHEMATICS: ARITHMETIC'), findsOneWidget);
     });
 
     testWidgets('Check is off until a choice is picked', (tester) async {

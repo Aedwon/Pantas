@@ -203,7 +203,7 @@ void main() {
       await wide(tester, page());
       expect(find.text('left in Part 2'), findsOneWidget);
       expect(find.text('Part 1 is closed'), findsNothing);
-      expect(find.text('PART 3 · SCIENCE'), findsOneWidget);
+      expect(find.text('PART 3: SCIENCE'), findsOneWidget);
       expect(find.text('Opens when this part starts.'), findsOneWidget);
       final cut = find.ancestor(
         of: find.text('40'),
@@ -219,15 +219,15 @@ void main() {
         (tester) async {
       await wide(tester, page(started: true, strict: true));
       expect(find.text('Part 2 started'), findsOneWidget);
-      expect(find.text('Part 2 of 3 · Reasoning'), findsOneWidget);
+      expect(find.text('Part 2 of 3: Reasoning'), findsOneWidget);
       expect(find.text('left in Part 2'), findsNothing);
       // The other parts are a list, one done and one still to open.
-      expect(find.text('Part 1 · Mathematics'), findsOneWidget);
-      expect(find.text('Part 3 · Science'), findsOneWidget);
+      expect(find.text('Part 1: Mathematics'), findsOneWidget);
+      expect(find.text('Part 3: Science'), findsOneWidget);
       expect(find.text('Opens when this part starts.'), findsOneWidget);
       expect(find.text('Pause'), findsNothing);
       // The question has no eyebrow of its own.
-      expect(find.text('PART 2 · REASONING'), findsOneWidget);
+      expect(find.text('PART 2: REASONING'), findsOneWidget);
     });
 
     testWidgets('wide: a paper that is not by part is drawn as it was',
@@ -235,7 +235,7 @@ void main() {
       await wide(tester, page(byPart: false));
       expect(find.text('left in Part 2'), findsOneWidget);
       expect(find.text('Part 1 is closed'), findsOneWidget);
-      expect(find.text('PART 3 · SCIENCE'), findsOneWidget);
+      expect(find.text('PART 3: SCIENCE'), findsOneWidget);
       final cut = find.byWidgetPredicate(
         (widget) =>
             widget is ConstrainedBox && widget.constraints.maxHeight == 120,
@@ -252,8 +252,8 @@ void main() {
       addTearDown(tester.view.resetDevicePixelRatio);
       await tester.pumpAppWithProviders(page(), overrides: overrides);
       expect(find.text('27:14'), findsOneWidget);
-      expect(find.text('Part 2 · Reasoning'), findsOneWidget);
-      expect(find.text('PART 2 · REASONING'), findsNothing);
+      expect(find.text('Part 2: Reasoning'), findsOneWidget);
+      expect(find.text('PART 2: REASONING'), findsNothing);
       expect(find.byKey(const ValueKey('mock-pause')), findsOneWidget);
     });
 
@@ -269,7 +269,7 @@ void main() {
         overrides: overrides,
       );
       expect(find.text('Part 2 started'), findsOneWidget);
-      expect(find.text('Part 2 · Reasoning'), findsNothing);
+      expect(find.text('Part 2: Reasoning'), findsNothing);
     });
 
     testWidgets('phone: a paper that is not by part has no caption',
@@ -278,7 +278,7 @@ void main() {
         page(byPart: false),
         overrides: overrides,
       );
-      expect(find.text('Part 2 · Reasoning'), findsNothing);
+      expect(find.text('Part 2: Reasoning'), findsNothing);
       expect(find.text('Part 2 started'), findsNothing);
     });
   });

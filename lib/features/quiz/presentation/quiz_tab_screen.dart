@@ -623,7 +623,7 @@ class _QuizTabScreenState extends ConsumerState<QuizTabScreen>
                       .firstOrNull;
                   if (current == null) return const SizedBox.shrink();
                   return Text(
-                    'Reviews · Session ${current.$1 + 1} '
+                    'Reviews: Session ${current.$1 + 1} '
                     'of ${sizes.length}',
                     style: t.sub,
                   );

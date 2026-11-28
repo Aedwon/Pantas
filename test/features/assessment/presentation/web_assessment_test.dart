@@ -131,7 +131,7 @@ void main() {
           ),
         ),
       );
-      expect(find.text('Assessment · CSE'), findsOneWidget);
+      expect(find.text('Assessment: CSE'), findsOneWidget);
       expect(find.text('SCIENCE · BIOLOGY'), findsOneWidget);
       expect(find.text('8 of 30'), findsOneWidget);
       expect(
@@ -199,8 +199,8 @@ void main() {
         ),
       );
       expect(find.text("Where you're starting"), findsOneWidget);
-      expect(find.text('CSE · 30 questions'), findsOneWidget);
-      expect(find.text('BY SUBJECT · WEAKEST FIRST'), findsOneWidget);
+      expect(find.text('CSE, 30 questions'), findsOneWidget);
+      expect(find.text('BY SUBJECT, WEAKEST FIRST'), findsOneWidget);
       expect(find.text('45%'), findsOneWidget);
       expect(find.text('90%'), findsOneWidget);
       expect(find.text('in 24 minutes'), findsOneWidget);
@@ -217,7 +217,7 @@ void main() {
       expect(find.text('Chemistry'), findsOneWidget);
       expect(
         find.text(
-          'Science · lowest score in this check. It changes as you study.',
+          'Science, lowest score in this check. It changes as you study.',
         ),
         findsOneWidget,
       );
@@ -225,7 +225,7 @@ void main() {
       // The plan does not start with this topic, so no "Today" tag claims it.
       expect(find.text('Today'), findsNothing);
       expect(
-        tester.getTopLeft(find.text('BY SUBJECT · WEAKEST FIRST')).dx,
+        tester.getTopLeft(find.text('BY SUBJECT, WEAKEST FIRST')).dx,
         greaterThan(
           ring.center.dx,
         ),

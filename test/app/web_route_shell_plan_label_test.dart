@@ -39,13 +39,21 @@ void main() {
     await pumpShell(tester, () => Completer<bool>().future);
 
     expect(find.textContaining('Free'), findsNothing);
-    expect(find.text('PUP CET'), findsWidgets);
+    expect(find.textContaining('account'), findsNothing);
   });
 
-  testWidgets('a resolved plan is shown', (tester) async {
+  testWidgets('a resolved plan is shown without the exam', (tester) async {
     await pumpShell(tester, () async => true);
     await tester.pump();
 
-    expect(find.text('PUP CET · Pro'), findsOneWidget);
+    expect(find.text('Pro account'), findsOneWidget);
+    expect(find.textContaining('PUP CET'), findsNothing);
+  });
+
+  testWidgets('a Free plan is named Free account', (tester) async {
+    await pumpShell(tester, () async => false);
+    await tester.pump();
+
+    expect(find.text('Free account'), findsOneWidget);
   });
 }

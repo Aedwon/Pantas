@@ -73,14 +73,14 @@ final completedQuizProvider = FutureProvider.autoDispose
       if (lesson != null) {
         final count = session.questions.length;
         source =
-            '${lesson.title} · $count ${count == 1 ? 'question' : 'questions'}';
+            '${lesson.title}, $count ${count == 1 ? 'question' : 'questions'}';
       }
     case SessionOrigin.drill:
       final names = topicNames.values.toSet().join(', ');
       source = request.custom
           ? names.isEmpty
               ? 'Your quiz'
-              : 'Your quiz · $names'
+              : 'Your quiz: $names'
           : 'Quiz';
     case SessionOrigin.newQuestions:
       source = 'New questions';

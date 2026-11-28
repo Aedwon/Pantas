@@ -418,7 +418,7 @@ class _PausePageState extends State<PausePage> with TickerProviderStateMixin {
                               const SizedBox(width: PantasSpace.s12),
                               Expanded(
                                 child: Text(
-                                  'Part ${i + 1} · '
+                                  'Part ${i + 1}: '
                                   '$name',
                                   style: PantasType.webRowTitle.copyWith(
                                     fontWeight: i == currentPart

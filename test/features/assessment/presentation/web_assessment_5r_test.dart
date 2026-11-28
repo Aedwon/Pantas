@@ -95,7 +95,7 @@ void main() {
     testWidgets('5R-1: the title is centered on the page, dark=$dark',
         (tester) async {
       await pump(tester, dark: dark);
-      final title = tester.getRect(find.textContaining('Assessment ·'));
+      final title = tester.getRect(find.textContaining('Assessment:'));
       expect(title.center.dx, closeTo(720, .5));
       // The ends sit where the quiz puts them.
       expect(tester.getCenter(find.byTooltip('Leave assessment')).dx, 42);

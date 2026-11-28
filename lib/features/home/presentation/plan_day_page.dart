@@ -480,7 +480,7 @@ class PlanWeekPage extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             PlanPaneHeader(
-              label: '$title · Lessons by day',
+              label: '$title: Lessons by day',
               onClose: onBack,
             ),
             WebCard(

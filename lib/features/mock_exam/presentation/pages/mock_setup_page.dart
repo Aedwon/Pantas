@@ -115,7 +115,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                             ],
                             const SizedBox(height: PantasSpace.s4),
                             Text(
-                              '$plannedTotal total items · ${_duration(blueprint.durationMinutes)}',
+                              '$plannedTotal total items, ${_duration(blueprint.durationMinutes)}',
                               style: PantasType.phoneCallout.copyWith(
                                 color: colors.textSecondary,
                               ),
@@ -405,7 +405,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
             ],
             const SizedBox(height: PantasSpace.s6),
             Text(
-              '$total total items · ${_duration(blueprint.durationMinutes)}',
+              '$total total items, ${_duration(blueprint.durationMinutes)}',
               style:
                   PantasType.webLead.copyWith(color: t.colors.secondaryLabel),
             ),

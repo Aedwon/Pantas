@@ -122,7 +122,7 @@ void main() {
         unawaited(router.push('/quiz/session'));
         await tester.pumpAndSettle();
         controller = made;
-        expect(find.text('Reviews · Session 1 of 2'), findsOneWidget);
+        expect(find.text('Reviews: Session 1 of 2'), findsOneWidget);
       }
 
       testWidgets('shows the leave dialog and stays; Keep Going keeps it',
@@ -140,7 +140,7 @@ void main() {
         await tester.tap(find.text('Keep Going'));
         await tester.pumpAndSettle();
         expect(find.text('Leave this session?'), findsNothing);
-        expect(find.text('Reviews · Session 1 of 2'), findsOneWidget);
+        expect(find.text('Reviews: Session 1 of 2'), findsOneWidget);
         expect(find.text('Tab'), findsNothing);
       });
 

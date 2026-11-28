@@ -141,7 +141,7 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text('VERBAL · VOCABULARY'), findsOneWidget);
+    expect(find.text('VERBAL: VOCABULARY'), findsOneWidget);
     expect(find.text('VOCABULARY'), findsNothing);
   });
 

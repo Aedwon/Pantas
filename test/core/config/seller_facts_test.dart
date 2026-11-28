@@ -24,8 +24,8 @@ void mainBase() {
     final facts = sellerFactsFromEnvironment();
     expect(
       facts.line,
-      'Sold by [registered business name] · [full place of business] · '
-      '[business phone] · support@pantas.study',
+      'Sold by [registered business name], [full place of business], '
+      '[business phone], support@pantas.study',
     );
     expect(facts.missing, [
       'SELLER_TRADING_NAME',
@@ -37,11 +37,11 @@ void mainBase() {
   test('built-in facts fill the line with no bracket', () {
     expect(
       _ready.line,
-      'Sold by Pantas Review · '
-      '1 Rizal St, Quezon City · 0917 000 0000 · support@pantas.study',
+      'Sold by Pantas Review, '
+      '1 Rizal St, Quezon City, 0917 000 0000, support@pantas.study',
     );
     expect(_ready.missing, isEmpty);
-    expect(_ready.lineBeforeEmail.endsWith('· '), isTrue);
+    expect(_ready.lineBeforeEmail.endsWith(', '), isTrue);
   });
 
   test('a public release web build with a placeholder refuses to start', () {

@@ -534,11 +534,11 @@ class WebTendencyFinding extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '${a.leftLabel}${clear ? ' · ${a.leftFigure}' : ''}',
+                '${a.leftLabel}${clear ? ' (${a.leftFigure})' : ''}',
                 style: t.sm,
               ),
               Text(
-                '${a.rightLabel}${clear ? ' · ${a.rightFigure}' : ''}',
+                '${a.rightLabel}${clear ? ' (${a.rightFigure})' : ''}',
                 style: t.sm,
               ),
             ],

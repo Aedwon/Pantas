@@ -118,9 +118,9 @@ void main() {
 
   testWidgets('the control still opens the lesson list', (tester) async {
     await pumpReader(tester);
-    expect(find.text(' · $_lessonCount LESSONS'), findsNothing);
+    expect(find.text(', $_lessonCount LESSONS'), findsNothing);
     await tester.tap(find.text('3 of $_lessonCount'));
     await tester.pumpAndSettle();
-    expect(find.text(' · $_lessonCount LESSONS'), findsOneWidget);
+    expect(find.text(', $_lessonCount LESSONS'), findsOneWidget);
   });
 }

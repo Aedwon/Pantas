@@ -74,7 +74,7 @@ final _questionHeaderProvider = FutureProvider.autoDispose
   if (topic == null) return '';
   final subject = await content.subjectById(topic.subjectId);
   final name = examSubjectName(examId, topic.name, subject?.name);
-  return name == null ? topic.name : '$name · ${topic.name}';
+  return name == null ? topic.name : '$name: ${topic.name}';
 });
 
 final _completeAssessmentProvider = Provider<CompleteAssessment>(

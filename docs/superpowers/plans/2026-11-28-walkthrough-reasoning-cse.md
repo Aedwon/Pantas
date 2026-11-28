@@ -129,3 +129,22 @@ same way.
    (recommended). Without it, the Quick Check must test a case the lesson never worked, which tests something untaught
    (the Grammar "5a" problem).
 3. **R4 verbal logic tests**: include last (recommended), or cut it to save about 45 min and 2 Codex reads.
+
+## 7. Manager rulings (Nov 28, rule 4)
+
+1. Analogies stay as they are. 2. Same-kind practice with new values is allowed, as in Math. 3. R4 runs last, only if R1
+to R3 finish inside the estimate with nothing waiting on the manager. Added: a lesson that fails its batch's second read
+waits for the manager and never moves into another batch.
+
+## 8. Results (branch `content/walkthrough-reasoning-r1`, records in `docs/content/verification/walkthrough-work/reasoning-*` there)
+
+| Batch | Passed | Held at live version | Codex reads | Handed off |
+|---|---|---|---|---|
+| R1 series | 4 of 4 | none | 2 (2 Blockers, then 0) | 9d212c643, live |
+| R2 logic | 5 of 6 | combined-truth-values (2 Blockers on read 2; manager ruling A: keep live, no edits, no third read) | 2 (5, then 2) | 5f7d79c39, live |
+| R3 filing | 9 of 9 | none | 2 (1, then 0) | b47d313ea, live |
+| R4 verbal logic | 2 of 4 | needed-assumptions (3 Blockers), negating-assumptions (1 Blocker) on read 2; with the manager | 2 (5, then 5) | dbc5e7244 |
+
+Also: four held Math lessons returned with their pictures re-laid (no shifted tspans), live with R3; the LCM picture's
+dashed line breaks at its labels; the imaginary-unit powers are written inline (no `\qquad` read aloud). A live question
+defect found by R4 read 2 (assumptions-and-conclusions 0040) went to the release lead. Time: 2 h 20 min wall (E-216).

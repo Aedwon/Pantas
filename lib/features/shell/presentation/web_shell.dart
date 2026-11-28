@@ -47,8 +47,8 @@ class WebShellFrame extends StatelessWidget {
     required this.child,
     required this.activeIndex,
     required this.person,
-    required this.exam,
     required this.plan,
+    required this.onAccount,
     required this.onNavigate,
     required this.onSearch,
     this.web = kIsWeb,
@@ -57,8 +57,12 @@ class WebShellFrame extends StatelessWidget {
   final Widget child;
   final int activeIndex;
   final String person;
-  final String exam;
+
+  /// 'Free' or 'Pro'; empty while the plan is not known.
   final String plan;
+
+  /// Opens Settings with Account selected (the name row at the sidebar foot).
+  final VoidCallback onAccount;
   final ValueChanged<int> onNavigate;
   final VoidCallback onSearch;
   final bool web;
@@ -73,8 +77,8 @@ class WebShellFrame extends StatelessWidget {
     return _DesktopShell(
       activeIndex: activeIndex,
       person: person,
-      exam: exam,
       plan: plan,
+      onAccount: onAccount,
       onNavigate: onNavigate,
       onSearch: onSearch,
       wide: tier == WebLayoutTier.wide,
@@ -98,8 +102,8 @@ class _DesktopShell extends StatefulWidget {
     required this.child,
     required this.activeIndex,
     required this.person,
-    required this.exam,
     required this.plan,
+    required this.onAccount,
     required this.onNavigate,
     required this.onSearch,
     required this.wide,
@@ -107,8 +111,8 @@ class _DesktopShell extends StatefulWidget {
   final Widget child;
   final int activeIndex;
   final String person;
-  final String exam;
   final String plan;
+  final VoidCallback onAccount;
   final ValueChanged<int> onNavigate;
   final VoidCallback onSearch;
 
@@ -195,8 +199,8 @@ class _DesktopShellState extends State<_DesktopShell> {
                 child: WebSidebar(
                   activeIndex: widget.activeIndex,
                   person: widget.person,
-                  exam: widget.exam,
                   plan: widget.plan,
+                  onAccount: widget.onAccount,
                   onNavigate: widget.onNavigate,
                   onSearch: onSearch,
                   entryFocus: _sidebarEntry,
@@ -245,8 +249,8 @@ class WebSidebar extends StatefulWidget {
   const WebSidebar({
     required this.activeIndex,
     required this.person,
-    required this.exam,
     required this.plan,
+    required this.onAccount,
     required this.onNavigate,
     required this.onSearch,
     this.entryFocus,
@@ -254,8 +258,8 @@ class WebSidebar extends StatefulWidget {
   });
   final int activeIndex;
   final String person;
-  final String exam;
   final String plan;
+  final VoidCallback onAccount;
   final ValueChanged<int> onNavigate;
   final VoidCallback onSearch;
 
@@ -453,47 +457,124 @@ class _WebSidebarState extends State<WebSidebar> {
                 ],
               ),
               const Spacer(),
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: PantasSpace.s12,
-                  vertical: PantasSpace.s10,
-                ),
-                child: Row(
-                  children: [
-                    _SidebarAvatar(person: widget.person),
-                    const SizedBox(width: PantasSpace.s10),
-                    Expanded(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            widget.person,
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: PantasType.webLabel.copyWith(
-                              color: c.textPrimary,
-                              letterSpacing: 0,
-                            ),
-                          ),
-                          Text(
-                            widget.plan.isEmpty
-                                ? widget.exam
-                                : '${widget.exam} · ${widget.plan}',
-                            maxLines: 1,
-                            overflow: TextOverflow.ellipsis,
-                            style: PantasType.webCaption.copyWith(
-                              color: c.textSecondary,
-                              letterSpacing: 0,
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+              _SidebarAccount(
+                person: widget.person,
+                plan: widget.plan,
+                onPressed: widget.onAccount,
               ),
             ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+/// The account row (board "Sidebar Account Card", B): the avatar, the name and
+/// the plan, as one button that opens Settings, Account.
+///
+/// Pro sits on a card, like the selected nav item. Free is plain. While the
+/// plan is not known the row shows the name alone, since Free would be a guess.
+class _SidebarAccount extends StatelessWidget {
+  const _SidebarAccount({
+    required this.person,
+    required this.plan,
+    required this.onPressed,
+  });
+  final String person;
+
+  /// 'Free', 'Pro', or empty when unknown.
+  final String plan;
+  final VoidCallback onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final c = context.colors;
+    final still = MediaQuery.disableAnimationsOf(context);
+    final radius = BorderRadius.circular(PantasRadius.md);
+    final pro = plan == 'Pro';
+    final known = plan.isNotEmpty;
+    // The hover fill's own color at zero alpha, so a fade in or out never
+    // passes through another color.
+    final clear = c.textPrimary.withValues(alpha: 0);
+    final label = [
+      'Account',
+      if (person.trim().isNotEmpty) person.trim(),
+      if (known) '$plan account',
+    ].join(', ');
+    return OffsetFocusRing(
+      borderRadius: radius,
+      child: DecoratedBox(
+        key: const ValueKey('sidebar-account'),
+        decoration: BoxDecoration(
+          borderRadius: radius,
+          boxShadow: pro ? context.shadows.navActive : null,
+        ),
+        child: TextButton(
+          // ds-raw: sidebar account row per SidebarNav
+          onPressed: onPressed,
+          style: ButtonStyle(
+            animationDuration: still ? Duration.zero : PantasDurations.short2,
+            visualDensity: VisualDensity.standard,
+            minimumSize:
+                const WidgetStatePropertyAll(Size(0, PantasSize.avatar)),
+            tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+            padding: const WidgetStatePropertyAll(
+              EdgeInsets.symmetric(
+                horizontal: PantasSpace.s12,
+                vertical: PantasSpace.s10,
+              ),
+            ),
+            backgroundColor: WidgetStateProperty.resolveWith((s) {
+              final hovered = s.contains(WidgetState.hovered);
+              if (pro) return hovered ? c.surfaceHover : c.surfaceCard;
+              return hovered
+                  ? c.textPrimary.withValues(alpha: PantasOpacity.hover)
+                  : clear;
+            }),
+            shape: WidgetStatePropertyAll(
+              RoundedRectangleBorder(borderRadius: radius),
+            ),
+            overlayColor: const WidgetStatePropertyAll(Colors.transparent),
+            mouseCursor: const WidgetStatePropertyAll(SystemMouseCursors.click),
+          ),
+          // One label for the whole row, so a screen reader does not read the
+          // initial, the name and the plan as three items.
+          child: Semantics(
+            label: label,
+            excludeSemantics: true,
+            child: Row(
+              children: [
+                _SidebarAvatar(person: person),
+                const SizedBox(width: PantasSpace.s10),
+                Expanded(
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        person,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: PantasType.webLabel.copyWith(
+                          color: c.textPrimary,
+                          letterSpacing: 0,
+                        ),
+                      ),
+                      if (known)
+                        Text(
+                          '$plan account',
+                          maxLines: 1,
+                          style: PantasType.webCaption.copyWith(
+                            color: c.textSecondary,
+                            letterSpacing: 0,
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

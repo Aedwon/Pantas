@@ -27,7 +27,7 @@ class FirstRunData {
   /// Frames W03, W04 and W02 draw "MATHEMATICS · ARITHMETIC" for the topic
   /// "Arithmetic & Number Sense". The cut at "&" is exact for this one fixed
   /// lesson only; a topic with another shape would need its own wording.
-  String get eyebrow => '$subjectName · ${topicName.split(' & ').first}';
+  String get eyebrow => '$subjectName: ${topicName.split(' & ').first}';
 }
 
 /// How long the lesson stays open before it can count as read. Only tests

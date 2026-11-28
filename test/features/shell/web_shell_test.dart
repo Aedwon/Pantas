@@ -24,8 +24,8 @@ void main() {
             web: true,
             activeIndex: 0,
             person: 'Aedwon',
-            exam: 'CSE',
             plan: 'Free',
+            onAccount: () {},
             onNavigate: (i) => tab = i,
             onSearch: () => searches++,
             child: const Text('Route content'),
@@ -35,7 +35,7 @@ void main() {
       expect(find.text('Route content'), findsOneWidget);
       if (width >= 1024) {
         expect(find.text('Pantas'), findsOneWidget);
-        expect(find.text('CSE · Free'), findsOneWidget);
+        expect(find.text('Free account'), findsOneWidget);
         expect(
           tester.getSize(find.byType(WebSidebar)).width,
           inInclusiveRange(PantasLayout.sidebarMin, PantasLayout.sidebarMax),
@@ -73,8 +73,8 @@ void main() {
           web: true,
           activeIndex: 0,
           person: 'Aedwon',
-          exam: 'CSE',
           plan: 'Free',
+          onAccount: () {},
           onNavigate: (_) {},
           onSearch: () {},
           child: Navigator(
@@ -142,8 +142,8 @@ void main() {
           web: true,
           activeIndex: 0,
           person: 'Aedwon',
-          exam: 'CSE',
           plan: 'Free',
+          onAccount: () {},
           onNavigate: (_) {},
           onSearch: () {},
           child: Navigator(
@@ -208,8 +208,8 @@ void main() {
           web: true,
           activeIndex: 0,
           person: 'Aedwon',
-          exam: 'CSE',
           plan: 'Free',
+          onAccount: () {},
           onNavigate: (_) {},
           onSearch: () {},
           child: WebMyPage(
@@ -247,8 +247,8 @@ void main() {
           web: false,
           activeIndex: 1,
           person: 'Aedwon',
-          exam: 'CSE',
           plan: 'Pro',
+          onAccount: () {},
           onNavigate: (_) {},
           onSearch: () {},
           child: const Text('Native shell'),

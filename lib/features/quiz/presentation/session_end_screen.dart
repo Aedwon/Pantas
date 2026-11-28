@@ -160,7 +160,7 @@ class _SessionEndBodyState extends State<SessionEndBody>
     final batch = widget.session.reviewBatch;
     final source = batch == null
         ? widget.sourceLine
-        : 'Reviews · Session ${batch.ordinal} of ${batch.total}';
+        : 'Reviews: Session ${batch.ordinal} of ${batch.total}';
     final elapsed = attempt.completedAt?.difference(attempt.startedAt);
     final String? durationLine;
     if (elapsed == null || elapsed.isNegative) {

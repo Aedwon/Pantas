@@ -32,8 +32,8 @@ void main() {
             web: true,
             activeIndex: 0,
             person: 'Aedwon',
-            exam: 'CSE',
             plan: 'Free',
+            onAccount: () {},
             onNavigate: (index) => selected = index,
             onSearch: () {},
             child: const SizedBox(

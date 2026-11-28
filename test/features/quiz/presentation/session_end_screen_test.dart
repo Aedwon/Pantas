@@ -181,7 +181,7 @@ void main() {
   testWidgets('only real batch metadata can show a next ordinal',
       (tester) async {
     await pump(tester, batch: true);
-    expect(find.text('Reviews · Session 1 of 2'), findsOneWidget);
+    expect(find.text('Reviews: Session 1 of 2'), findsOneWidget);
     expect(find.text('Start Session 2'), findsOneWidget);
     await pump(tester);
     expect(find.textContaining('Session 1 of'), findsNothing);

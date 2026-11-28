@@ -16,7 +16,7 @@ String orbitalShapeTitle(String subshell) => '$subshell subshell';
 /// subshell, not to the single orbital drawn.
 @visibleForTesting
 String orbitalShapeCaption(String shape, int capacity) =>
-    '$shape • subshell max $capacity e-';
+    '$shape, subshell max $capacity e-';
 
 /// Original lesson diagrams for the ten chemistry briefs in original-code-a.
 class ChemistryDiagramFigure extends StatelessWidget {

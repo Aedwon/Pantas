@@ -17,13 +17,31 @@ class HeldFlow {
   final List<HeldFigure> figures;
 }
 
-/// Whether [block] is a figure the held layout may put in the margin: its
-/// type is on the registry's margin list (rule 6: wide art stays inline).
-bool _marginFigure(Map<String, Object?> block) =>
-    block['_type'] == 'figureSpec' &&
-    block['spec'] is Map<String, Object?> &&
-    FigureRegistry.isMargin(block['spec']! as Map<String, Object?>) &&
-    FigureRegistry.build(block['spec']! as Map<String, Object?>) != null;
+/// A picture wider than this, width over height, stays inline (rule 6).
+const double _widePicture = 1.8;
+
+/// The address of an `image` block: its asset's, else its own.
+String _imageUrl(Map<String, Object?> block) {
+  final asset = block['asset'];
+  final url = asset is Map<String, Object?> ? asset['url'] : block['url'];
+  return url is String ? url : '';
+}
+
+/// Whether [block] is a figure the held layout may put in the margin. A
+/// painter figure's type is on the registry's margin list; a picture is no
+/// wider than 1.8 to 1 by its own markup. Wide art stays inline (rule 6). A
+/// picture whose size cannot be read at once (not an SVG `data:` URL, damaged,
+/// or no size in the markup) stays inline as well, the safe fallback.
+bool _marginFigure(Map<String, Object?> block) {
+  if (block['_type'] == 'image') {
+    final ratio = lessonSvgRatio(_imageUrl(block));
+    return ratio != null && ratio <= _widePicture;
+  }
+  return block['_type'] == 'figureSpec' &&
+      block['spec'] is Map<String, Object?> &&
+      FigureRegistry.isMargin(block['spec']! as Map<String, Object?>) &&
+      FigureRegistry.build(block['spec']! as Map<String, Object?>) != null;
+}
 
 bool _isFigureBlock(Map<String, Object?> block) =>
     block['_type'] == 'figureSpec' || block['_type'] == 'image';
@@ -41,12 +59,7 @@ extension HeldFlowBuilder on ContentRenderer {
     Set<int> inline = const {},
   }) {
     final visible = blocks!.where((block) {
-      if (block['_type'] != 'image') return true;
-      final asset = block['asset'];
-      return (asset is Map<String, Object?>
-              ? string(asset['url'])
-              : string(block['url']))
-          .isNotEmpty;
+      return block['_type'] != 'image' || _imageUrl(block).isNotEmpty;
     }).toList();
     final prepared = _prepare(planReaderBlocks(visible));
     final items = prepared.items;
@@ -190,6 +203,15 @@ extension HeldFlowBuilder on ContentRenderer {
   }
 
   Widget _plateFor(BuildContext context, Map<String, Object?> block, int id) {
+    if (block['_type'] == 'image') {
+      return _ContentImage(
+        reader: true,
+        plate: true,
+        url: _imageUrl(block),
+        label: string(block['alt']),
+        credit: '',
+      );
+    }
     final spec = block['spec']! as Map<String, Object?>;
     return _FigureFrame(
       reader: true,
