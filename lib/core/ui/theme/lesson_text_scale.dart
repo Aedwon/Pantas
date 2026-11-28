@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/theme/app_text_scale.dart';
+import 'package:pantas/core/ui/theme/reader_full_width.dart';
 
 final lessonTextScaleProvider =
     StateNotifierProvider<LessonTextScaleController, double>((ref) {
@@ -61,7 +62,10 @@ class LessonTextScale extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final factor = ref.watch(lessonTextScaleProvider);
+    // In Immersion the reader's sizes grow by bodySize / 18 on top of the
+    // student's own choice.
+    final factor = ref.watch(lessonTextScaleProvider) *
+        (ReaderImmersion.maybeOf(context)?.scale ?? 1);
     final media = MediaQuery.of(context);
     return MediaQuery(
       data: media.copyWith(

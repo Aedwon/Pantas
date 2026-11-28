@@ -1,5 +1,7 @@
 # Lesson reader, full screen on wide web ("4 Held"): build spec
 
+**Superseded Nov 29, 2026.** Aedwon rejected the two-column layout on staging and picked Immersion: one centered column whose type grows with the window. Current rules: "Wide reader: Immersion replaces the two-column layout (Nov 29)" in `docs/design/DECISIONS.md`. This spec is kept as history only.
+
 Date: November 23, 2026. Owner of the design: UX design lead (operations manager brief, Aedwon away with decisions delegated). Owner of the build: CSE release lead. Status: council-approved (Gemini 4 Neon High and Claude Fable 5.2 high, four rounds). Ruling: `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md`, section "Nov 23, lesson reader full screen".
 
 ## Plain-language summary

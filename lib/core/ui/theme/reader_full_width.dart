@@ -1,23 +1,53 @@
 import 'dart:async';
+import 'dart:math' as math;
 
+import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/storage.dart';
 
-/// The lesson column on wide web is 680 px by default.
+/// The lesson column on wide web is 680 px with full width off.
 const double readerStandardWidth = 680;
 
-/// The widest the column grows when the student turns full width on.
+/// The reader's body text size with full width off, in px.
+const double readerBaseTextSize = 18;
+
+/// Immersion (full width on, 1024 px and up): the body text size for a window
+/// [width] wide. It grows with the window from 20 px to 25 px.
+double immersionBodySize(double width) => (width / 60).clamp(20.0, 25.0);
+
+/// Immersion: the one centered column, 33 times the body text size (about 72
+/// characters of Geist a line), and never wider than the window less 56 px on
+/// each side.
+double immersionColumnWidth(double width) =>
+    math.min(33 * immersionBodySize(width), width - 2 * 56);
+
+/// Tells the lesson below it that it is drawn in Immersion at [bodySize] px.
 ///
-/// About 97 characters a line at the default text size, inside the range the
-/// line-length studies tested. Aedwon chose 800 px from the preview.
-const double readerFullWidthMax = 800;
+/// The lesson text scale multiplies every reader type size by
+/// `bodySize / 18`, and a figure stops at 65% of the window height.
+class ReaderImmersion extends InheritedWidget {
+  const ReaderImmersion({
+    required this.bodySize,
+    required super.child,
+    super.key,
+  });
+
+  final double bodySize;
+
+  /// What the reader's type sizes are multiplied by.
+  double get scale => bodySize / readerBaseTextSize;
+
+  static ReaderImmersion? maybeOf(BuildContext context) =>
+      context.dependOnInheritedWidgetOfExactType<ReaderImmersion>();
+
+  @override
+  bool updateShouldNotify(ReaderImmersion oldWidget) =>
+      bodySize != oldWidget.bodySize;
+}
 
 /// The student's saved full width choice, remembered on this device the way
-/// the lesson text size is. Null means no choice is saved.
-///
-/// Aedwon picked B, Nov 28: with no saved choice the reader decides per
-/// lesson. On for a lesson with figures or pictures, off for a text-only
-/// lesson. A saved choice wins for every lesson.
+/// the lesson text size is. Null means no choice is saved, and full width is
+/// on (Aedwon, Nov 29: on for every lesson). A saved choice wins.
 final readerFullWidthProvider =
     StateNotifierProvider<ReaderFullWidthController, bool?>((ref) {
   return ReaderFullWidthController(

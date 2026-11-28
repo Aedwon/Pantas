@@ -21,8 +21,8 @@ void main() {
     addTearDown(() => container.dispose());
   });
 
-  // Aedwon's pick B, Nov 28: with no saved choice the controller holds none,
-  // and each lesson picks its own default.
+  // With no saved choice the controller holds none, and the reader's default
+  // is on for every lesson (Aedwon, Nov 29).
   test('holds no choice without a saved one', () async {
     expect(container.read(readerFullWidthProvider), isNull);
     await Future<void>.delayed(Duration.zero);
@@ -42,9 +42,23 @@ void main() {
     await _waitFor(container, false);
   });
 
-  test('the column is 680 px, or at most 800 px at full width', () {
+  test('the column is 680 px off, and 33 times the body size on', () {
     expect(readerStandardWidth, 680);
-    expect(readerFullWidthMax, 800);
+    expect(readerBaseTextSize, 18);
+    // Body size is the window width over 60, from 20 px to 25 px.
+    expect(immersionBodySize(1024), 20);
+    expect(immersionBodySize(1280), closeTo(21.33, .01));
+    expect(immersionBodySize(1440), 24);
+    expect(immersionBodySize(1500), 25);
+    expect(immersionBodySize(3000), 25);
+    expect(immersionColumnWidth(1024), 660);
+    expect(immersionColumnWidth(1280), closeTo(704, .01));
+    expect(immersionColumnWidth(1440), 792);
+    expect(immersionColumnWidth(1728), 825);
+  });
+
+  test('the column is never wider than the window less 112 px', () {
+    expect(immersionColumnWidth(700), 588);
   });
 
   test('remembers the choice on this device and reloads it', () async {

@@ -538,8 +538,10 @@ void main() {
         isBookmarked: false,
         examId: 'e',
       );
-      // Aedwon's pick B, Nov 28: with no saved choice a text-only lesson is
-      // the standard column, which this test checks.
+      // Full width is on by default (Nov 29), so a saved off gives the
+      // standard column, which this test checks.
+      await AppPreferencesRepository(db)
+          .setDeviceValue('reader_full_width', '0');
       await pump(
         tester,
         WebReaderLayout(
