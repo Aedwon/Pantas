@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Wide lesson reader forced two columns instead of using the screen (Nov 28)
+
+- His words (about 10:15 PM Manila Nov 28, staging, MacBook Air 13, full width, dark, the motion lesson, toggle on): "this is poorly executed i think. we forced two columns instead of the actual concept of widening screen use. we have to rethink this from the ground up for optimal UX".
+- Wrong: on his laptop the page is a 640 px text column, a small figure plate floating beside a later worked example instead of the paragraph it explains, and a large empty area on the right. Most of the lesson has no figure, so the figure column is empty most of the time.
+- Why it got through: the Nov 23 design was council-approved while he was away and judged by rules that each held (measure kept, figure level with an anchor, no overlap) on a figure-rich sample at 1440. No board drew a figure-light lesson, a long passage that holds a plate past its paragraph, or his own window width, and nobody asked how much of the screen sits empty at a typical scroll position.
+- Fix (required step, every wide layout board and review): draw real lessons, including the figure-light and longest-example cases, at the widths he uses (1280, 1440 and his 1470 laptop or 1728), and state for each frame what share of the window carries content and whether every figure sits beside the words it explains. No check can judge whether a page feels like it uses the screen; he does the visual check.
+
 ### The manager kept raising outside work and re-asking answered questions (Nov 28)
 
 - His words (about 9:30 PM Manila Nov 28): "don't think about it. can you stop please. you're ruining everything", then "stop worrying about that damn NPC. let me handle outside work. you just do what i tell you to do. this is extremely annoying". Earlier the same day: "keep it open, how many times do I have to repeat this".
