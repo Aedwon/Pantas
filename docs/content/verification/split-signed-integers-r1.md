@@ -41,5 +41,10 @@ the (-a)^2 reading nonstandard.
   replacement, 8 retired prerequisite links and the Signed Operations quiz pool).
 - `import_questions` on mathematics: exit 0. New question text equals 07cf0289e byte for byte.
 - Export: exit 0, no warning naming the retired lesson. Content gate on the packaged documents: pass.
+- Nov 28, 2:36 PM Manila (lead r11): main's export (ddd70a307) refused the branch: gap tags
+  q-algebra-algebraic-expressions-0009, 0010 and 0015 point to Substituting Negative Numbers, but Simplifying and
+  Evaluating Expressions linked only to Signed Integer Operations. Added a helpful link to Substituting Negative
+  Numbers (a846baa9e). Main's export: exit 0, 1,150 links and 204 tags; upload tool local run (`--out-dir`, content
+  gate included): exit 0.
 - Not yet uploaded: it goes up after the 4 PM combined upload, as its own run under the usage check, with a picture
   check of the 3 new pictures (light and dark, placement) on staging before prod.
