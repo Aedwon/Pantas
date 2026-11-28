@@ -1,4 +1,6 @@
-Family F1: Export and upload (Phase 2 plan section 6 F1; map sections 2 and 8; rulings L1, L2, L7, L8; plan section 4 ruling D-P1). Findings file: FINDINGS-export.md.
+Family F1: Export and upload (Phase 2 plan section 6 F1; map sections 2 and 8; rulings L1, L2, L7, L8; plan section 1b rulings R1 to R3; plan section 4 ruling D-P1). Findings file: FINDINGS-Export.md (it exists).
+
+RESUME, do not restart (plan ruling R1). This worktree holds the paused Nov 21 run (commit 41f776f6c) merged with today's base. Read FINDINGS-Export.md first; keep what it built where it still meets the items below, and fix what the merge with today's main broke. The type-only set per lesson with a `problemTypes` array is the ruled shape (R2). Item 2 (D-P1 exam tags and the PSHS-NCE mock flag) is new since Nov 21. Delete the stray untracked `.pantas-export-emulator.json` only if your tests no longer need it; never commit it.
 
 Own: tools/build_content_export/, tools/upload_content/, functions/src/contentUpload.ts, and their tests. Read but do not edit lib/ (family F2 owns it). Do not edit tools/build_content_seed/ or tools/build_content_package/ in this run: the native seed side needs F2's content Drift tables, so write down in your findings exactly what the seed writer and package builder will need from the logical record (the seam), and stop there.
 

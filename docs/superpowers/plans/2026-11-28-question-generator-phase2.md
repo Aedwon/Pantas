@@ -33,6 +33,31 @@ plan's Phase 2 section where they differ. Part A of the spec is unchanged.
   at a time; Codex runs only through `codex-pick`, one run at a time across all lanes, account b only.
   On Nov 28 account b showed 48% weekly used, reset Dec 4.
 
+## 1b. Work already done at the Nov 21 pause (found Nov 28)
+
+The resume handoff said Phase 2 was not started. That was wrong: on Nov 21 three wave 1 Codex runs
+started in parallel and were paused mid-run, each with a work-in-progress commit:
+`gen/qg-p2-export` 41f776f6c (F1, 12 files), `gen/qg-p2-resolve` e898a3f6d (F2, 13 files),
+`gen/qg-p2-answers` 69f1a8a58 (F3, 25 files). None is reviewed. All sit on the Nov 21 base.
+
+Lead rulings (Nov 28):
+
+- R1. Resume, do not restart. Each family branch first merges `gen/question-generator-app-r1`
+  (today's main plus Phase 1), then its builder continues from its findings file. Families still run
+  one at a time, F1 then F2 then F3, each with its review.
+- R2. Web type delivery (amends L1). Old web clients read every entry of a question set's
+  `questions` list, so a type row there would show as a blank question (F2 finding). Types go in a
+  separate type-only question set per lesson, in a `problemTypes` array, never in `questions`
+  (F1's built shape). The catalog overlay uses the same key. F2 reads `problemTypes`, not `types`.
+- R3. Native content storage. Only the PWA is released (launch log: "the app will launch as a
+  PWA"); no native client is installed by students. Content Drift 11 to 12 is allowed. The protected
+  package installer, which requires an exact schema match, moves to 12 in the same change, and the
+  package builder ships the matching database. F1 records the seed seam; F2 builds it.
+- R4. Data-only route wiring. Passing a pinned `variantIndex` through a presentation file (for
+  example the native Mock route) is not a screen change when it alters no widget, layout, styling or
+  copy. A Claude worker makes it, and the review confirms no visual change. Any other edit to a
+  screen file still stops the worker.
+
 ## 2. Global constraints (binding on every family)
 
 - No UI change. Figure-choice tiles already exist on main (150afa3ce); this build only fills their
