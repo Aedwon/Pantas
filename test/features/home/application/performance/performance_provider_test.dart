@@ -229,7 +229,7 @@ void main() {
     final table = await read(TableLevel.subject);
     expect(
       table.rows.map((r) => r.title),
-      ['Analytical Ability', 'Numerical Ability'],
+      ['Analytical Ability (35%)', 'Numerical Ability (30%)'],
     );
     final analytical = table.rows.first;
     expect(

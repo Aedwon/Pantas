@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
@@ -210,6 +211,7 @@ class MockResultsPage extends StatelessWidget {
                         for (var i = 0; i < results.sections.length; i++)
                           _Breakdown(
                             section: results.sections[i],
+                            examId: examId,
                             animatedAccuracy: time == null
                                 ? null
                                 : results.sections[i].accuracy *
@@ -506,6 +508,7 @@ class MockResultsPage extends StatelessWidget {
                                                 i++)
                                               _Breakdown(
                                                 section: results.sections[i],
+                                                examId: examId,
                                                 animatedAccuracy:
                                                     barAccuracy(i),
                                                 divider: i <
@@ -778,15 +781,17 @@ class MockResultsPage extends StatelessWidget {
 class _Breakdown extends StatelessWidget {
   const _Breakdown({
     required this.section,
+    required this.examId,
     required this.divider,
     this.animatedAccuracy,
   });
   final SectionResult section;
+  final String? examId;
   final double? animatedAccuracy;
   final bool divider;
   @override
   Widget build(BuildContext context) => ScoreBreakdownRow(
-        name: section.name,
+        name: csePartLabel(examId, section.name),
         correct: section.correct,
         total: section.total,
         divider: divider,

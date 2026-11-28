@@ -248,7 +248,11 @@ final performanceProvider =
     case TableLevel.subject:
       for (final s in displayGroups) {
         if (query.subjectId != null && s.id != query.subjectId) continue;
-        buckets[s.id] = _Bucket(id: s.id, title: s.name, parent: null);
+        buckets[s.id] = _Bucket(
+          id: s.id,
+          title: csePartLabel(examId, s.name),
+          parent: null,
+        );
       }
     case TableLevel.topic:
       for (final t in topicRows) {
