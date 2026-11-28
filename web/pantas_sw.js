@@ -311,10 +311,30 @@ function buildIdOf(other) {
   });
 }
 
+// True when the worker is today's legacy worker (the one that shipped before build folders).
+// The signal is its cache name: that worker names its cache from its own ?v= address
+// (CACHE_PREFIX + version), and a stamped worker never makes such a cache. Its lack of a
+// build-id reply is not the signal: a stamped worker that answers slowly looks the same.
+async function isLegacyWorker(other) {
+  try {
+    const version = new URL(other.scriptURL).searchParams.get('v') || 'dev';
+    return await caches.has(CACHE_PREFIX + version);
+  } catch (_) {
+    return false;
+  }
+}
+
+// True when another worker of the registration is this build. A stamped worker that gives no
+// reply in time is unknown, not different: the install fails and the browser tries again. Only
+// the legacy worker, which never answers, counts as a different build.
 async function sameBuildInCharge() {
   const registration = self.registration;
   for (const other of [registration.active, registration.waiting]) {
-    if (other && (await buildIdOf(other)) === BUILD.id) return true;
+    if (!other) continue;
+    if (other === registration.active && (await isLegacyWorker(other))) continue;
+    const id = await buildIdOf(other);
+    if (id === null) throw new Error('a worker of this site did not report its build: the install will be tried again');
+    if (id === BUILD.id) return true;
   }
   return false;
 }
@@ -421,30 +441,52 @@ async function installBuild() {
   // in charge and leaves no waiting worker to replace it at the next reload. A different build
   // (an update, or a rollback) goes on. Nothing is deleted here.
   if (await sameBuildInCharge()) throw new Error('this build is already installed: ' + BUILD.id);
+  // The cache is written, and the takeover mark with it, under the lock (a sweep may be deleting).
+  let mark = false;
+  const fillAndMark = async () => {
+    await fillCache();
+    mark = (await mayTakeOverAtInstall()) && (await markTakeover());
+  };
   if (hasLocks()) {
-    // Never write or reuse a cache without the lock: a sweep may be deleting it. A lock that is
-    // not granted in time fails the install, and the browser tries again at its next update check.
-    const locked = await withLock(fillCache);
+    // Never write or reuse a cache without the lock. A lock that is not granted in time fails the
+    // install, and the browser tries again at its next update check.
+    const locked = await withLock(fillAndMark);
     if (!locked.held) throw new Error('the cache lock was not available: the install will be tried again');
   } else {
-    await fillCache();
+    await fillAndMark();
   }
-  // With no other build installed (first visit, or the worker that shipped before build
-  // folders) nothing can be mixed, so take over at once. Otherwise wait: the browser
-  // activates this worker when no Pantas tab is open.
+  if (mark) await self.skipWaiting();
+}
+
+// Take over at once only when nothing can be mixed: no other build cache exists, and the worker
+// in charge is either absent (first visit) or the legacy worker that shipped before build
+// folders. Otherwise wait: the browser activates this worker when no Pantas tab is open. A
+// missing cache of a stamped worker in charge is no reason to take over.
+async function mayTakeOverAtInstall() {
   const others = (await caches.keys()).filter((name) => name.startsWith(BUILD_PREFIX) && name !== CACHE);
-  if (!others.length) await takeOver();
+  if (others.length) return false;
+  const active = self.registration.active;
+  return !active || (await isLegacyWorker(active));
 }
 
 async function clearTakeoverMark() {
   if (await caches.has(CACHE)) await (await caches.open(CACHE)).delete(SCOPE + TAKEOVER);
 }
 
-// Marks this build's cache, then skips waiting. The mark comes first so the activation that
-// follows, possibly in a fresh worker scope, knows it followed a takeover and sweeps nothing.
-async function takeOver() {
+// Marks this build's cache. The mark comes before skipWaiting so the activation that follows,
+// possibly in a fresh worker scope, knows it followed a takeover and sweeps nothing. The caller
+// holds the lock (or the browser has no Web Locks).
+async function markTakeover() {
   if (!(await caches.has(CACHE))) return false;
   await (await caches.open(CACHE)).put(SCOPE + TAKEOVER, new Response('1'));
+  return true;
+}
+
+// Update Required: marks under the lock, then skips waiting. When the lock is not had in time
+// nothing is written and the worker does not take over; the page can ask again.
+async function takeOver() {
+  const marked = hasLocks() ? !!(await withLock(markTakeover)).value : await markTakeover();
+  if (!marked) return false;
   await self.skipWaiting();
   return true;
 }
@@ -477,28 +519,11 @@ async function sweep() {
       const ours = name.startsWith(BUILD_PREFIX) || name.startsWith(CACHE_PREFIX) || name === NOTES_CACHE;
       if (!ours || name === CACHE) continue;
       // Read again before every delete: a worker may have started to install since the last one.
-      // Its build's cache is never deleted, and a worker that cannot say which build it is stops
-      // the sweep.
-      const reported = await reportedBuilds();
-      if (reported === null) return;
-      if (reported.some((id) => name.startsWith(BUILD_PREFIX + id + '-'))) continue;
+      // If one has, whatever build it is, the sweep stops and deletes nothing more.
+      if (registrationBusy()) return;
       await caches.delete(name);
     }
   });
-}
-
-// The build ids of the registration's installing and waiting workers, or null when one of them
-// does not report its build.
-async function reportedBuilds() {
-  const registration = self.registration;
-  const ids = [];
-  for (const other of [registration.installing, registration.waiting]) {
-    if (!other) continue;
-    const id = await buildIdOf(other);
-    if (id === null) return null;
-    ids.push(id);
-  }
-  return ids;
 }
 
 // A natural activation (the browser had no tab for an older worker to serve) sweeps. An

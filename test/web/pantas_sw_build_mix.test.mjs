@@ -202,6 +202,8 @@ function worker(w, source, version) {
   };
   const handle = {
     version,
+    // What a ServiceWorker object reports: the address it was registered under.
+    scriptURL: ORIGIN + `pantas_sw.js?v=${version}`,
     handlers,
     install: () => lifecycle('install'),
     activate: () => lifecycle('activate'),
@@ -1228,10 +1230,12 @@ test('audit 3 item 2: C waiting, D installing, C takes over: C keeps its cache a
   const d = worker(w, workerOf(build('D')), 'D');
   const installing = d.install();
   await hold.hit;
-  // C's page asks C to take over while D is still installing. C accepts; its activate event has not run yet.
-  assert.deepEqual(await c.message({type: 'pantas-take-over'}), {ok: true});
+  // C's page asks C to take over while D is still installing and holds the lock: C cannot write its
+  // mark under the lock in time, so it does not take over (rev2 audit 1 Medium 3). The page asks again.
+  assert.deepEqual(await c.message({type: 'pantas-take-over'}), {ok: false});
   hold.release();
-  await installing; // D's install ends and prunes
+  await installing; // D's install ends
+  assert.deepEqual(await c.message({type: 'pantas-take-over'}), {ok: true}); // C accepts; its activate event has not run yet
   await takeOver(w, c); // C's activate event runs
   assert.ok(w.stores.has(cacheOf('C')), 'D\'s install deleted the cache of the worker taking over');
   const online = await get(w, '', {navigate: true});
@@ -1340,6 +1344,137 @@ test('audit 3 item 8: two builds with different SDK folders: the older page gets
   assert.equal((await get(w, 'firebase_sdk/12.17.0/firebase-app.js')).id, 'none', 'the shared version is served');
   // An SDK file no build holds is the secured 503, never invented.
   assert.equal((await w.controller.fetch('firebase_sdk/12.15.0/firebase-app.js')).status, 503);
+});
+
+// ---- Revision 2, audit 1 Mediums 1 to 4 ----
+
+// Medium 1. A worker that starts to install while a sweep runs stops it: nothing more is deleted,
+// whatever build the installing worker is.
+async function sweepWithInstallAppearing({afterDeletes}) {
+  const {w, c} = await waitingC();
+  w.waiting = null;
+  await (await w.caches.open('pantas-shell-A')).put(ORIGIN, new Response('legacy'));
+  const deleted = [];
+  const remove = w.caches.delete;
+  w.caches.delete = async (name) => {
+    deleted.push(name);
+    const result = await remove(name);
+    if (deleted.length === afterDeletes) w.installing = worker(w, workerOf(build('D')), 'D');
+    return result;
+  };
+  deploy(w, 'D');
+  if (afterDeletes === 0) {
+    // The sweep has the lock and is reading the names when D starts to install.
+    const keys = w.caches.keys;
+    w.caches.keys = async () => {
+      w.installing = worker(w, workerOf(build('D')), 'D');
+      return keys();
+    };
+  }
+  await c.activate();
+  return {w, deleted};
+}
+
+test('rev2 audit 1 Medium 1: D installing before the first delete: the sweep deletes nothing', async () => {
+  const {w, deleted} = await sweepWithInstallAppearing({afterDeletes: 0});
+  assert.deepEqual(deleted, []);
+  assert.ok(w.stores.has('pantas-shell-A') && w.stores.has(cacheOf('B')));
+});
+
+test('rev2 audit 1 Medium 1: D starts to install after the first delete: the sweep stops, whoever D is', async () => {
+  const {w, deleted} = await sweepWithInstallAppearing({afterDeletes: 1});
+  assert.equal(deleted.length, 1, `deleted ${JSON.stringify(deleted)}`);
+  assert.ok(w.stores.has(cacheOf('C')), 'its own cache stays');
+});
+
+// Medium 2. A stamped worker whose cache is missing is not the legacy worker: the next install waits.
+test('rev2 audit 1 Medium 2: stamped B active with its cache gone, C installs: no skipWaiting, C waits', async () => {
+  const w = world();
+  deploy(w, 'B');
+  await takeOver(w, await install(w, 'B'));
+  w.stores.delete(cacheOf('B'));
+  deploy(w, 'C');
+  const c = await install(w, 'C');
+  assert.equal(skips(w, 'C').length, 0, 'C does not skip waiting');
+  assert.equal(w.waiting, c);
+  assert.equal(w.stores.get(cacheOf('C')).has(ORIGIN + 'pantas-build-takeover'), false, 'no takeover mark either');
+});
+
+test('rev2 audit 1 Medium 2: today\'s legacy worker is still taken over from at once', async () => {
+  const w = await deployedBUnderA({prod: true});
+  const b = await install(w, 'B');
+  assert.equal(skips(w, 'B').length, 1);
+  assert.equal(w.waiting, b);
+});
+
+// Medium 3. The takeover mark is written under the Web Lock, or not at all.
+function recordMarkWrites(w) {
+  const writes = [];
+  const open = w.caches.open;
+  w.caches.open = async (name) => {
+    const cache = await open(name);
+    return {
+      ...cache,
+      put: async (request, response) => {
+        const path = keyOf(request).replace(ORIGIN, '');
+        if (path === 'pantas-build-takeover') writes.push({path, held: w.locks.isHeld()});
+        return cache.put(request, response);
+      },
+    };
+  };
+  return writes;
+}
+
+test('rev2 audit 1 Medium 3: an install writes the takeover mark only while it holds the lock', async () => {
+  const w = world();
+  const writes = recordMarkWrites(w);
+  deploy(w, 'A');
+  await install(w, 'A');
+  assert.deepEqual(writes, [{path: 'pantas-build-takeover', held: true}]);
+  assert.equal(skips(w, 'A').length, 1);
+});
+
+test('rev2 audit 1 Medium 3: Update Required writes the mark under the lock, and not at all when the lock is not had', async () => {
+  const {w, c} = await waitingC();
+  const writes = recordMarkWrites(w);
+  // Someone else holds the lock for longer than the install's wait.
+  let release;
+  const hold = new Promise((resolve) => (release = resolve));
+  const holder = w.locks.request('pantas-cache-lock', {}, () => hold);
+  await new Promise((done) => setImmediate(done));
+  assert.deepEqual(await c.message({type: 'pantas-take-over'}), {ok: false});
+  assert.deepEqual(writes, [], 'no mark was written without the lock');
+  assert.equal(skips(w, 'C').length, 0, 'and C did not take over');
+  release();
+  await holder;
+  assert.deepEqual(await c.message({type: 'pantas-take-over'}), {ok: true});
+  assert.deepEqual(writes, [{path: 'pantas-build-takeover', held: true}]);
+  assert.equal(skips(w, 'C').length, 1);
+});
+
+// Medium 4. A reply that does not come is unknown, not a different build.
+test('rev2 audit 1 Medium 4: the build in charge answers slowly: a duplicate of it does not install', async () => {
+  const w = world();
+  deploy(w, 'B');
+  const b = await install(w, 'B');
+  await takeOver(w, b);
+  await pageLoad(w);
+  b.postMessage = () => {}; // the reply never comes in time
+  const duplicate = worker(w, workerOf(build('B')), 'same-B-different-url');
+  await assert.rejects(duplicate.install(), /did not report/);
+  assert.equal(w.waiting, null, 'no duplicate waits');
+  assert.equal(skips(w, 'same-B-different-url').length, 0);
+});
+
+test('rev2 audit 1 Medium 4: the waiting worker answers slowly: the install fails too, and a legacy active worker still counts as different', async () => {
+  const {w, c} = await waitingC();
+  c.postMessage = () => {};
+  const duplicate = worker(w, workerOf(build('C')), 'other-address');
+  await assert.rejects(duplicate.install(), /did not report/);
+  assert.equal(w.waiting, c);
+  const legacy = await deployedBUnderA({prod: true});
+  const next = await install(legacy, 'B');
+  assert.equal(legacy.waiting, next, 'today\'s worker never answers, and B installs');
 });
 
 test('audit 3 item 3: with A\'s cache gone, a root part is still never another build\'s bytes', async () => {
