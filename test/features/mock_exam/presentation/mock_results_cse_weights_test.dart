@@ -95,6 +95,22 @@ void main() {
     });
   }
 
+  // Manager ruling, Nov 28: the weighted percent sits beside a raw count, so
+  // CSE Professional labels it "Weighted score"; other exams are unchanged.
+  for (final web in [false, true]) {
+    testWidgets('the CSE Professional score is labeled as weighted, web=$web',
+        (tester) async {
+      await showResults(tester, 'exam_cse_pro', _parts, web: web);
+      expect(
+        find.text('Weighted score, 16 of 20 correct answers'),
+        findsOneWidget,
+      );
+      await showResults(tester, 'exam_cse_sub', _parts, web: web);
+      expect(find.text('16 of 20 correct answers'), findsOneWidget);
+      expect(find.textContaining('Weighted'), findsNothing);
+    });
+  }
+
   for (final web in [false, true]) {
     testWidgets(
         'mock setup lists the parts with weights for CSE Professional '

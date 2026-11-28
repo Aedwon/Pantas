@@ -81,9 +81,15 @@ class MockResultsPage extends StatelessWidget {
     final deductionLabel = deduction == deduction.roundToDouble()
         ? deduction.toStringAsFixed(0)
         : deduction.toStringAsFixed(2).replaceFirst(RegExp(r'0$'), '');
+    final counts =
+        '${results.scoreRaw} of ${results.scoreTotal} correct answers';
+    // The CSE Professional percent is weighted by part, so it can differ from
+    // the raw count beside it; the caption says so (manager ruling, Nov 28).
     final caption = examId == 'exam_upcat'
         ? '${results.scoreRaw} correct, minus $deductionLabel wrong'
-        : '${results.scoreRaw} of ${results.scoreTotal} correct answers';
+        : cseWeightsApply(examId)
+            ? 'Weighted score, $counts'
+            : counts;
     if (context.wideWeb) return _wide(context, caption);
     final body = Scaffold(
       backgroundColor: context.colors.background,
