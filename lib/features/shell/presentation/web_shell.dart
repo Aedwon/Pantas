@@ -479,7 +479,7 @@ class _WebSidebarState extends State<WebSidebar> {
                           Text(
                             widget.plan.isEmpty
                                 ? widget.exam
-                                : '${widget.exam} · ${widget.plan}',
+                                : '${widget.exam}, ${widget.plan}',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: PantasType.webCaption.copyWith(

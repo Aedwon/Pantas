@@ -1057,9 +1057,9 @@ void main() {
           if (wide) {
             expect(find.text('left in Part 2'), findsOneWidget);
             // The panel and the question both name the part.
-            expect(find.text('PART 2 · REASONING'), findsNWidgets(2));
+            expect(find.text('PART 2: REASONING'), findsNWidgets(2));
             expect(find.text('0 of 2'), findsOneWidget);
-            expect(find.text('PART 3 · SCIENCE'), findsOneWidget);
+            expect(find.text('PART 3: SCIENCE'), findsOneWidget);
             expect(find.text('Opens when this part starts.'), findsOneWidget);
             // A closed part is not shown.
             expect(find.textContaining('PART 1'), findsNothing);
@@ -1067,12 +1067,12 @@ void main() {
             expect(find.text('WHOLE PAPER'), findsNothing);
           } else {
             // The part is under the clock, not above the question.
-            expect(find.text('Part 2 · Reasoning'), findsOneWidget);
-            expect(find.text('PART 2 · REASONING'), findsNothing);
+            expect(find.text('Part 2: Reasoning'), findsOneWidget);
+            expect(find.text('PART 2: REASONING'), findsNothing);
             await tester.tap(find.byKey(const ValueKey('mock-grid')));
             await advance(tester, 500);
             expect(find.text('Part 1 is closed'), findsOneWidget);
-            expect(find.text('PART 3 · SCIENCE'), findsOneWidget);
+            expect(find.text('PART 3: SCIENCE'), findsOneWidget);
             expect(find.text('Opens when this part starts.'), findsOneWidget);
           }
           expect(server.calls.map((c) => c.$1), ['startMock']);
@@ -1121,14 +1121,14 @@ void main() {
 
           expect(find.byType(PartTransitionPage), findsOneWidget);
           expect(find.text('Time is up.'), findsOneWidget);
-          expect(find.text('Part 1 · Mathematics'), findsWidgets);
+          expect(find.text('Part 1: Mathematics'), findsWidgets);
           expect(
-            find.text(wide ? 'Part 3 · Science' : 'Science'),
+            find.text(wide ? 'Part 3: Science' : 'Science'),
             findsOneWidget,
           );
           expect(find.text('Start Part 2'), findsOneWidget);
           if (wide) {
-            expect(find.text('1 answered · 1 blank'), findsOneWidget);
+            expect(find.text('1 answered, 1 blank'), findsOneWidget);
             expect(
               find.text('The clock starts when you click.'),
               findsOneWidget,
@@ -1202,7 +1202,7 @@ void main() {
           expect(find.text('Start Part 2'), findsOneWidget);
           if (wide) {
             expect(find.text('PUP CET simulation'), findsOneWidget);
-            expect(find.text('Part 1 of 3 · Mathematics'), findsOneWidget);
+            expect(find.text('Part 1 of 3: Mathematics'), findsOneWidget);
           }
         });
 
@@ -1231,15 +1231,15 @@ void main() {
           expect(find.text('Part 2 started'), findsOneWidget);
           expect(find.text('Question q3?'), findsOneWidget);
           if (wide) {
-            expect(find.text('Part 2 of 3 · Reasoning'), findsOneWidget);
+            expect(find.text('Part 2 of 3: Reasoning'), findsOneWidget);
             // The other parts, done or still to open, as a list.
-            expect(find.text('Part 1 · Mathematics'), findsOneWidget);
-            expect(find.text('Part 3 · Science'), findsOneWidget);
+            expect(find.text('Part 1: Mathematics'), findsOneWidget);
+            expect(find.text('Part 3: Science'), findsOneWidget);
             expect(find.text('Opens when this part starts.'), findsOneWidget);
             expect(find.text('Pause'), findsNothing);
             expect(find.text('left in Part 2'), findsNothing);
           } else {
-            expect(find.text('PART 2 · REASONING'), findsOneWidget);
+            expect(find.text('PART 2: REASONING'), findsOneWidget);
           }
 
           // The first answer ends it.
@@ -1248,10 +1248,10 @@ void main() {
           expect(find.text('Part 2 started'), findsNothing);
           if (wide) {
             expect(find.text('left in Part 2'), findsOneWidget);
-            expect(find.text('Part 2 of 3 · Reasoning'), findsNothing);
+            expect(find.text('Part 2 of 3: Reasoning'), findsNothing);
           } else {
-            expect(find.text('Part 2 · Reasoning'), findsOneWidget);
-            expect(find.text('PART 2 · REASONING'), findsNothing);
+            expect(find.text('Part 2: Reasoning'), findsOneWidget);
+            expect(find.text('PART 2: REASONING'), findsNothing);
           }
         });
 
@@ -1328,7 +1328,7 @@ void main() {
           expect(find.byType(PartTransitionPage), findsOneWidget);
           expect(find.text('Part 1 ended.'), findsOneWidget);
           expect(
-            find.text(wide ? '1 answered · 1 blank' : '1 blank'),
+            find.text(wide ? '1 answered, 1 blank' : '1 blank'),
             findsOneWidget,
           );
         });
@@ -1400,7 +1400,7 @@ void main() {
           expect(find.byType(PartTransitionPage), findsOneWidget);
           expect(find.text('Time is up.'), findsOneWidget);
           expect(
-            find.text(wide ? '1 answered · 1 blank' : '1 answered'),
+            find.text(wide ? '1 answered, 1 blank' : '1 answered'),
             findsOneWidget,
           );
         });

@@ -586,7 +586,7 @@ void main() {
       await tester.tap(find.text('1 of 2'));
       await tester.pumpAndSettle();
       expect(find.text('EARTH SCIENCE'), findsOneWidget);
-      expect(find.text(' · 2 LESSONS'), findsOneWidget);
+      expect(find.text(', 2 LESSONS'), findsOneWidget);
       expect(find.text('Reading'), findsOneWidget);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pumpAndSettle();
@@ -688,7 +688,7 @@ void main() {
         brightness,
       );
       expect(find.text('2 lessons, all read'), findsOneWidget);
-      expect(find.text('NEXT TOPIC · EARTH SCIENCE'), findsOneWidget);
+      expect(find.text('NEXT TOPIC: EARTH SCIENCE'), findsOneWidget);
       await pump(
         tester,
         WebEndingLayout(
@@ -746,7 +746,7 @@ void main() {
         lessThan(1440),
       );
       final hint =
-          find.text('Published source · Scroll or + − to zoom · Esc to close');
+          find.text('Published source. Scroll or + − to zoom. Esc to close');
       expect(tester.widget<Text>(hint).style!.fontSize, 14);
       final viewer =
           tester.widget<InteractiveViewer>(find.byType(InteractiveViewer));

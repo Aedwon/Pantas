@@ -76,7 +76,7 @@ class WebSessionResults extends StatelessWidget {
     final batch = session.reviewBatch;
     final line = batch == null
         ? source
-        : 'Reviews · Session ${batch.ordinal} of ${batch.total}';
+        : 'Reviews: Session ${batch.ordinal} of ${batch.total}';
     final elapsed = attempt.completedAt?.difference(attempt.startedAt);
     final unit = elapsed?.inMinutes == 1 ? 'minute' : 'minutes';
     final next = onNext != null && batch != null && batch.ordinal < batch.total;
@@ -288,7 +288,7 @@ class WebSessionResults extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.stretch,
                               children: [
                                 WebText(
-                                  'Your mistakes · ${misses.length}',
+                                  'Your mistakes (${misses.length})',
                                   kind: WebTextKind.eyebrow,
                                 ),
                                 WebCard(

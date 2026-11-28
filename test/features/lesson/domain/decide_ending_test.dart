@@ -122,7 +122,7 @@ void main() {
 
     expect(ending.studentName, 'Aedwon');
     expect(ending.topicName, 'Arithmetic & Number Sense');
-    expect(ending.examAndSubject, 'UPCAT · Mathematics');
+    expect(ending.examAndSubject, 'UPCAT: Mathematics');
   });
 
   test('a skipped name leaves the line absent rather than empty', () {

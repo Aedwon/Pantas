@@ -17,7 +17,7 @@ void main() {
   test('middle dots and in-line bullets in shown text fail', () {
     for (final text in [
       r"'Part $part · $name'",
-      r'"Reviews · Session 1 of 2"',
+      '"Reviews · Session 1 of 2"',
       r"'$exam · $plan'",
       "'equal time • equal swept area'",
       r"'near Sun\nlonger arc • faster'",

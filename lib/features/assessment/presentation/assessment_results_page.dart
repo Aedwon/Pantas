@@ -381,7 +381,7 @@ class _ResultsBodyState extends State<_ResultsBody>
       );
     }
     final subjects = GroupedSection(
-      header: 'BY SUBJECT · WEAKEST FIRST',
+      header: 'BY SUBJECT, WEAKEST FIRST',
       children: [
         for (final (index, subject) in widget.data.subjects.indexed)
           AssessmentSubjectRow(
@@ -441,7 +441,7 @@ class _ResultsBodyState extends State<_ResultsBody>
                   ResultsReveal(
                     animation: _sequence.subtitle,
                     child: Text(
-                      '${widget.data.examName} · $total questions',
+                      '${widget.data.examName}, $total questions',
                       textAlign: TextAlign.center,
                       style: context.type.subhead
                           .copyWith(color: c.secondaryLabel),
@@ -476,7 +476,7 @@ class _ResultsBodyState extends State<_ResultsBody>
                                         style: context.type.emphasized,
                                       ),
                                       Text(
-                                        '$weakestSubject · '
+                                        '$weakestSubject, '
                                         'lowest score in this check',
                                         style: context.type.footnote
                                             .copyWith(color: c.secondaryLabel),

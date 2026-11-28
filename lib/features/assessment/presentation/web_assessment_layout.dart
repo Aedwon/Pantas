@@ -78,7 +78,7 @@ class WebAssessmentLayout extends StatelessWidget {
                 // The title is centered on the page, as the quiz's is.
                 WebCenteredTopBar(
                   titleKey: const ValueKey('assessment-top-title'),
-                  title: 'Assessment · $examName',
+                  title: 'Assessment: $examName',
                   leading: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
@@ -266,7 +266,7 @@ class WebAssessmentResults extends StatelessWidget {
                   reveal(
                     sequence?.subtitle,
                     Text(
-                      '$examName · $total questions',
+                      '$examName, $total questions',
                       textAlign: TextAlign.center,
                       style: PantasType.webLead
                           .copyWith(color: t.colors.textSecondary),
@@ -330,7 +330,7 @@ class WebAssessmentResults extends StatelessWidget {
                                       top: PantasSpace.s14,
                                     ),
                                     child: Text(
-                                      'BY SUBJECT · WEAKEST FIRST',
+                                      'BY SUBJECT, WEAKEST FIRST',
                                       style: t.eb,
                                     ),
                                   ),
@@ -372,7 +372,7 @@ class WebAssessmentResults extends StatelessWidget {
                                   // accuracy), so the tag would claim it.
                                   Text(weakestTopic!, style: t.h3),
                                   Text(
-                                    '$weakestSubject · '
+                                    '$weakestSubject, '
                                     'lowest score in this check. '
                                     'It changes as you study.',
                                     style: t.sub,

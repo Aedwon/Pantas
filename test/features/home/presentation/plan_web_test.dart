@@ -211,7 +211,7 @@ void main() {
       expect(tester.getSize(title).height, lessThan(30));
       await tester.tap(title);
       expect(opened, DateTime(2026, 10, 19));
-      expect(find.text('OCT 18 – 24 · LESSONS BY DAY'), findsOneWidget);
+      expect(find.text('OCT 18 – 24: LESSONS BY DAY'), findsOneWidget);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       expect(closed, 1);
       expect(tester.takeException(), isNull);

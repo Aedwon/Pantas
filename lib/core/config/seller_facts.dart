@@ -23,7 +23,7 @@ class SellerFacts {
   /// The line beside Pay. It shows the business name, not the owner's name
   /// (his Nov 25 words); the Terms name the owner as the contracting party.
   String get line => 'Sold by $tradingName'
-      ' · $placeOfBusiness · $phone · $sellerEmail';
+      ', $placeOfBusiness, $phone, $sellerEmail';
 
   /// The words in front of the email address, for the mail link.
   String get lineBeforeEmail =>

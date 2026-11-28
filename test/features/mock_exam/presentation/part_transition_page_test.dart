@@ -41,7 +41,7 @@ void main() {
         (tester) async {
       await tester.pumpWidget(transition(dark: dark));
       expect(find.text('Time is up.'), findsOneWidget);
-      expect(find.text('Part 3 · Mathematics'), findsOneWidget);
+      expect(find.text('Part 3: Mathematics'), findsOneWidget);
       expect(find.text('58 answered'), findsOneWidget);
       expect(find.text('2 blank'), findsOneWidget);
       expect(find.byKey(const ValueKey('part-dot-22')), findsOneWidget);
@@ -166,7 +166,7 @@ void main() {
       var started = 0;
       await tester.pumpWidget(breakPage(wide: true, onStart: () => started++));
       expect(find.text('PUP CET simulation'), findsOneWidget);
-      expect(find.text('Part 2 of 3 · Reasoning'), findsOneWidget);
+      expect(find.text('Part 2 of 3: Reasoning'), findsOneWidget);
       expect(find.text('0:42'), findsOneWidget);
       expect(find.text('until Part 3 starts'), findsOneWidget);
       expect(find.text('The clock starts when you click.'), findsNothing);

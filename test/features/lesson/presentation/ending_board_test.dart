@@ -66,7 +66,7 @@ void main() {
           );
           expect(find.text('Aedwon'), findsNothing);
           expect(find.text('Geometry'), findsOneWidget);
-          expect(find.text('UPCAT · Mathematics'), findsOneWidget);
+          expect(find.text('UPCAT: Mathematics'), findsOneWidget);
           expect(find.text(PantasDates.full(date)), findsOneWidget);
           expect(
             find.text(

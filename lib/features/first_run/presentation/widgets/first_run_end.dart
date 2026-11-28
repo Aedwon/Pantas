@@ -378,7 +378,7 @@ class _FirstRunEndState extends State<FirstRunEnd>
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: PantasSpace.s4),
             child: Text(
-              'YOUR MISTAKES · ${misses.length}',
+              'YOUR MISTAKES (${misses.length})',
               style: PantasType.phoneSectionHeader
                   .copyWith(color: colors.textSecondary),
             ),

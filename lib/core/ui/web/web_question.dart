@@ -224,7 +224,7 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
           Text(
             widget.passagePosition == null
                 ? widget.subject.toUpperCase()
-                : '${widget.subject.toUpperCase()} · '
+                : '${widget.subject.toUpperCase()}: '
                     '${widget.passagePosition!.ordinal} '
                     'OF ${widget.passagePosition!.total} ON THIS PASSAGE',
             style: t.eb,

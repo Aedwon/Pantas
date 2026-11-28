@@ -914,10 +914,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       mockDuration: data.extras.mock?.duration,
       doneNote: view.doneNote,
       examShortName: data.examShortName,
-      originalSummary: '$originals ${originals == 1 ? "lesson" : "lessons"} · '
+      originalSummary: '$originals ${originals == 1 ? "lesson" : "lessons"}, '
           '$questions ${questions == 1 ? "question" : "questions"}',
       reviewSubtitle: sizes.length > 1
-          ? '${work!.reviewsTotal} due · ${sizes.length} sessions of '
+          ? '${work!.reviewsTotal} due, ${sizes.length} sessions of '
               '${work.preparedReviews.preferences.sessionLength}'
           : 'Questions due today',
       advancing: _busy,

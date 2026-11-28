@@ -60,7 +60,7 @@ void main() {
     testWidgets('the mistakes eyebrow counts after a dot; the card is 640',
         (tester) async {
       await pumpFirstRun(tester, width: 1440, progressJson: _endOneMiss);
-      expect(find.text('YOUR MISTAKES · 1'), findsOneWidget);
+      expect(find.text('YOUR MISTAKES (1)'), findsOneWidget);
       expect(find.text('YOUR MISTAKES'), findsNothing);
       expect(
         tester.getSize(find.byKey(const ValueKey('end-mistakes'))).width,

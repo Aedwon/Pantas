@@ -127,7 +127,7 @@ void main() {
         ),
       );
       expect(find.text('PASSAGE'), findsOneWidget);
-      expect(find.text('SCIENCE · 1 OF 3 ON THIS PASSAGE'), findsOneWidget);
+      expect(find.text('SCIENCE: 1 OF 3 ON THIS PASSAGE'), findsOneWidget);
       expect(
         tester.getTopLeft(find.text('PASSAGE')).dx,
         lessThan(

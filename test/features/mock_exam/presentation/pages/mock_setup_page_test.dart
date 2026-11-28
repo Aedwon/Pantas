@@ -128,7 +128,7 @@ void main() {
         ),
       ),
     );
-    final callout = tester.getRect(find.text('250 total items · 3 hr 50 min'));
+    final callout = tester.getRect(find.text('250 total items, 3 hr 50 min'));
     final table = tester.getRect(find.byType(PantasDataTable));
     expect(table.top - callout.bottom, 22);
     final rule =
@@ -154,7 +154,7 @@ void main() {
     );
 
     expect(find.text('UPCAT simulation'), findsOneWidget);
-    expect(find.text('250 total items · 3 hr 50 min'), findsOneWidget);
+    expect(find.text('250 total items, 3 hr 50 min'), findsOneWidget);
     // The section table is the system DataTable.
     expect(find.byType(PantasDataTable), findsOneWidget);
     expect(find.text('SECTION'), findsOneWidget);
@@ -356,7 +356,7 @@ void main() {
       expect(find.text('36'), findsNothing);
       expect(find.text('37'), findsNothing);
       expect(find.text('ITEMS'), findsNothing);
-      expect(find.text('145 total items · 2 hr 40 min'), findsOneWidget);
+      expect(find.text('145 total items, 2 hr 40 min'), findsOneWidget);
       expect(
         find.textContaining('20 personal-information items'),
         findsOneWidget,

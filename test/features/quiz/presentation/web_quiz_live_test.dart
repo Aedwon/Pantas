@@ -120,7 +120,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
-      expect(find.text('Reviews · Session 1 of 2'), findsOneWidget);
+      expect(find.text('Reviews: Session 1 of 2'), findsOneWidget);
       expect(find.text('4 of 10'), findsOneWidget);
       expect(find.byKey(const ValueKey('web-answer-column')), findsNothing);
       await tester.sendKeyEvent(LogicalKeyboardKey.keyG);
@@ -880,7 +880,7 @@ void main() {
 
     testWidgets('4O-1: the title is centered on the page', (tester) async {
       await pump(tester);
-      final title = tester.getCenter(find.text('Reviews · Session 1 of 2'));
+      final title = tester.getCenter(find.text('Reviews: Session 1 of 2'));
       expect(title.dx, closeTo(720, .5));
     });
 

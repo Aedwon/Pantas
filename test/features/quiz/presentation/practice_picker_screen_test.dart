@@ -352,7 +352,7 @@ void main() {
         await tester.tap(find.byKey(const ValueKey('scope-select-t')));
         await tester.pumpAndSettle();
         expect(find.text('2 lessons picked'), findsOneWidget);
-        expect(find.text('20 questions · ~17 min'), findsOneWidget);
+        expect(find.text('20 questions, ~17 min'), findsOneWidget);
         await tester.tap(find.byKey(const ValueKey('practice-size')));
         await tester.pumpAndSettle();
         expect(find.text('How long?'), findsOneWidget);
@@ -520,7 +520,7 @@ void main() {
       (tester) async {
     await pump(tester, saved: {'a', 'none', 'removed'}, value: 12);
     expect(find.text('1 lesson picked'), findsOneWidget);
-    expect(find.text('12 questions · ~10 min'), findsOneWidget);
+    expect(find.text('12 questions, ~10 min'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('scope-expand-t')));
     await tester.pumpAndSettle();
     expect(find.text('Unread'), findsWidgets);
@@ -571,7 +571,7 @@ void main() {
   testWidgets('Total time caption and singleton adjustments stay bounded',
       (tester) async {
     await pump(tester, saved: {'a'}, mode: PracticeUnitMode.minutes);
-    expect(find.text('~12 questions · 10 min'), findsOneWidget);
+    expect(find.text('~12 questions, 10 min'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     final segment = tester.widget<Text>(find.text('Questions per lesson'));
@@ -625,7 +625,7 @@ void main() {
     await tester.tap(find.text('Customize'));
     await tester.pumpAndSettle();
     expect(find.text('1 lesson picked'), findsOneWidget);
-    expect(find.text('11 questions · ~9 min'), findsOneWidget);
+    expect(find.text('11 questions, ~9 min'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 
@@ -683,7 +683,7 @@ void main() {
     expect(find.text('Custom source: practice-test'), findsOneWidget);
     await tester.tap(find.text('Return to picker'));
     await tester.pumpAndSettle();
-    expect(find.text('11 questions · ~9 min'), findsOneWidget);
+    expect(find.text('11 questions, ~9 min'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 
@@ -809,7 +809,7 @@ void main() {
       saved: {for (var i = 0; i < 8; i++) '$i'},
       value: 50,
     );
-    expect(find.text('400 questions · ~5 hr 33 min'), findsOneWidget);
+    expect(find.text('400 questions, ~5 hr 33 min'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     expect(find.text('hours'), findsOneWidget);
@@ -820,7 +820,7 @@ void main() {
   testWidgets('counts stay at real capacity when the base requests more',
       (tester) async {
     await pump(tester, saved: {'a'}, value: 50);
-    expect(find.text('20 questions · ~17 min'), findsOneWidget);
+    expect(find.text('20 questions, ~17 min'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Adjust'));
@@ -836,7 +836,7 @@ void main() {
   testWidgets('measured pace replaces the starting estimate on the picker',
       (tester) async {
     await pump(tester, saved: {'a'}, measuredPace: 40000);
-    expect(find.text('10 questions · ~7 min'), findsOneWidget);
+    expect(find.text('10 questions, ~7 min'), findsOneWidget);
   });
 
   testWidgets('failed Start retry retries the launch', (tester) async {
@@ -949,7 +949,7 @@ void main() {
         measuredPace: pace,
       );
       expect(tester.takeException(), isNull);
-      expect(find.text('~12 questions · 10 min'), findsOneWidget);
+      expect(find.text('~12 questions, 10 min'), findsOneWidget);
       expect(
         tester
             .widget<PantasButton>(find.widgetWithText(PantasButton, 'Start'))
@@ -967,7 +967,7 @@ void main() {
   testWidgets('positive sub-minute estimate stays bounded without a clamp',
       (tester) async {
     await pump(tester, saved: {'a'}, value: 3, measuredPace: 5000);
-    expect(find.text('3 questions · under 1 min'), findsOneWidget);
+    expect(find.text('3 questions, under 1 min'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     expect(find.text('<1'), findsOneWidget);
@@ -1078,7 +1078,7 @@ void main() {
       value: 5,
       measuredPace: 5000,
     );
-    expect(find.text('~20 questions · 5 min'), findsOneWidget);
+    expect(find.text('~20 questions, 5 min'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     expect(find.text('<1'), findsNothing);
@@ -1162,7 +1162,7 @@ void main() {
       value: 13,
       measuredPace: 70000,
     );
-    expect(find.text('28 questions · ~33 min'), findsOneWidget);
+    expect(find.text('28 questions, ~33 min'), findsOneWidget);
     await tester.tap(find.byKey(const ValueKey('practice-size')));
     await tester.pumpAndSettle();
     final converted = <int>[];
@@ -1448,7 +1448,7 @@ void main() {
         return reads == 1 ? Future<int?>.value() : refreshed.future;
       },
     );
-    expect(find.text('10 questions · ~8 min'), findsOneWidget);
+    expect(find.text('10 questions, ~8 min'), findsOneWidget);
     final container = ProviderScope.containerOf(
       tester.element(find.byType(PracticePickerScreen)),
     )..invalidate(practicePaceProvider('e'));
@@ -1457,10 +1457,10 @@ void main() {
     expect(loading.isLoading, isTrue);
     await tester.pump();
     await tester.pump();
-    expect(find.text('10 questions · ~8 min'), findsOneWidget);
+    expect(find.text('10 questions, ~8 min'), findsOneWidget);
     refreshed.complete(40000);
     await tester.pumpAndSettle();
-    expect(find.text('10 questions · ~7 min'), findsOneWidget);
+    expect(find.text('10 questions, ~7 min'), findsOneWidget);
     expect(tester.takeException(), isNull);
   });
 

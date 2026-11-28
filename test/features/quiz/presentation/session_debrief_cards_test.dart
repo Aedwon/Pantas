@@ -349,7 +349,7 @@ void main() {
           ),
         );
         await tester.pumpAndSettle();
-        expect(find.text('Reviews · Session 2 of 3'), findsOneWidget);
+        expect(find.text('Reviews: Session 2 of 3'), findsOneWidget);
         expect(find.text('Start Session 3'), findsOneWidget);
         expect(
           find.text(_plan.next!.title),

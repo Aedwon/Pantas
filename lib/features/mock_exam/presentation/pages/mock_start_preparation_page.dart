@@ -79,7 +79,7 @@ class MockStartPreparationPage extends StatelessWidget {
             ),
             const SizedBox(height: PantasSpace.s6),
             Text(
-              '${mockNameWithoutLabel(parsedBlueprint.blueprint.name)} · $count questions',
+              '${mockNameWithoutLabel(parsedBlueprint.blueprint.name)}, $count questions',
               textAlign: TextAlign.center,
               style: type.subhead.copyWith(color: colors.secondaryLabel),
             ),

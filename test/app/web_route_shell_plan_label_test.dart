@@ -46,6 +46,6 @@ void main() {
     await pumpShell(tester, () async => true);
     await tester.pump();
 
-    expect(find.text('PUP CET · Pro'), findsOneWidget);
+    expect(find.text('PUP CET, Pro'), findsOneWidget);
   });
 }

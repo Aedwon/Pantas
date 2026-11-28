@@ -451,7 +451,7 @@ void main() {
         addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
 
         expect(find.text('PUP CET simulation'), findsOneWidget);
-        expect(find.text('120 total items · 2 hr'), findsOneWidget);
+        expect(find.text('120 total items, 2 hr'), findsOneWidget);
         expect(find.text(byPart ? partRule : oneBlockRule), findsOneWidget);
         expect(find.text('TIME'), byPart ? findsOneWidget : findsNothing);
         expect(find.text('50 min'), byPart ? findsOneWidget : findsNothing);

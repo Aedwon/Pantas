@@ -135,15 +135,15 @@ void main() {
 
     testWidgets('one lesson is counted in the singular (7W-5)', (tester) async {
       await openMenu(tester, single: true);
-      expect(find.text(' · 1 LESSON'), findsOneWidget);
-      expect(find.text(' · 1 LESSONS'), findsNothing);
+      expect(find.text(', 1 LESSON'), findsOneWidget);
+      expect(find.text(', 1 LESSONS'), findsNothing);
     });
 
     testWidgets('a long topic name stays on one line beside the count (B-10)',
         (tester) async {
       await openMenu(tester);
       final name = find.text(_longTopic.toUpperCase());
-      final count = find.text(' · 2 LESSONS');
+      final count = find.text(', 2 LESSONS');
       expect(name, findsOneWidget);
       expect(count, findsOneWidget);
       // One line, and the count is on it.

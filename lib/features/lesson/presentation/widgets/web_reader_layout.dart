@@ -490,7 +490,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                       ),
                                     ),
                                     Text(
-                                      ' · ${lessons.length} $lessonWord',
+                                      ', ${lessons.length} $lessonWord',
                                       maxLines: 1,
                                       style: t.eb.copyWith(height: 1.45),
                                     ),

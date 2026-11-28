@@ -1118,9 +1118,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     final lookingBack = _viewIndex != null && index != session.currentIndex;
     final batch = session.reviewBatch;
     final source = batch != null
-        ? 'Reviews · Session ${batch.ordinal} of ${batch.total}'
+        ? 'Reviews: Session ${batch.ordinal} of ${batch.total}'
         : session.origin == SessionOrigin.newQuestions
-            ? "New questions · From today's lessons"
+            ? "New questions: From today's lessons"
             : 'Quiz';
     final label = lookingBack
         ? 'Back to ${session.currentIndex + 1}'
