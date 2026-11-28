@@ -24,7 +24,7 @@ In an **interleaved pattern**, odd positions follow one rule and even positions 
 4. Position $7$ is odd, so continue the odd track: $5+2=7$.
 
 :::why
-Why require clear patterns in both tracks? Almost any list looks neat if you ignore half the terms, so both the odd and even tracks must follow simple rules.
+Why read both tracks? Almost any list looks neat if you ignore half the terms, so check that the odd and even tracks both fit simple rules.
 :::
 
 :::pair #wrong-position-track
@@ -45,19 +45,13 @@ With **alternating operations**, the move switches back and forth between two st
 
 1. Look at $4, 7, 6, 9, 8, 11, \ldots$
 2. Write the move between each pair: $4+3=7$, $7-1=6$, $6+3=9$, $9-1=8$, $8+3=11$.
-3. The cycle is $+3$, then $-1$.
+3. The shown terms fit the cycle $+3$, then $-1$.
 4. The last move was $+3$, so the next move is $-1$: $11-1=10$.
 
 :::pair #repeat-wrong-step
 Right: after $8+3=11$ in the $+3, -1$ cycle, apply $-1$: $11-1=10$.
 Wrong: apply $+3$ again: $11+3=14$.
-The big jump $+3$ is easy to repeat by habit. Always check which move just happened before taking the next step.
-:::
-
-:::check
-Find the next term in $2, 4, 5, 10, 11, 22, 23, \ldots$
-:::answer
-The answer is $46$. The cycle alternates $\times2$ and $+1$; the last step was $+1$, so double $23$ to get $46$.
+The big jump $+3$ is easy to repeat by habit. Check which move just happened before taking the next step.
 :::
 
 ### Two-Operation Rules
@@ -72,12 +66,6 @@ Some sequences repeat the same two-operation rule at every single step, such as 
 Right: for $2, 5, 11, 23, 47, \ldots$, double $47$ and add $1$ to get $95$.
 Wrong: double $47$ to get $94$.
 Doubling gives most of the jump, so it is easy to stop early. Check both parts of the rule on the last step.
-:::
-
-:::check
-One two-operation rule repeats at every step. Find the next term in $2, 4, 10, 28, \ldots$
-:::answer
-The answer is $82$. The rule is "$\times3$, then $-2$": $2\times3-2=4$, $4\times3-2=10$, and $28\times3-2=82$.
 :::
 
 ## Examples
@@ -97,8 +85,6 @@ $$\text{Term 7}=6+2=8$$
 
 The next term is $8$.
 
-**Check:** Both tracks follow constant additions ($+2$ on odd positions, $+3$ on even positions), and position $7$ uses the odd track.
-
 ### #2: Alternating Operations
 
 Find the next term in the sequence: $3, 6, 8, 16, 18, 36, \ldots$
@@ -113,36 +99,32 @@ $$8\times2=16,\quad 16+2=18$$
 
 $$18\times2=36$$
 
-2. The moves alternate $\times2$ and $+2$.
-3. Add $2$ to $36$ for term $7$:
+2. The shown terms fit $\times2$, then $+2$, repeating.
+3. The last move was $\times2$, so add $2$ to $36$ for term $7$:
 
 $$\text{Term 7}=36+2=38$$
 
 The next term is $38$.
 
-**Check:** Check the full cycle: $\times2$, $+2$, $\times2$, $+2$, $\times2$, $+2$. Repeating $\times2$ to get $72$ would break the alternating pattern.
-
 ### #3: Two-Operation Rule
 
-Find the next term using the simplest two-operation rule that fits every step: $2, 5, 11, 23, 47, \ldots$
+Find the next term using the simplest two-operation rule that fits every step: $1, 4, 13, 40, \ldots$
 
 **Solution:**
 
-1. Test "multiply by $2$, add $1$" on terms $2$ and $3$:
+1. Test "multiply by $3$, add $1$" on terms $2$ and $3$:
 
-$$\text{Term 2}=2\times2+1=5,\quad \text{Term 3}=5\times2+1=11$$
+$$\text{Term 2}=1\times3+1=4,\quad \text{Term 3}=4\times3+1=13$$
 
-2. Confirm on terms $4$ and $5$:
+2. Confirm on term $4$:
 
-$$\text{Term 4}=11\times2+1=23,\quad \text{Term 5}=23\times2+1=47$$
+$$\text{Term 4}=13\times3+1=40$$
 
-3. Apply to $47$ for term $6$:
+3. Apply the full rule to $40$ for term $5$:
 
-$$\text{Term 6}=47\times2+1=95$$
+$$\text{Term 5}=40\times3+1=121$$
 
-The next term is $95$.
-
-**Check:** Look at the gaps between terms: $3, 6, 12, 24$. Each gap doubles, so the next gap is $48$, and $47+48=95$.
+The next term is $121$.
 
 ### #4: Paired Letter Tracks
 
@@ -152,14 +134,14 @@ Complete the paired sequence using English alphabet positions ($A=1$ through $Z=
 
 1. Track the first letters separately: $A(1), B(2), D(4), G(7)$.
 2. Their forward jumps are $+1, +2, +3$, so add $4$ next: $7+4=11$, which is $K$.
-3. Track the second letters separately: $Z(26), Y(25), W(23), T(20)$. Their backward jumps are $-1, -2, -3$.
+3. Track the second letters separately: $Z(26), Y(25), W(23), T(20)$. Their jumps are:
+
+$$25-26=-1,\quad 23-25=-2,\quad 20-23=-3$$
 
 :::try
-Finish the last step: move back $4$ positions from $T(20)$ and combine both letters.
+Finish the last step: find the next jump, apply it to $T(20)$, and combine both letters.
 :::answer
-The answer is **$KP$**. Moving back $4$ from $20$ gives $20-4=16$, which is $P$.
-
-**Check:** Notice each letter pair sums to $27$: $1+26=27$, $2+25=27$, $4+23=27$, $7+20=27$, and $11+16=27$.
+The answer is **$KP$**. The next jump is $-4$, so $20-4=16$, which is $P$.
 :::
 
 ## Traps to Watch For

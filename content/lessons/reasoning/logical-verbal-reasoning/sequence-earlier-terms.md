@@ -18,7 +18,7 @@ keyPoints:
 
 A **recurrence** builds each new term from two or more earlier terms, instead of adding a fixed number or multiplying by a ratio. For example, each term might be the product or sum of the two or three terms right before it.
 
-Check the rule starting at the first term that has enough earlier terms, and verify every term after it.
+Check the rule starting at the first term that has enough earlier terms, and verify each shown term after it.
 
 1. Check $1, 1, 2, 4, 7, \ldots$ where each term after the first three adds the three terms before it.
 2. Term $4$: $1+1+2=4$.
@@ -26,7 +26,7 @@ Check the rule starting at the first term that has enough earlier terms, and ver
 4. Next term: add the three terms right before the gap, $2+4+7=13$.
 
 :::why
-Why test every later term? In $1, 1, 2, 4, 7$, the start $1, 1, 2$ looks like adding two terms, and $2, 4$ looks like doubling, but both guesses fail at $7$.
+Why test each later term? In $1, 1, 2, 4, 7$, adding two terms fits $1, 1, 2$ but fails at $4$ ($1+2=3$), and doubling fits $2, 4$ but fails at $7$.
 :::
 
 :::pair #too-few-earlier-terms
@@ -36,9 +36,9 @@ Two-term addition is more common, so it is easy to use by habit. Check whether t
 :::
 
 :::check
-Each term after the first two is twice the previous term plus the one before that. Find the next term in $1, 2, 5, 12, \ldots$
+Each term after the first two is twice the term before it plus the term before that. Find the next term in $1, 3, 7, 17, \ldots$
 :::answer
-The answer is $29$. Twice $12$ plus $5$ is $24+5=29$.
+The answer is $41$. The shown terms fit the rule ($2\times3+1=7$, $2\times7+3=17$), so twice $17$ plus $7$ is $34+7=41$.
 :::
 
 ### Fibonacci Addition Pattern
@@ -52,19 +52,13 @@ In a **Fibonacci pattern**, each term after the first two is the sum of the two 
 :::pair #double-last-term
 Right: for $1, 1, 2, 3, 5, 8, \ldots$, add the last two terms: $5+8=13$.
 Wrong: double the last term: $8\times2=16$.
-Doubling works on $1$ to $2$ early on, so it can look tempting. Always test the doubling guess on $3, 5, 8$ before using it.
+Doubling works on $1$ to $2$ early on, so it can look tempting. Test the doubling guess on $3, 5, 8$ before using it.
 :::
 
 :::pair #skip-to-next-blank
 Right: stop at the first missing term after $8$: $5+8=13$.
 Wrong: keep adding one step too far: $8+13=21$.
 When a pattern is easy to continue in your head, it is easy to jump past the first blank. Check which position the question asks for.
-:::
-
-:::check
-Find the next term in $4, 3, 7, 10, 17, \ldots$
-:::answer
-The answer is $27$. Each term after the first two is the sum of the two before it, so $10+17=27$.
 :::
 
 ## Examples
@@ -89,27 +83,23 @@ $$\text{Term 7}=8\times32=256$$
 
 The next term is $256$.
 
-**Check:** Estimate $8\times30=240$ plus $8\times2=16$, which gives $256$.
-
 ### #2: Fibonacci Pattern
 
-Find the next term in the sequence: $1, 1, 2, 3, 5, 8, \ldots$
+Find the next term in the sequence: $2, 5, 7, 12, 19, \ldots$
 
 **Solution:**
 
-1. Check terms $3$ to $6$ as sums of two prior terms:
+1. Check terms $3$ to $5$ as sums of two prior terms:
 
-$$\text{Term 3}=1+1=2,\quad \text{Term 4}=1+2=3$$
+$$\text{Term 3}=2+5=7,\quad \text{Term 4}=5+7=12$$
 
-$$\text{Term 5}=2+3=5,\quad \text{Term 6}=3+5=8$$
+$$\text{Term 5}=7+12=19$$
 
-2. Add $5$ and $8$ for term $7$:
+2. Add $12$ and $19$ for term $6$:
 
-$$\text{Term 7}=5+8=13$$
+$$\text{Term 6}=12+19=31$$
 
-The next term is $13$.
-
-**Check:** Subtract $8$ from $13$: $13-8=5$, which matches the term before $8$.
+The next term is $31$.
 
 ### #3: Three-Term Addition Pattern
 
@@ -129,8 +119,6 @@ $$\text{Term 5}=3+4+9=16$$
 Finish the last step: add those three terms to find the sixth term.
 :::answer
 The answer is $29$. Add the last three terms: $4+9+16=29$.
-
-**Check:** Subtract the last two terms back from $29$: $29-16-9=4$, which matches the third-to-last term.
 :::
 
 ## Traps to Watch For

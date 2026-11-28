@@ -26,18 +26,12 @@ To solve a letter sequence with jumps, convert each letter to its English alphab
 :::pair #off-by-one-position
 Right: under $A=1$ through $Z=26$, position $21$ is **$U$**.
 Wrong: position $21$ is **$V$**.
-Counting from $A=0$ shifts every letter up by $1$ and turns $21$ into $V$. Always start at $A=1$, so $T=20$ and $U=21$.
-:::
-
-:::check
-Using $A=1$ through $Z=26$, find the next letter in $C, G, K, O, \ldots$
-:::answer
-The answer is **$S$**. The positions are $3, 7, 11, 15$, so add $4$ to reach position $19$, which is $S$.
+Counting from $A=0$ shifts every letter up by $1$ and turns $21$ into $V$. Start at $A=1$, so $T=20$ and $U=21$.
 :::
 
 ### Wraparound Patterns
 
-A **wraparound pattern** keeps moving past $Z$ ($26$) by looping straight back to $A$ ($1$). Subtract $26$ whenever an addition goes past $26$.
+A **wraparound pattern** keeps moving past $Z$ ($26$) by looping straight back to $A$ ($1$). When an addition goes past $26$, subtract $26$.
 
 1. Look at $W, Z, C, F, \ldots$
 2. Convert to numbers: $W=23$, $Z=26$, $C=3$, $F=6$.
@@ -55,16 +49,16 @@ Counting $F$ itself as step $1$ stops early at $H$, while adding an extra step d
 :::
 
 :::check
-Using wraparound after $Z$, find the next letter in $T, X, B, F, \ldots$
+Using wraparound after $Z$, find the next letter in $S, X, C, H, \ldots$
 :::answer
-The answer is **$J$**. Each step adds $4$ ($20, 24, 2, 6$), so $6+4=10$, which is $J$.
+The answer is **$M$**. The positions are $19, 24, 3, 8$ ($24+5=29$, and $29-26=3$). Each step adds $5$, so $8+5=13$, which is $M$.
 :::
 
 ### Word-Group and Spelling Patterns
 
 Some letter sequences use the first letters of words in a known order, such as months of the year, days of the week, or number words.
 
-Do not force alphabet positions when a word-group rule fits every term cleanly.
+Do not force alphabet positions when a word-group rule fits the shown terms cleanly.
 
 1. Look at $J, F, M, A, M, J, J, \ldots$
 2. Read the initials as calendar months: January, February, March, April, May, June, July.
@@ -73,13 +67,7 @@ Do not force alphabet positions when a word-group rule fits every term cleanly.
 :::pair #force-letter-jump
 Right: after $J$ (June) and $J$ (July) in $J, F, M, A, M, J, J, \ldots$, the next letter is **$A$** (August).
 Wrong: the next letter is **$J$**.
-Seeing two $J$s in a row looks like a repeating letter rule, but the list follows calendar months from January. Always check the full word sequence.
-:::
-
-:::check
-Find the next letter in $M, V, E, M, J, \ldots$
-:::answer
-The answer is **$S$**. These are the first letters of the planets from the sun: Mercury, Venus, Earth, Mars, Jupiter. Saturn ($S$) comes next.
+Seeing two $J$s in a row looks like a repeating letter rule, but the list follows calendar months from January. Check the full word sequence.
 :::
 
 ## Examples
@@ -104,8 +92,6 @@ $$\text{Next}=11+5=16$$
 
 The next letter is **$P$**.
 
-**Check:** Count $5$ letters after $K$: $L, M, N, O, P$. That lands on $P$.
-
 ### #2: Spelling Pattern
 
 Find the next letter: $O, T, T, F, F, S, S, E, \ldots$
@@ -116,8 +102,6 @@ Find the next letter: $O, T, T, F, F, S, S, E, \ldots$
 2. The next counting word is Nine, which starts with $N$.
 
 The next letter is **$N$**.
-
-**Check:** Match each position to its number word: $1$ (One) through $8$ (Eight) match all eight letters, so $9$ (Nine) gives $N$.
 
 ### #3: Word-Group Pattern
 
@@ -130,8 +114,6 @@ Find the next letter: $M, T, W, T, F, S, \ldots$
 
 The next letter is **$S$**.
 
-**Check:** Six days are listed ($M$ through $S$), leaving Sunday ($S$) as the seventh day.
-
 ### #4: Wraparound Letter Pattern
 
 Find the next letter in this cyclic alphabet sequence: $X, Z, B, D, \ldots$
@@ -142,21 +124,19 @@ Find the next letter in this cyclic alphabet sequence: $X, Z, B, D, \ldots$
 2. Check each move: $24+2=26$ ($Z$), $26+2=28 \to 28-26=2$ ($B$), and $2+2=4$ ($D$).
 
 :::try
-Finish the last step: add $2$ to $D$ ($4$) and give the matching letter.
+Finish the last step: find the next letter.
 :::answer
-The answer is **$F$**. Position $4+2=6$, and the $6$th letter is $F$.
-
-**Check:** Count $2$ steps forward from $D$: $E$ ($1$), $F$ ($2$). Both the number sum and finger count give $F$.
+The answer is **$F$**. Each move adds $2$, so $4+2=6$, and the $6$th letter is $F$.
 :::
 
 ## Speed Tricks & Shortcuts
 
-Memorize five anchor positions to find any letter fast without counting from $A$: $E=5$, $J=10$, $O=15$, $T=20$, and $Y=25$. For position $16$, jump straight to $O=15$ and step forward one to $P$.
+Memorize five anchor positions to find letters faster without counting from $A$: $E=5$, $J=10$, $O=15$, $T=20$, and $Y=25$. For position $16$, jump straight to $O=15$ and step forward one to $P$.
 
 ## Traps to Watch For
 
 :::checklist
 - Converting numbers back to letters: anchor at $A=1$ and $T=20$, so position $21$ is $U$, not $V$. {#off-by-one-position}
-- Counting steps across $Z$: count only moves after the current letter, so $+3$ from $F$ reaches $I$, not $H$ or $J$. {#wraparound-miscount}
+- Counting steps across $Z$: count the moves after the current letter, so $+3$ from $F$ reaches $I$, not $H$ or $J$. {#wraparound-miscount}
 - Repeating letters in a word list: check months, days, or number words before guessing a letter pattern, so $J, F, M, A, M, J, J$ goes to $A$. {#force-letter-jump}
 :::
