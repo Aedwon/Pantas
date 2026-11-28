@@ -75,7 +75,7 @@ A true fact can still come from bad logic. Check whether the premises force the 
 
 :::pair #valid-not-sound
 Right: "All fruits are sweet; a lemon is a fruit; therefore a lemon is sweet" is **valid, unsound**
-Wrong: call it **valid, sound**, or **invalid, unsound** because a premise is false
+Wrong: call it **valid, sound** by ignoring the false premise, or **invalid, unsound** by letting the false premise change the validity verdict
 Validity checks only the link from premises to conclusion. Soundness checks both that link and whether every premise is true.
 :::
 

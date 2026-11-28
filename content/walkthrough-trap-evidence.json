@@ -1555,10 +1555,6 @@
         {
           "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0005",
           "wrongChoice": "Invalid: another cause is possible"
-        },
-        {
-          "questionId": "q-logical-verbal-reasoning-syllogisms-and-deductive-logic-0013",
-          "wrongChoice": "Nothing can be concluded about this shape."
         }
       ],
       "reverse-chain": [

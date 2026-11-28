@@ -75,7 +75,7 @@ $$(Q \rightarrow P) = (T \rightarrow T) = T$$
 
 The ordered results are $(T, T)$.
 
-### #2: A False If-Part in the Reverse Direction
+### #2: A False If-Part in the Forward Direction
 
 Rule: "If a student scores above $90$ ($P$), the student gets a medal ($Q$)." Find $P \rightarrow Q$ and $Q \rightarrow P$, in that order, for Dan, who scored $85$ and got a medal.
 
@@ -90,19 +90,21 @@ $$(Q \rightarrow P) = (T \rightarrow F) = F$$
 
 The ordered results are $(T, F)$.
 
-### #3: The Reversed Rule Across Four Days
+### #3: When the Rule and Its Reverse Disagree
 
-Rule: "If it rains ($P$), the game is canceled ($Q$)." Find the value of the reversed rule $Q \rightarrow P$ on each day. Day $1$: rain, canceled. Day $2$: rain, not canceled. Day $3$: no rain, canceled. Day $4$: no rain, not canceled.
+Rule: "If it rains ($P$), the game is canceled ($Q$)." On which days do $P \rightarrow Q$ and $Q \rightarrow P$ have different values? Day $1$: rain, canceled. Day $2$: rain, not canceled. Day $3$: no rain, canceled. Day $4$: no rain, not canceled.
 
 **Solution:**
 
-1. Day $1$: $P=T$, $Q=T$, so $Q \rightarrow P = T \rightarrow T = T$.
-2. Day $2$: $P=T$, $Q=F$, so $Q \rightarrow P = F \rightarrow T = T$.
+1. Day $1$: $P=T$, $Q=T$. Forward $T \rightarrow T = T$; reverse $T \rightarrow T = T$.
+2. Day $2$: $P=T$, $Q=F$. Forward $T \rightarrow F = F$; reverse $F \rightarrow T = T$.
+3. Day $3$: $P=F$, $Q=T$. Forward $F \rightarrow T = T$; reverse $T \rightarrow F = F$.
+4. Day $4$: $P=F$, $Q=F$. Forward $F \rightarrow F = T$; reverse $F \rightarrow F = T$.
 
 :::try
-Finish the last step: find $Q \rightarrow P$ for Days $3$ and $4$.
+Finish the last step: compare the two values on each day and name the days on which they differ.
 :::answer
-The answer is **Day $3$: $F$, Day $4$: $T$**. Day $3$ has $P=F$ and $Q=T$, so $T \rightarrow F = F$. Day $4$ has $P=F$ and $Q=F$, so $F \rightarrow F = T$.
+The answer is **Days $2$ and $3$**. On Day $2$ the forward rule is $F$ and the reverse is $T$; on Day $3$ it is the other way around.
 :::
 
 ## Speed Tricks & Shortcuts

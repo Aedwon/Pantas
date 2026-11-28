@@ -34,23 +34,27 @@ The wrong line flips $P$ once and stops. Each $\neg$ flips the value once, so tw
 
 Evaluate inside parentheses first, replace the group with $T$ or $F$, then apply the outer connective. Find the value of $(P \land Q) \lor R$ and of $P \land (Q \lor R)$ when $P=F$, $Q=T$, and $R=T$:
 
-1. $(P \land Q) \lor R$: $(F \land T) \lor T = F \lor T = T$.
-2. $P \land (Q \lor R)$: $F \land (T \lor T) = F \land T = F$.
+1. $(P \land Q) \lor R$: inside first, $F \land T = F$.
+2. Then the outer **or**: $F \lor T = T$.
+3. $P \land (Q \lor R)$: inside first, $T \lor T = T$.
+4. Then the outer **and**: $F \land T = F$.
 
 :::pair #ignore-parentheses
 Right: with $P=F$, $Q=T$, and $R=T$, $(P \land Q) \lor R$ and $P \land (Q \lor R)$ give **$(T, F)$**.
 Wrong: both expressions give **$(F, F)$**.
-The wrong line skips the group in the first expression. $(P \land Q)$ is $F$ first, and the outer $\lor$ with $R=T$ makes the full result $T$.
+The wrong line moves the parentheses in the first expression and reads it as $P \land (Q \lor R)$, which gives $F$. Keep each group where it is written: $(F \land T) \lor T = F \lor T = T$.
 :::
 
 ### Negating a Whole Group
 
-Parentheses show how much a $\neg$ sign covers. A $\neg$ with no parentheses after it covers only the letter beside it. In $\neg(P \land Q)$, evaluate $P \land Q$ first and flip the whole result. In $(\neg P) \land Q$, flip only $P$ first.
+A $\neg$ flips the statement that comes right after it. If another $\neg$ comes next, work from the inside out. Parentheses can make a whole group the statement to flip: in $\neg(P \land Q)$, evaluate $P \land Q$ first and flip the whole result. In $(\neg P) \land Q$, flip only $P$ first.
 
 Find the value of $\neg(P \land Q)$ and of $(\neg P) \land Q$ when $P=F$ and $Q=F$:
 
-1. $\neg(P \land Q) = \neg(F \land F) = \neg F = T$.
-2. $(\neg P) \land Q = (\neg F) \land F = T \land F = F$.
+1. $\neg(P \land Q)$: inside first, $F \land F = F$.
+2. Then flip the group: $\neg F = T$.
+3. $(\neg P) \land Q$: flip $P$ first, $\neg F = T$.
+4. Then the **and**: $T \land F = F$.
 
 :::why
 Why do $\neg(P \land Q)$ and $(\neg P) \land Q$ differ? Think of parentheses as a box around one value. A $\neg$ outside the box flips the box's single result, while a $\neg$ inside flips only the letter beside it.
@@ -99,14 +103,14 @@ The full expression is $F$ (false).
 
 ### #3: Negating a Grouped Statement
 
-Find the value of $\neg(P \rightarrow Q)$ when $P$ is true and $Q$ is false.
+Find the value of $\neg(P \rightarrow Q)$ when $P$ is false and $Q$ is false.
 
 **Solution:**
 
-1. Evaluate inside parentheses first: $P \rightarrow Q = T \rightarrow F = F$.
-2. Apply the outer $\neg$ to that result: $\neg F = T$.
+1. Evaluate inside parentheses first: $P \rightarrow Q = F \rightarrow F = T$.
+2. Apply the outer $\neg$ to that result: $\neg T = F$.
 
-The full expression is $T$ (true).
+The full expression is $F$ (false).
 
 ### #4: Multi-Group Expression
 

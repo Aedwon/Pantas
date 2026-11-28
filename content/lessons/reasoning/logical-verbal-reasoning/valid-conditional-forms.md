@@ -35,7 +35,7 @@ Why does "not $Q$" force "not $P$"? If $P$ were true, the rule guarantees $Q$ wo
 :::
 
 :::pair #real-world-doubt
-Right: under "If the pump works under these conditions, it fills the tank; the tank stayed empty," conclude **Valid: result denied**
+Right: "If the pump works under these conditions, it fills the tank; the tank stayed empty; therefore the pump was not working under those conditions" is **Valid: result denied**
 Wrong: call it **Invalid: another cause is possible** because real pumps fail
 While testing validity, treat each stated rule as strict. Do not add outside exceptions.
 :::
@@ -57,12 +57,13 @@ Find what follows from two linked rules:
 - Rule $1$: If a parcel is scanned ($P$), arrival is logged ($Q$).
 - Rule $2$: If logged ($Q$), receipt is acknowledged ($R$).
 - Forward ($P \to R$): **A scanned parcel is acknowledged.**
-- Backward (not $R \to$ not $P$): Not acknowledged means not logged, so not scanned.
+- Backward, step $1$: not acknowledged (not $R$) means not logged (not $Q$).
+- Backward, step $2$: not logged (not $Q$) means not scanned (not $P$).
 
 :::pair #reverse-chain
 Right: from $P \to Q \to R$, conclude **a scanned parcel is acknowledged** ($P \to R$)
 Wrong: conclude **every acknowledged parcel was scanned** ($R \to P$)
-The rule $P \to R$ does not give $R \to P$. Follow the arrows in one direction only.
+The rule $P \to R$ does not give $R \to P$. To work backward, deny the result to rule out its condition.
 :::
 
 ### Disjunctive Syllogism
@@ -78,8 +79,8 @@ Even if "or" allows both options to hold, ruling out one still forces the other.
 Find where the key is: "The key is in Desk $1$ ($P$) or Desk $2$ ($Q$). It is not in Desk $1$ (not $P$). So it is **in Desk $2$ ($Q$)**."
 
 :::pair #rule-out-both
-Right: if a file is in the cabinet or the vault, and not in the cabinet, **the original is in the vault**
-Wrong: conclude **the original is in neither place**
+Right: if the original document is in the cabinet or the vault, and not in the cabinet, **the original document is in the vault**
+Wrong: conclude **the original document is in neither place**
 "Or" guarantees at least one option holds. Ruling out one forces the other.
 :::
 
@@ -99,7 +100,7 @@ Decide whether this argument is valid: "If a permit is approved, the office send
 
 Decide whether this argument is valid: "If the alarm is working under these conditions, it rings during a fire. It did not ring during the fire. Therefore, it was not working under those conditions."
 
-<!-- ILLUSTRATION: a circle labeled Alarms working properly under these conditions inside a larger circle labeled Alarms that ring during a fire, with the tested alarm shown outside the larger circle -->
+<!-- ILLUSTRATION: a circle labeled Alarms working under these conditions inside a larger circle labeled Alarms that ring during a fire, with the tested alarm shown outside the larger circle -->
 
 **Solution:**
 

@@ -25,7 +25,7 @@ A **truth table** lists every possible combination of truth values for its lette
 - $(F, T)$
 - $(F, F)$
 
-Find the row that must change in this student's list: $(T, T)$, $(F, T)$, $(T, F)$, $(F, T)$. Row $2$ and row $4$ repeat $(F, T)$, leaving $(F, F)$ out, so replace the repeated row $4$ with $(F, F)$.
+Find the missing pair in this student's list: $(T, T)$, $(F, T)$, $(T, F)$, $(F, T)$. Rows $2$ and $4$ repeat $(F, T)$, so $(F, F)$ is missing. Replace either repeated row with $(F, F)$.
 
 :::pair #missing-table-case
 Right: check that all $4$ distinct pairs $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$ appear once each.
@@ -79,12 +79,12 @@ The answer is **true**. Inclusive **or** is true when at least one part is true,
 
 ### #1: Building a Two-Column Truth Table
 
-Find $(P \land Q, P \lor Q)$ for all four combinations of $P$ and $Q$.
+Build one table that shows $(P \land Q, P \lor Q)$ for all four combinations of $P$ and $Q$, using the **and** and **or** rules above.
 
 **Solution:**
 
 1. List the $4$ unique pairs for $(P, Q)$: $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$.
-2. Find each connective on its own in every row:
+2. Put both rule results side by side in every row:
 
 - Row $1$: $T \land T = T$ and $T \lor T = T$, so $(T, T)$
 - Row $2$: $T \land F = F$ and $T \lor F = T$, so $(F, T)$
@@ -114,9 +114,10 @@ $Q$ is false and $P$ is not known. Find $P \lor Q$ for each possible value of $P
 
 1. $P$ can only be $T$ or $F$, so test both cases.
 2. Case $1$ ($P=T$): $T \lor F = T$.
+3. Case $2$ ($P=F$): $F \lor F = F$.
 
 :::try
-Finish the last step: find $P \lor Q$ in Case $2$ ($P=F$), then say how the result compares with $P$.
+Finish the last step: say how the result of $P \lor Q$ compares with $P$ in both cases.
 :::answer
 The answer is **the result matches $P$**: $T$ when $P=T$, and $F$ when $P=F$. With $Q=F$, no $T$ comes from $Q$, so $P$ alone decides the result.
 :::

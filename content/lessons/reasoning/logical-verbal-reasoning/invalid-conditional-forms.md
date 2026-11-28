@@ -56,13 +56,13 @@ Decide whether "it did not rain" proves the ground is not wet. Rule: "If it rain
 - Verdict: **invalid**.
 
 :::why
-Why does "not $Q \to$ not $P$" work while "not $P \to$ not $Q$" fails? Picture $P$ as one door into room $Q$. If room $Q$ is empty (not $Q$), nobody walked through door $P$ (not $P$). If nobody used door $P$ (not $P$), someone could still enter through another door.
+Why does "not $Q \to$ not $P$" work while "not $P \to$ not $Q$" fails? Take the rule "If someone uses door $P$, the entry log lists them." A name missing from the log (not $Q$) means that person did not use door $P$ (not $P$). But someone who skipped door $P$ (not $P$) can still be in the log, because they signed in at another door.
 :::
 
 :::pair #deny-condition-trap
 Right: "If it rains, the ground gets wet; it did not rain; therefore the ground is not wet" is **Invalid: condition denied**
-Wrong: call it **Valid: result denied**, or say a premise was contradicted
-Premise $2$ denies *rain* (the condition), not *wet ground* (the result), so another cause stays open. "It did not rain" does not contradict Premise $1$.
+Wrong: call it **Valid: result denied**, or reject the given fact "it did not rain" as a contradicted premise
+Premise $2$ denies *rain* (the condition), not *wet ground* (the result), so another cause stays open. Accept both premises as given; the verdict comes from the form.
 :::
 
 :::check
@@ -99,7 +99,7 @@ Decide whether this argument is valid: "If Leo takes the bus, he will arrive by 
 
 ### #3: Finding a Counterexample
 
-Find the case that obeys the rule yet makes the guard wrong. Rule: "If a pass is stamped, boarding is allowed." The guard says "Everyone who boards has a stamped pass."
+Find the case that obeys the rule yet breaks the guard's claim. Rule: "If a pass is stamped ($P$), boarding is allowed ($Q$)." The guard claims "Everyone allowed to board has a stamped pass," which runs the rule backward: $Q \to P$.
 
 - Option $1$: Stamped pass, boarding allowed
 - Option $2$: Unstamped pass, boarding forbidden
@@ -109,17 +109,17 @@ Find the case that obeys the rule yet makes the guard wrong. Rule: "If a pass is
 **Solution:**
 
 1. Drop Option $3$: a stamped pass with forbidden boarding breaks the original rule.
-2. Drop Option $1$: this boarder has a stamp, so the guard is right.
+2. Drop Option $1$: boarding is allowed and the pass is stamped, so the claim holds.
 
 :::try
 Finish the last step: test Options $2$ and $4$ and pick the answer.
 :::answer
-The answer is **Option $4$: Unstamped pass, boarding allowed**. Option $2$ forbids boarding, so it shows no boarder at all. In Option $4$ the pass is unstamped, so the rule makes no promise, yet the visitor boards.
+The answer is **Option $4$: Unstamped pass, boarding allowed**. Option $2$ forbids boarding, so the claim says nothing about it. In Option $4$ boarding is allowed ($Q$) without a stamp (not $P$), which breaks $Q \to P$ and still obeys the rule.
 :::
 
 ## Speed Tricks & Shortcuts
 
-**Test validity before truth.** Pretend the premises are true and look for one everyday exception where the conclusion fails. Check real-world truth only afterward.
+**Test validity before truth.** Find one case where every premise is true and the conclusion is false. Check real-world truth only afterward.
 
 ## Traps to Watch For
 
