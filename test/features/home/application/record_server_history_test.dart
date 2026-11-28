@@ -139,9 +139,10 @@ void main() {
       ..invalidate(mockHistoryProvider)
       ..invalidate(recordProvider);
     final updated = await scope.read(recordProvider.future);
+    // Accuracy is over answered items: 8 right of 9 answered, the blank left out.
     expect(
       updated.accuracySeries.map((p) => p.accuracy).toList(),
-      [80.0, 80.0],
+      [closeTo(800 / 9, 1e-9), closeTo(800 / 9, 1e-9)],
     );
   });
 
