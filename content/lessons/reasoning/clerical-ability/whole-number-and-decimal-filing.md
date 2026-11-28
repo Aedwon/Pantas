@@ -22,13 +22,14 @@ keyPoints:
 
 In these questions, ordinary whole-number file keys are compared by their **full number values**, not by the leftmost digit.
 
-Find the ascending numeric order of $10$, $2$, $11$, and $3$:
+Find the ascending numeric order of $20$, $4$, $21$, and $5$:
 
-- The one-digit numbers $2$ and $3$ are less than the two-digit numbers $10$ and $11$.
-- Ones digits: $2 < 3$. Among $10$ and $11$, the tens digits tie, and the ones digits give $0 < 1$.
-- Order: $2 < 3 < 10 < 11$.
+- The one-digit numbers $4$ and $5$ are less than the two-digit numbers $20$ and $21$.
+- For $4$ and $5$, the ones place decides: $4 < 5$.
+- For $20$ and $21$, the tens digits tie, so the ones place decides: $0 < 1$.
+- Order: $4 < 5 < 20 < 21$.
 
-**Leading zeros** are zeros at the start of a number, such as $007$ or $0389$. They may stay printed on the folder, but they do not change the number's value. As numbers, $007$, $07$, and $7$ all equal seven.
+**Leading zeros** are zeros at the start of a number, such as $005$ or $0389$. They may stay printed on the folder, but they do not change the number's value. As numbers, $005$, $05$, and $5$ all equal five.
 
 :::pair #text-sort-numbers
 Right: $2, 3, 10, 11$
@@ -48,16 +49,16 @@ In these questions, for **decimal numbers**, compare the **whole-number parts** 
 
 If the whole-number parts match, add **trailing zeros** at the right end of shorter decimals so every number has the same number of decimal places. Adding zeros at the right end of a decimal does not change its value. Then compare from left to right.
 
-Find the ascending decimal order of $7.008$, $7.020$, $7.09$, and $7.1$:
+Find the ascending decimal order of $5.004$, $5.040$, $5.06$, and $5.3$:
 
-- Whole-number parts all tie at $7$.
-- Match decimal places to $3$ digits after the point: $7.008$, $7.020$, $7.090$, $7.100$.
-- Tenths: only $7.100$ has a $1$. The others have $0$, so $7.100$ is last.
-- Hundredths of the other three: $0 < 2 < 9$, so $7.008 < 7.020 < 7.090$.
-- Order: $7.008 < 7.020 < 7.09 < 7.1$.
+- Whole-number parts all tie at $5$.
+- Match decimal places to $3$ digits after the point: $5.004$, $5.040$, $5.060$, $5.300$.
+- Tenths: only $5.300$ has a $3$. The others have $0$, so $5.300$ is last.
+- Hundredths of the other three: $0 < 4 < 6$, so $5.004 < 5.040 < 5.060$.
+- Order: $5.004 < 5.040 < 5.06 < 5.3$.
 
 :::why
-Why does adding zeros at the right end keep a decimal the same, while adding zeros right after the point changes it? In $7.1$, the $1$ sits in the tenths place, so $7.1 = 7.100$. In $7.008$, the two zeros push $8$ into the thousandths place, which is much smaller than $1$ tenth.
+Why does adding zeros at the right end keep a decimal the same, while adding zeros right after the point changes it? In $5.3$, the $3$ sits in the tenths place, so $5.3 = 5.300$. In $5.004$, the two zeros push $4$ into the thousandths place, which is much smaller than $3$ tenths.
 :::
 
 :::pair #decimal-as-integer
@@ -69,7 +70,7 @@ The wrong move reads the written digits $1$ and $008$ as the whole numbers $1$ a
 :::check
 Arrange these decimal quantities in ascending order: $15.9$, $9.75$, and $15.08$.
 :::answer
-The answer is $9.75, 15.08, 15.9$. The whole parts $9 < 15$ put $9.75$ first. The two $15$ entries tie on the whole part, so write $15.90$ and $15.08$: $08 < 90$.
+The answer is $9.75, 15.08, 15.9$. The whole parts $9 < 15$ put $9.75$ first. The two $15$ entries tie on the whole part, so write $15.90$ and $15.08$. The tenths are $9$ and $0$, so $15.08$ files before $15.9$.
 :::
 
 ## Examples
@@ -108,7 +109,7 @@ These entries are decimal quantities: $8.35$, $8.3$, $8.305$, and $8.4$. Arrange
 :::try
 Finish the last step: order the four decimals from smallest to largest, keeping their original written forms.
 :::answer
-The answer is $8.3, 8.305, 8.35, 8.4$. Tenths put $8.4$ last. Hundredths put $8.35$ after the other two. Thousandths put $8.3$ before $8.305$.
+The answer is $8.3, 8.305, 8.35, 8.4$. Tenths: $8.400$ has $4$ and the others have $3$, so $8.4$ is last. Hundredths: $8.350$ has $5$ and $8.300$ and $8.305$ have $0$, so $8.35$ comes after them. Thousandths: $0 < 5$, so $8.3$ comes before $8.305$.
 :::
 
 ## Traps to Watch For

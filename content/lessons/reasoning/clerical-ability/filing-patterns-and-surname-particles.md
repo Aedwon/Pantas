@@ -39,16 +39,16 @@ Some surnames begin with short words called **particles**, such as *De*, *Del*, 
 
 In these questions, one rule treats the particles and the main name as **one surname unit** and ignores spaces only while comparing letters. The written record keeps its spaces.
 
-Find the order of *De la Cruz*, *Delgado*, and *De la Rosa* under that rule:
+Find the order of *De la Paz*, *Delmar*, and *De la Torre* under that rule:
 
-- Comparison keys (spaces ignored): *delacruz*, *delgado*, *delarosa*.
+- Comparison keys (spaces ignored): *delapaz*, *delmar*, *delatorre*.
 - Letters $1$ to $3$ match in all three keys: *del*.
-- Letter $4$ separates *delgado* from the other two: *a* comes before *g*.
-- *delacruz* and *delarosa* first differ at letter $5$: *c* comes before *r*.
-- Order: **De la Cruz**, then **De la Rosa**, then **Delgado**.
+- Letter $4$ separates *delmar* from the other two: *a* comes before *m*.
+- *delapaz* and *delatorre* first differ at letter $5$: *p* comes before *t*.
+- Order: **De la Paz**, then **De la Torre**, then **Delmar**.
 
 :::why
-Why keep the spaces in the written entry if we ignore them to sort? Under this rule, the comparison key picks the shelf order. Removing spaces from *De la Rosa* would change the person's real spelling.
+Why keep the spaces in the written entry if we ignore them to sort? Under this rule, the comparison key picks the shelf order. Removing spaces from *De la Paz* would change the person's real spelling.
 :::
 
 :::pair #drop-particle

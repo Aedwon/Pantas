@@ -16,7 +16,7 @@ keyPoints:
 
 ### Building the Filing Key
 
-**Alphabetic filing** puts records in letter order, from $A$ to $Z$. A **filing key** is the parts used to sort a record, such as names, titles, or cities. Each part is one **filing unit**. This lesson covers personal names.
+**Alphabetic filing** puts records in letter order, from $A$ to $Z$. A **filing key** uses the parts that sort a record, such as names, titles, or cities. Each part is one **filing unit**. This lesson covers personal names.
 
 A personal name has these parts:
 
@@ -47,14 +47,14 @@ In these questions, compare records one unit at a time, starting at Unit $1$. Mo
 
 Compare letters from left to right. If a shorter complete unit ends where another unit continues with the same letters, the shorter unit comes first.
 
-Find the filing order of *Cabal, Nora*, *Caballero, Ana*, and *Cabral, Lina*, sorted by surname, then given name:
+Find the filing order of *Lamb, Rita*, *Lambert, Ana*, and *Lampa, Joy*, sorted by surname, then given name:
 
-- Unit $1$: *Cabal* ends after $5$ letters where *Caballero* continues, so *Cabal* comes first.
-- *Caballero* and *Cabral* match through *Cab*. They first differ at letter $4$: *a* comes before *r*.
-- Order: **Cabal, Nora**, **Caballero, Ana**, **Cabral, Lina**.
+- Unit $1$: *Lamb* ends after $4$ letters where *Lambert* continues, so *Lamb* comes first.
+- *Lambert* and *Lampa* match through *Lam*. They first differ at letter $4$: *b* comes before *p*.
+- Order: **Lamb, Rita**, **Lambert, Ana**, **Lampa, Joy**.
 
 :::why
-Why does *Cabal, Nora* beat *Caballero, Ana* even though *Ana* comes before *Nora*? Unit $1$ decides order before you check Unit $2$. Because *Cabal* ends sooner, it wins Unit $1$ right away.
+Why does *Lamb, Rita* beat *Lambert, Ana* even though *Ana* comes before *Rita*? Unit $1$ decides order before you check Unit $2$. Because *Lamb* ends sooner, it wins Unit $1$ right away.
 :::
 
 :::pair #skip-tie-breaker
@@ -96,8 +96,9 @@ Find the filing order of *Cruz, Paolo*, *Cruzado, Ana*, *Cuenco, Luis*, and *Cru
 
 1. Unit $1$: *Cuenco* first differs from the others at letter $2$ (*r* before *u*), so it goes last.
 2. Unit $1$: *Cruz* ends where *Cruzado* continues, so *Cruz* comes before *Cruzado*.
-3. Both *Cruz* entries tie on Unit $1$, so they first differ in Unit $2$: *Paolo* comes before *Ramon* ($P$ before $R$).
-4. Order: **Cruz, Paolo**, **Cruz, Ramon**, **Cruzado, Ana**, **Cuenco, Luis**.
+3. Both *Cruz* entries tie on Unit $1$.
+4. Unit $2$: *Paolo* comes before *Ramon* ($P$ before $R$).
+5. Order: **Cruz, Paolo**, **Cruz, Ramon**, **Cruzado, Ana**, **Cuenco, Luis**.
 
 ### #3: Three-Unit Tie-Break
 

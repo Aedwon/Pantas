@@ -45,12 +45,12 @@ Watch the exact order stated in the question:
 - Some systems check **rightmost first, middle second, leftmost last**.
 - Other systems check **rightmost first, leftmost second, middle last**.
 
-Find the order of $\text{09-02-12}$, $\text{04-90-12}$, and $\text{04-80-12}$ when the rule checks rightmost first, leftmost second, and middle last (ascending):
+Find the order of $\text{07-55-21}$, $\text{03-91-21}$, and $\text{03-48-21}$ when the rule checks rightmost first, leftmost second, and middle last (ascending):
 
-- Step $1$ (rightmost): all three end in $12$ (tie).
-- Step $2$ (leftmost, stated second): $04 < 09$, so both $04$ files beat $\text{09-02-12}$.
-- Step $3$ (middle, stated last): for the two $04$ files, $80 < 90$, so $\text{04-80-12}$ comes before $\text{04-90-12}$.
-- Order: **$\text{04-80-12}$**, **$\text{04-90-12}$**, **$\text{09-02-12}$**.
+- Step $1$ (rightmost): all three end in $21$ (tie).
+- Step $2$ (leftmost, stated second): $03 < 07$, so both $03$ files beat $\text{07-55-21}$.
+- Step $3$ (middle, stated last): for the two $03$ files, $48 < 91$, so $\text{03-48-21}$ comes before $\text{03-91-21}$.
+- Order: **$\text{03-48-21}$**, **$\text{03-91-21}$**, **$\text{07-55-21}$**.
 
 :::pair #wrong-secondary-order
 Right: when the rule checks leftmost second, $\text{04-80-12}$ comes before $\text{09-02-12}$ ($04 < 09$)

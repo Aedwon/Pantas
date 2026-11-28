@@ -26,13 +26,13 @@ Under a character-string rule:
 
 Do not read a group of digits as one whole number under this rule. Compare each digit by itself.
 
-Find the order of $\text{PR-207}$, $\text{PR-21}$, and $\text{PS-105}$, compared character by character in ascending order:
+Find the order of $\text{WK-318}$, $\text{WK-32}$, and $\text{WL-140}$, compared character by character in ascending order:
 
-- Position $1$: all start with $P$ (tie).
-- Position $2$: $R$ comes before $S$, so $\text{PS-105}$ first differs here and goes last.
-- $\text{PR-207}$ and $\text{PR-21}$ match at positions $3$ ("-") and $4$ ($2$).
-- Position $5$: $0$ comes before $1$, so $\text{PR-207}$ goes first.
-- Order: **$\text{PR-207}$**, **$\text{PR-21}$**, **$\text{PS-105}$**.
+- Position $1$: all start with $W$ (tie).
+- Position $2$: $K$ comes before $L$, so $\text{WL-140}$ first differs here and goes last.
+- $\text{WK-318}$ and $\text{WK-32}$ match at positions $3$ ("-") and $4$ ($3$).
+- Position $5$: $1$ comes before $2$, so $\text{WK-318}$ goes first.
+- Order: **$\text{WK-318}$**, **$\text{WK-32}$**, **$\text{WL-140}$**.
 
 :::pair #whole-number-in-string
 Right: in character-string order, $\text{PR-207}$ comes before $\text{PR-21}$
@@ -44,12 +44,12 @@ Comparing $21$ with $207$ mixes in whole-number order. Under a character-string 
 
 Sometimes two codes match until the shorter one runs out of characters. In these questions, the **shorter code comes first** in that case (nothing comes before something).
 
-Find the order of $\text{M-40}$, $\text{M-5}$, and $\text{M-4}$, character by character, with the shorter code first when one begins the other:
+Find the order of $\text{B-70}$, $\text{B-8}$, and $\text{B-7}$, character by character, with the shorter code first when one begins the other:
 
-- Positions $1$ and $2$: all three codes start with $\text{M-}$ (tie).
-- Position $3$: $\text{M-4}$ and $\text{M-40}$ have $4$, and $\text{M-5}$ has $5$. Since $4 < 5$, $\text{M-5}$ goes last.
-- $\text{M-4}$ ends after position $3$, while $\text{M-40}$ continues with $0$, so $\text{M-4}$ is first.
-- Order: **$\text{M-4}$**, **$\text{M-40}$**, **$\text{M-5}$**.
+- Positions $1$ and $2$: all three codes start with $\text{B-}$ (tie).
+- Position $3$: $\text{B-7}$ and $\text{B-70}$ have $7$, and $\text{B-8}$ has $8$. Since $7 < 8$, $\text{B-8}$ goes last.
+- $\text{B-7}$ ends after position $3$, while $\text{B-70}$ continues with $0$, so $\text{B-7}$ is first.
+- Order: **$\text{B-7}$**, **$\text{B-70}$**, **$\text{B-8}$**.
 
 :::pair #longer-prefix-first
 Right: $\text{M-4}$, then $\text{M-40}$, then $\text{M-5}$
@@ -58,7 +58,7 @@ $\text{M-4}$ is the exact beginning of $\text{M-40}$, so the shorter code goes f
 :::
 
 :::why
-Why does $\text{M-40}$ come before $\text{M-5}$ even though $\text{M-40}$ is longer? Position $3$ ($4$ vs. $5$) already broke the tie between $\text{M-40}$ and $\text{M-5}$. Under this rule, length decides only when one code is the exact start of the other.
+Why does $\text{B-70}$ come before $\text{B-8}$ even though $\text{B-70}$ is longer? Position $3$ ($7$ vs. $8$) already broke the tie between $\text{B-70}$ and $\text{B-8}$. Under this rule, length decides only when one code is the exact start of the other.
 :::
 
 :::check

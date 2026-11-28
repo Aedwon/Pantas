@@ -23,11 +23,11 @@ keyPoints:
 
 Check which direction the question names before looking at the dates.
 
-Find the order of January $3$, $2025$ and December $31$, $2024$ in both directions:
+Find the order of March $4$, $2024$ and October $19$, $2023$ in both directions:
 
-- The years differ first: $2024$ comes before $2025$.
-- Oldest to newest: December $31$, $2024$, then January $3$, $2025$.
-- Reverse chronological (newest to oldest): January $3$, $2025$ on top, then December $31$, $2024$.
+- The years differ first: $2023$ comes before $2024$.
+- Oldest to newest: October $19$, $2023$, then March $4$, $2024$.
+- Reverse chronological (newest to oldest): March $4$, $2024$ on top, then October $19$, $2023$.
 
 :::pair #wrong-date-direction
 Right: in reverse chronological order, put the **most recent date** ($2025\text{-}01\text{-}08$) at the top
@@ -45,12 +45,12 @@ In these questions, compare complete dates in three steps, from largest calendar
 
 Two records that show the same month and year, such as two "May $2025$" records, cannot be ordered against each other until their day dates are known. If a registry names another key first, such as file number, use the date only when that key matches.
 
-Find the oldest-to-newest order of June $15$, $2025$, July $1$, $2025$, and June $10$, $2025$:
+Find the oldest-to-newest order of April $12$, $2025$, May $3$, $2025$, and April $8$, $2025$:
 
 - Step $1$ (year): all three are in $2025$ (tie).
-- Step $2$ (month): June ($6$) comes before July ($7$), so July $1$, $2025$ is last.
-- Step $3$ (day, for the June dates): day $10$ comes before day $15$.
-- Order: June $10$, $2025$; June $15$, $2025$; July $1$, $2025$.
+- Step $2$ (month): April ($4$) comes before May ($5$), so May $3$, $2025$ is last.
+- Step $3$ (day, for the April dates): day $8$ comes before day $12$.
+- Order: April $8$, $2025$; April $12$, $2025$; May $3$, $2025$.
 
 :::pair #month-beats-year
 Right: in newest-first order, January $3$, $2025$ ($2025\text{-}01\text{-}03$) comes before December $31$, $2024$ ($2024\text{-}12\text{-}31$)

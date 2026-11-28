@@ -24,20 +24,20 @@ An **integer subcode** is a whole-number part inside a larger code. When a quest
 3. In these questions, move to the next subcode only when earlier parts tie.
 4. If a part is a letter (such as $-A$ or $-B$), compare it alphabetically when the rule calls for it.
 
-Find which of $31.2$ and $31.015$ comes first as integer subcodes in ascending order:
+Find which of $64.3$ and $64.027$ comes first as integer subcodes in ascending order:
 
-- First subcode: both are $31$ (tie).
-- Second subcode as whole numbers: $2$ and $015 = 15$.
-- Since $2 < 15$, **$31.2$** comes before **$31.015$**.
+- First subcode: both are $64$ (tie).
+- Second subcode as whole numbers: $3$ and $027 = 27$.
+- Since $3 < 27$, **$64.3$** comes before **$64.027$**.
 
-Find the code right after $10\text{-}099$ (fixed prefix, $3$-digit suffix, counting up by $1$):
+Find the code right after $27\text{-}0999$ (fixed prefix, $4$-digit suffix, counting up by $1$):
 
-- Keep the fixed prefix $10$.
-- Add $1$ to the suffix $099$: $99 + 1 = 100$.
-- The next code is **$10\text{-}100$**.
+- Keep the fixed prefix $27$.
+- Add $1$ to the suffix $0999$: $999 + 1 = 1000$.
+- The next code is **$27\text{-}1000$**.
 
 :::why
-Why does $31.2$ come before $31.015$ as integer subcodes when $31.015$ is smaller as a decimal? In decimal math, the dot marks tenths and thousandths. Here, the system uses the dot as a divider between two whole numbers, like section $31$, folder $2$ vs. section $31$, folder $15$.
+Why does $64.3$ come before $64.027$ as integer subcodes when $64.027$ is smaller as a decimal? In decimal math, the dot marks tenths and thousandths. Here, the system uses the dot as a divider between two whole numbers, like section $64$, folder $3$ vs. section $64$, folder $27$.
 :::
 
 :::pair #dot-as-decimal
@@ -91,8 +91,9 @@ A drawer holds $43\text{-}002$, $42\text{-}150$, $41\text{-}960$, and $42\text{-
 **Solution:**
 
 1. Compare first subcodes: $41\text{-}960$ is before the new code ($41 < 42$), and $43\text{-}002$ is after it.
-2. $42\text{-}015$ and $42\text{-}150$ tie with the new code on $42$. Compare second subcodes as whole numbers: $015 = 15$, $090 = 90$, and $150$.
-3. Since $15 < 90 < 150$, $42\text{-}015$ is before the new code and $42\text{-}150$ is after it.
+2. $42\text{-}015$ and $42\text{-}150$ tie with the new code on $42$.
+3. Compare second subcodes as whole numbers: $015 = 15$, $090 = 90$, and $150$.
+4. Since $15 < 90 < 150$, $42\text{-}015$ is before the new code and $42\text{-}150$ is after it.
 
 :::try
 Finish the last step: of the two listed codes before $42\text{-}090$, $42\text{-}015$ and $41\text{-}960$, pick the one that sits immediately before it.
@@ -103,6 +104,6 @@ The answer is **$42\text{-}015$**. The first subcodes first differ: $41 < 42$, s
 ## Traps to Watch For
 
 :::checklist
-- If the rule calls the dot a subcode divider, compare second subcodes as whole numbers ($2 < 15$), so $31.2$ files before $31.015$. If it says decimal, read a decimal. {#dot-as-decimal}
+- If the rule calls the dot a subcode divider and the first subcodes tie, compare second subcodes as whole numbers ($2 < 15$), so $31.2$ files before $31.015$. If it says decimal, read a decimal. {#dot-as-decimal}
 - If the prefix is fixed and a $3$-digit suffix counts up by $1$, then $099$ plus $1$ is $100$ inside the suffix ($10\text{-}100$), with no carry into the prefix. {#early-prefix-carry}
 :::

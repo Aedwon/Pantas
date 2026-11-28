@@ -21,12 +21,12 @@ A **suffix** follows a name, such as *Jr.*, *Sr.*, *II*, or *III*. A **title** c
 - If a system keeps the suffix as the final unit, compare it after the earlier name units tie. In these questions, *Jr.* and *Sr.* compare alphabetically (*J* before *S*), not by age.
 - If a system ignores titles, drop *Dr.*, *Mr.*, or *Ms.* before sorting.
 
-Find the filing order of *Santos, Leo, Jr.*, *Santos, Leo, Sr.*, and *Santos, Leon, Jr.*, sorted by surname, given name, then suffix alphabetically. A shorter complete name unit comes first:
+Find the filing order of *Lopez, Ben, Jr.*, *Lopez, Ben, Sr.*, and *Lopez, Benito, Jr.*, sorted by surname, given name, then suffix alphabetically. A shorter complete name unit comes first:
 
-- Unit $1$ (surname): all three tie on *Santos*.
-- Unit $2$ (given name): *Leo* ends where *Leon* continues, so both *Leo* entries come before *Leon*.
-- Unit $3$ (suffix): the two *Leo* entries first differ here, and *Jr.* comes before *Sr.*
-- Order: **Santos, Leo, Jr.**, **Santos, Leo, Sr.**, **Santos, Leon, Jr.**
+- Unit $1$ (surname): all three tie on *Lopez*.
+- Unit $2$ (given name): *Ben* ends where *Benito* continues, so both *Ben* entries come before *Benito*.
+- Unit $3$ (suffix): the two *Ben* entries first differ here, and *Jr.* comes before *Sr.*
+- Order: **Lopez, Ben, Jr.**, **Lopez, Ben, Sr.**, **Lopez, Benito, Jr.**
 
 :::pair #suffix-too-early
 Right: **Santos, Leo, Sr.** before **Santos, Leon, Jr.**
@@ -38,12 +38,12 @@ Unit $2$ (*Leo* vs. *Leon*) already broke the tie. In these questions, the suffi
 
 When the earlier units tie, compare the next unit the rule names, such as **city**. Use a tie-breaker the task states. Offices differ, so do not guess one, such as birth date.
 
-Find the filing order of *De la Vega, Ana L., Cebu*, *De la Vega, Ana L., Davao*, and *De la Vega, Ana M., Baguio*, sorted by surname, given name, middle initial, then city:
+Find the filing order of *Ocampo, Ruth C., Surigao*, *Ocampo, Ruth C., Palawan*, and *Ocampo, Ruth D., Batangas*, sorted by surname, given name, middle initial, then city:
 
-- Units $1$ and $2$: all three tie on *De la Vega, Ana*.
-- Unit $3$ (middle initial): *L.* comes before *M.*, so *Ana M., Baguio* goes last.
-- Unit $4$ (city): the two *Ana L.* entries first differ here, and *Cebu* comes before *Davao*.
-- Order: **De la Vega, Ana L., Cebu**, **De la Vega, Ana L., Davao**, **De la Vega, Ana M., Baguio**.
+- Units $1$ and $2$: all three tie on *Ocampo, Ruth*.
+- Unit $3$ (middle initial): *C.* comes before *D.*, so *Ruth D., Batangas* goes last.
+- Unit $4$ (city): the two *Ruth C.* entries first differ here, and *Palawan* comes before *Surigao*.
+- Order: **Ocampo, Ruth C., Palawan**, **Ocampo, Ruth C., Surigao**, **Ocampo, Ruth D., Batangas**.
 
 :::pair #city-before-initial
 Right: **De la Vega, Ana L., Cebu** before **De la Vega, Ana M., Baguio**
