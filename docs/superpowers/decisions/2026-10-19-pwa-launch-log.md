@@ -5144,3 +5144,10 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Runs:** export and content gate pass; staging 5:26 PM and prod 5:54 PM, each 15 updates (14 lessons and one listing document), 0 creates, 0 Pro; re-plans 0, summaries unchanged.
 - **Staging check (Sonnet, device scale 3 close-ups, light and dark):** all five pictures PASS (no exponent or subscript touching, no line crossing a label, after their worked lines); all 9 clerical lessons render with no raw markers. Minor, not held: the imaginary-unit picture's accessibility label reads "qquad" literally.
 - **Live content root now:** b47d313ea. Rollback: upload `content/walkthrough-reasoning-held-r1` 73ad5486a.
+
+### Nov 28, 5:58 to 6:03 PM Manila: reasoning R4 live on prod (CSE release lead r11)
+
+- **Root:** `content/walkthrough-reasoning-r1` dbc5e7244 (walk-through lead, on b47d313ea): must-be-true-conclusions and none-and-may (Codex read 2, 0 Blockers, Majors fixed once); the imaginary-unit powers written inline (manager's fix for the "qquad" label). Needed and negating assumptions stay at their live versions.
+- **Runs:** export and gate pass; staging 5:58 PM and prod 6:03 PM, 3 lesson updates, 0 Pro; re-plans 0, summaries unchanged. Staging render check: all three PASS; the imaginary-unit picture passes light and dark. Minor, not held: a second `\qquad` (between the two example roots) is still read aloud as "qquad" by screen readers.
+- **Live content root now:** dbc5e7244. Rollback: upload b47d313ea.
+- **Manager (same hour):** question 0040 in assumptions-and-conclusions (its key drops the claim's "at intake" and "final log" limits) joins C11 as a MUST FIX.
