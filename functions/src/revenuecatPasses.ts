@@ -13,6 +13,7 @@ import type {RevenueCatPurchase} from './revenuecatSubscriber.js';
 import type {LedgerPass} from './revenuecatCoverage.js';
 import {ledgerGrants, shortenedEnd, type Grant} from './grants.js';
 import {timed} from './_timed.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 export interface Sitting {firstDay: string; lastDay: string; sourceUrl: string}
 export interface CatalogExam {id: string; publishedSittings: Sitting[]}
@@ -184,7 +185,7 @@ export async function clearPassOwnership(db: Firestore, uid: string): Promise<vo
   }
 }
 
-export const recomputePassEnds = onCall({region:'asia-southeast1',enforceAppCheck: enforceAppCheck,consumeAppCheckToken: enforceAppCheck},
+export const recomputePassEnds = onCall({region:'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-entitlements'),enforceAppCheck: enforceAppCheck,consumeAppCheckToken: enforceAppCheck},
   timed('recomputePassEnds', async request => {
     assertFreshAppCheck(request);
     await requireAdmin(request);

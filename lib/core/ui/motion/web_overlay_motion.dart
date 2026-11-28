@@ -63,6 +63,19 @@ class WebOverlayMotion {
     fade: true,
   );
 
+  /// The wide report drop-down: Pantas Web QN_Report draws `.popover` as
+  /// `drop .2s ease-out`, from 6 px above and transparent to in place. CSS
+  /// ease-out is cubic-bezier(0,0,.58,1). It leaves the same way.
+  static const dropdown = WebOverlayMotion(
+    open: Duration(milliseconds: 200),
+    close: Duration(milliseconds: 200),
+    curve: Cubic(0, 0, .58, 1),
+    scrim: Duration(milliseconds: 200),
+    scrimCurve: PantasCurves.linear,
+    rise: -6,
+    fade: true,
+  );
+
   /// A lesson reader over the page: the phone's reader rise (24 px and a fade,
   /// `PantasDurations.medium2` on edgeGrow), with the drawer's scrim.
   static const lesson = WebOverlayMotion(

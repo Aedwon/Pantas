@@ -8,6 +8,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/features/mock_exam/application/mock_blueprint_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
+import 'package:pantas/features/mock_exam/domain/mock_title.dart';
 
 class MockStartPreparationPage extends StatelessWidget {
   const MockStartPreparationPage({
@@ -78,7 +79,7 @@ class MockStartPreparationPage extends StatelessWidget {
             ),
             const SizedBox(height: PantasSpace.s6),
             Text(
-              '${parsedBlueprint.blueprint.name} · $count questions',
+              '${mockNameWithoutLabel(parsedBlueprint.blueprint.name)} · $count questions',
               textAlign: TextAlign.center,
               style: type.subhead.copyWith(color: colors.secondaryLabel),
             ),

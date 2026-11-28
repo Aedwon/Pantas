@@ -585,6 +585,14 @@ class ConceptDiagramFigure extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.colors;
+    // The nested-boxes figure sizes itself from its labels, so it has its
+    // own widget. Every other type keeps the fixed height.
+    if (type == 'nested-boxes') {
+      return Semantics(
+        label: 'A $type diagram.',
+        child: const _NestedBoxesFigure(),
+      );
+    }
     return Semantics(
       label: 'A $type diagram.',
       child: SizedBox(
@@ -679,6 +687,259 @@ abstract final class VennLayout {
     ];
     return (centres: [a, b, cc], radius: r, numbers: numbers);
   }
+}
+
+/// One box of the nested-boxes figure and where its label sits.
+typedef NestedBoxPlan = ({
+  String label,
+  Rect rect,
+  Rect labelRect,
+  double labelWidthLimit,
+});
+
+/// Where the nested-boxes figure puts its boxes and labels for a width.
+@visibleForTesting
+class NestedBoxesPlan {
+  const NestedBoxesPlan({
+    required this.size,
+    required this.irrationalBeside,
+    required this.boxes,
+  });
+
+  final Size size;
+
+  /// Whether Irrational Numbers sits beside Rational Numbers. Otherwise it
+  /// sits below it, as wide as the Real Numbers box.
+  final bool irrationalBeside;
+
+  /// Parents come before the boxes inside them.
+  final List<NestedBoxPlan> boxes;
+}
+
+/// Lays out the nested-boxes figure from the measured labels, so no label
+/// outgrows its box. Natural in Whole in Integers in Rational, Irrational
+/// beside or below Rational, all inside Real.
+@visibleForTesting
+abstract final class NestedBoxesLayout {
+  /// Space between the figure's edge and the Real Numbers box.
+  static const double margin = 8;
+
+  /// How far each box sits in from the box around it, on each side.
+  static const double inset = 8;
+
+  /// Space between Rational and Irrational Numbers.
+  static const double gap = 8;
+
+  /// Space between a label and the edge of its box, across and up and down.
+  static const double labelPadX = 6;
+  static const double labelPadY = 4;
+
+  static TextPainter _measure(
+    String text,
+    TextStyle style,
+    TextScaler textScaler,
+    double maxWidth,
+  ) =>
+      TextPainter(
+        text: TextSpan(text: text, style: style),
+        textDirection: TextDirection.ltr,
+        textScaler: textScaler,
+      )..layout(maxWidth: maxWidth);
+
+  static NestedBoxPlan _box(
+    String label,
+    Rect rect,
+    TextStyle style,
+    TextScaler textScaler,
+  ) {
+    final limit = math.max(rect.width - 2 * labelPadX, 1).toDouble();
+    final text = _measure(label, style, textScaler, limit);
+    return (
+      label: label,
+      rect: rect,
+      labelRect: Rect.fromLTWH(
+        rect.left + labelPadX,
+        rect.top + labelPadY,
+        text.width,
+        text.height,
+      ),
+      labelWidthLimit: limit,
+    );
+  }
+
+  static NestedBoxesPlan of(
+    double width,
+    TextStyle style, {
+    TextScaler textScaler = TextScaler.noScaling,
+  }) {
+    const chain = [
+      'Rational Numbers',
+      'Integers',
+      'Whole Numbers',
+      'Natural Numbers',
+    ];
+    const irrationalLabel = 'Irrational Numbers';
+
+    // Width a box needs to hold a label on one line.
+    double need(String text) =>
+        _measure(text, style, textScaler, double.infinity).width +
+        2 * labelPadX;
+    // Height of a box's label row, wrapped to a box of [boxWidth].
+    double row(String text, double boxWidth) =>
+        _measure(
+          text,
+          style,
+          textScaler,
+          math.max(boxWidth - 2 * labelPadX, 1),
+        ).height +
+        2 * labelPadY;
+
+    final realWidth = math.max(width - 2 * margin, 0).toDouble();
+    final innerWidth = math.max(realWidth - 2 * inset, 0).toDouble();
+
+    // Irrational goes beside Rational only when both fit their labels on one
+    // line. Rational needs enough width for the deepest label, Natural.
+    var rationalNeed = 0.0;
+    for (var i = 0; i < chain.length; i++) {
+      rationalNeed = math.max(rationalNeed, need(chain[i]) + 2 * inset * i);
+    }
+    final irrationalNeed = need(irrationalLabel);
+    final beside = rationalNeed + gap + irrationalNeed <= innerWidth;
+    final rationalWidth =
+        beside ? innerWidth - gap - irrationalNeed : innerWidth;
+    final irrationalWidth = beside ? irrationalNeed : innerWidth;
+
+    // Heights, from the innermost box out. A box is its label row, the box
+    // inside it, and a bottom inset.
+    final last = chain.length - 1;
+    final heights = List<double>.filled(chain.length, 0);
+    for (var i = last; i >= 0; i--) {
+      final own = row(chain[i], rationalWidth - 2 * inset * i);
+      heights[i] = i == last ? own : own + heights[i + 1] + inset;
+    }
+    final irrationalRow = row(irrationalLabel, irrationalWidth);
+    final contentHeight = beside
+        ? math.max(heights[0], irrationalRow)
+        : heights[0] + gap + irrationalRow;
+    final realRow = row('Real Numbers', realWidth);
+    final realHeight = realRow + contentHeight + inset;
+
+    const left = margin + inset;
+    final boxes = <NestedBoxPlan>[
+      _box(
+        'Real Numbers',
+        Rect.fromLTWH(margin, margin, realWidth, realHeight),
+        style,
+        textScaler,
+      ),
+    ];
+    var top = margin + realRow;
+    for (var i = 0; i < chain.length; i++) {
+      final boxWidth = rationalWidth - 2 * inset * i;
+      final boxHeight = i == 0 && beside ? contentHeight : heights[i];
+      boxes.add(
+        _box(
+          chain[i],
+          Rect.fromLTWH(left + inset * i, top, boxWidth, boxHeight),
+          style,
+          textScaler,
+        ),
+      );
+      top += row(chain[i], boxWidth);
+    }
+    final irrationalRect = beside
+        ? Rect.fromLTWH(
+            left + rationalWidth + gap,
+            margin + realRow,
+            irrationalWidth,
+            contentHeight,
+          )
+        : Rect.fromLTWH(
+            left,
+            margin + realRow + heights[0] + gap,
+            irrationalWidth,
+            irrationalRow,
+          );
+    boxes.add(_box(irrationalLabel, irrationalRect, style, textScaler));
+
+    return NestedBoxesPlan(
+      size: Size(width, realHeight + 2 * margin),
+      irrationalBeside: beside,
+      boxes: boxes,
+    );
+  }
+}
+
+class _NestedBoxesFigure extends StatelessWidget {
+  const _NestedBoxesFigure();
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final style = context.type.subhead.copyWith(color: colors.label);
+    final textScaler = MediaQuery.textScalerOf(context);
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final plan = NestedBoxesLayout.of(
+          constraints.maxWidth,
+          style,
+          textScaler: textScaler,
+        );
+        return SizedBox(
+          height: plan.size.height,
+          child: CustomPaint(
+            size: Size.infinite,
+            painter: _NestedBoxesPainter(
+              plan: plan,
+              ink: colors.label,
+              labelStyle: style,
+              textScaler: textScaler,
+            ),
+          ),
+        );
+      },
+    );
+  }
+}
+
+class _NestedBoxesPainter extends CustomPainter {
+  const _NestedBoxesPainter({
+    required this.plan,
+    required this.ink,
+    required this.labelStyle,
+    required this.textScaler,
+  });
+
+  final NestedBoxesPlan plan;
+  final Color ink;
+  final TextStyle labelStyle;
+  final TextScaler textScaler;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final stroke = Paint()
+      ..color = ink
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.2;
+    for (final box in plan.boxes) {
+      canvas.drawRect(box.rect, stroke);
+      TextPainter(
+        text: TextSpan(text: box.label, style: labelStyle),
+        textDirection: TextDirection.ltr,
+        textScaler: textScaler,
+      )
+        ..layout(maxWidth: box.labelWidthLimit)
+        ..paint(canvas, box.labelRect.topLeft);
+    }
+  }
+
+  @override
+  bool shouldRepaint(_NestedBoxesPainter oldDelegate) =>
+      oldDelegate.ink != ink ||
+      oldDelegate.labelStyle != labelStyle ||
+      oldDelegate.textScaler != textScaler ||
+      oldDelegate.plan.size != plan.size ||
+      !listEquals(oldDelegate.plan.boxes, plan.boxes);
 }
 
 class _ConceptDiagramPainter extends CustomPainter {
@@ -779,8 +1040,6 @@ class _ConceptDiagramPainter extends CustomPainter {
     switch (type) {
       case 'venn':
         _drawVenn(canvas, size);
-      case 'nested-boxes':
-        _drawNestedBoxes(canvas, size);
       case 'conic-sections':
         _drawConicSections(canvas, size);
       case 'tree':
@@ -956,69 +1215,6 @@ class _ConceptDiagramPainter extends CustomPainter {
       canvas,
       regions?['right'] ?? '10',
       Offset((c1.dx + r + c2.dx + r) / 2, cy),
-    );
-  }
-
-  void _drawNestedBoxes(Canvas canvas, Size size) {
-    final stroke = Paint()
-      ..color = ink
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 1.2;
-
-    final realBox = Rect.fromLTWH(16, 12, size.width - 32, size.height - 24);
-    canvas.drawRect(realBox, stroke);
-    _drawText(
-      canvas,
-      'Real Numbers',
-      Offset(realBox.left + 8, realBox.top + 6),
-    );
-
-    // A label that is wider than its box wraps onto a second line.
-    final irratBox = Rect.fromLTWH(size.width - 140, 42, 112, size.height - 66);
-    canvas.drawRect(irratBox, stroke);
-    _drawText(
-      canvas,
-      'Irrational Numbers',
-      Offset(irratBox.left + 6, irratBox.top + 8),
-      maxWidth: irratBox.width - 12,
-    );
-
-    final ratBox = Rect.fromLTWH(28, 42, size.width - 180, size.height - 66);
-    canvas.drawRect(ratBox, stroke);
-    _drawText(
-      canvas,
-      'Rational Numbers',
-      Offset(ratBox.left + 6, ratBox.top + 6),
-      maxWidth: ratBox.width - 12,
-    );
-
-    final intBox = Rect.fromLTWH(38, 70, ratBox.width - 20, ratBox.height - 36);
-    canvas.drawRect(intBox, stroke);
-    _drawText(
-      canvas,
-      'Integers',
-      Offset(intBox.left + 6, intBox.top + 4),
-      maxWidth: intBox.width - 12,
-    );
-
-    final wholeBox =
-        Rect.fromLTWH(48, 96, intBox.width - 20, intBox.height - 34);
-    canvas.drawRect(wholeBox, stroke);
-    _drawText(
-      canvas,
-      'Whole Numbers',
-      Offset(wholeBox.left + 6, wholeBox.top + 4),
-      maxWidth: wholeBox.width - 12,
-    );
-
-    final natBox =
-        Rect.fromLTWH(58, 122, wholeBox.width - 20, wholeBox.height - 34);
-    canvas.drawRect(natBox, stroke);
-    _drawText(
-      canvas,
-      'Natural Numbers',
-      Offset(natBox.left + 6, natBox.top + 4),
-      maxWidth: natBox.width - 12,
     );
   }
 

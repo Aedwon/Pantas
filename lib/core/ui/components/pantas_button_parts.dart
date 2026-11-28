@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
@@ -180,6 +181,51 @@ class TouchTarget extends StatelessWidget {
         alignment: alignment,
         widthFactor: square ? null : 1,
         child: child,
+      ),
+    );
+  }
+}
+
+/// Grows only the tap area of [child] to [minHeight], above and below, and
+/// leaves the layout as it is. The Restore Purchases line is drawn 24 high
+/// (board ST_ProFree) and still takes a 44 high tap.
+class TapSlop extends SingleChildRenderObjectWidget {
+  const TapSlop({required this.minHeight, required super.child, super.key});
+
+  final double minHeight;
+
+  @override
+  RenderObject createRenderObject(BuildContext context) =>
+      _RenderTapSlop(minHeight);
+
+  @override
+  void updateRenderObject(
+    BuildContext context,
+    covariant RenderObject renderObject,
+  ) =>
+      (renderObject as _RenderTapSlop)._minHeight = minHeight;
+}
+
+class _RenderTapSlop extends RenderProxyBox {
+  _RenderTapSlop(this._minHeight);
+
+  double _minHeight;
+
+  @override
+  bool hitTest(BoxHitTestResult result, {required Offset position}) {
+    final slop = math.max(0, (_minHeight - size.height) / 2);
+    if (position.dx < 0 ||
+        position.dx > size.width ||
+        position.dy < -slop ||
+        position.dy > size.height + slop) {
+      return false;
+    }
+    // Inside the slop the child sees the nearest point of its own box.
+    return super.hitTest(
+      result,
+      position: Offset(
+        position.dx,
+        position.dy.clamp(0, size.height - 0.001).toDouble(),
       ),
     );
   }

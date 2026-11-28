@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
@@ -13,7 +12,18 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 
 /// The situations that replace the Today checklist (D-63, D-65).
-enum HomeState { assessment, noContent, nothingDue, reviewOnly, dayOff, passed }
+enum HomeState {
+  assessment,
+
+  /// The assessment was started and left. Same card as [assessment], with
+  /// the count of answers saved on the device (C2B_Home, C2B_HomeWide).
+  continueAssessment,
+  noContent,
+  nothingDue,
+  reviewOnly,
+  dayOff,
+  passed,
+}
 
 class HomeStateCard extends StatelessWidget {
   const HomeStateCard({
@@ -24,10 +34,21 @@ class HomeStateCard extends StatelessWidget {
     this.onSecondary,
     this.examDateLabel,
     this.hasExamDate = true,
-    this.web = kIsWeb,
+    this.answered = 0,
+    this.total = 0,
+    this.streakStands = true,
+    this.web,
     super.key,
   });
-  final bool web;
+
+  /// For [HomeState.continueAssessment]: questions with a saved pick, and
+  /// questions in the saved list.
+  final int answered;
+  final int total;
+
+  /// Whether this runs on the web. Null reads the platform the layout uses,
+  /// so a widget test's web override reaches the card as it does a screen.
+  final bool? web;
   final HomeState state;
   final String examName;
   final String examShortName;
@@ -38,8 +59,17 @@ class HomeStateCard extends StatelessWidget {
   final String? examDateLabel;
   final bool hasExamDate;
 
+  /// The assessment card in either form: Start or Continue.
+  bool get _isAssessment =>
+      state == HomeState.assessment || state == HomeState.continueAssessment;
+
+  /// Day off only: whether the stored streak still stands today. False drops
+  /// the "your streak is safe" claim, which would be untrue.
+  final bool streakStands;
+
   String get _title => switch (state) {
         HomeState.assessment => 'First, a short assessment',
+        HomeState.continueAssessment => 'Continue the assessment',
         HomeState.noContent => 'Lessons are on the way',
         HomeState.nothingDue || HomeState.reviewOnly => 'Nothing due today',
         HomeState.dayOff => 'Day off',
@@ -49,6 +79,7 @@ class HomeStateCard extends StatelessWidget {
   String get _detail => switch (state) {
         HomeState.assessment => 'We check your strengths and weak spots '
             'first, so your plan is built around you.',
+        HomeState.continueAssessment => '$answered of $total answered.',
         HomeState.noContent =>
           "$examName lessons and questions aren't in Pantas yet, "
               "so there's no plan. You can switch exams in Settings.",
@@ -56,10 +87,13 @@ class HomeStateCard extends StatelessWidget {
         HomeState.reviewOnly =>
           'These last days before $examShortName are reviews only, '
               'and none are due today.',
-        HomeState.dayOff =>
-          'Nothing is planned today, and your streak is safe. '
-              "If you feel like it, the next study day's lesson "
-              'can move to today.',
+        HomeState.dayOff => streakStands
+            ? 'Nothing is planned today, and your streak is safe. '
+                "If you feel like it, the next study day's lesson "
+                'can move to today.'
+            : 'Nothing is planned today. '
+                "If you feel like it, the next study day's lesson "
+                'can move to today.',
         HomeState.passed => examDateLabel == null
             ? "Tell us what's next."
             : 'Your $examShortName date was $examDateLabel. '
@@ -68,6 +102,7 @@ class HomeStateCard extends StatelessWidget {
 
   String? get _action => switch (state) {
         HomeState.assessment => 'Start Assessment',
+        HomeState.continueAssessment => 'Continue',
         HomeState.noContent => 'Switch Exam',
         HomeState.nothingDue ||
         HomeState.reviewOnly =>
@@ -105,7 +140,7 @@ class HomeStateCard extends StatelessWidget {
       _ => null,
     };
     final big = icon == null;
-    final assessment = state == HomeState.assessment;
+    final assessment = _isAssessment;
     final body = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -131,7 +166,7 @@ class HomeStateCard extends StatelessWidget {
             alignment: Alignment.centerRight,
             child: Wrap(
               alignment: WrapAlignment.end,
-              spacing: 12,
+              spacing: 8,
               runSpacing: 8,
               children: [
                 if (state == HomeState.passed && onSecondary != null)
@@ -199,17 +234,20 @@ class HomeStateCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (isWideWebLayout(width: MediaQuery.sizeOf(context).width, web: web)) {
+    if (isWideWebLayout(
+      width: MediaQuery.sizeOf(context).width,
+      web: web ?? context.webPlatform,
+    )) {
       return CallbackShortcuts(
         bindings: {
-          if (state == HomeState.assessment && onPrimary != null)
+          if (_isAssessment && onPrimary != null)
             const SingleActivator(
               LogicalKeyboardKey.enter,
               includeRepeats: false,
             ): onPrimary!,
         },
         child: Focus(
-          autofocus: state == HomeState.assessment,
+          autofocus: _isAssessment,
           child: _wideCard(context),
         ),
       );
@@ -222,8 +260,8 @@ class HomeStateCard extends StatelessWidget {
       ),
     );
     final action = onPrimary == null ? null : _action;
-    if (state == HomeState.assessment || state == HomeState.noContent) {
-      final assessment = state == HomeState.assessment;
+    if (_isAssessment || state == HomeState.noContent) {
+      final assessment = _isAssessment;
       return DecoratedBox(
         decoration: BoxDecoration(
           color: context.colors.surfaceCard,

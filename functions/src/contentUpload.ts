@@ -1,5 +1,7 @@
 import {createHash} from 'node:crypto';
+import {isDeepStrictEqual} from 'node:util';
 import type {Firestore} from 'firebase-admin/firestore';
+import {BANK_MARKER_ID, BUILDER_VERSION, SUMMARY_COLLECTION, buildExamContent, summaryPartId} from './_examContentBuild.js';
 
 export type ContentKind = 'lessons' | 'questions' | 'variants' | 'mocks' | 'catalog' | 'gaps';
 export type ContentItem = {kind: ContentKind; id: string; data: Record<string, unknown> & {version: string}};
@@ -266,23 +268,230 @@ export function planWrites(items: ContentItem[], existing: Map<string, string>):
   return {counts, changed};
 }
 
+// ---- exam summaries ---------------------------------------------------------------------------
+// One document per exam with what `loadExamContent` would build from the whole bank, so the server
+// reads 2 or 3 documents instead of every lesson and question set. Plan:
+// docs/superpowers/plans/2026-11-21-exam-content-summary.md.
+
+export const SUMMARY_SPLIT_BYTES = 700_000;
+const BANK_KINDS = new Set<ContentKind>(['lessons', 'questions']);
+const byId = <T extends {id: string}>(a: T, b: T): number => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+
+/** A digest of every lesson and question-set id and version in `items`: the bank they make up. */
+export function bankVersionOf(items: ContentItem[]): string {
+  return digest(items.filter((item) => BANK_KINDS.has(item.kind)).map((item) => `${item.kind}/${item.id}:${item.data.version}`).sort());
+}
+
+/** Splits text into parts of at most `maxBytes` UTF-8 bytes, never inside a character. */
+export function splitUtf8(text: string, maxBytes: number): string[] {
+  const parts: string[] = [];
+  let start = 0;
+  while (start < text.length) {
+    let end = Math.min(text.length, start + maxBytes);
+    while (Buffer.byteLength(text.slice(start, end), 'utf8') > maxBytes) end = start + Math.floor((end - start) * 0.9);
+    // Do not end a part between the two halves of a surrogate pair.
+    if (end < text.length && /[\uD800-\uDBFF]/.test(text[end - 1])) end -= 1;
+    parts.push(text.slice(start, end));
+    start = end;
+  }
+  return parts.length ? parts : [''];
+}
+
+/**
+ * The exam summaries for a bank made of exactly these lesson and question-set items (no duplicate ids),
+ * in parts of at most SUMMARY_SPLIT_BYTES. Exams come from the sets' `meta.exams`. An exam whose content
+ * would not read back identically from JSON gets no summary, so the server scans for it. Throws when the
+ * builder rejects the bank (for example a replacedBy cycle), which the scan would also reject.
+ */
+export function summaryItems(items: ContentItem[]): {id: string; data: Record<string, unknown>}[] {
+  const bankVersion = bankVersionOf(items);
+  // Document id order, as the scan reads them from Firestore.
+  const lessons = items.filter((item) => item.kind === 'lessons').sort(byId).map((item) => ({...item.data, id: item.id}));
+  const sets = items.filter((item) => item.kind === 'questions').sort(byId).map((item) => ({id: item.id, payload: item.data.payload}));
+  const slugs = new Set<string>();
+  for (const set of sets) {
+    try {
+      const exams = (JSON.parse(String(set.payload)) as {meta?: {exams?: unknown}}).meta?.exams;
+      if (Array.isArray(exams)) for (const slug of exams) if (typeof slug === 'string' && slug) slugs.add(slug);
+    } catch {
+      // The builder skips a malformed set too.
+    }
+  }
+  const out: {id: string; data: Record<string, unknown>}[] = [];
+  for (const slug of [...slugs].sort()) {
+    const examId = `exam_${underscore(slug)}`;
+    const content = buildExamContent(examId, lessons, sets);
+    const payload = JSON.stringify(content);
+    if (!isDeepStrictEqual(JSON.parse(payload), content)) continue;
+    const chunks = splitUtf8(payload, SUMMARY_SPLIT_BYTES);
+    out.push({id: examId, data: {kind: 'summaries', id: examId, bankVersion, builderVersion: BUILDER_VERSION, parts: chunks.length, payload: chunks[0]}});
+    chunks.slice(1).forEach((chunk, i) => {
+      const id = summaryPartId(examId, i + 1);
+      out.push({id, data: {kind: 'summaries', id, bankVersion, part: i + 1, payload: chunk}});
+    });
+  }
+  return out;
+}
+
+export type SummaryResult = 'written' | 'unchanged' | 'partial' | 'not touched';
+
+// A batch is capped by bytes as well as by count. Summary parts run up to SUMMARY_SPLIT_BYTES each, so a
+// count-only cap of 400 sent several megabytes in one commit, which missed Firestore's 60 s deadline on
+// a slow link four times on Nov 28, 2026, after the lessons were live.
+export const BATCH_MAX_BYTES = 2_000_000;
+export const BATCH_MAX_WRITES = 400;
+const COMMIT_ATTEMPTS = 4;
+// gRPC DEADLINE_EXCEEDED and UNAVAILABLE. A set is idempotent, so resending a whole batch is safe.
+const RETRYABLE_CODES = new Set([4, 14]);
+
+/** Groups writes in order into batches of at most BATCH_MAX_WRITES and BATCH_MAX_BYTES (a single larger write goes alone). */
+export function groupWrites<T extends {data?: unknown}>(writes: T[]): T[][] {
+  const groups: T[][] = [];
+  let current: T[] = [];
+  let bytes = 0;
+  for (const write of writes) {
+    const size = Buffer.byteLength(JSON.stringify(write.data ?? null), 'utf8');
+    if (current.length && (current.length >= BATCH_MAX_WRITES || bytes + size > BATCH_MAX_BYTES)) {
+      groups.push(current);
+      current = [];
+      bytes = 0;
+    }
+    current.push(write);
+    bytes += size;
+  }
+  if (current.length) groups.push(current);
+  return groups;
+}
+
+/** Commits one batch, building it afresh for each attempt (a committed batch cannot be reused). */
+async function commitWithRetry(commit: () => Promise<unknown>): Promise<void> {
+  for (let attempt = 1; ; attempt++) {
+    try {
+      await commit();
+      return;
+    } catch (error) {
+      if (attempt >= COMMIT_ATTEMPTS || !RETRYABLE_CODES.has(Number((error as {code?: unknown}).code))) throw error;
+    }
+  }
+}
+
+// ---- version list -----------------------------------------------------------------------------
+// One index document per content kind at `content/versions/items/{kind}` holding id -> version, so a plan
+// reads a handful of documents instead of one per stored content document (about 1,500). The path is under
+// the server-only `content/{kind}/items/{id}` rule (no client reads it) and `versions` is not a kind that
+// `getContent` serves. Process-improvement: "Upload runs read past the free tier again (Nov 28)".
+
+export const VERSION_INDEX_COLLECTION = 'content/versions/items';
+const CONTENT_KINDS = ['lessons', 'questions', 'variants', 'mocks', 'catalog', 'gaps'] as const;
+// Lessons are about 1,300 ids, roughly 100 KB. Over this size the index is not kept and plans scan.
+const VERSION_INDEX_MAX_BYTES = 900_000;
+
+/**
+ * The documents a plan reads before it writes anything: one index document per kind plus the bank marker, or
+ * (for `--full-scan`) one per stored document, estimated by the items in this upload, plus the marker. A kind
+ * whose index is missing or wrong adds a scan of that kind; `writeContent` asks `beforeReads` first.
+ */
+export function expectedPlanReads(items: ContentItem[], options: {fullScan?: boolean}): number {
+  return (options.fullScan ? items.length : CONTENT_KINDS.length) + 1;
+}
+
+/** The stored id -> version map for a kind, or null when the index is missing, unreadable, or its count disagrees. */
+async function readVersionIndex(db: Firestore, kind: ContentKind): Promise<Map<string, string> | null> {
+  try {
+    const snapshot = await db.doc(`${VERSION_INDEX_COLLECTION}/${kind}`).get();
+    if (!snapshot.exists) return null;
+    const payload: unknown = snapshot.get('payload');
+    const count: unknown = snapshot.get('count');
+    if (typeof payload !== 'string' || typeof count !== 'number') return null;
+    const parsed: unknown = JSON.parse(payload);
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return null;
+    const entries = Object.entries(parsed as Record<string, unknown>);
+    if (entries.length !== count || entries.some(([, version]) => typeof version !== 'string')) return null;
+    return new Map(entries as [string, string][]);
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Idempotent upload to `content/{kind}/items/{id}` and `contentPro/{id}`. A dry run reads and
  * plans but writes nothing. The caller chooses the target; the CLI points it at the emulator
  * unless `--live` is given.
+ *
+ * The plan reads the version list. A kind whose list is missing or wrong is scanned instead
+ * (`beforeReads(n)` is called first with the estimated reads, and may throw to stop the run before any
+ * write), and a live upload rewrites that list. `fullScan` scans every kind and rewrites every list.
  */
 export async function writeContent(db: Firestore, items: ContentItem[], pros: ProItem[],
-  options: {dryRun?: boolean}): Promise<{counts: PlanCounts; proWritten: number}> {
-  const existing = new Map<string, string>();
-  for (const kind of ['lessons', 'questions', 'variants', 'mocks', 'catalog', 'gaps'] as const) {
+  options: {dryRun?: boolean; fullScan?: boolean; beforeReads?: (reads: number) => Promise<void>}):
+  Promise<{counts: PlanCounts; proWritten: number; summaries: SummaryResult; bankChanges: number}> {
+  const stored = new Map<ContentKind, Map<string, string>>();
+  const indexStale = new Set<ContentKind>();
+  const scan = async (kind: ContentKind): Promise<void> => {
+    if (!options.fullScan) await options.beforeReads?.(Math.max(1, items.filter((item) => item.kind === kind).length));
     const snapshot = await db.collection(`content/${kind}/items`).select('version').get();
-    for (const doc of snapshot.docs) existing.set(`${kind}/${doc.id}`, String(doc.get('version')));
+    stored.set(kind, new Map(snapshot.docs.map((doc) => [doc.id, String(doc.get('version'))] as [string, string])));
+    indexStale.add(kind);
+  };
+  for (const kind of CONTENT_KINDS) {
+    const versions = options.fullScan ? null : await readVersionIndex(db, kind);
+    if (versions === null) await scan(kind);
+    else stored.set(kind, versions);
   }
+  // Exam summaries are written only when this upload holds the whole stored bank (every stored lesson
+  // and question set), because writes never delete: a partial upload cannot know the bank's full state.
+  const markerRef = db.doc(`${SUMMARY_COLLECTION}/${BANK_MARKER_ID}`);
+  const marker = await markerRef.get();
+  // An upload by an older copy of this tool changes lessons or question sets without updating the list,
+  // and a list that is behind would plan a revert as "unchanged". Every finished whole-bank upload leaves
+  // the marker holding the digest of the stored bank, so a list whose digest differs (or a marker that is
+  // missing, unfinished or partial) is not trusted for lessons and questions: they are scanned.
+  if (!options.fullScan) {
+    const listed = digest([...BANK_KINDS].flatMap((kind) =>
+      [...(stored.get(kind) ?? new Map<string, string>())].map(([id, version]) => `${kind}/${id}:${version}`)).sort());
+    if (!marker.exists || marker.get('bankVersion') !== listed) {
+      for (const kind of BANK_KINDS) {
+        if (indexStale.has(kind)) continue;
+        const list = stored.get(kind) ?? new Map<string, string>();
+        await scan(kind);
+        const found = stored.get(kind) ?? new Map<string, string>();
+        // A list the scan confirms stays as it is (no rewrite); only a list that differs is replaced.
+        if (found.size === list.size && [...found].every(([id, version]) => list.get(id) === version)) indexStale.delete(kind);
+      }
+    }
+  }
+  const existing = new Map<string, string>();
+  for (const [kind, versions] of stored) for (const [id, version] of versions) existing.set(`${kind}/${id}`, version);
   const {counts, changed} = planWrites(items, existing);
   const changedQuestionIds = new Set(changed
     .filter(({kind}) => kind === 'questions' || kind === 'variants').map(({id}) => id));
   const proChanged = pros.filter((pro) => changedQuestionIds.has(pro.id));
+  const inputBank = new Set(items.filter((item) => BANK_KINDS.has(item.kind)).map((item) => `${item.kind}/${item.id}`));
+  const bankItems = items.filter((item) => BANK_KINDS.has(item.kind));
+  // Duplicate ids: Firestore keeps one copy, so the input is not the stored bank.
+  const covered = inputBank.size === bankItems.length
+    && [...existing.keys()].filter((key) => key.startsWith('lessons/') || key.startsWith('questions/')).every((key) => inputBank.has(key));
+  const bankChanging = changed.some((item) => BANK_KINDS.has(item.kind));
+  const bankVersion = covered ? bankVersionOf(items) : null;
+  // An upload with no lessons or question sets (only catalog, mocks or gaps) leaves summaries alone.
+  const summariesDue = covered && inputBank.size > 0 && (bankChanging || !marker.exists || marker.get('bankVersion') !== bankVersion
+    || marker.get('builderVersion') !== BUILDER_VERSION);
+  // Built before any write, dry run included, so a bank the builder rejects fails the upload untouched.
+  const summaryDocs = summariesDue ? summaryItems(items) : [];
+  const summaries: SummaryResult = summariesDue ? 'written' : covered && inputBank.size > 0 ? 'unchanged' : bankChanging ? 'partial' : 'not touched';
+  const commitAll = async (writes: {ref: FirebaseFirestore.DocumentReference; data: Record<string, unknown>}[]): Promise<void> => {
+    for (const group of groupWrites(writes)) {
+      await commitWithRetry(() => {
+        const batch = db.batch();
+        for (const write of group) batch.set(write.ref, write.data);
+        return batch.commit();
+      });
+    }
+  };
   if (!options.dryRun) {
+    // The marker goes invalid before any lesson or question changes and turns valid only after the
+    // summaries, so a stop at any point leaves readers scanning the bank.
+    if (bankChanging || summariesDue) await commitAll([{ref: markerRef, data: {bankVersion: `writing:${Date.now()}`}}]);
     // Pro first: a client never sees a free version whose notes are not yet stored.
     const writes: {ref: FirebaseFirestore.DocumentReference; data: Record<string, unknown>}[] = [
       ...proChanged.map((pro) => ({ref: db.doc(`contentPro/${pro.id}`), data: pro.data})),
@@ -291,16 +500,37 @@ export async function writeContent(db: Firestore, items: ContentItem[], pros: Pr
     // A set that lost its notes must not keep a stale Pro document.
     const proIds = new Set(pros.map((pro) => pro.id));
     const staleIds = [...changedQuestionIds].filter((id) => !proIds.has(id));
-    for (let start = 0; start < writes.length; start += 400) {
-      const batch = db.batch();
-      for (const write of writes.slice(start, start + 400)) batch.set(write.ref, write.data);
-      await batch.commit();
+    await commitAll(writes);
+    for (const group of groupWrites(staleIds.map((id) => ({id, data: null})))) {
+      await commitWithRetry(() => {
+        const batch = db.batch();
+        for (const {id} of group) batch.delete(db.doc(`contentPro/${id}`));
+        return batch.commit();
+      });
     }
-    for (let start = 0; start < staleIds.length; start += 400) {
-      const batch = db.batch();
-      for (const id of staleIds.slice(start, start + 400)) batch.delete(db.doc(`contentPro/${id}`));
-      await batch.commit();
+    // The version list, after the content writes and before the marker turns valid. A crash before this
+    // leaves an older list, which only makes the next plan rewrite documents it need not.
+    const indexWrites: {ref: FirebaseFirestore.DocumentReference; data: Record<string, unknown>}[] = [];
+    const indexDeletes: FirebaseFirestore.DocumentReference[] = [];
+    for (const kind of CONTENT_KINDS) {
+      const next = new Map(stored.get(kind));
+      let touched = indexStale.has(kind);
+      for (const item of changed) if (item.kind === kind) { next.set(item.id, item.data.version); touched = true; }
+      if (!touched) continue;
+      const payload = JSON.stringify(Object.fromEntries([...next].sort(([a], [b]) => (a < b ? -1 : 1))));
+      const ref = db.doc(`${VERSION_INDEX_COLLECTION}/${kind}`);
+      // Too big to keep: remove the list so no plan trusts an old one.
+      if (Buffer.byteLength(payload) > VERSION_INDEX_MAX_BYTES) indexDeletes.push(ref);
+      else indexWrites.push({ref, data: {kind: 'versions', id: kind, count: next.size, payload}});
+    }
+    await commitAll(indexWrites);
+    for (const ref of indexDeletes) await commitWithRetry(() => { const batch = db.batch(); batch.delete(ref); return batch.commit(); });
+    if (summariesDue) {
+      await commitAll(summaryDocs.map((summary) => ({ref: db.doc(`${SUMMARY_COLLECTION}/${summary.id}`), data: summary.data})));
+      await commitAll([{ref: markerRef, data: {bankVersion, builderVersion: BUILDER_VERSION}}]);
+    } else if (bankChanging) {
+      await commitAll([{ref: markerRef, data: {bankVersion: `partial:${Date.now()}`}}]);
     }
   }
-  return {counts, proWritten: proChanged.length};
+  return {counts, proWritten: proChanged.length, summaries, bankChanges: changed.filter((item) => BANK_KINDS.has(item.kind)).length};
 }

@@ -12,7 +12,7 @@ class NoAssessmentQuestionsError extends StateError {
 class StartAssessment {
   StartAssessment(this._selector);
 
-  final AssessmentQuestionSelector _selector;
+  final AssessmentSelection _selector;
 
   Future<AssessmentSession> call(ExamId examId, {List<Topic>? topics}) async {
     final questions = await _selector.select(examId, topics: topics);

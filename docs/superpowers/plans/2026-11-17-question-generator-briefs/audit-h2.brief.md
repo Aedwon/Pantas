@@ -1,0 +1,17 @@
+Task: READ-ONLY audit of the held2 fix stage before the lead approves matrix-ray-intersection (spec B6). You audit; you never fix. Your only writable file is docs/superpowers/verification/question-generator/audit-h2.md, appended the moment you find each issue. Run no flutter command. `dart run` of the checker and tool scripts is fine.
+
+Startup: read AGENTS.md, WORKFLOW.md and SUBAGENTS.md from origin/main (`git show origin/main:<path>`), then docs/superpowers/plans/2026-11-17-question-generator-briefs/common.md (its hard rules apply, except that you write only the findings file above), the plan docs/superpowers/plans/2026-11-17-question-generator.md Parts 1 to 3, and the spec docs/superpowers/specs/2026-11-17-question-generator-design.md Part B (B3, B5, B6). Policy revision: origin/main 3ce9b32ca or later.
+
+Live content root (source questions): `git show origin/content/cse-math-qfix-2b-r2:content/questions/reasoning/spatial-abstract-reasoning/<file>.yaml`. Its abstract reasoning folder is identical to d97de9415.
+
+Context: earlier reads of this type were audit-w2.md (Blocker: diagonal directional selection, index 43) and plan briefs held2.review.out (Blocker: version 46, ray-tip reach in a pentagon or triangle; Major: generator called the checker's solver). The fix stage is the diff `git diff 9f551066a 54bb472ce -- tool/ test/ content/`. Its report is FINDINGS-held2.md. This is the type's last planned read: be complete.
+
+Scope and what to judge:
+1. matrix-ray-intersection (content/types-held/reasoning/spatial-abstract-reasoning/matrix-keeping-shared-features/): all 100 variants (a script is fine). For each: is "keep only the ray found in both starting cells" the unique simplest rule, or does any equally simple rule a student could hold (directional extreme in any of 8 directions, by angle or by drawn tip reach; union; difference; reflection; count) select another offered choice? Do the choice texts match the figure data? Are the explanation and notes true for every variant, in plain English, with no em dashes and American spelling? Is the variety meaningful?
+2. Geometry: the drawn ray length is `min(0.8 * r, 0.8 * boundary(form, r, angle))` in lib/core/ui/figures/figure_series_figure.dart (SeriesGeometry.reach, star inner radius 0.42), used by the matrix painter. Confirm the checker's `_rayTipReach` and the generator's `_normalizedReach` both match the painter for circle, square, triangle, pentagon and star at every 45-degree angle. Report any angle where they disagree.
+3. Independence (B5.1): the generator's draw screen and the checker share no solver code. Confirm, or name the shared path.
+4. series-fill-ray-dots: the lead keeps this type held (index 0 cannot reproduce live 0018 under the new accumulate-fill rule). Check only that the change to the accumulate-fill mistake in rules and solver cannot alter any of the 28 active types' committed lists or their checker results.
+5. The 28 active types: run `dart run tool/generator/bin/check.dart --questions-ref origin/content/cse-math-qfix-2b-r2` and report the exit code. Confirm no active type file or list changed in the diff.
+
+Write each finding as: `<type id or file> | Blocker|Major|Minor | <what> | <evidence: file and variant index or line>`. End with a one-line verdict: matrix-ray-intersection PASS (no open Blocker or Major) or FAIL, and the held2 code PASS or FAIL.
+End your final message with a line STAGE-DONE.

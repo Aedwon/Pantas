@@ -444,6 +444,27 @@ void main() {
         expect(await result, isTrue);
       });
 
+      testWidgets('a reward holder sees the warning instead of a crash',
+          (tester) async {
+        // ENT-06: a reward is exam-scoped, so leaving its exam warns like a
+        // pass, and the end date comes from the reward.
+        await pumpSettingsPicker(
+          tester,
+          entitlement: Entitlement(
+            plan: EntitlementPlan.free,
+            betaPasses: {'exam_cse_pro': DateTime.utc(2030, 6, 15)},
+          ),
+        );
+        await tester.tap(find.text('Bar Exam'));
+        await tester.pumpAndSettle();
+        expect(tester.takeException(), isNull);
+        expect(
+          find.text('Your pass stays with CSE Professional'),
+          findsOneWidget,
+        );
+        expect(find.textContaining('Jun 15, 2030'), findsOneWidget);
+      });
+
       testWidgets('a pass holder still sees the pass warning', (tester) async {
         final router = await pumpSettingsPicker(
           tester,

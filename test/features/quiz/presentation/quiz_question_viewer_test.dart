@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
 import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
@@ -79,7 +80,7 @@ void main() {
           pro: pro,
           onBack: () {},
           onNote: onNote ?? (_, __, ___) async {},
-          onReport: (_) async => true,
+          onReport: (_) async => ReportDelivery.sent,
         ),
       ),
       overrides: [appDatabaseProvider.overrideWithValue(db)],
@@ -140,7 +141,7 @@ void main() {
     expect(find.text('Wrong-choice check 1'), findsOneWidget);
     await tester.tap(find.byTooltip('Add Note'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('I misread'));
+    await tester.tap(find.text('I misread it'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add Note'));
     await tester.pumpAndSettle();
@@ -198,7 +199,7 @@ void main() {
     await pump(tester, pro: true, reduced: false);
     final bar = find.byType(FloatingBar);
     final frameElement = tester.element(bar);
-    expect(tester.getSize(bar).height, 64);
+    expect(tester.getSize(bar).height, 60);
     final colors = tester.element(bar).colors;
     const curve = Cubic(.32, .72, 0, 1);
     BoxDecoration surface() => tester
@@ -230,11 +231,11 @@ void main() {
     expect(fade('quiz-viewer-note-form'), closeTo(0, .001));
     expect(
       tester.getSize(bar).height,
-      closeTo(64 + 254 * curve.transform(120 / 420), .1),
+      closeTo(60 + 258 * curve.transform(120 / 420), .1),
     );
     expect(
       (surface().borderRadius! as BorderRadius).topLeft.x,
-      closeTo(32 - 10 * curve.transform(120 / 420), .01),
+      closeTo(30 - 8 * curve.transform(120 / 420), .01),
     );
     expect(
       surface().color,
@@ -257,7 +258,7 @@ void main() {
     await tester.pump(const Duration(milliseconds: 120));
     expect(fade('quiz-viewer-counter'), closeTo(0, .001));
     await tester.pump(const Duration(milliseconds: 160));
-    expect(tester.getSize(bar).height, closeTo(64, .01));
+    expect(tester.getSize(bar).height, closeTo(60, .01));
     expect(fade('quiz-viewer-counter'), closeTo(160 / 220, .01));
     await tester.pump(const Duration(milliseconds: 60));
     expect(fade('quiz-viewer-counter'), 1);
@@ -269,7 +270,7 @@ void main() {
     await pump(tester, pro: true, reduced: false);
     await tester.tap(find.byTooltip('Add Note'));
     await tester.pumpAndSettle();
-    await tester.tap(find.text('I misread'));
+    await tester.tap(find.text('I misread it'));
     await tester.pumpAndSettle();
     await tester.tap(find.text('Add Note'));
     await tester.pump();

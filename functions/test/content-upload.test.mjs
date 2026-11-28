@@ -341,8 +341,11 @@ test('writeContent scans gaps and writes the one gap document only when changed'
   const item = upload.gapItem(tags);
   assert.deepEqual((await writeContent(db, [item], [], {})).counts, {create: 1, update: 0, unchanged: 0});
   assert.ok(db.scans.includes('content/gaps/items'));
+  const afterFirst = db.writes;
   assert.deepEqual((await writeContent(db, [item], [], {})).counts, {create: 0, update: 0, unchanged: 1});
-  assert.equal(db.writes, 1);
+  // The first run also wrote the version list (one document per kind); the second writes nothing.
+  assert.equal(db.writes, afterFirst);
+  assert.equal([...db.stored.keys()].filter(key => key.startsWith('content/gaps/items/')).length, 1);
 });
 
 test('Free served payloads of every kind contain no gap tags and gaps is rejected', async () => {
@@ -417,4 +420,48 @@ test('web sets keep problem type rows behind a separate key and apply alias acti
     assert.deepEqual(served.questions.map(q => q.id), ['q1', 'q2']);
     assert.equal(served.questions[0].isActive, !enabled);
   }
+});
+
+// Nov 28, 2026: four uploads that night timed out committing the exam summaries (Firestore's 60 s deadline
+// on a slow link) after the lessons were live, leaving the bank marker invalid until a rerun
+// (process-improvement, "A content upload left prod's exam summaries invalid for 5 minutes").
+const deadline = () => Object.assign(new Error('4 DEADLINE_EXCEEDED: Deadline exceeded after 60.003s'), {code: 4});
+
+test('writeContent retries a batch that hits the commit deadline and leaves the marker valid', async () => {
+  const db = memoryDb();
+  const plain = db.batch;
+  let failures = 0;
+  db.batch = () => {
+    const b = plain();
+    let summary = false;
+    const set = b.set;
+    b.set = (ref, data) => { if (ref.path.startsWith('content/summaries/items/exam_')) summary = true; set(ref, data); };
+    b.commit = async () => { if (summary && failures === 0) { failures++; throw deadline(); } };
+    return b;
+  };
+  const items = [lessonItem({_id: 'lesson-free'}, 'body'), questionSetItems(set, 'science/biology/botany.yaml').item];
+  const result = await writeContent(db, items, [], {});
+  assert.equal(result.summaries, 'written');
+  assert.equal(failures, 1);
+  assert.equal(String(db.stored.get('content/summaries/items/_bank').bankVersion).startsWith('writing:'), false);
+});
+
+test('writeContent stops on an error that is not a timeout', async () => {
+  const db = memoryDb();
+  const plain = db.batch;
+  db.batch = () => ({...plain(), async commit() { throw Object.assign(new Error('7 PERMISSION_DENIED'), {code: 7}); }});
+  await assert.rejects(writeContent(db, [lessonItem({_id: 'lesson-free'}, 'body')], [], {}), {code: 7});
+});
+
+test('write batches stay under the byte cap, so large summary parts never share one oversized commit', () => {
+  const part = {payload: 'x'.repeat(700_000)};
+  const writes = Array.from({length: 10}, (_, i) => ({id: i, data: part}));
+  const groups = upload.groupWrites(writes);
+  assert.deepEqual(groups.flat().map(w => w.id), writes.map(w => w.id));
+  for (const group of groups) {
+    const bytes = group.reduce((sum, w) => sum + Buffer.byteLength(JSON.stringify(w.data)), 0);
+    assert.ok(group.length === 1 || bytes <= upload.BATCH_MAX_BYTES, `batch of ${group.length} carries ${bytes} bytes`);
+  }
+  const small = Array.from({length: 900}, (_, i) => ({id: i, data: {v: i}}));
+  assert.deepEqual(upload.groupWrites(small).map(g => g.length), [400, 400, 100]);
 });

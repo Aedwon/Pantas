@@ -122,7 +122,10 @@ mark{padding:0 1px;border-radius:var(--radius-xs);background:var(--accent-tint);
 .btn--notice{--_h:var(--size-btn);--_r:var(--radius-md);flex:1 1 0;padding-inline:var(--space-12);font:var(--type-web-link);letter-spacing:var(--tracking-web-link)}
 .btn--text-phone{--_h:var(--size-btn);--_r:var(--radius-md);padding:0 var(--space-8) 0 var(--space-4);font:var(--type-phone-headline);letter-spacing:var(--tracking-phone-headline)}
 /* Small phone text button (gap 27): "Restore Purchases" under the paywall CTA, 15/600 teal (ST_ProPMA). */
-.btn--text-phone-sm{--_h:var(--size-btn);--_r:var(--radius-md);padding:0 var(--space-8);font:var(--type-web-link);letter-spacing:var(--tracking-web-link)}
+.btn--text-phone-sm{--_h:var(--size-target-pointer-min);--_r:var(--radius-md);padding:var(--space-4) var(--space-8) 0;font:var(--type-web-link);letter-spacing:var(--tracking-web-link)}
+/* T5 (finding 3, U45): a wide text button is the boards' .btn3, 42 high with 14 beside the label; the onboarding boards draw it 48 with 16. */
+.btn--tertiary:not(.btn--bar):not(.btn--dialog):not(.btn--pill-sm):not(.btn--notice):not(.btn--xs):not(.btn--phone):not(.btn--text-phone):not(.btn--text-phone-sm){--_h:var(--size-btn-sm);padding-inline:var(--space-14)}
+.btn--tertiary.btn--tall:not(.btn--bar):not(.btn--dialog){--_h:48px;padding-inline:var(--space-16)}
 .btn--block{width:100%}
 @media (min-width:1024px){.btn--block{width:auto}}
 .btn:is(:disabled,[aria-disabled="true"],.is-disabled):not(.is-busy):not([aria-busy="true"]){--_bg:var(--fill);--_fg:var(--text-disabled);--_bgh:var(--fill);--_fgh:var(--text-disabled);--_ring:none;cursor:default;transform:none}
@@ -715,9 +718,6 @@ select.select:not([aria-invalid="true"]):not(.is-error):focus-visible{box-shadow
   .fbar{flex-wrap:wrap;justify-content:flex-end;width:100%;row-gap:var(--space-4);padding:var(--space-8);border-radius:var(--radius-xl)}
   .fbar__hint{flex:1 0 100%;order:-1;padding:var(--space-4) var(--space-8) 0;text-align:start}
 }
-/* Phones under 400px (bp-phone-narrow): the flag leaves the bar and sits at the right end of the question header (.page-head--question, D71). */
-.fbar__flag-alt{display:none}
-@media (max-width:399px){.fbar--phone .fbar__flag{display:none}.fbar__flag-alt{display:inline-grid}}
 .fbar-dock{position:fixed;left:0;right:0;bottom:var(--layout-bar-bottom);z-index:var(--z-nav);display:flex;justify-content:center;padding:0 var(--space-24);pointer-events:none;container:fbar-dock / inline-size;transition:left var(--dur-nav-panel) var(--motion-move)}
 .fbar-dock > *{pointer-events:auto}
 /* Ruling 3: the phone quiz bar wraps its hint at large text, so like the bottom action bar it is sticky at the end of the screen: it keeps
@@ -963,7 +963,6 @@ select.select:not([aria-invalid="true"]):not(.is-error):focus-visible{box-shadow
 /* Question header (ruling 9): the overline at the left and, on phones under 400px, the flag at the right end. */
 .page-head--question{gap:var(--space-4)}
 .page-head--question .page-head__row{align-items:center;gap:var(--space-8)}
-.page-head--question .fbar__flag-alt{margin-right:calc(var(--space-10) * -1)}
 /* Mock flag (R3-O04, HANDOFF, MK question boards): at every width the mock puts "Flag" with its F hint at the right end of the
    question header (.btn--xs .btn--tertiary, aria-pressed); the mock bar holds the counter, hint and action only. */
 .page-head--question .page-head__row > .btn--xs{margin:calc(var(--space-8) * -1) calc(var(--space-8) * -1) calc(var(--space-8) * -1) auto}

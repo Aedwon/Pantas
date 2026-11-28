@@ -28,6 +28,10 @@ description = "Allow placeholder strings used in this plan"
 paths = [
   '''docs/superpowers/plans/.*\.md''',
   '''docs/superpowers/specs/.*\.md''',
+  # Question generator variant lists and checker fixtures: their "signature"
+  # and "ruleKey" fields are SHA-256 hashes of variant content, not secrets.
+  '''content/types(-held)?/.*\.variants\.yaml''',
+  '''test/tool/generator/fixtures/.*\.yaml''',
 ]
 # The staging web app's reCAPTCHA v3 App Check site key. Site keys ship in
 # every page the browser loads and are public by design; the secret key never

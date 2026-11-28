@@ -215,9 +215,12 @@ class ServerMockSession extends ChangeNotifier {
   }
 
   /// The question numbers the student can reach, as indexes in the paper.
-  int get _partFirst => _paper.sectionStart(partIndex);
-  int get _partLast =>
-      _partFirst + _paper.sections[partIndex].questions.length - 1;
+  /// A one-block paper is one part however many sections it has, so the
+  /// whole paper is reachable; a by-part paper reaches its running part only.
+  int get _partFirst => byPart ? _paper.sectionStart(partIndex) : 0;
+  int get _partLast => byPart
+      ? _partFirst + _paper.sections[partIndex].questions.length - 1
+      : _paper.questionIds.length - 1;
 
   /// Where they are in the part, counting from one.
   int get partPosition => _cursor - _partFirst + 1;

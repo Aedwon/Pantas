@@ -86,7 +86,11 @@ void main() {
             button,
             brightness: brightness,
           );
-          expect(tester.getSize(find.byType(PantasButton)).height, 52);
+          // A text button is drawn 44 high inside Material's 48 tap box.
+          expect(
+            tester.getSize(find.byType(PantasButton)).height,
+            variant == PantasButtonVariant.tertiary ? 48 : 52,
+          );
           final text = tester.widget<Text>(find.text(busy ? 'Saving' : 'Save'));
           expect(text.style!.fontSize, 17);
           expect(text.style!.fontWeight, FontWeight.w600);

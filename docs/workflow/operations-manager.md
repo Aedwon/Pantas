@@ -38,6 +38,10 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
   first; paused lanes commit their work in progress and wait to be resumed.
   Relaxed Nov 15 (Aedwon: "you can accelerate things, still have plenty of usage left"): run lanes and
   parallel Codex jobs as needed while he has usage; return to the cap if he asks.
+  Restored and tightened Nov 28, about 4 AM (Aedwon: "obviously i want you to slow down", after four
+  leads ran at once): one build lane at a time, plus short one-off jobs. The integrator goes first.
+  Every other lane is paused until he names it. Before starting or resuming any lane, the manager says
+  which lane stops to make room.
 
 **Leads**
 - Own their lane end to end: plan, brief workers, review every result, merge, log to main.
@@ -52,7 +56,21 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Get a written brief, do one job, return a short summary (pass or fail, errors, files touched).
 - Never talk to Aedwon, never merge, and never start work outside their brief.
 
-## Lanes (current as of November 17)
+## Lanes (current as of November 27, 4:15 PM Manila)
+
+Manager: `mcp:61bb1f57-51d4-46fa-a3a3-b4e0e667778b` ("Operations Manager (Nov 28 afternoon)"). It took over Nov 28 about 2:15 PM Manila from `docs/superpowers/handoffs/2026-11-28-operations-manager-afternoon.md`, because the previous manager's context was nearly full. Every future bound schedule was rebound to it.
+Old managers, retired (do not message): `c517ddef-dfdb-4aa6-9f0a-401e7c34873d` ("Operations Manager Handoff", retired Nov 28 for length), `mcp:launch:aec6f0b94357a6bdd55f540c8424f611aeda70dba0b2000f468126a93604918c`, `mcp:launch:00976645432b2f793e42bfeeea73583c727484762376837beea722b8a3c65b8d`, `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926`.
+Active: CSE release lead r9 (same thread), integrator, service worker fix, P12 loop runs, payment PR merges, then the opening ship `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
+UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (idle; guided first run handed to the release lead Nov 26);
+security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (alert email confirmed 1:22 AM; live PayMongo key Nov 26 9 AM, first real payment).
+Walk-through Math pilot, Claude lead: `mcp:launch:d0b92d05876bd9854657cafae346820c99095f72f43494be336846fad3ba9c63`, branch `content/lesson-walkthrough-cse-r1` (WIP ca590443b). Paused since Nov 27 3:55 PM; restarts fresh Sat Nov 28 8:30 AM for the Math pilot under the Nov 27 spec revision (scheduled). Its other subjects stop: their drafts stay on the branch, unused.
+Closed Nov 27 (do not message): General Information Gemini lead `mcp:launch:b0df58086776a5a77d6f3512e73088175546b9de53242fd3645752a166cae361` (drafts on `content/lesson-walkthrough-cse-gi-r1` WIP 15cd3a90a; General Information keeps its live lessons).
+Retired (do not message): first Gemini walk-through lead `mcp:launch:b7636146c2e66e268cb6e853fade6c2d585c3fa734c80ae1f6ecaaec1648308c`, Claude stopgap lead `mcp:launch:9311c7e2af7f6722e8eefce7355936436161d5ed206f07d80f15c3fb95927ab9`, old Claude lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd`.
+Paused by him: under-13 (keep 13 to 17 closed), PSHS-NCE (go/no-go Dec 8), QG Phase 2, dots.
+Retired for length (do not message): CSE release lead r2 to r5 `mcp:launch:89c734558b...`, old CSE release lead `mcp:launch:b14e5d0e...`, old security lead `mcp:bc3317cf...`.
+The table below is the Nov 17 history.
+
+## Lanes (as of November 17)
 
 Keep this table current whenever a lane opens, closes or changes. Thread ids are T3 thread ids.
 
@@ -145,8 +163,12 @@ When a manager thread gets too long, Aedwon opens a new thread in the Pantas T3 
    to the new one: `schedule_task` with its `scheduledTaskId` and `bindToCurrentThread: true`,
    leaving schedule and prompt unchanged. Then update the heartbeat and cache-warming prompts if the
    lanes table changed.
-6. **Announce the handover to each active lead:** "Manager: a new manager thread has taken over.
-   Report to it from now on." Leads take messages from whichever thread Aedwon names as manager.
+6. **Announce the handover to each active lead:** "Manager: a new manager thread (<new id>) has
+   taken over. Report to it from now on; never send to <old id>." Use `mode: steer` for a lead
+   whose turn is running, so it does not report to the old thread first; `queue` only for idle
+   leads. Then send the old thread one message: reply only "Retired" to anything that reaches it,
+   and act on nothing (Nov 28 entry in `process-improvement.md`). Leads take messages from
+   whichever thread Aedwon names as manager.
 7. **Tell Aedwon in under 150 words:** what is running, what waits on him (with a recommendation
    for each), and what is next with a time estimate. Ask him to stop using the old manager thread,
    so two managers never send conflicting instructions.
@@ -173,7 +195,7 @@ These are Aedwon's standing instructions. They apply until he changes them.
 - Screenshots and app captures are headless. No control of his computer.
 - If the laptop overheats, pause the lanes. One build per session.
 - Codex runs only through `codex-pick`, one run at a time across all lanes unless `codex-pick --status` shows room for each (process-improvement entry, Nov 11). Size a long run against one account's 5-hour window and split it.
-- Never route UI work to Codex: building, changing or reviewing screens, components, layout or styling goes to a Claude worker (Aedwon, Nov 12: "if it's UI, never use codex").
+- Never route UI work to Codex: building, changing or reviewing screens, components, layout or styling goes to a Claude worker (Aedwon, Nov 12: "if it's UI, never use codex"). The same holds for Gemini: Gemini models may rewrite lesson content, never UI (Aedwon, Nov 26: "just to be sure i'm authorizing gemini models for rewriting the lessons, not the UI itself. as a rule, Claude is still on UI").
 - Before work starts, log the estimate in the velocity log and start the task timer
   (`tool/velocity/timer.py`). Actuals come only from the timer's output. Status reports carry a
   time estimate.
@@ -182,9 +204,9 @@ These are Aedwon's standing instructions. They apply until he changes them.
   users"). Testing, staging, scheduled jobs, secrets and every other fixed item stay inside the free
   tiers, counted per billing account. Before relaying or approving any change that adds such an
   item, ask the lead for its free-tier count. Written rule 7 in `process-improvement.md`.
-- Route new problems to a fresh lead (Nov 16 entry in `process-improvement.md`). Before sending a new
-  task, check the target thread's item count. If the task is outside that lead's lane, or the thread
-  has more than 1,000 items, launch a fresh lead. Say the routing reason in one line to Aedwon.
+- Every new task starts with a blank memory (Nov 24 entry in `process-improvement.md`, replacing the
+  Nov 16 1,000-item test): send it with `freshContext: true`, or launch a fresh lead for a new lane.
+  Tasks end with a handoff note in `docs/superpowers/handoffs/`; long tasks restart fresh from it.
 - Act in his interest without being asked (Aedwon, Nov 15: "do your job more proactively. it should be
   in my best interests always. that includes my interests for peak user experience decisions"). At
   takeover, at each scheduled event, and at least daily while lanes run, sweep cost, users and dates,

@@ -1,4 +1,5 @@
 import {setGlobalOptions} from 'firebase-functions/v2';
+import {DEFAULT_SERVICE_ACCOUNT} from './serviceAccounts.js';
 
 /**
  * Every function may run on at most this many instances unless it sets its own limit. This caps
@@ -23,4 +24,8 @@ export const DEFAULT_MAX_INSTANCES = 3;
 export const WEBHOOK_MAX_INSTANCES = 10;
 export const ACCOUNT_DELETION_MAX_INSTANCES = 5;
 
-setGlobalOptions({maxInstances: DEFAULT_MAX_INSTANCES});
+/**
+ * Every function runs as pantas-app@ unless it names another account in its own options (see
+ * serviceAccounts.ts). None runs as the default compute account, which holds project Editor.
+ */
+setGlobalOptions({maxInstances: DEFAULT_MAX_INSTANCES, serviceAccount: DEFAULT_SERVICE_ACCOUNT});

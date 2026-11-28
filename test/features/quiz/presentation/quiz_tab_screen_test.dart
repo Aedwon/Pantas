@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
@@ -8,6 +9,7 @@ import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_progress.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/presentation/quiz_tab_screen.dart';
 import 'package:pantas/features/quiz/presentation/today_providers.dart';
@@ -84,12 +86,28 @@ void main() {
       testWidgets('paused tab at dark=$dark scale=$scale', (tester) async {
         state = const SessionPanelInProgress(position: 6, total: 10);
         await pump(tester, dark: dark, scale: scale, still: true);
-        expect(
-          find.text('You paused. Every answer was saved.'),
-          findsOneWidget,
-        );
+        // Board A (his pick Nov 25): no sentence.
+        expect(find.textContaining('You paused'), findsNothing);
         expect(find.text('6 of 10'), findsNothing);
         expect(find.text('Resume'), findsOneWidget);
+        // Board A: Discard is centered under the full-width Resume,
+        // at its natural width (a full-width box left-aligns the letters).
+        final discard = tester.renderObject<RenderParagraph>(
+          find.text('Discard this session'),
+        );
+        expect(
+          discard.size.width,
+          lessThanOrEqualTo(
+            discard.getMaxIntrinsicWidth(double.infinity) + 1,
+          ),
+        );
+        expect(
+          tester.getCenter(find.text('Discard this session')).dx,
+          moreOrLessEquals(
+            tester.getCenter(find.text('Resume')).dx,
+            epsilon: 1,
+          ),
+        );
         expect(find.text('3 of 7'), findsOneWidget);
         final row = find.ancestor(
           of: find.text('Customize your own'),
@@ -118,6 +136,28 @@ void main() {
         expect(find.text('Nothing to fix yet'), findsOneWidget);
         expect(find.text('Flag a question to come back to it'), findsOneWidget);
         expect(find.text('Resume'), findsNothing);
+        expect(tester.takeException(), isNull);
+      });
+
+      testWidgets(
+          'saved progress turns the card into Continue at dark=$dark '
+          'scale=$scale', (tester) async {
+        state = SessionPanelNeedsAssessment(
+          30,
+          progress: AssessmentProgress(
+            examId: 'e',
+            attemptId: 'a',
+            startedAt: DateTime.utc(2026, 11, 26),
+            questionIds: [for (var i = 0; i < 30; i++) 'q$i'],
+            picks: {for (var i = 0; i < 8; i++) 'q$i': 'c'},
+          ),
+        );
+        await pump(tester, dark: dark, scale: scale, still: true);
+        expect(find.text('Continue the assessment'), findsOneWidget);
+        expect(find.text('8 of 30 answered.'), findsOneWidget);
+        expect(find.text('Continue'), findsOneWidget);
+        expect(find.text('First, a short assessment'), findsNothing);
+        expect(find.text('Start Assessment'), findsNothing);
         expect(tester.takeException(), isNull);
       });
 

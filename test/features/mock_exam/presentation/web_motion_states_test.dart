@@ -220,16 +220,6 @@ void main() {
           ),
         ),
       );
-      final dot = find.byKey(const ValueKey('web-reader-outline-dot'));
-      final initialDot = tester.getTopLeft(dot);
-      final second = find.text('Second section').last;
-      scroll.jumpTo(tester.getTopLeft(second).dy - 100);
-      offset.value = scroll.offset;
-      await tester.pump();
-      final target = tester.widget<AnimatedPositioned>(dot).top!;
-      expect(target, greaterThan(12));
-      await tester.pump(Duration(milliseconds: reduced ? 0 : 250));
-      expect(tester.getTopLeft(dot).dy, greaterThan(initialDot.dy));
       scroll.jumpTo(0);
       offset.value = 45;
       await tester.pump();

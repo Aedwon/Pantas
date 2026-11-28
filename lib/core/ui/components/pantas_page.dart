@@ -161,6 +161,14 @@ class PantasPage extends StatelessWidget {
         detailLineHeight = 1.4;
   final Widget? contentBody;
 
+  /// Where every phone tab title starts, under the top of the safe area:
+  /// Settings, Study and Quiz all take this one number, in every state. The
+  /// Settings title is the reference (his staging pass, 26 November: Study and
+  /// Quiz sat 30 px lower than Settings). The page scroll adds 2 px above a
+  /// [PantasPage] title, so a page passes `tabTitleTop - PantasSpace.s2` as
+  /// its title padding.
+  static const double tabTitleTop = PantasSpace.s20;
+
   /// Replaces the large title with a board hero card (Settings subpages).
   final Widget? hero;
   final EdgeInsets contentPadding;

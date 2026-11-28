@@ -1,0 +1,14 @@
+1. **Blocker — Matrix version 46 has two defensible answers.** Keeping the ray whose tip reaches farthest toward the upper-left selects the shown circle’s upper-left ray and the target triangle’s up ray, an offered distractor. The solver ranks only angles and misses the effect of the triangle shortening the upper-left ray. [matrix_solver.dart:93](/Users/aedwon/.t3/worktrees/Pantas/gen-question-generator-r1-held/tool/generator/lib/src/check/solvers/figure_matrices/matrix_solver.dart:93)
+2. **Major — Matrix generation and checking share the same ambiguity solver.** The generator calls the checker’s `fits` implementation to filter draws. A blind spot in that implementation passes both steps, as version 46 demonstrates. Design B5.1 requires an independent checker. [matrices.dart:555](/Users/aedwon/.t3/worktrees/Pantas/gen-question-generator-r1-held/tool/generator/lib/src/rules/figure_matrices/matrices.dart:555)
+3. **Needs the lead — Series index 0 remains blocked.** Live 0018 shows three-quarter and half fills, which add to 1.25. The live full-fill distractor therefore fails the mistake-value check. The worker already recorded this conflict. [FINDINGS-held2.md:7](/Users/aedwon/.t3/worktrees/Pantas/gen-question-generator-r1-held/FINDINGS-held2.md:7)
+
+Verification in this review:
+
+- `flutter test` and `flutter analyze`: blocked at startup by denied Flutter cache writes.
+- `dart format`: direct SDK reported `Formatted 65 files (0 changed)` and exited 1 on a denied telemetry write.
+- `dart run tool/checks/run_checks.dart`: blocked at startup. The direct SDK retry produced no completed result.
+- `dart run tool/check_no_ai_attribution.dart`: wrapper blocked. Direct SDK passed with `check_no_ai_attribution: OK`.
+
+Policy reviewed at `origin/main` `80f0c8ef5`. Files touched: none. The full 30-type sweep remains independently unverified.
+
+STAGE-DONE

@@ -87,8 +87,8 @@ abstract final class PantasSize {
   /// Phone tab bar item height.
   static const double tabbarItem = 52;
 
-  /// Floating bar height.
-  static const double bar = 64;
+  /// Phone floating bar height (60, every approved phone bar board).
+  static const double bar = 60;
 
   /// Week day width on every platform (44, so each day is a 44px target;
   /// size-week-day-phone folded in, 3.0.0).
@@ -117,8 +117,9 @@ abstract final class PantasSize {
   /// Profile avatar in Settings (board 44, initial 19/700).
   static const double avatarLg = 44;
 
-  /// Plan task status marker on wide screens (board 26). Phone uses
-  /// size-check (24).
+  /// Status marker disc: the plan task status on wide screens (board 26;
+  /// phone uses size-check, 24) and the accent disc behind the check in the
+  /// sent report notice (QN_Report).
   static const double task = 26;
 
   /// Half gauge width (board 224 by 118).
@@ -195,4 +196,20 @@ abstract final class PantasSize {
 
   /// Tooltip maximum width. New (R3-O10).
   static const double tooltipMax = 240;
+
+  /// The check inside the sent report notice's size-task disc (QN_Report).
+  /// New.
+  static const double reportMarkIcon = 14;
+
+  /// Height of the phone report form: an 18px frame, the title, the line,
+  /// the 92px field (QN_Report). New.
+  static const double reportForm = 250;
+
+  /// Height kept free above the phone report form: the form never grows
+  /// past the screen minus this. New.
+  static const double reportFormClear = 80;
+
+  /// Smallest height the phone report form shrinks to when the keyboard or
+  /// large text leaves little room. New.
+  static const double reportFormFloor = 100;
 }

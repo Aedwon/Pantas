@@ -92,6 +92,7 @@ Future<Finder> pumpStudyScreen(
   Widget page, {
   bool shell = false,
   int shellTab = 1,
+  bool dark = false,
   List<Override> overrides = const [],
 }) async {
   final db = inMemoryDatabase();
@@ -127,6 +128,7 @@ Future<Finder> pumpStudyScreen(
       contentDatabaseProvider.overrideWithValue(contentDb),
       ...overrides,
     ],
+    dark: dark,
     router: true,
     appTextScale: true,
     frames: 1,

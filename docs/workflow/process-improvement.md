@@ -53,10 +53,18 @@ pass 15, retire or merge one first.
    the approved screens in the Pantas Web and Pantas Redesign canvases (exported copies in
    `web-design/pantas-handoff/`). Never hand-draw a local HTML board or redraw a screen from
    widget code. No check can judge fidelity: he does the visual check.
-4. Do not ask Aedwon to decide in-app copy that sits in a layout or component he already
-   approved (a Dialog's title and text, a caption, a button label). The lead settles it under
-   his delegation (D191), following the voice rules in `AGENTS.md`, records it, and tells him
-   the wording. Website copy stays his. No check can tell a copy choice from a layout choice.
+4. Do not ask Aedwon anything an approved board, spec or ruling already answers. That
+   includes layout, motion, controls, and in-app copy inside an approved layout (a Dialog's
+   title and text, a caption, a button label). Build to the board. The lead settles copy
+   under his delegation (D191), following the voice rules in `AGENTS.md`, records it, and
+   tells him the wording. A state no board draws is the lead's decision: the lead decides,
+   records the reason, and owns it. Fable 5.2 is an advisor only (his words, Nov 24: "Fable
+   should be an advisor only"): the lead asks Fable for advice on a genuinely hard or
+   high-stakes call, then decides itself. It goes to him only if it is a new screen state or
+   is reserved to him. Website copy stays his.
+   Before a lead or the manager puts any question to him, they search the boards, the specs
+   and the rulings files for an answer and name what they searched. No check can tell a
+   decided question from an open one.
 
 5. Never ask Aedwon to write legal or policy text (terms, privacy notices, legal bases,
    consent or refund wording). First search `docs/legal/`, `docs/legal-drafts/`, the app's
@@ -86,6 +94,12 @@ pass 15, retire or merge one first.
    against the free tier and does not ship it if the account would go over. If it already
    bills, it is a defect to fix at once, not a cost to accept. His words (Nov 15): "that is absurd, i should never have been billed in the first place with just testing traffic and scheduled jobs. make this a strict standing rule. this should never happen again. the only thing that should bill us is due to users, and that's justifiable and by then we should be already able to cover the costs. i am disappointed." This rule retires when the free-tier
    check (see the entry below) covers every item.
+   Runs count too, not only config (Nov 21). Before any run against a hosted project
+   (a proof, journey, headless check, count comparison or load of content), the agent
+   writes down its expected reads, writes and egress from the per-step costs in the
+   release checklist, adds what that project already used today, and does not start it
+   if the total would pass the free tier. If the cost is unknown, it measures one small
+   step first. His words (Nov 21): ">:( how many times should I mention this".
 
 8. Emails to testers and users follow the shape of Aedwon's own Nov 15 rewrite. Subject:
    a short plain label ("Pantas beta extension"), no claim. Body: a greeting, then two or
@@ -111,6 +125,385 @@ pass 15, retire or merge one first.
    holds the prod "ship it" until the email has gone.
 
 ## Entries
+
+### Workers broke the shell rule again because the lead's own worktree had no hook (Nov 28)
+
+- Words: none from Aedwon; found by the CSE release lead r11. Repeat of "Manager ran build and content workers from its own thread (Nov 26)", whose fix was the `refuse_shell_writes.py` hook.
+- Wrong: three Sonnet workers of the service worker lane used `sed -i` and heredocs on Nov 28 (each disclosed it), against their briefs and the hook's rule. None waited on an approval prompt here, but the same commands prompted him on Nov 26.
+- Why it got through: Claude Code loads hooks from the session's project folder, and subagents inherit the lead's session. The r11 lead runs in `qa-cse-content-fixes-r1-e2be285e666bb7e9`, detached at 2c9cf8a87 (Nov 25), which has no `.claude/hooks/`. The workers worked in `cse-sw`, which has the hook, but their commands were never checked. The Nov 26 note "a worktree gets the hook once its branch contains this main commit" covered the worker's folder, not the lead's.
+- Fix (required step, manager and every lead): a lead thread is launched in a worktree whose branch contains main's `.claude/settings.json` and `.claude/hooks/` (a fresh worktree from current main). At startup a lead checks `ls .claude/hooks/refuse_shell_writes.py` in its own working folder; if it is missing, it says so to the manager, and until a relaunch every worker brief repeats the shell rule and the lead reads each worker's disclosed slips. Applied now: r11 reported it; its next restart starts from main.
+
+### Leads kept reporting to the retired manager after a takeover (Nov 28)
+
+- His words (about 2:35 PM Manila Nov 28): "why are leads still talking to that other settled operations manager thread can you stop it and have them report to you".
+- Wrong: after the 2:15 PM takeover, the security lead and the generator lead sent reports to the old manager thread, which then relayed them through Aedwon.
+- Why it got through: the outgoing manager told leads to report "to the thread named on the Manager: line ... once it changes" instead of naming the new thread. The new manager then sent its handover with `mode: queue`, so leads mid-turn saw it only after they had already reported. The old thread was left able to act on what reached it.
+- Fix (takeover step 6, operations-manager.md): send the handover with `mode: steer` to every running lead (`queue` only to idle ones), with the new thread id and "never send to <old id>". Send the retired thread one message: reply only "Retired" and act on nothing. Applied now to all three leads and the old thread.
+
+### Four leads ran at once overnight against his usage words (Nov 28)
+
+- His words (about 4 AM Manila Nov 28), after the manager listed four working leads and offered to slow down: "obviously i want you to slow down".
+- Wrong: after the opening, the manager started or kept four Claude leads busy at once (release lead with a worker, Math lead, UX lead, SSOT keeper), although his standing words were Nov 14 "don't do too many at once, mind my 5-hour limits" and Nov 27 "i do not want to waste any more usage than necessary". The manager offered the slowdown only when asked, instead of holding the pace itself.
+- Why it got through: the Nov 15 relaxation ("you can accelerate things") was still the working rule in operations-manager.md, and each new request was started as soon as it came, with no count of lanes before starting one.
+- Fix (required step, manager): one build lane at a time plus short one-off jobs (operations-manager.md, rule restored Nov 28). Before starting or resuming a lane, the manager counts running leads with `t3_thread_list` and names in the same message which lane stops to make room. The heartbeat counts leads too and pauses any lane over the cap. Applied now: the Math lead paused (batch 3 plan not started), the UX lead holds Lesson Author after its small fix, and the release lead is the only build lane with 1 worker.
+
+### Upload runs read past the free tier again (Nov 28)
+
+- Words: none from Aedwon on this instance; the CSE release lead r10 found and reported it (about 2:56 AM Manila). His standing words are in written rule 7 (Nov 15: "the only thing that should bill us is due to users"; Nov 21: ">:( how many times should I mention this").
+- Third time: Nov 15 ("Billed for test traffic and scheduled jobs"), Nov 21 ("Staging proof read past the free tier again"), now.
+- Wrong: for the quota day from Nov 27 08:00 UTC, staging reached 52,370 Firestore reads (free tier 50,000, staging budget 40,000) and prod 46,640 of 50,000 by 18:56 UTC. Each `tools/upload_content/upload_content.mjs` run (plan, upload or re-plan) reads the `version` of every content document, about 1,500 reads, and the lead made about 25 runs per project that night (plan, upload, re-plan, summary-timeout retries for eight content items). Real users were only about 10,000 of prod's reads; browser proof workers added the rest of staging's. The cost is cents, but it is testing that billed.
+- Why it got through: rule 7's run count (Nov 21) was done once at the start of the night, not before each run; the per-run cost of the upload tool was not in the release checklist's per-step costs, so each "small" content fix looked free; retries for the summary timeout multiplied runs; nothing in the tool reads the day's usage.
+- Fix:
+  1. Required step (now, until the check lands): no content run on staging or prod until the quota resets at 08:00 UTC (4:00 PM Manila); no prod test reads before then; his staging check waits for the reset (manager ruling, Nov 28: "testing never bills"). Before every upload-tool run, count the day's reads and add 1,500 per run; at most 3 runs per project per item.
+  2. Check (manager: "Yes to the tool fix, with one addition that makes it a check"): the upload tool reads the project's usage for the quota day, adds its own expected reads, and refuses to run if the total would pass the budget (staging 40,000; prod 40,000 minus a reserve for real users, set and recorded with the change). A test fails first on a run over budget.
+  3. Root cost: a version-list document per content kind, so a plan reads a handful of documents instead of about 1,500.
+  Links: written rule 7; the Nov 21 entry below; "A content upload left prod's exam summaries invalid for 5 minutes (Nov 28)", whose retries added runs.
+
+### A content upload left prod's exam summaries invalid for 5 minutes (Nov 28)
+
+- Words: none from Aedwon; found by the CSE release lead r10 during the Math pilot prod upload (1:17 AM Manila).
+- Wrong: `upload_content.mjs` marks the bank invalid, writes the changed lessons, then writes every exam summary in batches of up to 400. On a slow link the summary batch hit Firestore's 60 s deadline twice, so the run exited 1 after the lessons were live and the marker stayed invalid; every content call then read the whole bank (the costly cold path of the Nov 21 entry) until the third run passed at 17:22 UTC. It had happened once on staging the same night (Math pilot staging upload) and was retried then without a rule.
+- Why it got through: the tool's own design is safe (an invalid marker makes readers scan, not break), so a failed run looks harmless; the upload steps in briefs check the re-plan's update count, not its "exam summaries" field, and nothing says to rerun at once.
+- Fix:
+  1. Required step (every content upload, staging and prod, now): read the upload's exit code; if it is not 0, rerun the same upload at once until it exits 0. The re-plan after it must say both "update":0 and "exam summaries: unchanged"; anything else is not done.
+  2. Tool fix proposed to the manager (needs his yes; changes the shared upload tool, about 30 min): write summary documents in small batches and retry a batch that times out, with a test that fails on the current single 400-document batch.
+  Cost of this instance: prod 17,914 reads for the quota day after it (9,668 before; most of the rise is the uploads' own plans), no errors.
+- Repeat (Nov 28, 1:43 to 1:47 AM Manila): the mixture-question prod upload timed out three times on the summaries before a fourth run passed; four failures in one night across staging and prod. The manager gave the yes for the tool fix (item 2 above), which the CSE release lead r10 builds next.
+- Done (Nov 28, about 2:05 AM Manila; manager: "yes, fix the upload tool now"): PR #163 (f51242b90). Batches stay under 2 MB as well as 400 writes, and a batch that fails with DEADLINE_EXCEEDED or UNAVAILABLE is rebuilt and resent up to 4 times; tests in `functions/test/content-upload.test.mjs` failed first on the old path. Staging proof: the ratio 0020 upload wrote the summaries on its first run (43 s), then prod on its first run (38 s). The required step in fix 1 stays: an upload that still exits non-zero is rerun at once, and the re-plan must show summaries unchanged.
+
+### Walk-through lesson spacing and nesting found by Aedwon on staging (Nov 27)
+
+- His words (about 10:20 PM Manila Nov 27, reading the Math pilot lessons on staging): "card in card, isnt this against UI rules? or the design system, not sure but i think this could be better-designed" / "spacing. i think things after the WRONG example need just a bit more space" / "same with these equations also, juuust a bit more space after it so that they look visually equal to its above spacing". Also found: sign out lands on onboarding, not the first page.
+- Wrong: the renderer puts the faded "Try the last step" card inside the example card; the gap after a pair's WRONG line and after display math is smaller than the gap above them. Sign out skips the Welcome page.
+- Why it got through: the renderer was proven byte-identical on old lessons and checked against the board's layout, but no check measured vertical rhythm around the new blocks with real lesson content, and the board's samples did not show a faded step inside an example at phone width. The staging proof checked that blocks render, not their spacing. No journey covered sign out to the first page.
+- Fix: (1) a check: a golden or widget test that fails on today's gap after a WRONG line and after display math, and passes when the gap below equals the gap above (UX lead, failing first); (2) a check: a test that sign out lands on Welcome (UX lead, failing first); (3) required step for any new content block: before a staging proof, render one real lesson that uses every block at phone width and compare gaps above and below each block. The card-in-card look goes to a Claude Design board for his pick (rule 3).
+- Repeat (Nov 28, about 2:05 AM): "for the lesson viewer, i found that the subsections could use a bit more space from each other for better separation/grouping with its contents". The same rhythm gap at the subsection level: space above a heading did not exceed space below it. Fix extended: the check in (1) also measures each subsection heading, requiring more space above it than below, on one old-format and one walk-through lesson.
+
+### Steps set to clock times instead of starting when the step before them is done (Nov 27, repeat)
+
+- His words (about 6:15 PM Manila Nov 27): "i wonder why you're setting definite times instead of doing things once ready".
+- Wrong: the manager scheduled the Math pilot's resume for 8:30 AM and a result check for 6:45 AM, although the release lead reports each opening step as it lands, and that report can start the next step. Earlier the same day, the final staging proof waited for a Friday 8 PM slot (entry below).
+- Why it got through: agents do not wake by themselves, so the manager used timers as the trigger by habit, even where a lead's report to the manager thread wakes it just as well.
+- Fix (required step, manager and leads): a step that depends on another lane's work starts when that lane reports it done. The reporting lead messages the manager, or the next lead directly, and the manager acts on that message. Clock times are used only for real clocks: a quota reset, an hour he chose, a hard stop that protects usage, or a free-tier day. Every other timer is a backup that does nothing if the step has already started. Applied now: the Math pilot resumes on the release lead's "opening done" report; the 8:30 AM task stays as a backup only.
+- Repeat, same evening (about 9:45 PM): "why after opening?" The manager queued the pilot lessons' staging upload for after the opening although staging is not used by the opening; only the main merge needed to wait. Added required step: before deferring any step until after another event, the manager names what the wait protects in the message. If it protects nothing, the step starts now. Applied: the staging upload started at once, with a hard stop before the opening recheck.
+- Repeat (about 11:20 PM): "why read-only" — the manager reported that batch 2 would do only its read-only first step tonight without saying why. The reason was real: about 25 minutes remained before the 11:40 PM pause, and writers stopped mid-edit leave half-done files to recheck. But the report did not say it, so it read as another unexplained wait. The required step above now also covers reports to him: any limit on scope or timing states its reason in the same message.
+
+### Final staging proof held to a cutoff that had already passed (Nov 27)
+
+- His words (about 4:35 PM Manila Nov 27): "what's the reason we had to wait for tonight? couldn't it be done yesterday?"
+- Wrong: the final staging proof of the opening build was set for Friday 8:00 PM, "after the renderer cutoff", with homepage heads accepted until Friday 9 PM. Both late items landed Thursday: the renderer merged, and the homepage head stayed at 179613d from Thursday 2:57 PM. The opening build was complete with CI green Thursday about 7 PM. The proof could have run Thursday night or Friday morning, leaving a full day to fix a defect before the 6 AM opening instead of ten hours overnight.
+- Why it got through: the schedule was set when the late items were still open, and nobody rechecked it when they landed. The manager takeover carried the times forward from the handoff without asking whether their reason still held.
+- Fix (required step, manager and release lead): when the last item a scheduled step waits for lands, the owner moves the step to the earliest slot the free tier and his checks allow, and tells the manager. At each takeover and heartbeat, the manager checks every timed release step against the reason it was given, and moves it if the reason is gone. Applied now: the rebuild and final proof moved from 7:30 and 8:00 PM to about 4:40 PM Friday.
+
+### Walk-through lessons loop through rewrites and re-audits (Nov 27, repeat)
+
+- His words (about 3:50 PM Manila Nov 27): "i'm afraid we might be in a endless loop of poor writes and repeating audits. please rethink this whole process through. i do not want to waste any more usage than necessary".
+- Wrong: the fix in the entry below (blind pre-checks, whole-item rewrites) did not stop the loop. Within an hour of it, Language Application passed the pre-check and then failed its first Codex full read (20 Blockers, 53 Majors); Reasoning's second pre-check got worse (13 to 20 Blockers) after one fix; the first Reading Comprehension lessons repeated the Grammar mistakes although the five-pattern checklist (`pattern-checklist.md`, Nov 26) was in the writers' brief. Grammar has had seven Codex reads without a PASS.
+- Why it got through: (1) the work was scaled to every CSE subject (about 400 lessons) before any batch had passed end to end, so each defect class was found many times over; (2) the walk-through format adds several checks, tries and pairs per lesson, and each is a new place for a giveaway or an over-broad rule; (3) the writers do not apply a written checklist reliably, and the only gate was an open-ended expert read that finds a new layer each time; (4) the launch-day push added fix rounds to meet a deadline that this content never had (live lessons already work; the first CSE sitting is March 14, 2027); (5) no rule capped the number of reads or fix rounds per batch.
+- Fix:
+  1. Required step (manager, now): both lesson lanes paused (Nov 27, about 3:55 PM); no writes, fixers, pre-checks or Codex runs until Aedwon picks a redesign.
+  2. Required step (all lesson work from now on): no batch gets more than 2 Codex full reads. A batch that fails its second read stops, keeps its live lessons, and goes to the manager with the findings; it gets no third read without a changed plan. The manager checks the read count before relaying any Codex start.
+  3. The redesign he picks is recorded here and in the launch log before any lane resumes. Picked Nov 27 about 4:10 PM ("okay go ahead with your reco"): the format is scoped to step-solving subjects and slimmed, a Math pilot of about 10 lessons runs first with automatic checks built before writing, and Blockers gate each read while Majors are fixed once (spec revision of Nov 27 in `docs/superpowers/specs/2026-11-25-lesson-walkthrough-standard.md`). The General Information lane is closed.
+
+### Grammar walk-through lessons fail every Codex audit round (Nov 27)
+
+- His words (about 2:45 PM Manila Nov 27): "why is grammar always failing? this has happened many times already".
+- Wrong: the 52 Grammar walk-through lessons have failed every Codex read since Nov 26: round 2 (0 Blockers, 9 Majors), round 3, round 4, round 5 (42 Blockers, 52 Majors), round 6, the round 7 delta, and round 8 (22 Blockers, 85 Majors, 5 Minors, `codex-grammar-r8-full.md` on `content/lesson-walkthrough-cse-r1` ecc329dd1). Round 8 still lists 16 round 6 and round 7 findings as open, several "in a new choice set". Each round costs about a quarter of Codex b's 5-hour window plus a Claude fix and verify cycle. Grammar will not make the launch-day upload.
+- Why it got through:
+  1. Fixers change only the rows they are given. A row such as "only one choice matches the printed list" was fixed by writing new choices, and the new choices gave the answer away the same way. Nothing required the fixer to test the new version against the pattern.
+  2. The in-lane verifiers do not read with the audit's criteria, so giveaways and over-broad rules surface only at the Codex read, the most expensive step.
+  3. The no-growth word budget made fixers trim, and trims removed required Checks (round 6 "missing Checks restored"), which a later read flagged again.
+  4. Grammar was written before the Nov 26 fresh-instance and connection rules, so each read finds issues against rules the lessons were not written to.
+  5. Grammar rules invite claims that are true only in the cases shown (finite clauses, "y to ies"), and a full read finds the next exception each time.
+- Fix:
+  1. Required step (lesson leads): a fixer who fixes a repeated finding (open in two reads) rewrites the whole Quick Check or try with a fresh sentence and choices that all fit the visible text, not only the flagged words. Before any Codex read, one Claude verifier solves every Check and try with the answer hidden and marks any that can be answered by copying visible text, using the Codex brief's own Blocker list. Codex runs only on a batch that verifier passes. The same verifier also lists every rule stated with every, always, never, only, or a bare "X means Y", and names a case the rule fails on, if one exists. A rule with a known exception is a Blocker until it is scoped to the cases it covers (added Nov 27 after Language Application passed the pre-check and then failed Codex with 18 over-broad rules).
+  2. Required step (lesson leads): a batch that fails two full reads in a row without a drop in Blockers plus Majors stops. The lead reports to the manager with options and costs (rewrite the batch's checks from a template, narrow the rules to what the lesson shows, or keep the live lessons for that subject) before another Codex run.
+  3. A check (Claude lesson lead, after the launch-day upload): `tool/checks/walkthrough_giveaway_check.dart` fails a Quick Check or try whose correct choice appears word for word in the visible lines above it, or is the only choice matching a printed list. It must fail first on the round 8 Blockers in `aspekto-at-paksa-sa-filipino.md` and `tinutukoy-at-pagmamay-ari-sa-panghalip.md`.
+  The audit bar stays at 0 Blockers and 0 Majors: lowering it would let a wrong rule reach students.
+
+### Claude 5-hour limit hit again: worker cap broken and Fable audits from two lanes (Nov 26)
+
+- His words (about 1:35 AM Manila Nov 27): "did you run out of limits", then "why was usage so high last 5-hour session".
+- Wrong: the limit stopped the manager and the Claude lesson lead at 9:47 PM Manila (reset 1:20 AM). Measured from the T3 thread list (Claude worker threads created after 8:20 PM): about 25 Claude workers ran in about 75 minutes. Peak was 5 Claude workers at once (9:04 PM). The Claude lesson lead ran 3 at once against the 2-worker cap, cycling sweep, verify and fix workers for Grammar and Language Application plus 2 Fable audits. The Gemini GI lead ran 4 Fable 5.2 audits (2 at once), so a Gemini lane spent his Claude usage. The manager takeover read the full policy files and 16 schedules in the same window. Token counts per thread are not measured; the worker counts and overlaps are.
+- Why it got through: the 2-worker cap is per lead and counted by the lead itself; nothing counted all Claude workers across lanes. The evening handoff made Fable the audit fallback for both lesson lanes when Codex ran low, and no rule counted a Gemini lane's Fable audits as Claude work. The heartbeat checked leads' last messages, not their running workers.
+- Fix (required steps, manager and leads):
+  1. Across all lanes: at most 4 Claude workers at once, and at most 1 Fable audit at a time. A Fable audit started by any lane, Gemini lanes included, counts as Claude work.
+  2. Audits go to Codex through codex-pick first whenever `codex-pick --status` shows room; Fable only when Codex has none.
+  3. Each heartbeat counts running Claude worker threads per lead (`t3_thread_list` with subagents) and tells any lead over its cap to stop starting workers until it is back under.
+  No check can stop a lead from starting a worker; the heartbeat count is the catch.
+
+### Manager stated a guess about users as fact (Nov 26)
+
+- His words (about 7:30 PM Manila): ""who use Pantas the most" and you know this because", on the manager's claim that the update problems "land on the students who use Pantas the most, the ones with weak signal".
+- Wrong: the manager has no usage or connection data on who uses Pantas most; it presented an assumption as a finding to support keeping the web-update freeze.
+- Why it got through: the "never invent a figure" rule in AGENTS.md covers numbers shown to students, and nothing held the manager's own claims to Aedwon to the same standard.
+- Fix (required step, manager and leads): every claim about users, usage, cost or behavior in a message to him names its source (measured data, a log, a document) or is labeled "my assumption". No check can judge a chat sentence.
+
+### UX lead answered a worker's completion with no action (Nov 26, repeat)
+
+- Words: none from Aedwon. The manager's note: "you have been idle since 3:15 PM with the renderer not done."
+- Wrong: the reader-parts worker of E-196 finished; its completion notice arrived as a system message and the UX lead ended the turn with no action, though the plan's next step (fixes, goldens, review) needed nothing from anyone. About 1 h passed idle.
+- Why it got through: the Nov 25 entries cover a part report treated as a stop and a background command left unregistered. Here the trigger was a worker's completion notice, read as a message needing no reply. A worker started with the Agent tool cannot be registered with `t3_background_wait`, so no registered wait existed to keep the thread working.
+- Fix (required step, every lead, moved up from the Nov 25 entries): a worker or background completion notice is the cue for the plan's next step in the same turn; never answer one with no action while the plan has a next step. For each Agent-tool worker, also start a background command that waits on its result (its commit on the branch or its report file) and register that command with `t3_background_wait`, so an idle turn cannot end unseen. No check can tell an intended stop from a missed one.
+
+### Homepage Free card: a silent spacer left a hole (Nov 26)
+
+- His words (about 2:50 PM Manila, wide screenshot of the built homepage section): "looks terrible, please optimize better".
+- Wrong: to level the Free rows with Pro's rows, the Free card got an empty spacer where Pro says "Everything in Free, plus:". On the page it reads as a large hole under "Free".
+- Why it got through: the manager's brief proposed "an empty or quiet slot" as the fix for his "not congruent" note, and the lead built exactly that; the board showed it and the review passed it on measurements (rows level to the pixel), not on how the card looks.
+- Fix (required step, manager briefs and every UI review): alignment between two components is never achieved with empty space a reader can see; fix the asymmetry at its source (same structure in both, or remove the extra line). Reviews judge the rendered card as a reader sees it, not only measured alignment.
+
+### Wide Performance list clips text and bars and drops the percent (Nov 26)
+
+- His words (about 1:30 PM Manila, wide dark screenshot of app.pantas.study/performance, Lessons tab, plus a phone screenshot of the same page): "i also found a problem screen" and "overall as its own column is a waste of space imo".
+- Wrong: on wide, "10 answered" is clipped to "10 answerec", the accuracy bars run into the card's right edge with no padding, the rows show no percent (phone shows it), and the Overall gauge takes its own right column.
+- Then: "can you remove the X answered labels i don't think it matters", and "then more elegantly i think you could just add (X) as simple as that".
+- Why it got through: one cause made all three row defects: a long lesson name squeezed the count, bar and percent columns out of the card. The only wide golden of this page shows the Subjects tab with two short names; no test or golden had a long name, a large count or the Lessons tab, and the table tests checked that the percent existed, never that it sat inside the card. The Overall column matched the approved board, so every board review passed it; only his use caught it.
+- Fix (checks, release lead r9, shown failing first): the name column takes only the room the other columns leave and wraps; tests hold the percent and chevron inside the card with a long name and a large count on every tab. "N answered" becomes a quiet "(N)" after the name. Overall moves above the tabs as on the phone (his call beats the board; reference boards updated), after his look at a before-and-after sheet.
+- Required step added: every list golden includes a worst-case row (longest real name, largest count) on each tab, at phone and wide.
+
+### Wordy UI on a board again: pricing small print (Nov 26, repeat)
+
+- His words (about 1:25 PM Manila, quoting the Pro card): "Pay once with QR Ph. Plans don't renew. / New to Pro? Try it once for 7 days before you pick a plan. / remove this as well, remove all unnecessary info, remove reundancies. i hate wordy UI".
+- Wrong: the Free and Pro board carried two lines of small print that a student does not need to choose a plan; checkout shows payment terms anyway.
+- Why it got through: the Nov 25 entry (first-run board, "remove redundancies, remove unnecessary text/info") added a scan for internal terms and repeated sentences, but nothing asked whether each line is needed at all. The board reviewer checked facts and claims, not necessity.
+- Fix (required step, every board and every UI build, moved up from the Nov 25 scan): a cut pass before a board reaches him. For each line on screen, ask whether the reader loses anything needed to act if it goes; if not, delete it. The board note lists what was cut. The same pass applies to lesson text (his Nov 26 lesson note: "connect things better, not explain with more words"). No check can judge necessity.
+
+### Pricing section drawn from house style, not from pricing-page practice (Nov 26)
+
+- His words (relayed by the manager, on the homepage Free and Pro board): "i like option 2 better, but still this design can be much improved, and make Pro look much more premium i guess, and then i don't like how all the prices are just displayed immediately. there must be a better, more standard way to do this to effectively attract customers".
+- Wrong: the UX lead drew a new kind of section (plans and prices) from the homepage's own tokens and an older investor-page table, with every price visible at once and Pro styled no differently from Free. No pricing-page guidance was read first.
+- Why it got through: his global rule "Standards before work" (read `~/Documents/Projects/agent-standards`, write a sheet for a field with no sheet, cite it) was not a step in any Pantas brief or board checklist. The library had no pricing sheet, and the board's fresh reviewer checked facts, claims and terms, not whether the pattern follows proven practice.
+- Fix (required step, every lead making a board for a new kind of screen or section): before drawing, name the field, read its agent-standards sheet or write one from primary sources (here `pricing-page-design.md`, NN/g and Baymard first), and put a "Standards applied" line with the rule ids on the board note. The fresh reviewer checks the board against those rules. No check can judge whether a design follows a pattern.
+
+### Manager ran build and content workers from its own thread (Nov 26)
+
+- His words (about 12:20 PM Manila): "why do I keep approving things here, did you spawn subagents here instead of spawning another claude lead for the CSE content rewrite".
+- Wrong: on Nov 26 the manager started workers from the manager thread for lane work: two Gemini Hydrogen tasks to finish the walk-through checks branch, and three Claude Sonnet tasks to rewrite math lessons during his "work on lessons with claude until Gemini's reset" window. Their approvals and results landed in the thread he uses to talk to the manager.
+- Why it got through: operations-manager.md says the manager "Does no build work itself. Small one-off jobs (consult Fable, log an approval, write a brief) go to a short delegated task." The manager read "short" as permission for any job under an hour, and judged a new lead too slow for a 40-minute window.
+- Fix (required step, manager): the manager starts no worker that writes code, content or tests. That work goes to a lead: the lane's own lead, or a fresh lead launched for it (a fresh Claude lead for a Claude-only window, briefed with the stop time). Manager delegated tasks are limited to advice (Fable consults), housekeeping he set as standing (disk cleanup) and read-only checks. No check can tell a build task from a consult at dispatch.
+- Then (about 12:25 PM), after the work moved to a separate Claude lead: "there are still approvals over at the lesson thread". Root cause found: the approvals were never about which thread ran the work. Workers edited files with python heredocs in Bash, and every such shell write asks the owner for approval. Required step added to every brief that edits files (manager and leads): "Change files only with the Edit or Write tool. Bash is for read-only commands and git add, commit and push only; no python, sed, perl or heredoc writes." The stopgap lead was restarted with this rule.
+- Repeat (about 7:10 PM): a Claude lesson lead worker sat about 40 minutes on an approval prompt for a read-mostly shell command that wrote scratch files with ">" and ran an sh script. The rule now reads: Bash only for plain read-only commands (grep, ls, cat, git diff, status, log, date) and git add, commit and push; no ">" or ">>" redirection, no sh, python or perl scripts, no shell array tricks, even into scratch folders; scratch files are written with the Write tool; checks run only through existing tools with plain arguments.
+- Third instance (about 9:40 PM): a release lead worker applied a 45-lesson mechanical edit with a small Dart script instead of the Edit tool, against the brief. The result was verified, and no prompt was reported. Briefs alone have now failed three times; the tool fix (a hook that refuses such commands before they prompt him) waits on his yes.
+- Done (Nov 26, about 9:40 PM Manila; his words: "ok with your reco"): `.claude/settings.json` runs `.claude/hooks/refuse_shell_writes.py` before every Claude Bash call. It refuses heredocs, output redirection to a file (2>&1 and /dev/null pass), tee into a file, sed -i, python -c or -, perl -e or -i, node -e, and sh, bash or zsh -c, and tells the agent to use the Edit or Write tool. Read-only commands, git, flutter-locked.sh, dart run, codex-pick and gh pass. Text inside quotes is ignored, so quoted commit messages and grep patterns pass. `python3 .claude/hooks/refuse_shell_writes_test.py` holds 30 blocked and 27 allowed samples; it failed before the hook existed. A worktree gets the hook once its branch contains this main commit. The brief rule stays for Codex and Gemini, which this hook does not cover.
+
+### Walk-through examples still show math without saying where it comes from (Nov 26, repeat)
+
+- His words (about 12:05 PM Manila, screenshot of the board round 2 sample "Put a Negative Value in Parentheses"): "i read this in the boards, this is the exact thing i'm concerned and as to why i wanted the walk-through type lessons. notice what's missing here? there was not enough context given here. where's the expression from? if those were examples they should at least say $3x$ becomes $3(-2)=6$ etc. do you get what i mean? the lessons should be clearly assisting the user to understand logic". Then (about 12:15 PM): "for example: you could say, Let's substitute x=-2 to the terms 3x x^2 and 12/x, and that would be clearer". His "3(-2)=6" is a typing slip; the value is -6.
+- Then, on the manager's reply showing a step-by-step narrated version: "no that's too wordy now, you just made it wordy. i wanted you to connect things better, not explain with more words. those are entirely different asks". The manager read "context" as "more explanation" and drafted narration ("Three groups of -2 make -6 ...") instead of one connecting lead-in. Corrected target: "Let's substitute x = -2 into 3x, x^2 and 12/x:" then each chain from expression to value (3x = 3(-2) = -6; x^2 = (-2)^2 = 4; 12/x = 12/(-2) = -6).
+- Wrong: the sample lists "If x = -2:" then three bare equation chains (3x = 3(-2) = -6; x^2 = (-2)^2; 12/x = 12/(-2) = -6). No sentence says what is being found or where each expression comes from, no step says what changed or why, and the x^2 chain stops before its value.
+- Why it got through: this is the second time (Nov 25 entry "Walk-through lesson rewrite still too compressed"). That fix asked for every move on its own line and a reason, but the samples, the board review and the Codex audits checked numbers, trap citations and formatting, not whether each example is introduced and narrated. The samples were the reference, so the Gemini lane copied the same shape into 55 math lessons that passed audit.
+- Fix (moves up from a required step to a check plus a required step):
+  1. Check (walk-through lane, non-UI): a lesson check fails a worked example whose first display line has no lead-in sentence naming what is being found, and fails a display chain that does not end in a final value. Shown failing on this sample first.
+  2. Required step (every rewrite, every reviewer and every Codex audit brief): each worked example opens with one short lead-in that says what we are doing and to what, and every chain starts from its expression and ends at its value. Connection, not more words: no added narration, and word counts do not grow. Reviewers read each example as a student who has never seen it, and flag both missing connections and added wordiness. "Detail" (Nov 25) means showing every move; it never means more prose.
+  3. The samples, board round 2 text and every lesson already rewritten (Batch 1 math first) are redone to this before anything ships.
+
+### Staging pass found a broken consent line and misaligned tab titles (Nov 26)
+
+- His words (about 3:35 AM Manila, phone screenshots of staging): "done checking, looks good / some refinements: / - premature newline after privaxy policy link / - Study and Quiz headers have the same spacing from the topmost, but they are both wrong. please align them to look equal to Settings".
+- Wrong: on Terms and Privacy, ", and to Pantas keeping my study records ..." starts on a new line right after the "Privacy Policy" link. The Study and Quiz page titles sit lower from the top than the Settings title.
+- Why it got through: (1) Consent: since Jul 30 the sentence was separate widgets in a wrap, harmless while the text after the link was only "."; the Nov 11 merge made it a long clause, which then started its own line. Only an image golden covered the step, and on Nov 25 the phone golden was re-accepted with the break visible. A golden re-accept checks that an image changed on purpose, not that the text reads right. (2) Titles: Nov 24 set Study and Quiz to their boards' title top (50) with a test comparing Study to Quiz only; Settings was set to 20 on Nov 2 from another board. The boards disagreed, and no test or review compared the three tabs with each other.
+- Fix (checks, release lead r8, PR #146, both shown failing first): one test holds the Study, Quiz and Settings titles at one top position at phone and wide (Home has a different masthead layout and is unchanged); the consent sentence is one rich text with inline links, and its test fails if the text after a link is a separate widget. His call from using the app makes Settings the reference; the reference canvas should match it.
+- Required step added: before re-accepting a golden that changes text layout, the reviewer reads the new image for line breaks and alignment against its siblings, not only against its board.
+
+### A Codex audit waited on input and ran nothing, again (Nov 26)
+
+- Words: none from Aedwon. The CSE release lead r8's report (about 1:40 AM Manila): "Its first Codex Sol High audit lost 1 hour: codex waited on input and ran nothing. It is rerunning now with input closed."
+- Wrong: the service worker fix's first Codex Sol High audit started in the background through `codex-pick exec` with its input left open. Codex waited to read a prompt from that input, did no work, and the lane lost about 1 hour on the path to the opening ship.
+- Why it got through: this already happened on Nov 7 (launch log: "the first Astra runs stalled waiting on stdin and produced nothing"). The fix then lived only in one audit brief ("Run with no stdin"), not in any rule, brief template or in `codex-pick`, so later briefs and leads did not carry it.
+- Fix (required step, every lead and the manager, until a tool fix lands): every non-interactive `codex-pick exec` run closes its input (`< /dev/null`), and every Codex brief or command shape says so. A repeat moves this up the order: the tool fix is to make `codex-pick` close input itself for `exec` runs started without a terminal (a few lines in `~/.local/bin/codex-pick`), which needs Aedwon's yes because it changes shared tooling.
+- Done (Nov 26, about 3:15 AM Manila; his words: "go with your reco"): `codex-pick` now gives `exec` runs closed input unless the arguments include `-` (a piped prompt) or `CODEX_PICK_KEEP_STDIN=1`. Tested with a held-open input: the run no longer waits. The `< /dev/null` step stays harmless and is no longer required.
+
+### Wide stacked sign-in buttons did not match in size (Nov 25)
+
+- His words (about 9:36 PM Manila): "also i think there's a regression with the buttons? like that google one, if they're paired with each other, i think it would be more visually pleasing if they're similar in proportions/size or something idk how to best express it", then "sorry i meant that when they're vertically stacked".
+- Wrong: on wide sign-in, Continue (52 high) sat above "Use Google Instead" (44 high), and each took its own natural width, so the stacked pair had two sizes.
+- Why it got through: the placement sweeps (E-158, E-162) and their reviews checked position, order, gap and full width. They never checked that two buttons in one group match each other in size. No rule in patterns.md asked for it, and the sign-in buttons were outside the check (raw TextButtons).
+- Fix (check): patterns.md, Button placement, "Paired buttons stacked one above the other share width and height". The placement check fails a stacked pair whose widths or heights differ by more than 1 px, and the sign-in page runs that check. It was shown failing on the old sign-in. E-175, branch `ux/google-button-padding-r1`.
+
+### Wide "Use Google Instead" hover box hugged its content (Nov 25)
+
+- His words (about 9:10 PM Manila, wide dark sign-in screenshot, the button hovered): "also i saw this, tell me if you can see the problem".
+- Wrong: on wide web the sign-in text buttons ("Use Google Instead", "Use a Different Email") had no inside padding. The hover tint started at the Google mark's left edge and ended at the last letter. Centering was correct.
+- Why it got through: (1) the Nov 22 fix for U46 made these buttons natural width but kept the zero padding that only worked while they filled the 420 column; its test checked only that the width was under 400. (2) The buttons are raw TextButtons (ds-raw, brand logo content), so they skip PantasButton's built-in padding and the wide placement check, which finds only WebButton and PantasButton and checks order, gap, width and place, never inside padding. (3) At rest the button is transparent, so a resting golden or a side-by-side review shows nothing wrong; the defect shows only on hover. (4) The sign-in board draws the button full width, so comparing with the board could not give the padding; it comes from the design system's wide text button (14 beside the label).
+- Fix (check): a sign-in test that fails on the old code (0 px inside, 14 expected), and an inside-padding rule in `test/helpers/button_placement.dart`: a wide button that paints a hover box and is not stretched must keep at least 8 px between its edges and its content. The rule covers raw TextButtons too, and the sign-in page now runs the placement check. E-170, branch `ux/google-button-padding-r1`.
+
+### An internal term reached a board he reviews ("taste finished") (Nov 25)
+
+- His words (about 9:36 PM Manila, on the guided first-run board): "don't call it taste finished. why even call it that - that's an internal term", and on the same board "also please improve text copy - remove redundancies, remove unnecessary text/info".
+- Wrong: the manager's brief called the guided first run "the taste", and the board carried that word into on-screen text ("Taste finished"). The intro screen also repeated what its own button and steps already said.
+- Why it got through: briefs used an internal shorthand, and the board review checked styling and placement but not whether every on-screen word is user language. This is the same kind as the Nov 24 entry on internal codes in chat, now in product copy.
+- Fix (required step, boards and builds): before a board reaches him or a build ships, a reviewer scans every user-visible string for internal terms (lane words such as taste, trial, starter check, T-numbers, U-numbers, ruling codes) and for sentences that repeat the screen. Briefs name the user-facing wording separately from the internal name. A check on the app's own strings for a deny list of internal terms is possible; the UX lead adds it if it can be shown failing on a real string first.
+- Check added (Nov 26, E-179): `internal-terms` in `tool/checks/` fails a presentation string literal with a lane word (taste, tutorial, guided, starter, first run) or a decision code (E-, D, U, T-, R-O); shown failing on "Taste finished". On branch `ux/first-run-r1` until it merges.
+
+### Release lead ended its turn after a part report with the next part queued (Nov 25)
+
+- Words: none from Aedwon. The manager's note: "you reported part 1 at 2:44 PM and then stopped, with nothing running. Start part 2 now".
+- Wrong: the CSE release lead r7 shipped part 1 of a four-part brief, reported, and ended its turn with no worker, watcher or wait running, though the brief said "Do these in critical-path order" and parts 2 and 3 needed nothing from him. About 1 h 19 min passed idle.
+- Why it got through: "report to me after each part" was read as a stop point. The Nov 25 idle entry (UX lead) covered a missing watcher, not a turn ended by choice with work queued.
+- Fix (required step, every lead): a part report is not a stop. In the same turn as the report, start the next part (log its estimate, start its timer or worker) unless the brief or the manager says to wait, and say in the report what is now running. End a turn only when something is running under a registered watcher, or the next step needs Aedwon or the manager.
+
+### Manager ruled on the Home footer without finding his Oct 31 decision (Nov 25)
+
+- His words: "didn't we remove 2" (about the manager's list item "Home footer: About 45 min today becomes real counts").
+- Wrong: the manager ruled that the wide Home footer would show "3 lessons, 18 reviews left" in place of the time estimate, built it and queued it to ship. On Oct 31 he had already decided "Leave it out": the footer keeps only the button. The live app already matched his decision, so the change would have added something he had removed.
+- Why it got through: the manager ruled under rule 4 from the lead's summary ("used to show About 45 min today") and did not search the launch log or rulings first. This is the same kind as the Nov 23 entry (deciding or asking without searching), now on the manager's own rulings.
+- Cost: the counts line reached prod inside #124 (7:07 AM Manila); the release lead rolled prod back at 7:11 AM, which also pulled the Quiz tab card and the T9 fixes until a reship (his question: "why do they take this long").
+- Fix (required step, manager and leads): every rule-4 ruling names the search done before it (launch log, rulings file, boards, with the terms searched) in the message that gives the ruling. A ruling that names no search is not acted on. The release lead dropped the U24 branch before shipping. No check can tell a decided question from an open one.
+
+### UX lead sat idle on a finished CI step with no live watcher (Nov 25)
+
+- Words: none from Aedwon. The manager's note: "you've been idle since 7:58 AM. You ended your turn while the CI goldens ran, with no watcher."
+- Wrong: the lead started `gh run watch` in the background and ended its turn without registering it with the thread (T3 `t3_background_wait`). The session ended, the watcher stopped with it, and the goldens run finished unseen; about 1 h 37 min passed before the manager asked.
+- Why it got through: a background command looked like a watcher, but in T3 only a registered wait keeps the thread alive to hear it finish.
+- Fix (required step): before ending a turn on CI, a goldens run or any other background wait, start the watcher in the background and register it with `t3_background_wait` in the same turn; the turn's last line names the run and that a registered watcher is on it.
+
+### Walk-through lesson rewrite still too compressed (Nov 25)
+
+- His words: "i found some lessons could use more detail, or a sort of \"walk you through it\" type of teaching" (Signed Integers and Substitution, three screenshots), then on the manager's sample rewrite: "close, but not as detailed as I'd like. you are allowed to have numbers in core concept".
+- Wrong: the sample kept each rule to one or two worked numbers and still skipped the reasoning behind each move: why a rule works, what goes wrong without it, and checking the answer.
+- Why it got through: the lesson style guide sets the reading level (Grade 5) but no depth standard, so "plain" was read as "short". The sample also aimed at the current lesson's length.
+- Fix (required step until a depth standard is approved and added to docs/content/lesson-style-guide.md): a math lesson rewrite walks through every rule with numbers in Core Concept, shows each arithmetic and sign move on its own line, says why the move works, shows the common wrong move next to the right one, and ends worked examples with a check. The manager's next sample follows this, and his reaction sets the standard.
+
+### Wide Quiz tab paused card still breaks the button placement rule he set (Nov 25)
+
+- His words (about 4:35 AM Manila, wide dark screenshot of the Quiz tab paused card: caption and "Discard this session" on one line, Resume at the bottom left): "was this never addressed? particularly the placement of discard resume (basically the CTAs in general)? i think i've raised this before, and that's also why DS4 i believe was added / i want answers first before you change anything".
+- Wrong: he raised button placement on Nov 7 ("worth considering their placement. especially when there are two of them") and chose P2 (right end, main last). That choice is why the design system was built. On Nov 10 he raised desktop placement again ("awkward"). The design system has a rule for exactly this card (patterns.md: "A stacked phone-style pair on a wide page (guardian confirm, paused quiz notice) becomes a right-aligned row, secondary then main"). The live wide card still puts Resume at the bottom left.
+- Why it got through: builds and side-by-side reviews compared each screen only to its drawn board. This card's board (QZ_Resume, approved Oct 2) predates the Nov 7 rule. The Nov 24 borderless-buttons work and the Discard centering both matched the old board and never checked patterns.md. Nothing swept the wide screens for P2 after the system shipped.
+- Fix (required steps):
+  1. Every UI build brief and every side-by-side review checks design/system/patterns.md (placement, spacing, buttons) as well as the board. Where a board drawn before Nov 7 conflicts with a pattern, the pattern wins, and the review names the rule.
+  2. A one-time sweep of every wide screen for placement against patterns.md, results listed for the manager. It starts only after he answers; he asked for answers before changes.
+  A placement check in code may be possible later (widget tests asserting button order and alignment on wide cards); none is promised until it is shown failing on this card.
+- Done (Nov 25, UX lead, E-158): step 2 ran as a code-only scan at his request ("isn't there a faster way to determine that without using screenshots", then "okay proceed"). Check added, as this entry asked: `test/helpers/button_placement.dart` (on `ux/button-placement-r1`) fails a wide pair that is out of order, off 8 px (board exceptions listed with his approval), stretched, neither at the right end nor centered, or stacked phone-style; it runs on every wide screen golden. Shown failing on the old mock card, guardian and exam-change screens before their fixes. Results and rulings: the rulings file, "Nov 25, UX design lead: wide button placement, code only (E-158)".
+
+### Two lead sessions shipped the same PRs at once (Nov 25)
+
+- Words: none from Aedwon. The manager's note: "Your workers already shipped ENT-06 at 19:40 UTC, and the reader with #117 at 19:48 UTC ... Don't redeploy #117."
+- Wrong: the manager's fresh-memory tasks started a second CSE release lead session (r5) on the same three PRs while the r4 session still owned them. r5 shipped ENT-06 and then #117; r4's ship worker was at the same time building ENT-06 from an older main commit. Had it reached prod, it would have rolled #117 off prod. r4 stopped it at staging after reading the launch log.
+- Why it got through: nothing tied a PR to one owning session, and a ship brief's rollback point was checked once at the start, not right before the deploy.
+- Fix (required steps): (1) a PR has one integrating session; the manager names it, and a lead that finds another session acting on its PRs stops its own ships and asks. (2) Every ship brief checks, immediately before the prod deploy, that app.pantas.study still serves the build recorded as the rollback point, and stops without deploying if it does not (in the r4 #121 brief).
+
+### Discard spacing in the Quiz tab shrank after a spacing ship (Nov 25)
+
+- His words (about 3:50 AM Manila): "the space on top and bottom of discard in the quiz tab got too small though".
+- Wrong: the vertical space above and below Discard on the Quiz tab's paused card is smaller than he expects. It most likely came from the Nov 24 Discard centering or the Nov 25 Study and Quiz spacing ship, but the cause is not confirmed yet.
+- Why it got through: the Nov 24 borderless buttons change (commit baac08a99, shipped to prod 9:50 PM Nov 24), not the Discard centering or the Nov 25 spacing ship. It moved every phone text button to the board's text sizes. Discard on the Quiz tab paused card became the 15/600 line in a 24 px box, so the space around its text fell from 20.5 px above and 24.5 px below (a 52 px tertiary button, 6 px under Resume) to 12 and 10 (measured on headless renders of both versions, Nov 25). The new values matched the QZ_Resume board ("12 under Resume"), so the side-by-side board review passed it: the board itself draws the tighter spacing, and nothing compared the card with how it looked before. His call from using the app beats the board here (manager ruling, Nov 25): the build restores 20 above and 24 below the text and the reference canvas changes to match (the Quiz tab card is held while he answers a placement question).
+- Fix (required step, already in the Nov 23 entry, now applied to spacing): a spacing change is compared side by side with the board at phone and wide for every card it touches, not only the card it targets. Added, because the board itself was tighter than what he was used to: a change that shrinks the space around a control he already uses is also compared with the live version before it, and any loss over 4 px is shown to him on the capture sheet before it ships. Checks: `quiz_tab_paused_spacing_test` (fails on the shrunk spacing: 20 above and 24 below the Discard text) and the `quiz_tab_paused` golden sheet at 390 and 1440.
+
+### Week strip put in front of him though he never raised it and a board already answered it (Nov 25)
+
+- His words: "what was the reason why i'm being made to choose for the week strip? was it a complaint from me?"
+- Wrong: the long CSE exam name in the Home week strip was finding U14 from an agent UI audit, not his complaint. His approved week strip board (D196) already draws the short name. Even so, the manager's E-149 brief asked for "2 options". The UX lead correctly found no choice, but still drew the section on the board sent to him, and the manager opened that board for him and explained the section.
+- Why it got through: this is the same kind as the Nov 23 entry (boards built as options for questions already answered). Rule 4 made the lead search first, but nothing stopped an answered item from reaching him on a board, and the manager wrote "options" into the brief before anyone had searched.
+- Fix (required steps, moved up from the Nov 23 entry):
+  1. The manager's brief never asks for options. It asks the lead to search first and to draw options only for what no board, spec or ruling answers.
+  2. Before the manager opens a board for him or relays one, it removes every section that holds no choice for him. Answered items are built to their source and reported to him only as an outcome once they are live.
+  3. Every item put to him names where it came from: his own words (quoted), or an agent finding (named as such).
+  No check can tell an open question from an answered one.
+
+### Reader request turned into a redesign he did not ask for (Nov 25)
+
+- His words: "i don't understand the reader line, i just wanted you to maybe remove the lesson indicator on top because it gets so long when there's a lot of lessons in a certain topic, and especially so after the instruction to make the lessons bite-sized. for the thing that indicates how far along you are in the lesson itself, no changes". His original request words are not recorded on main; the manager's brief (E-149) said only "reader progress bar replacement, 2 or 3 options".
+- Wrong: the UX lead drew three options to replace the in-lesson section line on wide web. He wanted one thing removed (the lesson indicator at the top that grows with the number of lessons in a topic) and the in-lesson progress left alone.
+- Why it got through: the manager paraphrased his request into a design task, and the lead designed from the paraphrase. This is the same kind as the Nov 24 entry on a paraphrased ruling, so it moves up from "relay in his exact words" (operations-manager.md) to a required step with a stop.
+- Fix (required step, manager and every lead): every brief that carries a request from Aedwon has a line "His words:" with his exact words, pasted. A lead that gets a brief without that line asks the manager for it before starting work. The lead's first line back restates what he asked for in one plain sentence. No check can judge whether a paraphrase kept his meaning.
+
+### Lead threads reused with large old context (Nov 24)
+
+- His words: "process improvement: you are reusing lead threads that have lots of context from previous tasks. i think that's inefficient. we should save tokens. as the operations manager it's your job to make the process efficient. propose a solution and i'll approve ot". Approved: "ok approved".
+- Wrong: the manager sent the paused-session board task to the UX lead thread, which already held about 540 items of unrelated work, and the old CSE and security leads had grown past 2,000 items. Each reply rereads that whole history, which spends his Claude usage on old context.
+- Why it got through: the Nov 16 routing rule only moved work to a fresh lead above 1,000 items or outside the lane, so a thread could carry hundreds of items of finished work into every new task.
+- Fix (required steps, manager and every lead; replaces the 1,000-item test in operations-manager.md):
+  1. Every new task starts with a blank memory: send it with `t3_thread_send` and `freshContext: true` (same thread and worktree, no old chat), or launch a new lead for a new lane. The brief carries everything the task needs.
+  2. Every task ends with a short handoff note on main in `docs/superpowers/handoffs/` (what changed, where the work is saved, what is left). The next fresh session reads the note, not the old chat.
+  3. A task that runs long (about 3 hours of steady work, or past about 300 thread items) writes its note and restarts itself with a blank memory.
+  4. The manager does the same: it restarts from a handoff note when its own thread gets long.
+
+### A new quiz bar design reached prod without his visual check (Nov 24)
+
+- His words: "where did this come from? why is there now those dashes", then "lol that looks terrible. what else did you ship that I should know?" (about the one-mark-per-question quiz bar, phone screenshot, about 7:15 PM Manila).
+- Wrong: the core loops polish spec (B2 marks in the session bar, flying into results; B5 fewer words) was designed by the UX lead while he was away, approved by a Gemini and Fable council, built, and shipped to prod in the 5:54 PM release under his standing "ship it". No board he approved draws the marks, and he never saw them before they were live.
+- Why it got through: the standing "ship it" was read as covering every merged change, including new visual designs that only a council had approved. The council path was meant for build-versus-board doubts, not for new looks. Nothing separated "built to a board he approved" from "new design he has not seen".
+- Fix (required step for the manager and every lead before a prod ship): list each user-visible UI change in the release and name the board he approved that draws it. A change with no such board (council, Fable or lead designed) does not ship to prod until he has seen it on a board and picked it; it waits behind a flag or stays off main. The standing "ship it" covers only changes built to his approved boards, server work and fixes. No check can tell an approved look from a new one.
+
+### Ship report packed jargon, internal codes, and hashes into chat (Nov 24)
+
+- His words: "did you read your global instructions, agents.md workflow.md cuz none of your words made sense to me".
+- Wrong: the temporary operations manager's ship report packed raw build and commit hashes, version and alert IDs, internal task codes (`T18`, `T19`, `B2/B5`, `H5`, `PAY-06`), code and script names (`became_adult`, `compare.mjs`), scattered bold, and a 75-word sentence into a routine reply to Aedwon, breaking `WORKFLOW.md` ("Write for Aedwon").
+- Why it got through: the prompt asked for a 3-line ship report with rollbacks, and the agent compressed the technical deploy record directly into chat instead of putting IDs in the launch log and writing plain English for Aedwon.
+- Fix (required step before sending any chat reply to Aedwon): put commit hashes, version IDs, alert IDs, internal task codes, and script or function names in the launch log or private release folder, never in routine chat replies. Before sending, check that every sentence uses plain words, carries one idea in 25 words or fewer, and avoids scattered bold; describe rollbacks in plain words ("switch back to the previous app version, server code, database rules, and indexes saved in the release folder") instead of raw IDs. No automated check can judge plain-English clarity across chat messages.
+
+### Manager routed every decision to Fable (Nov 23 to 24)
+
+- His words: "i also think you're being too dependent on Fable, Fable should be an advisor only".
+- Wrong: the manager sent nearly every open question to a Fable 5.2 agent and treated its answers as final rulings: legal product decisions, retention periods, reader states, the phone bar, the under-18 framing. The leads did the same. Fable was acting as the decider, not the advisor his model-layer rule describes ("Advises; the lead still owns the conversation and final acceptance").
+- Why it got through: written rule 4 said undrawn states go "to a Fable 5.2 ruling first", and an older Nov 17 delegation let Fable decide for him. The manager read both as "Fable decides".
+- Fix (rule 4 changed): the lead (Opus) decides and owns undrawn states and product calls, with the reason recorded. Fable is asked for advice only on genuinely hard or high-stakes calls, and the lead decides after. Exceptions he set himself stay: the Gemini and Fable council for UNSURE board-versus-build UX calls, at his Nov 23 request. Rulings already made stand.
+
+### Keychain prompt from a test browser again (Nov 24)
+
+- His words: "how many times is this now" (with a screenshot of the "Google Chrome for Testing wants to use ... Chromium Safe Storage" prompt, 2:36 PM Manila).
+- Wrong: the Nov 14 fix (below) put `--use-mock-keychain --password-store=basic` into the repo's launch scripts, but ad hoc render scripts written by workers and Fable checkers (board renders, golden checks, frame-time runs) launched Chrome for Testing without the flags. One of them also ran `pkill` on Chrome for Testing the same afternoon.
+- Why it got through: the rule lived only in the repo scripts and in one lead's briefs. The manager's own worker briefs and Fable checker briefs never carried it.
+- Fix (required step for every brief that might open a browser, manager and leads alike): the brief says "Any browser you launch must pass --use-mock-keychain and --password-store=basic, or use tool/journeys or tool/design_system launchers; never kill processes you did not start." The manager adds it to every worker and Fable brief from now on.
+
+### A brief paraphrased a ruling and dropped its scope limit (Nov 24)
+
+- Words: none from Aedwon; found by the Fable 5.2 advisor (ruling C5): "H1(b) already answers this. Its last sentence, which the T18 brief left out, reads: \"Short-lived rate-limit counters are outside this test.\""
+- Wrong: the CSE release lead's T18 brief paraphrased ruling H1(b) without its last sentence. Codex audits then held rate-limit counters to the full unlinkability test, and the lane spent about three extra build and audit rounds (Codex quota and worker usage) on counters the ruling had excluded.
+- Why it got through: briefs restated rulings in the lead's words; nothing required the ruling's exact text, so a scope limit could fall out silently, and the auditor checked against the brief.
+- Fix (required step for any lead writing a worker or audit brief that rests on a ruling): paste the ruling's operative text verbatim (or link its section and say "read it in full"), never a paraphrase, and give the auditor the same section. Applied: T18 round 5 and its final audit read ruling C5 in full.
+
+### Claude 5-hour limit hit with three Opus leads running (Nov 23)
+
+- Words: none from Aedwon. His standing words: "mind my usage, limits in my PC" (Nov 22). The limit message: "You've hit your 5-hour limit · resets 9:40pm (Asia/Manila)".
+- Wrong: at 7:25 PM Manila, every lead stopped. Three Opus leads were working (CSE release, UX ambition, and security running the money-path audit with a Fable verifier). The manager's own Sonnet workers and a Fable ruling ran at the same time. About 2 hours 15 minutes of work stopped.
+- Why it got through: the manager counted the security lead as "the short task" after giving it the audit, which is not short. The manager did not count its own workers against the cap.
+- Fix (required manager step): at most 2 Opus leads do real work at once. A third lead waits until one is idle or has handed off. The manager's own workers and Fable rulings count as the one short task. After a limit stop, the heartbeat resumes each lead once the reset time passes, and checks its workers for partial changes.
+
+### Boards built as options for questions the approved boards already answered (Nov 23)
+
+- His words (relayed by the manager): "why are you asking me things that have been decided before?" and "isn't there a reference/boards already for the UI? including animations? are you kidding me?" Then: "i spent a lot of time going through those boards. every single animation. every single detail. and then it was not implemented properly, and now you're asking me again to decide?"
+- Wrong: the CSE release lead turned three settled UI questions into picks on the "CSE Release Picks" canvas: the report bar morph (the approved QN_Report boards already draw it, with timing), borderless Cancel and Close (the boards already draw the sizes and where no Close exists; option A was simply "match the boards"), and the checkout tick (a Fable D2 ruling already recommended it, matching the approved guardian box). It then sent them up again as open picks, and the manager relayed them to him twice without checking.
+- Why it got through: the manager's request said "options for him to pick", and the lead built options without first asking whether an approved board, spec or ruling already decided each one. His findings were that the build does not match the boards, so the boards were the answer, not a question.
+- Fix (required step for any lead, before any UI question reaches Aedwon): check the approved boards (Pantas Redesign, Pantas Web, later approved canvases), the spec and the rulings. If any of them answers it, build to it and say which source in one line. Only a state that no board draws is escalated, and it goes to a Fable 5.2 ruling first, not to Aedwon. The same search is a required manager step before relaying any question, and written rule 4 now covers layout and motion, not only copy. Second required step, for "not implemented properly": every UI task names the boards it built from, and before it counts as done a reviewer compares the build side by side with them at phone and wide widths, including motion timing and easing. Each difference is classed (his Nov 23 refinement): build worse, fix it to the board; build better, keep it and update the reference canvas; unsure, a council of Gemini 4 Neon High (or GPT 6.2 Sol High through codex-pick) and Fable 5.2 decides, with Fable final on a split. His guidance for the council: no wordy UI, compress text, clean, intuitive, elegant, satisfying motion. The approved spec is Pantas Web (https://claude.ai/artifact/4mUpC5apRsMhtQDg5VVjx8), Pantas Redesign (https://claude.ai/artifact/M1hptDwMLUcuGxSAGescHi) and, for checkout, Guardian Manage and Minor Checkout (https://claude.ai/artifact/VhNW1aCxSs5sF48XMQZLAQ). Applied: sections 2, 3 and 4 are built to the boards and the D2 ruling.
+
+### A Claude worker started four more workers past the 2-worker cap (Nov 22)
+
+- Words: none from Aedwon. The manager's correction: "you have 6 Claude subagents running; the brief's limit is 2 at once (his Claude usage)". The cap protects his Claude usage (Nov 19 and Nov 22 entries below).
+- Wrong: the CSE release lead started two Sonnet UI reviewers, within the cap. One of them started four more Sonnet workers of its own to split its scope. The lead counted only its own two and told the manager so.
+- Why it got through: the brief named the scope and the output file but did not forbid subagents, and a general-purpose worker may start them. The lead counted dispatches, not running workers.
+- Fix (required step for any lead): every Claude worker brief says "Do not start subagents; do the work yourself." Before reporting a worker count, the lead counts the workers each worker started too. Applied: the CSE release lead's later briefs carry the line.
+
+### Manager restarted five leads at once after his Claude reset (Nov 22)
+
+- His words: "so you didn't learn anything did you". Earlier, Nov 21: "my 5-hour usage is getting burned too fast", and "my 5-hour limit is at 8% right now".
+- Wrong: the manager had promised to ask him which lanes to resume, and in what order, after his 12:09 AM reset. When he said "limits have reset, could you continue?", it restarted four Opus leads and launched a fifth (the dots figure kind UI lead) within minutes, without asking. The machine caps held (load 4.7), but five Opus leads at once is the pattern that had drained his Claude limit the day before.
+- Why it got through: the Nov 21 caps covered Codex jobs and Flutter builds, not Claude leads. The manager read "continue" as approval for every paused lane at once, and dropped its own promise to ask.
+- Fix:
+  1. Required manager step: at most 2 Opus leads run at once, plus one short task (one or two turns) at a time. Other leads wait in a queue the manager states to him. Going past 2 needs his approval for that time.
+  2. When the manager has told him it will ask before doing something, it asks. A general "continue" does not replace that question.
+  3. Applied now: the question generator Phase 2 and dots figure kind leads are paused. Under-13 and PSHS-NCE continue, and the security lead finishes its short task.
+
+### Manager overloaded the Mac and ignored his report of it (Nov 21)
+
+- His words: "t3 code is using 13 GB of my ram, that's not normal", then "??? what the hell were you doing? my mac reached 14 GB in RAM usage with t3 code only", "i stopped a lot of processes. you didn't even respond to me", "hello? can I even trust you as my operations manager at all?"
+- Wrong: the new manager launched four leads at once and told each to run Codex jobs in parallel wherever accounts had room ("burn it" was about quota, not the machine). Each Codex job and Claude worker built and tested Flutter in its own worktree, so a dozen heavy processes stacked up: load average 63, about 14 GB used. Aedwon had to kill processes himself. When he first reported the RAM, the manager took his message for a lead's "ok" and replied "Nothing new since my last message".
+- Why it got through: the standing rule "One build per session" (operations-manager.md) was never turned into a number the leads could follow, and the manager never checked machine load before allowing parallel work. Quota room was treated as the only limit. The manager did not check who sent a message before answering it.
+- Fix:
+  1. Machine-wide cap, in force now: at most 2 Codex jobs at once across all lanes, and at most one Flutter build, test or analyze at a time on the Mac. Leads ask the manager before going past it.
+  2. Required manager step: before starting or allowing parallel work, run `uptime` and `memory_pressure`. If the 1-minute load is above 12 or free memory is under 30%, start nothing new.
+  3. Messages from Aedwon are answered first and directly. A short message is read as his unless it carries a lead's thread label.
+
+### Staging proof read past the free tier again (Nov 21)
+
+- His words: ">:( how many times should I mention this", after reading that a Nov 20 staging proof cost money.
+- Wrong: on Nov 20 (09:15 to 10:35 UTC) the integrator's headless CET staging proof made about 800 calls and read about 110,000 Firestore documents. A count comparison read 31,000 more on staging and 24,000 on prod. Staging passed its 50,000 free daily reads and billed about $0.05. Rule 7 forbids exactly this, and he had already said it on Nov 15.
+- Why it got through: rule 7's pre-check was written for changes that add a fixed item (a job, a secret, an instance). Agents read a proof run as testing, not as a change, so nobody counted its reads before starting. The free-tier check counts config, not traffic. The 40,000-read staging budget set on Nov 16 lived in a note, not in a required step. Settings saves, new lesson reads, mock previews and mock starts rescan the whole bank (1,460 reads) on a cold server, so every proof step was far costlier than it looked.
+- Fix:
+  1. Rule 7 now covers runs: count expected reads, writes and egress before any run against a hosted project, and do not start it if the day would pass the free tier (applied Nov 21).
+  2. The per-step costs and the staging budget are a required release-checklist step, and the live free-tier check warns above the budget (security and billing lead, PR #80).
+  3. Root cause in code: the four calls read one small summary document per exam instead of rescanning the bank, so a cold scan drops from 1,460 reads to under 10 (security and billing lead, approved Nov 21; prod after his "ship it"). This also protects prod once real users arrive.
 
 ### A brief's judgment stated as fact: "no gated exam can sell before mid-2027" (Nov 17)
 

@@ -86,6 +86,9 @@ class StateView extends StatelessWidget {
   /// The label of the retry action of an error state.
   static const String _retryLabel = 'Try Again';
 
+  /// The picker boards (O_Picker, OB_PickerError) say Retry, as an error too.
+  static const String _retryShortLabel = 'Retry';
+
   /// The icon is a square of this size.
   static const double _markSize = PantasSpace.s40;
 
@@ -115,7 +118,8 @@ class StateView extends StatelessWidget {
         .copyWith(color: colors.textSecondary);
     // The retry action marks an error state. Any other action belongs to an
     // empty list and keeps its natural width.
-    final isError = icon == null && actionLabel == _retryLabel;
+    final isError = icon == null &&
+        (actionLabel == _retryLabel || actionLabel == _retryShortLabel);
     final mark = ExcludeSemantics(
       child: IconTheme(
         key: const ValueKey('state-icon-theme'),
@@ -137,28 +141,23 @@ class StateView extends StatelessWidget {
     } else if (onRetry == null) {
       action = null;
     } else {
-      // Natural width, centered under the text. An error fills the phone's
-      // width up to the text measure.
-      final button = PantasButton(
+      // Natural width, centered under the text. The phone error is a pill
+      // with 22 px sides (board DT_Error); the primary action of a blocked
+      // state keeps the pill too. A wide error keeps its rectangle.
+      final phoneError = isError && !wide && !primary;
+      action = PantasButton(
         label: actionLabel,
         variant: primary
             ? PantasButtonVariant.primary
             : PantasButtonVariant.secondary,
         height: PantasSize.btn,
         fontSize: PantasType.webLink.fontSize,
-        // The tonal retry is a rounded rectangle (ErrorState README); only
-        // the primary action of a blocked state keeps the board's pill.
-        radius: primary ? PantasRadius.full : null,
-        fullWidth: isError && !wide && !primary,
-        horizontalPadding: PantasSpace.s24,
+        radius: primary || phoneError ? PantasRadius.full : null,
+        fullWidth: false,
+        horizontalPadding:
+            phoneError ? PantasSpace.s20 + PantasSpace.s2 : PantasSpace.s24,
         onPressed: onRetry,
       );
-      action = isError && !wide && !primary
-          ? ConstrainedBox(
-              constraints: const BoxConstraints(maxWidth: _textMax),
-              child: button,
-            )
-          : button;
     }
     final content = Column(
       mainAxisSize: MainAxisSize.min,

@@ -206,7 +206,7 @@ void main() {
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
     final bar = element(tester, find.byType(WebTopBar));
-    await tester.tap(find.text('I agree to the '));
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -242,7 +242,7 @@ void main() {
     scroll.position.jumpTo(40);
     await tester.pump();
     expect(scroll.position.pixels, greaterThan(0));
-    await tester.tap(find.text('I agree to the '));
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Continue'));
     await tester.pumpAndSettle();
@@ -272,7 +272,7 @@ void main() {
         .getTranslation()
         .x;
     // Terms follows the age step by sliding in from the right.
-    await tester.tap(find.text('I agree to the '));
+    await tester.tap(find.byKey(const ValueKey('selection-mark')).last);
     await tester.pumpAndSettle();
     await tester.tap(find.text('Continue'));
     await tester.pump();

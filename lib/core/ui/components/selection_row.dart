@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pantas/core/ui/components/ring_pulse.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
@@ -33,11 +34,19 @@ class CheckboxRow extends StatelessWidget {
     this.standardDensity = false,
     this.round = false,
     this.squareEdges = false,
+    this.focusNode,
+    this.markPulse,
     super.key,
   });
   final String title;
   final bool selected;
   final bool mixed;
+
+  /// Lets the page move focus to this row.
+  final FocusNode? focusNode;
+
+  /// Plays the ring pulse around the box when its controller is told to.
+  final RingPulseController? markPulse;
 
   /// Wide web, for a row inside a card that clips its own corners: the hover
   /// fill runs edge to edge with square corners, as the web boards draw it.
@@ -85,6 +94,8 @@ class CheckboxRow extends StatelessWidget {
         content: content,
         trailing: trailing,
         padding: padding,
+        focusNode: focusNode,
+        markPulse: markPulse,
       );
 }
 
@@ -150,7 +161,11 @@ class _SelectionRow extends StatefulWidget {
     this.standardDensity = false,
     this.round = false,
     this.squareEdges = false,
+    this.focusNode,
+    this.markPulse,
   });
+  final FocusNode? focusNode;
+  final RingPulseController? markPulse;
   final bool squareEdges;
   final bool round;
   final bool standardDensity;
@@ -199,6 +214,7 @@ class _SelectionRowState extends State<_SelectionRow> {
       enabled: enabled,
       child: TextButton(
         statesController: _states,
+        focusNode: w.focusNode,
         onPressed: w.onTap,
         style: ButtonStyle(
           visualDensity: w.standardDensity ? VisualDensity.standard : null,
@@ -253,18 +269,22 @@ class _SelectionRowState extends State<_SelectionRow> {
                 children: [
                   if (w.showMark) ...[
                     ExcludeSemantics(
-                      child: ListenableBuilder(
-                        listenable: _states,
-                        builder: (context, _) => _SelectionMark(
-                          size: w.markSize,
-                          selected: w.selected,
-                          mixed: w.mixed,
-                          radio: w.radio || (w.round && !context.wideWeb),
-                          hovered: enabled &&
-                              _states.value.contains(WidgetState.hovered),
-                          pressed: enabled &&
-                              _states.value.contains(WidgetState.pressed),
-                          focused: enabled && webKeyboardFocus(_states.value),
+                      child: _pulsed(
+                        w,
+                        radio: w.radio || (w.round && !context.wideWeb),
+                        child: ListenableBuilder(
+                          listenable: _states,
+                          builder: (context, _) => _SelectionMark(
+                            size: w.markSize,
+                            selected: w.selected,
+                            mixed: w.mixed,
+                            radio: w.radio || (w.round && !context.wideWeb),
+                            hovered: enabled &&
+                                _states.value.contains(WidgetState.hovered),
+                            pressed: enabled &&
+                                _states.value.contains(WidgetState.pressed),
+                            focused: enabled && webKeyboardFocus(_states.value),
+                          ),
                         ),
                       ),
                     ),
@@ -329,6 +349,29 @@ class _HoverFillState extends State<_HoverFill> {
 /// The Checkbox and Radio mark: 24 square (radius-sm) or round, a 1.5
 /// `border-control` ring when off, `accent-fill` with a 14 `on-accent` check
 /// when on. The check pops in over `dur-medium-3` on `motion-enter`.
+double _markRadius({required bool radio, required double size}) => radio
+    ? PantasRadius.full
+    : size == PantasSize.check
+        ? PantasRadius.sm
+        : PantasRadius.sm - PantasSpace.s2;
+
+/// The mark, with the ring pulse around it when the row was given one.
+Widget _pulsed(
+  _SelectionRow row, {
+  required bool radio,
+  required Widget child,
+}) {
+  final pulse = row.markPulse;
+  if (pulse == null) return child;
+  return RingPulse(
+    controller: pulse,
+    borderRadius: BorderRadius.circular(
+      _markRadius(radio: radio, size: row.markSize),
+    ),
+    child: child,
+  );
+}
+
 class _SelectionMark extends StatelessWidget {
   const _SelectionMark({
     required this.selected,
@@ -354,11 +397,7 @@ class _SelectionMark extends StatelessWidget {
   static const double _glyph = 14;
   static const double _pressedScale = 0.94;
 
-  double get _radius => radio
-      ? PantasRadius.full
-      : size == PantasSize.check
-          ? PantasRadius.sm
-          : PantasRadius.sm - PantasSpace.s2;
+  double get _radius => _markRadius(radio: radio, size: size);
 
   @override
   Widget build(BuildContext context) {

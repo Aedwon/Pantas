@@ -54,3 +54,15 @@ test('refund read calls GET /v1/refunds/{id} and parses amount, status and payme
   await assert.rejects(httpPaymongoClient('k', async () => ({ok: true, status: 200, json: async () => ({data: {id: 'ref_2', attributes: {}}})})).getRefund('ref_1'));
   await assert.rejects(httpPaymongoClient('k', async () => ({ok: false, status: 404})).getRefund('ref_1'));
 });
+
+test('expire posts to the checkout session expire path; a 400 is a refusal and other failures throw', async () => {
+  const calls = [];
+  const make = status => httpPaymongoClient('k', async (url, init) => { calls.push({url, init}); return {ok: status < 300, status, json: async () => ({})}; });
+  assert.equal(await make(200).expireCheckoutSession('cs_1'), true);
+  assert.equal(calls[0].url, 'https://api.paymongo.com/v1/checkout_sessions/cs_1/expire');
+  assert.equal(calls[0].init.method, 'POST');
+  assert.equal(await make(400).expireCheckoutSession('cs_1'), false);
+  await assert.rejects(make(500).expireCheckoutSession('cs_1'), /expire failed: 500/);
+  await assert.rejects(make(404).expireCheckoutSession('cs_1'));
+  await assert.rejects(make(200).expireCheckoutSession('../x'));
+});

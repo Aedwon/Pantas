@@ -44,6 +44,12 @@ class SyncRuntimeOffline extends SyncRuntimeEvent {
   const SyncRuntimeOffline();
 }
 
+class SyncRuntimePaused extends SyncRuntimeEvent {
+  const SyncRuntimePaused(this.until);
+
+  final DateTime until;
+}
+
 class SyncRuntimeFailure extends SyncRuntimeEvent {
   const SyncRuntimeFailure(this.message);
 
@@ -737,6 +743,8 @@ class SyncRuntimeController implements SyncRuntimeLifecycle {
         unawaited(_refreshFromRuntimeEvent(transitionToken, eventToken));
       case SyncRuntimeOffline():
         _emit(const SyncOffline());
+      case SyncRuntimePaused(:final until):
+        _emit(SyncPaused(resumesAt: until));
       case SyncRuntimeFailure(:final message):
         _emit(SyncError(message: message));
     }

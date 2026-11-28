@@ -4,7 +4,6 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
-import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/components/pantas_tap_area.dart';
@@ -12,6 +11,7 @@ import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
@@ -134,9 +134,9 @@ class PlanPage extends StatefulWidget {
     required this.nodes,
     required this.history,
     required this.onBack,
-    required this.onToday,
     required this.onWeek,
     required this.onPro,
+    this.onToday,
     this.subtitle,
     this.left,
     this.webPane,
@@ -164,7 +164,10 @@ class PlanPage extends StatefulWidget {
   final bool loadingMore;
   final Widget? paginationError;
   final VoidCallback onBack;
-  final VoidCallback onToday;
+
+  /// The wide Today row's tap. The phone Today row draws no tap (DP_Drill),
+  /// so the phone passes none.
+  final VoidCallback? onToday;
   final ValueChanged<String> onWeek;
   final VoidCallback onPro;
   final bool hasMore;
@@ -839,6 +842,9 @@ class _PlanDoneRingPainter extends CustomPainter {
       old.fraction != fraction || old.track != track || old.fill != fill;
 }
 
+// ds-board: DP_History See more padding-top and bottom 13
+const double _seeMoreVertical = PantasSpace.s12 + PantasSpace.s2 / 2;
+
 /// The end of the History card: See more, or the closing line when every
 /// entry is shown. Board (DP_History): regular weight, 17 px, chevron after.
 class _HistoryFooter extends StatelessWidget {
@@ -852,17 +858,44 @@ class _HistoryFooter extends StatelessWidget {
   final VoidCallback onMore;
   @override
   Widget build(BuildContext context) => more
-      ? PantasButton(
-          label: 'See more',
-          kind: PantasButtonKind.tertiary,
-          tone: PantasButtonTone.accent,
-          onPressed: loading ? null : onMore,
-          trailing: RotatedBox(
-            quarterTurns: 1,
-            child: Icon(
-              PantasIcons.next,
-              size: 13,
-              color: context.colors.accent,
+      ? PantasTapArea(
+          key: const ValueKey('history-see-more'),
+          onTap: loading ? null : onMore,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(
+                  color: context.colors.separator,
+                  width: PantasBorder.hairline,
+                ),
+              ),
+            ),
+            child: Padding(
+              // ds-board: DP_History See more padding 13 16, gap 6.
+              padding: const EdgeInsets.symmetric(
+                vertical: _seeMoreVertical,
+                horizontal: PantasSpace.s16,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'See more',
+                    style: context.type.body.copyWith(
+                      color: context.colors.accent,
+                    ),
+                  ),
+                  const SizedBox(width: PantasSpace.s6),
+                  RotatedBox(
+                    quarterTurns: 1,
+                    child: Icon(
+                      PantasIcons.next,
+                      size: PantasSpace.s14,
+                      color: context.colors.accent,
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         )

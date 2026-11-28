@@ -1,8 +1,14 @@
+import 'package:drift/drift.dart' show StringExpressionOperators;
 import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
+import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart'
     show customExamIdPrefix;
+
+/// Device-prefs key of an open first run; the first-run store uses it too.
+const firstRunDeviceKey = 'first_run_open_v1';
 
 class SyncLocalStateWiper implements LocalStateWiper {
   SyncLocalStateWiper(
@@ -83,6 +89,26 @@ class SyncLocalStateWiper implements LocalStateWiper {
       // marker stays: it belongs to the device.
       await (_db.delete(_db.devicePrefs)
             ..where((row) => row.key.isIn(_guardianKeys)))
+          .go();
+      // Question reports are the student's own words and are sent under the
+      // account that wrote them. Sign-out first sends this account's pending
+      // reports and refuses if any cannot go; whatever is left here (refused
+      // ones, a report filed in another tab) must not reach the next account.
+      await (_db.delete(_db.devicePrefs)
+            ..where((row) => row.key.equals(ReportQueue.storageKey)))
+          .go();
+      // A saved assessment in progress is the account's own answers. They sit
+      // in device prefs, keyed by account, so the wipe clears them by prefix.
+      await (_db.delete(_db.devicePrefs)
+            ..where(
+              (row) => row.key.like(
+                '${AppPreferencesRepository.assessmentProgressKeyPrefix}%',
+              ),
+            ))
+          .go();
+      // An open first run belongs to the account that started it.
+      await (_db.delete(_db.devicePrefs)
+            ..where((row) => row.key.equals(firstRunDeviceKey)))
           .go();
       await _db.delete(_db.attemptsLocal).go();
       await _db.delete(_db.assessmentResultsLocal).go();

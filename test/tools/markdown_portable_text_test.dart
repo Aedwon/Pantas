@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import '../../tools/content/lesson_asset_map.dart';
 import '../../tools/content/markdown_portable_text.dart';
+import '../helpers/walkthrough_fixtures.dart';
 
 void main() {
   const lesson = LessonIdentity(
@@ -524,5 +525,98 @@ Second paragraph.
         expect(children1[0]['text'], 'Second paragraph.');
       },
     );
+  });
+
+  group('walk-through blocks', () {
+    List<Map<String, Object?>> convert(String body) => markdownToPortableText(
+          body,
+          lesson: lesson,
+          assets: const LessonAssetMap.unconfigured(),
+        );
+
+    test('every fence type converts to the schema, exactly', () {
+      expect(convert(walkthroughExactMarkdown), walkthroughExactBlocks);
+    });
+
+    test('a lesson with no fence gets no anchor field', () {
+      final blocks = convert('## A\n\n### B Rule\n\n#### C\n\nText.');
+      expect(blocks.where((block) => block.containsKey('anchor')), isEmpty);
+    });
+
+    test('anchors go on h3 only, in a walk-through lesson', () {
+      final blocks = convert(
+        '## A\n\n### B Rule\n\n#### C\n\n:::why\nWhy.\n:::',
+      );
+      expect(
+        blocks.map((block) => block['anchor']),
+        [null, 'b-rule', null, null],
+      );
+    });
+
+    test('every sample converts and keeps its English markers', () {
+      for (final name in walkthroughSamples) {
+        final blocks = convert(walkthroughFixture(name));
+        final types = blocks.map((block) => block['_type']).toSet();
+        expect(
+          types,
+          containsAll([
+            'walkCheck',
+            'walkTry',
+            'walkWhy',
+            'walkPair',
+            'walkChecklist',
+          ]),
+          reason: name,
+        );
+        for (final block in blocks.where((b) => b['_type'] == 'walkTry')) {
+          final answer = block['answer']! as List<Map<String, Object?>>;
+          final text = answer
+              .expand((b) => (b['children'] as List?) ?? const [])
+              .map((child) => (child as Map)['text'])
+              .join();
+          expect(text, contains('Check:'), reason: name);
+        }
+      }
+    });
+
+    test('the pair inside a numbered step and the try after the last step', () {
+      final blocks = convert(
+        walkthroughFixture('substituting-negative-numbers'),
+      );
+      final types = blocks.map((b) => b['_type']).toList();
+      final pair = blocks.indexWhere((b) => b['id'] == 'minus-before-negative');
+      expect(blocks[pair - 1]['listItem'], 'number');
+      expect(blocks[pair + 1]['listItem'], 'number');
+      expect(types.where((t) => t == 'walkTry'), hasLength(1));
+    });
+
+    for (final entry in walkthroughBadCases.entries) {
+      test('${entry.key} fails with its path and line', () {
+        final (line, words) = entry.value;
+        expect(
+          () => convert(walkthroughFixture(entry.key)),
+          throwsA(
+            isA<FormatException>().having(
+              (e) => e.message,
+              'message',
+              allOf(contains(words), endsWith(' at ${lesson.path}:$line')),
+            ),
+          ),
+        );
+      });
+    }
+
+    test('a table error inside a block names the line in the lesson', () {
+      expect(
+        () => convert(':::why\n| a | b |\nnot a delimiter\n:::'),
+        throwsA(
+          isA<FormatException>().having(
+            (e) => e.message,
+            'message',
+            endsWith('${lesson.path}:3'),
+          ),
+        ),
+      );
+    });
   });
 }

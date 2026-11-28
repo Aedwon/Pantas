@@ -18,10 +18,11 @@ import {assertNamedUser} from './_audit.js';
 import {allowAtMost} from './_limits.js';
 import {examCatalog} from './revenuecatPasses.js';
 import type {PriceTier} from './revenuecatCoverage.js';
-import type {Grant} from './grants.js';
+import {rewardStart, type Grant} from './grants.js';
 import {claimsFromInputs, entitlementWrite, nativeCoverageRows, readEntitlementInputs} from './entitlementInputs.js';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
 import {selectedBetaApplication} from './betaAccess.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 type Request = Pick<CallableRequest, 'auth' | 'app' | 'data'>;
 type Deps = {db: Firestore; now?: () => number; allow?: (uid: string) => Promise<boolean>;
@@ -46,6 +47,7 @@ async function guard(request: Request, deps: Deps, uid: string, key: string, max
   }
 }
 const options = {region: 'asia-southeast1', enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck};
+// The two reward functions that refresh claims run as the entitlements account, not the default one.
 const types = ['image/png', 'image/jpeg', 'image/webp'];
 export const MAX_IMAGE_BYTES = 5 * 1024 * 1024;
 function optionalText(data: Record<string, unknown>, key: string, max: number): Record<string, string> {
@@ -136,7 +138,7 @@ export async function rewardStatus(request: Request, deps: Deps) {
   });
 }
 export const recordBetaDay = onCall(options, timed('recordBetaDay', request => recordDay(request, {db: getFirestore()})));
-export const getBetaReward = onCall(options, timed('getBetaReward', request => rewardStatus(request, {db: getFirestore(), auth: getAuth()})));
+export const getBetaReward = onCall({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-entitlements'), enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck}, timed('getBetaReward', request => rewardStatus(request, {db: getFirestore(), auth: getAuth()})));
 
 export async function submitSurvey(request: Request, deps: Deps) {
   const uid = caller(request), data = object(request.data), answers = object(data.answers);
@@ -187,7 +189,10 @@ export async function activateReward(request: Request, deps: Deps) {
   await guard(request, deps, uid, 'betaRewardActivate', 20);
   const result = await deps.db.runTransaction(async tx => {
     const ref = deps.db.doc(`users/${uid}/betaReward/state`);
-    const state = (await tx.get(ref)).data() as RewardState | undefined ?? {};
+    const deletion = await tx.get(deps.db.doc(`accountDeletions/${uid}`));
+    const snapshot = await tx.get(ref);
+    if (deletion.exists) throw new HttpsError('failed-precondition', 'This account is closed.');
+    const state = snapshot.data() as RewardState | undefined ?? {};
     if (state.activatedAt !== undefined) return {startsAt: state.rewardStartsAt!, endsAt: state.rewardEndsAt!, exams: state.exams!};
     const now = (deps.now ?? Date.now)();
     if (now >= ACTIVATION_DEADLINE) throw new HttpsError('failed-precondition', 'The activation deadline has passed.');
@@ -195,7 +200,8 @@ export async function activateReward(request: Request, deps: Deps) {
     if (state.surveyAt === undefined) throw new HttpsError('failed-precondition', 'Send the survey first.');
     const inputs = await readEntitlementInputs(tx, deps.db, uid);
     const existing = [...inputs.grants.values(), ...nativeCoverageRows(inputs, now)]
-      .filter(g => g.source !== 'beta' && g.source !== 'beta_reward');
+      .filter(g => g.source !== 'beta' && g.source !== 'beta_reward')
+      .sort((a, b) => a.startsAt - b.startsAt);
     const tiers: Record<string, PriceTier> = {'Student': 'student', 'Civil Service': 'civilService', 'Licensure': 'licensure', 'PSHS-NCE': 'nce'};
     const grants = new Map(inputs.grants);
     let startsAt = Infinity, endsAt = 0;
@@ -203,14 +209,7 @@ export async function activateReward(request: Request, deps: Deps) {
     for (const exam of examCatalog) {
       const tier = tiers[(exam as typeof exam & {priceTier: string}).priceTier];
       if (!tier) throw new Error(`Unknown catalog tier for ${exam.id}`);
-      let start = now;
-      for (const row of existing) {
-        if (row.state !== 'active' || row.startsAt > now || row.endsAt <= now) continue;
-        const covered = row.examId ? row.examId === exam.id :
-          row.tier === 'nce' ? tier === 'nce' : tier !== 'nce' &&
-          ['student', 'civilService', 'licensure'].indexOf(row.tier) >= ['student', 'civilService', 'licensure'].indexOf(tier);
-        if (covered) start = Math.max(start, row.endsAt);
-      }
+      const start = rewardStart(tier, exam.id, existing, now);
       const grant: Grant = {source: 'beta_reward', product: 'beta_reward', tier, examId: exam.id,
         startsAt: start, endsAt: calendarYearEnd(start), state: 'active', createdAt: now};
       grants.set(`beta_reward_${exam.id}`, grant);
@@ -224,4 +223,4 @@ export async function activateReward(request: Request, deps: Deps) {
   if (deps.auth) await refreshRewardClaims(deps.db, deps.auth, uid, (deps.now ?? Date.now)());
   return result;
 }
-export const activateBetaReward = onCall(options, timed('activateBetaReward', request => activateReward(request, {db: getFirestore(), auth: getAuth()})));
+export const activateBetaReward = onCall({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-entitlements'), enforceAppCheck: enforceAppCheck, consumeAppCheckToken: enforceAppCheck}, timed('activateBetaReward', request => activateReward(request, {db: getFirestore(), auth: getAuth()})));

@@ -15,8 +15,12 @@ class AnswerReveal extends StatelessWidget {
     this.pickedLetter,
     this.wrongPick,
     this.onShowPassage,
+    this.ruled = true,
     super.key,
   });
+
+  /// False inside a card that draws its own edge: no rule, no top padding.
+  final bool ruled;
   final String correctLetter;
   final String explanation;
   final String? pickedLetter;
@@ -34,38 +38,34 @@ class AnswerReveal extends StatelessWidget {
   }) =>
       DecoratedBox(
         decoration: BoxDecoration(
-          border: Border(
-            top: BorderSide(
-              color: context.colors.divider,
-              width: PantasBorder.hairline,
-            ),
-          ),
+          border: ruled
+              ? Border(
+                  top: BorderSide(
+                    color: context.colors.divider,
+                    width: PantasBorder.hairline,
+                  ),
+                )
+              : null,
         ),
         child: Padding(
-          padding: const EdgeInsets.only(top: PantasSpace.s12),
+          padding:
+              EdgeInsets.only(top: ruled ? PantasSpace.s12 : PantasSpace.s0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Key column 30 (`size-opt-badge-phone`): the letter on an
-              // `accent-fill` circle, 15/700 in `on-accent` (Explanation
-              // README, `.xpl-phone__key`).
-              DecoratedBox(
+              // Key column 30 (`size-opt-badge-phone`): a bare letter, 15/700 in
+              // `text-secondary`, no circle (QV_MissPro, MK_ReviewQ, QV_Last).
+              SizedBox.square(
                 key: const ValueKey('answer-reveal-key'),
-                decoration: BoxDecoration(
-                  color: context.colors.accentFill,
-                  shape: BoxShape.circle,
-                ),
-                child: SizedBox.square(
-                  dimension: PantasSize.optBadgePhone,
-                  child: Center(
-                    child: Text(
-                      letter,
-                      style: PantasType.phoneExplanation.copyWith(
-                        fontWeight: FontWeight.w700,
-                        // ds-board: README type: web-glyph leading 1
-                        height: 1,
-                        color: context.colors.onAccent,
-                      ),
+                dimension: PantasSize.optBadgePhone,
+                child: Center(
+                  child: Text(
+                    letter,
+                    style: PantasType.phoneExplanation.copyWith(
+                      fontWeight: FontWeight.w700,
+                      // ds-board: README type: web-glyph leading 1
+                      height: 1,
+                      color: context.colors.textSecondary,
                     ),
                   ),
                 ),

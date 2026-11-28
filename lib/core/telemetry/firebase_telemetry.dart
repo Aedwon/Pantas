@@ -48,8 +48,10 @@ class FirebaseTelemetry implements Telemetry {
     TelemetryEvent event, {
     Map<String, Object>? properties,
   }) async {
-    if (properties != null) assertPropertiesAllowed(properties);
-    await _analytics.logEvent(name: event.name, parameters: properties);
+    // The gate has already dropped what may not be sent; this filters again
+    // so the SDK never sees a bad value, and never throws.
+    final allowed = properties == null ? null : allowedProperties(properties);
+    await _analytics.logEvent(name: event.name, parameters: allowed);
   }
 
   @override

@@ -6,11 +6,45 @@ String _visible(String value) =>
 
 String _normalize(String value) => value.replaceAll(RegExp(r'\s+'), ' ').trim();
 
+final _walkthroughMarker = RegExp(
+  r'^[ \t]*:::(?:check|try|why|pair|checklist)(?:\s|$)',
+  multiLine: true,
+);
+
 // Parts restart numbering. Only headings lose that number; bodies stay exact.
 String _renumbered(String value) => value.replaceAllMapped(
       RegExp(r'^(###\s+)#\d+:\s+', multiLine: true),
       (m) => m.group(1)!,
     );
+
+List<CheckLesson> _resolveReplacements(
+  Map<String, CheckLesson> byId,
+  CheckLesson root,
+) {
+  final parts = <CheckLesson>[];
+  final added = <String>{};
+  final visited = <String>{root.id};
+
+  void walk(CheckLesson current) {
+    for (final id in current.replacements) {
+      final target = byId[id];
+      if (target == null) continue;
+      if (target.active) {
+        if (added.add(target.id)) parts.add(target);
+        continue;
+      }
+      if (!visited.add(id)) continue;
+      if (target.replacements.isEmpty) {
+        if (added.add(target.id)) parts.add(target);
+        continue;
+      }
+      walk(target);
+    }
+  }
+
+  walk(root);
+  return parts;
+}
 
 List<Violation> runLessonSplitCoverageCheck(String contentRoot) {
   final found = <Violation>[];
@@ -18,32 +52,38 @@ List<Violation> runLessonSplitCoverageCheck(String contentRoot) {
     final lessons = readCheckLessons(contentRoot);
     final byId = {for (final lesson in lessons) lesson.id: lesson};
     for (final lesson in lessons.where((lesson) => !lesson.active)) {
-      final parts = [
-        for (final id in lesson.replacements)
-          if (byId[id] != null) byId[id]!,
-      ];
+      final parts = _resolveReplacements(byId, lesson);
+      final activeParts = parts.where((part) => part.active).toList();
+      final isWalkthrough = activeParts.any(
+        (part) => _walkthroughMarker.hasMatch(_visible(part.body)),
+      );
       final visible = _visible(lesson.body);
-      final exact = <String>[
-        ...lessonSectionItems(visible, 'Examples'),
-        ...lessonSectionItems(visible, 'Traps to Watch For'),
-      ];
+      final exact = isWalkthrough
+          ? const <String>[]
+          : <String>[
+              ...lessonSectionItems(visible, 'Examples'),
+              ...lessonSectionItems(visible, 'Traps to Watch For'),
+            ];
       final figures = <String>[
         ...RegExp(r'<!--\s*FIGURE\b[\s\S]*?-->')
             .allMatches(lesson.body)
             .map((m) => m.group(0)!),
       ];
-      final repeatable = <String>[
-        ...RegExp(r'\$\$[\s\S]*?\$\$')
-            .allMatches(visible)
-            .map((m) => m.group(0)!),
-        ...RegExp(r'\*\*[\s\S]*?\*\*')
-            .allMatches(visible)
-            .map((m) => m.group(0)!),
-      ];
+      final repeatable = isWalkthrough
+          ? const <String>[]
+          : <String>[
+              ...RegExp(r'\$\$[\s\S]*?\$\$')
+                  .allMatches(visible)
+                  .map((m) => m.group(0)!),
+              ...RegExp(r'\*\*[\s\S]*?\*\*')
+                  .allMatches(visible)
+                  .map((m) => m.group(0)!),
+            ];
+      final targetParts = isWalkthrough ? activeParts : parts;
       for (final item in {...exact, ...repeatable, ...figures}) {
         final normalized =
             _normalize(exact.contains(item) ? _renumbered(item) : item);
-        final count = parts.fold<int>(0, (count, part) {
+        final count = targetParts.fold<int>(0, (count, part) {
           if (exact.contains(item)) {
             final body = _visible(part.body);
             return count +

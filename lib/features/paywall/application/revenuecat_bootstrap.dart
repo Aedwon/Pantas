@@ -76,12 +76,21 @@ class RevenueCatAuthBinding {
   AuthState? _latestState;
   AuthState? _associatedState;
 
+  /// Set once by [dispose]: a discarded binding never subscribes, signs in
+  /// or signs out again, even when a start was already waiting.
+  bool _disposed = false;
+  int _startGeneration = 0;
+
   Future<void> start({
     required AuthState initialState,
     required Stream<AuthState> changes,
   }) async {
+    if (_disposed) return;
+    // Only the latest start subscribes, so two starts at once leave one.
+    final generation = ++_startGeneration;
     await _subscription?.cancel();
     _subscription = null;
+    if (_disposed || generation != _startGeneration) return;
 
     _latestState = initialState;
     _subscription = changes.listen(_queue);
@@ -89,6 +98,7 @@ class RevenueCatAuthBinding {
   }
 
   Future<void> dispose() async {
+    _disposed = true;
     await _subscription?.cancel();
     _subscription = null;
     await _pending;
@@ -102,6 +112,7 @@ class RevenueCatAuthBinding {
   }
 
   void _queue(AuthState state) {
+    if (_disposed) return;
     final previous = _latestState;
     _latestState = state;
     // Clear synchronously before the next queued SDK association. An old
@@ -117,7 +128,9 @@ class RevenueCatAuthBinding {
   }
 
   Future<void> _associate(AuthState state) async {
-    if (state != _latestState || state is UnknownAuthState) return;
+    if (_disposed || state != _latestState || state is UnknownAuthState) {
+      return;
+    }
     final uid =
         _currentFirebaseUid == null ? _uidFor(state) : _currentFirebaseUid();
     await _bootstrapper.associateUid(
@@ -164,15 +177,43 @@ final revenueCatAuthBindingProvider = Provider<RevenueCatAuthBinding>((ref) {
   return binding;
 });
 
+/// The gateway can be rebuilt after startup: onboarding and the exam page
+/// refresh the app preferences it depends on. The identity hook and the
+/// sign-in binding therefore always use the current one, and every rebuilt
+/// binding signs its new gateway in at once (staging, Nov 26: a Pro account
+/// showed Free after onboarding until a reload).
 Future<void> bootstrapRevenueCat(ProviderContainer container) async {
-  final bootstrapper = container.read(revenueCatBootstrapperProvider);
-  container.read(authRepositoryProvider).beforeIdentityChange =
-      bootstrapper.prepareForIdentityChange;
-  await bootstrapper.configure(container.read(revenueCatConfigProvider));
+  container.read(authRepositoryProvider).beforeIdentityChange = () =>
+      container.read(revenueCatBootstrapperProvider).prepareForIdentityChange();
+  // Startup can run twice on one container (the local sample student): one
+  // listener only, so a rebuilt binding is started once.
+  _bindingListeners[container]?.close();
+  _bindingListeners[container] = container.listen<RevenueCatAuthBinding>(
+    revenueCatAuthBindingProvider,
+    (previous, next) {
+      if (!identical(previous, next)) unawaited(_startBinding(container, next));
+    },
+  );
+  await _startBinding(container, container.read(revenueCatAuthBindingProvider));
+}
 
+final _bindingListeners =
+    Expando<ProviderSubscription<RevenueCatAuthBinding>>('payment sign-in');
+
+Future<void> _startBinding(
+  ProviderContainer container,
+  RevenueCatAuthBinding binding,
+) async {
+  // A binding replaced while it was being set up is never started: only the
+  // binding of the current gateway may sign in or out.
+  bool current() =>
+      identical(container.read(revenueCatAuthBindingProvider), binding);
   try {
+    await container
+        .read(revenueCatBootstrapperProvider)
+        .configure(container.read(revenueCatConfigProvider));
     final initialState = await container.read(authStateProvider.future);
-    final binding = container.read(revenueCatAuthBindingProvider);
+    if (!current()) return;
     await binding.start(
       initialState: initialState,
       changes: container.read(authRepositoryProvider).authState,

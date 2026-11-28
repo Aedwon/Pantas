@@ -6,6 +6,7 @@ import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/storage/domain/review_state.dart';
 import 'package:pantas/features/assessment/domain/services/assessment_question_selector.dart';
+import 'package:pantas/features/first_run/domain/first_run_content.dart';
 
 import '../../../../helpers/in_memory_database.dart';
 
@@ -205,6 +206,67 @@ void main() {
     expect(questions, isNotEmpty);
     expect(questions, hasLength(30));
     expect(questions.map((q) => q.topicId).toSet(), hasLength(30));
+  });
+
+  test('never selects an excluded question and still balances topics',
+      () async {
+    for (var i = 1; i <= 5; i++) {
+      await seedQuestion('q_t1_$i', 't1');
+      await seedQuestion('q_t2_$i', 't2');
+    }
+    final excluded = {'q_t1_1', 'q_t1_2', 'q_t2_1'};
+
+    final questions = await selector.select('e1', excludeQuestionIds: excluded);
+    final ids = questions.map((q) => q.question.id).toSet();
+
+    expect(ids.intersection(excluded), isEmpty);
+    expect(questions.where((q) => q.topicId == 't1'), hasLength(3));
+    expect(questions.where((q) => q.topicId == 't2'), hasLength(3));
+  });
+
+  test('a topic whose questions are all excluded contributes nothing',
+      () async {
+    await seedQuestion('only_t1', 't1');
+    for (var i = 1; i <= 2; i++) {
+      await seedQuestion('q_t2_$i', 't2');
+    }
+    final questions =
+        await selector.select('e1', excludeQuestionIds: {'only_t1'});
+    expect(questions.map((q) => q.question.id), ['q_t2_1', 'q_t2_2']);
+  });
+
+  test('the assessment selector leaves out the first run questions', () async {
+    final firstRun = firstRunContentFor('exam_upcat')!.questionIds;
+    await seedContentExam(
+      contentDb,
+      examId: 'exam_upcat',
+      code: 'UPCAT',
+      name: 'UPCAT',
+    );
+    await seedContentSubject(
+      contentDb,
+      subjectId: 'su',
+      examId: 'exam_upcat',
+      name: 'Math',
+    );
+    await seedContentTopic(
+      contentDb,
+      topicId: 'tu',
+      subjectId: 'su',
+      name: 'Arithmetic',
+    );
+    for (final id in [...firstRun, 'other_1', 'other_2']) {
+      await seedContentQuestion(
+        contentDb,
+        questionId: id,
+        topicId: 'tu',
+        examId: 'exam_upcat',
+      );
+    }
+    final built = assessmentQuestionSelector(content, reviewRepo);
+    final ids =
+        (await built.select('exam_upcat')).map((q) => q.question.id).toList();
+    expect(ids, ['other_1', 'other_2']);
   });
 }
 

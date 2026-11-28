@@ -78,15 +78,16 @@ void main() {
       final add =
           tester.getRect(find.widgetWithText(WebButton, 'Add Exam Date'));
       final later = tester.getRect(find.widgetWithText(WebButton, 'Later'));
-      // Button README: every `.btn` pads 20 px at the sides (`space-20`).
+      // Button README: a filled `.btn` pads 20 px at the sides (`space-20`);
+      // a text button is the boards' `.btn3` and pads 14.
       expect(add.width, tester.getSize(find.text('Add Exam Date')).width + 40);
-      expect(later.width, tester.getSize(find.text('Later')).width + 40);
+      expect(later.width, tester.getSize(find.text('Later')).width + 28);
       expect(add.width, closeTo(156, 1.5));
-      // 20 px of Later's padding and the 12 px gap: 32 from its text.
+      // 14 px of Later's padding and the 8 px gap: 22 from its text.
       expect(
         tester.getTopLeft(find.widgetWithText(WebButton, 'Add Exam Date')).dx -
             tester.getTopRight(find.text('Later')).dx,
-        closeTo(32, .01),
+        closeTo(22, .01),
       );
     });
 

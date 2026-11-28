@@ -1,4 +1,10 @@
 {
+  "q-arithmetic-number-sense-ratio-and-proportion-0018": {
+    "approvedAt": "2026-11-23",
+    "evidence": "docs/content/verification/2026-11-23-ratio-0018.md",
+    "hash": "5ad615f3a0848373831a5eb6a29236004c373d3bf0e07854606d71ef02115e9a",
+    "lesson": "lesson-arithmetic-number-sense-ratio-and-proportion"
+  },
   "qt-spatial-abstract-reasoning-group-boundary": {
     "approvedAt": "2026-11-17",
     "evidence": "docs/superpowers/verification/2026-11-17-question-generator-ar-types.md",

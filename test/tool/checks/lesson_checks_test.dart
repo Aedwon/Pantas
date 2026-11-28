@@ -60,7 +60,7 @@ questions:
     final slice = File(
       '${root.path}/lessons/general/topic/oversized.txt',
     ).readAsStringSync();
-    part.writeAsStringSync('${part.readAsStringSync()}\n$slice');
+    part.writeAsStringSync('${part.readAsStringSync()}\n$slice\n$slice');
     expect(
       runLessonSizeCheck(root.path).map((v) => v.message),
       contains(contains('words')),
@@ -189,7 +189,7 @@ questions:
         approve();
         if (check == 'size') {
           part.writeAsStringSync('${part.readAsStringSync()}\n'
-              '${List.filled(500, 'word').join(' ')}');
+              '${List.filled(800, 'word').join(' ')}');
         } else if (check == 'coverage') {
           part.writeAsStringSync(
             part.readAsStringSync().replaceFirst(
@@ -383,9 +383,183 @@ questions:
       contains('2 worked examples'),
     );
   });
+  test('walk-through size check fails above 900 pre-tap words', () {
+    part.writeAsStringSync('---\n_id: lesson-topic-part\npart: 1\n'
+        'keyPoints: [One]\n---\n'
+        '${List.filled(905, 'word').join(' ')}');
+    expect(
+      runLessonSizeCheck(root.path).map((v) => v.message),
+      contains(contains('expected 150 to 900')),
+    );
+  });
+  test('walk-through excludes :::why, :::answer, fences, and {#slug} anchors',
+      () {
+    part.writeAsStringSync(
+      '---\n_id: lesson-topic-part\npart: 1\nkeyPoints: [One]\n---\n'
+      '${List.filled(750, 'word').join(' ')}\n'
+      ':::why\n'
+      '${List.filled(130, 'reason').join(' ')}\n'
+      ':::\n'
+      ':::check\n'
+      'Check question.\n'
+      ':::answer\n'
+      '${List.filled(120, 'answer').join(' ')}\n'
+      ':::\n'
+      ':::checklist\n'
+      '- Cue: right move. {#first-slug}\n'
+      ':::\n',
+    );
+    expect(runLessonSizeCheck(root.path), isEmpty);
+  });
+  test('walk-through fails when more than 3 :::pair blocks exist', () {
+    part.writeAsStringSync(
+      '---\n_id: lesson-topic-part\npart: 1\nkeyPoints: [One]\n---\n'
+      '${List.filled(200, 'word').join(' ')}\n'
+      ':::pair #one\nRight: a\nWrong: b\nNote.\n:::\n'
+      ':::pair #two\nRight: a\nWrong: b\nNote.\n:::\n'
+      ':::pair #three\nRight: a\nWrong: b\nNote.\n:::\n'
+      ':::pair #four\nRight: a\nWrong: b\nNote.\n:::\n',
+    );
+    expect(
+      runLessonSizeCheck(root.path).map((v) => v.message),
+      contains(contains('pair')),
+    );
+  });
+  test('walk-through fails when more than 3 :::checklist items exist', () {
+    part.writeAsStringSync(
+      '---\n_id: lesson-topic-part\npart: 1\nkeyPoints: [One]\n---\n'
+      '${List.filled(200, 'word').join(' ')}\n'
+      ':::checklist\n'
+      '- One: move. {#one}\n'
+      '- Two: move. {#two}\n'
+      '- Three: move. {#three}\n'
+      '- Four: move. {#four}\n'
+      ':::\n',
+    );
+    expect(
+      runLessonSizeCheck(root.path).map((v) => v.message),
+      contains(contains('checklist')),
+    );
+  });
   test('formulas and bold rules may repeat', () {
     part.writeAsStringSync('${part.readAsStringSync()}\n## More\n'
         r'**A rule** $$x = 2$$');
+    expect(runLessonSplitCoverageCheck(root.path), isEmpty);
+  });
+  test('walk-through split allows rewritten examples/traps with FIGURE kept',
+      () {
+    part.writeAsStringSync(
+      '---\n_id: lesson-topic-part\nsubject: subject-general\npart: 1\n'
+      'keyPoints: [Know rights]\n---\n'
+      '## Core Concept\n'
+      'New rewritten core concept.\n'
+      '<!-- FIGURE rights -->\n'
+      ':::pair #search-trap\n'
+      'Right: A warrant names a place.\n'
+      'Wrong: A warrant skips the place.\n'
+      'Read carefully.\n'
+      ':::\n'
+      '## Examples\n'
+      '### #1: Rewritten Search\n'
+      'Rewritten stem.\n'
+      '**Solution:**\n'
+      '1. Rewritten step.\n'
+      '## Traps to Watch For\n'
+      ':::checklist\n'
+      '- Warrant details: check the place. {#search-trap}\n'
+      ':::\n',
+    );
+    expect(runLessonSplitCoverageCheck(root.path), isEmpty);
+  });
+  test('walk-through split fails when a FIGURE marker is dropped', () {
+    part.writeAsStringSync(
+      '---\n_id: lesson-topic-part\nsubject: subject-general\npart: 1\n'
+      'keyPoints: [Know rights]\n---\n'
+      '## Core Concept\n'
+      'New rewritten core concept.\n'
+      ':::pair #search-trap\n'
+      'Right: A warrant names a place.\n'
+      'Wrong: A warrant skips the place.\n'
+      'Read carefully.\n'
+      ':::\n',
+    );
+    final findings = runLessonSplitCoverageCheck(root.path);
+    expect(findings, hasLength(1));
+    expect(findings.single.message, contains('missing'));
+    expect(findings.single.message, contains('FIGURE rights'));
+  });
+  test('walk-through split fails when a FIGURE marker is duplicated', () {
+    part.writeAsStringSync(
+      '---\n_id: lesson-topic-part\nsubject: subject-general\npart: 1\n'
+      'keyPoints: [Know rights]\n---\n'
+      '## Core Concept\n'
+      '<!-- FIGURE rights -->\n'
+      ':::check\n'
+      'Check question.\n'
+      ':::answer\n'
+      'Check answer.\n'
+      ':::\n'
+      '<!-- FIGURE rights -->\n',
+    );
+    final findings = runLessonSplitCoverageCheck(root.path);
+    expect(findings, hasLength(1));
+    expect(findings.single.message, contains('duplicated'));
+    expect(findings.single.message, contains('FIGURE rights'));
+  });
+  test('multi-hop replacedBy chain (A -> B -> C) counts as covered by C', () {
+    final original = File('${root.path}/lessons/general/topic/original.md');
+    original.writeAsStringSync(
+      original.readAsStringSync().replaceFirst(
+            'replacedBy: [lesson-topic-part]',
+            'replacedBy: [lesson-topic-middle]',
+          ),
+    );
+    File('${root.path}/lessons/general/topic/middle.md').writeAsStringSync(
+      '---\n'
+      '_id: lesson-topic-middle\n'
+      'status: retired\n'
+      'replacedBy: [lesson-topic-part]\n'
+      '---\n'
+      '## Core Concept\n'
+      'Intermediate retired lesson.\n',
+    );
+    expect(runLessonSplitCoverageCheck(root.path), isEmpty);
+  });
+  test('multi-hop replacedBy chain resolves walk-through replacement C', () {
+    final original = File('${root.path}/lessons/general/topic/original.md');
+    original.writeAsStringSync(
+      original.readAsStringSync().replaceFirst(
+            'replacedBy: [lesson-topic-part]',
+            'replacedBy: [lesson-topic-middle]',
+          ),
+    );
+    File('${root.path}/lessons/general/topic/middle.md').writeAsStringSync(
+      '---\n'
+      '_id: lesson-topic-middle\n'
+      'status: retired\n'
+      'replacedBy: [lesson-topic-part]\n'
+      '---\n'
+      '## Core Concept\n'
+      'Intermediate retired walk-through lesson.\n'
+      '<!-- FIGURE rights -->\n'
+      ':::check\n'
+      'Check question.\n'
+      ':::answer\n'
+      'Check answer.\n'
+      ':::\n',
+    );
+    part.writeAsStringSync(
+      '---\n_id: lesson-topic-part\nsubject: subject-general\npart: 1\n'
+      'keyPoints: [Know rights]\n---\n'
+      '## Core Concept\n'
+      'Rewritten walk-through core concept.\n'
+      '<!-- FIGURE rights -->\n'
+      ':::check\n'
+      'Check question.\n'
+      ':::answer\n'
+      'Check answer.\n'
+      ':::\n',
+    );
     expect(runLessonSplitCoverageCheck(root.path), isEmpty);
   });
   test('combined CLI fails findings and accepts clean root', () async {

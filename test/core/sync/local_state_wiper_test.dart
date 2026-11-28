@@ -3,6 +3,7 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/dev/local_study_reset.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
@@ -76,6 +77,36 @@ void main() {
     expect(await prefs.guardianContact(), isNull);
     expect(await prefs.guardianStatusCache(), isNull);
     expect(await prefs.guardianSharingApplied(), isFalse);
+  });
+
+  test('wipeAll removes the queued and sent question reports', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    final queue = ReportQueue(db, account: () => 'acct-a');
+    await queue.add('q1', 'A concern', DateTime(2026, 11, 23));
+    expect(await queue.history(), hasLength(1));
+
+    await SyncLocalStateWiper(db).wipeAll();
+
+    expect(await queue.history(), isEmpty);
+    expect(
+      (await db.select(db.devicePrefs).get()).map((row) => row.key),
+      isNot(contains(ReportQueue.storageKey)),
+    );
+  });
+
+  test('wipeAll ends an open first run', () async {
+    final db = inMemoryDatabase();
+    addTearDown(db.close);
+    await AppPreferencesRepository(db)
+        .setDeviceValue('first_run_open_v1', '{"uid":"u1"}');
+
+    await SyncLocalStateWiper(db).wipeAll();
+
+    expect(
+      (await db.select(db.devicePrefs).get()).map((row) => row.key),
+      isNot(contains('first_run_open_v1')),
+    );
   });
 
   test('wipeAll removes the study-days preference', () async {

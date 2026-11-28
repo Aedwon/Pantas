@@ -7,6 +7,7 @@ import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
+import 'package:pantas/core/ui/motion/session_entry_motion.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
@@ -16,7 +17,6 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_key_focus.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
-import 'package:pantas/features/quiz/presentation/session_entry_motion.dart';
 
 export 'package:pantas/core/ui/web/web_debrief_loading.dart';
 
@@ -157,12 +157,47 @@ class WebSessionResults extends StatelessWidget {
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.stretch,
                             children: [
-                              Text(
-                                misses.isEmpty
-                                    ? 'Perfect!'
-                                    : 'Session finished.',
-                                style: t.h1,
-                                textAlign: TextAlign.center,
+                              // Wide button placement (patterns.md): a results
+                              // page puts Done top right, level with the
+                              // title. The title stays centered.
+                              Row(
+                                // Space a short title leaves goes evenly to
+                                // both sides, so Done still ends the row.
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  // Equal sides keep the title centered;
+                                  // Done sits at the right end of the row.
+                                  const Expanded(child: SizedBox.shrink()),
+                                  Flexible(
+                                    flex: 2,
+                                    child: Text(
+                                      misses.isEmpty
+                                          ? 'Perfect!'
+                                          : 'Session finished.',
+                                      style: t.h1,
+                                      textAlign: TextAlign.center,
+                                    ),
+                                  ),
+                                  Expanded(
+                                    child: Align(
+                                      alignment: Alignment.centerRight,
+                                      child: appear(
+                                        WebButton(
+                                          key: const ValueKey('results-done'),
+                                          label: 'Done',
+                                          large: true,
+                                          onPressed: nextBusy ? null : onDone,
+                                          variant: next
+                                              ? WebButtonVariant.white
+                                              : WebButtonVariant.primary,
+                                        ),
+                                        1700,
+                                        300,
+                                      ),
+                                    ),
+                                  ),
+                                ],
                               ),
                               if (line != null) ...[
                                 const SizedBox(height: PantasSpace.s8),
@@ -222,40 +257,25 @@ class WebSessionResults extends StatelessWidget {
                             300,
                           ),
                         ],
-                        const SizedBox(height: PantasSpace.s28),
-                        // The phone's button bar fades in last. Here it sits
-                        // above the lists, so it follows the duration line.
-                        appear(
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              SizedBox(
-                                width: PantasLayout.titleNarrow,
-                                child: WebButton(
-                                  label: 'Done',
-                                  large: true,
-                                  expand: true,
-                                  onPressed: nextBusy ? null : onDone,
-                                  variant: next
-                                      ? WebButtonVariant.white
-                                      : WebButtonVariant.primary,
-                                ),
+                        if (next) ...[
+                          const SizedBox(height: PantasSpace.s28),
+                          // The phone's button bar fades in last. Here Start
+                          // Session sits above the lists, after the duration
+                          // line; Done is at the top, by the title.
+                          appear(
+                            Center(
+                              child: WebButton(
+                                label: 'Start Session ${batch.ordinal + 1}',
+                                large: true,
+                                keyHint: 'Enter',
+                                busy: nextBusy,
+                                onPressed: onNext,
                               ),
-                              if (next) ...[
-                                const SizedBox(width: PantasSpace.s12),
-                                WebButton(
-                                  label: 'Start Session ${batch.ordinal + 1}',
-                                  large: true,
-                                  keyHint: 'Enter',
-                                  busy: nextBusy,
-                                  onPressed: onNext,
-                                ),
-                              ],
-                            ],
+                            ),
+                            1700,
+                            300,
                           ),
-                          1700,
-                          300,
-                        ),
+                        ],
                         if (failure != null) failure!,
                         if (debriefCards != null) ...[
                           const SizedBox(height: PantasSpace.s32),
@@ -345,10 +365,7 @@ class WebSessionResults extends StatelessWidget {
                                         children: [
                                           Expanded(
                                             child: Text(
-                                              'Tell Pantas why you got each '
-                                              'one wrong. The better your '
-                                              'notes, the more every review '
-                                              'helps.',
+                                              'Note why you missed each one.',
                                               style: PantasType.webSub.copyWith(
                                                 color: t.colors.textPrimary,
                                               ),

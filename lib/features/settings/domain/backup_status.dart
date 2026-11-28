@@ -59,6 +59,16 @@ class BackupViewState {
             networkStatus: 'Unknown',
           ),
         ),
+      SyncPaused() => const BackupViewState(
+          headline: 'Backup paused',
+          subtitle: 'You synced a lot today. Backup starts again later, and '
+              'your progress stays safe on this device.',
+          details: BackupDiagnostics(
+            lastSyncIso: 'Paused',
+            pendingCount: 0,
+            networkStatus: 'Unknown',
+          ),
+        ),
       Syncing(:final pendingCount) => BackupViewState(
           headline: 'Backing up your progress...',
           subtitle:

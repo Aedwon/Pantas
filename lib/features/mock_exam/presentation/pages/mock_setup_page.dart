@@ -41,6 +41,13 @@ class MockSetupPage extends StatefulWidget {
 }
 
 class _MockSetupPageState extends State<MockSetupPage> {
+  // ds-board: MK_SetupCSE column gap 22
+  static const double _blockGap = PantasSpace.s20 + PantasSpace.s2;
+  // ds-board: MK_SetupCSE rule line padding-top 7
+  static const double _footerGap = PantasSpace.s6 + PantasSpace.s2 / 2;
+  // ds-board: MK_SetupCSE bar padding-bottom 30
+  static const double _barBottom = PantasSpace.s28 + PantasSpace.s2;
+
   late bool _strictMode;
 
   @override
@@ -64,53 +71,18 @@ class _MockSetupPageState extends State<MockSetupPage> {
 
     // MK_SetupCSE and MK_SetupStrict: a green "< Quiz" link, a white table
     // card, a white strict-mode card and a Start button pinned to the bottom.
-    final table = _SetupTable(sections: sections, sectional: isSectional);
+    final table = _SetupTable(
+      sections: sections,
+      sectional: isSectional,
+      showCounts: _showsSectionCounts(blueprint),
+    );
     return Scaffold(
       body: SafeArea(
         child: Stack(
           children: [
             Column(
               children: [
-                // MK_SetupCSE: the link row is 44 px under 6 px of padding, so
-                // its text sits 6 px lower than a bare 44 px row.
-                Padding(
-                  padding: const EdgeInsets.fromLTRB(
-                    PantasSpace.s4,
-                    PantasSpace.s6,
-                    PantasSpace.s8,
-                    PantasSpace.s0,
-                  ),
-                  child: Align(
-                    alignment: Alignment.centerLeft,
-                    child: GestureDetector(
-                      behavior: HitTestBehavior.opaque,
-                      onTap: () => leavePage(context, fallback: '/quiz'),
-                      child: Semantics(
-                        button: true,
-                        label: 'Quiz',
-                        excludeSemantics: true,
-                        child: ConstrainedBox(
-                          constraints: const BoxConstraints(minHeight: 44),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              Icon(
-                                PantasIcons.back,
-                                size: 24,
-                                color: colors.accent,
-                              ),
-                              const SizedBox(width: PantasSpace.s2),
-                              Text(
-                                'Quiz',
-                                style: type.body.copyWith(color: colors.accent),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                const MockSetupBackLink(),
                 Expanded(
                   child: ListView(
                     padding: const EdgeInsets.fromLTRB(
@@ -151,12 +123,14 @@ class _MockSetupPageState extends State<MockSetupPage> {
                           ],
                         ),
                       ),
-                      const SizedBox(height: PantasSpace.s24),
+                      // Board MK_SetupCSE: a 22 px column gap, 7 px above the
+                      // rule and 30 px under the Start button.
+                      const SizedBox(height: _blockGap),
                       table,
                       Padding(
                         padding: const EdgeInsets.fromLTRB(
                           PantasSpace.s16,
-                          PantasSpace.s8,
+                          _footerGap,
                           PantasSpace.s16,
                           PantasSpace.s0,
                         ),
@@ -263,7 +237,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
                   PantasSpace.s16,
                   PantasSpace.s14,
                   PantasSpace.s16,
-                  PantasSpace.s32,
+                  _barBottom,
                 ),
                 decoration: BoxDecoration(
                   gradient: LinearGradient(
@@ -306,6 +280,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
     final table = _SetupTable(
       sections: widget.parsedBlueprint.sections,
       sectional: sectional,
+      showCounts: _showsSectionCounts(blueprint),
     );
     final rules = Column(
       crossAxisAlignment: CrossAxisAlignment.start,
@@ -374,20 +349,26 @@ class _MockSetupPageState extends State<MockSetupPage> {
           ),
         ),
         const SizedBox(height: PantasSpace.s16),
-        // MK_SetupCSE: the button fills the right column and the line under
-        // it is centered.
-        WebButton(
-          label: 'Start the Mock Exam',
-          large: true,
-          expand: true,
-          keyHint: 'Enter',
-          onPressed: () => widget.onStart(_strictMode),
+        // MK_SetupCSE: the board fills the right column and centers the line
+        // under it. The wide pattern wins over that older board (patterns.md,
+        // Nov 7 rule): never a full-width button, so Start sits at the
+        // column's right end at natural width with its fine print right-aligned
+        // under it (design/system/README.md decision 149).
+        Align(
+          alignment: Alignment.centerRight,
+          child: WebButton(
+            label: 'Start the Mock Exam',
+            large: true,
+            keyHint: 'Enter',
+            onPressed: () => widget.onStart(_strictMode),
+          ),
         ),
         const SizedBox(height: PantasSpace.s8),
-        Center(
+        Align(
+          alignment: Alignment.centerRight,
           child: Text(
             'The clock starts when you click.',
-            textAlign: TextAlign.center,
+            textAlign: TextAlign.right,
             style: t.sm,
           ),
         ),
@@ -453,6 +434,13 @@ class _MockSetupPageState extends State<MockSetupPage> {
     );
   }
 
+  // P10/U58: the CSC publishes no per-area counts for the Subprofessional
+  // level, so Pantas never prints its own division. The 36/36/36/37 split in
+  // the blueprint stays a sampling parameter. Keyed on the exam id because a
+  // blueprint field would need a catalog and parser schema change.
+  bool _showsSectionCounts(MockBlueprint blueprint) =>
+      blueprint.examId != 'exam_cse_sub';
+
   String _simulationTitle(MockBlueprint blueprint) =>
       mockSimulationTitle(blueprint.examId, blueprint.name);
 
@@ -487,10 +475,72 @@ class _MockSetupPageState extends State<MockSetupPage> {
 /// The section table: Section, Items and (for a sectional paper) Time, on the
 /// system DataTable. A figure that is still a development placeholder keeps
 /// its [PlaceholderFigure] and prints its bare value, as it did before.
+/// MK_SetupCSE: the green "< Quiz" link row, 44 px under 6 px of padding, so
+/// its text sits 6 px lower than a bare 44 px row. The loading skeleton draws
+/// the same row, so the page does not shift when the paper arrives.
+class MockSetupBackLink extends StatelessWidget {
+  const MockSetupBackLink({this.onPressed, super.key});
+
+  /// Where the link goes. Without one it leaves the page, to the Quiz tab.
+  final VoidCallback? onPressed;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.colors;
+    final type = context.type;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s4,
+        PantasSpace.s6,
+        PantasSpace.s8,
+        PantasSpace.s0,
+      ),
+      child: Align(
+        alignment: Alignment.centerLeft,
+        child: GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: onPressed ?? () => leavePage(context, fallback: '/quiz'),
+          child: Semantics(
+            button: true,
+            label: 'Quiz',
+            excludeSemantics: true,
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(minHeight: 44),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Icon(
+                    PantasIcons.back,
+                    size: 24,
+                    color: colors.accent,
+                  ),
+                  const SizedBox(width: PantasSpace.s2),
+                  Text(
+                    'Quiz',
+                    style: type.body.copyWith(color: colors.accent),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class _SetupTable extends StatelessWidget {
-  const _SetupTable({required this.sections, required this.sectional});
+  const _SetupTable({
+    required this.sections,
+    required this.sectional,
+    this.showCounts = true,
+  });
   final List<BlueprintSection> sections;
   final bool sectional;
+
+  /// False hides the Items column, for a paper whose per-section counts are
+  /// not published.
+  final bool showCounts;
 
   @override
   Widget build(BuildContext context) {
@@ -518,14 +568,15 @@ class _SetupTable extends StatelessWidget {
     return PantasDataTable(
       columns: [
         const PantasTableColumn('Section'),
-        const PantasTableColumn('Items', numeric: true),
+        if (showCounts) const PantasTableColumn('Items', numeric: true),
         if (sectional) const PantasTableColumn('Time', numeric: true),
       ],
       rows: [
         for (final section in sections)
           [
             section.name,
-            figure(section.questionCountFigure, section.questionCount),
+            if (showCounts)
+              figure(section.questionCountFigure, section.questionCount),
             if (sectional)
               figure(
                 section.sectionalMinutesFigure,

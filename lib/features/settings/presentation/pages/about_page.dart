@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/build_info.dart';
 import 'package:pantas/app/screen_counts_providers.dart';
+import 'package:pantas/core/config/seller_facts.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -160,12 +161,12 @@ class AboutPage extends ConsumerWidget {
           header: 'Legal',
           children: [
             SettingsRow(
-              title: 'Privacy Policy',
+              title: 'Privacy policy',
               divider: true,
               onTap: () => push('/legal/privacy'),
             ),
             SettingsRow(
-              title: 'Terms of Service',
+              title: 'Terms of service',
               onTap: () => push('/legal/terms'),
             ),
           ],
@@ -244,6 +245,18 @@ class AboutPage extends ConsumerWidget {
         SettingsSection(
           header: 'Get in touch',
           children: [
+            // No board draws a support row (ST_About draws only Send
+            // feedback). It reuses the value row of Send feedback and opens
+            // mail like the officer row above (E-179 support ruling).
+            SettingsRow(
+              title: 'Email support',
+              value: sellerEmail,
+              variant: ListRowVariant.value,
+              trailingWidget: context.wideWeb ? null : _externalIcon(context),
+              onTap: () => unawaited(
+                openMail(sellerEmail, open: opener ?? launchUrl),
+              ),
+            ),
             SettingsRow(
               title: 'Send feedback',
               value: context.wideWeb ? 'Facebook group ↗' : 'Facebook group',

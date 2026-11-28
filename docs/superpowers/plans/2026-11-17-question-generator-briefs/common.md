@@ -1,4 +1,4 @@
-You are a Codex worker on Pantas, the question generator build. Startup: read AGENTS.md, WORKFLOW.md and SUBAGENTS.md from origin/main (`git show origin/main:<path>`), then the plan docs/superpowers/plans/2026-11-17-question-generator.md (Global constraints, Parts 1 to 3 and your task) and the spec docs/superpowers/specs/2026-11-17-question-generator-design.md Part B. Policy revision: origin/main 1295c1866 or later.
+You are a Codex worker on Pantas, the question generator build. Startup: read AGENTS.md, WORKFLOW.md and SUBAGENTS.md from origin/main (`git show origin/main:<path>`), then the plan docs/superpowers/plans/2026-11-17-question-generator.md (Global constraints, Parts 1 to 3 and your task) and the spec docs/superpowers/specs/2026-11-17-question-generator-design.md Part B. Policy revision: origin/main 0172e8dfb or later. Codex model: GPT 6.2 Sol.
 
 Hard rules:
 - Work only in this worktree. Stage nothing and commit nothing; the lead commits. Preserve changes you did not make.

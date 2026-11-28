@@ -7,6 +7,7 @@ import {guardianLinkOrigin, guardianMailFrom} from './guardianConsent.js';
 import {appSecrets, secret} from './_secrets.js';
 import {inactivityWarningMessage, mailerFor, type GuardianMailer} from './guardianMail.js';
 import {hasLiveProClaim} from './_pro.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 const DAY_MS = 86_400_000;
 
@@ -21,6 +22,10 @@ export const WARNINGS_PER_RUN = 500;
 // Guardian answer records are kept ten years after the newest answer: 10 x 365 days plus 3 leap
 // days (2028, 2032, 2036 fall inside a ten-year span starting in late 2026).
 export const EVIDENCE_KEEP_DAYS = 3653;
+// Evidence without a confirmation, withdrawal or guardian purchase is kept four years
+// (4 x 365 days plus the 2028 leap day).
+export const SHORT_EVIDENCE_KEEP_DAYS = 1461;
+const SHARING_KEEP_DAYS = 1461;
 // A pending deletion is retried by the daily run an hour after its last attempt, so a live attempt is
 // left alone. At most this many retries run per day, so failing tasks cannot use up the whole cap.
 export const RETRY_AFTER_MS = DELETION_RETRY_MS;
@@ -252,9 +257,11 @@ export async function runInactivityPass(deps: InactivityDeps): Promise<Inactivit
 type EvidenceDeps = {db: Firestore; auth: Pick<Auth, 'getUser'>; now?: () => number; budget?: number};
 
 /**
- * Deletes guardian evidence ten years after its newest answer or purchase attestation, once the
- * account is gone. Evidence with no deletion marker predates the marker: if its account no longer
- * exists, the marker is written now so the ten-year clock, which runs from the newest record, applies.
+ * Deletes guardian evidence once the account is gone and the retention period has elapsed.
+ * Confirmation, withdrawal or guardian purchase evidence sets a ten-year period. Other evidence
+ * has a four-year period. The period runs from the newest record, or the deletion marker if
+ * there are no dated records. Sharing evidence has its own period from account deletion.
+ * If a deleted account lacks a marker, the job writes one now.
  *
  * Each run checks at most `budget` marked parents, then at most `budget` answer records to find
  * parents with no marker. A saved cursor resumes where the last run stopped and wraps to the start
@@ -282,18 +289,60 @@ export async function purgeExpiredEvidence(deps: EvidenceDeps): Promise<number> 
         deletedAt = now;
         await evidence.set({accountDeletedAt: now, reason: 'legacy'}, {merge: true});
       }
+      const responses = evidence.collection('responses');
       const [answers, purchases] = await Promise.all([
-        evidence.collection('responses').orderBy('decidedAt', 'desc').limit(1).get(),
+        responses.where('action', 'in', ['confirm', 'decline', 'withdraw', 'became_adult']).get(),
         evidence.collection('purchases').orderBy('attestedAt', 'desc').limit(1).get()]);
+      const confirmations = answers.docs.filter((row) => row.get('action') === 'confirm');
+      const keepDays = confirmations.length > 0 || !purchases.empty ||
+        answers.docs.some((row) => row.get('action') === 'withdraw')
+        ? EVIDENCE_KEEP_DAYS
+        : SHORT_EVIDENCE_KEEP_DAYS;
       const dates = [...answers.docs.map((row) => row.get('decidedAt')), ...purchases.docs.map((row) => row.get('attestedAt'))]
         .filter((value): value is number => typeof value === 'number');
       const newest = dates.length > 0 ? Math.max(...dates) : deletedAt;
-      if (now >= newest + EVIDENCE_KEEP_DAYS * DAY_MS) {
+      const evidenceExpired = now >= newest + keepDays * DAY_MS;
+      const sharingExpired = now >= deletedAt + SHARING_KEEP_DAYS * DAY_MS;
+      const sharingChoices = confirmations.filter((row) => row.get('sharingAllowed') !== undefined);
+      const sharing = responses.where('action', 'in', ['sharing_on', 'sharing_off']);
+      if (evidenceExpired) {
+        if (!sharingExpired && (sharingChoices.length > 0 || !(await sharing.limit(1).get()).empty)) {
+          // Keep the marker and only the fields that record a sharing choice.
+          const purchaseCopies = await evidence.collection('purchases').get();
+          const writer = deps.db.bulkWriter();
+          const writes = [
+            ...purchaseCopies.docs.map((row) => writer.delete(row.ref)),
+            ...answers.docs.map((row) => {
+              const sharingAllowed = row.get('sharingAllowed');
+              if (row.get('action') !== 'confirm' || typeof sharingAllowed !== 'boolean') {
+                return writer.delete(row.ref);
+              }
+              const fields = Object.entries(row.data()).filter(([key]) =>
+                ['decidedAt', 'documentVersions', 'noticeWordingVersion'].includes(key));
+              return writer.set(row.ref, {
+                ...Object.fromEntries(fields),
+                action: sharingAllowed ? 'sharing_on' : 'sharing_off',
+                sharingAllowed,
+              });
+            }),
+          ];
+          await Promise.all([...writes, writer.close()]);
+          return;
+        }
         await deps.db.recursiveDelete(evidence);
         removed += 1;
+      } else if (sharingExpired) {
+        const changes = await sharing.get();
+        if (changes.empty && sharingChoices.length === 0) return;
+        const writer = deps.db.bulkWriter();
+        const writes = [
+          ...changes.docs.map((row) => writer.delete(row.ref)),
+          ...sharingChoices.map((row) => writer.update(row.ref, {sharingAllowed: FieldValue.delete()})),
+        ];
+        await Promise.all([...writes, writer.close()]);
       }
     } catch (error) {
-      logger.error('Evidence purge failed for one record', {uid: evidence.id, error: String(error)});
+      logger.error('Evidence purge failed for one record', {reason: 'evidence-purge-failed'});
     }
   };
 
@@ -317,7 +366,7 @@ export async function purgeExpiredEvidence(deps: EvidenceDeps): Promise<number> 
       // A marked parent belongs to pass one.
       if (typeof (await parent.get()).get('accountDeletedAt') === 'number') continue;
     } catch (error) {
-      logger.error('Evidence purge failed for one record', {uid: parent.id, error: String(error)});
+      logger.error('Evidence purge failed for one record', {reason: 'evidence-purge-failed'});
       continue;
     }
     await purgeParent(parent);
@@ -359,7 +408,7 @@ export async function runPurgeInactiveAccounts(): Promise<void> {
 }
 
 export const purgeInactiveAccounts = onSchedule(
-  {schedule: 'every day 04:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', timeoutSeconds: 540,
+  {schedule: 'every day 04:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-jobs'), timeoutSeconds: 540,
     secrets: purgeInactiveSecrets},
   async () => runPurgeInactiveAccounts(),
 );

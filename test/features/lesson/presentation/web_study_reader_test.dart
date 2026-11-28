@@ -485,7 +485,7 @@ void main() {
       expect(advanced, 1);
       await tester.pumpWidget(const SizedBox());
     });
-    testWidgets('wide reader outline, menu, B and focus bar $brightness',
+    testWidgets('wide reader menu, B and focus bar $brightness',
         (tester) async {
       final db = inMemoryDatabase();
       addTearDown(db.close);
@@ -560,7 +560,7 @@ void main() {
         tester.getSize(find.byKey(const ValueKey('web-reader-column'))).width,
         680,
       );
-      expect(find.text('IN THIS LESSON'), findsOneWidget);
+      expect(find.text('IN THIS LESSON'), findsNothing);
       expect(find.text('Earth Science'), findsOneWidget);
       expect(find.text('1 of 2'), findsOneWidget);
       final control = find
@@ -593,13 +593,12 @@ void main() {
       expect(find.text('EARTH SCIENCE'), findsNothing);
       offset.value = 100;
       await tester.pump();
+      // The line under the bar is 2 px at rest (one segment each section).
       final thread = find.descendant(
-        of: find.byWidgetPredicate(
-          (w) => w is Semantics && w.properties.label == 'Lesson progress',
-        ),
-        matching: find.byType(SizedBox),
+        of: find.byKey(const ValueKey(('section-segment', 0))),
+        matching: find.byType(AnimatedContainer),
       );
-      expect(tester.getSize(thread.first).height, 3);
+      expect(tester.getSize(thread.first).height, 2);
       expect(tester.takeException(), isNull);
       await tester.pumpWidget(const SizedBox());
     });

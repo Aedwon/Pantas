@@ -322,8 +322,8 @@ void main() {
         find.descendant(of: card, matching: find.text('P')),
         findsOneWidget,
       );
-      expect(find.text('Privacy Policy'), findsOneWidget);
-      expect(find.text('Terms of Service'), findsOneWidget);
+      expect(find.text('Privacy policy'), findsOneWidget);
+      expect(find.text('Terms of service'), findsOneWidget);
       expect(
         find.text('Help improve Pantas by sharing usage data'),
         findsOneWidget,

@@ -19,8 +19,7 @@ class DsNoDesignLiteralTest extends AnalysisRuleTest with AnnotatedAsserts {
     super.setUp();
   }
 
-  String body(String statements) =>
-      '''
+  String body(String statements) => '''
 $importFlutter
 ${RegExp(r'\b(Space|Dur|Palette)\.').hasMatch(statements) ? importTokens : ''}
 
@@ -44,34 +43,34 @@ Widget build(bool flag, double scale) {
       assertMarked(body('return const Container(width: «100», height: «50»);'));
 
   Future<void> test_sizedBox_token_is_clean() => assertNoDiagnostics(
-    body('return const SizedBox(width: Space.md, height: Space.lg);'),
-  );
+        body('return const SizedBox(width: Space.md, height: Space.lg);'),
+      );
 
   Future<void> test_zero_is_not_a_design_value() => assertNoDiagnostics(
-    body('return const SizedBox(width: 0, height: 0.0);'),
-  );
+        body('return const SizedBox(width: 0, height: 0.0);'),
+      );
 
   Future<void> test_other_widget_parameters_are_not_checked() =>
       assertNoDiagnostics(body('return const Gap(size: 12);'));
 
   Future<void> test_boxConstraints_literal() => assertMarked(
-    body(
-      'return const Container(constraints: BoxConstraints(maxWidth: «320»));',
-    ),
-  );
+        body(
+          'return const Container(constraints: BoxConstraints(maxWidth: «320»));',
+        ),
+      );
 
   // ---- spacing --------------------------------------------------------------
 
   Future<void> test_edgeInsets_all() => assertMarked(
-    body('return const Container(margin: EdgeInsets.all(«8»));'),
-  );
+        body('return const Container(margin: EdgeInsets.all(«8»));'),
+      );
 
   Future<void> test_edgeInsets_symmetric_reports_each_literal() => assertMarked(
-    body(
-      'return const Container(margin: '
-      'EdgeInsets.symmetric(vertical: «4», horizontal: «12»));',
-    ),
-  );
+        body(
+          'return const Container(margin: '
+          'EdgeInsets.symmetric(vertical: «4», horizontal: «12»));',
+        ),
+      );
 
   Future<void> test_edgeInsets_zero_and_tokens_are_clean() =>
       assertNoDiagnostics(
@@ -82,19 +81,19 @@ Widget build(bool flag, double scale) {
       );
 
   Future<void> test_edgeInsets_token_plus_literal() => assertMarked(
-    body('return Container(margin: EdgeInsets.all(Space.md + «4»));'),
-  );
+        body('return Container(margin: EdgeInsets.all(Space.md + «4»));'),
+      );
 
-  Future<void>
-  test_edgeInsets_token_scaled_by_literal_is_clean() => assertNoDiagnostics(
-    body(
-      'return Container(margin: EdgeInsets.all(Space.md * 2 + Space.lg / 2));',
-    ),
-  );
+  Future<void> test_edgeInsets_token_scaled_by_literal_is_clean() =>
+      assertNoDiagnostics(
+        body(
+          'return Container(margin: EdgeInsets.all(Space.md * 2 + Space.lg / 2));',
+        ),
+      );
 
   Future<void> test_two_literals_multiplied_are_reported() => assertMarked(
-    body('return Container(margin: EdgeInsets.all(«2» * «3»));'),
-  );
+        body('return Container(margin: EdgeInsets.all(«2» * «3»));'),
+      );
 
   Future<void> test_a_divisor_does_not_carry_the_value() =>
       assertNoDiagnostics('''
@@ -108,16 +107,16 @@ Widget build(double w) => SizedBox(width: w / _base);
   // ---- text -----------------------------------------------------------------
 
   Future<void> test_textStyle_fontSize_letterSpacing_height() => assertMarked(
-    body('''
+        body('''
 const style = TextStyle(fontSize: «14», letterSpacing: «0.5», height: «1.4»);
   return Container(width: style.hashCode.toDouble());'''),
-  );
+      );
 
   Future<void> test_textStyle_copyWith_fontSize() => assertMarked(
-    body('''
+        body('''
 final style = const TextStyle().copyWith(fontSize: «15»);
   return Container(width: style.hashCode.toDouble());'''),
-  );
+      );
 
   // ---- colors ---------------------------------------------------------------
 
@@ -125,10 +124,10 @@ final style = const TextStyle().copyWith(fontSize: «15»);
       assertMarked(body('return const Container(color: Color(«0xFF112233»));'));
 
   Future<void> test_color_fromARGB_and_fromRGBO() => assertMarked(
-    body(
-      'return const Container(color: Color.fromARGB(«255», «10», 0, «20»));',
-    ),
-  );
+        body(
+          'return const Container(color: Color.fromARGB(«255», «10», 0, «20»));',
+        ),
+      );
 
   Future<void> test_color_in_a_private_const() => assertMarked('''
 $importFlutter
@@ -147,8 +146,8 @@ Color pick() => _ink;
       );
 
   Future<void> test_colors_transparent_is_allowed() => assertNoDiagnostics(
-    body('return const Container(color: Colors.transparent);'),
-  );
+        body('return const Container(color: Colors.transparent);'),
+      );
 
   Future<void> test_color_from_a_token_is_clean() =>
       assertNoDiagnostics(body('return const Container(color: Palette.ink);'));
@@ -182,18 +181,18 @@ const curve = Cubic(«0.2», 0, «0.2», «1»);
   // ---- durations ------------------------------------------------------------
 
   Future<void> test_duration_reaching_an_animation_parameter() => assertMarked(
-    body(
-      'return const Fade(duration: Duration(milliseconds: «200»), '
-      'reverseDuration: Duration(seconds: «1»));',
-    ),
-  );
+        body(
+          'return const Fade(duration: Duration(milliseconds: «200»), '
+          'reverseDuration: Duration(seconds: «1»));',
+        ),
+      );
 
   Future<void> test_duration_zero_and_tokens_are_clean() => assertNoDiagnostics(
-    body(
-      'return const Fade(duration: Duration.zero, '
-      'reverseDuration: Dur.fast);',
-    ),
-  );
+        body(
+          'return const Fade(duration: Duration.zero, '
+          'reverseDuration: Dur.fast);',
+        ),
+      );
 
   Future<void> test_duration_outside_animation_apis_is_clean() =>
       assertNoDiagnostics('''
@@ -206,10 +205,10 @@ Future<void> wait() => Future<void>.delayed(const Duration(seconds: 3));
       assertMarked(body('return SizedBox(width: flag ? «8» : «12»);'));
 
   Future<void> test_local_final_is_followed_to_the_use() => assertMarked(
-    body('''
+        body('''
 const gap = 12.0;
   return const SizedBox(width: «gap»);'''),
-  );
+      );
 
   Future<void> test_chain_of_variables_reports_at_the_outer_use() =>
       assertMarked('''
@@ -240,8 +239,8 @@ final gap = Space.md * 2;
       );
 
   Future<void> test_clamp_and_max_reach_the_parameter() => assertMarked(
-    body('return SizedBox(width: scale.clamp(«10», Space.lg));'),
-  );
+        body('return SizedBox(width: scale.clamp(«10», Space.lg));'),
+      );
 
   Future<void> test_duration_const_is_followed() => assertMarked('''
 $importFlutter
@@ -282,10 +281,10 @@ Widget build() => SizedBox(width: _gap);
 ''');
 
   Future<void> test_switch_expression_arms_are_followed() => assertMarked(
-    body(
-      'return SizedBox(width: switch (flag) { true => «8», false => «12» });',
-    ),
-  );
+        body(
+          'return SizedBox(width: switch (flag) { true => «8», false => «12» });',
+        ),
+      );
 
   Future<void> test_switch_arm_that_is_a_token_is_clean() =>
       assertNoDiagnostics(
@@ -295,20 +294,22 @@ Widget build() => SizedBox(width: _gap);
       );
 
   Future<void> test_hsl_and_hsv_literals_are_colors() => assertMarked(
-    body(
-      'return Container(color: HSLColor.fromAHSL(«1», «200», «0.5», «0.4»).toColor());',
-    ),
-  );
+        body(
+          'return Container(color: HSLColor.fromAHSL(«1», «200», «0.5», «0.4»).toColor());',
+        ),
+      );
 
   // ---- curves and icons ----------------------------------------------------
 
   Future<void> test_curves_name_reaching_a_curve_parameter() => assertMarked(
-    body('return const Fade(duration: Duration.zero, curve: «Curves.easeIn»);'),
-  );
+        body(
+            'return const Fade(duration: Duration.zero, curve: «Curves.easeIn»);'),
+      );
 
   Future<void> test_curves_linear_is_allowed() => assertNoDiagnostics(
-    body('return const Fade(duration: Duration.zero, curve: Curves.linear);'),
-  );
+        body(
+            'return const Fade(duration: Duration.zero, curve: Curves.linear);'),
+      );
 
   Future<void> test_curves_name_through_a_conditional_and_a_variable() =>
       assertMarked(
@@ -408,24 +409,24 @@ BorderRadius radius() =>
 ''');
 
   Future<void> test_geometry_marker_never_exempts_a_font_size() => assertMarked(
-    body('''
+        body('''
 const style = TextStyle(fontSize: «14»); // ds-geometry: not allowed here
   return Container(width: style.hashCode.toDouble());'''),
-  );
+      );
 
   Future<void> test_geometry_marker_never_exempts_a_color() => assertMarked(
-    body(
-      'return const Container(color: Color(«0xFF123456»)); '
-      '// ds-geometry: not allowed here',
-    ),
-  );
+        body(
+          'return const Container(color: Color(«0xFF123456»)); '
+          '// ds-geometry: not allowed here',
+        ),
+      );
 
   Future<void> test_geometry_marker_never_exempts_spacing() => assertMarked(
-    body(
-      'return const Container(margin: EdgeInsets.all(«8»)); '
-      '// ds-geometry: not allowed here',
-    ),
-  );
+        body(
+          'return const Container(margin: EdgeInsets.all(«8»)); '
+          '// ds-geometry: not allowed here',
+        ),
+      );
 
   // ---- ds-board ---------------------------------------------------------------
 
@@ -469,11 +470,11 @@ const style = TextStyle(fontSize: 13); // ds-board: Quiz board, stem size
       );
 
   Future<void> test_board_marker_never_exempts_a_color() => assertMarked(
-    body(
-      'return const Container(color: Color(«0xFF123456»)); '
-      '// ds-board: not allowed here',
-    ),
-  );
+        body(
+          'return const Container(color: Color(«0xFF123456»)); '
+          '// ds-board: not allowed here',
+        ),
+      );
 
   Future<void> test_board_marker_without_a_reason_does_not_exempt() =>
       assertMarked(body('return const SizedBox(width: «280»); // ds-board:'));
@@ -558,7 +559,7 @@ const gap = SizedBox(width: «12»);
 ''');
 
   Future<void>
-  test_the_canary_fixture_is_in_scope_and_other_tests_are_not() async {
+      test_the_canary_fixture_is_in_scope_and_other_tests_are_not() async {
     const source = '''
 import 'package:flutter/widgets.dart';
 

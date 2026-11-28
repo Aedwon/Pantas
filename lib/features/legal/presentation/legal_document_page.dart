@@ -1,3 +1,5 @@
+import 'package:flutter/gestures.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
@@ -107,9 +109,11 @@ class LegalDocumentBody extends StatelessWidget {
             for (final section in document.sections) ...[
               Text(section.heading, style: t.h3),
               const SizedBox(height: PantasSpace.s14),
-              Text(
-                section.body,
+              LegalBodyText(
+                documentId: documentId,
+                body: section.body,
                 style: PantasType.webLead.copyWith(color: t.colors.textPrimary),
+                linkColor: t.colors.accent,
               ),
               const SizedBox(height: PantasSpace.s14),
             ],
@@ -152,10 +156,12 @@ List<Widget> _documentChildren(
               .copyWith(color: context.colors.textPrimary),
         ),
         const SizedBox(height: PantasSpace.s4),
-        Text(
-          section.body,
+        LegalBodyText(
+          documentId: documentId,
+          body: section.body,
           style: PantasType.phoneReaderBody
               .copyWith(color: context.colors.textPrimary),
+          linkColor: context.colors.accent,
         ),
       ],
     ] else ...[
@@ -167,7 +173,12 @@ List<Widget> _documentChildren(
       for (final section in document.sections) ...[
         Text(section.heading, style: context.type.emphasized),
         const SizedBox(height: PantasSpace.s8),
-        Text(section.body, style: context.type.body),
+        LegalBodyText(
+          documentId: documentId,
+          body: section.body,
+          style: context.type.body,
+          linkColor: context.colors.accent,
+        ),
         const SizedBox(height: PantasSpace.s24),
       ],
     ],
@@ -253,6 +264,69 @@ class OnboardingLegalPage extends StatelessWidget {
                 ),
               ),
             ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+/// The words in the Notice for teens that open the Privacy Policy, where the
+/// owner is named. The Notice names only the business, so the pointer is a
+/// real link in the app (RA 11967 and the IRR ask for the owner to be easy to
+/// reach). The text is the same as the signed-off draft.
+const legalOwnerPointer = 'the Privacy Policy for the owner';
+
+/// A section body. In the Notice for teens, "the Privacy Policy" in the owner
+/// pointer is a link to the Privacy Policy. Every other body is plain text.
+class LegalBodyText extends StatefulWidget {
+  const LegalBodyText({
+    required this.documentId,
+    required this.body,
+    required this.style,
+    required this.linkColor,
+    super.key,
+  });
+
+  final String documentId;
+  final String body;
+  final TextStyle style;
+  final Color linkColor;
+
+  @override
+  State<LegalBodyText> createState() => _LegalBodyTextState();
+}
+
+class _LegalBodyTextState extends State<LegalBodyText> {
+  final _tap = TapGestureRecognizer();
+
+  @override
+  void dispose() {
+    _tap.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final at = widget.documentId == 'teens'
+        ? widget.body.indexOf(legalOwnerPointer)
+        : -1;
+    if (at < 0) return Text(widget.body, style: widget.style);
+    const label = 'the Privacy Policy';
+    _tap.onTap = () => context.push('/legal/privacy');
+    return Text.rich(
+      TextSpan(
+        style: widget.style,
+        children: [
+          TextSpan(text: widget.body.substring(0, at)),
+          TextSpan(
+            text: label,
+            style: widget.style.copyWith(color: widget.linkColor),
+            recognizer: _tap,
+            mouseCursor: SystemMouseCursors.click,
+          ),
+          TextSpan(
+            text: widget.body.substring(at + label.length),
           ),
         ],
       ),

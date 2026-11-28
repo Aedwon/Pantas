@@ -13,7 +13,7 @@
 //   Cloud Scheduler jobs in every location (paused and failed ones too), secret versions by state,
 //   Artifact Registry size, last 24 h of Hosting egress, Firestore backups, bucket sizes, enabled
 //   APIs that bill on use, alert policies and whether the Cloud Billing catalog lists an alerting SKU,
-//   reCAPTCHA CreateAssessment daily caps, Firestore daily reads and writes for 7 days, minimum
+//   Firestore TTL policies (staging must have none), reCAPTCHA CreateAssessment daily caps, Firestore daily reads and writes for 7 days, minimum
 //   instances, and that each project has its billing-cutoff function.
 import {execFileSync} from 'node:child_process';
 import {pathToFileURL} from 'node:url';
@@ -35,6 +35,11 @@ export const FREE = {
   firestoreWritesPerDay: 20000,
   firestoreDeletesPerDay: 20000,
 };
+// Prod's reCAPTCHA daily cap may rise to this for real users (his "yes", Nov 25, launch limits at 500 sign-ups).
+const PROD_RECAPTCHA_DAILY_CEILING = 1000;
+// Staging has no real users: its budget is 80% of the free quota, shared by every lane (security lead
+// ruling, Nov 16, 2026; docs/deploy-prod.md "Staging read budget").
+const STAGING_BUDGET = {readsPerDay: 40000, writesPerDay: 16000};
 const FREE_REGIONS = new Set(['us-east1', 'us-west1', 'us-central1']);
 const PAID_ON_USE_API = /^(bigquery[a-z]*|dataform|dataplex|analyticshub|cloudaicompanion|deploymentmanager|containerregistry|source|sql-component)\.googleapis\.com$/;
 const ALERTING_SERVICE = '58CD-E7C3-72CA';
@@ -90,6 +95,12 @@ export function judge(data, {waivers, now}) {
     'Firestore backups and schedules',
     `${perProject(data, (p) => `${p.firestore.schedules} schedules, ${p.firestore.backups} backups`)}; staging must have none, prod daily for 7 days is kept (ruling 5)`);
 
+  // Firestore TTL deletes have no free tier ($0.0123 per 100,000 from the first delete, catalog SKU
+  // "Cloud Firestore TTL Deletes Singapore"), unlike ordinary deletes (20,000 free a day). Staging may
+  // cost nothing (rule 7), so it runs no TTL policy; prod keeps its policies, because real users cause them.
+  add(worst(projects.map(([id, p]) => ((p.firestore.ttl ?? []).length && isStaging(id) ? 'OVER' : 'OK'))), 'Firestore TTL policies',
+    `${perProject(data, (p) => { const t = p.firestore.ttl ?? []; return `${t.length}${t.length ? ` (${t.join(', ')})` : ''}`; })}; staging must have none, prod's are from real users`);
+
   const bytesIn = (p, free) => p.buckets.filter((b) => FREE_REGIONS.has(b.location) === free).reduce((t, b) => t + b.bytes, 0);
   const freeBytes = sum(data, (p) => bytesIn(p, true));
   const otherBytes = sum(data, (p) => bytesIn(p, false));
@@ -112,8 +123,14 @@ export function judge(data, {waivers, now}) {
   const caps = projects.filter(([, p]) => p.recaptchaCap !== null);
   const unlimited = caps.some(([, p]) => p.recaptchaCap < 0);
   const month = caps.reduce((t, [, p]) => t + Math.max(p.recaptchaCap, 0) * 31, 0);
-  add(unlimited || month > FREE.recaptchaPerMonth ? 'OVER' : 'OK', 'reCAPTCHA CreateAssessment caps',
-    `${unlimited ? 'a project has no cap' : month} in a 31-day month (${caps.map(([id, p]) => `${short(id)} ${p.recaptchaCap < 0 ? 'none' : p.recaptchaCap} a day`).join(', ')}), free ${FREE.recaptchaPerMonth}`);
+  // Staging is a fixed item and must fit the free tier alone. Prod's cap is for real users, up to the
+  // ceiling Aedwon approved (launch limits, Nov 25: 1,000 a day); past the free tier only users can cost.
+  const capOf = (id) => caps.find(([name]) => name === id)?.[1].recaptchaCap ?? 0;
+  const stagingOver = Math.max(capOf('pantas-staging'), 0) * 31 > FREE.recaptchaPerMonth;
+  const prodOver = capOf('pantas-prod') > PROD_RECAPTCHA_DAILY_CEILING;
+  const recaptchaStatus = unlimited || stagingOver || prodOver ? 'OVER' : month > FREE.recaptchaPerMonth ? 'WARN' : 'OK';
+  add(recaptchaStatus, 'reCAPTCHA CreateAssessment caps',
+    `${unlimited ? 'a project has no cap' : month} in a 31-day month (${caps.map(([id, p]) => `${short(id)} ${p.recaptchaCap < 0 ? 'none' : p.recaptchaCap} a day`).join(', ')}), free ${FREE.recaptchaPerMonth}; prod ceiling ${PROD_RECAPTCHA_DAILY_CEILING} a day for users`);
 
   const opsStatus = [];
   const opsText = [];
@@ -121,8 +138,12 @@ export function judge(data, {waivers, now}) {
     const top = (key) => p.firestore.daily.reduce((a, d) => (d[key] > a.value ? {value: d[key], day: d.day} : a), {value: 0, day: '-'});
     const [r, wr, d] = [top('reads'), top('writes'), top('deletes')];
     const over = r.value > FREE.firestoreReadsPerDay || wr.value > FREE.firestoreWritesPerDay || d.value > FREE.firestoreDeletesPerDay;
-    opsStatus.push(over ? (isStaging(id) ? 'OVER' : 'WARN') : 'OK');
-    opsText.push(`${short(id)}: max ${r.value} reads on ${r.day} (free ${FREE.firestoreReadsPerDay}), ${wr.value} writes on ${wr.day} (free ${FREE.firestoreWritesPerDay})`);
+    const overBudget = isStaging(id) && (r.value > STAGING_BUDGET.readsPerDay || wr.value > STAGING_BUDGET.writesPerDay);
+    opsStatus.push(over ? (isStaging(id) ? 'OVER' : 'WARN') : overBudget ? 'WARN' : 'OK');
+    const budget = isStaging(id) ? `, staging budget ${STAGING_BUDGET.readsPerDay} reads and ${STAGING_BUDGET.writesPerDay} writes` : '';
+    // What the project has used in the current quota day: the "already used" figure for a pre-run count.
+    const today = p.firestore.today ?? {since: '-', reads: 0, writes: 0};
+    opsText.push(`${short(id)}: quota day since ${today.since} ${today.reads} reads, ${today.writes} writes; max ${r.value} reads on ${r.day} (free ${FREE.firestoreReadsPerDay}), ${wr.value} writes on ${wr.day} (free ${FREE.firestoreWritesPerDay}${budget})`);
   }
   add(worst(opsStatus), 'Firestore daily operations, last 7 days', opsText.join('; '));
 
@@ -170,10 +191,39 @@ async function inBatches(items, size, fn) {
   return results;
 }
 
+/** The latest midnight in America/Los_Angeles at or before `at`, when Firestore's free quota resets. */
+export function pacificMidnight(at) {
+  const parts = Object.fromEntries(new Intl.DateTimeFormat('en-US', {timeZone: 'America/Los_Angeles', hourCycle: 'h23',
+    year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'})
+    .formatToParts(at).map((p) => [p.type, p.value]));
+  const sinceMidnight = ((Number(parts.hour) * 60 + Number(parts.minute)) * 60 + Number(parts.second)) * 1000 + at.getUTCMilliseconds();
+  return new Date(at.getTime() - sinceMidnight);
+}
+
 const series = (api, project, metric, query) =>
   api(`https://monitoring.googleapis.com/v3/projects/${project}/timeSeries?filter=${encodeURIComponent(`metric.type="${metric}"`)}&${query}`, project)
     .then((body) => body?.timeSeries ?? []);
 const num = (value) => Number(value?.int64Value ?? value?.doubleValue ?? 0);
+
+/**
+ * Firestore operations since the latest Pacific midnight (the current quota day) up to `end`: one bucket
+ * per metric, summed. `metrics` is [[key, metricName]]. Read-only.
+ */
+async function quotaDayUsage(api, project, end, metrics) {
+  const iso = (d) => d.toISOString().replace(/\.\d+Z$/, 'Z');
+  const since = pacificMidnight(end);
+  const usage = {since: iso(since), ...Object.fromEntries(metrics.map(([key]) => [key, 0]))};
+  const sinceQuery = `interval.startTime=${iso(since)}&interval.endTime=${iso(end)}&aggregation.alignmentPeriod=${Math.max(60, Math.ceil((end - since) / 1000))}s&aggregation.perSeriesAligner=ALIGN_SUM&aggregation.crossSeriesReducer=REDUCE_SUM`;
+  for (const [key, metric] of metrics) {
+    for (const s of await series(api, project, `firestore.googleapis.com/document/${metric}`, sinceQuery)) usage[key] += s.points.reduce((t, p) => t + num(p.value), 0);
+  }
+  return usage;
+}
+
+/** The project's Firestore reads in the current quota day. Throws when they cannot be read (no login, API error). */
+export async function firestoreReadsToday(project, {api = makeApi(token()), now = new Date()} = {}) {
+  return (await quotaDayUsage(api, project, now, [['reads', 'read_count']])).reads;
+}
 
 async function collectProject(api, project) {
   const end = new Date();
@@ -201,6 +251,18 @@ async function collectProject(api, project) {
   let schedules = 0;
   for (const db of databases) schedules += (await pages(api, `https://firestore.googleapis.com/v1/${db.name}/backupSchedules`, project, 'backupSchedules')).length;
   const backups = (await pages(api, `https://firestore.googleapis.com/v1/projects/${project}/locations/-/backups`, project, 'backups')).length;
+  // TTL policies: fields that carry a ttlConfig. ACTIVE and CREATING bill; a config being removed does not.
+  const ttl = [];
+  for (const db of databases) {
+    for (const f of await pages(api, `https://firestore.googleapis.com/v1/${db.name}/collectionGroups/-/fields?filter=${encodeURIComponent('ttlConfig:*')}`, project, 'fields')) {
+      if (!['ACTIVE', 'CREATING'].includes(f.ttlConfig?.state)) continue;
+      const [, group, field] = f.name.match(/\/collectionGroups\/([^/]+)\/fields\/(.+)$/) ?? [];
+      ttl.push(`${group ?? '?'}.${field ?? f.name}`);
+    }
+  }
+
+  // The current quota day: Firestore's free quota resets at midnight Pacific time. One bucket from then to now.
+  const today = await quotaDayUsage(api, project, end, [['reads', 'read_count'], ['writes', 'write_count']]);
 
   const ops = {};
   for (const [key, metric] of [['reads', 'read_count'], ['writes', 'write_count'], ['deletes', 'delete_count']]) {
@@ -229,7 +291,7 @@ async function collectProject(api, project) {
   const services = (await pages(api, `https://run.googleapis.com/v2/projects/${project}/locations/-/services?pageSize=100`, project, 'services'))
     .map((s) => ({name: s.name.split('/').pop(), minInstances: Math.max(s.scaling?.minInstanceCount ?? 0, s.template?.scaling?.minInstanceCount ?? 0)}));
 
-  return {scheduler: {jobs}, secretVersions, registry, hostingEgress24h, firestore: {schedules, backups, daily: Object.values(ops).sort((a, b) => a.day.localeCompare(b.day))},
+  return {scheduler: {jobs}, secretVersions, registry, hostingEgress24h, firestore: {schedules, backups, ttl, today, daily: Object.values(ops).sort((a, b) => a.day.localeCompare(b.day))},
     buckets, apis, alerts, recaptchaCap, services};
 }
 

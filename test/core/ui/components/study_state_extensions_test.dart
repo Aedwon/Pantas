@@ -5,6 +5,7 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
@@ -40,13 +41,12 @@ void main() {
           const Size(40, 40),
         );
         final button = tester.widget<PantasButton>(find.byType(PantasButton));
-        // ErrorState README: Try Again is a 44 high secondary (tonal) Button,
-        // a rounded rectangle (radius-md, never a pill), that fills the
-        // phone's width up to the text measure.
+        // Board DT_Error: Try Again is a 44 high secondary (tonal) pill at
+        // its natural width, 22 px beside the label.
         expect(button.height, PantasSize.btn);
-        expect(button.radius, isNull);
+        expect(button.radius, PantasRadius.full);
         expect(button.variant, PantasButtonVariant.secondary);
-        expect(button.fullWidth, isTrue);
+        expect(button.fullWidth, isFalse);
         expect(
           tester.getSize(find.byType(PantasButton)).width,
           lessThanOrEqualTo(PantasLayout.colListMax),

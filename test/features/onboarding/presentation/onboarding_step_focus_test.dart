@@ -107,7 +107,7 @@ void main() {
       (tester) async {
     var done = 0;
     await pump(tester, OnboardingConsentStep(onCompleted: () => done++));
-    await mouseClick(tester, find.text('I agree to the '));
+    await mouseClick(tester, find.byKey(const ValueKey('selection-mark')).last);
     await tester.sendKeyEvent(LogicalKeyboardKey.enter);
     await tester.pumpAndSettle();
     expect(done, 1);

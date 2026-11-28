@@ -7,6 +7,7 @@ import 'package:pantas/core/storage/domain/choice.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
+import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/quiz/domain/models/review_batch_position.dart';
 import 'package:pantas/features/quiz/domain/quiz_session.dart';
@@ -134,6 +135,24 @@ void main() {
     expect(find.textContaining('you picked'), findsNothing);
     expect(find.text('Finish the Notes'), findsNothing);
   });
+  // Board QV_EndLowB: the mistake mark is a bare X, 17 px with a 2.6 stroke
+  // on the 24 grid, centered in a 22 px slot (LI5b).
+  testWidgets('phone mistake X is 17 px in a 22 px slot', (tester) async {
+    await tester.binding.setSurfaceSize(const Size(390, 1000));
+    addTearDown(() => tester.binding.setSurfaceSize(null));
+    await pump(tester);
+    final mark = find.byKey(const ValueKey('miss-x')).first;
+    expect(tester.getSize(mark), const Size(17, 17));
+    final slot = find.ancestor(of: mark, matching: find.byType(SizedBox));
+    expect(tester.getSize(slot.first).width, 22);
+    expect(
+      find.descendant(
+        of: find.byType(ListRow),
+        matching: find.byIcon(PantasIcons.close),
+      ),
+      findsNothing,
+    );
+  });
   testWidgets('many mistakes show three before the complete list',
       (tester) async {
     await pump(tester, correct: 2, pro: true);
@@ -145,6 +164,10 @@ void main() {
     expect(row.subtitle, 'Earth Science');
     await tester.scrollUntilVisible(find.text('Finish the Notes'), 300);
     expect(find.text('Finish the Notes'), findsOneWidget);
+    // B5: one short line replaces the two sentences.
+    expect(find.text('Note why you missed each one.'), findsOneWidget);
+    expect(find.textContaining('Tell Pantas'), findsNothing);
+    expect(find.textContaining('better your notes'), findsNothing);
   });
   testWidgets('perfect score omits mistakes and notes but keeps all questions',
       (tester) async {

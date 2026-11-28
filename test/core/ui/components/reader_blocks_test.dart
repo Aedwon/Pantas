@@ -347,6 +347,101 @@ void main() {
     });
   });
 
+  group('walk-through mode and step groups', () {
+    Map<String, Object?> step(String text, {int level = 1, String? kind}) => {
+          ..._block(text, list: kind ?? 'number'),
+          'level': level,
+        };
+    const walkWhy = <String, Object?>{
+      '_type': 'walkWhy',
+      'body': <Object?>[],
+    };
+
+    test('a lesson is walk-through when any block type starts with walk', () {
+      expect(lessonIsWalkthrough([_block('Plain.'), walkWhy]), isTrue);
+      expect(
+        lessonIsWalkthrough([
+          {'_type': 'walkChecklist', 'items': <Object?>[]},
+        ]),
+        isTrue,
+      );
+    });
+
+    test('an old-format lesson is not walk-through', () {
+      expect(
+        lessonIsWalkthrough([
+          _block('Core Concept', style: 'h2'),
+          {'_type': 'latex', 'body': 'x'},
+          {'_type': 'table', 'rows': <Object?>[]},
+        ]),
+        isFalse,
+      );
+      expect(lessonIsWalkthrough(const []), isFalse);
+    });
+
+    test('a numbered step opens a group and the blocks after it join it', () {
+      final one = step('One');
+      final formula = {'_type': 'latex', 'body': 'a'};
+      final note = _block('A note.');
+      final two = step('Two');
+      final three = step('Three');
+      final groups = splitStepGroups([one, formula, note, two, three]);
+      expect(groups, hasLength(3));
+      expect(groups[0], [one, formula, note]);
+      expect(groups[1], [two]);
+      expect(groups[2], [three]);
+    });
+
+    test('blocks before the first step join group one', () {
+      final lead = _block('Start here.');
+      final one = step('One');
+      final two = step('Two');
+      final groups = splitStepGroups([lead, one, two]);
+      expect(groups, hasLength(2));
+      expect(groups[0], [lead, one]);
+      expect(groups[1], [two]);
+    });
+
+    test('only a level-one numbered step starts a group', () {
+      final one = step('One');
+      final inner = step('Inner', level: 2);
+      final bullet = step('A bullet', kind: 'bullet');
+      final two = step('Two');
+      final groups = splitStepGroups([one, inner, bullet, two]);
+      expect(groups, hasLength(2));
+      expect(groups[0], [one, inner, bullet]);
+      expect(groups[1], [two]);
+    });
+
+    test('a walk block stays in the group of the step before it', () {
+      final one = step('One');
+      const pair = <String, Object?>{
+        '_type': 'walkPair',
+        'id': 'p',
+        'right': <Object?>[],
+        'wrong': <Object?>[],
+        'note': <Object?>[],
+      };
+      final two = step('Two');
+      final groups = splitStepGroups([one, pair, two]);
+      expect(groups[0], [one, pair]);
+      expect(groups[1], [two]);
+    });
+
+    test('a solution with no step is one group', () {
+      final a = _block('A.');
+      final b = _block('B.');
+      expect(splitStepGroups([a, b]), [
+        [a, b],
+      ]);
+      expect(splitStepGroups(const []), isEmpty);
+    });
+
+    test('four groups is the stepped threshold', () {
+      expect(walkStepThreshold, 4);
+    });
+  });
+
   for (final wide in [true, false]) {
     testWidgets('real lessons draw without error, ${wide ? 'wide' : 'phone'}',
         (tester) async {

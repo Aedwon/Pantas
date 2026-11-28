@@ -16,6 +16,7 @@ import {
   serverTimestamp,
   setDoc,
   updateDoc,
+  deleteField,
   writeBatch,
 } from 'firebase/firestore';
 
@@ -52,6 +53,10 @@ beforeEach(async () => {
 
     await setDoc(doc(db, 'users/pro'), {
       createdAt: new Date('2026-08-01T00:00:00Z'),
+    });
+
+    await setDoc(doc(db, 'users/pro/server/entitlement'), {
+      pro: true, proUntil: Date.now() + 86400000, version: 1,
     });
 
     await setDoc(doc(db, 'users/pro/sync_state/current'), {
@@ -625,4 +630,262 @@ test('AC-3 all client access to the server entitlement namespace is denied', asy
   const db = context('pro',{pro:true,firebase:{sign_in_provider:'google.com'}});
   await assertFails(getDoc(doc(db,'users/pro/server/entitlement')));
   await assertFails(setDoc(doc(db,'users/pro/server/entitlement'),{pro:true,version:1}));
+});
+
+// ---------------------------------------------------------------------------
+// Sync row payload types and sizes (M4 security pass, part A).
+// Each case lists every payload field the app's mapper writes (see
+// lib/core/sync/mapping/*.dart) with the type it writes. The push pipeline and
+// full push add the metadata and replace updatedAt with a server timestamp,
+// which rowData() does here. Payload fields are absent on tombstones.
+// ---------------------------------------------------------------------------
+const ISO = '2026-11-22T10:00:00.000Z';
+const ID_MAX = 200;
+const JSON_MAX = 200000;
+const JSON_BIG_MAX = 500000;
+
+const S = (max = ID_MAX) => ({ ok: 'value-1', wrong: [1, 1.5, true, null, ['a'], { a: 1 }], over: 'x'.repeat(max + 1) });
+const ISO_FIELD = { ok: ISO, iso: true, alsoOk: ['2026-11-22T10:00:00.123456Z', '2026-11-22T10:00:00Z'],
+  wrong: ['yesterday', '2026-11-22', 20261122, true, null, new Date(), `${ISO}x`, '2026-11-22T10:00:00.000+00:00', '2026-11-22T10:00:00.1234567Z'],
+  over: `${ISO}${' '.repeat(40)}` };
+const INT = { ok: 3, wrong: ['3', 1.5, true, null, [3]] };
+const NUM = { ok: 1.5, wrong: ['1.5', true, null, [1.5]] };
+const BOOL = { ok: true, wrong: ['true', 1, null] };
+const JSON_TEXT = (max = JSON_MAX) => ({ ok: '[]', wrong: [1, true, null, [], {}], over: 'x'.repeat(max + 1) });
+const LITERAL = (value) => ({ ok: value, wrong: ['other', '', 1, null] });
+const nullable = (kind) => ({ ...kind, nullable: true, wrong: kind.wrong.filter((value) => value !== null) });
+
+const syncRowCases = [
+  { collection: 'quiz_attempts', rowId: 'attempt-1', fields: {
+    id: S(), examId: S(), startedAt: ISO_FIELD, completedAt: nullable(ISO_FIELD),
+    origin: S(), itemsJson: JSON_TEXT(JSON_BIG_MAX),
+  } },
+  { collection: 'assessments', rowId: 'exam_cse_pro', fields: {
+    examId: S(), completedAt: ISO_FIELD, topicScoresJson: JSON_TEXT(),
+  } },
+  { collection: 'fsrs_cards', rowId: 'question-1', fields: {
+    questionId: S(), questionVersion: INT, stage: S(), stability: NUM, difficulty: NUM,
+    due: ISO_FIELD, lastReview: ISO_FIELD, reps: INT, lapses: INT, elapsedDays: NUM, scheduledDays: NUM,
+  } },
+  { collection: 'lesson_progress', rowId: 'lesson-1', fields: { lessonId: S(), readAt: ISO_FIELD } },
+  { collection: 'lesson_bookmarks', rowId: 'lesson-1', fields: {
+    lessonId: S(), markedAt: ISO_FIELD, sortIndex: nullable(INT),
+  } },
+  { collection: 'question_flags', rowId: 'question-1', fields: {
+    questionId: S(), flaggedAt: ISO_FIELD, sortIndex: nullable(INT),
+  } },
+  { collection: 'mock_exam_attempts', rowId: 'mock-1', fields: {
+    id: S(), userId: S(), examId: S(), blueprintId: S(), blueprintName: S(),
+    durationMinutes: INT, status: S(), strictMode: BOOL,
+    sampledQuestionsJson: JSON_TEXT(), elapsedSeconds: INT, accumulatedPausedSeconds: INT,
+    pausedAtLastFlush: BOOL, answersJson: JSON_TEXT(JSON_BIG_MAX), flagsJson: JSON_TEXT(),
+    currentIndex: INT, scoreRaw: nullable(INT), scoreTotal: nullable(INT),
+    sectionResultsJson: nullable(JSON_TEXT()), totalTimeSeconds: nullable(INT),
+    startedAt: ISO_FIELD, lastFlushedAt: ISO_FIELD, submittedAt: nullable(ISO_FIELD),
+    attemptUpdatedAt: ISO_FIELD,
+  } },
+  { collection: 'review_logs', rowId: 'log-1', fields: {
+    id: S(), questionId: S(), rating: INT, state: INT, due: ISO_FIELD, stability: NUM,
+    difficulty: NUM, elapsedDays: NUM, lastElapsedDays: NUM, scheduledDays: NUM,
+    review: ISO_FIELD, durationMs: INT, isCorrect: BOOL, heuristicVersion: INT,
+  } },
+  { label: 'track_scope (custom track name)', collection: 'track_scope', rowId: 'meta.ZXhhbQ', fields: {
+    kind: LITERAL('custom_track'), examId: S(), name: S(),
+  } },
+  { label: 'track_scope (hidden topic)', collection: 'track_scope', rowId: 'scope.ZXhhbQ.dG9waWM', fields: {
+    kind: LITERAL('scope'), examId: S(), topicId: S(),
+  } },
+  { collection: 'custom_blueprints', rowId: 'exam_custom_1', fields: {
+    examId: S(), totalQuestions: INT, totalMinutes: INT, sectionsJson: JSON_TEXT(),
+    sectionsTimedSeparately: BOOL, blueprintUpdatedAt: ISO_FIELD,
+  } },
+];
+
+const syncRowPath = (collection, rowId, generation = 'active') =>
+  `users/pro/sync_generations/${generation}/${collection}/${rowId}`;
+const syncRowPayload = (fields, overrides = {}) => ({
+  ...Object.fromEntries(Object.entries(fields).map(([name, kind]) => [name, kind.ok])),
+  ...overrides,
+});
+const wrongLabel = (value) => (value instanceof Date ? 'Date' : JSON.stringify(value));
+
+for (const syncCase of syncRowCases) {
+  const { collection, rowId, fields } = syncCase;
+  const label = syncCase.label ?? collection;
+  const live = (overrides = {}) => rowData(syncRowPayload(fields, overrides));
+  const ref = (id = rowId, generation = 'active') => doc(proDb(), syncRowPath(collection, id, generation));
+
+  test(`sync row ${label}: a row shaped like the mapper output passes`, async () => {
+    await assertSucceeds(setDoc(ref(), live()));
+    await assertSucceeds(setDoc(ref(rowId, 'staging'), live()));
+  });
+
+  test(`sync row ${label}: a tombstone with no payload passes, also over a live row`, async () => {
+    await assertSucceeds(setDoc(ref(), live()));
+    await assertSucceeds(setDoc(ref(), rowData({ deleted: true })));
+    await assertSucceeds(setDoc(ref(`${rowId}-tomb`), rowData({ deleted: true })));
+  });
+
+  const nullableNames = Object.entries(fields).filter(([, kind]) => kind.nullable).map(([name]) => name);
+  if (nullableNames.length > 0) {
+    test(`sync row ${label}: nullable fields written as null pass`, async () => {
+      await assertSucceeds(setDoc(ref(), live(Object.fromEntries(nullableNames.map((name) => [name, null])))));
+    });
+  }
+
+  const dateNames = Object.entries(fields).filter(([, kind]) => kind.iso).map(([name]) => name);
+  if (dateNames.length > 0) {
+    test(`sync row ${label}: native 6-digit and whole-second UTC dates pass`, async () => {
+      for (const name of dateNames) for (const value of ISO_FIELD.alsoOk) {
+        await assertSucceeds(setDoc(ref(), live({ [name]: value })), `${name} = ${value}`);
+      }
+    });
+  }
+
+  test(`sync row ${label}: an unknown field fails`, async () => {
+    await assertFails(setDoc(ref(), live({ extraField: 'x' })));
+  });
+
+  test(`sync row ${label}: a wrong type on any one payload field fails`, async () => {
+    for (const [name, kind] of Object.entries(fields)) {
+      for (const wrong of kind.wrong) {
+        await assertFails(setDoc(ref(), live({ [name]: wrong })), `${name} = ${wrongLabel(wrong)}`);
+      }
+    }
+  });
+
+  test(`sync row ${label}: a payload field that is present on a tombstone is still checked`, async () => {
+    const [name, kind] = Object.entries(fields)[0];
+    await assertFails(setDoc(ref(), rowData({ deleted: true, [name]: kind.wrong[0] })));
+    await assertSucceeds(setDoc(ref(), rowData({ deleted: true, [name]: kind.ok })));
+  });
+
+  test(`sync row ${label}: an oversize string on any one field fails, the cap itself passes`, async () => {
+    for (const [name, kind] of Object.entries(fields)) {
+      if (kind.over === undefined) continue;
+      await assertFails(setDoc(ref(), live({ [name]: kind.over })), `${name} oversize`);
+    }
+    // Every string field at exactly its cap passes (dates are checked by format instead).
+    for (const [name, kind] of Object.entries(fields)) {
+      if (kind.over === undefined || kind.iso) continue;
+      await assertSucceeds(setDoc(ref(), live({ [name]: kind.over.slice(1) })), `${name} at its cap`);
+    }
+  });
+
+  test(`sync row ${label}: a row id over 200 characters, or with a slash, fails`, async () => {
+    await assertSucceeds(setDoc(ref('r'.repeat(200)), live()));
+    await assertFails(setDoc(ref('r'.repeat(201)), live()));
+    await assertFails(setDoc(ref('a/b/c'), live()));
+  });
+}
+
+test('sync row fsrs_cards and review_logs: integer-valued numbers pass in the number fields', async () => {
+  // The web client writes a whole double such as 2.0 as an integer.
+  const db = proDb();
+  const fsrs = syncRowCases.find((item) => item.collection === 'fsrs_cards').fields;
+  const logs = syncRowCases.find((item) => item.collection === 'review_logs').fields;
+  for (const [collection, fields, id] of [['fsrs_cards', fsrs, 'q-int'], ['review_logs', logs, 'l-int']]) {
+    const whole = Object.fromEntries(Object.entries(fields).filter(([, kind]) => kind === NUM).map(([name]) => [name, 2]));
+    await assertSucceeds(setDoc(doc(db, syncRowPath(collection, id)), rowData(syncRowPayload(fields, whole))));
+  }
+});
+
+test('sync row track_scope: each kind keeps to its own fields', async () => {
+  const db = proDb();
+  const meta = syncRowCases.find((item) => item.label === 'track_scope (custom track name)').fields;
+  const scope = syncRowCases.find((item) => item.label === 'track_scope (hidden topic)').fields;
+  await assertFails(setDoc(doc(db, syncRowPath('track_scope', 'meta.x')), rowData(syncRowPayload(meta, { topicId: 'topic-1' }))));
+  await assertFails(setDoc(doc(db, syncRowPath('track_scope', 'scope.x.y')), rowData(syncRowPayload(scope, { name: 'A name' }))));
+  // With no kind, a row may not carry both kinds' fields.
+  await assertFails(setDoc(doc(db, syncRowPath('track_scope', 'nokind.x')), rowData({ examId: 'exam_cse_pro', name: 'A name', topicId: 'topic-1' })));
+});
+
+// M4b: a server-owned pause flag and entitlement on sync_state/current. Same read as before (that document).
+const namedPro = () => context('pro', {firebase: {sign_in_provider: 'google.com'}, pro: true});
+const rowRef = (db, generation = 'active') =>
+  doc(db, `users/pro/sync_generations/${generation}/lesson_progress/quota-row`);
+const setState = (extra) => testEnv.withSecurityRulesDisabled(async (ctx) => {
+  await setDoc(doc(ctx.firestore(), 'users/pro/sync_state/current'), {
+    activeGenerationId: 'active', schemaVersion: 1, ...extra,
+  });
+});
+
+test('M4b a paused account is refused on the active and the staging generation', async () => {
+  await setState({suspendedUntil: new Date(Date.now() + 3_600_000)});
+  await assertFails(setDoc(rowRef(namedPro()), rowData()));
+  await assertFails(setDoc(rowRef(namedPro(), 'staging'), rowData()));
+});
+
+test('M4b a pause that has ended no longer refuses writes', async () => {
+  await setState({suspendedUntil: new Date(Date.now() - 1000)});
+  await assertSucceeds(setDoc(rowRef(namedPro()), rowData()));
+});
+
+test('M4b a mirrored proUntil in the past refuses writes even with a live token', async () => {
+  await setState({proUntil: Date.now() - 1000});
+  await assertFails(setDoc(rowRef(namedPro()), rowData()));
+  await setState({proUntil: 0});
+  await assertFails(setDoc(rowRef(namedPro()), rowData()));
+});
+
+test('M4b a mirrored proUntil in the future allows writes', async () => {
+  await setState({proUntil: Date.now() + 86_400_000, entitlementVersion: 3});
+  await assertSucceeds(setDoc(rowRef(namedPro()), rowData()));
+});
+
+test('M4b with no proUntil on sync_state the token-only path is unchanged', async () => {
+  await assertSucceeds(setDoc(rowRef(namedPro()), rowData()));
+});
+
+test('M4b with no sync_state document a staging write still works', async () => {
+  await testEnv.withSecurityRulesDisabled(async (ctx) => {
+    await ctx.firestore().doc('users/pro/sync_state/current').delete();
+  });
+  await assertSucceeds(setDoc(rowRef(namedPro(), 'staging'), rowData()));
+});
+
+test('M4b clients cannot write suspendedUntil, proUntil or the limits documents', async () => {
+  const db = namedPro();
+  await assertFails(setDoc(doc(db, 'users/pro/sync_state/current'), {activeGenerationId: 'active', suspendedUntil: new Date(0)}));
+  await assertFails(updateDoc(doc(db, 'users/pro/sync_state/current'), {suspendedUntil: new Date(0)}));
+  await assertFails(setDoc(doc(db, 'users/pro/limits/sync_20261122'), {rows: 0}));
+  await assertFails(getDoc(doc(db, 'users/pro/limits/sync_20261122')));
+});
+
+// M4b follow-up: a pause flag on the generation document, which rules already read for every row write.
+const setGeneration = (id, extra) => testEnv.withSecurityRulesDisabled(async (ctx) => {
+  await setDoc(doc(ctx.firestore(), `users/pro/sync_generations/${id}`), {
+    status: id === 'active' ? 'active' : 'staging', schemaVersion: 1, createdAt: new Date('2026-08-27T00:00:00Z'),
+    createdByDeviceId: 'seed-device', preferences: {}, ...extra,
+  });
+});
+
+test('M4b a paused staging generation refuses a first push even with no sync_state document', async () => {
+  await testEnv.withSecurityRulesDisabled(async (ctx) => { await ctx.firestore().doc('users/pro/sync_state/current').delete(); });
+  await setGeneration('staging', {suspendedUntil: new Date(Date.now() + 3_600_000)});
+  await assertFails(setDoc(rowRef(namedPro(), 'staging'), rowData()));
+});
+
+test('M4b a paused active generation refuses row writes, and an ended pause allows them', async () => {
+  await setGeneration('active', {suspendedUntil: new Date(Date.now() + 3_600_000)});
+  await assertFails(setDoc(rowRef(namedPro()), rowData()));
+  await setGeneration('active', {suspendedUntil: new Date(Date.now() - 1000)});
+  await assertSucceeds(setDoc(rowRef(namedPro()), rowData()));
+});
+
+test('M4b a paused generation can still be read by its owner', async () => {
+  await setGeneration('staging', {suspendedUntil: new Date(Date.now() + 3_600_000)});
+  await assertSucceeds(getDoc(doc(namedPro(), 'users/pro/sync_generations/staging')));
+});
+
+test('M4b clients cannot set or clear suspendedUntil on a generation, at create or update', async () => {
+  const db = namedPro();
+  await assertFails(updateDoc(doc(db, 'users/pro/sync_generations/staging'), {suspendedUntil: new Date(0)}));
+  await assertFails(updateDoc(doc(db, 'users/pro/sync_generations/active'), {suspendedUntil: new Date(0)}));
+  await setGeneration('staging', {suspendedUntil: new Date(Date.now() + 3_600_000)});
+  await assertFails(updateDoc(doc(db, 'users/pro/sync_generations/staging'), {suspendedUntil: deleteField()}));
+  await assertFails(updateDoc(doc(db, 'users/pro/sync_generations/staging'), {suspendedUntil: new Date(0), preferences: {}}));
+  await assertFails(setDoc(doc(db, 'users/pro/sync_generations/staging'), {
+    status: 'staging', schemaVersion: 1, createdAt: serverTimestamp(), createdByDeviceId: 'd', preferences: {},
+  }));
 });

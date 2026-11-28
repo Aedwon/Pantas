@@ -16,7 +16,7 @@ import '../../../helpers/accessibility.dart';
 void main() {
   for (final brightness in Brightness.values) {
     group('$brightness', () {
-      testWidgets('Try Again is a rounded rectangle, not a pill',
+      testWidgets('Try Again is a natural-width pill on the phone (DT_Error)',
           (tester) async {
         await pumpAccessibilitySurface(
           tester,
@@ -25,10 +25,8 @@ void main() {
           disableAnimations: true,
         );
         final button = tester.widget<PantasButton>(find.byType(PantasButton));
-        expect(
-          button.radius == null || button.radius! < PantasRadius.full,
-          true,
-        );
+        expect(button.radius, PantasRadius.full);
+        expect(button.fullWidth, isFalse);
       });
 
       testWidgets('a full ring is replaced by the done disc at its own size',

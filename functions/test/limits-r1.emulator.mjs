@@ -55,6 +55,15 @@ test('recordSetupAcceptance allows 30 calls an hour per account, then refuses', 
   await assert.rejects(endpoints.recordSetupAcceptance.run(request), exhausted);
 });
 
+test('getSetupAcceptance allows 60 calls an hour per account, then refuses', async () => {
+  const uid = 'r1-acceptance-read';
+  await db.recursiveDelete(db.doc(`users/${uid}`));
+  const request = {auth: named(uid), app, data: {}};
+  await seedLimit(uid, 'getSetupAcceptance', 59);
+  assert.deepEqual(await endpoints.getSetupAcceptance.run(request), {version: null, acceptedAt: null});
+  await assert.rejects(endpoints.getSetupAcceptance.run(request), exhausted);
+});
+
 test('recordSetupAcceptance writes nothing when the same version is already recorded', async () => {
   const uid = 'r1-acceptance-noop';
   await db.recursiveDelete(db.doc(`users/${uid}`));

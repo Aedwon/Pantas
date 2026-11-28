@@ -5,6 +5,7 @@ import {HttpsError} from 'firebase-functions/v2/https';
 import {onAccountCall as onCall} from './_accountAccess.js';
 import {allowAtMost} from './_limits.js';
 import {timed} from './_timed.js';
+import {mirrorFields, mirrorIsNewer} from './syncEntitlementMirror.js';
 import {
   assertNamedPro,
   decideActivation,
@@ -94,6 +95,12 @@ export const activateSyncGeneration = onCall(
       async (transaction): Promise<ActivateSyncGenerationResponse> => {
         const currentSnapshot = await transaction.get(currentRef);
         const targetSnapshot = await transaction.get(targetRef);
+        // The token can be up to an hour old. The server entitlement decides, and its value is mirrored.
+        const entitlement = await transaction.get(userRef.collection('server').doc('entitlement'));
+        const proUntil = Number(entitlement.get('proUntil'));
+        if (entitlement.get('pro') !== true || !Number.isFinite(proUntil) || proUntil <= Date.now()) {
+          throw new HttpsError('permission-denied', 'A named Pro account is required for Sync.');
+        }
 
         const rawCurrentGenerationId = currentSnapshot.exists
           ? currentSnapshot.get('activeGenerationId')
@@ -171,7 +178,10 @@ export const activateSyncGeneration = onCall(
           activeGenerationId: generationId,
           schemaVersion: 1,
           updatedAt: FieldValue.serverTimestamp(),
-        });
+          ...(mirrorIsNewer(currentSnapshot.get('entitlementVersion'), Number(entitlement.get('version') ?? 0)) ? {} :
+            mirrorFields({pro: true, proUntil, version: Number(entitlement.get('version') ?? 0)})),
+        // Merge: keep the server-owned pause (suspendedUntil) and entitlement mirror (proUntil).
+        }, {merge: true});
 
         return {
           activeGenerationId: generationId,

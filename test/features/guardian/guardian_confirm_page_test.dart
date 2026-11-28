@@ -13,6 +13,8 @@ import 'package:pantas/features/guardian/domain/guardian_consent.dart';
 import 'package:pantas/features/guardian/domain/guardian_copy.dart';
 import 'package:pantas/features/guardian/presentation/guardian_confirm_page.dart';
 
+import '../../helpers/button_placement.dart';
+import '../../helpers/ds_matrix.dart';
 import 'fake_guardian_gateway.dart';
 
 class _Sink extends DisabledTelemetry {
@@ -221,6 +223,20 @@ void main() {
       expect(opened, ['/guardian/manage?token=mt-123']);
     });
   }
+
+  // patterns.md, Button placement: the guardian confirm pair is one
+  // right-aligned row on wide, I Don't Agree first and Confirm last. Until
+  // Nov 25 Confirm was stacked over I Don't Agree, both centered.
+  testWidgets("wide: I Don't Agree then Confirm, one row at the right end",
+      (tester) async {
+    await loadDsFonts();
+    await pump(tester, web: true, size: const Size(1440, 900));
+    expectWidePlacement(tester);
+    final confirm = tester.getRect(find.text('Confirm'));
+    final decline = tester.getRect(find.text("I Don't Agree"));
+    expect(decline.center.dy, closeTo(confirm.center.dy, 1));
+    expect(decline.right, lessThan(confirm.left));
+  });
 
   testWidgets('the Manage Permission button sits centered at natural width',
       (tester) async {
