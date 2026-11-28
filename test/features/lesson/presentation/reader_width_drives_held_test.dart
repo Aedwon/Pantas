@@ -158,16 +158,13 @@ void main() {
     expect(await prefs.deviceValue('reader_full_width'), '1');
   });
 
-  testWidgets('switching keeps the section being read in view', (
-    tester,
+  // The paragraph at the top of the window stays where it was when the layout
+  // switches, in both directions.
+  Future<void> expectParagraphHeld(
+    WidgetTester tester,
+    List<Map<String, Object?>> body,
+    String paragraphText,
   ) async {
-    final body = [
-      heading('First', 'h2'),
-      for (var i = 0; i < 12; i++) paragraph('Filler paragraph $i. ' * 12),
-      heading('Second', 'h2'),
-      pictureBlock(pictureUri(360, 208)),
-      for (var i = 0; i < 12; i++) paragraph('More paragraph $i. ' * 12),
-    ];
     await pump(tester, 1440, body);
     final scrollable = tester.state<ScrollableState>(
       find.descendant(
@@ -175,14 +172,61 @@ void main() {
         matching: find.byType(Scrollable),
       ),
     );
-    scrollable.position.jumpTo(
-      scrollable.position.pixels + tester.getTopLeft(find.text('Second')).dy,
+    final target = find.text(paragraphText);
+    // Put the paragraph 100 px down the window, then nudge up so the bar
+    // shows and the toggle can be tapped.
+    scrollable.position
+        .jumpTo(scrollable.position.pixels + tester.getTopLeft(target).dy - 99);
+    await tester.pump();
+    scrollable.position.jumpTo(scrollable.position.pixels - 1);
+    await tester.pumpAndSettle();
+    final before = tester.getTopLeft(target).dy;
+    expect(before, closeTo(100, 1));
+    for (var i = 0; i < 2; i++) {
+      await tester.tap(control);
+      await tester.pumpAndSettle();
+      expect(tester.getTopLeft(target).dy, closeTo(before, 4));
+    }
+  }
+
+  List<Map<String, Object?>> longLesson({bool picture = false}) => [
+        heading('First', 'h2'),
+        for (var i = 0; i < 30; i++)
+          paragraph('Opening paragraph number $i. ' * 10),
+        if (picture) pictureBlock(pictureUri(360, 208)),
+        heading('Second', 'h2'),
+        for (var i = 0; i < 30; i++)
+          paragraph('Later paragraph number $i. ' * 10),
+      ];
+
+  testWidgets('mid-way through a long first section the text stays put', (
+    tester,
+  ) async {
+    await expectParagraphHeld(
+      tester,
+      longLesson(),
+      'Opening paragraph number 12. ' * 10,
     );
-    await tester.pumpAndSettle();
-    await tester.tap(control);
-    await tester.pumpAndSettle();
-    final top = tester.getTopLeft(find.text('Second')).dy;
-    expect(top, inInclusiveRange(0, 900));
+  });
+
+  testWidgets('deep inside a later section the text stays put', (
+    tester,
+  ) async {
+    await expectParagraphHeld(
+      tester,
+      longLesson(),
+      'Later paragraph number 20. ' * 10,
+    );
+  });
+
+  testWidgets('with figures, held to 680 and back keeps the text put', (
+    tester,
+  ) async {
+    await expectParagraphHeld(
+      tester,
+      longLesson(picture: true),
+      'Later paragraph number 8. ' * 10,
+    );
   });
 
   testWidgets('at 1024, the narrowest width, held runs with the toggle', (

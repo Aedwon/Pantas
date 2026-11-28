@@ -281,6 +281,7 @@ Direction B "Clarity": Apple principles, no liquid glass. Geist everywhere; Sour
 - "Why did you miss it?" has no "Pantas noticed" line; the card is shorter to match (quizzes and mock review).
 - Home lists truncate long lesson titles to one line with "…", like every other list.
 - Signing in later from Settings starts on the approved signed-out Account screen (Continue with Google), then Restoring your progress.
+
 ## Full-width toggle drives the two-column reader (Nov 28)
 - Aedwon: "what? that doesn't make sense. the reason we added the 2 column layout was to make the toggle more useful".
 - The full-width toggle shows on every lesson at 1024 and up. On: the two-column layout when the lesson has figures or pictures, else the 800 px column. Off: the 680 px column with figures inline. Default on. A saved choice stays as saved.

@@ -3,6 +3,7 @@ import 'dart:math' as math;
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
@@ -352,7 +353,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   /// Takes the page to section [index] on the reader's shared ease, or at once
   /// with reduced motion. The section's heading lands where the old jump put
   /// it: 5 percent of the room under the bar.
-  Future<void> _jumpTo(int index, {bool instant = false}) async {
+  Future<void> _jumpTo(int index) async {
     final controller = widget.controller;
     final layout = context.findRenderObject();
     final heading = _anchors[index].currentContext?.findRenderObject();
@@ -369,7 +370,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     final landing = _barHeight + .05 * (layout.size.height - _barHeight);
     final destination = (position.pixels + now - landing)
         .clamp(position.minScrollExtent, position.maxScrollExtent);
-    if (instant || MediaQuery.disableAnimationsOf(context)) {
+    if (MediaQuery.disableAnimationsOf(context)) {
       controller.jumpTo(destination);
       return;
     }
@@ -742,17 +743,70 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     );
   }
 
+  /// The paragraphs of the lesson in reading order, with their distance from
+  /// the top of the reader.
+  List<(RenderParagraph, double)> _paragraphs() {
+    final layout = context.findRenderObject();
+    final content = _contentKey.currentContext?.findRenderObject();
+    if (layout is! RenderBox || content == null) return const [];
+    final found = <(RenderParagraph, double)>[];
+    void visit(RenderObject object) {
+      if (object is RenderParagraph && object.attached && object.hasSize) {
+        final dy = object.localToGlobal(Offset.zero, ancestor: layout).dy;
+        found.add((object, dy));
+      }
+      object.visitChildren(visit);
+    }
+
+    visit(content);
+    return found;
+  }
+
+  /// The first paragraph at or below the bar, as its text, which of the
+  /// paragraphs with that text it is, and its distance from the top.
+  (String, int, double)? _readingAnchor() {
+    final all = _paragraphs();
+    for (final (paragraph, dy) in all) {
+      final text = paragraph.text.toPlainText();
+      if (dy < _barHeight || text.isEmpty) continue;
+      final nth = all
+          .takeWhile((p) => p.$1 != paragraph)
+          .where((p) => p.$1.text.toPlainText() == text)
+          .length;
+      return (text, nth, dy);
+    }
+    return null;
+  }
+
+  /// Scrolls at once so the anchor's paragraph is as far from the top as it
+  /// was, within the scroll range.
+  void _restoreAnchor((String, int, double) anchor) {
+    final controller = widget.controller;
+    if (!controller.hasClients) return;
+    final (text, nth, dy) = anchor;
+    final same = [
+      for (final (paragraph, now) in _paragraphs())
+        if (paragraph.text.toPlainText() == text) now,
+    ];
+    if (nth >= same.length) return;
+    final position = controller.position;
+    final target = (position.pixels + same[nth] - dy)
+        .clamp(position.minScrollExtent, position.maxScrollExtent);
+    if ((target - position.pixels).abs() >= .5) controller.jumpTo(target);
+  }
+
   void _setFullWidth(bool value) {
-    // The two layouts differ in height, so bring the section being read back
-    // under the bar once the new layout is in place.
-    final section = _active;
-    if (section > 0 &&
-        lessonHasMarginFigures(
-          [for (final b in widget.reader.lesson.bodyJson) b],
-        )) {
-      WidgetsBinding.instance.addPostFrameCallback((_) {
-        if (mounted) unawaited(_jumpTo(section, instant: true));
-      });
+    // The layouts differ in width and height, so keep the text being read
+    // where it is: the paragraph nearest the top is put back at the same
+    // distance from the top once the new layout is in place.
+    final anchor = _readingAnchor();
+    if (anchor != null) {
+      // Twice: the held layout settles one frame after it is built.
+      for (var pass = 0; pass < 2; pass++) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (mounted) _restoreAnchor(anchor);
+        });
+      }
     }
     // The choice applies at once. A failed save leaves it on for this visit.
     unawaited(
