@@ -535,7 +535,7 @@ class _PantasPopoverItemState extends State<PantasPopoverItem> {
         ? colors.accentTint
         : (_hover || _focus) && !disabled
             ? colors.surfaceHover
-            : Colors.transparent;
+            : colors.surfaceHover.withValues(alpha: 0);
     final ink = disabled
         ? colors.textDisabled
         : widget.selected

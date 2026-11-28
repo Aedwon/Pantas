@@ -277,7 +277,7 @@ class _MonthFirstDatePickerState extends State<MonthFirstDatePicker> {
               : states.contains(WidgetState.hovered) &&
                       !states.contains(WidgetState.disabled)
                   ? c.surfaceHover
-                  : Colors.transparent,
+                  : c.surfaceHover.withValues(alpha: 0),
         ),
         shape: WidgetStatePropertyAll(
           RoundedRectangleBorder(borderRadius: radius),
