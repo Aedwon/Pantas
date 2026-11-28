@@ -84,15 +84,18 @@ class ReaderTap extends StatelessWidget {
                           color: hovered && enabled
                               ? colors.accent
                                   .withValues(alpha: PantasOpacity.hover)
-                              : Colors.transparent,
+                              : colors.accent.withValues(alpha: 0),
                           borderRadius: border,
                         )
                       : null,
                   decoration: BoxDecoration(
+                    // Rest is the hover color at zero alpha: transparent black
+                    // lerps through dark gray (Aedwon's Nov 28 recording).
                     color: selectedFill ??
                         (hovered && enabled && !washOnTop
                             ? (hoverFill ?? colors.surfaceHover)
-                            : Colors.transparent),
+                            : (hoverFill ?? colors.surfaceHover)
+                                .withValues(alpha: 0)),
                     borderRadius: border,
                   ),
                   child: child,
