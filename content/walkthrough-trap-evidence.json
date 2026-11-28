@@ -1181,10 +1181,6 @@
         {
           "questionId": "q-clerical-ability-numeric-and-chronological-filing-0017",
           "wrongChoice": "2024-12-31"
-        },
-        {
-          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0002",
-          "wrongChoice": "2025-01-10"
         }
       ],
       "day-beats-month": [
@@ -1299,10 +1295,6 @@
         {
           "questionId": "q-clerical-ability-numeric-and-chronological-filing-0018",
           "wrongChoice": "01/03/2025"
-        },
-        {
-          "questionId": "q-clerical-ability-numeric-and-chronological-filing-0018",
-          "wrongChoice": "12/01/2025"
         }
       ]
     },

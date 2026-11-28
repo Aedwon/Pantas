@@ -94,9 +94,10 @@ Find the filing order of *Cruz, Paolo*, *Cruzado, Ana*, *Cuenco, Luis*, and *Cru
 
 **Solution:**
 
-1. Unit $1$: *Cuenco* first differs from the others at letter $2$ (*r* before *u*), so it goes last. *Cruz* ends where *Cruzado* continues, so *Cruz* comes before *Cruzado*.
-2. Both *Cruz* entries tie on Unit $1$, so they first differ in Unit $2$: *Paolo* comes before *Ramon* ($P$ before $R$).
-3. Order: **Cruz, Paolo**, **Cruz, Ramon**, **Cruzado, Ana**, **Cuenco, Luis**.
+1. Unit $1$: *Cuenco* first differs from the others at letter $2$ (*r* before *u*), so it goes last.
+2. Unit $1$: *Cruz* ends where *Cruzado* continues, so *Cruz* comes before *Cruzado*.
+3. Both *Cruz* entries tie on Unit $1$, so they first differ in Unit $2$: *Paolo* comes before *Ramon* ($P$ before $R$).
+4. Order: **Cruz, Paolo**, **Cruz, Ramon**, **Cruzado, Ana**, **Cuenco, Luis**.
 
 ### #3: Three-Unit Tie-Break
 
@@ -118,6 +119,6 @@ The answer is **Reyes, Alma Z.**, **Reyes, Ana M.**, **Reyes, Ana R.**, **Reyes,
 
 :::checklist
 - Surname-first rule on a full name: the whole surname is Unit $1$. {#reading-order}
-- Shared surname: compare Unit $2$, then Unit $3$. {#skip-tie-breaker}
+- Shared surname: compare Unit $2$. If it also ties, compare Unit $3$. {#skip-tie-breaker}
 - Surnames differ: stop at Unit $1$, whatever the given names are. {#later-unit-first}
 :::

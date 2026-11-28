@@ -24,7 +24,8 @@ In these questions, ordinary whole-number file keys are compared by their **full
 
 Find the ascending numeric order of $10$, $2$, $11$, and $3$:
 
-- Compare values: $2$ is less than $3$, $3$ is less than $10$, and $10$ is less than $11$.
+- The one-digit numbers $2$ and $3$ are less than the two-digit numbers $10$ and $11$.
+- Ones digits: $2 < 3$. Among $10$ and $11$, the tens digits tie, and the ones digits give $0 < 1$.
 - Order: $2 < 3 < 10 < 11$.
 
 **Leading zeros** are zeros at the start of a number, such as $007$ or $0389$. They may stay printed on the folder, but they do not change the number's value. As numbers, $007$, $07$, and $7$ all equal seven.
@@ -51,7 +52,8 @@ Find the ascending decimal order of $7.008$, $7.020$, $7.09$, and $7.1$:
 
 - Whole-number parts all tie at $7$.
 - Match decimal places to $3$ digits after the point: $7.008$, $7.020$, $7.090$, $7.100$.
-- Compare the decimal parts: $0.008 < 0.020 < 0.090 < 0.100$.
+- Tenths: only $7.100$ has a $1$. The others have $0$, so $7.100$ is last.
+- Hundredths of the other three: $0 < 2 < 9$, so $7.008 < 7.020 < 7.090$.
 - Order: $7.008 < 7.020 < 7.09 < 7.1$.
 
 :::why
@@ -61,7 +63,7 @@ Why does adding zeros at the right end keep a decimal the same, while adding zer
 :::pair #decimal-as-integer
 Right: $7.008 < 7.020 < 7.09 < 7.1$
 Wrong: $7.1$ is smallest because $1 < 8 < 9 < 20$
-Reading digits after the point as whole numbers turns $0.100$ into $1$ and $0.008$ into $8$. Line up decimal places with trailing zeros before comparing.
+The wrong move reads the written digits $1$ and $008$ as the whole numbers $1$ and $8$. Line up decimal places with trailing zeros before comparing.
 :::
 
 :::check
@@ -74,24 +76,25 @@ The answer is $9.75, 15.08, 15.9$. The whole parts $9 < 15$ put $9.75$ first. Th
 
 ### #1: Ascending Whole-Number Order
 
-Arrange file numbers $0452$, $0389$, $0401$, and $0395$ in ascending consecutive numerical order.
+Arrange file numbers $0452$, $0389$, $0401$, and $0395$ in ascending numerical order.
 
 **Solution:**
 
 1. Drop the leading zeros in your head to read each full value: $452$, $389$, $401$, $395$.
-2. Compare the hundreds digits: $389$ and $395$ are in the $300$s, so they come before $401$ and $452$.
-3. Within the $300$s, $389 < 395$. Within the $400$s, $401 < 452$.
-4. Keep the printed leading zeros in the answer: $0389, 0395, 0401, 0452$.
+2. Compare the hundreds digits: $389$ and $395$ have $3$, and $401$ and $452$ have $4$, so the $300$s come first.
+3. Within the $300$s, the tens digits give $8 < 9$, so $389 < 395$.
+4. Within the $400$s, the tens digits give $0 < 5$, so $401 < 452$.
+5. Keep the printed leading zeros in the answer: $0389, 0395, 0401, 0452$.
 
 ### #2: Decimals with Different Whole Parts
 
-In decimal numeric filing, which number should be placed first in ascending order: $402.80$, $403.05$, $402.20$, or $402.15$?
+In decimal numeric filing, which number should be placed first in ascending order: $614.90$, $615.02$, $614.30$, or $614.07$?
 
 **Solution:**
 
-1. Compare the whole-number parts first: $402$ is smaller than $403$, so drop $403.05$.
-2. Compare the decimal parts of the $402$ entries: $0.80$, $0.20$, and $0.15$.
-3. Since $0.15 < 0.20 < 0.80$, the first number is $402.15$.
+1. Compare the whole-number parts first: $614$ is smaller than $615$, so drop $615.02$.
+2. Compare the tenths digits of the $614$ entries: $9$, $3$, and $0$.
+3. Since $0 < 3 < 9$, the first number is $614.07$.
 
 ### #3: Comparing Decimal Lengths
 

@@ -78,6 +78,7 @@ Find which code comes first, $\text{A-10}$ or $\text{A-2}$, when a filing system
 1. Position $1$: both start with $A$ (tie).
 2. Position $2$: both have "-" (tie).
 3. Position $3$: compare $1$ and $2$. Since $1$ comes before $2$, $\text{A-10}$ comes first.
+
 ### #2: Four Codes with a Shared Start
 
 Find the order of $\text{T-185}$, $\text{T-186}$, $\text{T-17}$, and $\text{T-2}$ when reference codes are filed character by character from left to right in ascending order.
@@ -98,6 +99,6 @@ The answer is **$\text{T-17}$, $\text{T-185}$, $\text{T-186}$, $\text{T-2}$**. A
 ## Traps to Watch For
 
 :::checklist
-- Multi-digit numbers in a code, like $\text{PR-207}$ and $\text{PR-21}$: compare one digit at a time ($0 < 1$). {#whole-number-in-string}
-- One code is the exact start of another, like $\text{M-4}$ and $\text{M-40}$: the shorter code goes first. {#longer-prefix-first}
+- If the rule is character-string order, compare multi-digit numbers one digit at a time: $\text{PR-207}$ before $\text{PR-21}$ ($0 < 1$). {#whole-number-in-string}
+- If the question says a shorter code goes first, put $\text{M-4}$ before $\text{M-40}$, because $\text{M-4}$ is the exact start of $\text{M-40}$. {#longer-prefix-first}
 :::

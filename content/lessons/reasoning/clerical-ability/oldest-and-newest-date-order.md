@@ -25,6 +25,7 @@ Check which direction the question names before looking at the dates.
 
 Find the order of January $3$, $2025$ and December $31$, $2024$ in both directions:
 
+- The years differ first: $2024$ comes before $2025$.
 - Oldest to newest: December $31$, $2024$, then January $3$, $2025$.
 - Reverse chronological (newest to oldest): January $3$, $2025$ on top, then December $31$, $2024$.
 

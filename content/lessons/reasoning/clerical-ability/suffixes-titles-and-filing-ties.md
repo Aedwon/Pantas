@@ -87,8 +87,9 @@ Find the filing order of *Dr. Ben Cruz*, *Ms. Ana Cruz*, and *Mr. Carlo Cruz* wh
 **Solution:**
 
 1. Drop *Dr.*, *Ms.*, and *Mr.* as stated. The keys are *Cruz, Ben*, *Cruz, Ana*, and *Cruz, Carlo*.
-2. Unit $1$ ties on *Cruz*. Unit $2$: *Ana*, *Ben*, and *Carlo* first differ at letter $1$ ($A$, $B$, $C$).
-3. Order: **Cruz, Ana**, **Cruz, Ben**, **Cruz, Carlo**.
+2. Unit $1$ ties on *Cruz*.
+3. Unit $2$: *Ana*, *Ben*, and *Carlo* first differ at letter $1$ ($A$, $B$, $C$).
+4. Order: **Ms. Ana Cruz**, **Dr. Ben Cruz**, **Mr. Carlo Cruz**.
 
 ### #3: Full Name Tie with City
 
@@ -110,7 +111,7 @@ The answer is **De la Rosa, Joy P., Naga**. *Naga* comes before *Tarlac* in Unit
 ## Traps to Watch For
 
 :::checklist
-- Suffix or title in a name: compare a suffix after earlier units tie; drop a title if ignored. {#suffix-too-early}
-- A city looks early alphabetically: compare it after the name units tie. {#city-before-initial}
-- Identical names and no tie-break rule: use the next unit the task names, not a guess. {#guessed-tie-breaker}
+- If the task puts the suffix last, compare it only after earlier units tie. If it ignores titles, drop them. {#suffix-too-early}
+- If the task names city as the next unit, compare it only after the name units tie. {#city-before-initial}
+- If the names are identical and the task names no tie-break rule, ask for the next unit or leave them tied. {#guessed-tie-breaker}
 :::

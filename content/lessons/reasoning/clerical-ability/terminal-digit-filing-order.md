@@ -74,8 +74,9 @@ A filing system compares the rightmost group first, then the middle group, then 
 
 1. Compare rightmost groups: $\text{01-99-02}$ ends in $02$, while the other three end in $03$. So $\text{01-99-02}$ comes first.
 2. Compare middle groups (stated second) for the three $03$ files: $10 < 44$, so $\text{12-44-03}$ goes last.
-3. The other two tie on middle $10$. They first differ in the leftmost group: $05 < 98$, so $\text{05-10-03}$ comes before $\text{98-10-03}$.
-4. The order is $\text{01-99-02}$, $\text{05-10-03}$, $\text{98-10-03}$, $\text{12-44-03}$.
+3. The other two tie on middle $10$, so compare their leftmost groups.
+4. Leftmost: $05 < 98$, so $\text{05-10-03}$ comes before $\text{98-10-03}$.
+5. The order is $\text{01-99-02}$, $\text{05-10-03}$, $\text{98-10-03}$, $\text{12-44-03}$.
 
 ### #2: Rightmost, Then Leftmost, Then Middle
 

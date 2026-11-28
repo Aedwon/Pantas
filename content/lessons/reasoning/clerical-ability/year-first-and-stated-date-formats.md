@@ -32,7 +32,7 @@ Find the oldest-to-newest order of $2024\text{-}03\text{-}05$, $2024\text{-}02\t
 
 :::pair #swap-month-day
 Right: $2024\text{-}03\text{-}05$ is March $5$, $2024$, so $2024\text{-}03\text{-}06$ comes right after it
-Wrong: $2024\text{-}03\text{-}05$ comes right before $2024\text{-}05\text{-}03$ because you read $03\text{-}05$ as May $3$
+Wrong: swap the month and day in $2024\text{-}03\text{-}05$ and pick $2024\text{-}05\text{-}03$ as the date right after it
 In $\text{YYYY-MM-DD}$, the middle two digits are the month and the last two digits are the day. Do not swap them.
 :::
 
@@ -47,15 +47,15 @@ Because the same numbers can mean two different dates, use the format the questi
 
 In these questions, the format says only where year, month, and day sit. The question names the direction, so check whether it asks for oldest-first or newest-first order.
 
-Find the oldest-to-newest order of $12/01/2025$, $09/12/2024$, and $05/02/2024$ under $\text{DD/MM/YYYY}$:
+Find the oldest-to-newest order of $20/04/2025$, $07/11/2024$, and $15/06/2024$ under $\text{DD/MM/YYYY}$:
 
 - Read each date as day, month, year:
-  - $12/01/2025$: January $12$, $2025$
-  - $09/12/2024$: December $9$, $2024$
-  - $05/02/2024$: February $5$, $2024$
+  - $20/04/2025$: April $20$, $2025$
+  - $07/11/2024$: November $7$, $2024$
+  - $15/06/2024$: June $15$, $2024$
 - Compare years first: both $2024$ dates come before $2025$.
-- Compare months in $2024$: February ($02$) comes before December ($12$).
-- Order: $05/02/2024$, then $09/12/2024$, then $12/01/2025$.
+- Compare months in $2024$: June ($06$) comes before November ($11$).
+- Order: $15/06/2024$, then $07/11/2024$, then $20/04/2025$.
 
 :::why
 Why does $\text{YYYY-MM-DD}$ sort left to right while $\text{DD/MM/YYYY}$ does not? $\text{YYYY-MM-DD}$ puts the largest unit (year) on the left. $\text{DD/MM/YYYY}$ puts the smallest unit (day) on the left, so left-to-right sorting compares days before years.

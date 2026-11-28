@@ -86,16 +86,16 @@ A filing system compares number parts as whole numbers and a letter suffix alpha
 
 ### #3: Finding a Listed Neighbor in a Drawer
 
-A drawer holds $41\text{-}960$, $42\text{-}015$, $42\text{-}150$, and $43\text{-}002$, filed by integer subcodes in ascending order. Which listed code sits immediately before a new code $42\text{-}090$?
+A drawer holds $43\text{-}002$, $42\text{-}150$, $41\text{-}960$, and $42\text{-}015$, filed by integer subcodes in ascending order. Which listed code sits immediately before a new code $42\text{-}090$?
 
 **Solution:**
 
 1. Compare first subcodes: $41\text{-}960$ is before the new code ($41 < 42$), and $43\text{-}002$ is after it.
-2. Two listed codes tie on $42$. Compare second subcodes as whole numbers: $015 = 15$, $090 = 90$, and $150$.
+2. $42\text{-}015$ and $42\text{-}150$ tie with the new code on $42$. Compare second subcodes as whole numbers: $015 = 15$, $090 = 90$, and $150$.
 3. Since $15 < 90 < 150$, $42\text{-}015$ is before the new code and $42\text{-}150$ is after it.
 
 :::try
-Finish the last step: of the two listed codes before $42\text{-}090$, $41\text{-}960$ and $42\text{-}015$, pick the one that sits immediately before it.
+Finish the last step: of the two listed codes before $42\text{-}090$, $42\text{-}015$ and $41\text{-}960$, pick the one that sits immediately before it.
 :::answer
 The answer is **$42\text{-}015$**. The first subcodes first differ: $41 < 42$, so $42\text{-}015$ sits closer to $42\text{-}090$ than $41\text{-}960$ does.
 :::
@@ -103,6 +103,6 @@ The answer is **$42\text{-}015$**. The first subcodes first differ: $41 < 42$, s
 ## Traps to Watch For
 
 :::checklist
-- A dot inside a code: read whether the rule calls it an integer subcode divider ($31.2 < 31.015$) or a decimal point. {#dot-as-decimal}
-- Suffix reaching $099$ in a $3$-digit integer suffix: add $1$ to get $100$ inside the suffix ($10\text{-}100$), not carry into the prefix. {#early-prefix-carry}
+- If the rule calls the dot a subcode divider, compare second subcodes as whole numbers ($2 < 15$), so $31.2$ files before $31.015$. If it says decimal, read a decimal. {#dot-as-decimal}
+- If the prefix is fixed and a $3$-digit suffix counts up by $1$, then $099$ plus $1$ is $100$ inside the suffix ($10\text{-}100$), with no carry into the prefix. {#early-prefix-carry}
 :::
