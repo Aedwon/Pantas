@@ -1012,15 +1012,82 @@ test('item 4f: no navigator.locks: no sweep, and the install still completes', a
   assert.deepEqual((await offlineSet(w)).builds, ['C']);
 });
 
-test('item 4f: a lock nobody releases: the sweep gives up, the install goes on and checks its cache', async () => {
+// Rev 2 audit 1, Blocker: with Web Locks, an install never writes or reuses a cache without the lock.
+test('item 4f: a lock nobody releases: the sweep gives up, and the install fails (the browser tries again later)', async () => {
   const {w, c} = await waitingC();
   w.locks.request('pantas-cache-lock', {}, () => new Promise(() => {})); // another holder that never lets go
   await takeOver(w, c); // the sweep waits for the lock, times out and deletes nothing
   assert.deepEqual(buildCaches(w), [cacheOf('B'), cacheOf('C')].sort());
   deploy(w, 'D');
-  const d = await install(w, 'D'); // cannot get the lock within its limit: proceeds
-  assert.ok(w.stores.get(cacheOf('D')).has(ORIGIN + 'pantas-build-complete'));
-  assert.equal(w.waiting, d);
+  await assert.rejects(worker(w, workerOf(build('D')), 'D').install(), /lock/);
+  assert.equal(w.stores.has(cacheOf('D')), false, 'nothing was written without the lock');
+  assert.equal(w.waiting, null);
+  assert.equal(skips(w, 'D').length, 0);
+});
+
+// Codex rev 2 audit 1 (its Chromium harness, ported): C activates by itself and holds the lock
+// while it deletes B; a rollback to B installs, and its lock wait times out. B used to reuse the
+// B cache the sweep was deleting, then activate with no cache.
+test('rev2 audit 1 Blocker: a rollback install whose lock wait times out fails, and no worker is left without its cache', async () => {
+  const {w, c} = await waitingC();
+  const remove = w.caches.delete;
+  let reached;
+  let release;
+  const hit = new Promise((resolve) => (reached = resolve));
+  const gate = new Promise((resolve) => (release = resolve));
+  w.caches.delete = async (name) => {
+    reached();
+    await gate;
+    return remove(name);
+  };
+  w.waiting = null;
+  const sweeping = c.activate(); // C holds the lock, deleting B's cache
+  await hit;
+  deploy(w, 'B'); // the rollback
+  const rollback = worker(w, workerOf(build('B')), 'B-rollback');
+  await assert.rejects(rollback.install(), /lock/);
+  release();
+  await sweeping;
+  assert.equal(w.waiting, null, 'no rollback worker waits');
+  assert.equal(skips(w, 'B-rollback').length, 0);
+  assert.deepEqual(buildCaches(w), [cacheOf('C')], 'C swept B, and no B worker is left to find it gone');
+  // The browser tries again at its next update check: now the lock is free and B installs whole.
+  const again = await install(w, 'B');
+  assert.equal(w.waiting, again);
+  assert.ok(w.stores.get(cacheOf('B')).has(ORIGIN + 'pantas-build-complete'));
+});
+
+test('rev2 audit 1: the sweep reads the registration again before each delete, and keeps the cache of a build installing or waiting', async () => {
+  const {w, c} = await waitingC();
+  w.waiting = null;
+  const keys = w.caches.keys;
+  let reached;
+  let release;
+  const hit = new Promise((resolve) => (reached = resolve));
+  const gate = new Promise((resolve) => (release = resolve));
+  w.caches.keys = async () => {
+    const names = await keys();
+    reached();
+    await gate;
+    return names;
+  };
+  const sweeping = c.activate();
+  await hit;
+  // While the sweep holds the names, a worker of build B starts to install (its install waits).
+  deploy(w, 'B');
+  const b = worker(w, workerOf(build('B')), 'B-rollback');
+  w.installing = b;
+  release();
+  await sweeping;
+  w.caches.keys = keys;
+  assert.ok(w.stores.has(cacheOf('B')), 'the cache of the build that is installing was kept');
+  // A worker that does not answer who it is stops the sweep altogether.
+  w.installing = {postMessage() {}};
+  await c.activate();
+  assert.ok(w.stores.has(cacheOf('B')));
+  w.installing = null;
+  await c.activate();
+  assert.deepEqual(buildCaches(w), [cacheOf('C')]);
 });
 
 test('item 4f: an install without the lock whose cache a sweep deleted halfway puts back what is missing', async () => {
@@ -1207,8 +1274,10 @@ test('audit 3 item 2: an install never deletes the cache of a build another inst
   const installing = worker(w, workerOf(build('D')), 'D').install();
   await hit;
   deploy(w, 'E');
-  await install(w, 'E'); // a newer install ends and prunes while D still fills its cache
+  // A newer install cannot get the lock while D fills its cache: it fails and is retried later.
+  await assert.rejects(worker(w, workerOf(build('E')), 'E').install(), /lock/);
   assert.ok(w.stores.has(cacheOf('D')), 'D\'s half-filled cache was deleted by another install');
+  assert.equal(w.stores.has(cacheOf('E')), false);
   release();
   await installing;
   assert.ok(w.stores.get(cacheOf('D')).size > 1);

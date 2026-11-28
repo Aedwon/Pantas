@@ -326,12 +326,6 @@ async function isCompleteCache() {
   return !!marker && (await marker.text()) === BUILD.list;
 }
 
-async function hasCompleteCache() {
-  if (await isCompleteCache()) return true;
-  if (await caches.has(CACHE)) await caches.delete(CACHE); // left by an install that did not finish
-  return false;
-}
-
 // Runs `work` holding the lock. Resolves {held: true, value}, or {held: false} when the
 // browser has no Web Locks API or the lock was not granted within LOCK_WAIT_MS. It never
 // waits without a limit, and never throws for a lock that could not be had.
@@ -354,14 +348,12 @@ async function withLock(work) {
   }
 }
 
-// Under the lock when it can be had, otherwise without it.
-async function underLock(work) {
-  const locked = await withLock(work);
-  return locked.held ? locked.value : work();
+function hasLocks() {
+  const locks = self.navigator && self.navigator.locks;
+  return !!locks && typeof locks.request === 'function' && typeof AbortController === 'function';
 }
 
-async function fetchAll() {
-  const paths = Object.keys(BUILD.files);
+async function fetchPaths(paths) {
   const verified = [];
   let next = 0;
   let failed = false;
@@ -394,14 +386,31 @@ async function storeFiles(files) {
   }
 }
 
-// The files of `verified` this build's cache lacks, or all of them when the cache is gone
-// (another worker's sweep, which this install did not hold the lock against).
-async function missingFiles(verified) {
-  if (!(await caches.has(CACHE))) return verified;
+// The files of this build's list its cache lacks (all of them when the cache is gone).
+async function missingPaths() {
+  const paths = Object.keys(BUILD.files);
+  if (!(await caches.has(CACHE))) return paths;
   const cache = await caches.open(CACHE);
   const have = new Set((await cache.keys()).map((request) => request.url));
-  const lacking = verified.filter(({ path }) => !have.has(SCOPE + path));
-  return !lacking.length && !have.has(SCOPE + COMPLETE) ? verified : lacking;
+  return paths.filter((path) => !have.has(SCOPE + path));
+}
+
+// Checks the reusable cache, fills what it lacks and verifies it is whole. With the lock held
+// this cannot race a sweep; without Web Locks no sweep exists. Either way a cache that is not
+// whole after a few rounds fails the install.
+async function fillCache() {
+  if (await isCompleteCache()) {
+    // An identical build installing again: an old takeover mark is not about this install.
+    await clearTakeoverMark();
+  } else if (await caches.has(CACHE)) {
+    await caches.delete(CACHE); // left by an install that did not finish
+  }
+  for (let round = 0; round < 3; round++) {
+    const lacking = await missingPaths();
+    if (!lacking.length && (await isCompleteCache())) return;
+    await storeFiles(await fetchPaths(lacking));
+  }
+  if ((await missingPaths()).length || !(await isCompleteCache())) throw new Error('the cache of this build is not whole');
 }
 
 // Stores the whole set or nothing. A failure throws, so the browser keeps the
@@ -412,21 +421,13 @@ async function installBuild() {
   // in charge and leaves no waiting worker to replace it at the next reload. A different build
   // (an update, or a rollback) goes on. Nothing is deleted here.
   if (await sameBuildInCharge()) throw new Error('this build is already installed: ' + BUILD.id);
-  const complete = await underLock(hasCompleteCache);
-  if (complete) {
-    // An identical build installing again: an old takeover mark is not about this install.
-    await underLock(clearTakeoverMark);
+  if (hasLocks()) {
+    // Never write or reuse a cache without the lock: a sweep may be deleting it. A lock that is
+    // not granted in time fails the install, and the browser tries again at its next update check.
+    const locked = await withLock(fillCache);
+    if (!locked.held) throw new Error('the cache lock was not available: the install will be tried again');
   } else {
-    const verified = await fetchAll();
-    await underLock(() => storeFiles(verified));
-    // An install that could not get the lock may have lost files to a sweep. Put back what is
-    // missing, with the marker last; the bytes are the ones already verified.
-    for (let attempt = 0; attempt < 3; attempt++) {
-      const lacking = await missingFiles(verified);
-      if (!lacking.length) break;
-      await underLock(() => storeFiles(lacking));
-    }
-    if ((await missingFiles(verified)).length) throw new Error('the cache of this build keeps losing files');
+    await fillCache();
   }
   // With no other build installed (first visit, or the worker that shipped before build
   // folders) nothing can be mixed, so take over at once. Otherwise wait: the browser
@@ -474,9 +475,30 @@ async function sweep() {
     if (registrationBusy() || !(await isCompleteCache())) return;
     for (const name of await caches.keys()) {
       const ours = name.startsWith(BUILD_PREFIX) || name.startsWith(CACHE_PREFIX) || name === NOTES_CACHE;
-      if (ours && name !== CACHE) await caches.delete(name);
+      if (!ours || name === CACHE) continue;
+      // Read again before every delete: a worker may have started to install since the last one.
+      // Its build's cache is never deleted, and a worker that cannot say which build it is stops
+      // the sweep.
+      const reported = await reportedBuilds();
+      if (reported === null) return;
+      if (reported.some((id) => name.startsWith(BUILD_PREFIX + id + '-'))) continue;
+      await caches.delete(name);
     }
   });
+}
+
+// The build ids of the registration's installing and waiting workers, or null when one of them
+// does not report its build.
+async function reportedBuilds() {
+  const registration = self.registration;
+  const ids = [];
+  for (const other of [registration.installing, registration.waiting]) {
+    if (!other) continue;
+    const id = await buildIdOf(other);
+    if (id === null) return null;
+    ids.push(id);
+  }
+  return ids;
 }
 
 // A natural activation (the browser had no tab for an older worker to serve) sweeps. An
