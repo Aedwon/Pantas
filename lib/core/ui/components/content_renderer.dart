@@ -809,6 +809,7 @@ class ContentRenderer extends StatelessWidget {
         if (figure == null) return fallback(context);
         return _FigureFrame(
           reader: readerFigures,
+          grows: true,
           figure: figure,
           label: string(block['semanticsLabel']),
           credit: shownCredit(string(block['credit'])),
@@ -1612,7 +1613,13 @@ class _FigureFrame extends StatelessWidget {
     this.expandable = true,
     this.labelViewer = false,
     this.capped = true,
+    this.grows = false,
   });
+
+  /// Whether Immersion scales the figure up to the column width. Only vector
+  /// figures do (painter figures and SVG); a raster picture stays at its own
+  /// pixel width so it does not blur.
+  final bool grows;
 
   /// Whether Immersion limits the frame's height. A table is not a figure:
   /// it keeps its own height and scrolls with the page.
@@ -1709,7 +1716,10 @@ class _FigureFrame extends StatelessWidget {
         2 * PantasSpace.s20;
     return ConstrainedBox(
       constraints: BoxConstraints(maxHeight: math.max(room, 1)),
-      child: _FittedFigure(maxScale: 1, child: figure),
+      child: _FittedFigure(
+        maxScale: grows ? double.infinity : 1,
+        child: figure,
+      ),
     );
   }
 
@@ -2338,6 +2348,7 @@ class _ContentImageState extends State<_ContentImage> {
         errorBuilder: (context, error, stackTrace) => failure,
         imageBuilder: (context, child) => _FigureFrame(
           reader: true,
+          grows: true,
           labelViewer: true,
           label: widget.label,
           credit: widget.credit,

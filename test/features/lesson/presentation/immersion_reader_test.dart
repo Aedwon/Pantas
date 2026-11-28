@@ -2,13 +2,18 @@
 // replaces the two-column layout (Nov 29)"). With full width on, at 1024 px
 // and up, the lesson is one centered column whose text grows with the window.
 // ignore_for_file: no_adjacent_strings_in_list
+import 'dart:convert';
+import 'dart:ui' as ui;
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/lesson/presentation/widgets/web_reader_layout.dart';
 
@@ -60,6 +65,7 @@ void main() {
     List<Map<String, Object?>> body, {
     double height = 900,
     String? saved,
+    bool dark = false,
   }) async {
     if (saved != null) await prefs.setDeviceValue('reader_full_width', saved);
     tester.view
@@ -79,7 +85,7 @@ void main() {
           appPreferencesRepositoryProvider.overrideWithValue(prefs),
         ],
         child: MaterialApp(
-          theme: buildLightTheme(web: true),
+          theme: dark ? buildDarkTheme(web: true) : buildLightTheme(web: true),
           home: Scaffold(
             body: WebReaderLayout(
               reader: readerFor('w-$width', body),
@@ -292,6 +298,149 @@ void main() {
         tester.getSize(find.byKey(_frame).first).height,
         lessThan(900 * .65),
       );
+    });
+  });
+
+  group('figures grow to the column, the cap applies after', () {
+    // The scaled figure inside its frame: the frame's 20 px padding each side.
+    final grown = find.byWidgetPredicate(
+      (w) => w.runtimeType.toString() == '_FittedFigure',
+    );
+    const painter = {
+      '_type': 'figureSpec',
+      'spec': <String, Object?>{
+        'kind': 'geometry-diagram',
+        'type': 'triangle',
+        'labels': ['A', 'B', 'C'],
+      },
+      'semanticsLabel': 'A triangle',
+    };
+
+    testWidgets('a small SVG picture scales up to the column width', (
+      tester,
+    ) async {
+      await pump(tester, 1440, [pictureBlock(pictureUri(360, 208))]);
+      expect(tester.getSize(find.byKey(_frame)).width, 792);
+      expect(tester.getSize(grown).width, closeTo(792 - 40, .5));
+    });
+
+    testWidgets('a painter figure fills the column width', (tester) async {
+      await pump(tester, 1440, [painter]);
+      expect(tester.getSize(find.byKey(_frame)).width, 792);
+      expect(tester.getSize(grown).width, closeTo(792 - 40, .5));
+    });
+
+    testWidgets('a figure that would pass the cap scales down to it', (
+      tester,
+    ) async {
+      await pump(tester, 1440, [pictureBlock(pictureUri(100, 400))]);
+      final frame = tester.getRect(find.byKey(_frame));
+      expect(frame.height, lessThanOrEqualTo(900 * .65 + .01));
+      expect(tester.getSize(grown).width, lessThan(792 - 40));
+      expect(tester.getRect(grown).center.dx, closeTo(frame.center.dx, 1));
+    });
+
+    testWidgets('a small raster picture stays at its own pixel width', (
+      tester,
+    ) async {
+      final url = await tester.runAsync(() async {
+        final recorder = ui.PictureRecorder();
+        Canvas(recorder).drawRect(
+          const Rect.fromLTWH(0, 0, 120, 60),
+          Paint()..color = const Color(0xFF4A78B0),
+        );
+        final image = await recorder.endRecording().toImage(120, 60);
+        final data = await image.toByteData(format: ui.ImageByteFormat.png);
+        return 'data:image/png;base64,'
+            '${base64Encode(data!.buffer.asUint8List())}';
+      });
+      await pump(tester, 1440, [pictureBlock(url!)]);
+      await tester.runAsync(
+        () => Future<void>.delayed(const Duration(milliseconds: 200)),
+      );
+      await tester.pump();
+      expect(tester.getSize(find.byKey(_frame)).width, 792);
+      expect(tester.getSize(grown).width, lessThanOrEqualTo(120.01));
+    });
+  });
+
+  group('Immersion keeps the figure frame and the type scale', () {
+    testWidgets('a painter figure is inline at the column width', (
+      tester,
+    ) async {
+      await pump(tester, 1440, [
+        paragraph('A triangle.'),
+        {
+          '_type': 'figureSpec',
+          'spec': <String, Object?>{
+            'kind': 'geometry-diagram',
+            'type': 'triangle',
+            'labels': ['A', 'B', 'C'],
+          },
+          'semanticsLabel': 'A triangle',
+        },
+        paragraph('After it.'),
+      ]);
+      final column = tester.getRect(find.byKey(_column));
+      final frame = tester.getRect(find.byKey(_frame));
+      expect(frame.left, column.left);
+      expect(frame.width, column.width);
+      expect(
+        frame.top,
+        greaterThan(tester.getRect(find.text('A triangle.')).bottom - 1),
+      );
+      expect(
+        tester.getRect(find.text('After it.')).top,
+        greaterThan(frame.bottom - 1),
+      );
+    });
+
+    testWidgets('the expand button shows on an inline figure', (tester) async {
+      await pump(tester, 1440, [pictureBlock(pictureUri(360, 208))]);
+      expect(find.byTooltip('Expand figure'), findsOneWidget);
+      expect(
+        find.descendant(
+          of: find.byKey(_frame),
+          matching: find.byTooltip('Expand figure'),
+        ),
+        findsOneWidget,
+      );
+    });
+
+    testWidgets('in dark mode the figure plate stays light', (tester) async {
+      await pump(
+        tester,
+        1440,
+        [pictureBlock(pictureUri(360, 208))],
+        dark: true,
+      );
+      final plate = find.descendant(
+        of: find.byKey(_frame),
+        matching: find.byWidgetPredicate(
+          (w) =>
+              w is Container &&
+              w.color == PantasColors.light.readerFigureBackground,
+        ),
+      );
+      expect(plate, findsOneWidget);
+      // The page itself is dark.
+      expect(
+        Theme.of(tester.element(find.byKey(_column))).brightness,
+        Brightness.dark,
+      );
+    });
+
+    testWidgets('display math scales by body size over 18', (tester) async {
+      const math = {'_type': 'latex', 'body': r'\dfrac{1}{2} + \dfrac{1}{3}'};
+      Future<double> height({String? saved}) async {
+        await tester.pumpWidget(const SizedBox());
+        await pump(tester, 1440, [math], saved: saved);
+        return tester.getSize(find.byType(MathExpression).first).height;
+      }
+
+      final on = await height();
+      final off = await height(saved: '0');
+      expect(on / off, closeTo(24 / 18, .03));
     });
   });
 
