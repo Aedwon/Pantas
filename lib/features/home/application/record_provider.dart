@@ -5,6 +5,7 @@ import 'package:drift/drift.dart' show BooleanExpressionOperators, Constant;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/storage/data/repos/streak_repository.dart';
 import 'package:pantas/core/storage/domain/attempt_origins.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -12,6 +13,7 @@ import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/metrics/signals/counted_attempts.dart';
+import 'package:pantas/features/mock_exam/application/decode_mock_results.dart';
 import 'package:pantas/features/mock_exam/application/mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/application/server_mock_results_providers.dart';
 import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
@@ -119,6 +121,8 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
   final mockAccuracy = <String, ({int correct, int total})>{};
   // Items the student answered in each mock. A blank is not an answer.
   final mockAnswered = <String, int>{};
+  // A weighted exam's mock score, read the way its results page reads it.
+  final mockPercent = <String, double>{};
   final List<MockAttempt> mockAttemptsRows;
   if (ref.watch(mockUsesServerProvider)) {
     // A mock is one exam's paper: only the current exam's mocks count.
@@ -129,6 +133,9 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     mockAttemptsRows = [for (final entry in history) entry.attempt];
     for (final entry in history) {
       final sections = entry.results.sections;
+      if (cseWeightsApply(entry.attempt.examId)) {
+        mockPercent[entry.attempt.id] = entry.results.percent;
+      }
       if (sections.isNotEmpty) {
         mockAccuracy[entry.attempt.id] = (
           correct: sections.fold(0, (sum, s) => sum + s.correct),
@@ -154,6 +161,15 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
     mockAttemptsRows = stored.map(MockAttempt.fromRow).toList();
     for (final mock in mockAttemptsRows) {
       if (mock.sectionResultsJson == null) continue;
+      if (cseWeightsApply(mock.examId)) {
+        // A result with no readable counts keeps its stored raw score below.
+        try {
+          final percent = decodeMockResults(mock)?.percent;
+          if (percent != null) mockPercent[mock.id] = percent;
+        } on Object {
+          // Fall back to the stored score.
+        }
+      }
       final data = jsonDecode(mock.sectionResultsJson!);
       if (data is! Map || data['sections'] is! List) continue;
       var correct = 0;
@@ -339,7 +355,8 @@ final recordProvider = FutureProvider<StudentRecord>((ref) async {
           scoreTotal != null &&
           scoreTotal > 0 &&
           row.submittedAt != null) {
-        final pct = (scoreRaw * 100 / scoreTotal).round();
+        final pct =
+            (mockPercent[row.id] ?? scoreRaw * 100 / scoreTotal).round();
         if (bestMockPercent == null || pct > bestMockPercent) {
           bestMockPercent = pct;
         }

@@ -146,7 +146,9 @@ void main() {
     await expectGauge(tester, view, .6375);
     // Rows are the CSC's parts. Geometry is outside them and has no row.
     expect(
-      view.subjects.firstWhere((r) => r.title == 'Analytical Ability').accuracy,
+      view.subjects
+          .firstWhere((r) => r.title == 'Analytical Ability (35%)')
+          .accuracy,
       .75,
     );
     expect(view.subjects.map((r) => r.id), isNot(contains('subject_geometry')));

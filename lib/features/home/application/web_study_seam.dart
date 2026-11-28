@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
@@ -47,10 +48,14 @@ final webPerformanceViewProvider =
       for (final row in value.topics)
         if (row.parentId != null) row.id: row.parentId!,
     };
-    PerformanceRow row(StudyPerformanceRow item, String? parent) =>
+    PerformanceRow row(
+      StudyPerformanceRow item,
+      String? parent, {
+      String? title,
+    }) =>
         PerformanceRow(
           id: item.id,
-          title: item.title,
+          title: title ?? item.title,
           subtext: parent,
           correct: item.correct,
           answered: item.answered,
@@ -60,7 +65,10 @@ final webPerformanceViewProvider =
       overallAccuracy: value.overallAccuracy,
       overallCorrect: value.correct,
       overallAnswered: value.answered,
-      subjects: [for (final item in value.subjects) row(item, null)],
+      subjects: [
+        for (final item in value.subjects)
+          row(item, null, title: csePartLabel(exam.id, item.title)),
+      ],
       topics: [
         for (final item in value.topics) row(item, subjectNames[item.parentId]),
       ],

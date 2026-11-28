@@ -279,6 +279,11 @@ dart run tool/check_no_ai_attribution.dart
 | `dart format` | Exit 0, no formatting changes needed | Format affected files, then recheck. Avoid unrelated formatting changes. Commit only with matching authorization. |
 | `dart run tool/check_no_ai_attribution.dart` | **Exit 0, clean.** | Any hit at all is yours. See below for what it catches. |
 
+**Shared-core Dart:** a change to Dart code that the server shares with the app
+(compiled into `functions/src/generated/pantas_core.js`) needs `server_dart/build.sh`,
+then `server_dart/build.sh --check` (exit 0) before hand-off. Otherwise CI's functions
+job fails (PR #176, Nov 28, 2026).
+
 **Coverage:** `dart run tool/check_coverage.dart` enforces a 70% minimum against
 `coverage/lcov.info` when coverage has been generated. Run it if your plan asks.
 

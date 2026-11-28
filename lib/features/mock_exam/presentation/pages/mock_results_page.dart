@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/time/pantas_dates.dart';
 import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/half_ring_gauge.dart';
@@ -80,9 +81,15 @@ class MockResultsPage extends StatelessWidget {
     final deductionLabel = deduction == deduction.roundToDouble()
         ? deduction.toStringAsFixed(0)
         : deduction.toStringAsFixed(2).replaceFirst(RegExp(r'0$'), '');
+    final counts =
+        '${results.scoreRaw} of ${results.scoreTotal} correct answers';
+    // The CSE Professional percent is weighted by part, so it can differ from
+    // the raw count beside it; the caption says so (manager ruling, Nov 28).
     final caption = examId == 'exam_upcat'
         ? '${results.scoreRaw} correct, minus $deductionLabel wrong'
-        : '${results.scoreRaw} of ${results.scoreTotal} correct answers';
+        : cseWeightsApply(examId)
+            ? 'Weighted score, $counts'
+            : counts;
     if (context.wideWeb) return _wide(context, caption);
     final body = Scaffold(
       backgroundColor: context.colors.background,
@@ -210,6 +217,7 @@ class MockResultsPage extends StatelessWidget {
                         for (var i = 0; i < results.sections.length; i++)
                           _Breakdown(
                             section: results.sections[i],
+                            examId: examId,
                             animatedAccuracy: time == null
                                 ? null
                                 : results.sections[i].accuracy *
@@ -506,6 +514,7 @@ class MockResultsPage extends StatelessWidget {
                                                 i++)
                                               _Breakdown(
                                                 section: results.sections[i],
+                                                examId: examId,
                                                 animatedAccuracy:
                                                     barAccuracy(i),
                                                 divider: i <
@@ -778,15 +787,17 @@ class MockResultsPage extends StatelessWidget {
 class _Breakdown extends StatelessWidget {
   const _Breakdown({
     required this.section,
+    required this.examId,
     required this.divider,
     this.animatedAccuracy,
   });
   final SectionResult section;
+  final String? examId;
   final double? animatedAccuracy;
   final bool divider;
   @override
   Widget build(BuildContext context) => ScoreBreakdownRow(
-        name: section.name,
+        name: csePartLabel(examId, section.name),
         correct: section.correct,
         total: section.total,
         divider: divider,

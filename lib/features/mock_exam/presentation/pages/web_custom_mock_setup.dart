@@ -1,6 +1,7 @@
 import 'dart:math' as math;
 
 import 'package:flutter/services.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
@@ -36,11 +37,15 @@ class WebCustomMockSetup extends StatelessWidget {
     required this.onBreakdown,
     required this.onTiming,
     required this.onSection,
+    this.examId,
     this.onSave,
     this.onBack,
     this.onTickMoreSubjects,
     super.key,
   });
+
+  /// Names the exam, so a CSE Professional part shows its weight.
+  final String? examId;
   final int questions;
   final int minutes;
   final int available;
@@ -115,7 +120,7 @@ class WebCustomMockSetup extends StatelessWidget {
                 children: [
                   for (final section in sections)
                     _WideSectionRow(
-                      name: section.name,
+                      name: csePartLabel(examId, section.name),
                       questions: section.questions,
                       minutes: section.minutes,
                       over: section.over,
