@@ -12,65 +12,140 @@ keyPoints:
   - "List truth-table cases."
   - "Apply the and and inclusive or rules."
 ---
-
 ## Core Concept
 
-**Propositional logic** studies statements that are either true or false. A **proposition** is a statement with one truth value, true or false. Letters such as $P$, $Q$, and $R$ stand for propositions.
+### Listing Truth-Table Cases
 
-A **truth table** lists all possible truth values for the propositions in a logical statement. It shows the truth value of the full statement for each case. We use $T$ for true and $F$ for false.
+**Propositional logic** works with statements that are either true ($T$) or false ($F$). Each basic statement is a **proposition**, written with a letter such as $P$, $Q$, or $R$.
 
-To make a truth table, first list every possible set of truth values. For $P$ and $Q$, the pairs are $(T,T)$, $(T,F)$, $(F,T)$, and $(F,F)$. Then find the full statement's truth value for each pair.
+A **truth table** lists every possible combination of truth values for those letters. For two propositions $P$ and $Q$, there are $4$ unique pairs, with none missing and none repeated:
 
-A **connective** joins statements or changes a statement's truth value. The following symbols show which rule to use.
+- $(T, T)$
+- $(T, F)$
+- $(F, T)$
+- $(F, F)$
 
-**And** (conjunction, symbol $\land$) is true only when both statements are true. So $P \land Q$ is false if either statement is false.
+Suppose a student writes rows $(T, T)$, $(F, T)$, $(T, F)$, and $(F, T)$. Row $2$ and row $4$ repeat $(F, T)$, leaving $(F, F)$ out, so replace the repeated row $4$ with $(F, F)$.
 
-**Or** (disjunction, symbol $\lor$) is true when at least one statement is true. This includes the case where both statements are true. It is false only when both statements are false.
+:::pair #missing-table-case
+Right: check that all $4$ distinct pairs $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$ appear once each.
+Wrong: see $4$ rows and **Keep every row as written.**
+Having $4$ rows is not enough if two rows repeat the same pair. Check each pair against the $4$ combinations.
+:::
+
+:::check
+A list for $P$ and $Q$ shows only three rows: $(T, T)$, $(F, T)$, and $(F, F)$. Which pair is missing?
+:::answer
+The answer is **$(T, F)$**. Each of the three rows is different, and $(T, F)$ is the only one of the $4$ pairs not listed.
+:::
+
+### The And Rule
+
+A **connective** joins statements or changes a truth value. The **and** connective (written $\land$) is true only when both statements are true.
+
+"Evaluate" means find the truth value ($T$ or $F$) of a logical expression. Check $P \land Q$ for all $4$ pairs:
+
+$$T \land T = T,\quad T \land F = F$$
+
+$$F \land T = F,\quad F \land F = F$$
+
+:::pair #one-true-for-and
+Right: when $P=T$ and $Q=F$, $(P \land Q, P \lor Q)$ equals **$(F, T)$**.
+Wrong: when $P=T$ and $Q=F$, $(P \land Q, P \lor Q)$ equals **$(T, T)$**.
+One true input makes **or** true, never **and**. For **and**, even a single $F$ makes the whole expression $F$.
+:::
+
+:::check
+"The quiz is on Monday and it is in Room 4." The quiz is on Monday, but it is in Room 6. Is the statement true?
+:::answer
+The answer is **false**. Both parts must be true for **and** to be true, and the room part is false.
+:::
+
+### The Inclusive Or Rule
+
+The **inclusive or** connective (written $\lor$) is true whenever at least one statement is true. It is also true when both statements are true, and false only when both are false.
+
+Check $P \lor Q$ for all $4$ pairs:
+
+$$T \lor T = T,\quad T \lor F = T$$
+
+$$F \lor T = T,\quad F \lor F = F$$
+
+:::why
+Why is $T \lor T = T$ in logic? Everyday speech often uses "or" to mean only one choice, like soup or salad. In formal logic, "or" means "at least one," so both true still counts as $T$.
+:::
+
+:::pair #exclusive-or-mistake
+Right: when $P=T$ and $Q=T$, $(P \land Q, P \lor Q)$ equals **$(T, T)$**.
+Wrong: when $P=T$ and $Q=T$, $(P \land Q, P \lor Q)$ equals **$(T, F)$**.
+The wrong pair treats **or** as exclusive when both inputs are true. Inclusive **or** stays $T$ when both $P$ and $Q$ are $T$.
+:::
+
+:::check
+Joy packs a ruler and an eraser. Is "Joy packs a pen or a pencil or a ruler" true under inclusive **or**?
+:::answer
+The answer is **true**. Inclusive **or** is true when at least one part is true, and the ruler is packed.
+:::
 
 ## Examples
 
 ### #1: Building an And Truth Table
 
-Build the complete truth table for $P \land Q$.
-
-Here, "build" means list every case and find its result.
+List the truth values of $P \land Q$ across all four combinations of $P$ and $Q$.
 
 **Solution:**
 
-1. List all possible pairs of truth values: $(T,T)$, $(T,F)$, $(F,T)$, and $(F,F)$.
-2. Use the rule for and. The result is true only when both values are true.
-3. Find the result for each pair.
+1. List the $4$ unique pairs for $(P, Q)$: $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$.
+2. Apply the **and** rule to each pair: true only when both inputs are $T$.
 
-$$T \land T=T$$
+- Row $1$: $T \land T = T$
+- Row $2$: $T \land F = F$
+- Row $3$: $F \land T = F$
+- Row $4$: $F \land F = F$
 
-$$T \land F=F$$
+The column of values for $P \land Q$ is $T, F, F, F$.
 
-$$F \land T=F$$
-
-$$F \land F=F$$
-
-Each line gives one case of the complete truth table for $P \land Q$.
+**Check:** Only one row has two $T$ inputs, so only one row can give $T$ for **and**.
 
 ### #2: Evaluating an Or Statement
 
-If $P$ is false and $Q$ is true, what is the truth value of $P \lor Q$?
+If $P$ is false and $Q$ is true, evaluate $P \lor Q$.
 
 **Solution:**
 
-Or is true when at least one statement is true.
+1. Substitute $P=F$ and $Q=T$ into $P \lor Q$ (inclusive **or**):
 
-$$F \lor T=T$$
+$$P \lor Q = F \lor T = T$$
 
-Since $Q$ is true, $P \lor Q$ is true.
+The value of $P \lor Q$ is $T$ (true).
+
+**Check:** An **or** statement is false only when both parts are $F$. Since $Q$ is $T$, the result must be $T$.
+
+### #3: Unknown Input with Inclusive Or
+
+$Q$ is false and $P$ is not known. Evaluate inclusive $P \lor Q$ for all possible values of $P$.
+
+**Solution:**
+
+1. $P$ can only be $T$ or $F$, so test both cases.
+2. Case $1$ ($P=T$): $T \lor F = T$.
+
+:::try
+Finish the last step: evaluate $P \lor Q$ in Case $2$ when $P=F$, then state what happens for either value of $P$.
+:::answer
+The answer is **the result matches $P$**: $T$ when $P=T$, and $F$ when $P=F$.
+
+**Check:** With $Q=F$, no $T$ input comes from $Q$, so $P$ alone decides the result.
+:::
 
 ## Speed Tricks & Shortcuts
 
-For and, one false value is enough to make the result false. For or, one true value is enough to make the result true. Once you know that value, you do not need to check the other statement.
+With **and**, one $F$ settles the answer as $F$ right away. With inclusive **or**, one $T$ settles the answer as $T$ right away, even if the second statement is unknown.
 
 ## Traps to Watch For
 
-### #1: Mixing Up And and Or
-
-> And needs both statements to be true. Or needs at least one statement to be true.
-
-Using the and rule for an or statement can give a false answer when one statement is true. Using the or rule for an and statement can give a true answer when one statement is false. Check the symbol before choosing a rule.
+:::checklist
+- Checking a $4$-row truth table: make sure all $4$ distinct pairs $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$ appear once with no repeats. {#missing-table-case}
+- Seeing one true input in an **and** statement: require both parts to be $T$, so $T \land F = F$. {#one-true-for-and}
+- Seeing two true inputs in an inclusive **or** statement: keep the result $T$, so $T \lor T = T$. {#exclusive-or-mistake}
+:::
