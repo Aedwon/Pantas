@@ -288,6 +288,37 @@ function storedHeaders(source) {
   return headers;
 }
 
+// The build id another worker of this registration reports, or null when it is not a stamped
+// worker (the one that shipped before build folders does not answer) or does not answer in time.
+function buildIdOf(other) {
+  return new Promise((resolve) => {
+    let channel = null;
+    const finish = (id) => {
+      clearTimeout(timer);
+      try {
+        if (channel) channel.port1.close();
+      } catch (_) {}
+      resolve(id);
+    };
+    const timer = setTimeout(() => finish(null), 2000);
+    try {
+      channel = new MessageChannel();
+      channel.port1.onmessage = (event) => finish((event.data && event.data.id) || null);
+      other.postMessage({ type: 'pantas-build-id' }, [channel.port2]);
+    } catch (_) {
+      finish(null);
+    }
+  });
+}
+
+async function sameBuildInCharge() {
+  const registration = self.registration;
+  for (const other of [registration.active, registration.waiting]) {
+    if (other && (await buildIdOf(other)) === BUILD.id) return true;
+  }
+  return false;
+}
+
 // True when this build's cache holds its whole list (the marker is written last).
 async function isCompleteCache() {
   if (!(await caches.has(CACHE))) return false;
@@ -376,6 +407,11 @@ async function missingFiles(verified) {
 // Stores the whole set or nothing. A failure throws, so the browser keeps the
 // worker it has and tries again at the next update check.
 async function installBuild() {
+  // The page registers the worker under an address that carries its build, so a page of the
+  // build already in charge registers a duplicate of it. Refusing it keeps the active worker
+  // in charge and leaves no waiting worker to replace it at the next reload. A different build
+  // (an update, or a rollback) goes on. Nothing is deleted here.
+  if (await sameBuildInCharge()) throw new Error('this build is already installed: ' + BUILD.id);
   const complete = await underLock(hasCompleteCache);
   if (complete) {
     // An identical build installing again: an old takeover mark is not about this install.

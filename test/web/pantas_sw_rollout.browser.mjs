@@ -138,6 +138,19 @@ await scenario('B to A-new rollback with the new worker', async context => {
   await offline(page, 'A', 'A');
 });
 
+await scenario('a second registration under another ?v= with the same build is refused: no waiting worker, the active worker keeps control, reloads boot', async context => {
+  const page = await context.newPage();
+  await visit(page, 'B', 'B');
+  await page.evaluate(() => navigator.serviceWorker.register('pantas_sw.js?v=a-different-address').then(() => true, () => false));
+  await pause(2500);
+  const state2 = await workerState(page);
+  assert.equal(state2.waiting, false, 'no duplicate waits');
+  assert.equal(state2.installing, false);
+  await controlledById(page, t.constant('B').id);
+  await reload(page, 'reload with the duplicate refused', 'B');
+  await offline(page, 'B after the duplicate', 'B');
+});
+
 await scenario('Update Required: updateNow takes over into the waiting build and the page boots it', async context => {
   const page = await context.newPage();
   await visit(page, 'B', 'B');

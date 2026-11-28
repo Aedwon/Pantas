@@ -67,7 +67,7 @@ function world() {
     // What the edge answers at an address that is not in the deployed build (a root file of an older build).
     edge: {},
     // The registration's installing and waiting workers, and the browser's Web Locks (null: a browser without them).
-    installing: null, waiting: null, locks: makeLocks(),
+    installing: null, waiting: null, active: null, locks: makeLocks(),
   };
   const strip2 = (url) => url.split('?')[0];
   w.caches = {
@@ -159,7 +159,7 @@ function worker(w, source, version) {
   const self = {
     location: {href: ORIGIN + `pantas_sw.js?v=${version}`, origin: 'https://app.test'},
     get registration() {
-      return {scope: ORIGIN, installing: w.installing, waiting: w.waiting};
+      return {scope: ORIGIN, installing: w.installing, waiting: w.waiting, active: w.active};
     },
     navigator: w.locks ? {locks: w.locks} : {},
     addEventListener: (type, fn) => (handlers[type] = fn),
@@ -174,7 +174,7 @@ function worker(w, source, version) {
   };
   const context = {
     URL, Request, Response, Headers, Promise, Set, Map, Math, Object, Array, JSON, Error, TypeError, console,
-    TransformStream, ReadableStream, clearTimeout, Date, crypto, Uint8Array, ArrayBuffer, String, AbortController,
+    TransformStream, ReadableStream, clearTimeout, Date, crypto, Uint8Array, ArrayBuffer, String, AbortController, MessageChannel,
     // The lock's time limit (ten seconds) is shortened so a test of a lock nobody releases ends at once.
     setTimeout: (fn, ms) => setTimeout(fn, Math.min(ms, 30)),
     // A Chromium browser has both of these; another browser lacks the first.
@@ -188,7 +188,10 @@ function worker(w, source, version) {
     const pending = [];
     if (type === 'install') w.installing = handle;
     // An activating worker is the registration's active worker, no longer its waiting one.
-    if (type === 'activate' && w.waiting === handle) w.waiting = null;
+    if (type === 'activate') {
+      if (w.waiting === handle) w.waiting = null;
+      w.active = handle;
+    }
     handlers[type]({waitUntil: (p) => pending.push(p)});
     try {
       await Promise.all(pending);
@@ -202,6 +205,10 @@ function worker(w, source, version) {
     handlers,
     install: () => lifecycle('install'),
     activate: () => lifecycle('activate'),
+    // What a ServiceWorker object does when another worker writes to it: a message with a reply port.
+    postMessage(data, ports) {
+      handlers.message({data, ports: [{postMessage: (value) => ports[0].postMessage(value)}], waitUntil() {}});
+    },
     // A message from a page. Returns the reply sent on the page's port, or null.
     async message(data) {
       let reply = null;
@@ -901,6 +908,43 @@ test('item 4d: B\'s first activation paused, C installs: B\'s cache survives, an
   assert.ok(c);
 });
 
+// Lead ruling on the rollout flake: the page registers the worker under an address that carries its
+// build, so a page of the build in charge registers a duplicate of it. The duplicate is refused at
+// install, so no waiting worker is left to replace the active one at the next reload.
+test('a duplicate of the build in charge, registered under another ?v=, is refused: no waiting worker, nothing deleted', async () => {
+  const w = world();
+  deploy(w, 'B');
+  const b = await install(w, 'B');
+  await takeOver(w, b);
+  await pageLoad(w);
+  const before = JSON.stringify([...w.stores].map(([name, store]) => [name, [...store.keys()].sort()]));
+  const duplicate = worker(w, workerOf(build('B')), 'another-address');
+  await assert.rejects(duplicate.install(), /already installed/);
+  assert.equal(w.waiting, null, 'no duplicate reaches waiting');
+  assert.equal(w.active, b, 'the active worker is unchanged');
+  assert.equal(skips(w, 'another-address').length, 0);
+  assert.equal(JSON.stringify([...w.stores].map(([name, store]) => [name, [...store.keys()].sort()])), before, 'nothing was stored or deleted');
+  // The page in flight still loads its files from the active worker.
+  assert.equal((await get(w, inFolder('B', 'main.dart.js'))).id, 'B');
+  assert.deepEqual((await offlineSet(w)).misses, []);
+});
+
+test('a duplicate of the build that waits is refused too, and a different build still installs and waits', async () => {
+  const {w, c} = await waitingC();
+  const duplicate = worker(w, workerOf(build('C')), 'other-address');
+  await assert.rejects(duplicate.install(), /already installed/);
+  assert.equal(w.waiting, c);
+  deploy(w, 'B'); // a rollback to B while B is in charge is a duplicate; D is a real update
+  deploy(w, 'D');
+  const d = await install(w, 'D');
+  assert.equal(w.waiting, d, 'a different build installs and waits');
+  assert.equal(skips(w, 'D').length, 0);
+  // An active worker that does not answer (today's worker) is not the same build.
+  const legacy = await deployedBUnderA({prod: true});
+  const next = await install(legacy, 'B');
+  assert.equal(legacy.waiting, next);
+});
+
 // Item 4e: the lock. A sweep that is deleting holds it, and an install that arrives waits for it.
 test('item 4e: a sweep and an install at the same time: the install\'s cache is never deleted', async () => {
   const {w, c} = await waitingC();
@@ -1173,7 +1217,7 @@ test('audit 3 item 2: an install never deletes the cache of a build another inst
 test('audit 3 item 3: an identical B registering again keeps A\'s cache while an A window is open, and A\'s page still gets A\'s parts', async () => {
   const w = await deployedBUnderA({prod: true});
   await takeOver(w, await install(w, 'B'));
-  await install(w, 'B'); // the same stamped build registers again
+  await assert.rejects(install(w, 'B'), /already installed/); // the same stamped build registers again
   assert.ok(w.stores.has('pantas-shell-A'), 'A\'s cache is deleted while an A window is open');
   w.offline = true;
   const answer = await get(w, 'main.dart.js_1.part.js');
@@ -1200,7 +1244,6 @@ test('audit 3 item 3: the install of a build again never takes a mark of an earl
 test('audit 3 item 3: a root part A\'s cache lacks gets the secured 503 even when the edge answers it with another build\'s bytes', async () => {
   const w = await deployedBUnderA({prod: true});
   await takeOver(w, await install(w, 'B'));
-  await install(w, 'B');
   w.edge['main.dart.js_9.part.js'] = build('B').served[inFolder('B', 'main.dart.js_1.part.js')];
   const answer = await w.controller.fetch('main.dart.js_9.part.js');
   assert.equal(answer.status, 503, 'another build\'s bytes were served to an A page');
