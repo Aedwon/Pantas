@@ -12,50 +12,100 @@ keyPoints:
   - "Follow separate odd-position and even-position rules."
   - "Track a repeating cycle of operations."
 ---
-
 ## Core Concept
-
-Example #8 in the original lesson is Example #2 here.
 
 ### Separate Rules by Position
 
-In an **interleaved pattern**, odd positions follow one rule and even positions follow another. Odd and even describe the positions, not the values of the terms.
+In an **interleaved pattern**, odd positions follow one rule and even positions follow another. Odd and even name the position ($1, 2, 3, 4, \ldots$), not the number value.
 
-Label the positions $1,2,3,4,5,6,\ldots$. Read positions $1,3,5,\ldots$ as one list and positions $2,4,6,\ldots$ as another. Keep this rule only if both smaller lists have clear patterns.
+1. Look at $1, 10, 3, 8, 5, 6, \ldots$ and find the $7$th term.
+2. Read the odd positions ($1, 3, 5$): $1, 3, 5$ (adds $2$ each time).
+3. Read the even positions ($2, 4, 6$): $10, 8, 6$ (subtracts $2$ each time).
+4. Position $7$ is odd, so continue the odd track: $5+2=7$.
 
-Next, find which list contains the missing position. Use that list's rule to find the missing term. This approach helps when the moves between neighboring terms do not form a clear pattern.
+:::why
+Why require clear patterns in both tracks? Almost any list looks neat if you ignore half the terms, so both the odd and even tracks must follow simple rules.
+:::
+
+:::pair #wrong-position-track
+Right: the $7$th term of $1, 10, 3, 8, 5, 6, \ldots$ is $5+2=7$.
+Wrong: the $7$th term is $4$.
+$4$ continues the even track ($10, 8, 6, 4$). Label the blank's position first: position $7$ is odd.
+:::
+
+:::check
+Find the $8$th term of $20, 2, 18, 5, 16, 8, 14, \ldots$
+:::answer
+The answer is $11$. Position $8$ is even. The even positions ($2, 5, 8$) increase by $3$, so position $8$ is $8+3=11$.
+:::
 
 ### Alternating Operations
 
-With **alternating operations**, the move switches back and forth. For example, a rule may multiply by $2$, then add $2$, and repeat.
+With **alternating operations**, the move switches back and forth between two steps from each term to the next.
 
-Write the operation between each pair of terms. Check that the same cycle works through the whole list. Then apply the next operation in the cycle.
+1. Look at $4, 7, 6, 9, 8, 11, \ldots$
+2. Write the move between each pair: $4+3=7$, $7-1=6$, $6+3=9$, $9-1=8$, $8+3=11$.
+3. The cycle is $+3$, then $-1$.
+4. The last move was $+3$, so the next move is $-1$: $11-1=10$.
 
-Unlike an interleaved pattern, this rule works directly from each term to the next. Try it when neighboring terms show a repeating set of moves.
+:::pair #repeat-wrong-step
+Right: after $8+3=11$ in the $+3, -1$ cycle, apply $-1$: $11-1=10$.
+Wrong: apply $+3$ again: $11+3=14$.
+The big jump $+3$ is easy to repeat by habit. Always check which move just happened before taking the next step.
+:::
+
+:::check
+Find the next term in $2, 4, 5, 10, 11, 22, 23, \ldots$
+:::answer
+The answer is $46$. The cycle alternates $\times2$ and $+1$; the last step was $+1$, so double $23$ to get $46$.
+:::
+
+### Two-Operation Rules
+
+Some sequences repeat the same two-operation rule at every single step, such as "double and add $1$."
+
+1. Look at $2, 5, 11, 23, 47, \ldots$
+2. Test "$\times2$, then $+1$": $2\times2+1=5$, $5\times2+1=11$, $11\times2+1=23$, $23\times2+1=47$.
+3. Apply the full rule to $47$: $47\times2+1=94+1=95$.
+
+:::pair #drop-second-operation
+Right: for $2, 5, 11, 23, 47, \ldots$, double $47$ and add $1$ to get $95$.
+Wrong: double $47$ to get $94$.
+Doubling gives most of the jump, so it is easy to stop early. Check both parts of the rule on the last step.
+:::
+
+:::check
+One two-operation rule repeats at every step. Find the next term in $2, 4, 10, 28, \ldots$
+:::answer
+The answer is $82$. The rule is "$\times3$, then $-2$": $2\times3-2=4$, $4\times3-2=10$, and $28\times3-2=82$.
+:::
 
 ## Examples
 
 ### #1: Interleaved Odd and Even Positions
 
-Find the intended next term: $2,9,4,12,6,15,\ldots$
+Find the next term in the sequence: $2, 9, 4, 12, 6, 15, \ldots$
 
 **Solution:**
 
-1. Read the odd positions as one list: $2,4,6$. They increase by $2$.
-2. Read the even positions as another list: $9,12,15$. They increase by $3$.
-3. The missing term is at position $7$. This is an odd position, so continue the odd-position list.
+1. Label positions $1$ to $6$. The blank is position $7$ (odd).
+2. Odd positions ($1, 3, 5$): $2, 4, 6$ (add $2$).
+3. Even positions ($2, 4, 6$): $9, 12, 15$ (add $3$).
+4. Add $2$ to $6$ for position $7$:
 
-$$6+2=8$$
+$$\text{Term 7}=6+2=8$$
 
-The next term is $8$. Adding $3$ to $15$ would continue the even-position list, but the missing position is odd.
+The next term is $8$.
+
+**Check:** Both tracks follow constant additions ($+2$ on odd positions, $+3$ on even positions), and position $7$ uses the odd track.
 
 ### #2: Alternating Operations
 
-Find the intended next term: $3,6,8,16,18,36,\ldots$
+Find the next term in the sequence: $3, 6, 8, 16, 18, 36, \ldots$
 
 **Solution:**
 
-1. Check the moves from the start.
+1. Write each move left to right:
 
 $$3\times2=6,\quad 6+2=8$$
 
@@ -63,22 +113,59 @@ $$8\times2=16,\quad 16+2=18$$
 
 $$18\times2=36$$
 
-2. The moves repeat: multiply by $2$, then add $2$. The last move was multiplication, so add next.
+2. The moves alternate $\times2$ and $+2$.
+3. Add $2$ to $36$ for term $7$:
 
-$$36+2=38$$
+$$\text{Term 7}=36+2=38$$
 
 The next term is $38$.
 
+**Check:** Check the full cycle: $\times2$, $+2$, $\times2$, $+2$, $\times2$, $+2$. Repeating $\times2$ to get $72$ would break the alternating pattern.
+
+### #3: Two-Operation Rule
+
+Find the next term using the simplest two-operation rule that fits every step: $2, 5, 11, 23, 47, \ldots$
+
+**Solution:**
+
+1. Test "multiply by $2$, add $1$" on terms $2$ and $3$:
+
+$$\text{Term 2}=2\times2+1=5,\quad \text{Term 3}=5\times2+1=11$$
+
+2. Confirm on terms $4$ and $5$:
+
+$$\text{Term 4}=11\times2+1=23,\quad \text{Term 5}=23\times2+1=47$$
+
+3. Apply to $47$ for term $6$:
+
+$$\text{Term 6}=47\times2+1=95$$
+
+The next term is $95$.
+
+**Check:** Look at the gaps between terms: $3, 6, 12, 24$. Each gap doubles, so the next gap is $48$, and $47+48=95$.
+
+### #4: Paired Letter Tracks
+
+Complete the paired sequence using English alphabet positions ($A=1$ through $Z=26$): $AZ, BY, DW, GT, \ldots$
+
+**Solution:**
+
+1. Track the first letters separately: $A(1), B(2), D(4), G(7)$.
+2. Their forward jumps are $+1, +2, +3$, so add $4$ next: $7+4=11$, which is $K$.
+3. Track the second letters separately: $Z(26), Y(25), W(23), T(20)$. Their backward jumps are $-1, -2, -3$.
+
+:::try
+Finish the last step: move back $4$ positions from $T(20)$ and combine both letters.
+:::answer
+The answer is **$KP$**. Moving back $4$ from $20$ gives $20-4=16$, which is $P$.
+
+**Check:** Notice each letter pair sums to $27$: $1+26=27$, $2+25=27$, $4+23=27$, $7+20=27$, and $11+16=27$.
+:::
+
 ## Traps to Watch For
 
-### #1: Splitting by Value Instead of Position
-
-> Odd and even positions are different from odd and even numbers.
-
-In $2,9,4,12,6,15,\ldots$, the odd-position list is $2,4,6$. Grouping the odd values together would give the wrong lists. Label positions before splitting.
-
-### #2: Repeating the Wrong Operation
-
-> An alternating rule needs the correct next move.
-
-After a multiplication step, the cycle may call for addition. Repeating the last operation in Example #8 would give $72$. Track the full cycle before continuing.
+:::checklist
+- Interleaved sequence: check whether the missing position is odd or even before picking a track, so position $7$ of $1, 10, 3, 8, 5, 6$ gives $7$, not $4$. {#wrong-position-track}
+- Alternating cycle: check which step came last instead of repeating it, so $+3, -1$ after $11$ gives $10$, not $14$. {#repeat-wrong-step}
+- Two-operation rule: apply both operations in order at the final step, so $47\times2+1=95$, not $94$. {#drop-second-operation}
+:::
