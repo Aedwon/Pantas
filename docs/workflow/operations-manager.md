@@ -58,8 +58,8 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 
 ## Lanes (current as of November 27, 4:15 PM Manila)
 
-Manager: `c517ddef-dfdb-4aa6-9f0a-401e7c34873d` ("Operations Manager Handoff", opened by Aedwon Nov 27 1:28 PM). It took over because every heartbeat of the previous manager timed out from 6:33 AM to 1:17 PM Nov 27, so the 6:45 AM lesson lead restart never ran. The 8 future bound schedules were rebound to it; the Fri 7:00 PM r10 restart now names it as the report target.
-Old managers, retired (do not message): `mcp:launch:aec6f0b94357a6bdd55f540c8424f611aeda70dba0b2000f468126a93604918c`, `mcp:launch:00976645432b2f793e42bfeeea73583c727484762376837beea722b8a3c65b8d`, `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926`.
+Manager: `mcp:61bb1f57-51d4-46fa-a3a3-b4e0e667778b` ("Operations Manager (Nov 28 afternoon)"). It took over Nov 28 about 2:15 PM Manila from `docs/superpowers/handoffs/2026-11-28-operations-manager-afternoon.md`, because the previous manager's context was nearly full. Every future bound schedule was rebound to it.
+Old managers, retired (do not message): `c517ddef-dfdb-4aa6-9f0a-401e7c34873d` ("Operations Manager Handoff", retired Nov 28 for length), `mcp:launch:aec6f0b94357a6bdd55f540c8424f611aeda70dba0b2000f468126a93604918c`, `mcp:launch:00976645432b2f793e42bfeeea73583c727484762376837beea722b8a3c65b8d`, `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926`.
 Active: CSE release lead r9 (same thread), integrator, service worker fix, P12 loop runs, payment PR merges, then the opening ship `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
 UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (idle; guided first run handed to the release lead Nov 26);
 security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (alert email confirmed 1:22 AM; live PayMongo key Nov 26 9 AM, first real payment).
