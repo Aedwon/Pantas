@@ -145,8 +145,8 @@ void main() {
                 child: WebShellFrame(
                   activeIndex: 3,
                   person: 'Student',
-                  exam: 'CSE Subprofessional',
                   plan: 'Free',
+                  onAccount: () {},
                   web: true,
                   onNavigate: (_) {},
                   onSearch: () {},

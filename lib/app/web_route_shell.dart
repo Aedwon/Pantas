@@ -99,20 +99,29 @@ class _WebRouteShellState extends ConsumerState<WebRouteShell> {
       context.go(tabs[index]);
     }
 
+    // The name row opens Account inside the tab shell, as the Settings list
+    // does, so Settings stays highlighted.
+    void openAccount() {
+      ref.read(telemetryProvider).log(
+        TelemetryEvent.tabOpened,
+        properties: {'tab': tabs[3].substring(1)},
+      );
+      context.go('/settings/account');
+    }
+
     final person = ref.watch(userSettingsProvider).valueOrNull?.name ?? '';
-    final exam = ref.watch(activeExamShortNameProvider);
     // While coverage is unknown the plan is not named: Free would be a guess.
     final pro = ref.watch(proForActiveExamProvider).valueOrNull;
     return WebShellFrame(
       web: context.webPlatform,
       activeIndex: activeIndex,
       person: person,
-      exam: exam,
       plan: switch (pro) {
         null => '',
         true => 'Pro',
         false => 'Free',
       },
+      onAccount: openAccount,
       onSearch: () => showWebLessonSearch(context),
       onNavigate: navigate,
       child: child,

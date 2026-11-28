@@ -20,8 +20,8 @@ Future<void> pumpShell(WidgetTester tester) async {
         web: true,
         activeIndex: 0,
         person: 'Aedwon',
-        exam: 'CSE',
         plan: 'Free',
+        onAccount: () {},
         onNavigate: (_) {},
         onSearch: () {},
         child: Navigator(

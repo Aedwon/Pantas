@@ -187,8 +187,8 @@ Widget inShell(Widget page, double width, ShellTab tab) => width >= 1024
         body: WebShellFrame(
           activeIndex: tab.index,
           person: 'Student',
-          exam: 'CSE',
           plan: 'Free',
+          onAccount: () {},
           web: true,
           onNavigate: (_) {},
           onSearch: () {},

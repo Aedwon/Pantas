@@ -5,7 +5,8 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/shell/presentation/web_shell.dart';
 
-const _sidebar = ['Search lessons', 'Home', 'Study', 'Quiz', 'Settings'];
+/// The account row is last; its first text is the avatar initial of "Aerol".
+const _sidebar = ['Search lessons', 'Home', 'Study', 'Quiz', 'Settings', 'A'];
 
 /// The whole Tab cycle, in the router the app uses (6T-2). A test that stopped
 /// after the sidebar's second stop, with the page not behind a Navigator's
@@ -44,8 +45,8 @@ void main() {
               web: true,
               activeIndex: shell.currentIndex,
               person: 'Aerol',
-              exam: 'CSE Pro',
               plan: 'Pro',
+              onAccount: () {},
               onNavigate: shell.goBranch,
               onSearch: () {},
               child: shell,
@@ -117,7 +118,7 @@ void main() {
   testWidgets('Tab goes through the sidebar, then the page, then around',
       (tester) async {
     await mount(tester);
-    expect(await tabs(tester, 7), [..._sidebar, 'Page one', 'Page two']);
+    expect(await tabs(tester, 8), [..._sidebar, 'Page one', 'Page two']);
     expect((await tabs(tester, 1)).single, 'Search lessons');
   });
 
@@ -126,7 +127,7 @@ void main() {
     final shell = await mount(tester);
     shell().goBranch(1);
     await tester.pumpAndSettle();
-    final seen = await tabs(tester, 7);
+    final seen = await tabs(tester, 8);
     expect(seen, containsAllInOrder(['Bare one', 'Bare two']));
     expect(seen, isNot(contains(null)));
     expect(seen, isNot(contains('Page one')));
@@ -147,7 +148,7 @@ void main() {
   testWidgets('Shift+Tab from the page goes back to the sidebar',
       (tester) async {
     await mount(tester);
-    expect((await tabs(tester, 6)).last, 'Page one');
-    expect((await tabs(tester, 1, shift: true)).single, 'Settings');
+    expect((await tabs(tester, 7)).last, 'Page one');
+    expect((await tabs(tester, 1, shift: true)).single, 'A');
   });
 }

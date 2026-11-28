@@ -101,8 +101,8 @@ Widget settingsFramed(Widget page, {required bool web}) => web
     ? WebShellFrame(
         activeIndex: 3,
         person: 'Student',
-        exam: 'CSE Subprofessional',
         plan: 'Free',
+        onAccount: () {},
         web: true,
         onNavigate: (_) {},
         onSearch: () {},
