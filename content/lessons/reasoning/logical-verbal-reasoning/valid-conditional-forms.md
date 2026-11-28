@@ -36,7 +36,7 @@ Why does "not $Q$" force "not $P$"? If $P$ were true, the rule guarantees $Q$ wo
 
 :::pair #real-world-doubt
 Right: "If the pump works under these conditions, it fills the tank; the tank stayed empty; therefore the pump was not working under those conditions" is **Valid: result denied**
-Wrong: call it **Invalid: another cause is possible** because real pumps fail
+Wrong: call it **Invalid: another cause is possible**, imagining a working pump that leaves the tank empty because of a leak
 While testing validity, treat each stated rule as strict. Do not add outside exceptions.
 :::
 
@@ -137,7 +137,7 @@ The answer is **The records are not complete.** Not $Q$ forces not $P$. Nothing 
 
 ## Speed Tricks & Shortcuts
 
-**Follow arrows one way.** Write $P \to Q \to R$. Jump forward from $P$, or backward with "not" from *not $R$*.
+**Follow each rule forward, or work backward by denying its result.** Write $P \to Q \to R$. Jump forward from $P$, or backward from *not $R$*.
 
 ## Traps to Watch For
 

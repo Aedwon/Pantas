@@ -25,7 +25,11 @@ A **truth table** lists every possible combination of truth values for its lette
 - $(F, T)$
 - $(F, F)$
 
-Find the missing pair in this student's list: $(T, T)$, $(F, T)$, $(T, F)$, $(F, T)$. Rows $2$ and $4$ repeat $(F, T)$, so $(F, F)$ is missing. Replace either repeated row with $(F, F)$.
+Find the missing pair in this student's list: $(T, T)$, $(F, T)$, $(T, F)$, $(F, T)$.
+
+1. Rows $2$ and $4$ repeat $(F, T)$.
+2. Compare with the $4$ pairs above: $(F, F)$ is missing.
+3. Replace either repeated row with $(F, F)$.
 
 :::pair #missing-table-case
 Right: check that all $4$ distinct pairs $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$ appear once each.
@@ -86,10 +90,10 @@ Build one table that shows $(P \land Q, P \lor Q)$ for all four combinations of 
 1. List the $4$ unique pairs for $(P, Q)$: $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$.
 2. Put both rule results side by side in every row:
 
-- Row $1$: $T \land T = T$ and $T \lor T = T$, so $(T, T)$
-- Row $2$: $T \land F = F$ and $T \lor F = T$, so $(F, T)$
-- Row $3$: $F \land T = F$ and $F \lor T = T$, so $(F, T)$
-- Row $4$: $F \land F = F$ and $F \lor F = F$, so $(F, F)$
+- Row $1$, input $(T, T)$: $T \land T = T$ and $T \lor T = T$, so $(T, T)$
+- Row $2$, input $(T, F)$: $T \land F = F$ and $T \lor F = T$, so $(F, T)$
+- Row $3$, input $(F, T)$: $F \land T = F$ and $F \lor T = T$, so $(F, T)$
+- Row $4$, input $(F, F)$: $F \land F = F$ and $F \lor F = F$, so $(F, F)$
 
 The column of pairs for $(P \land Q, P \lor Q)$ is $(T, T), (F, T), (F, T), (F, F)$.
 
@@ -108,7 +112,7 @@ The statement is true.
 
 ### #3: Unknown Input with Inclusive Or
 
-$Q$ is false and $P$ is not known. Find $P \lor Q$ for each possible value of $P$.
+$Q$ is false and $P$ is not known. Find $P \lor Q$ for each possible value of $P$, then say how the result compares with $P$.
 
 **Solution:**
 
@@ -130,6 +134,6 @@ With **and**, one $F$ settles the answer as $F$ right away. With inclusive **or*
 
 :::checklist
 - A $4$-row table: each pair $(T, T)$, $(T, F)$, $(F, T)$, $(F, F)$ appears once. {#missing-table-case}
-- One true input in an **and**: still $F$, since $T \land F = F$. {#one-true-for-and}
+- Exactly one true input in an **and**: the other input is false, so the result is $F$, since $T \land F = F$. {#one-true-for-and}
 - Two true inputs in an inclusive **or**: $T$, since $T \lor T = T$. {#exclusive-or-mistake}
 :::

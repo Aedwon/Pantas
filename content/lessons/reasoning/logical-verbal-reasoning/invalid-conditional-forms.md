@@ -56,7 +56,7 @@ Decide whether "it did not rain" proves the ground is not wet. Rule: "If it rain
 - Verdict: **invalid**.
 
 :::why
-Why does "not $Q \to$ not $P$" work while "not $P \to$ not $Q$" fails? Take the rule "If someone uses door $P$, the entry log lists them." A name missing from the log (not $Q$) means that person did not use door $P$ (not $P$). But someone who skipped door $P$ (not $P$) can still be in the log, because they signed in at another door.
+Why does "not $Q \to$ not $P$" work while "not $P \to$ not $Q$" fails? Take the rule "If someone uses Door A ($P$), the entry log lists them ($Q$)." A name missing from the log (not $Q$) means that person did not use Door A (not $P$). But someone who skipped Door A (not $P$) can still be in the log, because they signed in at another door.
 :::
 
 :::pair #deny-condition-trap

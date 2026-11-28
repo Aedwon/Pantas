@@ -35,7 +35,7 @@ Find what follows from these premises: "All approved reports are signed. Some su
 - Premise $1$: Put *Approved* inside *Signed*.
 - Premise $2$: Mark the overlap of *Submitted* and *Approved*.
 - Because *Approved* sits inside *Signed*, that mark sits inside *Signed*.
-- Forced conclusion: **Some submitted reports are signed.** (Not *all*.)
+- Forced conclusion: **Some submitted reports are signed.** The premises do not tell us whether *all* submitted reports are signed.
 
 :::pair #reverse-all-group
 Right: from "All squares are rectangles," draw *Squares* inside *Rectangles*
@@ -60,7 +60,7 @@ Decide whether this argument is valid: "All dogs are animals. All mammals are an
 
 - Premise $1$: Draw *Dogs* inside *Animals*.
 - Premise $2$: Draw *Mammals* inside *Animals*.
-- Compare: both circles sit inside *Animals*, so the premises do not force *Dogs* inside *Mammals*.
+- Counter-picture: put *Dogs* and *Mammals* side by side inside *Animals*. Both premises still hold, but *Dogs* is not inside *Mammals*, so the premises do not force the conclusion.
 - Verdict: **invalid**, even though "all dogs are mammals" is true in real life.
 
 :::why
