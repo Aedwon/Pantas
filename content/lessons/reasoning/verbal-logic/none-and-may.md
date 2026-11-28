@@ -26,7 +26,7 @@ Find what follows from: "No overdue book is on the display shelf. Book 4 is on t
 3. Conclusion: **Book 4 is not overdue.**
 
 :::pair #reverse-none-rule
-Right: from "No unregistered vehicles are allowed inside" and "Vehicle A is inside," conclude **Vehicle A is registered.**
+Right: from "No unregistered vehicles are allowed inside," "Every vehicle inside was admitted in full compliance," and "Vehicle A is inside," conclude **Vehicle A is registered.**
 Wrong: Every registered vehicle is inside the compound.
 Being allowed inside does not mean every registered vehicle entered. *No* keeps two groups apart without filling one group with everything eligible.
 :::
@@ -49,7 +49,7 @@ Only the observers who serve as judges are known to be off the speakers' list. N
 
 ### Keeping "May" as Possibility
 
-In these questions, **may** means *possible*, not permission. It neither guarantees nor rules out an outcome. When its condition is absent, the sentence promises nothing.
+In a sentence like "X may happen if Y," **may** means *possible*, not permission. It neither guarantees nor rules out the outcome.
 
 Find what follows from: "The shop may close early if the power goes out."
 
@@ -72,7 +72,7 @@ A notice says, "The picnic may move to the hall if it rains." It does not rain. 
 
 (C) The notice makes no promise about the place.
 :::answer
-The answer is **(C)**. *May* promises nothing when its condition is absent. (A) and (B) each add a promise the notice never makes.
+The answer is **(C)**. The notice speaks only about what may happen if it rains. With no rain, it says nothing about the place. (A) and (B) each add a promise the notice never makes.
 :::
 
 ## Examples
