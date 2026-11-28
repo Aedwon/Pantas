@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Workers broke the shell rule again because the lead's own worktree had no hook (Nov 28)
+
+- Words: none from Aedwon; found by the CSE release lead r11. Repeat of "Manager ran build and content workers from its own thread (Nov 26)", whose fix was the `refuse_shell_writes.py` hook.
+- Wrong: three Sonnet workers of the service worker lane used `sed -i` and heredocs on Nov 28 (each disclosed it), against their briefs and the hook's rule. None waited on an approval prompt here, but the same commands prompted him on Nov 26.
+- Why it got through: Claude Code loads hooks from the session's project folder, and subagents inherit the lead's session. The r11 lead runs in `qa-cse-content-fixes-r1-e2be285e666bb7e9`, detached at 2c9cf8a87 (Nov 25), which has no `.claude/hooks/`. The workers worked in `cse-sw`, which has the hook, but their commands were never checked. The Nov 26 note "a worktree gets the hook once its branch contains this main commit" covered the worker's folder, not the lead's.
+- Fix (required step, manager and every lead): a lead thread is launched in a worktree whose branch contains main's `.claude/settings.json` and `.claude/hooks/` (a fresh worktree from current main). At startup a lead checks `ls .claude/hooks/refuse_shell_writes.py` in its own working folder; if it is missing, it says so to the manager, and until a relaunch every worker brief repeats the shell rule and the lead reads each worker's disclosed slips. Applied now: r11 reported it; its next restart starts from main.
+
 ### Leads kept reporting to the retired manager after a takeover (Nov 28)
 
 - His words (about 2:35 PM Manila Nov 28): "why are leads still talking to that other settled operations manager thread can you stop it and have them report to you".
