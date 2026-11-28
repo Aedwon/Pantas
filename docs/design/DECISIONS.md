@@ -282,12 +282,18 @@ Direction B "Clarity": Apple principles, no liquid glass. Geist everywhere; Sour
 - Home lists truncate long lesson titles to one line with "…", like every other list.
 - Signing in later from Settings starts on the approved signed-out Account screen (Continue with Google), then Restoring your progress.
 
-## Full-width toggle drives the two-column reader (Nov 28)
-- Aedwon: "what? that doesn't make sense. the reason we added the 2 column layout was to make the toggle more useful".
-- The full-width toggle shows on every lesson at 1024 and up. On: the two-column layout when the lesson has figures or pictures, else the 800 px column. Off: the 680 px column with figures inline. Default on. A saved choice stays as saved.
-- Default (Aedwon picked B, Nov 28): with no saved choice, on for lessons with figures or pictures, off for text-only lessons; a saved choice wins.
-- There is no left panel to hide: the "In this lesson" outline was removed with the held reader (Nov 24). Under 1024 the phone layout is unchanged.
-- Replaces ruling 4 of `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md` ("Width control: hidden on a lesson with margin figures").
+## Wide reader: Immersion replaces the two-column layout (Nov 29)
+- Aedwon, on staging Nov 28 about 10:15 PM: "this is poorly executed i think. we forced two columns instead of the actual concept of widening screen use. we have to rethink this from the ground up for optimal UX". Picked from the manager's sketches (Immersion or Overview): "okay immersion it is, so things won't be too complicated". Then: "no need to draw me a board just ship it". Values below are the UX lead's (process rule 4), from the standards cited.
+- Full width on, 1024 px and up: one centered column, no side column anywhere. Body text size b = clamp(19, W / 64, 24) px, W the window width. Column width = 36 x b, never wider than W minus 112. That keeps lines at about 68 to 72 characters of Geist.
+- Values: 1024 wide 19 px text, 684 px column; 1280: 20 px, 720; 1440: 22.5 px, 810; 1536 and up: 24 px, 864 (so 1728: 24 px, 864).
+- Every reader type size (title, headings, body, lists, notes, example cards, inline and display math) scales by b / 18 from the toggle-off sizes. Vertical spacing that already follows the lesson text size slider follows this scale too. The slider still multiplies on top, as today.
+- Figures and pictures sit inline right after the block that introduces them, at the full column width, at most 65% of the window height (centered when the height cap applies). The expand button, the full-screen view and the light plate in dark mode stay.
+- Full width off: today's 680 px column with 18 px text and figures inline, unchanged.
+- Default: on for every lesson. A saved choice wins. The default by lesson (on for lessons with figures, off for text-only) is gone.
+- Removed: the two-column held layout (figure column, held figures, the push-off, stacking) and the linked words, which only served the figure column. The section line under the bar stays.
+- Under 1024 px the phone layout is unchanged. Light and dark.
+- Standards: line length 45 to 75 characters, 80 at most (agent-standards long-form-reading READ-MEASURE, READ-MEASURE-WCAG, WCAG 1.4.8); the column set by a character measure, not the window (READ-MEASURE); type that grows with the window between a minimum and a maximum (fluid type, clamp); a figure right after the words that introduce it (READ-FIG-NEAR, Mayer spatial contiguity, instructional-design ID-SPATIAL); reflow under 1024 to the phone layout (READ-REFLOW).
+- Replaces "Full-width toggle drives the two-column reader (Nov 28)" (Aedwon: "what? that doesn't make sense. the reason we added the 2 column layout was to make the toggle more useful"; default B by lesson) and the Nov 23 "4 Held" spec `docs/superpowers/specs/2026-11-23-lesson-reader-full-screen-design.md`. Ruling 4 of `docs/superpowers/decisions/2026-11-17-fable-backlog-rulings.md` stays replaced.
 
 ## CSE Professional weights shown and mock score weighted (Nov 28)
 - Aedwon, on showing the weights: "1. A", and on weighting the mock: "2. yes". Format, set by him: "no not like that, just Analytical Ability (35%)".
