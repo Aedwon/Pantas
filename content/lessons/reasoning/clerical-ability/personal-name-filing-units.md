@@ -100,7 +100,7 @@ Find the filing order of *Cruz, Paolo*, *Cruzado, Ana*, *Cuenco, Luis*, and *Cru
 
 ### #3: Three-Unit Tie-Break
 
-Find the filing order of *Reyes, Ana R.*, *Reyes, Anabel B.*, *Reyes, Alma Z.*, and *Reyes, Ana M.*, sorted by surname, given name, then middle initial.
+Find the filing order of *Reyes, Ana R.*, *Reyes, Anabel B.*, *Reyes, Alma Z.*, and *Reyes, Ana M.*, sorted by surname, given name, then middle initial. A shorter complete unit comes first.
 
 **Solution:**
 

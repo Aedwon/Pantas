@@ -113,6 +113,6 @@ The answer is **Abad, Hugo**, **Dizon, Ian**, **Ong, Ian**, **Dizon, Mara**. *Di
 
 :::checklist
 - A task states a different unit order: file by that order, even if the given name comes first. {#wrong-convention}
-- Surname with particles (*De*, *Del*, *De la*): keep them in the surname unit. {#drop-particle}
+- Surname with particles (*De*, *Del*, *De la*), when the task keeps them in one unit: keep them in the surname unit. {#drop-particle}
 - Spaces ignored to compare: keep the spaces in the written record. {#rewrite-surname}
 :::

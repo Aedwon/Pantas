@@ -21,7 +21,7 @@ A **suffix** follows a name, such as *Jr.*, *Sr.*, *II*, or *III*. A **title** c
 - If a system keeps the suffix as the final unit, compare it after the earlier name units tie. In these questions, *Jr.* and *Sr.* compare alphabetically (*J* before *S*), not by age.
 - If a system ignores titles, drop *Dr.*, *Mr.*, or *Ms.* before sorting.
 
-Find the filing order of *Santos, Leo, Jr.*, *Santos, Leo, Sr.*, and *Santos, Leon, Jr.*, sorted by surname, given name, then suffix alphabetically:
+Find the filing order of *Santos, Leo, Jr.*, *Santos, Leo, Sr.*, and *Santos, Leon, Jr.*, sorted by surname, given name, then suffix alphabetically. A shorter complete name unit comes first:
 
 - Unit $1$ (surname): all three tie on *Santos*.
 - Unit $2$ (given name): *Leo* ends where *Leon* continues, so both *Leo* entries come before *Leon*.

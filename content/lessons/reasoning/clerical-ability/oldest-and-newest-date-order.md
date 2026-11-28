@@ -42,7 +42,7 @@ In these questions, compare complete dates in three steps, from largest calendar
 2. If the years match, compare the **month** (January $= 1$ through December $= 12$).
 3. Compare the **day** only when both the year and the month match.
 
-Records that show only a month and year, such as "May $2025$," cannot be ordered against each other until their day dates are known. If a registry names another key first, such as file number, use the date only when that key matches.
+Two records that show the same month and year, such as two "May $2025$" records, cannot be ordered against each other until their day dates are known. If a registry names another key first, such as file number, use the date only when that key matches.
 
 Find the oldest-to-newest order of June $15$, $2025$, July $1$, $2025$, and June $10$, $2025$:
 
