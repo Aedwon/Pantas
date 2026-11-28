@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### A lead drew an option with a middle-dot separator (Nov 28)
+
+- His words: "no not like that, just Analytical Ability (35%)" and "please note to never do that bullet separation. it's an AI pattern i prefer not using".
+- Wrong: the sidebar card UX lead offered the CSE part weight as "Verbal Ability · 30%". The same "·" joins items in about 58 existing app strings and in older approved wording.
+- Why it got through: no rule or check named the pattern, and the codebase and older decisions use it, so it read as house style.
+- Fix: the rule is in `design/system/patterns.md` ("Joining text items") and `docs/design/DECISIONS.md`. A check is due next: `tool/checks/no_middle_dot_separator.dart` fails when a line added since main puts "·" or "•" inside a string literal in `lib/`, with a test on a sample. It ignores existing lines, so the 58 old strings do not trip it. It is queued for the next worker run, the sidebar card build (manager's go). Until it lands, every UI lead checks its boards, specs and new strings for "·" before handing them over.
+
 ### Workers broke the shell rule again because the lead's own worktree had no hook (Nov 28)
 
 - Words: none from Aedwon; found by the CSE release lead r11. Repeat of "Manager ran build and content workers from its own thread (Nov 26)", whose fix was the `refuse_shell_writes.py` hook.
