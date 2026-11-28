@@ -188,6 +188,9 @@ function registerRoboto(dir) {
 /** True for a reference to a file of this build: not a scheme address, a path from the root or a fragment. */
 export const isLocal = target => target !== '' && !/^([a-z][a-z0-9+.-]*:|\/|#)/i.test(target);
 
+/** The file a slash-first address names (`/a/b.js` gives `a/b.js`), or null: `//host/x` is an outside address. */
+export const rootRelativeName = path => (/^\/(?!\/)/.test(path) ? path.slice(1) : null);
+
 /**
  * Calls `change(reference)` for every reference to a file in a page and puts back what it returns:
  * `src`, `href` and `poster` attributes (any case, any spaces or line breaks around the equals sign,
@@ -310,8 +313,11 @@ export function stamp(dir) {
   const follow = reference => {
     const [, lead, body, tail] = /^(\s*)([\s\S]*?)(\s*)$/.exec(reference);
     const [, path, suffix] = /^([^?#]*)(.*)$/s.exec(body);
+    // A slash-first address would keep pointing at the root after its file moves into the folder.
+    const rooted = rootRelativeName(path);
+    if (rooted !== null && movedSet.has(rooted)) throw new Error(`${PAGE} names /${rooted}, which the stamp moves into ${folder}: write it without the leading slash.`);
     if (!isLocal(path)) return reference;
-    const [, prefix, name] = /^((?:\.\/)*)(.*)$/s.exec(path);
+    const [, prefix, name]= /^((?:\.\/)*)(.*)$/s.exec(path);
     if (movedSet.has(name)) return lead + prefix + folder + name + suffix + tail;
     if (existsSync(join(dir, name)) && statSync(join(dir, name)).isFile()) return reference;
     throw new Error(`${PAGE} names ${name}, which is not in the build.`);

@@ -503,6 +503,20 @@ test('audit 3: a page that still names a moved file at the root, in any spelling
   done(fine);
 });
 
+// Audit 4, Medium: a slash-first address of a file the stamp moved points at the root, where it is not.
+test('audit 4: a page that names a moved file with a leading slash is refused', () => {
+  for (const reference of ['href="/assets/assets/fonts/Geist-Regular.ttf"', 'href = /assets/assets/fonts/Geist-Regular.ttf']) {
+    const build = stamped();
+    edit(build.dir, 'index.html', text => text + `<link rel="preload" ${reference}>`);
+    assert.match(stampProblems(build.dir).join('\n'), /index\.html names \/assets\/assets\/fonts\/Geist-Regular\.ttf, which the stamp moved into b\//, reference);
+    done(build);
+  }
+  const fine = stamped();
+  edit(fine.dir, 'index.html', text => text + '<link href="/manifest.json"><link href="//example.com/a.css"><link href="/b/other/gone.css">');
+  assert.deepEqual(stampProblems(fine.dir).filter(problem => /names/.test(problem)), []);
+  done(fine);
+});
+
 test('a worker whose list does not match its own hash, or a second build folder, is refused', () => {
   const build = stamped();
   edit(build.dir, 'pantas_sw.js', text => text.replace(/"list":"[0-9a-f]{12}"/, '"list":"000000000000"'));

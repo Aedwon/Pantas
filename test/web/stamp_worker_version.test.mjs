@@ -270,6 +270,23 @@ test('audit 3: an unresolved reference in any spelling is refused, by name', () 
   }
 });
 
+// Audit 4, Medium: the stamp moves a file into the build folder, and a reference that starts with a
+// slash would keep pointing at the root, where the file no longer is. It is refused, in any spelling.
+test('audit 4: a root-relative reference to a file the stamp moves is refused, by name', () => {
+  for (const html of [
+    '<script src="flutter_bootstrap.js"></script><link rel="preload" href="/assets/assets/fonts/Geist-Regular.ttf">',
+    '<script src="flutter_bootstrap.js"></script><link rel="preload" href = /assets/assets/fonts/Geist-Regular.ttf>',
+    '<script src="flutter_bootstrap.js"></script><style>@font-face { src: url(/assets/assets/fonts/Geist-Regular.ttf) }</style>',
+  ]) {
+    assert.throws(() => stamp(pageWith(html)), /index\.html names \/assets\/assets\/fonts\/Geist-Regular\.ttf, which the stamp moves/, html);
+  }
+  // A slash-first address of something that stays at the root, or an outside address, is left alone.
+  const dir = pageWith('<script src="flutter_bootstrap.js"></script><link href="/manifest.json"><link href="//example.com/a.css">');
+  writeFileSync(join(dir, 'manifest.json'), '{}');
+  stamp(dir);
+  assert.match(read(dir, 'index.html'), /href="\/manifest\.json"><link href="\/\/example\.com\/a\.css"/);
+});
+
 // E-210: the engine fetches this Roboto file from fonts.gstatic.com at every start, unless the font
 // manifest already has a Roboto family. web/fonts holds the same bytes; the stamp registers them.
 const ROBOTO = 'fonts/roboto/v32/KFOmCnqEu92Fr1Me4GZLCzYlKw.woff2';

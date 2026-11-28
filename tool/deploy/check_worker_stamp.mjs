@@ -17,7 +17,7 @@ import {createHash} from 'node:crypto';
 import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
 import {join} from 'node:path';
 import {fileURLToPath} from 'node:url';
-import {buildFolder, FIXED_ADDRESS, fingerprints, isLocal, listHash, mapReferences, recomputedVersion, ROBOTO, workerBuild} from '../web/stamp_worker_version.mjs';
+import {buildFolder, FIXED_ADDRESS, fingerprints, isLocal, listHash, mapReferences, recomputedVersion, rootRelativeName, ROBOTO, workerBuild} from '../web/stamp_worker_version.mjs';
 import {importMap, SDK_FILES, SDK_FOLDER, SDK_PATHS} from '../web/firebase_sdk.mjs';
 
 // What the app cannot boot without, inside the build folder.
@@ -132,6 +132,10 @@ export function stampProblems(dir, {pins = PINNED_ROOT_FILES, target = null} = {
       const [, , body] = /^(\s*)([\s\S]*?)\s*$/.exec(reference);
       const path = /^([^?#]*)/.exec(body)[1];
       const name = path.replace(/^(\.\/)+/, '');
+      const rooted = rootRelativeName(path);
+      if (rooted !== null && !existsSync(join(dir, rooted)) && existsSync(join(dir, build.base, rooted))) {
+        problems.push(`index.html names /${rooted}, which the stamp moved into ${build.base}: the page would look for it at the root`);
+      }
       if (isLocal(path) && !(existsSync(join(dir, name)) && statSync(join(dir, name)).isFile())) {
         problems.push(`index.html names ${name}, which is not in the build`);
       }
