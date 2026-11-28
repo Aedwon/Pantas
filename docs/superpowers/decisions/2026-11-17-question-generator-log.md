@@ -667,3 +667,25 @@ No change to the 28 approved types now.
 ## November 18, 2026: app fields for figure choices
 
 Figure answer choices spec approved by Aedwon (Minimal), on spec/figure-answer-choices. Agreed interface with its UI lead: Choice.figureJson (String?, one item map, null = text choice), Question.choiceKind (text | figure, default text), Question.showQuestionFigure (bool, default true). Parent figure kind comes from the question figureSpec.kind. The UI lead adds the fields with defaults, codegen and JSON mapping (their build ships first) and sends the commit; Phase 2 Task 2.2 fills them from the variant documents and adds no competing fields. Type files gain a question-figure flag (false only for converted positional types, Task 2.9).
+
+## November 28, 2026: resume, held-types review, Phase 1 to main
+
+Aedwon, verbatim (Nov 28, about 2:10 PM Manila, relayed by the operations manager): "resume now" for PSHS-NCE. His "obviously i want you to slow down" holds: at most 1 Claude worker in this lane, Codex one run at a time across lanes, account b only. Fresh lead session (Opus 5.5). Policy read at `origin/main` 3ce9b32ca. Velocity E-213 (this session) and E-214 (Phase 2), on main at fa2d2979d.
+
+Held-types fix stage (`54bb472ce`, pushed unreviewed at the Nov 22 pause), checked by the lead:
+
+- `flutter test test/tool/generator`: 291 passed, 10 skipped. `flutter analyze tool/generator test/tool/generator`: no issues. `dart format`: 0 changed. `dart run tool/checks/run_checks.dart`: all 15 OK. Attribution: OK.
+- Checker against the live content root `content/cse-math-qfix-2b-r2` 34f3c7e24 (its abstract reasoning folder equals d97de9415): exit 0. The held matrix list, checked as if active: exit 0.
+- Blind solve 9 (Sonnet 5.5, a different vendor from the Codex author, sheet only): 5 of 5 on matrix-ray-intersection indexes 0, 43, 46, 84, 93.
+- Codex GPT 6.2 Sol high audit (`audit-h2.md`, the type's read after the resume): FAIL. Six Blockers: further equally simple rules (middle-cell directional extreme, longest or shortest drawn ray, tied directional winners, mirror match, diagonal closeness) select an offered wrong choice, including at live index 0. It confirmed: painter geometry matches both tool formulas at all 40 shape and angle pairs; generator and checker share no solver code; no active type file or list changed; the accumulate-fill change touches no active type.
+
+Lead rulings (manager accepted, Nov 28):
+
+1. matrix-ray-intersection stays held this cycle. Every read since Nov 17 has found another competing rule; under the loop cap it gets no further fix round. Live figure-matrices 0009 stays a single. The audit's finding that 0009 itself admits a second rule goes to the content lane when it resumes.
+2. series-fill-ray-dots stays held. Its index 0 must equal live figure-series 0018, whose "full" distractor is not the literal sum (three-quarters plus one-half) the new rule computes. A capped sum would reproduce it; not worth another round for one question.
+3. The held2 library and checker changes merge. They only add rules, and all 28 active types pass with them. The audit's "code FAIL" is the checker's incompleteness for the held type, which stays held.
+4. Root files `FINDINGS.md` (a duplicate) and `FINDINGS-held2.md` move into the verification folder as `held2-findings.md`.
+
+Phase 1 ships 28 approved types (2,094 variants). Merging it to main changes nothing for students: no app code, the exporter does not read `content/types/` until Phase 2, and main is not the served content root. It adds the generator checker and the type approval gate to CI on main.
+
+D-P1 (manager ruling under rule 4, Nov 28): types take exam tags at export from their sources' current file tags, plus `pshs-nce` for the 8 lessons that have PSHS-NCE questions, for practice and review. Reserved: the PSHS-NCE mock. Four-choice types stay out of the PSHS-NCE mock and do not count toward the content plan's "+90 abstract" pool until the PSHS-NCE content lane confirms the exam format and pool count, decided before Phase 3. Option B (a fifth choice per type) stays the fallback. Recorded in the Phase 2 plan, section 4.

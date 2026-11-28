@@ -1,0 +1,5 @@
+qt-spatial-abstract-reasoning-matrix-ray-intersection#0 A
+qt-spatial-abstract-reasoning-matrix-ray-intersection#43 A
+qt-spatial-abstract-reasoning-matrix-ray-intersection#46 A
+qt-spatial-abstract-reasoning-matrix-ray-intersection#84 D
+qt-spatial-abstract-reasoning-matrix-ray-intersection#93 B
