@@ -85,51 +85,73 @@ await scenario('B to A rollback to today\'s worker never mixes, online and offli
   oneBuild(await offline(page, 'rollback', undefined), 'rollback offline');
 });
 
-await scenario('B to C to B with the new worker never mixes, online and offline', async context => {
-  const page = await context.newPage();
+// Asks the browser to look for a newer worker, and waits until one is installed and waiting.
+const lookUntilWaiting = page => waitFor(async () => {
+  await page.evaluate(async () => {
+    const registration = await navigator.serviceWorker.getRegistration();
+    if (registration) await registration.update().catch(() => null);
+  });
+  return (await workerState(page)).waiting;
+}, 'a waiting worker', {timeout: 40000, every: 500});
+
+// Every tab closes, so the browser activates the waiting worker by itself. Returns the new tab,
+// on the new build.
+async function allTabsClosed(context, page, label, expected) {
+  await page.close();
+  const fresh = await context.newPage();
+  const booted = await waitFor(async () => {
+    const log = await open(fresh, base, label, {reload: fresh.url() !== 'about:blank'});
+    return log.booted && log.builds[0] === expected ? log : null;
+  }, `${label}: a new tab to boot ${expected}`, {timeout: 30000, every: 1500});
+  oneBuild(booted, label, expected);
+  return fresh;
+}
+
+await scenario('B to C to B with the new worker never mixes, online and offline; a reload never updates', async context => {
+  let page = await context.newPage();
   await visit(page, 'B', 'B');
   state.build = 'C';
-  // C is installed and waits: the page still boots B, or has already swapped to C.
-  oneBuild(await open(page, base, 'C deployed', {reload: true}), 'C deployed');
-  await hasWaiting(page).catch(() => {});
-  // With C waiting, the next load swaps to it before Flutter starts, once.
-  await pause(500);
-  await reload(page, 'C after its worker took over', 'C');
+  // C installs and waits: the page keeps booting B, however often it reloads.
+  await lookUntilWaiting(page);
+  await reload(page, 'C waiting, reload', 'B');
+  await reload(page, 'C waiting, reload again', 'B');
+  assert.equal((await workerState(page)).waiting, true, 'C still waits after reloads');
+  await offline(page, 'B with C waiting', 'B');
+  // No tab open: the browser activates C, which sweeps B.
+  page = await allTabsClosed(context, page, 'C after every tab closed', 'C');
   await offline(page, 'C', 'C');
+  assert.deepEqual((await workerState(page)).caches, [`pantas-build-${t.constant('C').id}-${t.constant('C').list}`], 'only C\'s cache remains');
   state.build = 'B';
-  oneBuild(await open(page, base, 'rollback to B', {reload: true}), 'rollback to B');
-  await hasWaiting(page).catch(() => {});
-  await pause(500);
-  await reload(page, 'B after its worker took over again', 'B');
+  await lookUntilWaiting(page);
+  await reload(page, 'rollback to B waiting, reload', 'C');
+  page = await allTabsClosed(context, page, 'B after every tab closed', 'B');
   await offline(page, 'B again', 'B');
 });
 
 await scenario('B to A-new rollback with the new worker', async context => {
-  const page = await context.newPage();
+  let page = await context.newPage();
   await visit(page, 'B', 'B');
   state.build = 'A-new';
-  oneBuild(await open(page, base, 'A deployed', {reload: true}), 'A deployed');
-  await hasWaiting(page).catch(() => {});
-  await pause(500);
-  await reload(page, 'A after its worker took over', 'A');
+  await lookUntilWaiting(page);
+  await reload(page, 'A deployed, waiting, reload', 'B');
+  page = await allTabsClosed(context, page, 'A after every tab closed', 'A');
   await offline(page, 'A', 'A');
 });
 
-await scenario('an open page finds the update, and apply takes over into it', async context => {
+await scenario('Update Required: updateNow takes over into the waiting build and the page boots it', async context => {
   const page = await context.newPage();
   await visit(page, 'B', 'B');
   state.build = 'C';
-  // The browser is asked to look; the update shows only once C verified its whole build.
-  const found = await waitFor(async () => {
-    const status = await page.evaluate(() => window.pantasUpdate.check().then(result => ({...result})));
-    return status.available ? status : null;
-  }, 'the update to be ready', {timeout: 40000, every: 500});
-  assert.equal(found.available, true);
-  assert.ok(found.version.includes('C') || found.version.length > 0);
+  await lookUntilWaiting(page);
   assert.equal(await page.evaluate(() => window.__boot.some(entry => entry.startsWith('C:'))), false, 'the open page still runs B');
-  await page.evaluate(() => window.pantasUpdate.apply());
-  await page.waitForLoadState('load');
-  oneBuild(await bootOf(page), 'after apply', 'C');
+  await page.evaluate(() => { window.pantasPwa.updateNow(); });
+  const swapped = await waitFor(async () => {
+    const log = await bootOf(page, {timeout: 500});
+    return log.booted && log.builds[0] === 'C' ? log : null;
+  }, 'the page to boot C', {timeout: 20000});
+  oneBuild(swapped, 'after updateNow', 'C');
+  // The takeover deleted nothing: B's cache stays until the next natural activation.
+  assert.ok((await workerState(page)).caches.length >= 2);
 });
 
 await t.finish();

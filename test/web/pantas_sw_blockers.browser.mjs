@@ -6,8 +6,8 @@
 //
 //   PW_MODULE=/path/to/node_modules/playwright node test/web/pantas_sw_blockers.browser.mjs
 //
-// Blocker 1: a window that runs B stays on B while C installs, even offline, and a
-// second window keeps C from taking over.
+// Blocker 1: a window that runs B stays on B while C installs, even offline; C waits,
+// a reload does not move the window to C, and C takes over only when no tab is open.
 // Blocker 2: today's production worker, with its own helper and bootstrap, warmed;
 // B's install held back past ten seconds; the network cut before, during and after
 // the takeover and on a navigation slower than four seconds. Every load is all A,
@@ -20,6 +20,11 @@ import {
 const t = await start({'A-prod': ['A', {prod: true}], B: ['B'], C: ['C']});
 const {base, state, scenario} = t;
 const cacheFor = name => `pantas-build-${t.constant(name).id}-${t.constant(name).list}`;
+// Asks the browser to look for a newer worker (the page no longer does it on a timer).
+const lookForUpdate = page => page.evaluate(async () => {
+  const registration = await navigator.serviceWorker.getRegistration();
+  return registration ? registration.update().then(() => true, () => false) : false;
+});
 
 async function visit(page, name, expected) {
   state.build = name;
@@ -35,16 +40,15 @@ async function visit(page, name, expected) {
 
 // ---- Blocker 1 -----------------------------------------------------------------
 
-await scenario('Blocker 1: a held-open B tab stays on B while C installs, offline included; a second tab stops apply', async context => {
+await scenario('Blocker 1: a held-open B tab stays on B while C installs, offline included; a reload and a second tab change nothing; with no tab open C takes over and sweeps', async context => {
   const page = await context.newPage();
   await visit(page, 'B', 'B');
   await page.evaluate(() => { window.__stay = true; });
   const folder = t.constant('B').base;
   state.build = 'C';
   // Ask the browser to look for C, and wait until C has installed and is waiting.
-  await page.evaluate(() => window.pantasUpdate.check().catch(() => null));
   await waitFor(async () => {
-    await page.evaluate(() => window.pantasUpdate.check().catch(() => null));
+    await lookForUpdate(page);
     return (await workerState(page)).waiting;
   }, 'C installed and waiting', {timeout: 40000, every: 500});
   const during = await workerState(page);
@@ -60,33 +64,32 @@ await scenario('Blocker 1: a held-open B tab stays on B while C installs, offlin
   assert.equal(await page.evaluate(() => window.__stay), true, 'the page was not reloaded');
   assert.equal((await workerState(page)).waiting, true, 'C is still waiting: it did not take over by itself');
 
-  // A second window: apply must not let C take over while B runs in the other one.
+  // A reload alone does not update: the page boots B again, and C keeps waiting.
+  oneBuild(await open(page, base, 'reload with C waiting', {reload: true}), 'reload with C waiting', 'B');
+  assert.equal((await workerState(page)).waiting, true, 'C is still waiting after a reload');
+  // A second window opens on B too.
   const second = await context.newPage();
   oneBuild(await open(second, base, 'second tab'), 'second tab', 'B');
-  await page.evaluate(() => window.pantasUpdate.apply());
-  await pause(2500);
-  const afterApply = await workerState(page);
-  assert.equal(afterApply.waiting, true, 'C is still waiting after apply with two windows');
-  assert.ok(afterApply.caches.includes(cacheFor('B')), 'B\'s cache was not deleted');
-  assert.equal(await page.evaluate(() => window.__stay), true, 'the first window was not reloaded');
+  const withTwo = await workerState(page);
+  assert.equal(withTwo.waiting, true, 'C is still waiting with two windows');
+  assert.ok(withTwo.caches.includes(cacheFor('B')) && withTwo.caches.includes(cacheFor('C')), `nothing was deleted: ${withTwo.caches}`);
   await coldHttpCache(page); state.down = true;
   assert.match(await page.evaluate(async path => (await fetch(path)).text(), `${folder}main.dart.js_2.part.js`), /@build:B@/);
   state.down = false;
 
-  // With one window left, apply takes over and the page boots C.
+  // Every tab closes: the browser activates C by itself, and that activation sweeps B away.
   await second.close();
-  await pause(500);
-  await page.evaluate(() => window.pantasUpdate.apply());
-  const swapped = await waitFor(async () => {
-    const log = await bootOf(page, {timeout: 500});
+  await page.close();
+  const fresh = await context.newPage();
+  const booted = await waitFor(async () => {
+    const log = await open(fresh, base, 'a new tab after every tab closed', {reload: fresh.url() !== 'about:blank'});
     return log.booted && log.builds[0] === 'C' ? log : null;
-  }, 'the page to boot C', {timeout: 20000});
-  oneBuild(swapped, 'after apply', 'C');
-  // Nothing is deleted when C takes over (fix list item 3; the Node tests show it). The page
-  // registered C under its own address, which installs again and prunes B: C is the build in
-  // charge and no window runs B. Never fewer than C's whole cache.
-  const after = (await workerState(page)).caches;
-  assert.ok(after.includes(cacheFor('C')), `C's cache is kept: ${after}`);
+  }, 'a new tab to boot C', {timeout: 30000, every: 1500});
+  oneBuild(booted, 'after every tab closed', 'C');
+  await waitFor(async () => {
+    const caches = (await workerState(fresh)).caches;
+    return caches.length === 1 && caches[0] === cacheFor('C');
+  }, 'only C\'s cache to remain', {timeout: 20000, every: 500});
 });
 
 // The window that was on B when C took over (fix list items 2 and 3, audit 2 Blocker 1): nothing is
@@ -99,10 +102,10 @@ await scenario('Blocker 1: a B window held open across C\'s activation still loa
   const folder = t.constant('B').base;
   state.build = 'C';
   await waitFor(async () => {
-    await page.evaluate(() => window.pantasUpdate.check().catch(() => null));
+    await lookForUpdate(page);
     return (await workerState(page)).waiting;
   }, 'C installed and waiting', {timeout: 40000, every: 500});
-  // C takes over while the B window stays: the reply is the worker's own "ok".
+  // C takes over while the B window stays (the Update Required request): the reply is the worker's own "ok".
   const reply = await page.evaluate(async () => {
     const registration = await navigator.serviceWorker.getRegistration();
     return new Promise(resolve => {
@@ -111,7 +114,7 @@ await scenario('Blocker 1: a B window held open across C\'s activation still loa
       registration.waiting.postMessage({type: 'pantas-take-over'}, [channel.port2]);
     });
   });
-  assert.equal(reply.ok, true, 'one window: the worker agreed');
+  assert.equal(reply.ok, true, 'the worker agreed');
   await controlledById(page, t.constant('C').id);
   assert.equal(await page.evaluate(() => window.__stay), true, 'the B window was not reloaded');
   const during = (await workerState(page)).caches;
@@ -180,8 +183,8 @@ await scenario('Blocker 2: network cut after the takeover: all B, offline boot w
   oneBuild(await open(page, base, 'B loaded', {reload: true}), 'B loaded', 'B');
   await waitFor(async () => {
     const worker = await workerState(page);
-    // B is in charge once it wrote its note. Today's cache stays, for tabs still on A.
-    return worker.caches.includes(cacheFor('B')) && worker.caches.includes('pantas-meta');
+    // B took over from today's worker: its cache is whole. Today's cache stays, for tabs still on A.
+    return worker.caches.includes(cacheFor('B'));
   }, 'B in charge', {timeout: 30000});
   await pause(500);
   await coldHttpCache(page); state.down = true;
