@@ -21,10 +21,10 @@ An argument uses reasons to back up one central claim. A **premise** is a given 
 
 Find the conclusion of this argument:
 
-"The post office should keep its Saturday counter open. Many customers work weekdays, and the online service cannot take parcels. Closing Saturday would leave them no way to send one."
+"The post office should keep its Saturday counter open. Some workers cannot visit on weekdays, and the online service cannot take parcels. Closing Saturday would leave them no way to send one."
 
 1. Ask what action the writer defends: keeping the Saturday counter open. The conclusion is **"The post office should keep its Saturday counter open."**
-2. Ask why: customers work weekdays, online cannot take parcels, and closing leaves no way to send one. Those are premises.
+2. Ask why: some workers cannot visit on weekdays, online cannot take parcels, and closing leaves no way to send one. Those are premises.
 
 :::pair #premise-as-conclusion
 Right: the conclusion is **The post office should keep its Saturday counter open.**
@@ -34,7 +34,7 @@ A worker's schedule is a premise backing the recommendation, not the claim being
 
 ### Testing Necessary Assumptions by Negation
 
-An **assumption** is an unstated claim the argument relies on. A necessary assumption does not prove the conclusion alone, yet the argument's stated reason breaks without it.
+An **assumption** is an unstated claim the argument relies on. The argument's stated reason breaks without a necessary assumption, though the conclusion may need more.
 
 Use the **negation test**:
 
@@ -57,7 +57,7 @@ Wrong: Replacement lamps will be more energy-efficient.
 Lower energy bills are helpful, yet negating that claim still lets students paint in good light. Reject helpful extras that leave the stated reason working.
 :::
 
-Watch extreme words like *every*, *all*, or *only* when partial help is enough. In "The city should add a bike lane so that fewer people drive at peak hours," some drivers switching to bikes already helps.
+Watch extreme words like *every*, *all*, or *only* when partial help is enough. In "The city should add a bike lane so fewer people drive at peak hours. Drivers can bike instead," some drivers switching already helps.
 
 :::pair #extreme-universal-claim
 Right: the bike-lane argument needs **Some peak-hour drivers will switch to bikes.**
@@ -74,7 +74,7 @@ Negating "every car user stops" gives "not every car user stops," which still le
 
 (C) The ramp will be painted in the school colors.
 :::answer
-The answer is **(B)**. If the door is too narrow, the ramp cannot get wheelchair users in, so the stated reason fails. Negating (A) still lets some pupils use the ramp, and negating (C) leaves entry unchanged.
+The answer is **(B)**. If the door is too narrow, the ramp cannot get wheelchair users in, so the stated reason fails. Negating (A) still lets some wheelchair users use the ramp, and negating (C) leaves entry unchanged.
 :::
 
 ## Examples
@@ -91,20 +91,21 @@ Find the necessary assumption in this argument: "The office should replace its p
 
 **Solution:**
 
-1. Stated reason: lower costs while keeping access for *every* employee.
+1. Conclusion: switch to website notices. Stated reason: lower costs while keeping access for *every* employee.
 2. Negate (A): at least one employee does not prefer screens. That employee can still read notices, so the reason holds.
-3. Negate (B): at least one employee cannot access the website notices. That breaks access for every employee, so **(B)** is necessary.
-4. Negate (C): at least one nearby office does not use website notices. This office is unaffected.
+3. Negate (C): at least one nearby office does not use website notices. This office is unaffected.
+4. Negate (B): at least one employee cannot access the website notices. That breaks access for every employee, so **(B)** is necessary.
 
-### #2: Helpful but Not Necessary
+### #2: A Helpful Tracking System
 
-Decide whether "All employees who finish the training program will receive a promotion" assumes the company uses an electronic system to track completion.
+Does "The company should promote staff who finish the training program, because it makes them better at their jobs" need the assumption that an electronic system tracks completion?
 
 **Solution:**
 
-1. Negate the assumption: the company does not use an electronic system.
-2. Check whether promotions can still work: yes, staff can track completion on paper forms.
-3. The statement still works, so the answer is **no**.
+1. Conclusion: promote staff who finish training. Stated reason: training improves their work.
+2. Negate the assumption: no electronic system tracks completion.
+3. Check the stated reason: paper forms can track completion, and training still improves work.
+4. The reason holds, so the answer is **no**.
 
 ### #3: Checking a Causal Assumption
 

@@ -34,7 +34,7 @@ Why stop at *at least one* instead of pushing to the far extreme? If half the gr
 :::
 
 :::pair #all-to-none-overnegation
-Right: the negation of "No temporary employee has access to the archive" is **At least one temporary employee has access.**
+Right: the negation of "No temporary employee has access to the archive" is **At least one temporary employee has access to the archive.**
 Wrong: Every temporary employee has access to the archive.
 Pushing *no* to *every* goes too far. One temporary employee with access already breaks the rule.
 :::
@@ -65,10 +65,10 @@ Find the negation of: "No parcel held at the sorting desk was marked as delivere
 
 1. Starting group: parcels **held at the sorting desk**.
 2. Forbidden outcome: marked as **delivered**.
-3. Exact negation: **A held parcel was marked as delivered.**
+3. Exact negation: **At least one parcel held at the sorting desk was marked as delivered.**
 
 :::pair #flip-wrong-group
-Right: the negation of "No sample rejected at intake was listed as accepted" is **A rejected sample was listed as accepted.**
+Right: the negation of "No sample rejected at intake was listed as accepted" is **At least one sample rejected at intake was listed as accepted.**
 Wrong: A sample accepted at intake was listed as rejected in the final log.
 Swapping *rejected* and *accepted* checks the wrong starting group.
 :::
@@ -87,9 +87,9 @@ The answer is **(C)**. *Every* negates to *at least one does not* for the same g
 
 ## Examples
 
-### #1: Negating an All Assumption
+### #1: Negating an All Claim
 
-Find the negation of the assumption in this argument: "Every regional office must handle online forms. We can start today because all regional offices can process them."
+Find the negation of the stated premise in this argument: "We can start online forms today, because all regional offices can process them."
 
 (A) No regional office can process online forms.
 
@@ -99,14 +99,14 @@ Find the negation of the assumption in this argument: "Every regional office mus
 
 **Solution:**
 
-1. Spot the quantifier: *all* regional offices can process them.
+1. Conclusion: start today. Premise: *all* regional offices can process them.
 2. Drop (A): *no* goes too far, since one failing office already breaks *all*.
 3. Drop (C): "some can process forms" stays true when all can.
 4. Choose **(B)**: one office unable to process forms breaks *all*.
 
-### #2: Negating a Some Assumption
+### #2: Negating a Some Claim
 
-Find the finding that makes this assumption false. A team assumes, "Some evening-shift staff hold a first-aid certificate."
+A team concludes the evening shift can treat a minor injury, because some evening-shift staff hold a first-aid certificate. Which choice is the exact negation of that reason?
 
 (A) Not every evening-shift staff member holds a certificate.
 
@@ -123,7 +123,7 @@ Find the finding that makes this assumption false. A team assumes, "Some evening
 
 ### #3: Negating a Combined Rule
 
-Find the exact negation (just enough to make the claim false). A teacher assumes every pupil who joined the field trip handed in at least one signed slip.
+A teacher concludes the paperwork is complete, because every pupil who joined the field trip handed in at least one signed slip. Find the exact negation of that reason.
 
 (A) No pupil who joined the field trip handed in a signed slip.
 
@@ -133,8 +133,8 @@ Find the exact negation (just enough to make the claim false). A teacher assumes
 
 **Solution:**
 
-1. Outer quantifier: *every* pupil who joined the field trip.
-2. Inner claim: *at least one* signed slip.
+1. The claim covers *every* pupil who joined.
+2. Each pupil must have handed in *at least one* signed slip.
 3. Drop (A): it says every pupil failed, but one pupil failing already breaks *every*.
 
 :::try

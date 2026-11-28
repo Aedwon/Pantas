@@ -17,7 +17,7 @@ keyPoints:
 
 ### Reading One-Way Rules and Requirements
 
-**Infer** means draw a conclusion forced by the given premises. **Must be true** means no case can obey every premise while making the conclusion false. Never add outside guesses. This lesson covers one-way rules, *all*, and *some*.
+**Infer** means draw a conclusion from given facts. These questions ask which conclusion **must be true**: no case can obey every premise while making it false. Never add outside guesses. This lesson covers one-way rules, *all*, and *some*.
 
 Watch what a one-way rule states:
 
@@ -28,7 +28,7 @@ Watch what a one-way rule states:
 :::pair #one-requirement-to-all
 Right: from "Passing an ethics exam is one requirement for civil service" and "Maria passed it," conclude **Maria has met the ethics-exam requirement.**
 Wrong: Maria has met every hiring requirement.
-Passing one required exam finishes only that single requirement, not unmentioned hiring steps.
+Passing one required exam proves that requirement. The passage says nothing about other hiring steps.
 :::
 
 ### Reading "All" Without Reversing It
@@ -93,8 +93,8 @@ Find the conclusion that follows. Only science club members may borrow the lab m
 
 **Solution:**
 
-1. Read "only club members": borrower $\to$ club member.
-2. Dina borrowed it within the rule.
+1. Read "only club members may borrow": a borrower with permission must be a club member.
+2. Dina borrowed it within the rule, so she had permission.
 3. Drop (A): permission does not make every member borrow it.
 4. Drop (B): ownership is never stated.
 5. Choose **(C)**: if Dina were not a member, her borrowing would break the rule.
@@ -128,7 +128,7 @@ Find what must also be true. Every book on the cart is labeled. Some books on th
 :::try
 Finish the last step: compare (A) and (C) against the two premises.
 :::answer
-The answer is **(C) Some labeled books are novels.** That novel sits on the cart, so Premise $1$ labels it, giving at least one labeled novel. Choice (A) names novels off the cart, which the premises never mention.
+The answer is **(C) Some labeled books are novels.** Choice (A) names novels off the cart, which the premises never mention. Premise $1$ labels the cart's novel, so some labeled book is a novel.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -138,7 +138,7 @@ The answer is **(C) Some labeled books are novels.** That novel sits on the cart
 ## Traps to Watch For
 
 :::checklist
-- One stated requirement met: conclude only that step, never all requirements. {#one-requirement-to-all}
-- Outside an *all* group (or after the result): leave status undetermined. {#reverse-or-deny-rule}
+- One stated requirement met: that step is proved. Check the passage for the others. {#one-requirement-to-all}
+- Outside an *all* group, or knowing only the result: leave the status or cause open. {#reverse-or-deny-rule}
 - Seeing *some*: read it as *at least one* (allowing *all*), never *some not*. {#some-means-some-not}
 :::

@@ -17,7 +17,7 @@ keyPoints:
 
 ### Applying "No" and "None" to Every Member
 
-**No** and **none** keep two groups apart with zero overlap. **"No $A$ are $B$"** means every $A$ is outside $B$, and every $B$ is outside $A$.
+**No** and **none** keep two groups apart with zero overlap. **"No $A$ are $B$"** means every $A$ is outside $B$, and every $B$ is outside $A$. A *no* statement does not say either group has members.
 
 Find what follows from: "No overdue book is on the display shelf. Book 4 is on the display shelf."
 
@@ -38,7 +38,7 @@ Find what follows from: "No trainee can lock the vault. Some guards are trainees
 3. Conclusion: **Some guards cannot lock the vault.**
 
 :::why
-Why does "No $A$ are $B$" swap cleanly to "No $B$ are $A$" while "All $A$ are $B$" does not? Two separate groups never touch from either side, whereas putting $A$ inside $B$ still leaves space in $B$ outside $A$.
+Why does "No $A$ are $B$" swap cleanly to "No $B$ are $A$" while "All $A$ are $B$" does not? Two separate groups never touch from either side, whereas $B$ could have extra members, so "All $A$ are $B$" leaves the reverse open.
 :::
 
 :::pair #stretch-some-to-none
@@ -93,8 +93,8 @@ Find what changed between two statements. A barangay notice says, "The clinic ma
 
 **Solution:**
 
-1. Event and day stay the same: the clinic opens on Monday.
-2. Certainty changes: *may* (possible) became *will* (certain).
+1. Both statements are about a Monday opening.
+2. The speakers differ: *may* (possible) became *will* (certain).
 3. Change: **The host made the opening sound certain.**
 
 ### #3: A Volunteer List
@@ -118,17 +118,17 @@ Let's test each choice against the two premises:
 :::try
 Finish the last step: compare (B) and (C) against the two premises.
 :::answer
-The answer is **(C) Some volunteers are not under $18$.** A volunteer who drives cannot be a volunteer under $18$. Choice (B) needs at least $1$ volunteer under $18$, and the premises never say one exists.
+The answer is **(C) Some volunteers are not under $18$.** Choice (B) fails if all volunteers are at least $18$. Premise $2$ gives a driver who is a volunteer, and Premise $1$ says that volunteer is not under $18$.
 :::
 
 ## Speed Tricks & Shortcuts
 
-**Test separate groups and possibilities.** For *no*, picture two separate groups. For *may*, replace *may* with *possibly, yet maybe not*.
+**Test separate groups and possibilities.** For *no*, picture two separate groups. When *may* describes a possible outcome, read it as *could happen*.
 
 ## Traps to Watch For
 
 :::checklist
 - "No $A$ are $B$" with a member in $B$: that member is outside $A$, and nothing more. {#reverse-none-rule}
 - "No $A$ are $B$" with "some $C$ are $A$": conclude *some $C$ are not $B$*, not *no $C$ are $B$*. {#stretch-some-to-none}
-- Seeing *may*: keep the outcome possible, not guaranteed. {#may-to-must-certainty}
+- *May* describing a possible outcome: keep it possible, not guaranteed. {#may-to-must-certainty}
 :::
