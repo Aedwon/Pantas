@@ -17,32 +17,26 @@ keyPoints:
 
 ### Reading One-Way Rules and Requirements
 
-**Infer** means draw a conclusion forced by the given premises. **Must be true** means no case can obey every premise while making the conclusion false. Never add outside guesses.
+**Infer** means draw a conclusion forced by the given premises. **Must be true** means no case can obey every premise while making the conclusion false. Never add outside guesses. This lesson covers one-way rules, *all*, and *some*.
 
 Watch what a one-way rule states:
 
-- **One required step:** Passing an ethics exam is *one* required condition, and Maria passed. She met that ethics-exam requirement, not necessarily *every* requirement or final hiring.
-- **Conditional promise:** Promising a bonus to completers does not prove anyone can complete it.
-- **Observed result:** "If heavy rain, move indoors" plus "moved indoors" does not prove heavy rain occurred, since another cause could move it indoors.
+- **One required step:** Passing a driving test is *one* condition for a license, and Lito passed. He met that requirement, not necessarily every one or the license itself.
+- **Conditional promise:** Promising a free gift to buyers who spend over $500$ pesos does not prove anyone spends that much.
+- **Observed result:** "If the road floods, the school closes" plus "the school closed" does not prove the road flooded, since another cause could close it.
 
 :::pair #one-requirement-to-all
-Right: from one required condition met, conclude **Maria has met the ethics-exam requirement.**
+Right: from "Passing an ethics exam is one requirement for civil service" and "Maria passed it," conclude **Maria has met the ethics-exam requirement.**
 Wrong: Maria has met every hiring requirement.
-Passing one required exam finishes only that single requirement, not unmentioned hiring steps. Stick strictly to what the premise covers.
-:::
-
-:::check
-"If the fire alarm sounds, everyone leaves the building. The fire alarm sounded at $10$ a.m." Must everyone have left the building?
-:::answer
-The answer is **yes**. The rule runs from the alarm to leaving, and the alarm did sound, so the result follows.
+Passing one required exam finishes only that single requirement, not unmentioned hiring steps.
 :::
 
 ### Reading "All" Without Reversing It
 
-**All** or **every** applies to $100\%$ of the named group, yet says nothing about anyone outside that group and never runs backward:
+**All** or **every** applies to $100\%$ of the named group. It says nothing about whether someone outside the group has the property, and it does not run backward:
 
-- "All supervisors hold a master's degree" plus "Elena is not a supervisor" leaves Elena's degree status undetermined.
-- Watch exact cutoffs: "above $80\%$" excludes $80\%$ itself and says nothing about $79\%$.
+- "All bus drivers hold a license" plus "Ana is not a bus driver" leaves Ana's license status undetermined.
+- Watch exact cutoffs: "All riders over $60$ ride free" does not cover a $60$-year-old and says nothing about a $59$-year-old.
 
 :::why
 Why does "All $A$ are $B$" tell us nothing outside $A$? Picture $A$ inside a larger group $B$. Someone outside $A$ could sit in the outer part of $B$ or completely outside $B$. Both obey the rule.
@@ -55,9 +49,15 @@ Being outside the supervisor group does not deny the degree. The rule places no 
 :::
 
 :::check
-"All riders aged $12$ and under ride free. Lani is $9$." Must a $12$-year-old rider ride free?
+"All guards at the gate wear a badge. Rico wears a badge." Which statement must be true?
+
+(A) Rico is a guard at the gate.
+
+(B) Rico is not a guard at the gate.
+
+(C) Rico may or may not be a guard at the gate.
 :::answer
-The answer is **yes**. The cutoff words "and under" include $12$ itself, so the rule covers a $12$-year-old.
+The answer is **(C)**. The rule runs from guard to badge, not from badge to guard. A clerk or a visitor could also wear a badge.
 :::
 
 ### Reading "Some" Without Adding Exceptions
@@ -67,11 +67,11 @@ In formal logic, **some** means *at least one*, which allows *all*.
 - **"Some $A$ are $B$"** forces **"Some $B$ are $A$"** (the shared member belongs to both).
 - It **never** forces "Some $A$ are not $B$" or "All $B$ are $A$."
 
-What follows: "Some inspectors are certified auditors."
+Find what follows from: "Some drivers on this route are students."
 
-1. At least $1$ person is both inspector and certified auditor.
-2. That proves **Some auditors are inspectors.**
-3. Every inspector could be an auditor, so "some inspectors are not auditors" is not forced.
+1. At least $1$ person is both a driver on this route and a student.
+2. That person shows **Some students are drivers on this route.**
+3. Every driver could be a student, so "some drivers are not students" is not forced.
 
 :::pair #some-means-some-not
 Right: from "Some inspectors are certified auditors," conclude **Some auditors are inspectors.**
@@ -79,66 +79,56 @@ Wrong: Some inspectors are not auditors.
 Everyday speech hints "only some," yet logic's *some* allows *all*. Never add an unstated exception.
 :::
 
-:::check
-"Every dictionary in the library is a reference book. Some reference books are on the top shelf." Must some dictionaries be on the top shelf?
-:::answer
-The answer is **no**. *Some* means at least one, so the reference books on the top shelf could all be atlases.
-:::
-
 ## Examples
 
 ### #1: Following an "Only" Rule
 
-An agency permits only licensed engineers to approve building plans. Mark approved Project A in full compliance with that rule. Which conclusion follows?
+Find the conclusion that follows. Only science club members may borrow the lab microscope. Dina borrowed it within that rule.
 
-(A) Every licensed engineer approved Project A.
-(B) Mark owns the building in Project A.
-(C) Mark is a licensed engineer.
+(A) Every science club member borrowed the microscope.
+
+(B) Dina owns a microscope.
+
+(C) Dina is a science club member.
 
 **Solution:**
 
-1. Read "only licensed engineers": valid approver $\to$ licensed engineer.
-2. Mark validly approved Project A.
-3. Drop (A): eligibility does not force every other engineer to approve.
-4. Drop (B): ownership is unstated.
-5. Choose **(C)**: Mark must be a licensed engineer.
-
-**Check:** If Mark were not a licensed engineer, his approval would break the compliance premise.
+1. Read "only club members": borrower $\to$ club member.
+2. Dina borrowed it within the rule.
+3. Drop (A): permission does not make every member borrow it.
+4. Drop (B): ownership is never stated.
+5. Choose **(C)**: if Dina were not a member, her borrowing would break the rule.
 
 ### #2: Combining a Cutoff with a Score
 
-Statement: "All candidates who score above $80\%$ pass the exam. Juan scored $85\%$." What is certain?
+Find what is certain. Statement: "All pupils who score at least $75$ earn a certificate. Mia scored $75$."
 
 **Solution:**
 
-1. Rule: score $> 80\% \to$ pass.
-2. Check Juan: $85\% > 80\%$, so Juan meets the cutoff.
-3. Conclusion: **Juan passed the examination.**
-
-**Check:** Plugging Juan's $85\%$ into "score $> 80\% \to$ pass" satisfies the rule directly ($85 > 80$), proving he passed.
+1. Rule: score $\ge 75 \to$ certificate.
+2. Check Mia: $75 \ge 75$, so Mia meets the cutoff.
+3. Conclusion: **Mia earned a certificate.**
 
 ### #3: Combining "Every" and "Some"
 
-Every specimen in an exhibit tray is cataloged. Some specimens in the tray are shells. What must also be true?
+Find what must also be true. Every book on the cart is labeled. Some books on the cart are novels.
 
-(A) Some cataloged shells are not in the exhibit tray.
+(A) Some labeled novels are not on the cart.
 
-(B) At least one specimen in the tray is not a shell.
+(B) At least one book on the cart is not a novel.
 
-(C) Some cataloged specimens are shells.
+(C) Some labeled books are novels.
 
 **Solution:**
 
-1. Premise $1$: every specimen in the tray is cataloged.
-2. Premise $2$: at least $1$ specimen in the tray is a shell.
-3. Drop (B): *some* allows all specimens in the tray to be shells.
+1. Premise $1$: every book on the cart is labeled.
+2. Premise $2$: at least $1$ book on the cart is a novel.
+3. Drop (B): *some* allows every book on the cart to be a novel.
 
 :::try
 Finish the last step: compare (A) and (C) against the two premises.
 :::answer
-The answer is **(C) Some cataloged specimens are shells.** Since that shell sits in the tray, Premise $1$ forces it to be cataloged too, giving at least one cataloged shell. Choice (A) names shells outside the tray, which the premises never mention.
-
-**Check:** Picture a tray holding only cataloged shells, with nothing cataloged elsewhere: both premises hold, (A) and (B) fail, and (C) holds.
+The answer is **(C) Some labeled books are novels.** That novel sits on the cart, so Premise $1$ labels it, giving at least one labeled novel. Choice (A) names novels off the cart, which the premises never mention.
 :::
 
 ## Speed Tricks & Shortcuts

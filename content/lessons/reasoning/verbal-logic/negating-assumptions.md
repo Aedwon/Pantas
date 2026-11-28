@@ -16,21 +16,21 @@ keyPoints:
 
 ### Negating All and No Statements
 
-To **negate** a statement means stating when it is false. Both cannot be true or both false.
+To **negate** a statement means stating exactly when it is false. A statement and its negation are never both true and never both false. This lesson covers statements with *all*, *no*, and *some*.
 
 When a claim uses *all*, *every*, or *no*, one exception breaks it:
 
 - **"All $A$ are $B$"** negates to **"At least one $A$ is not $B$."**
 - **"No $A$ are $B$"** negates to **"At least one $A$ is $B$."**
 
-Negate: "No temporary employee has access to the archive."
+Find the negation of: "Every locker on the second floor is locked."
 
-1. The rule bars every temporary employee.
-2. One with access breaks it.
-3. Exact negation: **At least one temporary employee has access.**
+1. The claim covers every second-floor locker.
+2. One unlocked locker breaks it.
+3. Exact negation: **At least one second-floor locker is not locked.**
 
 :::why
-Why stop at *at least one* instead of pushing *no* all the way to *every*? If half the temporary staff have access and half do not, both "none have access" and "every one has access" are false. *At least one* covers every case where the rule fails.
+Why stop at *at least one* instead of pushing to the far extreme? If half the group passes a test and half fails, both "none passed" and "all passed" are false. *At least one* covers every case where the claim fails.
 :::
 
 :::pair #all-to-none-overnegation
@@ -39,23 +39,17 @@ Wrong: Every temporary employee has access to the archive.
 Pushing *no* to *every* goes too far. One temporary employee with access already breaks the rule.
 :::
 
-:::check
-"Every jar in the exhibit has a readable label." What minimum finding disproves this?
-:::answer
-The answer is **At least one jar does not have a readable label.** An *every* claim fails as soon as one jar fails the test (whether its label is unreadable or missing).
-:::
-
 ### Negating Some Statements
 
 In formal logic, **some** means *at least one* ($1$, several, or even all).
 
 - **"Some $A$ are $B$"** negates to **"No $A$ are $B$."**
 
-Negate: "Some branch offices can verify applications without contacting headquarters."
+Find the negation of: "Some stalls in the market sell eggs."
 
-1. Holds if $1$ or more branch offices can verify.
-2. "Not all" still lets $1$ verify.
-3. Exact negation: **No branch office can do so.**
+1. The claim holds if $1$ or more stalls sell eggs.
+2. "Not all stalls sell eggs" still lets $1$ stall sell eggs, so it does not make the claim false.
+3. Exact negation: **No stall in the market sells eggs.**
 
 :::pair #some-to-not-all
 Right: the negation of "Some branch offices can verify applications without contacting headquarters" is **No branch office can do so.**
@@ -63,21 +57,15 @@ Wrong: **Not all branch offices can do so.** or **Some branch offices cannot do 
 Both wrong moves ("not all" and "some cannot") hold when Office $1$ can verify and Office $2$ cannot, leaving the original ("at least one can") true. Drop the count to zero.
 :::
 
-:::check
-A treasurer assumes, "At least one receipt in the folder lacks a signature." Which finding makes that false?
-:::answer
-The answer is **Every receipt in the folder is signed.** Zero unsigned receipts makes "at least one lacks a signature" false.
-:::
-
 ### Negating with Named Groups
 
 Keep the starting group and property fixed. Never swap sides.
 
-Negate: "No sample rejected at intake was listed as accepted in the final log."
+Find the negation of: "No parcel held at the sorting desk was marked as delivered."
 
-1. Starting group: samples **rejected at intake**.
-2. Forbidden outcome: listed as **accepted** in the final log.
-3. Exact negation: **A rejected sample was listed as accepted.**
+1. Starting group: parcels **held at the sorting desk**.
+2. Forbidden outcome: marked as **delivered**.
+3. Exact negation: **A held parcel was marked as delivered.**
 
 :::pair #flip-wrong-group
 Right: the negation of "No sample rejected at intake was listed as accepted" is **A rejected sample was listed as accepted.**
@@ -101,7 +89,7 @@ The answer is **(C)**. *Every* negates to *at least one does not* for the same g
 
 ### #1: Negating an All Assumption
 
-Argument: "Every regional office must handle online forms. We can start today because all regional offices can process them." Which statement negates that assumption?
+Find the negation of the assumption in this argument: "Every regional office must handle online forms. We can start today because all regional offices can process them."
 
 (A) No regional office can process online forms.
 
@@ -111,16 +99,14 @@ Argument: "Every regional office must handle online forms. We can start today be
 
 **Solution:**
 
-1. Spot the quantifier: *all* regional offices.
-2. Drop (A): *no* goes too far when part fails.
-3. Drop (C): *some* holds alongside *all*.
+1. Spot the quantifier: *all* regional offices can process them.
+2. Drop (A): *no* goes too far, since one failing office already breaks *all*.
+3. Drop (C): "some can process forms" stays true when all can.
 4. Choose **(B)**: one office unable to process forms breaks *all*.
-
-**Check:** Under (B), that office cannot handle its own forms today, so the reason for starting today fails.
 
 ### #2: Negating a Some Assumption
 
-A team assumes, "Some evening-shift staff hold a first-aid certificate." Which finding makes that false?
+Find the finding that makes this assumption false. A team assumes, "Some evening-shift staff hold a first-aid certificate."
 
 (A) Not every evening-shift staff member holds a certificate.
 
@@ -135,40 +121,36 @@ A team assumes, "Some evening-shift staff hold a first-aid certificate." Which f
 3. Drop (B): day-shift staff is the wrong group.
 4. Choose **(C)**: zero certified evening staff breaks *some*.
 
-**Check:** Choice (C) keeps the exact group (*evening-shift staff*) and drops the count to zero.
-
 ### #3: Negating a Combined Rule
 
-A records officer assumes every form returned by a class adviser contained at least one parent signature. Which finding is the exact logical negation of that assumption (just enough to make it false)?
+Find the exact negation (just enough to make the claim false). A teacher assumes every pupil who joined the field trip handed in at least one signed slip.
 
-(A) A parent left some returned forms unsigned even though another parent signed each one.
+(A) No pupil who joined the field trip handed in a signed slip.
 
-(B) An adviser returned a form with only one parent signature.
+(B) A pupil who joined the field trip handed in only one signed slip.
 
-(C) An adviser returned a form with no parent signature.
+(C) A pupil who joined the field trip handed in no signed slip.
 
 **Solution:**
 
-1. Outer quantifier: *every* form returned by a class adviser.
-2. Ask what one finding would make that *every* claim false.
-3. Drop (A): another parent still signed each form.
+1. Outer quantifier: *every* pupil who joined the field trip.
+2. Inner claim: *at least one* signed slip.
+3. Drop (A): it says every pupil failed, but one pupil failing already breaks *every*.
 
 :::try
 Finish the last step: compare (B) and (C) to pick the exact negation.
 :::answer
-The answer is **(C) An adviser returned a form with no parent signature.** Negating "at least one signature" on one returned form gives zero parent signatures on that form. Choice (B) shows a form with one signature, which still meets "at least one."
-
-**Check:** One form from the named group ("returned by a class adviser") with zero parent signatures breaks the *every* rule.
+The answer is **(C) A pupil who joined the field trip handed in no signed slip.** Negating "at least one signed slip" for one pupil gives zero signed slips for that pupil. Choice (B) shows a pupil with one signed slip, which still meets "at least one."
 :::
 
 ## Speed Tricks & Shortcuts
 
-**Pair opposites.** *All* pairs with *at least one not*; *no* pairs with *at least one*. Never jump between *all* and *no*.
+**Pair opposites.** *All* pairs with *at least one not*; *no* pairs with *at least one*; *some* pairs with *none*. Never jump between *all* and *no*.
 
 ## Traps to Watch For
 
 :::checklist
-- Negating *all* or *no*: stop at one exception (*at least one*) instead of jumping to the far extreme. {#all-to-none-overnegation}
-- Negating *some*: drop the count to zero (*no*), never *not all*. {#some-to-not-all}
-- Subject group and property: keep both fixed without swapping sides. {#flip-wrong-group}
+- Negating *all* or *no*: stop at one exception (*at least one*), not the far extreme. {#all-to-none-overnegation}
+- Negating *some*: drop the count to zero (*no*), not *not all*. {#some-to-not-all}
+- Subject group and property: keep both fixed, no swapping sides. {#flip-wrong-group}
 :::

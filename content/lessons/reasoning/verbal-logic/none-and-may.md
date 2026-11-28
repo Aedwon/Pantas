@@ -19,11 +19,11 @@ keyPoints:
 
 **No** and **none** keep two groups apart with zero overlap. **"No $A$ are $B$"** means every $A$ is outside $B$, and every $B$ is outside $A$.
 
-What follows: "No unregistered vehicles are allowed inside a compound. Every vehicle inside complied with that rule. Vehicle A is inside."
+Find what follows from: "No overdue book is on the display shelf. Book 4 is on the display shelf."
 
-1. *Unregistered* and *allowed inside* share zero members.
-2. Since Vehicle A is inside in compliance, it cannot be unregistered.
-3. Conclusion: **Vehicle A is registered.**
+1. *Overdue* and *on the display shelf* share zero members.
+2. Book 4 is on the display shelf, so it cannot be overdue.
+3. Conclusion: **Book 4 is not overdue.**
 
 :::pair #reverse-none-rule
 Right: from "No unregistered vehicles are allowed inside" and "Vehicle A is inside," conclude **Vehicle A is registered.**
@@ -31,11 +31,11 @@ Wrong: Every registered vehicle is inside the compound.
 Being allowed inside does not mean every registered vehicle entered. *No* keeps two groups apart without filling one group with everything eligible.
 :::
 
-What follows: "No judge is also listed as a speaker. Some observers are on the judges' list."
+Find what follows from: "No trainee can lock the vault. Some guards are trainees."
 
-1. At least $1$ observer sits on the judges' list.
-2. Because no judge is a speaker, that observer cannot be on the speakers' list.
-3. Conclusion: **Some observers are not speakers.**
+1. At least $1$ guard is a trainee.
+2. Because no trainee can lock the vault, that guard cannot lock it.
+3. Conclusion: **Some guards cannot lock the vault.**
 
 :::why
 Why does "No $A$ are $B$" swap cleanly to "No $B$ are $A$" while "All $A$ are $B$" does not? Two separate groups never touch from either side, whereas putting $A$ inside $B$ still leaves space in $B$ outside $A$.
@@ -44,24 +44,18 @@ Why does "No $A$ are $B$" swap cleanly to "No $B$ are $A$" while "All $A$ are $B
 :::pair #stretch-some-to-none
 Right: when no judge is a speaker and some observers are judges, conclude **Some observers are not speakers.**
 Wrong: No observer can appear on the speakers' list at this meet.
-Only observers who serve as judges are barred from speaking. Never stretch *some* into *no*.
-:::
-
-:::check
-No book sold at the booth is lent to a class. Book 5 was lent to a class. Which note on Book 5 is an error: "Also lent to a class in June", "Also sold at the booth", or "Also donated for the booth"?
-:::answer
-The answer is **"Also sold at the booth."** Zero overlap means a book lent to a class cannot also be sold at the booth.
+Only the observers who serve as judges are known to be off the speakers' list. Never stretch *some* into *no*.
 :::
 
 ### Keeping "May" as Possibility
 
-**May** means *possible*. It neither guarantees nor rules out an outcome, and promises nothing when the condition is absent.
+In these questions, **may** means *possible*, not permission. It neither guarantees nor rules out an outcome. When its condition is absent, the sentence promises nothing.
 
-What follows: "The interview may be postponed if the panel lacks a quorum."
+Find what follows from: "The shop may close early if the power goes out."
 
-1. Condition: the panel lacks a quorum.
-2. Effect of *may*: **A lack of quorum allows possible postponement.**
-3. It guarantees neither postponement nor the outcome with a full quorum.
+1. Condition: the power goes out.
+2. Effect of *may*: **A power cut allows a possible early closing.**
+3. It does not guarantee the early closing.
 
 :::pair #may-to-must-certainty
 Right: "The interview may be postponed if the panel lacks a quorum" means **A lack of quorum allows possible postponement.**
@@ -70,22 +64,22 @@ Wrong: A lack of quorum guarantees that the interview is postponed.
 :::
 
 :::check
-A notice says, "The class may end early." Which statement follows?
+A notice says, "The picnic may move to the hall if it rains." It does not rain. Which statement must be true?
 
-(A) The class will end early.
+(A) The picnic will stay outdoors as first planned.
 
-(B) The class will not end early.
+(B) The picnic will move to the hall in any case.
 
-(C) The class could end early or at the usual time.
+(C) The notice makes no promise about the place.
 :::answer
-The answer is **(C)**. *May* leaves both outcomes open. (A) turns *may* into certainty, and (B) rules the outcome out.
+The answer is **(C)**. *May* promises nothing when its condition is absent. (A) and (B) each add a promise the notice never makes.
 :::
 
 ## Examples
 
 ### #1: Applying "No" to a Member
 
-Premises: "No contract staff are permanent employees. Joel is contract staff." Which conclusion follows?
+Find the conclusion that follows. Premises: "No contract staff are permanent employees. Joel is contract staff."
 
 **Solution:**
 
@@ -93,23 +87,19 @@ Premises: "No contract staff are permanent employees. Joel is contract staff." W
 2. Premise $2$: Joel is inside *contract staff*.
 3. Conclusion: **Joel is not a permanent employee.**
 
-**Check:** Picture two separate groups (*Contract* and *Permanent*): putting Joel in *Contract* puts him outside *Permanent*.
-
 ### #2: Comparing "May" and "Will"
 
-A health center says, "Walk-in consultations may resume on Friday." A radio host says, "Walk-in consultations will resume on Friday." What change did the host introduce?
+Find what changed between two statements. A barangay notice says, "The clinic may open on Monday." A radio host says, "The clinic will open on Monday."
 
 **Solution:**
 
-1. Event and day stay the same: walk-in consultations on Friday.
+1. Event and day stay the same: the clinic opens on Monday.
 2. Certainty changes: *may* (possible) became *will* (certain).
-3. Change: **The host made the restart sound certain.**
-
-**Check:** Both statements name Friday and walk-in consultations, so only the certainty changed.
+3. Change: **The host made the opening sound certain.**
 
 ### #3: A Volunteer List
 
-Premises: "No volunteer under $18$ is a driver. Some drivers are volunteers." Which conclusion follows?
+Find the conclusion that follows. Premises: "No volunteer under $18$ is a driver. Some drivers are volunteers."
 
 (A) No driver is under $18$.
 
@@ -123,14 +113,12 @@ Let's test each choice against the two premises:
 
 1. Premise $1$: *Volunteers under $18$* and *Drivers* have zero overlap.
 2. Premise $2$: at least $1$ driver is a volunteer.
-3. Drop (A): Premise $1$ covers only volunteers; a driver who is not one could be under $18$.
+3. Drop (A): Premise $1$ covers only volunteers; a driver who is not a volunteer could be under $18$.
 
 :::try
 Finish the last step: compare (B) and (C) against the two premises.
 :::answer
 The answer is **(C) Some volunteers are not under $18$.** A volunteer who drives cannot be a volunteer under $18$. Choice (B) needs at least $1$ volunteer under $18$, and the premises never say one exists.
-
-**Check:** Picture adult volunteers who all drive: both premises hold, (B) fails, and (C) still holds.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -140,7 +128,7 @@ The answer is **(C) Some volunteers are not under $18$.** A volunteer who drives
 ## Traps to Watch For
 
 :::checklist
-- "No $A$ are $B$" with a member in $B$: prove that member is outside $A$, never that all non-$A$ items are in $B$. {#reverse-none-rule}
-- "No $A$ are $B$" with "some $C$ are $A$": conclude *some $C$ are not $B$*, never *no $C$ are $B$*. {#stretch-some-to-none}
-- Seeing *may*: keep the outcome possible, never guaranteed. {#may-to-must-certainty}
+- "No $A$ are $B$" with a member in $B$: that member is outside $A$, and nothing more. {#reverse-none-rule}
+- "No $A$ are $B$" with "some $C$ are $A$": conclude *some $C$ are not $B$*, not *no $C$ are $B$*. {#stretch-some-to-none}
+- Seeing *may*: keep the outcome possible, not guaranteed. {#may-to-must-certainty}
 :::
