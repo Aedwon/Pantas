@@ -38,8 +38,8 @@ void main() {
               WebSidebar(
                 activeIndex: 0,
                 person: 'Aerol',
-                exam: 'CSE Pro',
                 plan: 'Pro',
+                onAccount: () {},
                 onNavigate: (_) {},
                 onSearch: () {},
               ),
