@@ -163,8 +163,12 @@ When a manager thread gets too long, Aedwon opens a new thread in the Pantas T3 
    to the new one: `schedule_task` with its `scheduledTaskId` and `bindToCurrentThread: true`,
    leaving schedule and prompt unchanged. Then update the heartbeat and cache-warming prompts if the
    lanes table changed.
-6. **Announce the handover to each active lead:** "Manager: a new manager thread has taken over.
-   Report to it from now on." Leads take messages from whichever thread Aedwon names as manager.
+6. **Announce the handover to each active lead:** "Manager: a new manager thread (<new id>) has
+   taken over. Report to it from now on; never send to <old id>." Use `mode: steer` for a lead
+   whose turn is running, so it does not report to the old thread first; `queue` only for idle
+   leads. Then send the old thread one message: reply only "Retired" to anything that reaches it,
+   and act on nothing (Nov 28 entry in `process-improvement.md`). Leads take messages from
+   whichever thread Aedwon names as manager.
 7. **Tell Aedwon in under 150 words:** what is running, what waits on him (with a recommendation
    for each), and what is next with a time estimate. Ask him to stop using the old manager thread,
    so two managers never send conflicting instructions.

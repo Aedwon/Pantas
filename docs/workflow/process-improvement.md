@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### Leads kept reporting to the retired manager after a takeover (Nov 28)
+
+- His words (about 2:35 PM Manila Nov 28): "why are leads still talking to that other settled operations manager thread can you stop it and have them report to you".
+- Wrong: after the 2:15 PM takeover, the security lead and the generator lead sent reports to the old manager thread, which then relayed them through Aedwon.
+- Why it got through: the outgoing manager told leads to report "to the thread named on the Manager: line ... once it changes" instead of naming the new thread. The new manager then sent its handover with `mode: queue`, so leads mid-turn saw it only after they had already reported. The old thread was left able to act on what reached it.
+- Fix (takeover step 6, operations-manager.md): send the handover with `mode: steer` to every running lead (`queue` only to idle ones), with the new thread id and "never send to <old id>". Send the retired thread one message: reply only "Retired" and act on nothing. Applied now to all three leads and the old thread.
+
 ### Four leads ran at once overnight against his usage words (Nov 28)
 
 - His words (about 4 AM Manila Nov 28), after the manager listed four working leads and offered to slow down: "obviously i want you to slow down".
