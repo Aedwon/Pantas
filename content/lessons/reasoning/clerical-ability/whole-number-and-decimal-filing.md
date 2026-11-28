@@ -20,14 +20,14 @@ keyPoints:
 
 **Ascending order** goes from smallest to largest. **Descending order** goes from largest to smallest. The symbol $<$ means "is less than."
 
-For ordinary whole-number file keys, compare their **full number values**, not just the leftmost digit.
+In these questions, ordinary whole-number file keys are compared by their **full number values**, not by the leftmost digit.
 
-Sort $10$, $2$, $11$, and $3$ in ascending numeric order:
+Find the ascending numeric order of $10$, $2$, $11$, and $3$:
 
 - Compare values: $2$ is less than $3$, $3$ is less than $10$, and $10$ is less than $11$.
 - Order: $2 < 3 < 10 < 11$.
 
-**Leading zeros** are zeros at the start of a number, such as $007$ or $0389$. They may stay printed on the folder, but they do not change the number's value. So $007$, $07$, and $7$ all equal seven.
+**Leading zeros** are zeros at the start of a number, such as $007$ or $0389$. They may stay printed on the folder, but they do not change the number's value. As numbers, $007$, $07$, and $7$ all equal seven.
 
 :::pair #text-sort-numbers
 Right: $2, 3, 10, 11$
@@ -38,22 +38,16 @@ Putting $10$ before $2$ compares the first digit ($1$ vs. $2$) as text. Ordinary
 :::pair #leading-zero-size
 Right: $007 = 07 = 7$ (equal values)
 Wrong: $007$ is greatest because it has three digits
-Extra zeros on the left change how wide the label looks, not its value. Ignore leading zeros when comparing whole numbers.
-:::
-
-:::check
-In ascending numeric filing, which file number comes first: $48$ or $9$?
-:::answer
-The answer is $9$. By full value, $9 < 48$, even though $4$ is the smaller first digit.
+Extra zeros on the left change how wide the label looks, not its value. When comparing whole numbers, ignore leading zeros.
 :::
 
 ### Decimal Filing Order
 
-For **decimal numbers**, compare the **whole-number parts** (left of the decimal point) first. If the whole-number parts differ, the smaller whole part comes first in ascending order, no matter how small the decimal part looks.
+In these questions, for **decimal numbers**, compare the **whole-number parts** (left of the decimal point) first. If the whole-number parts differ, the smaller whole part comes first in ascending order, no matter how small the decimal part looks.
 
 If the whole-number parts match, add **trailing zeros** at the right end of shorter decimals so every number has the same number of decimal places. Adding zeros at the right end of a decimal does not change its value. Then compare from left to right.
 
-Sort $7.008$, $7.020$, $7.09$, and $7.1$ in ascending decimal order:
+Find the ascending decimal order of $7.008$, $7.020$, $7.09$, and $7.1$:
 
 - Whole-number parts all tie at $7$.
 - Match decimal places to $3$ digits after the point: $7.008$, $7.020$, $7.090$, $7.100$.
@@ -71,9 +65,9 @@ Reading digits after the point as whole numbers turns $0.100$ into $1$ and $0.00
 :::
 
 :::check
-Arrange these decimal quantities in ascending order: $5.3$, $5.09$, and $5.25$.
+Arrange these decimal quantities in ascending order: $15.9$, $9.75$, and $15.08$.
 :::answer
-The answer is $5.09, 5.25, 5.3$. Write all three with two decimal places ($5.09$, $5.25$, $5.30$) and compare from left to right.
+The answer is $9.75, 15.08, 15.9$. The whole parts $9 < 15$ put $9.75$ first. The two $15$ entries tie on the whole part, so write $15.90$ and $15.08$: $08 < 90$.
 :::
 
 ## Examples
@@ -89,8 +83,6 @@ Arrange file numbers $0452$, $0389$, $0401$, and $0395$ in ascending consecutive
 3. Within the $300$s, $389 < 395$. Within the $400$s, $401 < 452$.
 4. Keep the printed leading zeros in the answer: $0389, 0395, 0401, 0452$.
 
-**Check:** Each number steps up from left to right: $389 < 395 < 401 < 452$.
-
 ### #2: Decimals with Different Whole Parts
 
 In decimal numeric filing, which number should be placed first in ascending order: $402.80$, $403.05$, $402.20$, or $402.15$?
@@ -98,26 +90,22 @@ In decimal numeric filing, which number should be placed first in ascending orde
 **Solution:**
 
 1. Compare the whole-number parts first: $402$ is smaller than $403$, so drop $403.05$.
-2. Compare the decimal parts of the $402$ entries: $0.15$, $0.20$, and $0.80$.
+2. Compare the decimal parts of the $402$ entries: $0.80$, $0.20$, and $0.15$.
 3. Since $0.15 < 0.20 < 0.80$, the first number is $402.15$.
-
-**Check:** Even though $.05$ in $403.05$ looks smaller than $.15$, its whole part $403$ is larger than $402$, and among the $402$ entries, $15 < 20 < 80$ hundredths confirms $402.15$ is smallest.
 
 ### #3: Comparing Decimal Lengths
 
-These entries are decimal quantities: $12.05$, $12.1$, $12.008$, and $12.04$. Arrange them in ascending order.
+These entries are decimal quantities: $8.35$, $8.3$, $8.305$, and $8.4$. Arrange them in ascending order.
 
 **Solution:**
 
-1. All four entries share the same whole-number part, $12$.
-2. Add trailing zeros so every entry has three decimal places: $12.050$, $12.100$, $12.008$, and $12.040$.
+1. All four entries share the same whole-number part, $8$.
+2. Add trailing zeros so every entry has three decimal places: $8.350$, $8.300$, $8.305$, and $8.400$.
 
 :::try
 Finish the last step: order the four decimals from smallest to largest, keeping their original written forms.
 :::answer
-The answer is $12.008, 12.04, 12.05, 12.1$. Comparing thousandths gives $8 < 40 < 50 < 100$.
-
-**Check:** Look at the tenths digit right after the point: $12.1$ has $1$ tenth while the other three have $0$ tenths, so $12.1$ must be largest, and thousandths order the other three as $8 < 40 < 50$.
+The answer is $8.3, 8.305, 8.35, 8.4$. Tenths put $8.4$ last. Hundredths put $8.35$ after the other two. Thousandths put $8.3$ before $8.305$.
 :::
 
 ## Traps to Watch For

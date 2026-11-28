@@ -16,7 +16,7 @@ keyPoints:
 
 ### Reading Year-First Dates
 
-The fixed date format $\text{YYYY-MM-DD}$ puts the $4$-digit year first, the $2$-digit month in the middle, and the $2$-digit day at the end.
+The date format $\text{YYYY-MM-DD}$ puts the $4$-digit year first, the $2$-digit month in the middle, and the $2$-digit day at the end.
 
 - $\text{YYYY}$: $4$-digit year (for example, $2024$)
 - $\text{MM}$: $2$-digit month ($01$ for January through $12$ for December)
@@ -24,7 +24,7 @@ The fixed date format $\text{YYYY-MM-DD}$ puts the $4$-digit year first, the $2$
 
 For example, $2024\text{-}03\text{-}05$ means March $5$, $2024$. Because the units already sit in order from largest to smallest, you compare complete $\text{YYYY-MM-DD}$ dates from left to right.
 
-Order $2024\text{-}03\text{-}05$, $2024\text{-}02\text{-}11$, and $2024\text{-}05\text{-}03$ from oldest to newest:
+Find the oldest-to-newest order of $2024\text{-}03\text{-}05$, $2024\text{-}02\text{-}11$, and $2024\text{-}05\text{-}03$:
 
 - Year (first $4$ digits): all three are $2024$ (tie).
 - Month (middle $2$ digits): $02$ (February), then $03$ (March), then $05$ (May).
@@ -33,13 +33,7 @@ Order $2024\text{-}03\text{-}05$, $2024\text{-}02\text{-}11$, and $2024\text{-}0
 :::pair #swap-month-day
 Right: $2024\text{-}03\text{-}05$ is March $5$, $2024$, so $2024\text{-}03\text{-}06$ comes right after it
 Wrong: $2024\text{-}03\text{-}05$ comes right before $2024\text{-}05\text{-}03$ because you read $03\text{-}05$ as May $3$
-In $\text{YYYY-MM-DD}$, the middle two digits are always the month and the last two digits are the day. Never swap month and day.
-:::
-
-:::check
-In $\text{YYYY-MM-DD}$ format, which date is newer: $2025\text{-}11\text{-}04$ or $2025\text{-}04\text{-}11$?
-:::answer
-The answer is **$2025\text{-}11\text{-}04$**. Both are in $2025$. The middle number is the month, so $11$ (November) is later than $04$ (April).
+In $\text{YYYY-MM-DD}$, the middle two digits are the month and the last two digits are the day. Do not swap them.
 :::
 
 ### Using the Stated Date Format and Direction
@@ -49,13 +43,13 @@ Not every registry puts the year first. Two common slash formats put the year at
 - $\text{DD/MM/YYYY}$: day first, month middle, year last. Here $05/02/2024$ means February $5$, $2024$.
 - $\text{MM/DD/YYYY}$: month first, day middle, year last. Here $05/02/2024$ means May $2$, $2024$.
 
-Because the same numbers can mean two different dates, always use the format stated in the question. Pull out the year on the right first, then compare month, then day.
+Because the same numbers can mean two different dates, use the format the question states. Find the year on the right first, then compare month, then day.
 
-Also remember: the date format only tells you where year, month, and day sit. It never picks the sorting direction. Always check whether the task asks for oldest-first or newest-first order.
+In these questions, the format says only where year, month, and day sit. The question names the direction, so check whether it asks for oldest-first or newest-first order.
 
-Sort $12/01/2025$, $09/12/2024$, and $05/02/2024$ using $\text{DD/MM/YYYY}$ from oldest to newest:
+Find the oldest-to-newest order of $12/01/2025$, $09/12/2024$, and $05/02/2024$ under $\text{DD/MM/YYYY}$:
 
-- Read each date as Year, Month, Day:
+- Read each date as day, month, year:
   - $12/01/2025$: January $12$, $2025$
   - $09/12/2024$: December $9$, $2024$
   - $05/02/2024$: February $5$, $2024$
@@ -74,9 +68,9 @@ The wrong order reads $01/03/2025$ from left to right and ignores the year at th
 :::
 
 :::check
-Dates use $\text{DD/MM/YYYY}$. Which date is older: $20/04/2024$ or $10/06/2024$?
+Dates use $\text{MM/DD/YYYY}$ and are filed newest to oldest. Arrange $11/02/2024$, $03/09/2025$, and $03/14/2025$.
 :::answer
-The answer is **$20/04/2024$**. Both are in $2024$, and under $\text{DD/MM/YYYY}$, April ($04$) comes before June ($06$).
+The answer is **$03/14/2025$, $03/09/2025$, $11/02/2024$**. The year $2024$ is oldest, so $11/02/2024$ is last. The two $2025$ dates tie on month ($03$), so the day decides, newest first: $14 > 9$.
 :::
 
 ## Examples
@@ -88,10 +82,8 @@ Records use $\text{YYYY-MM-DD}$ dates. Arrange $2024\text{-}11\text{-}02$, $2023
 **Solution:**
 
 1. Compare the $4$-digit years on the left: $2023$ is earlier than $2024$, so $2023\text{-}12\text{-}19$ comes first.
-2. Both remaining dates are in $2024$. Compare their middle month numbers: $02$ (February) comes before $11$ (November).
+2. Both remaining dates are in $2024$. They first differ in the middle month number: $02$ (February) comes before $11$ (November).
 3. The order is $2023\text{-}12\text{-}19$, $2024\text{-}02\text{-}11$, $2024\text{-}11\text{-}02$.
-
-**Check:** Reading left to right as plain numbers also gives $2023\text{-}12\text{-}19 < 2024\text{-}02\text{-}11 < 2024\text{-}11\text{-}02$.
 
 ### #2: Stated Day-First Format
 
@@ -104,8 +96,6 @@ These dates use $\text{DD/MM/YYYY}$: $14/08/2025$, $02/11/2024$, $19/03/2024$, a
 3. In $2025$, compare the middle month numbers: January ($01$) comes before August ($08$), so $01/01/2025$ comes before $14/08/2025$.
 4. The order is $19/03/2024$, $02/11/2024$, $01/01/2025$, $14/08/2025$.
 
-**Check:** Converted to year-month-day, the dates are March $19$, $2024$; November $2$, $2024$; January $1$, $2025$; and August $14$, $2025$.
-
 ### #3: Newest-First with Year-First Dates
 
 Records use $\text{YYYY-MM-DD}$ and are filed from newest to oldest. Arrange $2024\text{-}04\text{-}09$, $2024\text{-}09\text{-}04$, and $2025\text{-}01\text{-}12$.
@@ -113,20 +103,18 @@ Records use $\text{YYYY-MM-DD}$ and are filed from newest to oldest. Arrange $20
 **Solution:**
 
 1. Check the direction first: newest to oldest puts the latest year first, so $2025\text{-}01\text{-}12$ comes first.
-2. Compare the two $2024$ dates by their middle month digits: $04$ (April) and $09$ (September).
+2. The two $2024$ dates tie on year. Their middle month digits first differ: $04$ (April) and $09$ (September).
 
 :::try
 Finish the last step: place the two $2024$ dates in newest-to-oldest order and give the full sequence.
 :::answer
 The answer is **$2025\text{-}01\text{-}12$, $2024\text{-}09\text{-}04$, $2024\text{-}04\text{-}09$**. Under newest-first order, September ($09$) comes before April ($04$).
-
-**Check:** Notice $2024\text{-}09\text{-}04$ is September $4$, not April $9$. Keeping the middle digits as the month prevents swapping the two $2024$ dates.
 :::
 
 ## Traps to Watch For
 
 :::checklist
-- Middle and last digits in $\text{YYYY-MM-DD}$: middle is month and last is day, so $2024\text{-}03\text{-}05$ is March $5$. {#swap-month-day}
+- Middle and last digits in $\text{YYYY-MM-DD}$: middle is month, last is day, so $2024\text{-}03\text{-}05$ is March $5$. {#swap-month-day}
 - Slash dates like $\text{DD/MM/YYYY}$: compare the year at the right first, not the day on the left. {#display-order-slash}
-- Sorting direction on $\text{YYYY-MM-DD}$: check oldest-first vs. newest-first instead of letting the format pick. {#using-the-stated-date-format-and-direction}
+- Direction: the question names oldest-first or newest-first; the format does not. {#using-the-stated-date-format-and-direction}
 :::
