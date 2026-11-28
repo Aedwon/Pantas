@@ -34,4 +34,6 @@ paths = [
 # leaves the Firebase console. Exact string only, so any other key still fails.
 regexes = [
   '''6Lcp8xUuAAAAAICQRMX8-J2JYzU5dxKsj8Qp3sQa''',
+  # The prod web app's site key: public for the same reason, and exact.
+  '''6LejBBIuAAAAAEMg6326sPwsk_Ipi9DN6-BDX5jH''',
 ]

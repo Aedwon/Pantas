@@ -35,7 +35,9 @@ const stampProblems = (dir, options = {}) => realProblems(dir, {pins, ...options
 
 // A release build as the staging and prod steps make it: CanvasKit is local.
 // `key` is the App Check site key the build step passed: a prod build carries one that is not staging's.
-const PROD_KEY = '6L' + 'p'.repeat(38);
+// Prod's public site key (every prod page serves it; Pantas-private/releases/2026-11-28-opening/build_prod.sh).
+const PROD_KEY = '6LejBBIuAAAAAEMg6326sPwsk_Ipi9DN6-BDX5jH';
+const UNRELATED_KEY = '6L' + 'p'.repeat(38);
 function stamped({canvaskit = true, key = PROD_KEY} = {}) {
   const dir = mkdtempSync(join(tmpdir(), 'stamp-check-'));
   const files = Object.fromEntries(canvasKit.map(name => [`canvaskit/${name}`, `renderer ${name}`]));
@@ -305,7 +307,7 @@ test('audit 3 High: a build with no App Check site key is refused for prod and f
   }
   const run = spawnSync('node', [script, keyless.dir, '--target', 'prod']);
   assert.equal(run.status, 1);
-  assert.match(run.stderr.toString(), /no App Check site key/);
+  assert.match(run.stderr.toString(), /prod's App Check site key/);
   done(keyless);
 });
 
@@ -317,8 +319,27 @@ test('audit 3 High: a prod build with its own site key passes, and a text that o
   // Unquoted, as it appears in a table of numbers, or the wrong length: not a site key.
   edit(lookalike.dir, `${lookalike.base}main.dart.js`, text => text + `\nB120Oa8BEa79V206${PROD_KEY.slice(0, 39)}74W\nvar short = "6Lshort";\n`);
   stamp(lookalike.dir);
-  assert.match(stampProblems(lookalike.dir, {target: 'prod'}).join('\n'), /no App Check site key/);
+  assert.match(stampProblems(lookalike.dir, {target: 'prod'}).join('\n'), /prod's App Check site key/);
   done(lookalike);
+});
+
+// Audit 4, High: any quoted 40-character string starting 6L used to pass for prod.
+test('audit 4 High: a prod build needs prod\'s exact site key; an unrelated 6L string does not count', () => {
+  const unrelated = stamped({key: UNRELATED_KEY});
+  assert.match(stampProblems(unrelated.dir, {target: 'prod'}).join('\n'), /prod's App Check site key/);
+  const run = spawnSync('node', [script, unrelated.dir, '--target', 'prod']);
+  assert.equal(run.status, 1);
+  assert.match(run.stderr.toString(), /prod's App Check site key/);
+  done(unrelated);
+  // A keyless bundle with an unrelated quoted string beside it is refused too.
+  const keyless = stamped({key: null});
+  edit(keyless.dir, `${keyless.base}main.dart.js`, text => text + `\nvar other = "${UNRELATED_KEY}";\n`);
+  stamp(keyless.dir);
+  assert.match(stampProblems(keyless.dir, {target: 'prod'}).join('\n'), /prod's App Check site key/);
+  done(keyless);
+  const real = stamped();
+  assert.deepEqual(stampProblems(real.dir, {target: 'prod'}), []);
+  done(real);
 });
 
 test('High 6: the command line needs a target, and only staging or prod', () => {
