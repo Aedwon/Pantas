@@ -99,6 +99,10 @@ void main() {
   }) async {
     final db = inMemoryDatabase();
     addTearDown(db.close);
+    // These checks measure the board's 680 px reader with 18 px text, which is
+    // the choice with full width off (the default is Immersion, Nov 29).
+    final prefs = AppPreferencesRepository(db);
+    await prefs.setDeviceValue('reader_full_width', '0');
     scroll = ScrollController();
     offset = ValueNotifier<double>(0);
     progress = ValueNotifier<double>(0);
@@ -114,7 +118,10 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
     await tester.pumpWidget(
       ProviderScope(
-        overrides: [appDatabaseProvider.overrideWithValue(db)],
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          appPreferencesRepositoryProvider.overrideWithValue(prefs),
+        ],
         child: MaterialApp(
           theme: buildDarkTheme(web: true),
           builder: (context, child) => MediaQuery(
