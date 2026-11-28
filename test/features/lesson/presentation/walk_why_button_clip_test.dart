@@ -137,9 +137,8 @@ void main() {
               contentDatabaseProvider.overrideWithValue(contentDb),
             ],
             child: MaterialApp(
-              theme: dark
-                  ? buildDarkTheme(web: wide)
-                  : buildLightTheme(web: wide),
+              theme:
+                  dark ? buildDarkTheme(web: wide) : buildLightTheme(web: wide),
               home: const LessonPage(lessonId: 'l1'),
             ),
           ),
