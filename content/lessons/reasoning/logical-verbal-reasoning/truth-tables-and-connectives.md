@@ -18,14 +18,14 @@ keyPoints:
 
 **Propositional logic** works with statements that are either true ($T$) or false ($F$). Each basic statement is a **proposition**, written with a letter such as $P$, $Q$, or $R$.
 
-A **truth table** lists every possible combination of truth values for those letters. For two propositions $P$ and $Q$, there are $4$ unique pairs, with none missing and none repeated:
+A **truth table** lists every possible combination of truth values for its letters, with none missing and none repeated. $n$ letters give $2^n$ rows. This lesson uses two letters, $P$ and $Q$, so there are $4$ unique pairs:
 
 - $(T, T)$
 - $(T, F)$
 - $(F, T)$
 - $(F, F)$
 
-Suppose a student writes rows $(T, T)$, $(F, T)$, $(T, F)$, and $(F, T)$. Row $2$ and row $4$ repeat $(F, T)$, leaving $(F, F)$ out, so replace the repeated row $4$ with $(F, F)$.
+Find the row that must change in this student's list: $(T, T)$, $(F, T)$, $(T, F)$, $(F, T)$. Row $2$ and row $4$ repeat $(F, T)$, leaving $(F, F)$ out, so replace the repeated row $4$ with $(F, F)$.
 
 :::pair #missing-table-case
 Right: check that all $4$ distinct pairs $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$ appear once each.
@@ -33,39 +33,21 @@ Wrong: see $4$ rows and **Keep every row as written.**
 Having $4$ rows is not enough if two rows repeat the same pair. Check each pair against the $4$ combinations.
 :::
 
-:::check
-A list for $P$ and $Q$ shows only three rows: $(T, T)$, $(F, T)$, and $(F, F)$. Which pair is missing?
-:::answer
-The answer is **$(T, F)$**. Each of the three rows is different, and $(T, F)$ is the only one of the $4$ pairs not listed.
-:::
-
 ### The And Rule
 
 A **connective** joins statements or changes a truth value. The **and** connective (written $\land$) is true only when both statements are true.
 
-"Evaluate" means find the truth value ($T$ or $F$) of a logical expression. Check $P \land Q$ for all $4$ pairs:
+"Evaluate" means find the truth value ($T$ or $F$) of a logical expression. Find $P \land Q$ for all $4$ pairs:
 
 $$T \land T = T,\quad T \land F = F$$
 
 $$F \land T = F,\quad F \land F = F$$
 
-:::pair #one-true-for-and
-Right: when $P=T$ and $Q=F$, $(P \land Q, P \lor Q)$ equals **$(F, T)$**.
-Wrong: when $P=T$ and $Q=F$, $(P \land Q, P \lor Q)$ equals **$(T, T)$**.
-One true input makes **or** true, never **and**. For **and**, even a single $F$ makes the whole expression $F$.
-:::
-
-:::check
-"The quiz is on Monday and it is in Room 4." The quiz is on Monday, but it is in Room 6. Is the statement true?
-:::answer
-The answer is **false**. Both parts must be true for **and** to be true, and the room part is false.
-:::
-
 ### The Inclusive Or Rule
 
 The **inclusive or** connective (written $\lor$) is true whenever at least one statement is true. It is also true when both statements are true, and false only when both are false.
 
-Check $P \lor Q$ for all $4$ pairs:
+Find $P \lor Q$ for all $4$ pairs:
 
 $$T \lor T = T,\quad T \lor F = T$$
 
@@ -73,6 +55,12 @@ $$F \lor T = T,\quad F \lor F = F$$
 
 :::why
 Why is $T \lor T = T$ in logic? Everyday speech often uses "or" to mean only one choice, like soup or salad. In formal logic, "or" means "at least one," so both true still counts as $T$.
+:::
+
+:::pair #one-true-for-and
+Right: when $P=T$ and $Q=F$, $(P \land Q, P \lor Q)$ equals **$(F, T)$**.
+Wrong: when $P=T$ and $Q=F$, $(P \land Q, P \lor Q)$ equals **$(T, T)$**.
+One true input is enough for **or**, but not for **and**. For **and**, a single $F$ makes the whole expression $F$.
 :::
 
 :::pair #exclusive-or-mistake
@@ -89,41 +77,38 @@ The answer is **true**. Inclusive **or** is true when at least one part is true,
 
 ## Examples
 
-### #1: Building an And Truth Table
+### #1: Building a Two-Column Truth Table
 
-List the truth values of $P \land Q$ across all four combinations of $P$ and $Q$.
+Find $(P \land Q, P \lor Q)$ for all four combinations of $P$ and $Q$.
 
 **Solution:**
 
 1. List the $4$ unique pairs for $(P, Q)$: $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$.
-2. Apply the **and** rule to each pair: true only when both inputs are $T$.
+2. Find each connective on its own in every row:
 
-- Row $1$: $T \land T = T$
-- Row $2$: $T \land F = F$
-- Row $3$: $F \land T = F$
-- Row $4$: $F \land F = F$
+- Row $1$: $T \land T = T$ and $T \lor T = T$, so $(T, T)$
+- Row $2$: $T \land F = F$ and $T \lor F = T$, so $(F, T)$
+- Row $3$: $F \land T = F$ and $F \lor T = T$, so $(F, T)$
+- Row $4$: $F \land F = F$ and $F \lor F = F$, so $(F, F)$
 
-The column of values for $P \land Q$ is $T, F, F, F$.
+The column of pairs for $(P \land Q, P \lor Q)$ is $(T, T), (F, T), (F, T), (F, F)$.
 
-**Check:** Only one row has two $T$ inputs, so only one row can give $T$ for **and**.
+### #2: Evaluating an Or Statement in Words
 
-### #2: Evaluating an Or Statement
-
-If $P$ is false and $Q$ is true, evaluate $P \lor Q$.
+Decide whether "Rina brings a hat or an umbrella" is true when she brings an umbrella but no hat.
 
 **Solution:**
 
-1. Substitute $P=F$ and $Q=T$ into $P \lor Q$ (inclusive **or**):
+1. Let $P$ be "Rina brings a hat" and $Q$ be "Rina brings an umbrella." Then $P=F$ and $Q=T$.
+2. Substitute $P=F$ and $Q=T$ into $P \lor Q$ (inclusive **or**):
 
 $$P \lor Q = F \lor T = T$$
 
-The value of $P \lor Q$ is $T$ (true).
-
-**Check:** An **or** statement is false only when both parts are $F$. Since $Q$ is $T$, the result must be $T$.
+The statement is true.
 
 ### #3: Unknown Input with Inclusive Or
 
-$Q$ is false and $P$ is not known. Evaluate inclusive $P \lor Q$ for all possible values of $P$.
+$Q$ is false and $P$ is not known. Find $P \lor Q$ for each possible value of $P$.
 
 **Solution:**
 
@@ -131,11 +116,9 @@ $Q$ is false and $P$ is not known. Evaluate inclusive $P \lor Q$ for all possibl
 2. Case $1$ ($P=T$): $T \lor F = T$.
 
 :::try
-Finish the last step: evaluate $P \lor Q$ in Case $2$ when $P=F$, then state what happens for either value of $P$.
+Finish the last step: find $P \lor Q$ in Case $2$ ($P=F$), then say how the result compares with $P$.
 :::answer
-The answer is **the result matches $P$**: $T$ when $P=T$, and $F$ when $P=F$.
-
-**Check:** With $Q=F$, no $T$ input comes from $Q$, so $P$ alone decides the result.
+The answer is **the result matches $P$**: $T$ when $P=T$, and $F$ when $P=F$. With $Q=F$, no $T$ comes from $Q$, so $P$ alone decides the result.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -145,7 +128,7 @@ With **and**, one $F$ settles the answer as $F$ right away. With inclusive **or*
 ## Traps to Watch For
 
 :::checklist
-- Checking a $4$-row truth table: make sure all $4$ distinct pairs $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$ appear once with no repeats. {#missing-table-case}
-- Seeing one true input in an **and** statement: require both parts to be $T$, so $T \land F = F$. {#one-true-for-and}
-- Seeing two true inputs in an inclusive **or** statement: keep the result $T$, so $T \lor T = T$. {#exclusive-or-mistake}
+- A $4$-row table: each pair $(T, T)$, $(T, F)$, $(F, T)$, $(F, F)$ appears once. {#missing-table-case}
+- One true input in an **and**: still $F$, since $T \land F = F$. {#one-true-for-and}
+- Two true inputs in an inclusive **or**: $T$, since $T \lor T = T$. {#exclusive-or-mistake}
 :::

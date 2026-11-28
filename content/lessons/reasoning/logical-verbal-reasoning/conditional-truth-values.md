@@ -15,11 +15,11 @@ keyPoints:
 
 ### If-Then Statements
 
-An **if-then** statement (or **conditional**) is written $P \rightarrow Q$ and read "if $P$, then $Q$." Here $P$ is the **if-part** and $Q$ is the **then-part**.
+An **if-then** statement (or **conditional**) is written $P \rightarrow Q$ and read "if $P$, then $Q$." Here $P$ is the **if-part** and $Q$ is the **then-part**. In logic, its truth value depends only on the values of $P$ and $Q$.
 
 Think of $P \rightarrow Q$ as a promise: "If you clean your room ($P$), you get ice cream ($Q$)." The promise is broken only when you clean your room ($P=T$) and still do not get ice cream ($Q=F$).
 
-Look at all $4$ cases for $P \rightarrow Q$ ("Evaluate" means find the truth value of a statement):
+Find the value of $P \rightarrow Q$ for all $4$ cases ("Evaluate" means find the truth value of a statement):
 
 $$T \rightarrow T = T,\quad T \rightarrow F = F$$
 
@@ -34,20 +34,20 @@ Why is a conditional $T$ whenever its if-part is $F$? A promise says only what h
 :::pair #false-if-gives-false
 Right: when $P=F$ and $Q=F$, $(P \rightarrow Q, Q \rightarrow P)$ equals **$(T, T)$**.
 Wrong: when $P=F$ and $Q=F$, $(P \rightarrow Q, Q \rightarrow P)$ equals **$(F, F)$**.
-It is tempting to mark $F \rightarrow F$ as false because both inputs are false. Always check for the one false case ($T \rightarrow F$); every false if-part gives $T$.
+It is tempting to mark $F \rightarrow F$ as false because both inputs are false. In these tables only $T \rightarrow F$ is false, so a false if-part gives $T$.
 :::
 
 :::check
-Rule: "If the shop is closed ($P$), its sign is off ($Q$)." Today the shop is open and the sign is off. Evaluate $P \rightarrow Q$.
+A school rule says, "If a pupil is late ($P$), the pupil gets a note ($Q$)." On Monday, $P \rightarrow Q$ was false. What happened on Monday?
 :::answer
-The answer is **$T$** (true). The shop is not closed ($P=F$), so the rule cannot be broken, whatever the sign does.
+The answer is **A pupil was late and got no note.** A conditional is false only when the if-part is $T$ and the then-part is $F$.
 :::
 
 ### Swapping the Direction
 
 Order matters in $P \rightarrow Q$ and $Q \rightarrow P$, because they swap which letter is the if-part.
 
-Compare $P \rightarrow Q$ and $Q \rightarrow P$ with $P=T$, $Q=F$:
+Find $P \rightarrow Q$ and $Q \rightarrow P$ when $P=T$ and $Q=F$:
 
 1. $P \rightarrow Q = T \rightarrow F = F$.
 2. $Q \rightarrow P = F \rightarrow T = T$.
@@ -58,45 +58,37 @@ Wrong: when $P=T$ and $Q=F$, $(P \rightarrow Q, Q \rightarrow P)$ equals **$(T, 
 The wrong answer swaps the two directions. The if-part is the letter before the arrow.
 :::
 
-:::check
-Club rule: "If a member pays dues ($P$), the member may vote ($Q$)." Ana has not paid but votes. Evaluate $P \rightarrow Q$ and $Q \rightarrow P$, in that order.
-:::answer
-The answer is **$(T, F)$**. $P \rightarrow Q$ is $F \rightarrow T = T$, while $Q \rightarrow P$ is $T \rightarrow F = F$.
-:::
-
 ## Examples
 
-### #1: Evaluating a Conditional with False Parts
+### #1: Both Parts True
 
-With $P$ false and $Q$ false, evaluate $P \rightarrow Q$ and $Q \rightarrow P$, in that order.
+Rule: "If it is Sunday ($P$), the shop is closed ($Q$)." Find $P \rightarrow Q$ and $Q \rightarrow P$, in that order, when it is Sunday and the shop is closed.
 
 **Solution:**
 
-1. Substitute $P=F$ and $Q=F$ into $P \rightarrow Q$ and $Q \rightarrow P$:
+1. Both statements are true, so $P=T$ and $Q=T$.
+2. Substitute into $P \rightarrow Q$ and $Q \rightarrow P$:
 
-$$(P \rightarrow Q) = (F \rightarrow F) = T$$
+$$(P \rightarrow Q) = (T \rightarrow T) = T$$
 
-$$(Q \rightarrow P) = (F \rightarrow F) = T$$
+$$(Q \rightarrow P) = (T \rightarrow T) = T$$
 
 The ordered results are $(T, T)$.
 
-**Check:** Neither expression has $T \rightarrow F$, the only false case, so both must be $T$.
+### #2: A False If-Part in the Reverse Direction
 
-### #2: Finding the False Conditional Case
-
-With $P$ true and $Q$ false, evaluate $P \rightarrow Q$ and $Q \rightarrow P$, in that order.
+Rule: "If a student scores above $90$ ($P$), the student gets a medal ($Q$)." Find $P \rightarrow Q$ and $Q \rightarrow P$, in that order, for Dan, who scored $85$ and got a medal.
 
 **Solution:**
 
-1. Substitute $P=T$ and $Q=F$ into $P \rightarrow Q$ and $Q \rightarrow P$:
+1. Dan did not score above $90$, so $P=F$. He got a medal, so $Q=T$.
+2. Substitute into $P \rightarrow Q$ and $Q \rightarrow P$:
 
-$$(P \rightarrow Q) = (T \rightarrow F) = F$$
+$$(P \rightarrow Q) = (F \rightarrow T) = T$$
 
-$$(Q \rightarrow P) = (F \rightarrow T) = T$$
+$$(Q \rightarrow P) = (T \rightarrow F) = F$$
 
-The ordered results are $(F, T)$.
-
-**Check:** Check the arrow direction on each one: $P \rightarrow Q$ starts at $T$ and ends at $F$ (broken promise), while $Q \rightarrow P$ starts at $F$ (never triggered).
+The ordered results are $(T, F)$.
 
 ### #3: Full Conditional Column
 
@@ -108,20 +100,18 @@ Find the truth values of $Q \rightarrow P$ across all four combinations of $(P, 
 2. Row $2$ $(T, F)$: the if-part $Q$ is false, so $F \rightarrow T = T$.
 
 :::try
-Finish the last step: evaluate rows $3$ $(F, T)$ and $4$ $(F, F)$, then write all four values in order.
+Finish the last step: find $Q \rightarrow P$ in rows $3$ $(F, T)$ and $4$ $(F, F)$, then write all four values in order.
 :::answer
 The answer is **$T, T, F, T$**. Row $3$ gives $Q \rightarrow P = T \rightarrow F = F$, the one false case. Row $4$ gives $F \rightarrow F = T$.
-
-**Check:** Out of the $4$ rows, exactly $1$ row is $F$ (row $3$) and the other $3$ rows are $T$.
 :::
 
 ## Speed Tricks & Shortcuts
 
-To evaluate any conditional $X \rightarrow Y$, ask just one question: "Is $X=T$ and $Y=F$?" If yes, the answer is $F$; in every other case, the answer is $T$.
+To find $X \rightarrow Y$, ask one question: "Is $X=T$ and $Y=F$?" If yes, the answer is $F$. In every other case, the answer is $T$.
 
 ## Traps to Watch For
 
 :::checklist
-- A conditional with a false if-part: remember only $T \rightarrow F$ is false, so $F \rightarrow F = T$ and $F \rightarrow T = T$. {#false-if-gives-false}
-- Reversed arrows $P \rightarrow Q$ and $Q \rightarrow P$: check which letter sits before the arrow before applying $T \rightarrow F = F$. {#reversed-conditional-values}
+- False if-part: the conditional is $T$, so $F \rightarrow F = T$ and $F \rightarrow T = T$. {#false-if-gives-false}
+- Reversed arrows: find the letter before the arrow first, then only $T \rightarrow F$ is $F$. {#reversed-conditional-values}
 :::

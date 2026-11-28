@@ -16,9 +16,9 @@ keyPoints:
 
 ### Negation
 
-**Not** (negation, symbol $\neg$) flips a statement's truth value. If $P$ is $T$, then $\neg P$ is $F$. If $P$ is $F$, then $\neg P$ is $T$.
+**Not** (negation, symbol $\neg$) flips a statement's truth value. If $P$ is $T$, then $\neg P$ is $F$. If $P$ is $F$, then $\neg P$ is $T$. This lesson combines $\neg$, $\land$, $\lor$, and $\rightarrow$ in one expression.
 
-"Evaluate" means find the truth value of an expression. With $P=F$, apply one negation at a time to $\neg P$ and $\neg\neg P$:
+"Evaluate" means find the truth value of an expression. Find $\neg P$ and $\neg\neg P$ when $P=F$, one negation at a time:
 
 $$\neg P=\neg F=T$$
 
@@ -30,15 +30,9 @@ Wrong: if $P=F$, then $(\neg P, \neg\neg P)$ equals **$(T, T)$**.
 The wrong line flips $P$ once and stops. Each $\neg$ flips the value once, so two $\neg$ signs return to the starting value $F$.
 :::
 
-:::check
-If $P$ is true, evaluate $\neg P$, $\neg\neg P$, and $\neg\neg\neg P$, in that order.
-:::answer
-The answer is **$(F, T, F)$**. Each $\neg$ flips the value once: $T$ becomes $F$, then $T$, then $F$.
-:::
-
 ### Working Inside Out with Parentheses
 
-Evaluate inside parentheses first, replace the group with $T$ or $F$, then apply the outer connective. Compare $(P \land Q) \lor R$ and $P \land (Q \lor R)$ when $P=F$, $Q=T$, and $R=T$:
+Evaluate inside parentheses first, replace the group with $T$ or $F$, then apply the outer connective. Find the value of $(P \land Q) \lor R$ and of $P \land (Q \lor R)$ when $P=F$, $Q=T$, and $R=T$:
 
 1. $(P \land Q) \lor R$: $(F \land T) \lor T = F \lor T = T$.
 2. $P \land (Q \lor R)$: $F \land (T \lor T) = F \land T = F$.
@@ -46,20 +40,14 @@ Evaluate inside parentheses first, replace the group with $T$ or $F$, then apply
 :::pair #ignore-parentheses
 Right: with $P=F$, $Q=T$, and $R=T$, $(P \land Q) \lor R$ and $P \land (Q \lor R)$ give **$(T, F)$**.
 Wrong: both expressions give **$(F, F)$**.
-Ignoring parentheses gives both expressions the second expression's outer $\land$ with $P=F$. In the first expression, $(P \land Q)$ is evaluated first and joined by an outer $\lor$ with $R=T$, making the full result $T$.
-:::
-
-:::check
-If $P$ is false, $Q$ is true, and $R$ is false, evaluate $(P \lor Q) \land R$.
-:::answer
-The answer is **$F$**. Inside parentheses, $F \lor T = T$; outside, $T \land F = F$.
+The wrong line skips the group in the first expression. $(P \land Q)$ is $F$ first, and the outer $\lor$ with $R=T$ makes the full result $T$.
 :::
 
 ### Negating a Whole Group
 
-Parentheses also show how much a $\neg$ sign covers. In $\neg(P \land Q)$, evaluate $P \land Q$ first and flip the whole result; in $(\neg P) \land Q$, flip only $P$ first.
+Parentheses show how much a $\neg$ sign covers. A $\neg$ with no parentheses after it covers only the letter beside it. In $\neg(P \land Q)$, evaluate $P \land Q$ first and flip the whole result. In $(\neg P) \land Q$, flip only $P$ first.
 
-Compare $\neg(P \land Q)$ and $(\neg P) \land Q$ with $P=F$, $Q=F$:
+Find the value of $\neg(P \land Q)$ and of $(\neg P) \land Q$ when $P=F$ and $Q=F$:
 
 1. $\neg(P \land Q) = \neg(F \land F) = \neg F = T$.
 2. $(\neg P) \land Q = (\neg F) \land F = T \land F = F$.
@@ -75,71 +63,65 @@ The wrong line flipped both $P$ and $Q$ in $(\neg P) \land Q$. The $\neg$ sits i
 :::
 
 :::check
-With $P$ true and $Q$ true, evaluate $\neg(P \lor Q)$.
+If $P$ is false, $Q$ is false, and $R$ is true, evaluate $(\neg P \lor Q) \land R$.
 :::answer
-The answer is **$F$**. Inside parentheses, $T \lor T = T$, and negating that result gives $\neg T = F$.
+The answer is **$T$**. Inside the parentheses, $\neg P = \neg F = T$, then $T \lor F = T$. Outside, $T \land T = T$.
 :::
 
 ## Examples
 
-### #1: Evaluating a Negation
+### #1: Evaluating Repeated Negation
 
-If $P$ is false, evaluate $\neg P$ and $\neg\neg P$, in that order.
+Find $\neg P$, $\neg\neg P$, and $\neg\neg\neg P$ when $P$ is true, in that order.
 
 **Solution:**
 
-1. Substitute $P=F$ into $\neg P$ and $\neg\neg P$:
+1. Substitute $P=T$ and apply one $\neg$ at a time:
 
-$$\neg P=\neg F=T$$
+$$\neg P=\neg T=F$$
 
-$$\neg\neg P=\neg T=F$$
+$$\neg\neg P=\neg F=T$$
 
-The ordered results are $(T, F)$.
+$$\neg\neg\neg P=\neg T=F$$
 
-**Check:** Double negation always returns the original value ($F$), while single negation flips it ($T$).
+The ordered results are $(F, T, F)$.
 
 ### #2: Combining Connectives
 
-If $P$ is true, $Q$ is false, and $R$ is true, evaluate $(P \land Q) \lor R$.
+Find the value of $P \lor (Q \land R)$ when $P$ is false, $Q$ is true, and $R$ is false.
 
 **Solution:**
 
-1. Evaluate inside parentheses first: $T \land F = F$.
-2. Replace $(P \land Q)$ with $F$ and apply the outer **or**: $F \lor T = T$.
+1. Evaluate inside parentheses first: $Q \land R = T \land F = F$.
+2. Replace $(Q \land R)$ with $F$ and apply the outer **or**: $P \lor F = F \lor F = F$.
 
-The full expression is $T$ (true).
-
-**Check:** Since $R=T$ sits on an outer **or**, it forces the whole expression to $T$.
+The full expression is $F$ (false).
 
 ### #3: Negating a Grouped Statement
 
-If $P$ is true and $Q$ is false, evaluate $\neg(P \land Q)$.
+Find the value of $\neg(P \rightarrow Q)$ when $P$ is true and $Q$ is false.
 
 **Solution:**
 
-1. Evaluate inside parentheses first: $T \land F = F$.
+1. Evaluate inside parentheses first: $P \rightarrow Q = T \rightarrow F = F$.
 2. Apply the outer $\neg$ to that result: $\neg F = T$.
 
 The full expression is $T$ (true).
 
-**Check:** One false part ($Q=F$) makes the inner **and** ($T \land F$) false, so the outer $\neg$ flips that $F$ to $T$.
-
 ### #4: Multi-Group Expression
 
-If $P$ is true, $Q$ is false, and $R$ is false, evaluate the first group, the second group, and the full expression $(P \rightarrow Q) \lor (\neg Q \land R)$, in that order.
+Find the first group, the second group, and the full expression $(P \rightarrow Q) \lor (\neg Q \land R)$ when $P$ is true, $Q$ is false, and $R$ is true, in that order.
 
 **Solution:**
 
 1. First group $(P \rightarrow Q)$: $T \rightarrow F = F$.
 2. In the second group $(\neg Q \land R)$, negate $Q=F$ first: $\neg Q = T$.
-3. Join $\neg Q = T$ with $R=F$: $T \land F = F$.
+3. Join $\neg Q = T$ with $R=T$: $T \land T = T$.
 
 :::try
 Finish the last step: join both group results with the outer $\lor$ and state all three values in order.
 :::answer
-The answer is **$F, F, F$**. The outer **or** combines $F \lor F = F$.
-
-**Check:** Both $(P \rightarrow Q)$ and $(\neg Q \land R)$ evaluate to $F$, and $F \lor F$ forces the outer **or** to $F$.
+The answer is **$F, T, T$**. The outer **or** combines $F \lor T = T$.
 :::
 
 ## Speed Tricks & Shortcuts
@@ -149,7 +131,7 @@ Replace each inner parentheses group with a single $T$ or $F$ directly on paper 
 ## Traps to Watch For
 
 :::checklist
-- Double negation $\neg\neg P$: apply each $\neg$ in order so two flips return the original value. {#skip-second-negation}
-- Nested groups like $(P \land Q) \lor R$ vs $P \land (Q \lor R)$: solve inside parentheses before checking the outer connective. {#ignore-parentheses}
-- Negation scope $\neg(P \land Q)$ vs $(\neg P) \land Q$: an outside $\neg$ flips one value, the result of the entire group, while an inside $\neg$ flips only the single letter beside it. {#negate-wrong-scope}
+- Double negation: apply each $\neg$ in order, so $\neg\neg F = \neg T = F$. {#skip-second-negation}
+- Groups like $(P \land Q) \lor R$: solve inside the parentheses first, then the outer connective. {#ignore-parentheses}
+- $\neg(P \land Q)$ versus $(\neg P) \land Q$: an outside $\neg$ flips the whole group's result, an inside $\neg$ only its letter. {#negate-wrong-scope}
 :::

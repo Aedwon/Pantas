@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 190" width="360" height="190">
+<title>Three circle diagrams side by side: All A are B (circle A inside circle B), No A are B (circles A and B apart), and Some A are B (circles A and B overlap with a mark in the overlap)</title>
+<rect width="360" height="190" rx="14" fill="#030303"/>
+<line x1="120" y1="22" x2="120" y2="168" stroke="#040404" stroke-width="1.5"/>
+<line x1="240" y1="22" x2="240" y2="168" stroke="#040404" stroke-width="1.5"/>
+<circle cx="60" cy="80" r="50" fill="#050505" fill-opacity="0.22" stroke="#020202" stroke-width="2"/>
+<circle cx="60" cy="98" r="24" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="2"/>
+<text x="60" y="52" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">B</text>
+<text x="60" y="103" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">A</text>
+<circle cx="150" cy="80" r="24" fill="#050505" fill-opacity="0.22" stroke="#020202" stroke-width="2"/>
+<circle cx="210" cy="80" r="24" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="2"/>
+<text x="150" y="85" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">A</text>
+<text x="210" y="85" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">B</text>
+<circle cx="276" cy="80" r="32" fill="#050505" fill-opacity="0.22" stroke="#020202" stroke-width="2"/>
+<circle cx="324" cy="80" r="32" fill="#010101" fill-opacity="0.12" stroke="#020202" stroke-width="2"/>
+<text x="262" y="85" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">A</text>
+<text x="338" y="85" text-anchor="middle" font-family="Geist, sans-serif" font-size="14" font-weight="700" fill="#010101">B</text>
+<line x1="294" y1="74" x2="306" y2="86" stroke="#010101" stroke-width="2.5"/>
+<line x1="306" y1="74" x2="294" y2="86" stroke="#010101" stroke-width="2.5"/>
+<text x="60" y="165" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101">All A are B</text>
+<text x="180" y="165" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101">No A are B</text>
+<text x="300" y="165" text-anchor="middle" font-family="Geist, sans-serif" font-size="13" font-weight="700" fill="#010101">Some A are B</text>
+</svg>
