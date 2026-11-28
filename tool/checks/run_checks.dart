@@ -25,6 +25,7 @@ import 'lesson_size_check.dart';
 import 'lesson_split_coverage_check.dart';
 import 'letter_shortcut_gate.dart';
 import 'mock_blueprint_topics.dart';
+import 'no_middle_dot_separator.dart';
 import 'question_id_limits.dart';
 import 'session_stored_order.dart';
 import 'shell_route_push.dart';
@@ -69,6 +70,7 @@ const allChecks = <Check>[
   SessionStoredOrderCheck(),
   FigureClassesCheck(),
   InternalTermsCheck(),
+  NoMiddleDotSeparatorCheck(),
 ];
 
 void main() {

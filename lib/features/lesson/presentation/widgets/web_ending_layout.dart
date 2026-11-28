@@ -224,7 +224,7 @@ class WebEndingLayout extends StatelessWidget {
                           ],
                           if (next != null && next.lessons.isNotEmpty)
                             WebReaderNext(
-                              label: 'Next topic · ${next.name}',
+                              label: 'Next topic: ${next.name}',
                               title: next.lessons.first.title,
                               detail: nextDetail,
                               topGap: 0,

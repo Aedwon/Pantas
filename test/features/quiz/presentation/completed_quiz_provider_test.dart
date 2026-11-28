@@ -63,7 +63,7 @@ void main() {
     );
     for (final (origin, custom, label) in [
       ('drill', false, 'Quiz'),
-      ('drill', true, 'Your quiz · Algebra'),
+      ('drill', true, 'Your quiz: Algebra'),
       ('flagged', false, 'Flagged questions'),
       ('retake', false, 'Your past mistakes'),
       ('today_topic', false, "Today's session"),

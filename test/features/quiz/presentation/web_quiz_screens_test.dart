@@ -132,7 +132,7 @@ void main() {
           greaterThan(tester.getTopLeft(find.text('Your past mistakes')).dx),
         );
         if (state is SessionPanelAvailable) {
-          expect(find.text('Reviews · Session 2 of 3'), findsOneWidget);
+          expect(find.text('Reviews: Session 2 of 3'), findsOneWidget);
           expect(find.text('Continue Reviews'), findsOneWidget);
         }
         if (state is SessionPanelNeedsAssessment) {

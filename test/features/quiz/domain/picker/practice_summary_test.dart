@@ -43,7 +43,7 @@ void main() {
     );
 
     expect(summary.totalQuestions, 30);
-    expect(summary.headline, '30 questions · about 25 min');
+    expect(summary.headline, '30 questions, about 25 min');
     expect(summary.detail, '15 from each of 2 selections');
   });
 
@@ -84,7 +84,7 @@ void main() {
     );
 
     expect(summary.estimatedMinutes, 13);
-    expect(summary.headline, '15 questions · about 13 min');
+    expect(summary.headline, '15 questions, about 13 min');
   });
 
   test('a measured pace adds the duration', () {
@@ -101,7 +101,7 @@ void main() {
     );
 
     expect(summary.estimatedMinutes, 20);
-    expect(summary.headline, '30 questions · about 20 min');
+    expect(summary.headline, '30 questions, about 20 min');
   });
 
   test('minutes mode converts through the pace', () {

@@ -580,7 +580,7 @@ class HomeTodayChecklist extends StatelessWidget {
         title: lesson.title,
         footer: lessonTopicFooter(
           context,
-          upNext ? 'Up next · ${lesson.subject}' : lesson.subject,
+          upNext ? 'Up next: ${lesson.subject}' : lesson.subject,
           maxLines: 1,
         ),
         // Board (HE_LongTitle): a long title and subject are cut, never

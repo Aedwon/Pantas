@@ -38,7 +38,7 @@ class PracticeSummary {
     final questions =
         '$totalQuestions question${totalQuestions == 1 ? '' : 's'}';
     final minutes = estimatedMinutes;
-    return minutes == null ? questions : '$questions · about $minutes min';
+    return minutes == null ? questions : '$questions, about $minutes min';
   }
 
   // Only the retired picker consumes these lines, until Task 9 removes it.

@@ -97,7 +97,7 @@ void main() {
     expect(sheet.title, 'Questions');
     expect(sheet.summary, 'Parts 1 and 2 are closed');
     expect(sheet.parts, hasLength(2));
-    expect(sheet.parts[0].title, 'PART 3 · MATHEMATICS');
+    expect(sheet.parts[0].title, 'PART 3: MATHEMATICS');
     expect(sheet.parts[0].enabled, isTrue);
     expect(sheet.parts[0].questions.first.number, 1);
     expect(sheet.parts[0].questions, hasLength(60));
@@ -105,7 +105,7 @@ void main() {
       sheet.parts[0].questions.where((q) => q.current).single.number,
       12,
     );
-    expect(sheet.parts[1].title, 'PART 4 · SCIENCE');
+    expect(sheet.parts[1].title, 'PART 4: SCIENCE');
     expect(sheet.parts[1].enabled, isFalse);
     expect(find.text('0 of 60'), findsOneWidget);
     expect(find.text('Opens when this part starts.'), findsOneWidget);

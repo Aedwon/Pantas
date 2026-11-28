@@ -18,7 +18,7 @@ LessonEnding decideEnding({
   final total = topic.totalCount;
   final read = topic.readCount;
   final isFinished = topic.isComplete;
-  final examAndSubject = '$examShortName · ${subject.name}';
+  final examAndSubject = '$examShortName: ${subject.name}';
   final dateLine = PantasDates.full(today);
 
   if (isFinished) {

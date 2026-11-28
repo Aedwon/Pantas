@@ -13,7 +13,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 void main() {
   test('orbital figure labels capacities as subshell capacities', () {
     expect(orbitalShapeTitle('p'), 'p subshell');
-    expect(orbitalShapeCaption('dumbbell', 6), 'dumbbell • subshell max 6 e-');
+    expect(orbitalShapeCaption('dumbbell', 6), 'dumbbell, subshell max 6 e-');
   });
 
   setUpAll(() async {

@@ -159,7 +159,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                             ),
                             const SizedBox(height: PantasSpace.s4),
                             Text(
-                              'Part ${widget.nextPartIndex} · '
+                              'Part ${widget.nextPartIndex}: '
                               '${widget.partNames[closedIndex]}',
                               style: PantasType.phoneCallout.copyWith(
                                 color: c.textSecondary,
@@ -463,7 +463,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
               ),
               const SizedBox(height: PantasSpace.s8),
               Text(
-                'Part ${widget.nextPartIndex} · '
+                'Part ${widget.nextPartIndex}: '
                 '${widget.partNames[widget.nextPartIndex - 1]}',
                 style: PantasType.webLead.copyWith(
                   color: t.colors.textSecondary,
@@ -481,7 +481,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                       child: Column(
                         children: [
                           Text(
-                            '$answered answered · $blank blank',
+                            '$answered answered, $blank blank',
                             style: t.sub,
                           ),
                           const SizedBox(
@@ -534,7 +534,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                                 ),
                                 Expanded(
                                   child: Text(
-                                    'Part ${i + 1} · $name',
+                                    'Part ${i + 1}: $name',
                                     style: PantasType.webRowTitle.copyWith(
                                       color: t.colors.textPrimary,
                                       fontWeight: i == widget.nextPartIndex
@@ -601,7 +601,7 @@ class _PartTransitionPageState extends State<PartTransitionPage>
                       Text(widget.examTitle, style: t.sm),
                       Text(
                         'Part ${widget.nextPartIndex} of '
-                        '${widget.partNames.length} · '
+                        '${widget.partNames.length}: '
                         '${widget.partNames[widget.nextPartIndex - 1]}',
                         maxLines: 1,
                         overflow: TextOverflow.ellipsis,

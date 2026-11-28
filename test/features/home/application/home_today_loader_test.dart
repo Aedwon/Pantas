@@ -376,7 +376,7 @@ void main() {
 
     f.launcher.gate.complete();
     await _settle(tester);
-    expect(find.text('6 due · 2 sessions of 5'), findsOneWidget);
+    expect(find.text('6 due, 2 sessions of 5'), findsOneWidget);
     expect(find.text('Questions due today'), findsNothing);
     expect(f.launcher.loads, 1);
   });

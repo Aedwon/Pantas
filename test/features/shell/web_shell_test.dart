@@ -35,7 +35,7 @@ void main() {
       expect(find.text('Route content'), findsOneWidget);
       if (width >= 1024) {
         expect(find.text('Pantas'), findsOneWidget);
-        expect(find.text('CSE · Free'), findsOneWidget);
+        expect(find.text('CSE, Free'), findsOneWidget);
         expect(
           tester.getSize(find.byType(WebSidebar)).width,
           inInclusiveRange(PantasLayout.sidebarMin, PantasLayout.sidebarMax),

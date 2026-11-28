@@ -292,10 +292,10 @@ void main() {
     testWidgets('Esc closes it and does not leave the lesson', (tester) async {
       await pumpReader(tester);
       await openMenu(tester);
-      expect(find.text(' · 2 LESSONS'), findsOneWidget);
+      expect(find.text(', 2 LESSONS'), findsOneWidget);
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pumpAndSettle();
-      expect(find.text(' · 2 LESSONS'), findsNothing);
+      expect(find.text(', 2 LESSONS'), findsNothing);
       expect(backs, 0);
       // With the menu shut, Esc goes back as before.
       await tester.sendKeyEvent(LogicalKeyboardKey.escape);

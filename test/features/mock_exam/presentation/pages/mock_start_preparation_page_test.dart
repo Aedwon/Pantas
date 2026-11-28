@@ -73,7 +73,7 @@ void main() {
     );
 
     expect(find.text('Setting out your paper'), findsOneWidget);
-    expect(find.text('UPCAT Practice Paper · 5 questions'), findsOneWidget);
+    expect(find.text('UPCAT Practice Paper, 5 questions'), findsOneWidget);
     expect(find.text('Language Proficiency'), findsOneWidget);
     expect(find.text('3 questions'), findsOneWidget);
     expect(find.text('Mathematics'), findsOneWidget);

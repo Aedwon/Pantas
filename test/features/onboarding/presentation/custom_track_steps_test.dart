@@ -366,7 +366,7 @@ void main() {
 
         expect(find.text('2 topics'), findsOneWidget);
         expect(find.text('1 topic'), findsOneWidget); // Science
-        expect(find.text('1 topic · Civil Service-level'), findsOneWidget);
+        expect(find.text('1 topic, Civil Service-level'), findsOneWidget);
         expect(find.textContaining('Student-level'), findsNothing);
         expect(find.byType(PantasTag), findsNothing);
       });

@@ -418,7 +418,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
     final subject = widget.oneBlock
         ? widget.questionSubjects[widget.state.currentQuestionId] ??
             widget.partName
-        : 'Part ${widget.currentPartNumber} · ${widget.partName}';
+        : 'Part ${widget.currentPartNumber}: ${widget.partName}';
     final counterStyle = PantasType.webLink.copyWith(
       color: c.textPrimary,
       fontFeatures: const [FontFeature.tabularFigures()],
@@ -457,7 +457,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                           Text(
                             widget.partStarted
                                 ? 'Part ${widget.currentPartNumber} started'
-                                : 'Part ${widget.currentPartNumber} · '
+                                : 'Part ${widget.currentPartNumber}: '
                                     '${widget.partName}',
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -792,7 +792,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                   child: Text(
                     widget.oneBlock
                         ? 'WHOLE PAPER'
-                        : 'PART $part · '
+                        : 'PART $part: '
                             '${widget.partName.toUpperCase()}',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
@@ -836,7 +836,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
               for (final part in widget.upcomingParts) ...[
                 const SizedBox(height: PantasSpace.s28),
                 Text(
-                  'PART ${part.number} · ${part.name.toUpperCase()}',
+                  'PART ${part.number}: ${part.name.toUpperCase()}',
                   style: t.eb,
                 ),
                 const SizedBox(height: PantasSpace.s6),
@@ -902,7 +902,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
             // part, so the question carries no eyebrow.
             : widget.partStarted
                 ? ''
-                : 'Part $part · ${widget.partName}',
+                : 'Part $part: ${widget.partName}',
         selectedIndex:
             widget.state.answers[widget.state.currentQuestionId]?.selectedIndex,
         onAnswer: widget.onAnswer,
@@ -936,7 +936,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
                               .copyWith(color: c.textSecondary),
                         ),
                         Text(
-                          'Part $part of ${widget.partNames.length} · '
+                          'Part $part of ${widget.partNames.length}: '
                           '${widget.partName}',
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -1257,7 +1257,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
     final open = QuestionGridPart(
       title: widget.oneBlock
           ? ''
-          : 'PART ${widget.currentPartNumber} · '
+          : 'PART ${widget.currentPartNumber}: '
               '${widget.partName.toUpperCase()}',
       count: widget.oneBlock
           ? null
@@ -1278,7 +1278,7 @@ class _MockSessionPageState extends State<MockSessionPage> {
       open,
       for (final part in widget.upcomingParts)
         QuestionGridPart(
-          title: 'PART ${part.number} · ${part.name.toUpperCase()}',
+          title: 'PART ${part.number}: ${part.name.toUpperCase()}',
           enabled: false,
           lockedNote: 'Opens when this part starts.',
           questions: [
@@ -1548,7 +1548,7 @@ class _PartListRow extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Part $number · $name',
+                  'Part $number: $name',
                   style: PantasType.webLink.copyWith(
                     fontWeight: FontWeight.w400,
                     color: done ? c.textSecondary : c.textPrimary,

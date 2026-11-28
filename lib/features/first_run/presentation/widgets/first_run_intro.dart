@@ -366,7 +366,7 @@ class _LessonPreview extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            'MATHEMATICS · ARITHMETIC',
+            'MATHEMATICS: ARITHMETIC',
             style: PantasType.phoneSubhead.copyWith(
               // ds-board: preview eyebrow 13/600, tracking .04em
               fontSize: _eyebrowPx,

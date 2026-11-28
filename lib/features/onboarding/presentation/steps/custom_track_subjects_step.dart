@@ -175,7 +175,7 @@ class _CustomTrackSubjectsStepState
     final count = '${topics.length} ${topics.length == 1 ? 'topic' : 'topics'}';
     final tier = tiers?.tierOf(topics);
     if (tier == null || tier == PriceTier.student) return count;
-    return '$count · ${CustomSubjectTiers.levelLabel(tier)}';
+    return '$count, ${CustomSubjectTiers.levelLabel(tier)}';
   }
 
   /// The card footer's line. It names the tier once a subject is ticked and

@@ -41,7 +41,7 @@ void main() {
       );
 
       expect(find.text('CSE Professional simulation'), findsOneWidget);
-      expect(find.text('10 total items · 1 hr 30 min'), findsOneWidget);
+      expect(find.text('10 total items, 1 hr 30 min'), findsOneWidget);
       expect(find.text('General Information'), findsOneWidget);
       await tester.scrollUntilVisible(
         find.text('Start the Mock Exam'),

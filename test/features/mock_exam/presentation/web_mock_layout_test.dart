@@ -782,7 +782,7 @@ void main() {
         dark: dark,
       );
       expect(find.text('Part 1 ended.'), findsOneWidget);
-      expect(find.text('1 answered · 1 blank'), findsOneWidget);
+      expect(find.text('1 answered, 1 blank'), findsOneWidget);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(started, true);
       expect(tester.takeException(), isNull);
@@ -1002,7 +1002,7 @@ void main() {
         const Size(152, 200),
       );
       expect(
-        tester.getTopLeft(find.text('Part 1 · Language')).dx,
+        tester.getTopLeft(find.text('Part 1: Language')).dx,
         greaterThan(tester.getTopRight(find.text('Paused')).dx),
       );
       await tester.tap(find.text('Discard This Mock'));

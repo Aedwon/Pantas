@@ -505,7 +505,7 @@ class _PhysicsMechanicsPainter extends CustomPainter {
     );
     _label(
       canvas,
-      'near Sun\nlonger arc • faster',
+      'near Sun\nlonger arc, faster',
       const Offset(4, 18),
       size.width * 0.30,
       style: labelStyle.copyWith(color: board),
@@ -513,7 +513,7 @@ class _PhysicsMechanicsPainter extends CustomPainter {
     );
     _label(
       canvas,
-      'far from Sun\nshorter arc • slower',
+      'far from Sun\nshorter arc, slower',
       Offset(size.width * 0.69, 18),
       size.width * 0.30,
       style: labelStyle,
@@ -521,7 +521,7 @@ class _PhysicsMechanicsPainter extends CustomPainter {
     );
     _label(
       canvas,
-      'equal time • equal swept area',
+      'equal time, equal swept area',
       Offset(size.width * 0.29, size.height - 28),
       size.width * 0.42,
       style: mutedStyle,

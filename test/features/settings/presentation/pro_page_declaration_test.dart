@@ -284,9 +284,9 @@ void main() {
         (w) =>
             w is RichText &&
             w.text.toPlainText() ==
-                'Sold by [registered business name] · '
-                    '[full place of business] · '
-                    '[business phone] · support@pantas.study',
+                'Sold by [registered business name], '
+                    '[full place of business], '
+                    '[business phone], support@pantas.study',
       );
       expect(line, findsOneWidget);
     });

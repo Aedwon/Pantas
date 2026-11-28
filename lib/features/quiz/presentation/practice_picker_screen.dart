@@ -305,8 +305,8 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         'question${barSummary.totalQuestions == 1 ? '' : 's'}';
     final time = _time(barSummary.estimatedMinutes ?? 0);
     final caption = _mode == PracticeUnitMode.questions
-        ? '$questions · ${_underMinute(barSummary) ? 'under 1 min' : '~$time'}'
-        : '~$questions · $time';
+        ? '$questions, ${_underMinute(barSummary) ? 'under 1 min' : '~$time'}'
+        : '~$questions, $time';
     final pickedLabel = '${barSummary.unitCount} '
         'lesson${barSummary.unitCount == 1 ? '' : 's'} picked';
     final subjects = [

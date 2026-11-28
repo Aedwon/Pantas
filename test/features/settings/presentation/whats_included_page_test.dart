@@ -540,7 +540,7 @@ void main() {
       await pumpTier(tester, entitlement: const Entitlement.free());
 
       expect(
-        find.text('GENERAL INFORMATION · Civil Service-level'),
+        find.text('GENERAL INFORMATION (Civil Service-level)'),
         findsOneWidget,
       );
       expect(find.text('MATHEMATICS'), findsOneWidget);

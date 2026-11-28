@@ -346,7 +346,7 @@ class _ScopePickerState extends State<ScopePicker>
               child: Text(
                 subject.mark == null
                     ? subject.title.toUpperCase()
-                    : '${subject.title.toUpperCase()} · ${subject.mark}',
+                    : '${subject.title.toUpperCase()} (${subject.mark})',
                 style: context.type.sectionHeader,
               ),
             ),

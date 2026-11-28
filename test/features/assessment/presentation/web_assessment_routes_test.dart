@@ -137,7 +137,7 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       await tester.pumpAndSettle();
       expect(find.byType(WebAssessmentResults), findsOneWidget);
-      expect(find.text('CSE · 1 questions'), findsOneWidget);
+      expect(find.text('CSE, 1 questions'), findsOneWidget);
       expect(await AssessmentRepository(db).hasCompletedForExam('e'), isTrue);
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       await tester.pumpAndSettle();

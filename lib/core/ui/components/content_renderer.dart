@@ -2198,8 +2198,8 @@ class _FigureViewerState extends State<_FigureViewer> {
                           vertical: PantasSpace.s6,
                         ),
                         child: Text(
-                          '${credit.isEmpty ? '' : '$credit · '}'
-                          'Scroll or + − to zoom · Esc to close',
+                          '${credit.isEmpty ? '' : '$credit. '}'
+                          'Scroll or + − to zoom. Esc to close',
                           textAlign: TextAlign.center,
                           style: PantasType.webRowSub.copyWith(
                             color: context.webTokens.figureCaption,

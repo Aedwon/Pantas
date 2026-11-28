@@ -111,8 +111,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     final subjectNames = {for (final s in subjects) s.id: s.title};
     final scope = subjectNames[widget.subject];
     final kind = ['subjects', 'topics', 'lessons'][widget.level];
-    final scopeLabel = scope != null && widget.level > 0 ? ' · $scope' : '';
-    final heading = '${widget.rows.length} $kind$scopeLabel · $_sortLabel';
+    final scopeLabel = scope != null && widget.level > 0 ? ', $scope' : '';
+    final heading = '${widget.rows.length} $kind$scopeLabel, $_sortLabel';
     return CallbackShortcuts(
       bindings: {
         const SingleActivator(LogicalKeyboardKey.escape): widget.onBack,

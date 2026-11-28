@@ -467,7 +467,7 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
           await widget.onReadEarly!(
             context,
             lesson.id,
-            '${DateFormat('EEEE', 'en_US').format(view.date)} · '
+            '${DateFormat('EEEE', 'en_US').format(view.date)}: '
             '${lesson.subject}',
             dayContext,
           );
