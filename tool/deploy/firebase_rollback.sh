@@ -11,10 +11,7 @@ env="${1:?staging or prod}"
 case "$env" in staging|prod) ;; *) echo "staging or prod" >&2; exit 2;; esac
 here="$(cd "$(dirname "$0")" && pwd)"
 src="$(cd "${2:-$here/../../build/web}" && pwd)"
-# PANTAS_GUARD_PINS is for the tests only: stand-in bytes for the files the guard pins.
-pins=()
-if [ -n "${PANTAS_GUARD_PINS:-}" ]; then pins=(--pins "$PANTAS_GUARD_PINS"); fi
-node "$here/check_worker_stamp.mjs" "$src" --target "$env" ${pins[@]+"${pins[@]}"}
+node "$here/check_worker_stamp.mjs" "$src" --target "$env"
 cd "$here/../.."
 config=".firebase-rollback-$env-$$.json"
 trap 'rm -f "$config"' EXIT

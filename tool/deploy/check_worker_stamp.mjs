@@ -10,9 +10,9 @@
 // before them is refused here, because once phones hold a stamped build, deploying
 // the old worker would put the mixing back. Roll back by deploying an earlier
 // stamped build.
-// Usage: node tool/deploy/check_worker_stamp.mjs [build/web] --target staging|prod [--pins pins.json]
+// Usage: node tool/deploy/check_worker_stamp.mjs [build/web] --target staging|prod
 // Run by tool/cloudflare-app/deploy.sh and tool/deploy/firebase_rollback.sh.
-// `--pins` replaces PINNED_ROOT_FILES; the tests use it with stand-in bytes.
+// The command line cannot change the pinned bytes. Tests give stampProblems their own pins.
 import {createHash} from 'node:crypto';
 import {existsSync, readdirSync, readFileSync, statSync} from 'node:fs';
 import {join} from 'node:path';
@@ -233,13 +233,14 @@ if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const option = name => (args.includes(name) ? args[args.indexOf(name) + 1] : undefined);
   const dir = args.find((arg, index) => !arg.startsWith('--') && !(index > 0 && args[index - 1].startsWith('--'))) ?? 'build/web';
   const target = option('--target');
-  if (!['staging', 'prod'].includes(target)) {
-    console.error('Usage: node tool/deploy/check_worker_stamp.mjs [build/web] --target staging|prod [--pins pins.json]');
+  // The pinned bytes cannot be swapped from the command line: only --target is an option.
+  if (!['staging', 'prod'].includes(target) || args.some(arg => arg.startsWith('--') && arg !== '--target')) {
+    const unknown = args.filter(arg => arg.startsWith('--') && arg !== '--target');
+    if (unknown.length) console.error(`Unknown option ${unknown.join(', ')}`);
+    console.error('Usage: node tool/deploy/check_worker_stamp.mjs [build/web] --target staging|prod');
     process.exit(2);
   }
-  const pinsFile = option('--pins');
-  const pins = pinsFile ? JSON.parse(readFileSync(pinsFile, 'utf8')) : PINNED_ROOT_FILES;
-  const problems = stampProblems(dir, {pins, target});
+  const problems = stampProblems(dir, {target});
   if (problems.length) {
     console.error(`Refusing ${dir}:\n- ${problems.join('\n- ')}`);
     process.exit(1);

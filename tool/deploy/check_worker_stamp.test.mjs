@@ -60,8 +60,8 @@ const todaysWorker = readFileSync(new URL('../../test/web/fixtures/pantas_sw_pro
 test('a stamped build passes', () => {
   const build = stamped();
   assert.deepEqual(stampProblems(build.dir), []);
-  const run = spawnSync('node', [script, build.dir, '--pins', pinsFile, '--target', 'prod']);
-  assert.equal(run.status, 0, run.stderr.toString());
+  // The command line takes no pins, so a fixture build cannot pass it; a real build does (the
+  // lead's real-build check).
   done(build);
 });
 
@@ -69,7 +69,7 @@ test('an unstamped worker is refused', () => {
   const build = stamped();
   writeFileSync(join(build.dir, 'pantas_sw.js'), unstampedSource);
   assert.match(stampProblems(build.dir)[0], /unstamped/);
-  const run = spawnSync('node', [script, build.dir, '--pins', pinsFile, '--target', 'prod']);
+  const run = spawnSync('node', [script, build.dir, '--target', 'prod']);
   assert.equal(run.status, 1);
   assert.match(run.stderr.toString(), /Refusing/);
   done(build);
@@ -303,7 +303,7 @@ test('audit 3 High: a build with no App Check site key is refused for prod and f
     const problems = stampProblems(keyless.dir, {target}).join('\n');
     assert.match(problems, /App Check site key/, `${target}: ${problems}`);
   }
-  const run = spawnSync('node', [script, keyless.dir, '--pins', pinsFile, '--target', 'prod']);
+  const run = spawnSync('node', [script, keyless.dir, '--target', 'prod']);
   assert.equal(run.status, 1);
   assert.match(run.stderr.toString(), /no App Check site key/);
   done(keyless);
@@ -324,12 +324,28 @@ test('audit 3 High: a prod build with its own site key passes, and a text that o
 test('High 6: the command line needs a target, and only staging or prod', () => {
   const build = stamped();
   for (const args of [[], ['--target', 'dev'], ['--target']]) {
-    const run = spawnSync('node', [script, build.dir, '--pins', pinsFile, ...args]);
+    const run = spawnSync('node', [script, build.dir, ...args]);
     assert.equal(run.status, 2, `${args}: ${run.stderr}`);
     assert.match(run.stderr.toString(), /--target staging\|prod/);
   }
-  const ok = spawnSync('node', [script, build.dir, '--pins', pinsFile, '--target', 'prod']);
-  assert.equal(ok.status, 0, ok.stderr.toString());
+  done(build);
+});
+
+// Audit 4: a way to swap the pinned bytes must not exist in a release tool, even for tests.
+test('audit 4: the command line rejects --pins, and the rollback script ignores the pin variable', () => {
+  const build = stamped();
+  const withPins = spawnSync('node', [script, build.dir, '--pins', pinsFile, '--target', 'prod']);
+  assert.equal(withPins.status, 2, withPins.stderr.toString());
+  assert.match(withPins.stderr.toString(), /--pins/);
+  // The fixture build matches only the stand-in pins. With the variable set, a script that still
+  // read it would pass the guard; the real pins must refuse it.
+  const run = spawnSync('/bin/bash', [rollback, 'prod', build.dir], {
+    encoding: 'utf8', env: {PATH: '/usr/bin:/bin:' + process.execPath.replace(/\/node$/, ''), PANTAS_GUARD_PINS: pinsFile},
+  });
+  assert.equal(run.status, 1, run.stdout + run.stderr);
+  assert.match(run.stderr, /Refusing .*differs from/s);
+  assert.doesNotMatch(readFileSync(rollback, 'utf8'), /PANTAS_GUARD_PINS|--pins/);
+  assert.doesNotMatch(readFileSync(script, 'utf8'), /--pins|pinsFile/);
   done(build);
 });
 
@@ -379,17 +395,27 @@ const used = hosting.filter(c => only.some(target => c.target === target || c.si
 fs.writeFileSync(process.env.STUB_OUT, JSON.stringify({configFile, project: option('--project'), publicFlag: option('--public') ?? null, used}));
 `;
 
+// The script runs from a copy of the repository's tool folder and configs, with a guard that always
+// passes: the real guard takes no stand-in pins, so a fixture build could not get past it. The
+// real guard's refusals are tested above. Returns where the copy is, to check what it left behind.
 function rollbackWithStub(env, dir) {
-  const stubDir = mkdtempSync(join(tmpdir(), 'stub-firebase-'));
+  // The real path: node compares the script's address to the module's, and /var is a link to /private/var.
+  const stubDir = realpathSync(mkdtempSync(join(tmpdir(), 'stub-firebase-')));
   const out = join(stubDir, 'out.json');
   writeFileSync(join(stubDir, 'firebase'), stubFirebase, {mode: 0o755});
-  const run = spawnSync('/bin/bash', [rollback, env, dir], {
+  const root = join(stubDir, 'repo');
+  mkdirSync(join(root, 'tool/deploy'), {recursive: true});
+  for (const name of ['firebase_rollback.sh', 'firebase_rollback_config.mjs']) cpSync(join(repo, 'tool/deploy', name), join(root, 'tool/deploy', name));
+  for (const name of ['firebase.json', 'firebase.staging.json']) cpSync(join(repo, name), join(root, name));
+  writeFileSync(join(root, 'tool/deploy/check_worker_stamp.mjs'), 'process.exit(0);\n');
+  const run = spawnSync('/bin/bash', [join(root, 'tool/deploy/firebase_rollback.sh'), env, dir], {
     encoding: 'utf8',
-    env: {PATH: `${stubDir}:/usr/bin:/bin:${process.execPath.replace(/\/node$/, '')}`, STUB_OUT: out, PANTAS_GUARD_PINS: pinsFile},
+    env: {PATH: `${stubDir}:/usr/bin:/bin:${process.execPath.replace(/\/node$/, '')}`, STUB_OUT: out},
   });
   const recorded = existsSync(out) ? JSON.parse(readFileSync(out, 'utf8')) : null;
+  const leftover = recorded ? existsSync(join(root, recorded.configFile)) : false;
   rmSync(stubDir, {recursive: true});
-  return {run, recorded};
+  return {run, recorded, leftover};
 }
 
 test('audit 3 High: the rollback works with the repository\'s real hosting configs (array form), staging and prod', () => {
@@ -399,7 +425,7 @@ test('audit 3 High: the rollback works with the repository\'s real hosting confi
       edit(build.dir, `${build.base}main.dart.js`, text => text + `\nvar k = "${STAGING_KEY}";`);
       stamp(build.dir);
     }
-    const {run, recorded} = rollbackWithStub(env, build.dir);
+    const {run, recorded, leftover} = rollbackWithStub(env, build.dir);
     assert.equal(run.status, 0, `${env}: ${run.stdout}${run.stderr}`);
     assert.equal(recorded.publicFlag, null, 'no --public flag');
     assert.equal(recorded.project, `pantas-${env}`);
@@ -410,7 +436,7 @@ test('audit 3 High: the rollback works with the repository\'s real hosting confi
     // Everything else of the repository's `app` entry is kept: its rewrite and its cache headers.
     const real = JSON.parse(readFileSync(join(repo, env === 'prod' ? 'firebase.json' : 'firebase.staging.json'), 'utf8')).hosting.find(site => site.target === 'app');
     assert.deepEqual({...entry, public: null}, {...real, public: null});
-    assert.ok(!existsSync(join(repo, recorded.configFile)), 'the temporary config is removed');
+    assert.ok(!leftover, 'the temporary config is removed');
     done(build);
   }
 });
