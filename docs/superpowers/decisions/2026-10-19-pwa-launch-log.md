@@ -5115,3 +5115,9 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **Request:** Aedwon's "update SSOT" (in his 3:25 to 3:45 PM CSE-focus answers), relayed by the manager.
 - SSOT updated 28 November 2026, 15:40 PHT, covering 04:00 to 15:40 PHT. Sections touched: Home "Current status" (new 15:40 PHT status; 04:00 PHT status marked SUPERSEDED); Production Readiness Assessment (new top checkpoint, 04:00 PHT checkpoint renamed SUPERSEDED, 15:40 PHT catch-up at the end). Beta tab unchanged: no new beta data. No tester data. Policy read: main c9664ae5f. Velocity E-215.
 - **Waiting on Aedwon now:** staging UI check after 4 PM; the Gmail web setup for support@; the business permit (LGU) status, which NPC registration needs first (manager relay; the NPC research file does not name the permit); the NPC registration go before Dec 18 (fee ₱500 to ₱2,500); the Gmail replacement by Dec 15. Removed: the "Did you pass?" option A (parked by him). Not on the list since Nov 28 4 AM: the PayMongo support request and the service worker option A choice (revision 2 approved).
+
+### Nov 28, about 3:50 PM Manila: website top bar on every page and the new Free and Pro heading live (CSE release lead r11)
+
+- **Approval (Aedwon, relayed by the manager):** "yes fix applicable pages"; for the heading "A on the copy"; "no need to show me screenshots on the landing page changes, just change it".
+- **Done:** pantas-web `web/topbar-all-pages-r1` f217c24 fast-forwarded to main (main was 4e0d077, an ancestor); 224 of 224 tests; `npx -y wrangler@4.162.0 deploy`: new version 4ec8473a-1037-4412-bd31-78a322189e2f (100%). Live checks: terms and about serve the homepage bar (`pn-hdr`), the homepage shows "Start free. Upgrade anytime.", all HTTP 200.
+- **Rollback:** in a pantas-web checkout, `npx -y wrangler@4.162.0 rollback 4f2e652c-4e3d-4f34-9a59-1768c5de98b5` (the version live since Nov 28 1:12 AM: beta button removed, legal dates Nov 28).
