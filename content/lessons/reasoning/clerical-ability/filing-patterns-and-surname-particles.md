@@ -14,53 +14,117 @@ keyPoints:
 ---
 ## Core Concept
 
-### Inferring a rule from examples
+### Finding the Rule from Samples
 
-Sometimes the task shows sample names and their filed forms instead of giving the rule in words. Look for the same pattern in every sample. Then use that pattern on the new name.
+Sometimes a filing task gives sample pairs instead of explaining the rule in words. **Infer** means figure out the rule from the given examples. Check at least two samples to make sure the pattern holds for every one.
 
-For example, if *Ana Cruz* becomes **Cruz, Ana** and *Ben Lim* becomes **Lim, Ben**, the shown rule puts the surname first. Check more than one sample before deciding the rule.
+Look at these two samples:
 
-### Surnames with extra words
+- Sample $1$: *Ana Cruz* becomes **Cruz, Ana**
+- Sample $2$: *Ben Lim* becomes **Lim, Ben**
 
-Some surnames include words such as *De, Del, de la, van, von,* or *San*. Treat the surname the way the task tells you.
+In both samples, the surname moves to Unit $1$ with a comma after it. So *Carlo Reyes* becomes **Reyes, Carlo**.
 
-A rule may say to treat *De la Cruz* as one surname and ignore spaces only while comparing letters. In that case, keep the written surname as *De la Cruz*. Do not change it to *Delacruz*.
+Always follow the rule shown or stated in that specific question. A different registry may put the given name first, skip linking words such as *and*, *of*, and *the*, or expand an abbreviation such as *St.* to *Saint* when sorting.
+
+:::pair #wrong-convention
+Right: under a given-name-first rule, file **Reyes, Alma**, **Santos, Belen**, **Santos, Cora**, and **Reyes, Zoe** last
+Wrong: put **Santos, Cora** last because *Santos* comes after *Reyes*
+The wrong choice uses a surname-first habit when the question states given-name-first order. Check which unit goes first before you sort.
+:::
+
+:::check
+A system files *Rosa M. Diaz* as *Diaz, Rosa M.* and *Ken Yu* as *Yu, Ken*. How should *Paula J. Villanueva* be filed?
+:::answer
+The answer is **Villanueva, Paula J.** Both samples move the surname to Unit $1$, with a comma, and the initial stays after the given name.
+:::
+
+### Surnames with Particles
+
+Some surnames begin with short words called **particles**, such as *De*, *Del*, *De la*, *Van*, *Von*, or *San*. Follow the rule stated in the task for how to group and compare them.
+
+A common rule treats the particles and main name as **one surname unit**, and ignores spaces only while comparing letters. Under that rule, compare the letters pushed together in your head, while keeping the written spaces in the record.
+
+Compare *De la Cruz*, *Delgado*, and *De la Rosa* under that rule:
+
+- Comparison keys (spaces ignored): *delacruz*, *delgado*, *delarosa*.
+- Letters $1$ to $3$: all start with *del*.
+- Letter $4$: *a* in *delacruz* and *delarosa* comes before *g* in *delgado*.
+- Between *delacruz* and *delarosa*, letter $5$ is *c* vs. *r*: *c* comes before *r*.
+- Order: **De la Cruz**, then **De la Rosa**, then **Delgado**.
+
+:::why
+Why keep the spaces in the written entry if we ignore them to sort? The comparison key only picks the shelf order. Removing spaces from *De la Rosa* would change the person's real spelling.
+:::
+
+:::pair #drop-particle
+Right: under a rule treating surname particles as part of one unit, index *De la Rosa* as **De la Rosa** (one surname unit)
+Wrong: index *De la Rosa* as **Rosa** only
+When the rule keeps surname particles in one unit, dropping *De la* wrongly moves the record from *D* to *R*. Follow the particle rule stated in the task.
+:::
+
+:::pair #rewrite-surname
+Right: compare letters as *delarosa*, and write the entry as **De la Rosa**
+Wrong: rewrite the person's recorded surname as **Delarosa**
+Ignoring spaces is a comparison step only. Keep the recorded spelling and spaces intact.
+:::
+
+:::check
+Using one-unit surname particles with spaces ignored only for comparison, which comes first: *Del Rio* or *Delgado*?
+:::answer
+The answer is **Delgado**. Comparing *delrio* and *delgado*, the first three letters match and the fourth letter *g* comes before *r*.
+:::
 
 ## Examples
 
-### #1: Infer the Filing Rule
+### #1: Inferring a Filing Rule
 
-The task shows these examples: "Ana Cruz" → **Cruz, Ana** and "Ben Lim" → **Lim, Ben**. How should "Carlo Reyes" be filed under the same rule?
-
-**Solution:**
-
-1. In both examples, the surname is moved to the first filing unit.
-2. Apply the same pattern to *Carlo Reyes*.
-3. The result is **Reyes, Carlo**.
-
-### #2: Surname with Extra Words
-
-Suppose the instructions say *De la Cruz* is one surname and spaces are ignored only for alphabetic comparison. Which comes first: "Maria De la Cruz" or "Clara Delgado"?
+A registry shows two sample records: "Ana Cruz" is filed as **Cruz, Ana**, and "Ben Lim" is filed as **Lim, Ben**. How should "Elena Bautista" be filed under the same rule?
 
 **Solution:**
 
-1. Compare the surnames *De la Cruz* and *Delgado* under the stated rule.
-2. Ignoring spaces for comparison gives *delacruz* and *delgado*.
-3. The first three letters match. The next letters are *a* and *g*.
-4. **De la Cruz, Maria** comes first.
+1. Check Sample $1$: *Ana Cruz* moves the surname *Cruz* to the front, followed by a comma and *Ana*.
+2. Check Sample $2$: *Ben Lim* follows the same pattern, placing *Lim* before *Ben*.
+3. Apply the same pattern to *Elena Bautista*: put *Bautista* first, a comma, then *Elena*.
+4. The filed entry is **Bautista, Elena**.
 
-The spelling stays *De la Cruz*. The sorting rule does not rename the person.
+**Check:** Unit $1$ is the family name (*Bautista*) and Unit $2$ is the given name (*Elena*), matching both samples.
+
+### #2: Comparing Surnames with Particles
+
+A system treats surname particles as part of one surname unit and ignores spaces only when comparing letters. Keep displayed spellings unchanged. Which entry comes first: *Delgado, Clara*, *De la Rosa, Marco*, *Del Rio, Tomas*, or *De la Cruz, Maria*?
+
+**Solution:**
+
+1. Build the comparison key for each surname by ignoring spaces: *delgado*, *delarosa*, *delrio*, *delacruz*.
+2. Compare from the left. All four keys start with *del*.
+3. Check the fourth letter: *a* in *delacruz* and *delarosa* comes before *g* in *delgado* and *r* in *delrio*.
+4. Compare the fifth letter of *delacruz* and *delarosa*: *c* comes before *r*.
+5. Keep the written spelling: **De la Cruz, Maria** comes first.
+
+**Check:** *Delgado* ($delg$) sits between *De la Rosa* ($delar$) and *Del Rio* ($delr$), so *De la Cruz* ($delac$) is earliest of all four.
+
+### #3: Given-Name-First Rule
+
+This registry explicitly compares given name first and surname second. Which entry comes last: *Cruz, Mara*, *Lopez, Ian*, *Cruz, Nina*, or *Lopez, Hugo*?
+
+**Solution:**
+
+1. Check the primary unit stated in the question: compare given names first, not surnames.
+2. List the given names: *Mara*, *Ian*, *Nina*, *Hugo*.
+
+:::try
+Finish the last step: put the four given names in alphabetical order and name the entry that comes last.
+:::answer
+The answer is **Cruz, Nina**. In given-name order (*Hugo*, *Ian*, *Mara*, *Nina*), *Nina* comes last.
+
+**Check:** All three other given names (*Hugo*, *Ian*, and *Mara*) begin with letters before *N*, so *Nina* stays last regardless of surname.
+:::
 
 ## Traps to Watch For
 
-### #1: Assuming One Rule Always Applies
-
-> Use the filing rule stated or shown in the task.
-
-A different system may build the filing key in another way. Using a rule from another question can place a record in the wrong position.
-
-### #2: Rewriting a Surname to Match the Sort Key
-
-> A sorting rule can change how letters are compared without changing the person's written name.
-
-If spaces are ignored for sorting, the wrong move is to remove those spaces from the actual surname in the record.
+:::checklist
+- A task states or shows a different unit order: follow that rule, even if given names come first. {#wrong-convention}
+- Surname with particles (*De*, *Del*, *De la*): keep all particles in the surname unit instead of dropping them. {#drop-particle}
+- Spaces ignored while comparing letters: keep the spaces in the written record. {#rewrite-surname}
+:::
