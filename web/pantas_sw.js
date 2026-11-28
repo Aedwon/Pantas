@@ -290,7 +290,7 @@ function storedHeaders(source) {
 
 // The build id another worker of this registration reports, or null when it is not a stamped
 // worker (the one that shipped before build folders does not answer) or does not answer in time.
-function buildIdOf(other) {
+function buildIdOf(other, waitMs = 2000) {
   return new Promise((resolve) => {
     let channel = null;
     const finish = (id) => {
@@ -300,7 +300,7 @@ function buildIdOf(other) {
       } catch (_) {}
       resolve(id);
     };
-    const timer = setTimeout(() => finish(null), 2000);
+    const timer = setTimeout(() => finish(null), waitMs);
     try {
       channel = new MessageChannel();
       channel.port1.onmessage = (event) => finish((event.data && event.data.id) || null);
@@ -324,16 +324,20 @@ async function isLegacyWorker(other) {
   }
 }
 
-// True when another worker of the registration is this build. A stamped worker that gives no
-// reply in time is unknown, not different: the install fails and the browser tries again. Only
-// the legacy worker, which never answers, counts as a different build.
+// True when another worker of the registration is this build. A worker that gives no reply is
+// asked once more with a longer wait, so a slow stamped worker is not mistaken for another
+// build. One that still gives none (the legacy worker, including one whose cache was evicted)
+// counts as a different build: the install goes on and waits for a natural activation. It
+// never takes over: takeover is only for a worker positively identified as legacy by its cache
+// name (mayTakeOverAtInstall) and for Update Required.
+// Residual limit: a stamped worker that never answers is treated as a different build, and its
+// replacement waits until every tab is closed.
 async function sameBuildInCharge() {
   const registration = self.registration;
   for (const other of [registration.active, registration.waiting]) {
     if (!other) continue;
     if (other === registration.active && (await isLegacyWorker(other))) continue;
-    const id = await buildIdOf(other);
-    if (id === null) throw new Error('a worker of this site did not report its build: the install will be tried again');
+    const id = (await buildIdOf(other)) ?? (await buildIdOf(other, 10000));
     if (id === BUILD.id) return true;
   }
   return false;

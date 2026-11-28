@@ -1453,28 +1453,62 @@ test('rev2 audit 1 Medium 3: Update Required writes the mark under the lock, and
 });
 
 // Medium 4. A reply that does not come is unknown, not a different build.
-test('rev2 audit 1 Medium 4: the build in charge answers slowly: a duplicate of it does not install', async () => {
+// A worker that misses the first ask and answers only the second, longer one.
+function answersOnSecondAsk(target) {
+  const ask = target.postMessage.bind(target);
+  let asks = 0;
+  target.postMessage = (data, ports) => {
+    if (++asks >= 2) ask(data, ports);
+  };
+}
+
+test('rev2 audit 1 Medium 4: the build in charge answers only the second, longer ask: a duplicate of it does not install', async () => {
   const w = world();
   deploy(w, 'B');
   const b = await install(w, 'B');
   await takeOver(w, b);
   await pageLoad(w);
-  b.postMessage = () => {}; // the reply never comes in time
+  answersOnSecondAsk(b);
   const duplicate = worker(w, workerOf(build('B')), 'same-B-different-url');
-  await assert.rejects(duplicate.install(), /did not report/);
+  await assert.rejects(duplicate.install(), /already installed/);
   assert.equal(w.waiting, null, 'no duplicate waits');
   assert.equal(skips(w, 'same-B-different-url').length, 0);
 });
 
-test('rev2 audit 1 Medium 4: the waiting worker answers slowly: the install fails too, and a legacy active worker still counts as different', async () => {
+test('rev2 audit 1 Medium 4: the waiting worker answers only the second ask: a duplicate of it is refused too', async () => {
   const {w, c} = await waitingC();
-  c.postMessage = () => {};
+  answersOnSecondAsk(c);
   const duplicate = worker(w, workerOf(build('C')), 'other-address');
-  await assert.rejects(duplicate.install(), /did not report/);
+  await assert.rejects(duplicate.install(), /already installed/);
   assert.equal(w.waiting, c);
+});
+
+test('rev2 gap (c): a stamped worker that never answers counts as a different build: the install waits, no takeover', async () => {
+  const w = world();
+  deploy(w, 'B');
+  const b = await install(w, 'B');
+  await takeOver(w, b);
+  await pageLoad(w);
+  b.postMessage = () => {};
+  deploy(w, 'C');
+  const c = await install(w, 'C');
+  assert.equal(w.waiting, c);
+  assert.equal(skips(w, 'C').length, 0);
+  assert.equal(w.stores.get(cacheOf('C')).has(ORIGIN + 'pantas-build-takeover'), false);
+});
+
+test('rev2 gap (a): today\'s worker with its cache evicted: the new install completes and waits; every tab closed, it activates and sweeps', async () => {
   const legacy = await deployedBUnderA({prod: true});
+  legacy.stores.delete('pantas-shell-A');
   const next = await install(legacy, 'B');
-  assert.equal(legacy.waiting, next, 'today\'s worker never answers, and B installs');
+  assert.equal(legacy.waiting, next, 'B waits');
+  assert.equal(skips(legacy, 'B').length, 0, 'no takeover');
+  assert.equal(legacy.stores.get(cacheOf('B')).has(ORIGIN + 'pantas-build-takeover'), false);
+  await (await legacy.caches.open('pantas-shell-old')).put(ORIGIN, new Response('x'));
+  await takeOver(legacy, next); // the browser activates it with no tab open
+  assert.deepEqual(buildCaches(legacy), [cacheOf('B')]);
+  assert.equal(legacy.stores.has('pantas-shell-old'), false, 'the sweep took the old caches');
+  assert.deepEqual((await offlineSet(legacy)).builds, ['B']);
 });
 
 test('audit 3 item 3: with A\'s cache gone, a root part is still never another build\'s bytes', async () => {
