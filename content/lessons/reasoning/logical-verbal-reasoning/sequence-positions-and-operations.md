@@ -128,7 +128,7 @@ The next term is $121$.
 
 ### #4: Paired Letter Tracks
 
-Complete the paired sequence using English alphabet positions ($A=1$ through $Z=26$): $AZ, BY, DW, GT, \ldots$
+Find the next letter pair, using English alphabet positions ($A=1$ through $Z=26$): $AZ, BY, DW, GT, \ldots$
 
 **Solution:**
 
