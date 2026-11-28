@@ -5209,3 +5209,8 @@ Relayed by the operations manager, after he saw the wide card sheet (Live now be
 - **His answer (relayed):** the questions move to a separate FAQ page.
 - **FAQ page (`seo/faq-page-r1` 3702f09, on dbcb83e):** the three questions move to /faq, a FAQ footer link on every public page, /faq in the sitemap; the new homepage title and description stay. 254 of 254 tests. Fast-forwarded pantas-web main to 3702f09 and deployed: version a1f94c5d-cdfa-4023-a642-611508a968c9 (about 1:57 AM). Live checks: /faq 200 with FAQPage markup; homepage shows the new title and no FAQPage markup; the sitemap lists /faq. IndexNow ping for / and /faq: 200.
 - **Rollback:** `npx -y wrangler@4.162.0 rollback 2b27d00b-a55e-44b9-a069-8a2cac2b7107` (the discoverability fixes without the wording).
+
+### Nov 29, about 3:50 AM Manila: SSOT pass (SSOT keeper)
+
+- SSOT updated 29 November 2026, 03:50 PHT, covering Nov 28 15:40 PHT to now. Sections touched: Home "Current status" (new status; 15:40 PHT status marked SUPERSEDED); Production Readiness Assessment (new top checkpoint, 15:40 PHT checkpoint renamed SUPERSEDED, catch-up at the end). Beta tab unchanged: no new beta data. No tester data. Outside work not tracked (his Nov 28 rule). Policy read: main 03e8360ce. Velocity E-233.
+- **Waiting on Aedwon now, product items only:** the phone check on staging during the revision 2 soak (ends Mon Nov 30, 5:41 PM); "ship it" for the prod web update after the soak; a look at the Immersion reader (PR #177); which paused lane resumes next (PSHS-NCE go or no-go Dec 8); Resend Pro and the 5,000 sign-ups level when traffic grows; the verification build and the founder app spec. Removed: the separate staging UI check (the UI fixes now ride the soak build).
