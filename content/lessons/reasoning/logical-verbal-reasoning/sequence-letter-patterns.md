@@ -18,7 +18,7 @@ keyPoints:
 
 To solve a letter sequence with jumps, convert each letter to its English alphabet number from $A=1$ through $Z=26$. Solve the number pattern, then turn the answer back into a letter.
 
-1. Look at $A, C, E, G, \ldots$
+1. Find the next letter in $A, C, E, G, \ldots$
 2. Write the positions: $A=1$, $C=3$, $E=5$, $G=7$.
 3. Each position increases by $2$: $7+2=9$.
 4. Position $9$ is **$I$**.
@@ -26,14 +26,14 @@ To solve a letter sequence with jumps, convert each letter to its English alphab
 :::pair #off-by-one-position
 Right: under $A=1$ through $Z=26$, position $21$ is **$U$**.
 Wrong: position $21$ is **$V$**.
-Counting from $A=0$ shifts every letter up by $1$ and turns $21$ into $V$. Start at $A=1$, so $T=20$ and $U=21$.
+If you count from $A=0$, position $21$ gives $V$. Here $A=1$, so $T=20$ and $U=21$.
 :::
 
 ### Wraparound Patterns
 
 A **wraparound pattern** keeps moving past $Z$ ($26$) by looping straight back to $A$ ($1$). When an addition goes past $26$, subtract $26$.
 
-1. Look at $W, Z, C, F, \ldots$
+1. Find the next letter in $W, Z, C, F, \ldots$
 2. Convert to numbers: $W=23$, $Z=26$, $C=3$, $F=6$.
 3. Test $+3$ at each step: $23+3=26$ ($Z$), $26+3=29$ and $29-26=3$ ($C$), and $3+3=6$ ($F$).
 4. Continue from $F$: $6+3=9$, which is **$I$**.
@@ -45,7 +45,7 @@ Why subtract $26$ when passing $Z$? There are $26$ letters in the cycle, so posi
 :::pair #wraparound-miscount
 Right: moving $3$ letters forward from $F$ ($6$) reaches $I$ ($9$).
 Wrong: moving from $F$ lands on **$H$** or **$J$**.
-Counting $F$ itself as step $1$ stops early at $H$, while adding an extra step during wraparound overshoots to $J$. Count moves after $F$: $G$ ($1$), $H$ ($2$), $I$ ($3$).
+Counting $F$ itself as move $1$ stops after two moves at $H$, and counting one move too many reaches $J$ after four. Count the moves after $F$: $G$ ($1$), $H$ ($2$), $I$ ($3$).
 :::
 
 :::check
@@ -60,7 +60,7 @@ Some letter sequences use the first letters of words in a known order, such as m
 
 Do not force alphabet positions when a word-group rule fits the shown terms cleanly.
 
-1. Look at $J, F, M, A, M, J, J, \ldots$
+1. Find the next letter in $J, F, M, A, M, J, J, \ldots$
 2. Read the initials as calendar months: January, February, March, April, May, June, July.
 3. The $8$th month is August, so the next letter is **$A$**.
 
@@ -137,6 +137,6 @@ Memorize five anchor positions to find letters faster without counting from $A$:
 
 :::checklist
 - Converting numbers back to letters: anchor at $A=1$ and $T=20$, so position $21$ is $U$, not $V$. {#off-by-one-position}
-- Counting steps across $Z$: count the moves after the current letter, so $+3$ from $F$ reaches $I$, not $H$ or $J$. {#wraparound-miscount}
+- Counting letter moves: count the moves after the current letter, so $+3$ from $F$ reaches $I$, not $H$ or $J$. {#wraparound-miscount}
 - Repeating letters in a word list: check months, days, or number words before guessing a letter pattern, so $J, F, M, A, M, J, J$ goes to $A$. {#force-letter-jump}
 :::

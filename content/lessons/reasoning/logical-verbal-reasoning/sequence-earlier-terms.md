@@ -16,11 +16,11 @@ keyPoints:
 
 ### Using Earlier Terms
 
-A **recurrence** builds each new term from two or more earlier terms, instead of adding a fixed number or multiplying by a ratio. For example, each term might be the product or sum of the two or three terms right before it.
+A **recurrence** is a rule that uses earlier terms to find each new term. This lesson uses rules that look back two or three terms, such as the product or sum of the two or three terms right before it.
 
 Check the rule starting at the first term that has enough earlier terms, and verify each shown term after it.
 
-1. Check $1, 1, 2, 4, 7, \ldots$ where each term after the first three adds the three terms before it.
+1. Find the next term in $1, 1, 2, 4, 7, \ldots$ where each term after the first three adds the three terms before it.
 2. Term $4$: $1+1+2=4$.
 3. Term $5$: $1+2+4=7$.
 4. Next term: add the three terms right before the gap, $2+4+7=13$.
@@ -36,7 +36,7 @@ Two-term addition is more common, so it is easy to use by habit. Check whether t
 :::
 
 :::check
-Each term after the first two is twice the term before it plus the term before that. Find the next term in $1, 3, 7, 17, \ldots$
+For each term after the first two, double the term just before it, then add the term before that. Find the next term in $1, 3, 7, 17, \ldots$
 :::answer
 The answer is $41$. The shown terms fit the rule ($2\times3+1=7$, $2\times7+3=17$), so twice $17$ plus $7$ is $34+7=41$.
 :::
@@ -45,7 +45,7 @@ The answer is $41$. The shown terms fit the rule ($2\times3+1=7$, $2\times7+3=17
 
 In a **Fibonacci pattern**, each term after the first two is the sum of the two terms directly before it. Different sequences can start with different numbers and still use this rule.
 
-1. Check $1, 1, 2, 3, 5, 8, \ldots$
+1. Find the next term in $1, 1, 2, 3, 5, 8, \ldots$
 2. Verify each step: $1+1=2$, $1+2=3$, $2+3=5$, and $3+5=8$.
 3. Add the last two shown terms: $5+8=13$.
 
@@ -124,7 +124,7 @@ The answer is $29$. Add the last three terms: $4+9+16=29$.
 ## Traps to Watch For
 
 :::checklist
-- Counting how many earlier terms a rule uses: verify on every shown term, so a three-term rule on $1, 1, 2, 4, 7$ gives $2+4+7=13$, not $11$. {#too-few-earlier-terms}
+- Counting how many earlier terms a rule uses: verify on every shown term the rule can build, so a three-term rule on $1, 1, 2, 4, 7$ gives $2+4+7=13$, not $11$. {#too-few-earlier-terms}
 - Doubling the final term by mistake: test your rule on the middle terms too, so $1, 1, 2, 3, 5, 8$ gives $13$, not $16$. {#double-last-term}
 - Adding one step past the blank: match the exact position asked, so the term after $8$ is $13$, not $21$. {#skip-to-next-blank}
 :::

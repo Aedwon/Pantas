@@ -18,7 +18,7 @@ keyPoints:
 
 A **sequence** is an ordered list of numbers or letters, and each item is a **term**. An **arithmetic pattern** adds or subtracts the same number at each step.
 
-1. Check $31, 24, \ldots, 10, 3$.
+1. Find the missing term in $31, 24, \ldots, 10, 3$.
 2. Subtract adjacent terms: $24-31=-7$ and $3-10=-7$.
 3. Apply the same move to $24$: $24-7=17$.
 4. Check the next step: $17-7=10$, which matches the list.
@@ -31,9 +31,9 @@ $7$ is the size of each decrease, not the number that sits in the blank. Apply t
 
 ### Constant Ratio
 
-A **geometric pattern** multiplies or divides each term by the same number, called the **ratio**.
+A **geometric pattern** multiplies each term by the same number, called the **ratio**. Dividing by $2$ is the same as multiplying by a ratio of $\dfrac{1}{2}$.
 
-1. Check $64, 32, \ldots, 8, 4$.
+1. Find the missing term in $64, 32, \ldots, 8, 4$.
 2. Compare ratios: $\dfrac{32}{64}=\dfrac{1}{2}$ and $\dfrac{4}{8}=\dfrac{1}{2}$.
 3. Multiply $32$ by $\dfrac{1}{2}$ (or divide by $2$): $32\div2=16$.
 4. Check the next step: $16\div2=8$, which fits.
@@ -58,7 +58,7 @@ The answer is $48$. The ratio is $\dfrac{12}{3}=4$, so $12\times4=48$, and $48\t
 
 With **changing differences**, the amount added or subtracted grows or shrinks by its own simple rule. Subtract each term from the next to see the moves.
 
-1. Check $1, 4, 9, 16, \ldots$
+1. Find the next term in $1, 4, 9, 16, \ldots$
 2. Find the differences: $4-1=3$, $9-4=5$, and $16-9=7$.
 3. The differences grow by $2$ each time, so the next difference is $7+2=9$.
 4. Add $9$ to the last term: $16+9=25$.
@@ -117,6 +117,8 @@ $$\dfrac{81}{243}=\dfrac{1}{3},\quad \dfrac{3}{9}=\dfrac{1}{3}$$
 
 $$\text{Term 3}=81\div3=27$$
 
+3. Check the next step: $27\div3=9$, which matches the list.
+
 The missing term is $27$.
 
 ### #4: Changing Differences
@@ -132,17 +134,18 @@ $$8-6=2,\quad 11-8=3$$
 $$15-11=4,\quad 20-15=5$$
 
 2. The shown differences are $2, 3, 4, 5$, so each gap grows by $1$.
+3. The next gap is $5+1=6$.
 
 :::try
-Finish the last two steps: find the next gap, then add it to $20$.
+Finish the last step: add the next gap to $20$.
 :::answer
-The answer is $26$. The next gap is $5+1=6$, so $20+6=26$.
+The answer is $26$. Add the gap of $6$: $20+6=26$.
 :::
 
 ## Traps to Watch For
 
 :::checklist
 - Asked for a missing term: put the result of the move in the blank, not the step size by itself. {#wrong-step-size}
-- Rapidly growing numbers: test ratios before adding the last gap, so $2, 6, 18, 54$ multiplies by $3$ to $162$, not $90$. {#add-last-gap-in-ratio}
+- Rapidly growing numbers: test ratios before adding the last gap, and pick the simplest rule that fits every shown term, so $2, 6, 18, 54$ multiplies by $3$ to $162$, not $90$. {#add-last-gap-in-ratio}
 - Growing gaps between terms: check each gap from the start instead of repeating the last one, so $2, 3, 5, 8, 12$ adds $5$ to $17$. {#repeat-last-gap}
 :::

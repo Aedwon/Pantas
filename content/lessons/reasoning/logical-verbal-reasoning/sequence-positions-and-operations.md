@@ -24,7 +24,7 @@ In an **interleaved pattern**, odd positions follow one rule and even positions 
 4. Position $7$ is odd, so continue the odd track: $5+2=7$.
 
 :::why
-Why read both tracks? Almost any list looks neat if you ignore half the terms, so check that the odd and even tracks both fit simple rules.
+Why read both tracks? The odd track explains only the odd positions, so the even positions need their own rule before you can trust the pattern.
 :::
 
 :::pair #wrong-position-track
@@ -36,14 +36,14 @@ $4$ continues the even track ($10, 8, 6, 4$). Label the blank's position first: 
 :::check
 Find the $8$th term of $20, 2, 18, 5, 16, 8, 14, \ldots$
 :::answer
-The answer is $11$. Position $8$ is even. The even positions ($2, 5, 8$) increase by $3$, so position $8$ is $8+3=11$.
+The answer is $11$. Position $8$ is even. The terms in positions $2, 4, 6$ are $2, 5, 8$, which increase by $3$, so position $8$ is $8+3=11$.
 :::
 
 ### Alternating Operations
 
 With **alternating operations**, the move switches back and forth between two steps from each term to the next.
 
-1. Look at $4, 7, 6, 9, 8, 11, \ldots$
+1. Find the next term in $4, 7, 6, 9, 8, 11, \ldots$
 2. Write the move between each pair: $4+3=7$, $7-1=6$, $6+3=9$, $9-1=8$, $8+3=11$.
 3. The shown terms fit the cycle $+3$, then $-1$.
 4. The last move was $+3$, so the next move is $-1$: $11-1=10$.
@@ -58,7 +58,7 @@ The big jump $+3$ is easy to repeat by habit. Check which move just happened bef
 
 Some sequences repeat the same two-operation rule at every single step, such as "double and add $1$."
 
-1. Look at $2, 5, 11, 23, 47, \ldots$
+1. Find the next term in $2, 5, 11, 23, 47, \ldots$
 2. Test "$\times2$, then $+1$": $2\times2+1=5$, $5\times2+1=11$, $11\times2+1=23$, $23\times2+1=47$.
 3. Apply the full rule to $47$: $47\times2+1=94+1=95$.
 
@@ -138,10 +138,12 @@ Find the next letter pair, using English alphabet positions ($A=1$ through $Z=26
 
 $$25-26=-1,\quad 23-25=-2,\quad 20-23=-3$$
 
+4. The jumps grow by $1$ each time, so the next jump is $-4$.
+
 :::try
-Finish the last step: find the next jump, apply it to $T(20)$, and combine both letters.
+Finish the last step: move back $4$ from $T(20)$ and give the next pair, which starts with $K$.
 :::answer
-The answer is **$KP$**. The next jump is $-4$, so $20-4=16$, which is $P$.
+The answer is **$KP$**. $20-4=16$, which is $P$.
 :::
 
 ## Traps to Watch For
