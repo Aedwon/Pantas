@@ -187,6 +187,7 @@ Rulings of Nov 17 are in **bold** on each line. Item numbers are unchanged, so t
 - Nov 23 16:00 UTC (Nov 24 00:00 PHT) | warm-up stops in code; CI free-tier check fails on every branch unless the secrets merge ships | `LL:3902,3734` | security fixes lead
 - Nov 24 00:00 PHT | exit survey closes; old secrets must be destroyed before this | `LL:3715,3908` | Aedwon, security fixes lead
 - Nov 30 | beta reward appeal window | `LL:2639` | Aedwon
+- Dec 7 | Question generator Phase 2 must resume by about this date for PSHS-NCE early January (each paused day moves it about a day); first step on resume: a flag on type uploads (handoff `docs/superpowers/handoffs/2026-11-28-question-generator-phase2-pause.md`) | generator lead (paused) | Aedwon (resume word)
 - Dec 18 | NPC: register the data processing system (fee ₱500 to ₱2,500, his decision), or file the notarized sworn declaration if exempt; certain once child accounts open | `docs/legal/research/2026-11-28-npc-registration-and-pia.md` | Aedwon (portal and fee), an agent prepares the fields
 - Before child accounts open | adult privacy impact assessment (now) and child assessment (NPC Advisory 2024-03); agent drafts, Codex critiques, Aedwon signs | same file | guardian accounts lead
 - Mar 31, 2027 | NPC annual security incident report for 2026; keep an incident log from now | same file | security lead
