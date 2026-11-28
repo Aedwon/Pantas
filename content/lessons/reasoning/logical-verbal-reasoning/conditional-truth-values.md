@@ -90,19 +90,19 @@ $$(Q \rightarrow P) = (T \rightarrow F) = F$$
 
 The ordered results are $(T, F)$.
 
-### #3: Full Conditional Column
+### #3: The Reversed Rule Across Four Days
 
-Find the truth values of $Q \rightarrow P$ across all four combinations of $(P, Q)$: $(T, T)$, $(T, F)$, $(F, T)$, and $(F, F)$.
+Rule: "If it rains ($P$), the game is canceled ($Q$)." Find the value of the reversed rule $Q \rightarrow P$ on each day. Day $1$: rain, canceled. Day $2$: rain, not canceled. Day $3$: no rain, canceled. Day $4$: no rain, not canceled.
 
 **Solution:**
 
-1. Row $1$ $(T, T)$: $Q \rightarrow P$ is $T \rightarrow T = T$.
-2. Row $2$ $(T, F)$: the if-part $Q$ is false, so $F \rightarrow T = T$.
+1. Day $1$: $P=T$, $Q=T$, so $Q \rightarrow P = T \rightarrow T = T$.
+2. Day $2$: $P=T$, $Q=F$, so $Q \rightarrow P = F \rightarrow T = T$.
 
 :::try
-Finish the last step: find $Q \rightarrow P$ in rows $3$ $(F, T)$ and $4$ $(F, F)$, then write all four values in order.
+Finish the last step: find $Q \rightarrow P$ for Days $3$ and $4$.
 :::answer
-The answer is **$T, T, F, T$**. Row $3$ gives $Q \rightarrow P = T \rightarrow F = F$, the one false case. Row $4$ gives $F \rightarrow F = T$.
+The answer is **Day $3$: $F$, Day $4$: $T$**. Day $3$ has $P=F$ and $Q=T$, so $T \rightarrow F = F$. Day $4$ has $P=F$ and $Q=F$, so $F \rightarrow F = T$.
 :::
 
 ## Speed Tricks & Shortcuts
