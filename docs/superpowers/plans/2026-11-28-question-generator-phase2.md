@@ -67,7 +67,19 @@ plan's Phase 2 section where they differ. Part A of the spec is unchanged.
    the union. Every family worktree branches from that merge.
 3. Hosted CI runs the full check set on the pull request into main (`WORKFLOW.md`).
 
-## 4. Decision needed before Phase 3 (not before building)
+## 4. D-P1: which generated types serve PSHS-NCE
+
+Ruling (manager, rule 4, Nov 28; launch log on main): A for practice and review now. Types take exam
+tags at export from their sources' current file tags, plus `pshs-nce` for the 8 lessons that have
+PSHS-NCE questions (about 1 h, in F1). Reserved: the PSHS-NCE mock. Four-choice types stay out of
+the PSHS-NCE mock and do not count toward the "+90 abstract" pool until the PSHS-NCE content lane
+confirms the exam format and pool count, decided before Phase 3. B stays the fallback.
+
+What the ruling adds to the families: F4 (native Mock sampling) and F6 (server Mock assembly) leave
+type rows out of a `pshs-nce` mock, behind one switch the later decision flips; a test on each side
+proves a PSHS-NCE mock paper holds no type id while PSHS-NCE practice does. About 1 h more.
+
+The options as put to the manager:
 
 D-P1. Which generated types serve PSHS-NCE. Today all 28 types carry the exams `acet, ustet,
 dost-sei, cse-pro`. None carries `pshs-nce`, so after Phase 2 a PSHS-NCE student would get no
@@ -99,8 +111,11 @@ Phase 2 code depends on neither paused lane. Phase 3 (PSHS-NCE on prod) depends 
 From PSHS-NCE content (paused):
 - The exam roster fix (`tools/pshs-nce-export-roster` ecaf38861, tests never run). Without a
   PSHS-NCE exam entry in the export, nothing tagged `pshs-nce` reaches students, types included.
-- Confirmation of D-P1's pool count (types against the +90 abstract questions) before the PSHS-NCE
-  mock file is written.
+  Latest date without slipping Dec 17: merged to main by Dec 10, so the Phase 3 release root
+  (cut about Dec 11) carries it into the Dec 12 staging run.
+- The exam format and pool count for the reserved mock question (D-P1). Not on the Dec 17 path:
+  types stay out of the PSHS-NCE mock until it is answered. Needed before the PSHS-NCE mock file
+  ships, which is that lane's own date.
 - Nothing else. The `-pshs` question files stay singles; no type is built from them this cycle.
 
 From under-13 (paused):
@@ -232,8 +247,8 @@ main head.
   "full" distractor cannot be the literal sum the new accumulate-fill rule computes (three-quarters
   plus one-half). A capped sum would reproduce it, but that is another rule change and another
   audit round for one question. The live question stays a single.
-- matrix-ray-intersection stays held this cycle. Its Nov 28 audit (audit-h2) found two more competing
-  rules after the held2 fixes, as every earlier read did. Under the loop cap it gets no further fix
+- matrix-ray-intersection stays held this cycle. Its Nov 28 audit (audit-h2) found six Blockers, each a further competing
+  rule after the held2 fixes, as every earlier read did. Under the loop cap it gets no further fix
   round in this cycle. The live question figure-matrices 0009 stays a single.
 - The held2 library and checker improvements still merge: they only add rules, and all 28 active
   types pass with them.
