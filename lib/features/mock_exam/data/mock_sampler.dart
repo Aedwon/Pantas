@@ -52,27 +52,53 @@ class MockSampler {
 
         final topicPassageSets = passageSetsByTopic?[topicId];
         if (topicPassageSets != null && topicPassageSets.isNotEmpty) {
+          final passageByQuestionId = {
+            for (final passage in topicPassageSets.entries)
+              for (final id in passage.value) id: passage.key,
+          };
           final freeStanding = <String>[];
           final setsByPassageId = <String, List<String>>{};
           for (final qid in shuffled) {
-            final pid = topicPassageSets.entries
-                .firstWhere(
-                  (e) => e.value.contains(qid),
-                  orElse: () => const MapEntry('', <String>[]),
-                )
-                .key;
-            if (pid.isNotEmpty) {
+            final pid = passageByQuestionId[qid];
+            if (pid != null) {
               setsByPassageId.putIfAbsent(pid, () => []).add(qid);
             } else {
               freeStanding.add(qid);
             }
           }
+          // Filtering recent questions can leave only part of a passage set.
+          setsByPassageId.removeWhere(
+            (id, set) => set.length != topicPassageSets[id]!.length,
+          );
           final filled = PassageSetFiller.fillGeneric(
             size: entry.value,
             freeStanding: freeStanding,
             setsByPassageId: setsByPassageId,
           );
-          questionIds.addAll(filled);
+          if (filled.length == entry.value) {
+            questionIds.addAll(filled);
+            continue;
+          }
+
+          final topicIds = topicPool.toSet();
+          final shuffledIds = shuffled.toSet();
+          final exact = _exactFit(
+            size: entry.value,
+            passageSets: [
+              ...setsByPassageId.values,
+              for (final passage in topicPassageSets.entries)
+                if (!setsByPassageId.containsKey(passage.key) &&
+                    passage.value.every(topicIds.contains))
+                  passage.value,
+            ],
+            freeStanding: [
+              ...freeStanding,
+              for (final id in topicIds.difference(shuffledIds))
+                if (!passageByQuestionId.containsKey(id)) id,
+            ],
+            recentlySampledQuestionIds: recentlySampledQuestionIds,
+          );
+          questionIds.addAll(exact ?? filled);
         } else {
           questionIds.addAll(shuffled.take(entry.value));
         }
@@ -98,6 +124,42 @@ class MockSampler {
       sections: List.unmodifiable(sampledSections),
       expectedQuestionCount: expectedTotal,
     );
+  }
+
+  List<String>? _exactFit({
+    required int size,
+    required List<List<String>> passageSets,
+    required List<String> freeStanding,
+    required Set<String> recentlySampledQuestionIds,
+  }) {
+    // Any recent passage costs more than all standalones in an exact fit.
+    final groups = [
+      for (final set in passageSets)
+        (
+          ids: set,
+          cost: set.any(recentlySampledQuestionIds.contains) ? size + 1 : 0
+        ),
+      for (final id in freeStanding)
+        (ids: [id], cost: recentlySampledQuestionIds.contains(id) ? 1 : 0),
+    ];
+    final fits = List<({List<String> ids, int cost})?>.filled(
+      size + 1,
+      null,
+    );
+    fits[0] = (ids: [], cost: 0);
+    for (final group in groups) {
+      // Work backward so each group can contribute only once.
+      for (var slots = size; slots >= group.ids.length; slots--) {
+        final previous = fits[slots - group.ids.length];
+        if (previous == null) continue;
+        final cost = previous.cost + group.cost;
+        final current = fits[slots];
+        if (current == null || cost < current.cost) {
+          fits[slots] = (ids: [...previous.ids, ...group.ids], cost: cost);
+        }
+      }
+    }
+    return fits[size]?.ids;
   }
 
   Map<String, int> _allocate(BlueprintSection section) {

@@ -5,6 +5,7 @@ import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/figure_choice_tiles.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/offset_focus_ring.dart';
 import 'package:pantas/core/ui/components/pantas_button_parts.dart';
@@ -71,9 +72,18 @@ class WebButton extends StatelessWidget {
     this.fontSize,
     this.radius,
     this.sidePadding,
+    this.reserveLabels = const [],
+    this.minWidth,
     super.key,
   });
   final String label;
+
+  /// A least width for the button, label centered.
+  final double? minWidth;
+
+  /// Other words this button shows at other times. It keeps the width of the
+  /// widest, so what sits beside it does not move when the word changes.
+  final List<String> reserveLabels;
 
   /// Not read: the size class decides the side padding.
   final double? sidePadding;
@@ -151,7 +161,12 @@ class WebButton extends StatelessWidget {
     final c = context.webTokens.colors;
     final showKeyHint = keyHintShown(context, keyHint);
     final (pairKind, pairTone) = _pair;
-    final sizeClass = size ??
+    final named = size;
+    // The phone text sizes have no wide form: a wide text button is `.btn3`.
+    final sizeClass = (named == PantasButtonSize.textPhone ||
+                named == PantasButtonSize.textPhoneSm
+            ? PantasButtonSize.standard
+            : named) ??
         (pill
             ? PantasButtonSize.bar
             : large
@@ -180,7 +195,7 @@ class WebButton extends StatelessWidget {
         tapTargetSize: MaterialTapTargetSize.shrinkWrap,
         visualDensity: VisualDensity.standard,
         minimumSize: WidgetStatePropertyAll(
-          Size(expand ? double.infinity : 0, m.height),
+          Size(expand ? double.infinity : minWidth ?? 0, m.height),
         ),
         padding: WidgetStatePropertyAll(
           EdgeInsets.only(
@@ -227,7 +242,9 @@ class WebButton extends StatelessWidget {
             ),
             SizedBox(width: m.gap),
           ],
-          Flexible(child: Text(label, textAlign: TextAlign.center)),
+          Flexible(
+            child: _ReservedLabel(label: label, reserve: reserveLabels),
+          ),
           if (showKeyHint) ...[
             SizedBox(width: m.gap),
             WebKeyHint(
@@ -259,6 +276,37 @@ class WebButton extends StatelessWidget {
     return m.height < PantasSize.targetTouch
         ? TouchTarget(child: natural)
         : natural;
+  }
+}
+
+/// A button's label, at least as wide as the widest of [reserve]. It is
+/// measured in the button's own text style, rounded up so the words that are
+/// narrower fill the same width.
+class _ReservedLabel extends StatelessWidget {
+  const _ReservedLabel({required this.label, required this.reserve});
+  final String label;
+  final List<String> reserve;
+
+  @override
+  Widget build(BuildContext context) {
+    final text = Text(label, textAlign: TextAlign.center);
+    if (reserve.isEmpty) return text;
+    final style = DefaultTextStyle.of(context).style;
+    final scaler = MediaQuery.textScalerOf(context);
+    var widest = 0.0;
+    for (final word in [label, ...reserve]) {
+      final painter = TextPainter(
+        text: TextSpan(text: word, style: style),
+        textDirection: Directionality.of(context),
+        textScaler: scaler,
+      )..layout();
+      widest = math.max(widest, painter.width);
+      painter.dispose();
+    }
+    return ConstrainedBox(
+      constraints: BoxConstraints(minWidth: widest.ceilToDouble()),
+      child: text,
+    );
   }
 }
 
@@ -1255,8 +1303,10 @@ void releaseChoiceFocus(State state) {
   WidgetsBinding.instance.addPostFrameCallback((_) {
     if (!state.mounted) return;
     final focused = FocusManager.instance.primaryFocus;
-    final onChoice =
-        focused?.context?.findAncestorWidgetOfExactType<WebAnswerOption>() !=
+    final onChoice = focused?.context
+                ?.findAncestorWidgetOfExactType<WebAnswerOption>() !=
+            null ||
+        focused?.context?.findAncestorWidgetOfExactType<FigureChoiceTile>() !=
             null;
     if (onChoice) focused!.unfocus();
   });
@@ -1275,8 +1325,13 @@ class WebAnswerOption extends StatelessWidget {
     this.revealFromSelected = false,
     this.badgeProgress = 1,
     this.badgeScale,
+    this.markInBadge = false,
     super.key,
   });
+
+  /// The right or wrong mark sits in the badge, in place of the letter, and
+  /// nothing sits at the right end (the first-run board, frames W04 and W05).
+  final bool markInBadge;
   final bool revealFromSelected;
   final double revealProgress;
   final double badgeProgress;
@@ -1423,19 +1478,27 @@ class WebAnswerOption extends StatelessWidget {
                       ),
               ),
               alignment: Alignment.center,
-              child: Text(
-                letter,
-                style: PantasType.webLink.copyWith(
-                  // ds-board: README type: web-glyph leading 1
-                  height: 1,
-                  fontWeight: filled ? FontWeight.w700 : FontWeight.w600,
-                  color: letterColor,
-                ),
-              ),
+              child: markInBadge && (right || wrong)
+                  ? ExcludeSemantics(
+                      child: Icon(
+                        right ? PantasIcons.check : PantasIcons.close,
+                        size: PantasSize.icon,
+                        color: letterColor,
+                      ),
+                    )
+                  : Text(
+                      letter,
+                      style: PantasType.webLink.copyWith(
+                        // ds-board: README type: web-glyph leading 1
+                        height: 1,
+                        fontWeight: filled ? FontWeight.w700 : FontWeight.w600,
+                        color: letterColor,
+                      ),
+                    ),
             ),
             const SizedBox(width: PantasSpace.s16),
             Expanded(child: child),
-            if (right || wrong) ...[
+            if ((right || wrong) && !markInBadge) ...[
               const SizedBox(width: PantasSpace.s12),
               // The result shows at the right end, and the semantics carry
               // it as words, so the mark is decoration.
@@ -1512,6 +1575,8 @@ class WebBottomBar extends StatelessWidget {
     this.onCounterPressed,
     this.leading,
     this.hint,
+    this.center,
+    this.status,
     this.state = WebBarState.neutral,
     this.wide = false,
     this.compact = false,
@@ -1536,6 +1601,13 @@ class WebBottomBar extends StatelessWidget {
   final Widget action;
   final Widget? leading;
   final String? hint;
+
+  /// A control on the bar's own center, between the count and the action
+  /// (the quiz flag). It stays centered whatever the widths of the two.
+  final Widget? center;
+
+  /// A result word read once as a status. It is never drawn.
+  final String? status;
   final WebBarState state;
   final bool wide;
   final bool compact;
@@ -1631,7 +1703,7 @@ class WebBottomBar extends StatelessWidget {
             : state == WebBarState.neutral
                 ? PantasDurations.fade
                 : PantasDurations.flip,
-        constraints: const BoxConstraints(minHeight: PantasSize.bar),
+        constraints: const BoxConstraints(minHeight: PantasLayout.barWide),
         padding: EdgeInsets.fromLTRB(
           PantasSpace.s8,
           stacked ? PantasSpace.s8 : PantasSpace.s0,
@@ -1645,7 +1717,7 @@ class WebBottomBar extends StatelessWidget {
             WebBarState.wrong => c.dangerBar
           },
           borderRadius: BorderRadius.circular(
-            stacked ? PantasRadius.xl : PantasRadius.bar,
+            stacked ? PantasRadius.xl : PantasRadius.barWide,
           ),
           border: Border.all(
             color: switch (state) {
@@ -1685,14 +1757,26 @@ class WebBottomBar extends StatelessWidget {
                   ),
                 ],
               )
-            : Row(
-                mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
+            : Stack(
+                alignment: Alignment.center,
                 children: [
-                  if (leading != null) ...[leading!, SizedBox(width: gap)],
-                  counterWidget,
-                  if (!compact || hint != null) Expanded(child: hintWidget),
-                  if (gap > 0) SizedBox(width: gap),
-                  action,
+                  Row(
+                    mainAxisSize: compact ? MainAxisSize.min : MainAxisSize.max,
+                    children: [
+                      if (leading != null) ...[leading!, SizedBox(width: gap)],
+                      counterWidget,
+                      if (!compact || hint != null) Expanded(child: hintWidget),
+                      if (gap > 0) SizedBox(width: gap),
+                      action,
+                    ],
+                  ),
+                  if (status != null)
+                    Semantics(
+                      liveRegion: true,
+                      label: status,
+                      child: const SizedBox.shrink(),
+                    ),
+                  if (center != null) center!,
                 ],
               ),
       ),
@@ -1932,6 +2016,9 @@ class WebBarArrow extends StatelessWidget {
 /// the link, where a 10 px gap used to be.
 const double webBackLinkPadRight = PantasSpace.s10;
 
+// ds-board: OB_Days, the onboarding back link radius.
+const double _compactBackRadius = 9;
+
 /// Room inside the back link's highlight before its arrow (back link A).
 const double webBackLinkPadLeft = PantasSpace.s8;
 
@@ -1950,10 +2037,16 @@ class WebBackLink extends StatefulWidget {
     this.fontSize,
     this.tightIcon = false,
     this.nudge = true,
+    this.compact = false,
     super.key,
   });
   final String label;
   final VoidCallback onPressed;
+
+  /// The onboarding board's back link (OB_Days): 36 high, radius 9, 4 px
+  /// before the arrow and 10 px after the label, sitting 10 px left of the
+  /// column so the arrow is 6 px outside it.
+  final bool compact;
 
   /// Moves the link into the page margin so the arrow sits 6 px left of the
   /// page edge, as the board's `.back` does. A link in a top bar that already
@@ -1980,13 +2073,22 @@ class _WebBackLinkState extends State<WebBackLink> {
     // The nudge puts the link's left end outside the page's clip, so the ring
     // is drawn in the overlay (5Q-11). Without one the ring is drawn here.
     final overlayRing = widget.nudge && WebBackLinkRing.supported(context);
-    final radius = BorderRadius.circular(PantasRadius.back);
+    final radius = BorderRadius.circular(
+      widget.compact ? _compactBackRadius : PantasRadius.back,
+    );
     final style = TextButton.styleFrom(
       padding: EdgeInsets.only(
-        left: widget.nudge ? webBackLinkPadLeft : PantasSpace.s0,
+        left: widget.compact
+            ? PantasSpace.s4
+            : widget.nudge
+                ? webBackLinkPadLeft
+                : PantasSpace.s0,
         right: webBackLinkPadRight,
       ),
-      minimumSize: const Size(0, PantasSize.back),
+      minimumSize: Size(
+        0,
+        widget.compact ? PantasSpace.s32 + PantasSpace.s4 : PantasSize.back,
+      ),
       tapTargetSize: MaterialTapTargetSize.shrinkWrap,
       visualDensity: VisualDensity.standard,
       textStyle: PantasType.webRowTitle,
@@ -2045,7 +2147,11 @@ class _WebBackLinkState extends State<WebBackLink> {
       alignment: Alignment.centerLeft,
       child: Transform.translate(
         offset: Offset(
-          widget.nudge ? -(PantasSpace.s6 + webBackLinkPadLeft) : 0,
+          widget.compact
+              ? -PantasSpace.s10
+              : widget.nudge
+                  ? -(PantasSpace.s6 + webBackLinkPadLeft)
+                  : 0,
           0,
         ),
         child: TouchTarget(

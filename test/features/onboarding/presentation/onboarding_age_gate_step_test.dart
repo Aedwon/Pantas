@@ -78,12 +78,12 @@ void main() {
           isNotNull,
         );
         expect(ageText(tester), '17');
-        await typeAge(tester, '12');
+        await typeAge(tester, '17');
         await tester.tap(find.text('Continue'));
         await tester.pumpAndSettle();
         expect(find.text("Pantas isn't available yet"), findsOneWidget);
         expect(
-          find.text("Sorry, this app isn't available for users under 13."),
+          find.text("Sorry, this app isn't available for users under 18."),
           findsOneWidget,
         );
         expect(
@@ -94,7 +94,8 @@ void main() {
         expect(find.text('Try a Different Year'), findsNothing);
         expect(find.byType(PantasButton), findsNothing);
         expect(await AppPreferencesRepository(db).hasPassedAgeGate(), isFalse);
-        expect(await AppPreferencesRepository(db).blockedMinimumAge(), 13);
+        expect(await AppPreferencesRepository(db).blockedMinimumAge(), 18);
+        expect(await AppPreferencesRepository(db).ageGroup(), isNull);
         expect(tester.takeException(), isNull);
       });
     }
@@ -142,7 +143,7 @@ void main() {
   });
 
   for (final age in ['13', '14', '17']) {
-    testWidgets('$age is a minor: the gate stays shut and a guardian is asked',
+    testWidgets('$age is blocked: no guardian step, the block is saved',
         (tester) async {
       var passed = 0;
       var guardian = 0;
@@ -155,10 +156,16 @@ void main() {
       await tester.tap(find.text('Continue'));
       await tester.pumpAndSettle();
       expect(passed, 0);
-      expect(guardian, 1);
+      expect(guardian, 0);
+      expect(find.text("Pantas isn't available yet"), findsOneWidget);
+      expect(
+        find.text("Sorry, this app isn't available for users under 18."),
+        findsOneWidget,
+      );
       final repo = AppPreferencesRepository(db);
       expect(await repo.hasPassedAgeGate(), isFalse);
-      expect(await repo.ageGroup(), 'minor');
+      expect(await repo.blockedMinimumAge(), 18);
+      expect(await repo.ageGroup(), isNull);
       expect(
         (await db.select(db.devicePrefs).get()).any((row) => row.value == age),
         isFalse,
@@ -212,7 +219,7 @@ void main() {
       'age group. We do not save your age. '
       'Choosing Continue means you agree to this check.';
 
-  for (final age in ['30', '15']) {
+  for (final age in ['30', '18']) {
     testWidgets(
         'the age check line shows, and its version is stored with '
         'the group for $age', (tester) async {
@@ -235,7 +242,7 @@ void main() {
         await repo.ageCheckNoticeVersion(),
         AgePolicy.ageCheckNoticeVersion,
       );
-      expect(await repo.ageGroup(), age == '30' ? 'adult' : 'minor');
+      expect(await repo.ageGroup(), 'adult');
     });
   }
 

@@ -9,6 +9,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/guardian/application/minor_sharing.dart';
 import 'package:pantas/features/guardian/data/guardian_gateway.dart';
 import 'package:pantas/features/guardian/domain/guardian_consent.dart';
+import 'package:pantas/features/onboarding/domain/age_policy.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 
 final guardianGatewayProvider = Provider<GuardianGateway>(
@@ -28,6 +29,20 @@ final minorSharingGateProvider = Provider<MinorSharingGate>(
 final minorSharingProvider = FutureProvider<MinorSharing>(
   (ref) => ref.watch(minorSharingGateProvider).sync(),
 );
+
+/// Whether the server holds a confirmed guardian for this account, so the web
+/// checkout can show the guardian wording first. Only a device that knows a
+/// minor asks. The server still decides at checkout and corrects a wrong
+/// guess, so a failed read falls back to false.
+final guardianConfirmedProvider = FutureProvider<bool>((ref) async {
+  if (await ref.watch(ageGroupProvider.future) != 'minor') return false;
+  try {
+    final status = await ref.watch(guardianGatewayProvider).status();
+    return status.status == GuardianConsentStatus.confirmed;
+  } on Object {
+    return false;
+  }
+});
 
 final accountAccessProvider = Provider<AccountAccess>((ref) => accountAccess);
 
@@ -94,6 +109,10 @@ enum GuardianGate {
   /// Under 18 with no request sent yet.
   needsContact,
 
+  /// Under-18 sign-up is closed (option C, Nov 25) and this device was in the
+  /// guardian flow with no open request: it is blocked, and the block is saved.
+  closed,
+
   /// A request exists and is not confirmed. Declined and expired stay here.
   waiting,
 
@@ -103,6 +122,21 @@ enum GuardianGate {
   /// Consent was withdrawn or the server closed the account.
   withdrawn,
 }
+
+/// Saves the age block for a device caught in the guardian flow after under-18
+/// sign-up closed, so it lands on the same blocked page as a new student who
+/// enters 17. The guardian contact kept for Resend is no longer needed.
+Future<void> _blockClosedSignup(Ref ref) async {
+  final prefs = ref.read(appPreferencesRepositoryProvider);
+  await prefs.setBlockedMinimumAge(AgePolicy.forExam(null).minimumAge);
+  await prefs.clearGuardianContact();
+}
+
+/// A request that ended without a yes, or never existed.
+bool _requestEnded(GuardianConsentStatus status) =>
+    status == GuardianConsentStatus.none ||
+    status == GuardianConsentStatus.declined ||
+    status == GuardianConsentStatus.expired;
 
 /// The server owns the status. The device only remembers the last answer, so
 /// an offline start does not strand a student who was already cleared.
@@ -129,9 +163,17 @@ final guardianGateProvider = FutureProvider<GuardianGate>((ref) async {
     await prefs.setDeviceValue('guardian_closed_uid', '');
   }
   if (await prefs.ageGroup() != 'minor') return GuardianGate.notRequired;
+  // The block lasts. Only support clears it.
+  if (!AgePolicy.minorSignupOpen && await prefs.blockedMinimumAge() != null) {
+    return GuardianGate.closed;
+  }
   GuardianConsentStatus status;
+  // Only an answer from the server may save a block, which lasts. A cached
+  // status may be stale while a request is still open.
+  var fromServer = false;
   try {
     status = (await ref.watch(guardianGatewayProvider).status()).status;
+    fromServer = true;
     if (ref.read(authRepositoryProvider).currentSession?.uid != uid) {
       return ref.read(guardianAccountClosedProvider) != null
           ? GuardianGate.withdrawn
@@ -158,6 +200,24 @@ final guardianGateProvider = FutureProvider<GuardianGate>((ref) async {
   if (ref.read(guardianAccountClosedProvider) != null) {
     return GuardianGate.withdrawn;
   }
+  if (status == GuardianConsentStatus.confirmed &&
+      ref.read(authRepositoryProvider).currentSession?.uid == uid) {
+    // The notice promises the device deletes the contact once a guardian
+    // confirms. Nothing needs it after that.
+    await prefs.clearGuardianContact();
+  }
+  // A student who already passed the age gate is never blocked here.
+  if (!AgePolicy.minorSignupOpen &&
+      _requestEnded(status) &&
+      !await prefs.hasPassedAgeGate()) {
+    // Offline: the Waiting page asks the server again when it opens.
+    if (!fromServer) return GuardianGate.waiting;
+    if (ref.read(authRepositoryProvider).currentSession?.uid != uid) {
+      return GuardianGate.notRequired;
+    }
+    await _blockClosedSignup(ref);
+    return GuardianGate.closed;
+  }
   return switch (status) {
     GuardianConsentStatus.none => GuardianGate.needsContact,
     GuardianConsentStatus.confirmed => GuardianGate.cleared,
@@ -182,11 +242,29 @@ class GuardianController {
     final name = guardianName.trim();
     final email = guardianEmail.trim().toLowerCase();
     final prefs = _ref.read(appPreferencesRepositoryProvider);
-    final status = await _ref.read(guardianGatewayProvider).sendLink(
-          guardianName: name,
-          guardianEmail: email,
-          ageCheckNoticeVersion: await prefs.ageCheckNoticeVersion(),
-        );
+    final uid = _ref.read(authRepositoryProvider).currentSession?.uid;
+    final GuardianStatus status;
+    try {
+      status = await _ref.read(guardianGatewayProvider).sendLink(
+            guardianName: name,
+            guardianEmail: email,
+            ageCheckNoticeVersion: await prefs.ageCheckNoticeVersion(),
+          );
+    } on GuardianSignupClosedException {
+      // The server refused a new request: a race, or an old screen. The
+      // device ends on the saved block.
+      if (_ref.read(authRepositoryProvider).currentSession?.uid == uid) {
+        await _blockClosedSignup(_ref);
+        _ref.invalidate(guardianGateProvider);
+      }
+      rethrow;
+    }
+    // A sign-out or account change during the request has already erased
+    // the device's contact. Writing it back would keep it for the next
+    // account.
+    if (_ref.read(authRepositoryProvider).currentSession?.uid != uid) {
+      throw const GuardianGatewayException('account-changed');
+    }
     await prefs.setGuardianContact(name: name, email: email);
     await prefs.setGuardianStatusCache(status.status.wire);
     _ref.invalidate(guardianGateProvider);
@@ -227,6 +305,11 @@ class GuardianController {
     }
     final prefs = _ref.read(appPreferencesRepositoryProvider);
     await prefs.setGuardianStatusCache(status.status.wire);
+    if (!AgePolicy.minorSignupOpen &&
+        _requestEnded(status.status) &&
+        !await prefs.hasPassedAgeGate()) {
+      await _blockClosedSignup(_ref);
+    }
     if (status.status == GuardianConsentStatus.confirmed) {
       await prefs.setPassedAgeGate(value: true);
       await prefs.clearGuardianContact();

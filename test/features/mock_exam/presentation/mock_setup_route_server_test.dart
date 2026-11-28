@@ -86,6 +86,44 @@ Future<void> _open(
 }
 
 void main() {
+  testWidgets('a visitor with no named account goes to the Quiz tab',
+      (tester) async {
+    var calls = 0;
+    final router = GoRouter(
+      initialLocation: '/quiz',
+      routes: [
+        GoRoute(path: '/quiz', builder: (_, __) => const Text('Quiz tab')),
+        GoRoute(
+          path: '/quiz/mock/setup',
+          builder: (_, __) => MockSetupRoute(
+            examId: _examId,
+            onStart: (_, {required strictMode}) {},
+          ),
+        ),
+      ],
+    );
+    await tester.pumpAppWithRouter(
+      router,
+      overrides: [
+        mockUsesServerProvider.overrideWithValue(true),
+        mockAccountGateProvider.overrideWithValue(MockAccountGate.needsAccount),
+        userSettingsProvider.overrideWith((_) async => UserSettings.defaults()),
+        serverMockApiProvider.overrideWithValue(
+          ServerMockApi((_, __) async {
+            calls++;
+            return _reply('available');
+          }),
+        ),
+      ],
+    );
+    unawaited(router.push('/quiz/mock/setup'));
+    await tester.pumpAndSettle();
+    addTearDown(() => tester.pumpWidget(const SizedBox.shrink()));
+    expect(find.text('Quiz tab'), findsOneWidget);
+    expect(find.text('Something went wrong.'), findsNothing);
+    expect(calls, 0);
+  });
+
   testWidgets('cooldown shows when the next mock opens and no Start',
       (tester) async {
     await _open(tester, () async => _reply('cooldown', next: 2592002000));
@@ -401,6 +439,7 @@ void main() {
             appDatabaseProvider.overrideWithValue(db),
             focus,
             mockUsesServerProvider.overrideWithValue(true),
+            serverMockIdentityProvider.overrideWithValue('a'),
             mockSetupQuestionCountProvider(customId)
                 .overrideWith((_) async => 120),
             userSettingsProvider
@@ -429,3 +468,8 @@ void main() {
     }
   });
 }
+
+// Found on staging (Nov 25, gate-off proof): with the beta gate off, a visitor
+// without a named account who opens the setup link saw "Something went
+// wrong.". Like the mock run route, setup sends them to the Quiz tab, whose
+// card asks for an account.

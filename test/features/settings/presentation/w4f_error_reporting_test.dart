@@ -10,6 +10,7 @@ import 'package:pantas/core/sync/sync_status.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/scope_picker.dart';
+import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
 import 'package:pantas/features/paywall/paywall.dart';
@@ -148,6 +149,11 @@ void main() {
     final button = find.byWidgetPredicate(
       (w) => w is PantasButton && w.label.startsWith('Upgrade for'),
     );
+    // Every web purchase needs the declaration ticked first.
+    final declaration = find.byType(CheckboxRow);
+    await tester.ensureVisible(declaration);
+    await tester.tapAt(tester.getTopLeft(declaration) + const Offset(14, 20));
+    await tester.pumpAndSettle();
     await tester.ensureVisible(button);
     await tester.tap(button);
     await tester.pumpAndSettle();

@@ -4,6 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
+import 'package:pantas/core/ui/components/figure_choice_tiles.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
@@ -68,9 +69,7 @@ class WebAssessmentLayout extends StatelessWidget {
           () {
             if (chosenId != null) onNext();
           },
-          keepsEnter: (focused) =>
-              focused.findAncestorWidgetOfExactType<WebAnswerOption>()?.state ==
-              WebOptionState.selected,
+          keepsEnter: focusedAnswerIsPicked,
         ),
         child: Stack(
           children: [
@@ -143,8 +142,10 @@ class WebAssessmentLayout extends StatelessWidget {
   }
 }
 
-/// AS_Leave: the system Dialog. Keep Going is the main action and the safe
-/// one: Esc and Enter both choose it, and Leave needs a click or Tab.
+/// C2B_Leave and C2B_LeaveWide: the system Dialog. Leaving keeps the answers
+/// on the device, so Leave is the teal main action and no longer destructive.
+/// Keep Going is still the safe default: Esc and Enter both choose it, and
+/// Leave needs a click or Tab.
 class WebAssessmentLeaveDialog extends StatelessWidget {
   const WebAssessmentLeaveDialog({
     required this.onKeepGoing,
@@ -163,17 +164,15 @@ class WebAssessmentLeaveDialog extends StatelessWidget {
           // Enter is Keep Going, as in the quiz's Leave dialog, unless a
           // button in it holds focus, which then runs itself.
           onKeyEvent: enterKeyHandler(onKeepGoing),
-          // Leaving loses the answers, so this is a destructive confirm: the
-          // safe Keep Going first, the critical Leave last, an alertdialog.
+          // Keep Going first, Leave last, an alertdialog.
           child: Semantics(
             role: SemanticsRole.alertDialog,
             child: CenteredDialog(
               title: 'Leave the assessment?',
-              message: "Your answers so far won't be kept. "
-                  'You can start again from Home.',
+              message: 'Your answers are saved on this device. '
+                  'Continue from Home.',
               primaryLabel: 'Leave',
               secondaryLabel: 'Keep Going',
-              destructive: true,
               allowEscape: false,
               onConfirm: onLeave,
               onCancel: onKeepGoing,

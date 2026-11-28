@@ -29,3 +29,7 @@ Future<void> openDpoMail(
     mode: LaunchMode.externalApplication,
   );
 }
+
+/// Opens the student's mail app addressed to [email], with an empty message.
+Future<void> openMail(String email, {LinkOpener open = launchUrl}) =>
+    openDpoMail(email, open: open);

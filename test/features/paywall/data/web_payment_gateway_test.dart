@@ -1,11 +1,13 @@
 import 'dart:async';
 
 import 'package:cloud_functions/cloud_functions.dart';
+import 'package:fake_async/fake_async.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/core/content/data/exam_catalog_repository.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/features/legal/domain/legal_document.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/application/trusted_clock.dart';
@@ -15,10 +17,13 @@ import 'package:pantas/features/paywall/data/pending_purchase_store.dart';
 import 'package:pantas/features/paywall/data/revenuecat_config.dart';
 import 'package:pantas/features/paywall/data/revenuecat_gateway.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
+import 'package:pantas/features/paywall/domain/checkout_declaration.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
 import 'package:pantas/features/paywall/domain/paywall_offering.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
+
+import '../../../helpers/in_memory_database.dart';
 
 final _now = DateTime.utc(2026, 11, 2, 4);
 const _day = Duration(days: 1);
@@ -253,15 +258,19 @@ void main() {
       expect(result.confirmedEntitlement, isNull);
     });
 
-    test('a guardian-attested purchase sends the Terms version it was shown',
+    test('a declaration is sent with its kind, wording id and Terms version',
         () async {
-      await gateway.purchase(_weekly, guardianAttested: true);
-      await gateway.purchasePass(_pass, exam: _exam(), guardianAttested: true);
+      const adult = CheckoutDeclaration(DeclarationKind.adult);
+      const guardian = CheckoutDeclaration(DeclarationKind.guardian);
+      await gateway.purchase(_weekly, declaration: adult);
+      await gateway.purchasePass(_pass, exam: _exam(), declaration: guardian);
 
       verify(
         () => callable('createPaymongoCheckout', {
           'product': 'pantas_cs_weekly',
-          'guardianAttestation': {
+          'declaration': {
+            'kind': 'adult',
+            'wordingVersion': 'checkout-adult-2026-11-23',
             'termsVersion': guardianDocumentVersions['terms'],
           },
         }),
@@ -269,11 +278,48 @@ void main() {
       verify(
         () => callable('createPaymongoCheckout', {
           'product': 'pantas_pass_cse_pro',
-          'guardianAttestation': {
+          'declaration': {
+            'kind': 'guardian',
+            'wordingVersion': 'checkout-guardian-2026-11-23',
             'termsVersion': guardianDocumentVersions['terms'],
           },
         }),
       ).called(1);
+    });
+
+    test('an already-paid refusal comes back as its own status', () async {
+      when(() => callable('createPaymongoCheckout', any())).thenThrow(
+        FirebaseFunctionsException(
+          message: 'Your payment was received. Pro will appear shortly.',
+          code: 'already-exists',
+          details: const {'reason': 'already-paid'},
+        ),
+      );
+      final result = await gateway.purchase(
+        _weekly,
+        declaration: const CheckoutDeclaration(DeclarationKind.adult),
+      );
+      expect(result.status, PaymentOperationStatus.alreadyPaid);
+    });
+
+    test('the server naming the wording it wants comes back as the kind',
+        () async {
+      when(() => callable('createPaymongoCheckout', any())).thenThrow(
+        FirebaseFunctionsException(
+          message: 'Confirm the declaration to continue.',
+          code: 'failed-precondition',
+          details: const {'reason': 'declaration-required', 'kind': 'guardian'},
+        ),
+      );
+      final result = await gateway.purchase(
+        _weekly,
+        declaration: const CheckoutDeclaration(DeclarationKind.adult),
+      );
+      expect(
+        result.status,
+        PaymentOperationStatus.guardianConfirmationRequired,
+      );
+      expect(result.declarationKind, DeclarationKind.guardian);
     });
 
     test('purchasePass sends the pass product id and opens the url', () async {
@@ -1078,6 +1124,477 @@ void main() {
       );
 
       expect(entitlement, const Entitlement.free());
+    });
+  });
+
+  group('beta reward, queued plans and overlapping reads', () {
+    Map<String, dynamic> reward(
+      String examId, {
+      required DateTime ends,
+      DateTime? starts,
+    }) =>
+        {
+          ..._grant('beta_reward', ends: ends, starts: starts),
+          'source': 'beta_reward',
+          'examId': examId,
+        };
+
+    test('a beta reward shows Pro for its exam until its end, then Free', () {
+      final ends = _now.add(const Duration(days: 30));
+      final rows = [reward('exam_cse_pro', ends: ends)];
+      final during = entitlementFromGrants(rows, at: _now);
+
+      expect(during.coverage(at: _now).hasKnownCoverage, isTrue);
+      expect(
+        during.coversExam(
+          'exam_cse_pro',
+          examTier: PriceTier.civilService,
+          at: _now,
+        ),
+        isTrue,
+      );
+      expect(
+        during.coversExam(
+          'exam_cse_sub',
+          examTier: PriceTier.civilService,
+          at: _now,
+        ),
+        isFalse,
+      );
+      expect(
+        during.coversExam(
+          'exam_nce',
+          examTier: PriceTier.civilService,
+          at: _now,
+        ),
+        isFalse,
+      );
+      expect(
+        entitlementFromGrants(rows, at: ends).proIsActive,
+        isFalse,
+      );
+      expect(
+        entitlementFromGrants(rows, at: ends.add(_day)),
+        const Entitlement.free(),
+      );
+    });
+
+    test('a beta reward without an exam or not yet started shows nothing', () {
+      final ends = _now.add(const Duration(days: 30));
+      final entitlement = entitlementFromGrants(
+        [
+          {...reward('exam_cse_pro', ends: ends)}..remove('examId'),
+          reward('exam_cse_sub', ends: ends, starts: _now.add(_day)),
+        ],
+        at: _now,
+      );
+
+      expect(entitlement.proIsActive, isFalse);
+    });
+
+    test('a plan queued behind a pass is not active before it starts', () {
+      final passEnds = _now.add(const Duration(days: 10));
+      final entitlement = entitlementFromGrants(
+        [
+          _grant('pantas_pass_cse_pro', ends: passEnds),
+          _grant(
+            'pantas_cs_monthly',
+            starts: passEnds,
+            ends: passEnds.add(const Duration(days: 30)),
+          ),
+        ],
+        at: _now,
+      );
+
+      expect(entitlement.plan, EntitlementPlan.free);
+      expect(entitlement.subscriptions, isEmpty);
+      expect(entitlement.passes.keys, ['exam_cse_pro']);
+      expect(entitlement.proIsActive, isTrue);
+    });
+
+    test('an older reply that resolves last cannot replace a newer one',
+        () async {
+      final older = Completer<List<Map<String, dynamic>>>();
+      final newer = Completer<List<Map<String, dynamic>>>();
+      final replies = [
+        Future.value(<Map<String, dynamic>>[]),
+        older.future,
+        newer.future,
+      ];
+      var call = 0;
+      final gateway = WebPaymentGateway(
+        callable: (_, __) async => null,
+        readGrants: (_) => replies[call++],
+        refreshClaims: (_) async {},
+        openUrl: (_) async => true,
+        now: () => _now,
+      );
+      await gateway.logIn('u1');
+
+      final first = gateway.restorePurchases();
+      final second = gateway.restorePurchases();
+      newer.complete([
+        _grant(
+          'pantas_cs_monthly',
+          ends: _now.add(const Duration(days: 30)),
+        ),
+      ]);
+      await second;
+      expect(gateway.cachedEntitlement?.proIsActive, isTrue);
+
+      older.complete(<Map<String, dynamic>>[]);
+      final stale = await first;
+
+      expect(gateway.cachedEntitlement?.proIsActive, isTrue);
+      // The dropped reply answers with the newer state it lost to.
+      expect(stale.status, PaymentOperationStatus.success);
+      expect(stale.confirmedEntitlement, gateway.cachedEntitlement);
+    });
+
+    test('a failed newer read never discards a valid older reply', () async {
+      final older = Completer<List<Map<String, dynamic>>>();
+      final newer = Completer<List<Map<String, dynamic>>>();
+      final replies = [
+        Future.value(<Map<String, dynamic>>[]),
+        older.future,
+        newer.future,
+      ];
+      var call = 0;
+      final gateway = WebPaymentGateway(
+        callable: (_, __) async => null,
+        readGrants: (_) => replies[call++],
+        refreshClaims: (_) async {},
+        openUrl: (_) async => true,
+        now: () => _now,
+      );
+      await gateway.logIn('u1');
+
+      final first = gateway.restorePurchases();
+      final second = gateway.restorePurchases();
+      newer.completeError(StateError('offline'));
+      await second;
+      older.complete([
+        _grant(
+          'pantas_cs_monthly',
+          ends: _now.add(const Duration(days: 30)),
+        ),
+      ]);
+      final result = await first;
+
+      expect(result.status, PaymentOperationStatus.success);
+      expect(gateway.cachedEntitlement?.plan, EntitlementPlan.monthly);
+    });
+
+    test('an old restore cannot cancel the next account login read', () async {
+      final refreshGate = Completer<void>();
+      final readB = Completer<List<Map<String, dynamic>>>();
+      final reads = <String>[];
+      final gateway = WebPaymentGateway(
+        callable: (_, __) async => null,
+        readGrants: (uid) {
+          reads.add(uid);
+          return uid == 'b'
+              ? readB.future
+              : Future.value([
+                  _grant(
+                    'pantas_cs_monthly',
+                    ends: _now.add(const Duration(days: 30)),
+                  ),
+                ]);
+        },
+        refreshClaims: (uid) =>
+            uid == 'a' ? refreshGate.future : Future.value(),
+        openUrl: (_) async => true,
+        now: () => _now,
+      );
+      await gateway.logIn('a');
+      final restore = gateway.restorePurchases();
+      await gateway.clearIdentity();
+      final loginB = gateway.logIn('b');
+      await Future<void>.delayed(Duration.zero);
+
+      refreshGate.complete();
+      await restore;
+      readB.complete([
+        _grant(
+          'pantas_cs_weekly',
+          ends: _now.add(const Duration(days: 7)),
+        ),
+      ]);
+      await loginB;
+
+      expect(reads, ['a', 'b']);
+      expect(gateway.cachedEntitlement?.productId, 'pantas_cs_weekly');
+    });
+
+    test('at a queued start the server is read again, not the kept rows', () {
+      fakeAsync((async) {
+        final start = DateTime.utc(2026, 11, 2, 4);
+        DateTime clock() => start.add(async.elapsed);
+        const hour = Duration(hours: 1);
+        var reads = 0;
+        final gateway = WebPaymentGateway(
+          callable: (_, __) async => null,
+          readGrants: (_) async {
+            reads++;
+            // The plan queued for hour one is refunded before it starts.
+            return reads == 1
+                ? [
+                    _grant(
+                      'pantas_cs_monthly',
+                      starts: start.add(hour),
+                      ends: start.add(hour * 2),
+                    ),
+                  ]
+                : <Map<String, dynamic>>[];
+          },
+          refreshClaims: (_) async {},
+          openUrl: (_) async => true,
+          now: clock,
+          followClock: true,
+        );
+        unawaited(gateway.logIn('u1'));
+        async.flushMicrotasks();
+        expect(reads, 1);
+
+        async.elapse(hour);
+
+        expect(reads, 2);
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+        unawaited(gateway.clearIdentity());
+        async.flushMicrotasks();
+      });
+    });
+
+    test('a failed read at a boundary keeps the state and tries at the next',
+        () {
+      fakeAsync((async) {
+        final start = DateTime.utc(2026, 11, 2, 4);
+        DateTime clock() => start.add(async.elapsed);
+        const hour = Duration(hours: 1);
+        final rows = [
+          _grant(
+            'pantas_cs_monthly',
+            starts: start.add(hour),
+            ends: start.add(hour * 3),
+          ),
+          _grant(
+            'pantas_cs_weekly',
+            starts: start.add(hour * 2),
+            ends: start.add(hour * 4),
+          ),
+        ];
+        var reads = 0;
+        final gateway = WebPaymentGateway(
+          callable: (_, __) async => null,
+          readGrants: (_) async {
+            reads++;
+            if (reads == 2) throw StateError('offline');
+            return rows;
+          },
+          refreshClaims: (_) async {},
+          openUrl: (_) async => true,
+          now: clock,
+          followClock: true,
+        );
+        unawaited(gateway.logIn('u1'));
+        async
+          ..flushMicrotasks()
+          ..elapse(hour);
+        expect(reads, 2);
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+
+        async.elapse(hour);
+        expect(reads, 3);
+        expect(gateway.cachedEntitlement!.plan, isNot(EntitlementPlan.free));
+        unawaited(gateway.clearIdentity());
+        async.flushMicrotasks();
+      });
+    });
+
+    test('one clock reading maps the rows and sets the wake-up', () {
+      fakeAsync((async) {
+        final start = DateTime.utc(2026, 11, 2, 4);
+        // The clock reads 1 ms before the plan starts, then at its start.
+        // A mapping and a wake-up that read it twice would see the start
+        // pass between them and never wake.
+        var readings = 0;
+        DateTime clock() => start.add(
+              Duration(milliseconds: readings++ == 0 ? 9 : 10) + async.elapsed,
+            );
+        final gateway = WebPaymentGateway(
+          callable: (_, __) async => null,
+          readGrants: (_) async => [
+            _grant(
+              'pantas_cs_monthly',
+              starts: start.add(const Duration(milliseconds: 10)),
+              ends: start.add(const Duration(hours: 1)),
+            ),
+          ],
+          refreshClaims: (_) async {},
+          openUrl: (_) async => true,
+          now: clock,
+          followClock: true,
+        );
+        unawaited(gateway.logIn('u1'));
+        async.flushMicrotasks();
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+
+        async.elapse(const Duration(milliseconds: 5));
+
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.monthly);
+        unawaited(gateway.clearIdentity());
+        async.flushMicrotasks();
+      });
+    });
+
+    test('sign-out and an account change cancel the pending wake-up', () {
+      fakeAsync((async) {
+        final start = DateTime.utc(2026, 11, 2, 4);
+        final gateway = WebPaymentGateway(
+          callable: (_, __) async => null,
+          readGrants: (_) async => [
+            _grant(
+              'pantas_cs_monthly',
+              starts: start.add(const Duration(hours: 1)),
+              ends: start.add(const Duration(hours: 2)),
+            ),
+          ],
+          refreshClaims: (_) async {},
+          openUrl: (_) async => true,
+          now: () => start.add(async.elapsed),
+          followClock: true,
+        );
+        unawaited(gateway.logIn('a'));
+        async.flushMicrotasks();
+        expect(async.nonPeriodicTimerCount, 1);
+
+        unawaited(gateway.clearIdentity());
+        async.flushMicrotasks();
+        expect(async.nonPeriodicTimerCount, 0);
+
+        unawaited(gateway.logIn('a'));
+        async.flushMicrotasks();
+        expect(async.nonPeriodicTimerCount, 1);
+        unawaited(gateway.logOut());
+        async.flushMicrotasks();
+        expect(async.nonPeriodicTimerCount, 0);
+      });
+    });
+
+    test('the app wires the web gateway to follow the clock', () {
+      final db = inMemoryDatabase();
+      addTearDown(db.close);
+      final container = ProviderContainer(
+        overrides: [
+          appDatabaseProvider.overrideWithValue(db),
+          paymentsOnWebProvider.overrideWithValue(true),
+        ],
+      );
+      addTearDown(container.dispose);
+
+      final gateway = container.read(revenueCatGatewayProvider);
+
+      expect(gateway, isA<WebPaymentGateway>());
+      expect((gateway as WebPaymentGateway).followsClock, isTrue);
+    });
+
+    test('an open tab follows queued starts and ends on the clock', () {
+      fakeAsync((async) {
+        final start = DateTime.utc(2026, 11, 2, 4);
+        DateTime clock() => start.add(async.elapsed);
+        const hour = Duration(hours: 1);
+        final gateway = WebPaymentGateway(
+          callable: (_, __) async => null,
+          readGrants: (_) async => [
+            // A reward queued one hour out, for one exam.
+            {
+              ..._grant(
+                'beta_reward',
+                starts: start.add(hour),
+                ends: start.add(hour * 2),
+              ),
+              'source': 'beta_reward',
+              'examId': 'exam_cse_pro',
+            },
+            // A pass now, and a plan queued behind it.
+            _grant('pantas_pass_cse_sub', ends: start.add(hour * 3)),
+            _grant(
+              'pantas_cs_monthly',
+              starts: start.add(hour * 3),
+              ends: start.add(hour * 4),
+            ),
+          ],
+          refreshClaims: (_) async {},
+          openUrl: (_) async => true,
+          now: clock,
+          followClock: true,
+        );
+        bool rewardCovers() =>
+            gateway.cachedEntitlement!.coversExam(
+              'exam_cse_pro',
+              examTier: PriceTier.civilService,
+              at: clock(),
+            ) &&
+            gateway.cachedEntitlement!.betaPasses.containsKey('exam_cse_pro');
+
+        unawaited(gateway.logIn('u1'));
+        async.flushMicrotasks();
+        expect(gateway.cachedEntitlement!.betaPasses, isEmpty);
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+
+        async.elapse(hour);
+        expect(rewardCovers(), isTrue);
+
+        async.elapse(hour);
+        expect(gateway.cachedEntitlement!.betaPasses, isEmpty);
+
+        async.elapse(hour);
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.monthly);
+
+        async.elapse(hour);
+        expect(gateway.cachedEntitlement!.plan, EntitlementPlan.free);
+        unawaited(gateway.clearIdentity());
+        async.flushMicrotasks();
+      });
+    });
+  });
+
+  test('a failed first read at sign-in is retried, so a paid account turns Pro',
+      () {
+    // Before the exam-switch fix, a preferences refresh rebuilt the gateway and
+    // read again by accident; without it, a failed first read left Free.
+    fakeAsync((async) {
+      final start = DateTime.utc(2026, 11, 2, 4);
+      DateTime clock() => start.add(async.elapsed);
+      var reads = 0;
+      final gateway = WebPaymentGateway(
+        callable: (_, __) async => null,
+        readGrants: (_) async {
+          reads++;
+          if (reads == 1) throw Exception('offline');
+          return [
+            _grant(
+              'pantas_cs_monthly',
+              ends: start.add(const Duration(days: 30)),
+            ),
+          ];
+        },
+        refreshClaims: (_) async {},
+        openUrl: (_) async => true,
+        now: clock,
+        followClock: true,
+      );
+      unawaited(gateway.logIn('paid'));
+      async.flushMicrotasks();
+      expect(gateway.cachedEntitlement?.proIsActive ?? false, isFalse);
+
+      async.elapse(const Duration(seconds: 6));
+
+      expect(reads, 2);
+      expect(gateway.cachedEntitlement?.proIsActive, isTrue);
+      unawaited(gateway.clearIdentity());
+      async.flushMicrotasks();
     });
   });
 }

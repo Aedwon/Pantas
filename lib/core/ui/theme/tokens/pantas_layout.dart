@@ -94,6 +94,10 @@ abstract final class PantasLayout {
   /// Focus mode header height.
   static const double focusHead = 64;
 
+  /// Wide floating bar height (64, the Pantas Web bar boards). The phone
+  /// bar is size-bar (60).
+  static const double barWide = 64;
+
   /// FocusHeader height under 600: 44px at default text, as the approved
   /// phone boards draw it, growing only with text. The phone question list
   /// sheet and its scrim start under it (R4R-O01). New.
@@ -142,11 +146,6 @@ abstract final class PantasLayout {
 
   /// Reference phone width.
   static const double phoneFrame = 390;
-
-  /// Below this width the quiz bar's flag moves to the question header
-  /// (D71). Media queries in the bundle repeat the bp-* values; the build
-  /// script checks them.
-  static const double bpPhoneNarrow = 400;
 
   /// Tablet portrait starts here: the phone layout centered in
   /// layout-tablet-column, TabBar centered at layout-tabbar-max. Below it

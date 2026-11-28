@@ -19,6 +19,7 @@ class AssessmentQuestionSelector {
   Future<List<AssessmentQuestion>> select(
     ExamId examId, {
     List<Topic>? topics,
+    Set<QuestionId> excludeQuestionIds = const {},
   }) async {
     final topicList = topics ?? await _content.topicsByExam(examId);
     if (topicList.isEmpty) return [];
@@ -30,7 +31,11 @@ class AssessmentQuestionSelector {
     final contributing =
         <({TopicId topicId, List<QuestionSelectionRow> questions})>[];
     for (final topic in topicList) {
-      final questions = rowsByTopic[topic.id] ?? const <QuestionSelectionRow>[];
+      final questions = [
+        for (final row
+            in rowsByTopic[topic.id] ?? const <QuestionSelectionRow>[])
+          if (!excludeQuestionIds.contains(row.id)) row,
+      ];
       if (questions.isNotEmpty) {
         contributing.add((topicId: topic.id, questions: questions));
       }

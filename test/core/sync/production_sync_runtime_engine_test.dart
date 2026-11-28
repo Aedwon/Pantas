@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/sync/engine/collection_registry.dart';
@@ -301,6 +302,175 @@ void main() {
 
     expect((await failure).message, contains('projection failed'));
   });
+
+  group('paused account', () {
+    const statePath = 'users/user-1/sync_state/current';
+
+    // Starting the engine already pushes what waits in the outbox, once the
+    // first downloads settle. The events list is attached before that.
+    Future<(ProductionSyncRuntimeEngine, List<SyncRuntimeEvent>)> startEngine(
+      _SuspendingGateway gateway,
+    ) async {
+      final context = SyncActiveContextStore(db);
+      await context.publishStable(uid: 'user-1', generationId: 'gen-1');
+      await _recordBookmark(db, 'lesson-1');
+      await _recordBookmark(db, 'lesson-2');
+      final engine = ProductionSyncRuntimeEngine(
+        db: db,
+        gateway: gateway,
+        activeContextStore: context,
+        deviceId: 'device-1',
+        localMutationDebounce: const Duration(hours: 1),
+        retryBaseDelay: const Duration(milliseconds: 20),
+      );
+      final events = <SyncRuntimeEvent>[];
+      final subscription = engine.events.listen(events.add);
+      addTearDown(subscription.cancel);
+      addTearDown(engine.stop);
+      await engine.start(uid: 'user-1', generationId: 'gen-1');
+      return (engine, events);
+    }
+
+    test('a refused push with a future pause enters the paused status',
+        () async {
+      final until = DateTime.now().toUtc().add(const Duration(hours: 1));
+      final gateway = _SuspendingGateway()
+        ..documents[statePath] = {'suspendedUntil': until};
+
+      final (_, events) = await startEngine(gateway);
+      await _waitFor(
+        () async => events.any((event) => event is SyncRuntimePaused),
+      );
+
+      final paused = events.whereType<SyncRuntimePaused>().toList();
+      expect(paused.last.until, until);
+      expect(events.last, isA<SyncRuntimePaused>());
+      expect(events.whereType<SyncRuntimeFailure>(), isEmpty);
+    });
+
+    test('nothing is pushed while paused, and no retry loop runs', () async {
+      final until = DateTime.now().toUtc().add(const Duration(hours: 1));
+      final gateway = _SuspendingGateway()
+        ..documents[statePath] = {'suspendedUntil': until};
+      final (engine, events) = await startEngine(gateway);
+      await _waitFor(
+        () async => events.any((event) => event is SyncRuntimePaused),
+      );
+      final readsAtPause = gateway.stateReads;
+
+      await engine.forceFlush();
+      await engine.forceFlush();
+      await Future<void>.delayed(const Duration(milliseconds: 300));
+
+      expect(gateway.attempts, 1);
+      expect(gateway.stateReads, readsAtPause);
+      expect(await db.select(db.pendingSync).get(), isNotEmpty);
+      expect(events.last, isA<SyncRuntimePaused>());
+    });
+
+    test('a push goes through again once the pause time has passed', () async {
+      final until = DateTime.now().toUtc().add(
+            const Duration(milliseconds: 600),
+          );
+      final gateway = _SuspendingGateway()
+        ..documents[statePath] = {'suspendedUntil': until}
+        ..refuseUntil = until;
+      final (_, events) = await startEngine(gateway);
+      await _waitFor(
+        () async => events.any((event) => event is SyncRuntimePaused),
+      );
+      expect(gateway.attempts, 1);
+      await Future<void>.delayed(const Duration(milliseconds: 200));
+      expect(gateway.attempts, 1);
+
+      await _waitFor(
+        () async => (await db.select(db.pendingSync).get()).isEmpty,
+      );
+
+      expect(gateway.attempts, greaterThan(1));
+      expect(events.last, isA<SyncRuntimeSettled>());
+    });
+
+    test('a refusal with no pause behaves as before', () async {
+      final gateway = _SuspendingGateway();
+
+      final (_, events) = await startEngine(gateway);
+      await _waitFor(() async => gateway.attempts >= 4);
+
+      expect(events.whereType<SyncRuntimePaused>(), isEmpty);
+      final pending = await db.select(db.pendingSync).get();
+      expect(pending, hasLength(2));
+      expect(
+        pending.every((row) => row.lastError == 'permission-denied'),
+        isTrue,
+      );
+    });
+
+    test('a pause time already in the past behaves as before', () async {
+      final gateway = _SuspendingGateway(throwFirebase: true)
+        ..documents[statePath] = {
+          'suspendedUntil': DateTime.now().toUtc().subtract(
+                const Duration(minutes: 1),
+              ),
+        };
+
+      final (_, events) = await startEngine(gateway);
+      await _waitFor(
+        () async => events.any((event) => event is SyncRuntimeFailure),
+      );
+
+      expect(events.whereType<SyncRuntimePaused>(), isEmpty);
+    });
+
+    test('a refused push from the Firebase client also pauses', () async {
+      final until = DateTime.now().toUtc().add(const Duration(hours: 1));
+      final gateway = _SuspendingGateway(throwFirebase: true)
+        ..documents[statePath] = {'suspendedUntil': until};
+
+      final (_, events) = await startEngine(gateway);
+      await _waitFor(
+        () async => events.any((event) => event is SyncRuntimePaused),
+      );
+
+      expect(gateway.attempts, 1);
+      expect(events.whereType<SyncRuntimeFailure>(), isEmpty);
+    });
+  });
+}
+
+class _SuspendingGateway extends _EmptySnapshotGateway {
+  _SuspendingGateway({this.throwFirebase = false});
+
+  final bool throwFirebase;
+  DateTime? refuseUntil = DateTime.now().add(const Duration(hours: 1));
+  int attempts = 0;
+  int stateReads = 0;
+
+  @override
+  Future<SyncDocument?> readDocument(String path) {
+    if (path.endsWith('/sync_state/current')) stateReads++;
+    return super.readDocument(path);
+  }
+
+  @override
+  Future<RowCommitResult> commitRowIfBaseMatches({
+    required String path,
+    required SyncCausalBase base,
+    required Map<String, Object?> data,
+  }) async {
+    attempts++;
+    final until = refuseUntil;
+    if (until != null && DateTime.now().isBefore(until)) {
+      if (throwFirebase) {
+        throw FirebaseException(
+          plugin: 'cloud_firestore',
+          code: 'permission-denied',
+        );
+      }
+      throw const SyncGatewayException('permission-denied');
+    }
+    return super.commitRowIfBaseMatches(path: path, base: base, data: data);
+  }
 }
 
 class _EmptySnapshotGateway extends FakeFirestoreGateway {

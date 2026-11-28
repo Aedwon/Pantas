@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
+import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/tab_bar_visibility.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -13,7 +14,9 @@ import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
 /// Owns the sheet surface and the page behind it. The caller supplies contents.
@@ -45,12 +48,21 @@ class PantasSheet extends StatefulWidget {
   /// top of the screen (MK_Sheet: the page stays visible for 180 px).
   final double topInset;
 
-  /// The label of the Close or Cancel button drawn at the end of the sheet:
-  /// "Cancel" for a sheet that edits, "Close" for one that only shows a list.
-  /// It is the keyboard route out that dragging the grabber is not (Sheet
-  /// README). Pressing it calls [onDismiss], as the scrim does. Null draws no
-  /// button, for a caller that draws its own.
+  /// The label of a Close or Cancel text button at the end of the sheet. Only
+  /// for a sheet whose board draws one: no board draws it today, so every
+  /// sheet leaves it null (finding 3, "Cancel and Close: match the boards").
+  /// Escape and a tap on the scrim already close a sheet. The button is a
+  /// 44 high text button at its natural width. Pressing it calls
+  /// [onDismiss], as the scrim does.
   final String? closeLabel;
+
+  /// `.sheet` padding-bottom (boards 34): `max(34, safe area + 20)`, so the
+  /// last control clears the home indicator. A sheet body that ends on its
+  /// own control pads its bottom with this.
+  static double bottomRest(BuildContext context) => math.max(
+        PantasSpace.s32 + PantasSpace.s2,
+        MediaQuery.viewPaddingOf(context).bottom + PantasSpace.s20,
+      );
 
   @override
   State<PantasSheet> createState() => _PantasSheetState();
@@ -398,35 +410,30 @@ class _PantasSheetState extends State<PantasSheet>
   }
 }
 
-/// The Close or Cancel button that ends a sheet. The actions stay visible
-/// while the body scrolls, and the bottom padding is `max(34, safe area + 20)`
-/// so the button clears the home indicator (Sheet README).
+/// A Close or Cancel text button that ends a sheet, for a sheet whose board
+/// draws one: 44 high at its natural width, centered (`btn--text-phone`). It
+/// stays visible while the body scrolls, and the bottom padding is
+/// [PantasSheet.bottomRest] so the button clears the home indicator.
 class _CloseAction extends StatelessWidget {
   const _CloseAction({required this.label, required this.onPressed});
 
   final String label;
   final VoidCallback onPressed;
 
-  /// `.sheet` padding-bottom: the phone board's 34.
-  static const double _rest = PantasSpace.s32 + PantasSpace.s2;
-
   @override
-  Widget build(BuildContext context) {
-    final inset = MediaQuery.viewPaddingOf(context).bottom;
-    return Padding(
-      padding: EdgeInsets.fromLTRB(
-        PantasSpace.s20,
-        PantasSpace.s8,
-        PantasSpace.s20,
-        math.max(_rest, inset + PantasSpace.s20),
-      ),
-      child: PantasButton(
-        label: label,
-        variant: PantasButtonVariant.tertiary,
-        onPressed: onPressed,
-      ),
-    );
-  }
+  Widget build(BuildContext context) => Padding(
+        padding: EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s8,
+          PantasSpace.s20,
+          PantasSheet.bottomRest(context),
+        ),
+        child: PantasButton(
+          label: label,
+          variant: PantasButtonVariant.tertiary,
+          onPressed: onPressed,
+        ),
+      );
 }
 
 /// The sheet and its scrim on the root overlay, for wide web. It animates
@@ -584,4 +591,60 @@ class PantasSheetGrabber extends StatelessWidget {
           ),
         ),
       );
+}
+
+/// The accent text action at the right of a phone sheet header ("Edit",
+/// "Done"). The text itself sits flush with the sheet's 20 px side padding
+/// (boards BM_Open and QZS_1b); the 44 high tap area reaches left of it, so
+/// the button's own side padding never moves the word inward.
+class PantasSheetAction extends StatelessWidget {
+  const PantasSheetAction({
+    required this.label,
+    required this.onPressed,
+    this.strong = false,
+    this.semanticLabel,
+    super.key,
+  });
+
+  final String label;
+  final VoidCallback? onPressed;
+
+  /// 600 when true (Done), 400 otherwise (Edit).
+  final bool strong;
+  final String? semanticLabel;
+
+  @override
+  Widget build(BuildContext context) {
+    final enabled = onPressed != null;
+    return Semantics(
+      label: semanticLabel ?? label,
+      button: true,
+      enabled: enabled,
+      onTap: onPressed,
+      excludeSemantics: true,
+      child: PantasTapArea(
+        onTap: onPressed,
+        borderRadius: BorderRadius.circular(PantasRadius.md),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(
+            minWidth: PantasSize.targetTouch,
+            minHeight: PantasSize.targetTouch,
+          ),
+          child: Align(
+            alignment: Alignment.centerRight,
+            widthFactor: 1,
+            child: Text(
+              label,
+              style: PantasType.phoneBody.copyWith(
+                color: enabled
+                    ? context.colors.accent
+                    : context.colors.textDisabled,
+                fontWeight: strong ? FontWeight.w600 : FontWeight.w400,
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
 }

@@ -339,6 +339,7 @@ List<InlineSpan> inlineMathSpans(
   String text, {
   TextStyle? style,
   WidgetBuilder? onErrorFallback,
+  double verticalPadding = 0,
 }) {
   if (!text.contains(r'$')) {
     return [TextSpan(text: text, style: style)];
@@ -357,6 +358,7 @@ List<InlineSpan> inlineMathSpans(
         match.group(1) ?? '',
         style: style,
         onErrorFallback: onErrorFallback,
+        verticalPadding: verticalPadding,
       ),
     );
     lastEnd = match.end;
@@ -456,10 +458,16 @@ const inlineMathSizeFactor = 1.12;
 /// formula below the words beside it, and `Math.tex` with no style of its own
 /// renders at the package's size rather than the body's. Both were visible in
 /// one glance: the number sat low and small.
+///
+/// [verticalPadding] adds that much room above and below the formula's box,
+/// so a line with a tall formula (a fraction) keeps clear of the line above
+/// and below it. A line's height is its tallest box, so two lines that each
+/// hold a fraction otherwise sit with the fractions touching.
 InlineSpan inlineMathSpan(
   String latex, {
   TextStyle? style,
   WidgetBuilder? onErrorFallback,
+  double verticalPadding = 0,
 }) {
   // A bare number such as 1987 or 22 has nothing to typeset. Set in KaTeX it
   // switches to a serif face in the middle of a sans sentence, so it stays text
@@ -504,7 +512,7 @@ InlineSpan inlineMathSpan(
         // active TextScaler. Keep the TeX source size unscaled here and disable
         // flutter_math_fork's legacy scalar so the outer paragraph applies
         // Android's nonlinear accessibility scale exactly once.
-        return MathExpression(
+        final math = MathExpression(
           latex: displayFractions(latex),
           mathStyle: MathStyle.text,
           textStyle: sized,
@@ -512,6 +520,12 @@ InlineSpan inlineMathSpan(
           fitAlignment: Alignment.centerLeft,
           onErrorFallback: onErrorFallback,
         );
+        return verticalPadding == 0
+            ? math
+            : Padding(
+                padding: EdgeInsets.symmetric(vertical: verticalPadding),
+                child: math,
+              );
       },
     ),
   );

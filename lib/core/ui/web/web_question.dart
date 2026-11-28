@@ -3,9 +3,12 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:pantas/core/storage/domain/passage.dart';
 import 'package:pantas/core/storage/domain/question.dart';
+import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
+import 'package:pantas/core/ui/components/figure_choice_tiles.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
+import 'package:pantas/core/ui/figures/choice_figure.dart';
 import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
@@ -196,6 +199,7 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
     );
     final correct = widget.question.correctChoice;
     final wrong = widget.checked && widget.chosenId != correct.id;
+    final plan = QuestionChoicePlan.of(widget.question);
     final move = _phase(240, 1200);
     // RV_Reveal moves the column and nothing else: its width stays put, so the
     // stem and the choices do not re-wrap while it slides. The checked width
@@ -231,7 +235,8 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
             child: ContentRenderer(text: widget.question.stem, style: t.qtext),
           ),
           const SizedBox(height: PantasSpace.s28),
-          if (widget.question.figureSpecJson != null) ...[
+          if (widget.question.figureSpecJson != null &&
+              plan.showQuestionFigure) ...[
             WebCard(
               padding: const EdgeInsets.all(PantasSpace.s20),
               child: Theme(
@@ -245,60 +250,63 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
             ),
             const SizedBox(height: PantasSpace.s28),
           ],
-          for (final (index, choice) in widget.question.choices.indexed) ...[
-            if (index > 0) const SizedBox(height: PantasSpace.s12),
-            WebAnswerOption(
-              letter: choice.label,
-              revealFromSelected: choice.id == widget.chosenId,
-              revealProgress: widget.checked
-                  ? _phase(
-                      wrong && choice.id == correct.id ? 160 : 0,
-                      wrong && choice.id == correct.id ? 560 : 400,
-                    )
-                  : 1,
-              badgeProgress: widget.checked
-                  ? _phase(
-                      wrong && choice.id == correct.id ? 160 : 0,
-                      wrong && choice.id == correct.id ? 480 : 320,
-                    )
-                  : 1,
-              badgeScale: widget.checked
-                  ? _badgeScale(
-                      delayed: wrong && choice.id == correct.id,
-                      wrong: choice.id != correct.id,
-                    )
-                  : 1,
-              state: widget.checked
-                  ? choice.id == correct.id
-                      ? WebOptionState.right
-                      : choice.id == widget.chosenId
-                          ? WebOptionState.wrong
-                          : WebOptionState.dimmed
-                  : choice.id == widget.chosenId
-                      ? WebOptionState.selected
-                      : WebOptionState.normal,
-              onPressed: widget.onPick == null
-                  ? null
-                  : () => widget.onPick!(choice.id),
-              child: Builder(
-                builder: (context) {
-                  final optionState = widget.checked
-                      ? choice.id == correct.id
-                          ? WebOptionState.right
-                          : choice.id == widget.chosenId
-                              ? WebOptionState.wrong
-                              : WebOptionState.dimmed
-                      : choice.id == widget.chosenId
-                          ? WebOptionState.selected
-                          : WebOptionState.normal;
-                  return MathText(
-                    choice.text,
-                    style: WebAnswerOption.textStyle(context, optionState),
-                  );
-                },
+          if (plan.figures != null)
+            _tiles(plan.figures!, correct.id)
+          else
+            for (final (index, choice) in widget.question.choices.indexed) ...[
+              if (index > 0) const SizedBox(height: PantasSpace.s12),
+              WebAnswerOption(
+                letter: choice.label,
+                revealFromSelected: choice.id == widget.chosenId,
+                revealProgress: widget.checked
+                    ? _phase(
+                        wrong && choice.id == correct.id ? 160 : 0,
+                        wrong && choice.id == correct.id ? 560 : 400,
+                      )
+                    : 1,
+                badgeProgress: widget.checked
+                    ? _phase(
+                        wrong && choice.id == correct.id ? 160 : 0,
+                        wrong && choice.id == correct.id ? 480 : 320,
+                      )
+                    : 1,
+                badgeScale: widget.checked
+                    ? _badgeScale(
+                        delayed: wrong && choice.id == correct.id,
+                        wrong: choice.id != correct.id,
+                      )
+                    : 1,
+                state: widget.checked
+                    ? choice.id == correct.id
+                        ? WebOptionState.right
+                        : choice.id == widget.chosenId
+                            ? WebOptionState.wrong
+                            : WebOptionState.dimmed
+                    : choice.id == widget.chosenId
+                        ? WebOptionState.selected
+                        : WebOptionState.normal,
+                onPressed: widget.onPick == null
+                    ? null
+                    : () => widget.onPick!(choice.id),
+                child: Builder(
+                  builder: (context) {
+                    final optionState = widget.checked
+                        ? choice.id == correct.id
+                            ? WebOptionState.right
+                            : choice.id == widget.chosenId
+                                ? WebOptionState.wrong
+                                : WebOptionState.dimmed
+                        : choice.id == widget.chosenId
+                            ? WebOptionState.selected
+                            : WebOptionState.normal;
+                    return MathText(
+                      choice.text,
+                      style: WebAnswerOption.textStyle(context, optionState),
+                    );
+                  },
+                ),
               ),
-            ),
-          ],
+            ],
           if (widget.checked && useDrawer && !_drawerOpen) ...[
             const SizedBox(height: PantasSpace.s18),
             Align(
@@ -405,6 +413,33 @@ class _WebQuizQuestionState extends State<WebQuizQuestion>
       },
     );
   }
+
+  /// The choices as figure tiles, in the same four states the rows use.
+  Widget _tiles(List<ChoiceFigure> figures, String correctId) =>
+      FigureChoiceGroup(
+        stem: widget.question.stem,
+        items: [
+          for (final (i, choice) in widget.question.choices.indexed)
+            FigureChoiceItem(
+              letter: choice.label,
+              description: choice.text,
+              figure: figures[i],
+              chosen: choice.id == widget.chosenId,
+              state: widget.checked
+                  ? choice.id == correctId
+                      ? ChoiceRowState.right
+                      : choice.id == widget.chosenId
+                          ? ChoiceRowState.wrong
+                          : ChoiceRowState.dimmed
+                  : choice.id == widget.chosenId
+                      ? ChoiceRowState.picked
+                      : ChoiceRowState.plain,
+            ),
+        ],
+        onPick: widget.onPick == null || widget.checked
+            ? null
+            : (i) => widget.onPick!(widget.question.choices[i].id),
+      );
 
   /// Eases [start] to [end] (ms of the reveal clock) on `motion-enter`.
   double _enter(double start, double end) => PantasCurves.enter.transform(

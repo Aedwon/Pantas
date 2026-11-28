@@ -15,7 +15,7 @@ void main() {
     expect(pro['exam'], 'exam_cse_pro');
     expect(pro['sectionalTiming'], 'roamable');
     expect(pro['totalPublishedItems'], isNull);
-    expect(pro['unscoredItems'], 15);
+    expect(pro['unscoredItems'], 20);
     expect((pro['sections'] as YamlList).length, 4);
 
     expect(sub['exam'], 'exam_cse_sub');
@@ -38,8 +38,8 @@ void main() {
     }
     final sub = load('cse-sub');
     expect(sub['source'], 'reported');
-    expect(sub['sourceNote'], contains('Placeholder split'));
-    expect(sub['sourceNote'], contains('unconfirmed'));
+    expect(sub['sourceNote'], contains('Advisory No. 10, s. 2026'));
+    expect(sub['sourceNote'], contains('even division'));
 
     final acetSections = load('acet')['sections'] as YamlList;
     final aptitude = acetSections

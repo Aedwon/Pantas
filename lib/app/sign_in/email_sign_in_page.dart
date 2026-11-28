@@ -23,6 +23,17 @@ final signInHoldProvider = StateProvider<bool>((ref) => false);
 /// How long the screen holds after the check mark has drawn.
 const signInHold = Duration(milliseconds: 1200);
 
+/// Where the sign-in screen's address sends someone, or null to open it.
+///
+/// A signed-in user goes Home: entering another address here would switch
+/// accounts without Sign Out. The screen stays while it plays its own
+/// signed-in beat ([holding]), and then leaves by itself.
+String? emailSignInRedirect({
+  required AuthState? auth,
+  required bool holding,
+}) =>
+    auth is SignedInAuthState && !holding ? '/home' : null;
+
 // The wrong-code board: red boxes hold, then fade, then the digits clear.
 const _wrongHold = Duration(milliseconds: 1440);
 const _wrongFade = Duration(milliseconds: 240);
@@ -760,34 +771,41 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
           // The message follows the shake by a beat.
           delay: const Duration(milliseconds: 100),
         ),
-        SignInButton(
-          label: 'Continue',
-          style: style,
-          state: _sending ? SignInButtonState.busy : SignInButtonState.idle,
-          keyHint: wide ? 'Enter' : null,
-          onPressed: _continueEmail,
-        ),
-        ValueListenableBuilder<int>(
-          valueListenable: _wait.left,
-          builder: (context, left, _) => SmoothSize(
-            child: left > 0
-                ? Padding(
-                    padding: const EdgeInsets.only(top: PantasSpace.s8),
-                    child: Text(
-                      'You can request a code in ${_clock(left)}.',
-                      textAlign: TextAlign.center,
-                      style: style.small,
-                    ),
-                  )
-                : const SizedBox(width: double.infinity),
-          ),
-        ),
-        const SizedBox(height: PantasSpace.s8),
-        SignInTextButton(
-          label: 'Use Google Instead',
-          style: style,
-          icon: const GoogleMark(),
-          onPressed: _google,
+        SignInStack(
+          wide: wide,
+          children: [
+            SignInButton(
+              fill: wide,
+              label: 'Continue',
+              style: style,
+              state: _sending ? SignInButtonState.busy : SignInButtonState.idle,
+              keyHint: wide ? 'Enter' : null,
+              onPressed: _continueEmail,
+            ),
+            ValueListenableBuilder<int>(
+              valueListenable: _wait.left,
+              builder: (context, left, _) => SmoothSize(
+                child: left > 0
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: PantasSpace.s8),
+                        child: Text(
+                          'You can request a code in ${_clock(left)}.',
+                          textAlign: TextAlign.center,
+                          style: style.small,
+                        ),
+                      )
+                    : const SizedBox.shrink(),
+              ),
+            ),
+            const SizedBox(height: PantasSpace.s8),
+            SignInTextButton(
+              fill: wide,
+              label: 'Use Google Instead',
+              style: style,
+              icon: const GoogleMark(),
+              onPressed: _google,
+            ),
+          ],
         ),
         if (!wide) ...[
           const SizedBox(height: PantasSpace.s14),
@@ -809,12 +827,14 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
     final expired = _phase == _Phase.expired;
     final button = expired
         ? SignInButton(
+            fill: wide,
             label: 'Send a New Code',
             style: style,
             state: _resending ? SignInButtonState.busy : SignInButtonState.idle,
             onPressed: _resendCode,
           )
         : SignInButton(
+            fill: wide,
             label: 'Continue',
             style: style,
             state: switch (_phase) {
@@ -851,43 +871,50 @@ class _EmailSignInPageState extends ConsumerState<EmailSignInPage> {
           delay: Duration(milliseconds: _codeMessageIsError ? 120 : 200),
           duration: Duration(milliseconds: _codeMessageIsError ? 180 : 300),
         ),
-        button,
-        if (expired) ...[
-          const SizedBox(height: PantasSpace.s8),
-          SignInTextButton(
-            label: 'Use a Different Email',
-            style: style,
-            onPressed: _useDifferentEmail,
-          ),
-          if (!wide) ...[
-            const SizedBox(height: PantasSpace.s14),
-            SupportLine(style: style),
+        SignInStack(
+          wide: wide,
+          children: [
+            button,
+            if (expired) ...[
+              const SizedBox(height: PantasSpace.s8),
+              SignInTextButton(
+                fill: wide,
+                label: 'Use a Different Email',
+                style: style,
+                onPressed: _useDifferentEmail,
+              ),
+              if (!wide) ...[
+                const SizedBox(height: PantasSpace.s14),
+                SupportLine(style: style),
+              ],
+            ] else ...[
+              const SizedBox(height: PantasSpace.s16),
+              ValueListenableBuilder<int>(
+                valueListenable: _resend.left,
+                builder: (context, left, _) => left > 0
+                    ? Text(
+                        "Didn't get it? You can resend in ${_clock(left)}.",
+                        textAlign: TextAlign.center,
+                        style: style.small,
+                      )
+                    : LinkLine(
+                        prefix: "Didn't get it? ",
+                        link: 'Resend Code',
+                        bold: true,
+                        style: style,
+                        onTap: _resendCode,
+                      ),
+              ),
+              const SizedBox(height: PantasSpace.s6),
+              SignInTextButton(
+                fill: wide,
+                label: 'Use a Different Email',
+                style: style,
+                onPressed: _useDifferentEmail,
+              ),
+            ],
           ],
-        ] else ...[
-          const SizedBox(height: PantasSpace.s16),
-          ValueListenableBuilder<int>(
-            valueListenable: _resend.left,
-            builder: (context, left, _) => left > 0
-                ? Text(
-                    "Didn't get it? You can resend in ${_clock(left)}.",
-                    textAlign: TextAlign.center,
-                    style: style.small,
-                  )
-                : LinkLine(
-                    prefix: "Didn't get it? ",
-                    link: 'Resend Code',
-                    bold: true,
-                    style: style,
-                    onTap: _resendCode,
-                  ),
-          ),
-          const SizedBox(height: PantasSpace.s6),
-          SignInTextButton(
-            label: 'Use a Different Email',
-            style: style,
-            onPressed: _useDifferentEmail,
-          ),
-        ],
+        ),
       ],
     );
   }

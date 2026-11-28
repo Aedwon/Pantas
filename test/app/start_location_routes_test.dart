@@ -25,6 +25,8 @@ const _honored = <String>{
   '/plan/day/:date',
   '/plan/week/:start',
   '/lesson/:lessonId',
+  // The first run resumes the open run; with none open it goes home.
+  '/try',
   '/quiz/today/:examId',
   '/quiz/resume/:examId',
   '/quiz/practice/:examId',
@@ -59,8 +61,6 @@ const _honored = <String>{
   '/settings/backup',
   '/settings/about',
   '/settings/beta-feedback',
-  '/settings/beta-feedback/survey',
-  '/settings/beta-feedback/sent/:id',
   '/legal/:doc',
 };
 

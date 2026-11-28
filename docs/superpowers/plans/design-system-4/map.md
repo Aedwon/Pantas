@@ -177,7 +177,7 @@ State-only features (no screens): metrics, roadmap. Progress and results pages l
 5. Pro color: code `pro` is `#D9A400` and dark `warningText` is the same gold (`pantas_colors.dart:165,226`); SYS D54 moves dark warning to `#F0A35A` so gold marks only Pro.
 6. Radius and spacing snaps (D73, D99): checkbox 7 to 8, 42px buttons 11 to 12, explanation card 20 to 18, dialog padding 26 to 24, Material dialog radius 14 to 22; `PantasShape` has 24 and 99, off the SYS scale.
 7. Hover fade 160 ms in code vs 150 (D93); disabled opacity .45/.42 vs .4 (D89); dimmed content by opacity vs color (D49).
-8. SYS changes to approved phone/board layouts: answer check inside the badge, 10px stack (D86); quiz bar flag moves on phones under 400px (D71, Aedwon approved Nov 8); WeekStrip day cells 34 to 44 and legend removed (D69, D186).
+8. SYS changes to approved phone/board layouts: answer check inside the badge, 10px stack (D86); quiz bar flag moves on phones under 400px (D71, Aedwon approved Nov 8; retired by the Nov 24 T16 B2 ruling (2e07fc7d7): the flag sits in the session bar); WeekStrip day cells 34 to 44 and legend removed (D69, D186).
 9. Mock exam: D170 keeps the wide layout on phones until quiz code migrates; code serves one wide mock at all widths (open item in handover).
 10. Text scaling: SYS D181/D190 want UI text to follow the OS size up to 2.0, tab labels capped at 12px, and an `osTextScaler` captured before the clamp for the reader; code has no app-level clamp and only `LessonTextScale` (`core/ui/theme/lesson_text_scale.dart`).
 11. `AGENTS.md` sets no visual rules until Aedwon records them; boards win where SYS is silent; his lived use of the app overrides a board. SYS D191 says delegated rulings are final.

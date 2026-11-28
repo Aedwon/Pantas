@@ -18,6 +18,7 @@ import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/first_run/application/first_run_providers.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/features/home/data/study_api.dart';
@@ -30,6 +31,7 @@ import 'package:pantas/features/onboarding/presentation/onboarding_exam_date_ste
 import 'package:pantas/features/onboarding/presentation/onboarding_guardian_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_name_step.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_study_days_step.dart';
+import 'package:pantas/features/onboarding/presentation/onboarding_terms_gate.dart';
 import 'package:pantas/features/onboarding/presentation/onboarding_welcome_step.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_name_step.dart';
 import 'package:pantas/features/onboarding/presentation/steps/custom_track_subjects_step.dart';
@@ -54,6 +56,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   bool _finishing = false;
   bool _finished = false;
   bool _finishFailed = false;
+
+  /// The Terms check ended with Terms on screen, so Back to it does not ask
+  /// the server again.
+  bool _termsChecked = false;
 
   /// Name was just saved in this visit, so the page keeps showing it while
   /// onboarding closes instead of swapping to an empty loading page.
@@ -93,7 +99,18 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       ref
         ..invalidate(appPreferencesRepositoryProvider)
         ..invalidate(onboardingProgressProvider);
-      GoRouter.maybeOf(context)?.go('/home');
+      // A learner with a fixed lesson and no assessment tries Pantas first
+      // (E-179). Any failure here means Home, as before.
+      var tryFirst = false;
+      try {
+        tryFirst = await ref
+            .read(firstRunOpenerProvider)()
+            .timeout(_settingsWait, onTimeout: () => false);
+      } on Object catch (error, stack) {
+        unawaited(telemetry.recordError(error, stack));
+      }
+      if (!mounted) return;
+      GoRouter.maybeOf(context)?.go(tryFirst ? '/try' : '/home');
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
       if (mounted) setState(() => _finishFailed = true);
@@ -150,6 +167,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       : step != OnboardingStep.welcome && step != OnboardingStep.launch;
 
   OnboardingStep? get _step => _flow?.step;
+
+  /// A named account is signed in on this device.
+  bool get _signedIn =>
+      ref.read(authStateProvider).valueOrNull is SignedInAuthState;
   final Set<OnboardingStep> _loggedSteps = {};
 
   void _logStep(OnboardingStep step) {
@@ -238,8 +259,13 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     final progress = ref.watch(onboardingProgressProvider);
+    final auth = ref.watch(authStateProvider);
     if (_flow == null) {
-      if (progress.isLoading) return Scaffold(body: loadingFor(progress));
+      // Wait for the first sign-in state, so a signed-in student never sees
+      // Welcome flash before the age step.
+      if (progress.isLoading || auth.isLoading) {
+        return Scaffold(body: loadingFor(const AsyncLoading<void>()));
+      }
       if (progress.hasError) {
         firstScreenReady(context, ref);
         return Scaffold(
@@ -252,6 +278,11 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
       var first = ref.read(studyNeedsExamSettingsProvider)
           ? OnboardingStep.picker
           : progress.requireValue.resumeStep;
+      // A student who signed in from Welcome has no use for it again. The age
+      // step stays: it is a per-device legal check.
+      if (first == OnboardingStep.welcome && _signedIn) {
+        first = OnboardingStep.age;
+      }
       final handover = ref.read(welcomeHandoverProvider);
       if (handover.shownThisVisit) {
         // The HTML Welcome screen covers the app until the learner taps Get
@@ -415,6 +446,10 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           child: OnboardingWelcomeStep(
             underCover: _underCover,
             onAdvance: () => _setStep(OnboardingStep.age),
+            onSignIn:
+                ref.watch(authStateProvider).valueOrNull is SignedInAuthState
+                    ? null
+                    : () => unawaited(context.push<void>('/auth/email-link')),
           ),
         );
       case OnboardingStep.age:
@@ -439,6 +474,13 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           key: const ValueKey('guardian'),
           child: OnboardingGuardianStep(
             onBack: _back,
+            // The server closed under-18 sign-up. The block is saved, and the
+            // age step shows it.
+            onClosed: () {
+              if (_step == OnboardingStep.guardian) {
+                _setStep(OnboardingStep.age);
+              }
+            },
             // The link is on its way. The router holds the student on the
             // Waiting screen until a guardian confirms.
             onSent: () {
@@ -449,7 +491,7 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
           ),
         );
       case OnboardingStep.terms:
-        return KeyedSubtree(
+        final consent = KeyedSubtree(
           key: const ValueKey('consent'),
           child: OnboardingConsentStep(
             onBack: _back,
@@ -459,6 +501,19 @@ class _OnboardingPageState extends ConsumerState<OnboardingPage> {
               }
             },
           ),
+        );
+        // A returning student whose account already accepted the current
+        // wording skips Terms. The check runs once a visit.
+        return OnboardingTermsGate(
+          key: const ValueKey('termsGate'),
+          check: !_termsChecked,
+          terms: consent,
+          onShowTerms: () => _termsChecked = true,
+          onSkipped: () {
+            if (_step == OnboardingStep.terms) {
+              setState(() => _flow!.skipTerms(OnboardingStep.picker));
+            }
+          },
         );
       case OnboardingStep.picker:
         return KeyedSubtree(

@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -15,6 +16,7 @@ import 'package:pantas/core/ui/web/letter_shortcuts.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_debrief_loading.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/mock_exam/application/mock_start_providers.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 import 'package:pantas/features/mock_exam/presentation/mock_hourglass.dart';
@@ -561,6 +563,16 @@ void main() {
       await tester.sendKeyEvent(LogicalKeyboardKey.arrowRight);
       expect(flagged, 1);
       expect(next, 1);
+      // Boards MK_NavMotion and MK_SubmitCSE: the hide icon comes first, 10 px
+      // outside the panel padding, and "Questions" follows 6 px after it (U13).
+      await tester.pumpAndSettle();
+      final head = tester.getRect(find.byKey(const ValueKey('web-mock-panel')));
+      final hideIcon = tester.getRect(find.byTooltip('Hide the question list'));
+      final heading = tester.getRect(find.text('Questions'));
+      expect(hideIcon.left, lessThan(heading.left));
+      expect(hideIcon.center.dx - head.left, 32);
+      expect(heading.left - head.left, 56);
+      expect(hideIcon.center.dy, closeTo(heading.center.dy, 1));
       await tester.tap(find.byTooltip('Hide the question list'));
       await tester.pump();
       expect(find.byKey(const ValueKey('web-mock-panel')), findsNothing);
@@ -678,12 +690,45 @@ void main() {
       );
       await tester.pumpAndSettle();
       expect(find.text('Finish the Notes'), findsOneWidget);
+      // B5_ReviewAfter: padding 12 12 12 20, a 40 px button, 15 px text on
+      // 1.5 in the primary color.
+      final prompt = find.text('Note why you missed each one.');
+      final promptStyle = tester.widget<Text>(prompt).style!;
+      expect(promptStyle.fontSize, 15);
+      expect(promptStyle.height, 1.5);
+      expect(
+        promptStyle.color,
+        tester.element(prompt).webTokens.colors.textPrimary,
+      );
+      expect(
+        tester
+            .getSize(find.ancestor(of: prompt, matching: find.byType(WebCard)))
+            .height,
+        // 12 above and below the taller of the text and the 40 px button.
+        math.max(40, tester.getSize(prompt).height) + 24,
+      );
+      expect(
+        tester
+            .getSize(
+              find.ancestor(
+                of: find.text('Finish the Notes'),
+                matching: find.byType(WebButton),
+              ),
+            )
+            .height,
+        40,
+      );
       expect(find.text('Left blank'), findsOneWidget);
       expect(tester.getSize(find.byType(WebSegmentedControl)).width, 464);
       expect(tester.getSize(find.byType(WebRow)).width, 760);
       await tester.tap(find.text('Flagged 1'));
       await tester.pump();
       expect(find.text('Save All 1'), findsOneWidget);
+      // Web MK_ReviewFlagged: the wide offer is one short sentence (U39).
+      expect(
+        find.text('You flagged 1 question during the mock. Save them?'),
+        findsOneWidget,
+      );
       final badge = tester.widget<Container>(
         find
             .ancestor(of: find.text('1'), matching: find.byType(Container))
@@ -759,15 +804,18 @@ void main() {
       expect(find.text('CSE Professional simulation'), findsOneWidget);
       expect(find.text('The clock starts when you click.'), findsOneWidget);
       expect(find.byType(WebButton), findsWidgets);
-      // MK_SetupCSE: the button fills the right column; the line is centered.
+      // Wide placement (patterns.md): Start is at natural width at the right
+      // end of the column; the line is right-aligned under it.
       final start = tester.getRect(
         find.widgetWithText(WebButton, 'Start the Mock Exam'),
       );
-      final caption = tester.getCenter(
+      final caption = tester.getRect(
         find.text('The clock starts when you click.'),
       );
-      expect(start.width, greaterThan(300));
-      expect(caption.dx, closeTo(start.center.dx, 1));
+      final column = tester.getRect(find.byType(WebCard).first);
+      expect(start.width, lessThan(column.width));
+      expect(start.right, closeTo(column.right, 1));
+      expect(caption.right, closeTo(start.right, 1));
       await tester.sendKeyEvent(LogicalKeyboardKey.enter);
       expect(strict, false);
     });

@@ -111,7 +111,7 @@ void main() {
         (tester) async {
       final container = await openDirectly(tester, '/legal/terms', wide: false);
       expect(pathOf(container), '/legal/terms');
-      expect(find.text('Use of the app'), findsOneWidget);
+      expect(find.text('1. Use of Pantas'), findsOneWidget);
       expect(find.text('About'), findsNothing);
       await tester.tap(find.text('Back'));
       // Onboarding animates without end, so settle by time.
@@ -138,7 +138,7 @@ void main() {
         (tester) async {
       final container = await openDirectly(tester, '/legal/terms', wide: false);
       expect(pathOf(container), '/legal/terms');
-      expect(find.text('Use of the app'), findsOneWidget);
+      expect(find.text('1. Use of Pantas'), findsOneWidget);
       await tester.tap(find.text('About'));
       await tester.pumpAndSettle();
       expect(pathOf(container), '/settings/about');

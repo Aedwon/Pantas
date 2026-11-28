@@ -6,20 +6,24 @@ import { runCleanupSyncData } from './cleanupSyncData.js';
 import { runCleanupWrappedOrphans } from './cleanupWrappedOrphans.js';
 import { runPurgeOldGuardianRecords } from './guardianConsent.js';
 import { runKeepCallablesWarm } from './keepWarm.js';
+import { runNpcDataSubjectCount } from './npcDataSubjectCount.js';
 import { purgeInactiveSecrets, runPurgeInactiveAccounts } from './purgeInactiveAccounts.js';
 import { runPurgeOldAuditLogs } from './purgeOldAuditLogs.js';
+import { runPurgeOverdueQuestionReports } from './purgeOverdueQuestionReports.js';
 import { runCheckRecentEntitlementClaims, runRepairEntitlementClaims } from './revenuecatWebhook.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 /**
  * Cloud Scheduler bills per job after three free ones per billing account, and paused jobs count.
- * So prod runs nine tasks from three jobs. Each task is a plain function; a job runs its tasks one
+ * So prod runs eleven tasks from three jobs. Each task is a plain function; a job runs its tasks one
  * after another, each in its own try/catch with its own time budget, so one failure never stops
  * the rest and the job itself never throws because of a task.
  */
 export const TASK_NAMES = [
   'keepCallablesWarm', 'repairEntitlementClaims', 'purgeOldGuardianRecords',
   'cleanupOrphanAnons', 'purgeOldAuditLogs', 'checkRecentEntitlementClaims',
-  'cleanupSyncData', 'purgeInactiveAccounts', 'cleanupWrappedOrphans',
+  'cleanupSyncData', 'purgeInactiveAccounts', 'cleanupWrappedOrphans', 'purgeOverdueQuestionReports',
+  'npcDataSubjectCount',
 ] as const;
 export type TaskName = (typeof TASK_NAMES)[number];
 
@@ -44,10 +48,12 @@ export const TASKS: TaskRegistry = {
   cleanupSyncData: { name: 'cleanupSyncData', budgetMs: 300 * SECOND, run: runCleanupSyncData },
   purgeInactiveAccounts: { name: 'purgeInactiveAccounts', budgetMs: 540 * SECOND, run: runPurgeInactiveAccounts },
   cleanupWrappedOrphans: { name: 'cleanupWrappedOrphans', budgetMs: 540 * SECOND, run: runCleanupWrappedOrphans },
+  purgeOverdueQuestionReports: { name: 'purgeOverdueQuestionReports', budgetMs: 120 * SECOND, run: runPurgeOverdueQuestionReports },
+  npcDataSubjectCount: { name: 'npcDataSubjectCount', budgetMs: 60 * SECOND, run: runNpcDataSubjectCount },
 };
 
 export const HOURLY_TASKS: readonly TaskName[] = ['repairEntitlementClaims', 'purgeOldGuardianRecords'];
-export const DAILY_EARLY_TASKS: readonly TaskName[] = ['cleanupOrphanAnons', 'purgeOldAuditLogs', 'checkRecentEntitlementClaims'];
+export const DAILY_EARLY_TASKS: readonly TaskName[] = ['cleanupOrphanAnons', 'purgeOldAuditLogs', 'checkRecentEntitlementClaims', 'purgeOverdueQuestionReports', 'npcDataSubjectCount'];
 export const DAILY_LATE_TASKS: readonly TaskName[] = ['cleanupSyncData', 'purgeInactiveAccounts', 'cleanupWrappedOrphans'];
 
 /** Function timeouts. Each is above the sum of its tasks' budgets; the five-minute job ends before the next trigger. */
@@ -105,7 +111,7 @@ export async function runJob(
 const region = 'asia-southeast1';
 // One instance, one request at a time: the late job sends email and deletes accounts, so two runs
 // must never overlap. Cloud Scheduler delivers at least once; a duplicate waits or is refused.
-const oneAtATime = { region, maxInstances: 1, concurrency: 1 } as const;
+const oneAtATime = { region, serviceAccount: serviceAccountEmail('pantas-jobs'), maxInstances: 1, concurrency: 1 } as const;
 
 export const jobsFrequent = onSchedule(
   { ...oneAtATime, schedule: 'every 5 minutes', timeoutSeconds: JOB_TIMEOUT_SECONDS.jobsFrequent },
@@ -154,7 +160,7 @@ export async function handleRunnerRequest(
  * changes it. One request at a time, like the combined jobs.
  */
 export const runScheduledTask = onRequest(
-  { region, invoker: 'private', maxInstances: 1, concurrency: 1, timeoutSeconds: 600, secrets: purgeInactiveSecrets },
+  { region, serviceAccount: serviceAccountEmail('pantas-jobs'), invoker: 'private', maxInstances: 1, concurrency: 1, timeoutSeconds: 600, secrets: purgeInactiveSecrets },
   async (req, res) => {
     const reply = await handleRunnerRequest(req.method, req.query.task);
     res.status(reply.status).json(reply.body);

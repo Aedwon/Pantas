@@ -35,9 +35,9 @@ void main() {
     );
 
     expect(find.text('Terms of Service'), findsWidgets);
-    expect(find.text('Use of the app'), findsOneWidget);
-    expect(find.text('Subscriptions'), findsOneWidget);
-    expect(find.text('Intellectual property'), findsOneWidget);
+    expect(find.text('1. Use of Pantas'), findsOneWidget);
+    expect(find.text('4. Payments'), findsOneWidget);
+    expect(find.text('2. Content and ownership'), findsOneWidget);
   });
 
   testWidgets('the onboarding legal page draws the system Back link',
@@ -140,5 +140,28 @@ void main() {
     );
 
     expect(find.text('Legal page not found'), findsOneWidget);
+  });
+
+  testWidgets('the teen notice points to the Privacy Policy with a real link',
+      (tester) async {
+    await tester.pumpApp(
+      const LegalDocumentPage(
+        documentId: 'teens',
+        contact: defaultLegalContact,
+      ),
+    );
+    var found = false;
+    for (final rich in tester.widgetList<RichText>(find.byType(RichText))) {
+      rich.text.visitChildren((span) {
+        if (span is TextSpan &&
+            span.text == 'the Privacy Policy' &&
+            span.recognizer != null) {
+          found = true;
+        }
+        return true;
+      });
+    }
+    expect(found, isTrue);
+    expect(find.textContaining('Balayon', findRichText: true), findsNothing);
   });
 }

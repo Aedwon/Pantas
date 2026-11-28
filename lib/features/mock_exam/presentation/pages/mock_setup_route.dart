@@ -13,6 +13,7 @@ import 'package:pantas/features/mock_exam/application/server_mock_results_provid
 import 'package:pantas/features/mock_exam/data/blueprint_section.dart';
 import 'package:pantas/features/mock_exam/data/custom_blueprint_repository.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_page.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_skeletons.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
@@ -93,6 +94,21 @@ class MockSetupRoute extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
+    // The web's mocks need a named account. As in the mock run route, a
+    // visitor without one goes back to the Quiz tab, whose card asks for an
+    // account, instead of a load failure (found on the gate-off staging proof,
+    // Nov 25). Nothing is read while the account is still unknown.
+    switch (ref.watch(mockAccountGateProvider)) {
+      case MockAccountGate.checking:
+        return const MockSetupSkeleton();
+      case MockAccountGate.needsAccount:
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          if (context.mounted) context.go(mockExitLocation);
+        });
+        return const MockSetupSkeleton();
+      case MockAccountGate.ready:
+        break;
+    }
     final parsedAsync = ref.watch(mockSetupParsedBlueprintProvider(examId));
     final settingsAsync = ref.watch(userSettingsProvider);
     final countAsync = ref.watch(mockSetupQuestionCountProvider(examId));

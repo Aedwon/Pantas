@@ -9,7 +9,7 @@ WORKFLOW.md and SUBAGENTS.md still win where they differ.
 
 - **Lead (Claude, main thread):** owns scope, briefs, rulings, review, commits, merges and the
   decision log. Reads summaries, not logs. Never takes app screenshots.
-- **Builder:** Codex Sol (`gpt-6.1-sol`, low effort) through `codex-pick`, one family per run.
+- **Builder:** Codex Sol (`gpt-6.2-sol`, low effort) through `codex-pick`, one family per run.
 - **Reviewer and fixer:** two more Sol runs per family (below). They use Codex quota, not Claude.
 - **Bulk reading:** a Sonnet or Haiku subagent (board inventories, mapping a design to the code,
   building a preview page). It returns one report file and a one-paragraph summary.
@@ -80,3 +80,32 @@ WORKFLOW.md and SUBAGENTS.md still win where they differ.
   that reads the file) so Aedwon can view it. Approved previews are copied to main as the
   implementation reference.
 - Things only he can do (secrets, consoles, mailboxes, publishing copy) are listed, never attempted.
+
+## Keeping your cache warm while you wait on Aedwon
+
+A thread's prompt cache expires after 1 hour idle. Rebuilding it on a long thread costs far more
+than keeping it warm: one rebuild is roughly as costly as 20 keep-alive turns. Aedwon (Nov 17):
+leads may "set one for themselves if their tasks needs me and i cannot immediately attend to it
+(most likely im asleep lol)".
+
+When you end a turn waiting on Aedwon (a decision, a "ship it", a board pick, a phone check), and
+you expect his answer within about 12 hours, create a keep-alive bound to your own thread:
+
+```
+schedule_task(
+  title: "Keep-alive: <your lane> waiting on Aedwon",
+  schedule: {type: "interval", everyMs: 3300000},   # 55 min, under the 1-hour expiry
+  bindToCurrentThread: true,
+  prompt: "Cache keep-alive. If Aedwon (or the manager relaying him) has replied in this thread
+           since this task was created, or 12 hours have passed since <UTC time you created it>,
+           load delete_scheduled_task with ToolSearch, delete the task titled 'Keep-alive: <your
+           lane> waiting on Aedwon', and stop. Otherwise reply only: ok"
+)
+```
+
+Rules:
+- One keep-alive per thread. Delete it as soon as his answer arrives (the prompt does this too).
+- 12 hours at most. Past that, a later rebuild is cheaper than more pings.
+- Not for waits on other leads, CI or Codex resets under an hour; those wake you anyway.
+- Do no work in a keep-alive turn. Reply "ok" and nothing else.
+- Tell the manager in your report that a keep-alive is running, so its central keep-alive skips you.

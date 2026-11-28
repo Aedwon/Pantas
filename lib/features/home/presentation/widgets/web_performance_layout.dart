@@ -25,7 +25,6 @@ import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/performance/performance_provider.dart';
 import 'package:pantas/features/home/application/performance/performance_view.dart';
-import 'package:pantas/features/home/presentation/widgets/home_columns.dart';
 
 /// PF_* presentation. Filtering and stored ordering stay with PerformancePage.
 const double _switcherWidth =
@@ -135,232 +134,210 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
                   children: [
                     WebPerformanceHeader(onBack: widget.onBack),
                     const SizedBox(height: PantasSpace.s24),
-                    _split(
-                      left: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          LayoutBuilder(
-                            builder: (context, constraints) {
-                              final switcher = WebSegmentedControl(
-                                accentLabels: true,
-                                labels: [
-                                  'Subjects',
-                                  'Topics',
-                                  if (widget.data.lessonLevelAvailable)
-                                    'Lessons',
-                                ],
-                                suffixes: widget.pro
-                                    ? null
-                                    : [
-                                        null,
-                                        const ProMark(),
-                                        if (widget.data.lessonLevelAvailable)
-                                          const ProMark(),
-                                      ],
-                                selected: widget.level,
-                                onChanged: widget.onLevel,
-                              );
-                              final menus = <Widget>[
-                                if (widget.level > 0 && !gated)
-                                  _menu<String?>(
-                                    context,
-                                    label: scope ?? 'All subjects',
-                                    values: {
-                                      null: 'All subjects',
-                                      ...subjectNames,
-                                    },
-                                    selected: widget.subject,
-                                    width: _subjectMenuWidth,
-                                    onSelected: widget.onSubject,
-                                  ),
-                                if (!gated)
-                                  _menu<SortCycleOrder>(
-                                    context,
-                                    label: _sortLabel,
-                                    values: const {
-                                      SortCycleOrder.weakest: 'Weakest first',
-                                      SortCycleOrder.strongest:
-                                          'Strongest first',
-                                      SortCycleOrder.alphabetical: 'A to Z',
-                                    },
-                                    selected: widget.sort,
-                                    width: _sortMenuWidth,
-                                    onSelected: widget.onSort,
-                                  ),
-                              ];
-                              // The row needs the switcher at its full width
-                              // beside the menus; the Free "Pro" tags do not
-                              // fit a squeezed segment.
-                              final switcherWidth = _switcherWidth *
-                                  MediaQuery.textScalerOf(context).scale(1);
-                              final rowNeeds = switcherWidth +
-                                  menus.fold<double>(
-                                    0,
-                                    (sum, menu) => sum + PantasSpace.s10,
-                                  ) +
-                                  (widget.level > 0 && !gated
-                                      ? _subjectMenuWidth
-                                      : PantasSpace.s0) +
-                                  (!gated ? _sortMenuWidth : PantasSpace.s0);
-                              if (constraints.maxWidth >= rowNeeds) {
-                                return Row(
-                                  children: [
-                                    Expanded(
-                                      child: Padding(
-                                        padding: const EdgeInsets.only(
-                                          right: PantasSpace.s10,
-                                        ),
-                                        child: Align(
-                                          alignment: Alignment.centerLeft,
-                                          child: ConstrainedBox(
-                                            constraints: BoxConstraints(
-                                              maxWidth: switcherWidth,
-                                            ),
-                                            child: switcher,
-                                          ),
-                                        ),
-                                      ),
-                                    ),
-                                    for (var i = 0; i < menus.length; i++) ...[
-                                      if (i > 0)
-                                        const SizedBox(width: PantasSpace.s10),
-                                      menus[i],
-                                    ],
-                                  ],
-                                );
-                              }
-                              return Wrap(
-                                spacing: 10,
-                                runSpacing: 10,
-                                crossAxisAlignment: WrapCrossAlignment.center,
-                                children: [
-                                  SizedBox(
-                                    width: constraints.maxWidth
-                                        .clamp(0, switcherWidth),
-                                    child: switcher,
-                                  ),
-                                  ...menus,
-                                ],
-                              );
-                            },
+                    // Overall sits above the tabs as on the phone, centered
+                    // and with no card (Aedwon, Nov 26: "overall as its own
+                    // column is a waste of space imo"). The list below takes
+                    // the full content width.
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        if (accuracy != null) ...[
+                          Center(
+                            child: SizedBox(
+                              width: PantasSize.gaugeW,
+                              child: MediaQuery(
+                                data: MediaQuery.of(context).copyWith(
+                                  disableAnimations: true,
+                                ),
+                                child: HalfRingGauge(
+                                  web: true,
+                                  fraction: accuracy,
+                                  label: 'Overall accuracy',
+                                ),
+                              ),
+                            ),
                           ),
-                          const SizedBox(height: PantasSpace.s16),
-                          if (!gated)
-                            ViewSwap(
-                              index: widget.level,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
-                                children: [
-                                  WebText(
-                                    heading,
-                                    kind: WebTextKind.eyebrow,
-                                  ),
-                                  _table(context),
-                                ],
-                              ),
-                            ),
-                          if (!widget.pro) ...[
-                            const SizedBox(height: PantasSpace.s20),
-                            WebCard(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: PantasSpace.s24,
-                                vertical: PantasSpace.s24,
-                              ),
-                              child: widget.paused
-                                  ? const ProPausedLine()
-                                  : Row(
-                                      children: [
-                                        Container(
-                                          width: 44,
-                                          height: 44,
-                                          decoration: BoxDecoration(
-                                            shape: BoxShape.circle,
-                                            color: t.colors.accentTint,
-                                          ),
-                                          child: Icon(
-                                            Icons.lock_outline_rounded,
-                                            size: 22,
-                                            color: t.colors.accent,
-                                          ),
-                                        ),
-                                        const SizedBox(width: PantasSpace.s18),
-                                        Expanded(
-                                          child: Column(
-                                            crossAxisAlignment:
-                                                CrossAxisAlignment.start,
-                                            children: [
-                                              Text(
-                                                'Go deeper with Pro',
-                                                style: PantasType.webButtonLg
-                                                    .copyWith(
-                                                  fontWeight: FontWeight.w700,
-                                                  color: t.colors.textPrimary,
-                                                ),
-                                              ),
-                                              const SizedBox(
-                                                height: PantasSpace.s2,
-                                              ),
-                                              Text(
-                                                'See your accuracy in '
-                                                'every topic and lesson, '
-                                                'so you know exactly '
-                                                'where to practice.',
-                                                style: t.sub,
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        const SizedBox(width: PantasSpace.s18),
-                                        WebButton(
-                                          label: 'Unlock with Pro',
-                                          onPressed: widget.onPro,
-                                        ),
-                                      ],
-                                    ),
-                            ),
-                          ],
+                          const SizedBox(height: PantasSpace.s24),
                         ],
-                      ),
-                      right: accuracy == null
-                          ? const SizedBox.shrink()
-                          : Padding(
-                              padding:
-                                  const EdgeInsets.only(top: PantasSpace.s56),
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                        LayoutBuilder(
+                          builder: (context, constraints) {
+                            final switcher = WebSegmentedControl(
+                              accentLabels: true,
+                              labels: [
+                                'Subjects',
+                                'Topics',
+                                if (widget.data.lessonLevelAvailable) 'Lessons',
+                              ],
+                              suffixes: widget.pro
+                                  ? null
+                                  : [
+                                      null,
+                                      const ProMark(),
+                                      if (widget.data.lessonLevelAvailable)
+                                        const ProMark(),
+                                    ],
+                              selected: widget.level,
+                              onChanged: widget.onLevel,
+                            );
+                            final menus = <Widget>[
+                              if (widget.level > 0 && !gated)
+                                _menu<String?>(
+                                  context,
+                                  label: scope ?? 'All subjects',
+                                  values: {
+                                    null: 'All subjects',
+                                    ...subjectNames,
+                                  },
+                                  selected: widget.subject,
+                                  width: _subjectMenuWidth,
+                                  onSelected: widget.onSubject,
+                                ),
+                              if (!gated)
+                                _menu<SortCycleOrder>(
+                                  context,
+                                  label: _sortLabel,
+                                  values: const {
+                                    SortCycleOrder.weakest: 'Weakest first',
+                                    SortCycleOrder.strongest: 'Strongest first',
+                                    SortCycleOrder.alphabetical: 'A to Z',
+                                  },
+                                  selected: widget.sort,
+                                  width: _sortMenuWidth,
+                                  onSelected: widget.onSort,
+                                ),
+                            ];
+                            // The row needs the switcher at its full width
+                            // beside the menus; the Free "Pro" tags do not
+                            // fit a squeezed segment.
+                            final switcherWidth = _switcherWidth *
+                                MediaQuery.textScalerOf(context).scale(1);
+                            final rowNeeds = switcherWidth +
+                                menus.fold<double>(
+                                  0,
+                                  (sum, menu) => sum + PantasSpace.s10,
+                                ) +
+                                (widget.level > 0 && !gated
+                                    ? _subjectMenuWidth
+                                    : PantasSpace.s0) +
+                                (!gated ? _sortMenuWidth : PantasSpace.s0);
+                            if (constraints.maxWidth >= rowNeeds) {
+                              return Row(
                                 children: [
-                                  const WebText(
-                                    'Overall',
-                                    kind: WebTextKind.eyebrow,
-                                  ),
-                                  WebCard(
-                                    padding: const EdgeInsets.fromLTRB(
-                                      PantasSpace.s20,
-                                      PantasSpace.s28,
-                                      PantasSpace.s20,
-                                      PantasSpace.s24,
-                                    ),
-                                    child: Center(
-                                      child: SizedBox(
-                                        width: PantasSize.gaugeW,
-                                        child: MediaQuery(
-                                          data: MediaQuery.of(
-                                            context,
-                                          ).copyWith(
-                                            disableAnimations: true,
+                                  Expanded(
+                                    child: Padding(
+                                      padding: const EdgeInsets.only(
+                                        right: PantasSpace.s10,
+                                      ),
+                                      child: Align(
+                                        alignment: Alignment.centerLeft,
+                                        child: ConstrainedBox(
+                                          constraints: BoxConstraints(
+                                            maxWidth: switcherWidth,
                                           ),
-                                          child: HalfRingGauge(
-                                            web: true,
-                                            fraction: accuracy,
-                                            label: 'Overall accuracy',
-                                          ),
+                                          child: switcher,
                                         ),
                                       ),
                                     ),
                                   ),
+                                  for (var i = 0; i < menus.length; i++) ...[
+                                    if (i > 0)
+                                      const SizedBox(width: PantasSpace.s10),
+                                    menus[i],
+                                  ],
                                 ],
-                              ),
+                              );
+                            }
+                            return Wrap(
+                              spacing: 10,
+                              runSpacing: 10,
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              children: [
+                                SizedBox(
+                                  width: constraints.maxWidth
+                                      .clamp(0, switcherWidth),
+                                  child: switcher,
+                                ),
+                                ...menus,
+                              ],
+                            );
+                          },
+                        ),
+                        const SizedBox(height: PantasSpace.s16),
+                        if (!gated)
+                          ViewSwap(
+                            index: widget.level,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                WebText(
+                                  heading,
+                                  kind: WebTextKind.eyebrow,
+                                ),
+                                _table(context),
+                              ],
                             ),
+                          ),
+                        if (!widget.pro) ...[
+                          const SizedBox(height: PantasSpace.s20),
+                          WebCard(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: PantasSpace.s24,
+                              vertical: PantasSpace.s24,
+                            ),
+                            child: widget.paused
+                                ? const ProPausedLine()
+                                : Row(
+                                    children: [
+                                      Container(
+                                        width: 44,
+                                        height: 44,
+                                        decoration: BoxDecoration(
+                                          shape: BoxShape.circle,
+                                          color: t.colors.accentTint,
+                                        ),
+                                        child: Icon(
+                                          Icons.lock_outline_rounded,
+                                          size: 22,
+                                          color: t.colors.accent,
+                                        ),
+                                      ),
+                                      const SizedBox(width: PantasSpace.s18),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              'Go deeper with Pro',
+                                              style: PantasType.webButtonLg
+                                                  .copyWith(
+                                                fontWeight: FontWeight.w700,
+                                                color: t.colors.textPrimary,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: PantasSpace.s2,
+                                            ),
+                                            Text(
+                                              'See your accuracy in '
+                                              'every topic and lesson, '
+                                              'so you know exactly '
+                                              'where to practice.',
+                                              style: t.sub,
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      const SizedBox(width: PantasSpace.s18),
+                                      WebButton(
+                                        label: 'Unlock with Pro',
+                                        onPressed: widget.onPro,
+                                      ),
+                                    ],
+                                  ),
+                          ),
+                        ],
+                      ],
                     ),
                   ],
                 ),
@@ -371,34 +348,6 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       ),
     );
   }
-
-  /// The Columns primary and secondary pair: the list column beside the
-  /// Overall column, stacked when the content is too narrow for both.
-  Widget _split({required Widget left, required Widget right}) => LayoutBuilder(
-        builder: (context, c) {
-          if (HomeColumns.stacks(c.maxWidth)) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                left,
-                const SizedBox(height: HomeColumns.gap),
-                right,
-              ],
-            );
-          }
-          return Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: HomeColumns.primaryWidth(c.maxWidth),
-                child: left,
-              ),
-              const SizedBox(width: HomeColumns.gap),
-              Expanded(child: right),
-            ],
-          );
-        },
-      );
 
   String _topicCount(String id) {
     final count = widget.data.subjectCounts[id] ?? 0;
@@ -468,13 +417,17 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
       final sub =
           level == 0 ? (topic ? null : _topicCount(row.id)) : row.subtext;
       return [
+        // The answered count is a quiet "(N)" after the name (Aedwon, Nov 26:
+        // "just add (X) as simple as that"), so it wraps with the name and
+        // never takes a column of its own.
         PantasTableCell.text(
           row.title,
           bold: expanded,
           indent: topic ? PantasSpace.s20 : 0,
           subtitle: sub,
+          trailing: '(${row.answered})',
+          semanticLabel: '${row.title}, ${row.answered} answered',
         ),
-        if (level > 0 || topic) '${row.answered} answered' else '',
         PantasTableCell.widget(
           SizedBox(
             width: barWidth,
@@ -489,7 +442,6 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
 
     final columns = [
       PantasTableColumn(['Subject', 'Topic', 'Lesson'][level]),
-      const PantasTableColumn('Answered', numeric: true),
       const PantasTableColumn(''),
       const PantasTableColumn('Accuracy', numeric: true),
       const PantasTableColumn(''),
@@ -505,6 +457,8 @@ class _WebPerformanceLayoutState extends State<WebPerformanceLayout> {
     return KeyedSubtree(
       key: const ValueKey('performance-table'),
       child: PantasDataTable(
+        // Boards PF_Subjects, PF_Topics, PF_Lessons draw no header row.
+        showHeader: false,
         columns: columns,
         rows: [for (final row in rows) cells(row)],
         childRows: {

@@ -26,8 +26,7 @@ class QuestionCard extends StatelessWidget {
   final Widget? passage;
   final List<Widget> choices;
 
-  /// The question header's trailing slot (`page-head__trail`). On a phone
-  /// narrower than 400 the quiz puts the flag here (D71).
+  /// The question header's trailing slot (`page-head__trail`).
   final Widget? headerTrailing;
 
   /// False when the page pins the subject row above its own scroll view.

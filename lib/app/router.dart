@@ -5,12 +5,13 @@ import 'package:flutter/widgets.dart';
 import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/app/beta_gate.dart';
 import 'package:pantas/core/auth/beta_access.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/app/sign_in/email_sign_in_page.dart';
+import 'package:pantas/features/first_run/application/first_run_providers.dart';
 import 'package:pantas/features/home/application/study_remote_providers.dart';
 import 'package:pantas/app/web_route_shell.dart';
 import 'package:pantas/app/screen_view_tracker.dart';
 import 'package:pantas/app/telemetry_providers.dart';
-import 'package:pantas/core/ui/web/web_layout.dart';
 
 import 'package:pantas/app/build_info.dart';
 import 'package:pantas/app/start_location.dart';
@@ -32,6 +33,7 @@ import 'package:pantas/app/routes/mock_routes.dart';
 import 'package:pantas/app/routes/settings_routes.dart';
 import 'package:pantas/app/routes/onboarding_routes.dart';
 import 'package:pantas/features/onboarding/application/onboarding_browser_back.dart';
+import 'package:pantas/app/routes/first_run_routes.dart';
 import 'package:pantas/app/routes/guardian_routes.dart';
 import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/app/routes/wrapped_routes.dart';
@@ -52,6 +54,7 @@ final routerProvider = Provider<GoRouter>((ref) {
     guardianAccountClosedProvider,
     betaGateActiveProvider,
     betaGateStatusProvider,
+    firstRunPendingProvider,
   ]);
   // Every page's address shows, so a reload stays on it. The address of a page
   // that needs in-memory arguments is handled by `startLocationFor`.
@@ -75,7 +78,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       final atUpdateRequired = state.matchedLocation == '/update-required';
       if (blocked && !atUpdateRequired) return '/update-required';
       if (!blocked && atUpdateRequired) return '/home';
-      if (context.wideWeb && state.uri.path.startsWith('/wrapped/')) {
+      // Wrapped is deferred (HANDOFF): a link to a reveal lands on Record at
+      // every width.
+      if (state.uri.path.startsWith('/wrapped/')) {
         return '/record';
       }
 
@@ -83,10 +88,15 @@ final routerProvider = Provider<GoRouter>((ref) {
       // legal pages they link to must open for them too. The manage link also
       // opens on a device held on Waiting, since a guardian may open it there.
       final path = state.matchedLocation;
+      if (path == '/auth/email-link') {
+        return emailSignInRedirect(
+          auth: ref.read(authStateProvider).valueOrNull,
+          holding: ref.read(signInHoldProvider),
+        );
+      }
       if (path == '/guardian' ||
           path == '/guardian/manage' ||
-          path.startsWith('/legal/') ||
-          path == '/auth/email-link') {
+          path.startsWith('/legal/')) {
         return null;
       }
       final guardianState = ref.read(guardianGateProvider);
@@ -130,6 +140,13 @@ final routerProvider = Provider<GoRouter>((ref) {
             ? null
             : '/guardian/waiting';
       }
+      if (guardian == GuardianGate.closed) {
+        // Under-18 sign-up is closed and this device is blocked. Onboarding
+        // resumes on the saved blocked page, and nothing else is reachable.
+        return path == '/onboarding' || path.startsWith('/onboarding/')
+            ? null
+            : '/onboarding';
+      }
       if (path.startsWith('/guardian/')) {
         return guardian == GuardianGate.needsContact ? '/onboarding' : '/home';
       }
@@ -164,6 +181,17 @@ final routerProvider = Provider<GoRouter>((ref) {
       if (!passed && !atOnboarding) return toOnboarding();
       if (passed && !complete && !atOnboarding) return toOnboarding();
       if (passed && complete && atOnboarding) return '/home';
+      // An open first run wins over Home, so a learner who closed the app
+      // mid-run lands in it again. With none open, /try goes to Home.
+      if (passed && complete) {
+        final pending = ref.read(firstRunPendingProvider);
+        if (path == '/home' && pending.valueOrNull != null) {
+          return firstRunPath;
+        }
+        if (path == firstRunPath && pending.hasValue && pending.value == null) {
+          return '/home';
+        }
+      }
       return null;
     }),
     observers: [if (updates != null) observer()],
@@ -236,6 +264,7 @@ List<RouteBase> buildAppRoutes(
     ...mockRoutes(ref),
     ...settings.where((route) => route != settingsRoot),
     ...onboardingRoutes(ref),
+    ...firstRunRoutes(ref),
     GoRoute(path: '/beta', builder: (context, state) => const BetaGatePage()),
     GoRoute(
       path: '/auth/email-link',
@@ -255,6 +284,10 @@ List<RouteBase> buildAppRoutes(
   final lesson = routes
       .whereType<GoRoute>()
       .singleWhere((route) => route.path == '/lesson/:lessonId');
+  // The first run covers the whole window, as the lesson does.
+  final firstRun = routes
+      .whereType<GoRoute>()
+      .singleWhere((route) => route.path == firstRunPath);
   // A page pushed over a lesson must sit above the shell too. Pushed from up
   // here, a page inside the shell asks for a second shell with the same
   // navigator: the one in use moves under the lesson and the new page is blank.
@@ -268,10 +301,16 @@ List<RouteBase> buildAppRoutes(
       builder: (context, state, child) =>
           WebRouteShell(path: state.uri.path, child: child),
       routes: routes
-          .where((route) => route != lesson && !aboveLesson.contains(route))
+          .where(
+            (route) =>
+                route != lesson &&
+                route != firstRun &&
+                !aboveLesson.contains(route),
+          )
           .toList(),
     ),
     lesson,
+    firstRun,
     for (final route in aboveLesson) _inWebRouteShell(route),
   ];
 }

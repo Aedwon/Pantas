@@ -14,5 +14,6 @@
     "html_handling": "none",
     "run_worker_first": ["/__/*"]
   },
+  "observability": {"enabled": true, "head_sampling_rate": 1},
   "vars": {"FIREBASE_ORIGIN": "https://pantas-prod.firebaseapp.com"}
 }

@@ -41,11 +41,14 @@ class PantasButton extends StatefulWidget {
     this.height,
     this.fontSize,
     this.radius,
-    this.fullWidth = true,
+    this.fullWidth,
+    this.size,
     this.horizontalPadding,
     this.disabledOpacity,
     this.disabledForeground,
     this.trailing,
+    this.inactive = false,
+    this.hint,
     super.key,
   })  : assert(
           kind != null || tone == null,
@@ -74,11 +77,17 @@ class PantasButton extends StatefulWidget {
         fontSize = null,
         radius = PantasRadius.full,
         fullWidth = false,
+        size = null,
         horizontalPadding = PantasSpace.s14,
         disabledOpacity = null,
         disabledForeground = null,
-        trailing = null;
+        trailing = null,
+        inactive = false,
+        hint = null;
   final bool _filterChip;
+
+  /// Whether this is a filter chip (a choice, not an action).
+  bool get isFilterChip => _filterChip;
   final bool _chipSelected;
   final String label;
   final VoidCallback? onPressed;
@@ -103,13 +112,31 @@ class PantasButton extends StatefulWidget {
   /// asks for the pill that bar, dialog and compact buttons take (filled
   /// kinds only). Any other radius follows the height rule.
   final double? radius;
-  final bool fullWidth;
+
+  /// Full width of the parent. Null follows the size class: a filled button
+  /// fills the row, a text button is as wide as its label.
+  final bool? fullWidth;
+
+  /// A size class other than the one the kind and [height] give. A phone
+  /// tertiary button is `textPhone` (44, natural width) unless a board draws
+  /// the 52 full-width ghost button under a primary one: then name
+  /// [PantasButtonSize.phone]. The Restore Purchases line is
+  /// [PantasButtonSize.textPhoneSm].
+  final PantasButtonSize? size;
   final double? horizontalPadding;
   final double? disabledOpacity;
   final Color? disabledForeground;
 
   /// Phone only: drawn 2 px after the label (the question bar's Next chevron).
   final Widget? trailing;
+
+  /// Phone only: draws the disabled look but stays tappable and focusable, so
+  /// a tap can say why the action is off. Screen readers hear a button with
+  /// [hint], not a dimmed one. [onPressed] still runs.
+  final bool inactive;
+
+  /// What a screen reader adds to the label while [inactive].
+  final String? hint;
 
   bool get _pillRequest => radius != null && radius! >= PantasRadius.full;
 
@@ -149,6 +176,15 @@ class PantasButton extends StatefulWidget {
   }
 
   PantasButtonSize get _size {
+    final named = size;
+    if (named != null) return named;
+    // A phone text button is the 44 natural-width `btn--text-phone`. Only a
+    // pill, or a height of 50 and up, asks for a bigger class.
+    if (_phonePair.$1 == PantasButtonKind.tertiary &&
+        !_pillRequest &&
+        (height ?? PantasSize.btn) < PantasSize.btnLg) {
+      return PantasButtonSize.textPhone;
+    }
     final h = height ?? PantasSize.btnPhone;
     if (_pillRequest) {
       return h >= PantasSize.btnBar
@@ -207,25 +243,35 @@ class _PantasButtonState extends State<PantasButton> {
       final (kind, tone) = widget._widePair;
       return WebButton(
         label: widget.label,
-        onPressed: widget.onPressed,
+        onPressed: widget.inactive ? null : widget.onPressed,
         busy: widget.busy,
         kind: kind,
         tone: tone,
-        size: widget._size == PantasButtonSize.phone
-            ? PantasButtonSize.standard
-            : widget._size,
+        size: switch (widget._size) {
+          PantasButtonSize.phone ||
+          PantasButtonSize.textPhone ||
+          PantasButtonSize.textPhoneSm =>
+            PantasButtonSize.standard,
+          final other => other,
+        },
       );
     }
     final onPressed = widget.onPressed;
     final busy = widget.busy;
     final label = widget.label;
     final chip = widget._filterChip;
+    final textSize = widget._size == PantasButtonSize.textPhone ||
+        widget._size == PantasButtonSize.textPhoneSm;
+    // A text button is as wide as its label unless the caller says otherwise.
+    final fullWidth = widget.fullWidth ?? !textSize;
+    // The Restore Purchases line: 4 above the text and none below, as drawn.
+    final line = !chip && widget._size == PantasButtonSize.textPhoneSm;
 
     final c = context.colors;
     final webFeedback =
         Theme.of(context).splashFactory == NoSplash.splashFactory;
     final still = MediaQuery.disableAnimationsOf(context);
-    final enabled = onPressed != null || busy;
+    final enabled = (onPressed != null || busy) && !widget.inactive;
     final dimmed = !enabled && widget.disabledOpacity != null;
     final (kind, tone) =
         chip ? (PantasButtonKind.tertiary, null) : widget._phonePair;
@@ -287,16 +333,26 @@ class _PantasButtonState extends State<PantasButton> {
         statesController: _states,
         onPressed: busy ? null : onPressed,
         style: ButtonStyle(
-          tapTargetSize: chip ? MaterialTapTargetSize.shrinkWrap : null,
+          // A text button is drawn and washed 44 high; Material keeps its
+          // 48 tap target around it (the Android guideline the tests hold).
+          // The Restore line is 24 and takes a 44 tap through [TapSlop].
+          tapTargetSize: chip || line ? MaterialTapTargetSize.shrinkWrap : null,
           animationDuration: still ? Duration.zero : PantasDurations.short2,
           minimumSize: WidgetStatePropertyAll(
-            Size(widget.fullWidth ? double.infinity : 0, metrics.height),
+            Size(fullWidth ? double.infinity : 0, metrics.height),
           ),
           padding: WidgetStatePropertyAll(
-            EdgeInsets.symmetric(
-              horizontal: horizontal,
-              vertical: chip ? PantasSpace.s0 : PantasSpace.s8,
-            ),
+            line
+                ? EdgeInsets.fromLTRB(
+                    horizontal,
+                    PantasSpace.s4,
+                    horizontal,
+                    PantasSpace.s0,
+                  )
+                : EdgeInsets.symmetric(
+                    horizontal: horizontal,
+                    vertical: chip ? PantasSpace.s0 : PantasSpace.s8,
+                  ),
           ),
           backgroundColor: WidgetStateProperty.resolveWith((states) {
             // A phone layout has no hover: a mouse resting on a button in a
@@ -326,30 +382,34 @@ class _PantasButtonState extends State<PantasButton> {
           shape: WidgetStatePropertyAll(shape),
           overlayColor: const WidgetStatePropertyAll(Colors.transparent),
         ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: widget.fullWidth ? MainAxisSize.max : MainAxisSize.min,
-          children: [
-            if (busy) ...[
-              PantasSpinner.inline(color: foreground),
-              SizedBox(width: metrics.gap),
-            ],
-            Flexible(
-              child: chip
-                  ? FadingColor(
-                      color: foreground,
-                      builder: (context, color, _) => labelText(color),
-                    )
-                  : labelText(foreground),
-            ),
-            if (widget.trailing != null) ...[
-              const SizedBox(width: PantasSpace.s2),
-              IconTheme(
-                data: IconThemeData(color: foreground, size: PantasSpace.s16),
-                child: widget.trailing!,
+        // The hint sits inside the button, so it joins the button's own node.
+        child: Semantics(
+          hint: widget.inactive ? widget.hint : null,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: fullWidth ? MainAxisSize.max : MainAxisSize.min,
+            children: [
+              if (busy) ...[
+                PantasSpinner.inline(color: foreground),
+                SizedBox(width: metrics.gap),
+              ],
+              Flexible(
+                child: chip
+                    ? FadingColor(
+                        color: foreground,
+                        builder: (context, color, _) => labelText(color),
+                      )
+                    : labelText(foreground),
               ),
+              if (widget.trailing != null) ...[
+                const SizedBox(width: PantasSpace.s2),
+                IconTheme(
+                  data: IconThemeData(color: foreground, size: PantasSpace.s16),
+                  child: widget.trailing!,
+                ),
+              ],
             ],
-          ],
+          ),
         ),
       ),
     );
@@ -369,11 +429,16 @@ class _PantasButtonState extends State<PantasButton> {
             child: button,
           )
         : button;
-    final ringed = OffsetFocusRing(
+    final locked = ButtonWidthLock(busy: busy && !chip, child: pressable);
+    Widget ringed = OffsetFocusRing(
       borderRadius: BorderRadius.circular(radius),
-      child: ButtonWidthLock(busy: busy && !chip, child: pressable),
+      child: locked,
     );
-    return Semantics(
+    if (textSize && !fullWidth) {
+      // Natural width, centered when a stretching column would fill it.
+      ringed = Align(widthFactor: 1, heightFactor: 1, child: ringed);
+    }
+    final built = Semantics(
       selected: chip ? widget._chipSelected : null,
       child: Opacity(
         opacity: dimmed ? widget.disabledOpacity! : 1,
@@ -383,7 +448,7 @@ class _PantasButtonState extends State<PantasButton> {
             ? PressScale(scale: .96, enabled: enabled, child: ringed)
             : AnimatedScale(
                 key: const ValueKey('pantas-button-scale'),
-                scale: still
+                scale: still || widget.inactive
                     ? 1
                     : _pressed
                         ? pantasPressScale
@@ -398,5 +463,10 @@ class _PantasButtonState extends State<PantasButton> {
               ),
       ),
     );
+    // The line is 24 high as drawn; its tap area still reaches 44. The slop
+    // sits outside every box that would clip a tap.
+    return line
+        ? TapSlop(minHeight: PantasSize.targetTouch, child: built)
+        : built;
   }
 }

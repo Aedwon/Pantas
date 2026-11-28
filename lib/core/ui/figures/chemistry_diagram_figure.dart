@@ -7,6 +7,17 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 /// Height of the drawing. The design system sets no height for diagrams.
 const double _figureHeight = 210;
 
+/// Title above one orbital-shape panel. The figure groups orbitals by
+/// subshell, so the title names the subshell.
+@visibleForTesting
+String orbitalShapeTitle(String subshell) => '$subshell subshell';
+
+/// Caption under one orbital-shape panel. The capacity belongs to the whole
+/// subshell, not to the single orbital drawn.
+@visibleForTesting
+String orbitalShapeCaption(String shape, int capacity) =>
+    '$shape • subshell max $capacity e-';
+
 /// Original lesson diagrams for the ten chemistry briefs in original-code-a.
 class ChemistryDiagramFigure extends StatelessWidget {
   const ChemistryDiagramFigure._({
@@ -856,14 +867,17 @@ class _ChemistryDiagramPainter extends CustomPainter {
       }
       _label(
         canvas,
-        '${orbitals[i]['label']} orbital',
+        orbitalShapeTitle('${orbitals[i]['label']}'),
         Offset(slot * i + 3, 12),
         slot - 6,
         align: TextAlign.center,
       );
       _label(
         canvas,
-        '${orbitals[i]['shape']} • max ${orbitals[i]['capacity']} e-',
+        orbitalShapeCaption(
+          '${orbitals[i]['shape']}',
+          orbitals[i]['capacity']! as int,
+        ),
         Offset(slot * i + 3, 157),
         slot - 6,
         style: mutedStyle,

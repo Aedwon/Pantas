@@ -10,6 +10,7 @@ import 'package:pantas/core/auth/public_id_provider.dart';
 import 'package:pantas/core/auth/sign_in_result.dart';
 import 'package:pantas/core/error/app_exception.dart';
 import 'package:pantas/core/storage/age_gate.dart';
+import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/ui/components/avatar.dart';
 import 'package:pantas/core/ui/components/card_footer.dart';
@@ -58,6 +59,13 @@ class AccountPage extends ConsumerStatefulWidget {
 }
 
 class _AccountPageState extends ConsumerState<AccountPage> {
+  /// Board ST_Account: 22 px between the header and every card.
+  // ds-board: ST_Account column gap 22
+  static const double _blockGap = PantasSpace.s20 + PantasSpace.s2;
+
+  // ds-board: ST_Account name 24/700
+  static const double _nameSize = 24;
+
   String? _errorMessage;
   String? _copied;
   String? _copiedUid;
@@ -161,8 +169,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     caption: 'You get your own Pantas ID when you sign in.',
                     actionMinWidth: _pairWidth(context),
                     action: Wrap(
-                      spacing: PantasSpace.s12,
-                      runSpacing: PantasSpace.s12,
+                      spacing: PantasSpace.s8,
+                      runSpacing: PantasSpace.s8,
                       alignment: WrapAlignment.end,
                       children: [
                         if (web)
@@ -305,7 +313,8 @@ class _AccountPageState extends ConsumerState<AccountPage> {
       backLabel: 'Settings',
       onBack: () => leavePage(context, fallback: '/settings'),
       children: [
-        // ST_Account: a centered 84 px avatar over a 24 px name and the email.
+        // ST_Account: a centered 84 px avatar over the name and the email, 8 px
+        // apart, then 22 px to the first card. The name is 24/700.
         Padding(
           padding: const EdgeInsets.only(
             top: PantasSpace.s10,
@@ -320,13 +329,15 @@ class _AccountPageState extends ConsumerState<AccountPage> {
                     ? null
                     : NetworkImage(user!.photoUrl!),
               ),
-              const SizedBox(height: PantasSpace.s6),
+              const SizedBox(height: PantasSpace.s8),
               Text(
                 settings.name ?? 'Add your name',
-                style: PantasType.phoneTitle2
-                    .copyWith(color: context.colors.textPrimary),
+                style: PantasType.phoneTitle2.copyWith(
+                  color: context.colors.textPrimary,
+                  fontSize: _nameSize,
+                ),
               ),
-              const SizedBox(height: PantasSpace.s10),
+              const SizedBox(height: PantasSpace.s8),
               Text(
                 user?.email ?? 'Not signed in',
                 style: PantasType.phoneExplanation
@@ -335,7 +346,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ],
           ),
         ),
-        const SizedBox(height: PantasSpace.s20),
+        const SizedBox(height: _blockGap),
         SettingsSection(
           children: [
             SettingsRow(
@@ -352,14 +363,14 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
           ],
         ),
-        const SizedBox(height: PantasSpace.s20),
+        const SizedBox(height: _blockGap),
         if (minor) ...[
           SettingsSection(
             children: [
               SettingsRow(title: _adultRowTitle, onTap: _recheckAge),
             ],
           ),
-          const SizedBox(height: PantasSpace.s20),
+          const SizedBox(height: _blockGap),
         ],
         SettingsSection(
           footer: user == null
@@ -389,7 +400,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
             ),
           ],
         ),
-        const SizedBox(height: PantasSpace.s20),
+        const SizedBox(height: _blockGap),
         if (user == null) ...[
           GoogleSignInButton(
             expand: true,
@@ -448,7 +459,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ],
             ),
           ],
-          const SizedBox(height: PantasSpace.s20),
+          const SizedBox(height: _blockGap),
           // ST_Account: Sign Out and Delete Account are separate cards.
           SettingsSection(
             children: [
@@ -460,7 +471,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
               ),
             ],
           ),
-          const SizedBox(height: PantasSpace.s20),
+          const SizedBox(height: _blockGap),
           SettingsSection(
             children: [
               SettingsRow(
@@ -472,7 +483,7 @@ class _AccountPageState extends ConsumerState<AccountPage> {
           ),
         ],
         if (user == null) ...[
-          const SizedBox(height: PantasSpace.s20),
+          const SizedBox(height: _blockGap),
           SettingsSection(
             children: [
               SettingsRow(
@@ -532,14 +543,20 @@ class _AccountPageState extends ConsumerState<AccountPage> {
   }
 
   Future<void> _confirmSignOut() async {
+    // Only Pro backs study history up. A Free student's history lives on this
+    // device and sign-out deletes it, so the dialog says that and the
+    // confirm is the destructive one.
+    final pro = ref.read(entitlementProvider).valueOrNull?.proIsActive ?? false;
     final confirmed = await showPantasDialog<bool>(
       context: context,
       barrierColor: context.colors.scrim,
       builder: (context) => CenteredDialog(
         title: 'Sign out?',
         inlineActions: true,
-        message: 'Your progress is saved to your account. '
-            'It comes back when you sign in again.',
+        destructive: !pro,
+        message: pro
+            ? 'Your progress is saved to your account.'
+            : 'Your study history on this device will be deleted.',
         primaryLabel: 'Sign Out',
         secondaryLabel: 'Cancel',
         onConfirm: () => Navigator.of(context).pop(true),
@@ -548,8 +565,16 @@ class _AccountPageState extends ConsumerState<AccountPage> {
     );
     if (confirmed != true || !mounted) return;
     final telemetry = ref.read(telemetryProvider);
+    final container = ProviderScope.containerOf(context, listen: false);
+    final router = GoRouter.maybeOf(context);
     try {
       await ref.read(authRepositoryProvider).signOut();
+      // Leaving the account starts over at Welcome, like Delete Account.
+      await resetOnboardingToWelcome(
+        container.read(appPreferencesRepositoryProvider),
+        container,
+      );
+      router?.go('/onboarding');
     } catch (error, stack) {
       await telemetry.recordError(error, stack);
       if (mounted) {

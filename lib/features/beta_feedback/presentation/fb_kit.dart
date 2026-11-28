@@ -17,21 +17,13 @@ import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 
-/// The shell the Feedback pages sit in. The route builds it from the Settings
-/// pane page, so these pages never import another feature's presentation.
-///
-/// [beta] adds the BETA mark to [title] (and the chat glyph on wide web).
-/// [subline] is the grey line under the title. [heading] false leaves the
-/// title out (the survey's sent state).
+/// The shell the reward page sits in. The route builds it from the Settings
+/// pane page, so the page never imports another feature's presentation.
 typedef FeedbackFrame = Widget Function({
   required String title,
   required List<Widget> children,
   required String backLabel,
   required VoidCallback onBack,
-  bool beta,
-  String? subline,
-  double headingGap,
-  bool heading,
 });
 
 /// The page's roles and width tier for the Feedback pieces. One palette
@@ -79,19 +71,11 @@ const _months = [
   'Nov',
   'Dec',
 ];
-const _weekdays = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
 
 /// The wall-clock fields of [instant] in the Philippines (a UTC `DateTime`
 /// whose fields read as Philippine time).
 DateTime phTime(DateTime instant) =>
     instant.toUtc().add(const Duration(hours: 8));
-
-/// `2026-11-12`, the key the server counts days by.
-String phKey(DateTime instant) {
-  final p = phTime(instant);
-  String two(int n) => n.toString().padLeft(2, '0');
-  return '${p.year}-${two(p.month)}-${two(p.day)}';
-}
 
 /// "Nov" for a month number, 1 to 12.
 String monthAbbr(int month) => _months[(month - 1) % 12];
@@ -106,72 +90,10 @@ String monthDay(DateTime instant) {
 String monthDayYear(DateTime instant) =>
     '${monthDay(instant)}, ${phTime(instant).year}';
 
-/// "Nov 11, 9:41 PM".
-String stamp(DateTime instant) {
-  final p = phTime(instant);
-  final hour = p.hour % 12 == 0 ? 12 : p.hour % 12;
-  final minute = p.minute.toString().padLeft(2, '0');
-  return '${monthDay(instant)}, $hour:$minute ${p.hour < 12 ? 'AM' : 'PM'}';
-}
-
-/// "Mon" for a `YYYY-MM-DD` key.
-String weekdayOf(String key) =>
-    _weekdays[DateTime.parse('${key}T00:00:00Z').weekday - 1];
-
-/// "Nov 9" for a `YYYY-MM-DD` key.
-String monthDayOfKey(String key) {
-  final d = DateTime.parse('${key}T00:00:00Z');
-  return '${_months[d.month - 1]} ${d.day}';
-}
-
-String imageCount(int n) => n == 1 ? '1 image' : '$n images';
-
 // ---------------------------------------------------------------------------
 // Marks and glyphs.
 
-/// The raised BETA mark after a title (`web-pro` type, 4 after).
-class BetaMark extends StatelessWidget {
-  const BetaMark({this.top = PantasSpace.s4, super.key});
-  final double top;
-
-  @override
-  Widget build(BuildContext context) => ExcludeSemantics(
-        child: Padding(
-          padding: EdgeInsets.only(top: top, left: PantasSpace.s4),
-          child: Text(
-            'BETA',
-            style: PantasType.webPro.copyWith(color: context.fb.accent),
-          ),
-        ),
-      );
-}
-
-/// A title with the BETA mark after it.
-class BetaTitle extends StatelessWidget {
-  const BetaTitle({
-    required this.title,
-    required this.style,
-    this.markTop = PantasSpace.s4,
-    super.key,
-  });
-  final String title;
-  final TextStyle style;
-  final double markTop;
-
-  @override
-  Widget build(BuildContext context) => Semantics(
-        header: true,
-        label: '$title, beta',
-        excludeSemantics: true,
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [Text(title, style: style), BetaMark(top: markTop)],
-        ),
-      );
-}
-
-enum FbGlyphKind { check, plus, close, crown }
+enum FbGlyphKind { check, crown }
 
 /// A board glyph on a 24 unit grid. [progress] draws a stroke part way, for
 /// the checks that draw themselves in.
@@ -229,18 +151,6 @@ class _GlyphPainter extends CustomPainter {
           ..moveTo(5 * k, 12.5 * k)
           ..lineTo(9.5 * k, 17 * k)
           ..lineTo(19 * k, 7.5 * k);
-      case FbGlyphKind.plus:
-        path
-          ..moveTo(12 * k, 5 * k)
-          ..lineTo(12 * k, 19 * k)
-          ..moveTo(5 * k, 12 * k)
-          ..lineTo(19 * k, 12 * k);
-      case FbGlyphKind.close:
-        path
-          ..moveTo(6 * k, 6 * k)
-          ..lineTo(18 * k, 18 * k)
-          ..moveTo(18 * k, 6 * k)
-          ..lineTo(6 * k, 18 * k);
       case FbGlyphKind.crown:
         break;
     }
@@ -381,78 +291,6 @@ class FbRise extends StatelessWidget {
       );
 }
 
-/// `pop`: scale .4 to [peak] to 1 with the pop curve on each half, and a
-/// fade in. The keyframes sit at 0, 60 and 100 percent.
-class FbPop extends StatelessWidget {
-  const FbPop({
-    required this.child,
-    this.peak = 1.08,
-    this.duration = PantasDurations.long1,
-    this.delay = Duration.zero,
-    super.key,
-  });
-  final Widget child;
-  final double peak;
-  final Duration duration;
-  final Duration delay;
-
-  @override
-  Widget build(BuildContext context) => FbTimeline(
-        duration: duration,
-        delay: delay,
-        child: child,
-        builder: (context, t, child) {
-          final double scale;
-          final double opacity;
-          if (t < .6) {
-            final e = PantasCurves.spring.transform(t / .6);
-            scale = .4 + (peak - .4) * e;
-            opacity = e.clamp(0.0, 1.0);
-          } else {
-            final e = PantasCurves.spring.transform((t - .6) / .4);
-            scale = peak + (1 - peak) * e;
-            opacity = 1;
-          }
-          return Opacity(
-            opacity: opacity,
-            child: Transform.scale(scale: scale, child: child),
-          );
-        },
-      );
-}
-
-/// A stroked glyph that draws itself in (`checkDraw`).
-class FbDrawnGlyph extends StatelessWidget {
-  const FbDrawnGlyph(
-    this.kind, {
-    required this.size,
-    required this.color,
-    required this.stroke,
-    this.duration = PantasDurations.switchDuration,
-    this.delay = Duration.zero,
-    super.key,
-  });
-  final FbGlyphKind kind;
-  final double size;
-  final Color color;
-  final double stroke;
-  final Duration duration;
-  final Duration delay;
-
-  @override
-  Widget build(BuildContext context) => FbTimeline(
-        duration: duration,
-        delay: delay,
-        builder: (context, t, _) => FbGlyph(
-          kind,
-          size: size,
-          color: color,
-          stroke: stroke,
-          progress: PantasCurves.draw.transform(t),
-        ),
-      );
-}
-
 /// The button spinner: an 18 ring, 2.4 thick (`size-ring-stroke`), an
 /// `on-accent` arc turning every `dur-long-3`. Under reduced motion it holds
 /// still.
@@ -567,51 +405,6 @@ class FbCard extends StatelessWidget {
   }
 }
 
-/// The Field well of the design system: `surface-card`, `radius-md`, a 1
-/// `border-control` ring, and a 2 `accent` ring when [lit] (focus, or an
-/// answer with text). The ring is drawn over the well and takes up no room.
-class FbFieldWell extends StatelessWidget {
-  const FbFieldWell({
-    required this.child,
-    required this.lit,
-    this.padding = const EdgeInsets.symmetric(
-      vertical: PantasSpace.s12,
-      horizontal: PantasSpace.s14,
-    ),
-    this.boxKey,
-    super.key,
-  });
-  final Widget child;
-  final bool lit;
-  final EdgeInsetsGeometry padding;
-
-  /// The key of the animated box, for tests.
-  final Key? boxKey;
-
-  @override
-  Widget build(BuildContext context) {
-    final c = context.fb;
-    final radius = BorderRadius.circular(PantasRadius.md);
-    return AnimatedContainer(
-      key: boxKey,
-      duration: MediaQuery.disableAnimationsOf(context)
-          ? Duration.zero
-          : PantasDurations.short2,
-      curve: PantasCurves.fade,
-      padding: padding,
-      decoration: BoxDecoration(color: c.surfaceCard, borderRadius: radius),
-      foregroundDecoration: BoxDecoration(
-        borderRadius: radius,
-        border: Border.all(
-          color: lit ? c.accent : c.borderControl,
-          width: lit ? PantasBorder.ringSelected : PantasBorder.ring,
-        ),
-      ),
-      child: child,
-    );
-  }
-}
-
 /// The grey line under a card (`web-small` on wide, `phone-footnote` on the
 /// phone), 8 below the card on wide and 6 on the phone.
 class FbFootnote extends StatelessWidget {
@@ -631,33 +424,6 @@ class FbFootnote extends StatelessWidget {
           style:
               (context.fbWide ? PantasType.webSmall : PantasType.phoneFootnote)
                   .copyWith(color: context.fb.textSecondary),
-        ),
-      );
-}
-
-/// "SEND FEEDBACK" and "SENT": the section header type (`web-eyebrow` on
-/// wide, `phone-section-header` on the phone) above a card.
-class FbSectionHeader extends StatelessWidget {
-  const FbSectionHeader(this.text, {super.key});
-  final String text;
-
-  @override
-  Widget build(BuildContext context) => Padding(
-        padding: EdgeInsets.fromLTRB(
-          PantasSpace.s16,
-          PantasSpace.s0,
-          PantasSpace.s16,
-          context.fbWide ? PantasSpace.s8 : PantasSpace.s6,
-        ),
-        child: Semantics(
-          header: true,
-          child: Text(
-            text,
-            style: (context.fbWide
-                    ? PantasType.webEyebrow
-                    : PantasType.phoneSectionHeader)
-                .copyWith(color: context.fb.textSecondary),
-          ),
         ),
       );
 }

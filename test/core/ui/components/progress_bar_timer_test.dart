@@ -44,7 +44,7 @@ void main() {
 
   for (final state in PantasTimerState.values) {
     dsMatrix(
-      'timer $state: time color, 120 by 5 bar, visible tag',
+      'timer $state: time color, 120 by 5 bar, tag only when paused',
       (context) => PantasTimer(
         timeText: '4:32',
         fractionLeft: .1,
@@ -59,25 +59,19 @@ void main() {
           switch (state) {
             PantasTimerState.running => palette.textPrimary,
             PantasTimerState.warning => palette.warningText,
+            PantasTimerState.last => palette.dangerText,
             PantasTimerState.paused => palette.textSecondary,
           },
         );
         expect(time.style!.fontSize, 17);
         expect(time.style!.fontWeight, FontWeight.w700);
-        expect(
-          find.byType(PantasTag),
-          state == PantasTimerState.running ? findsNothing : findsOneWidget,
-        );
-        expect(
-          find.text(
-            switch (state) {
-              PantasTimerState.warning => '5 min left',
-              PantasTimerState.paused => 'Paused',
-              PantasTimerState.running => 'none',
-            },
-          ),
-          state == PantasTimerState.running ? findsNothing : findsOneWidget,
-        );
+        // MK_FiveMin and MK_LastMinute draw no tag: the clock and bar change
+        // color and the proctor line says the words.
+        final paused = state == PantasTimerState.paused;
+        expect(find.byType(PantasTag), paused ? findsOneWidget : findsNothing);
+        expect(find.text('Paused'), paused ? findsOneWidget : findsNothing);
+        expect(find.text('5 min left'), findsNothing);
+        expect(find.text('1 min left'), findsNothing);
         final bar = find.byType(PantasProgressBar);
         expect(tester.getSize(bar).width, 120);
         final fill = tester.widget<DecoratedBox>(
@@ -85,9 +79,11 @@ void main() {
         );
         expect(
           (fill.decoration as BoxDecoration).color,
-          state == PantasTimerState.warning
-              ? palette.warningText
-              : palette.accent,
+          switch (state) {
+            PantasTimerState.warning => palette.warningText,
+            PantasTimerState.last => palette.danger,
+            _ => palette.accent,
+          },
         );
       },
     );

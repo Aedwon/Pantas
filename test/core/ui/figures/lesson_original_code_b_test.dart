@@ -10,6 +10,10 @@ import 'package:pantas/core/ui/theme/theme_names.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 
 void main() {
+  test('seismograph label states the steady-speed condition', () {
+    expect(seismographGapLabel, contains('(at steady wave speed)'));
+  });
+
   const cases = <_FigureCase>[
     _FigureCase(
       {

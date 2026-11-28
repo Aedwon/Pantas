@@ -7,6 +7,7 @@ import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/remote/content_limit.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
+import 'package:pantas/core/platform/report_providers.dart';
 import 'package:pantas/core/platform/route_leave_guard.dart';
 import 'package:pantas/core/storage/data/report_queue.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
@@ -16,6 +17,7 @@ import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/telemetry/report_failure.dart';
 import 'package:pantas/core/ui/components/centered_dialog.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
+import 'package:pantas/core/ui/components/figure_choice_tiles.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/new_design/answer_reveal.dart';
 import 'package:pantas/core/ui/components/new_design/passage_card.dart'
@@ -27,14 +29,15 @@ import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
+import 'package:pantas/core/ui/components/question_choices.dart';
 import 'package:pantas/core/ui/components/question_count.dart';
 import 'package:pantas/core/ui/components/question_navigator_grid.dart';
+import 'package:pantas/core/ui/components/report_bar.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/ds.dart';
-import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -419,29 +422,6 @@ final _questionTopicProvider = FutureProvider.family<String, String>(
       (await ref.watch(contentRepositoryProvider).topicById(id))?.name ?? '',
 );
 
-/// What the phone question header carries at its trailing end (D71): the
-/// flag, on a phone narrower than 400. The question it belongs to is named, so
-/// the next question, built under a cover, does not show a second flag.
-class _QuestionHeaderTrailing extends InheritedWidget {
-  const _QuestionHeaderTrailing({
-    required this.questionId,
-    required this.trailing,
-    required super.child,
-  });
-  final QuestionId questionId;
-  final Widget? trailing;
-
-  static Widget? of(BuildContext context, QuestionId questionId) {
-    final scope =
-        context.dependOnInheritedWidgetOfExactType<_QuestionHeaderTrailing>();
-    return scope?.questionId == questionId ? scope?.trailing : null;
-  }
-
-  @override
-  bool updateShouldNotify(_QuestionHeaderTrailing oldWidget) =>
-      oldWidget.questionId != questionId || oldWidget.trailing != trailing;
-}
-
 /// Opens the passage in the phone Sheet. The page owns the Sheet, because it
 /// covers the whole screen; the question asks for it through this.
 class _PassageSheetHost extends InheritedWidget {
@@ -586,39 +566,32 @@ class _QuestionContent extends ConsumerWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           QuestionCard(
-            headerTrailing: _QuestionHeaderTrailing.of(context, question.id),
             subject: ref
                     .watch(_questionTopicProvider(question.topicId))
                     .valueOrNull ??
                 '',
             stem: question.stem,
             passage: passage == null ? null : _PhonePassage(passage: passage!),
-            figure: question.figureSpecJson == null
-                ? null
-                : QuestionFigure(specJson: question.figureSpecJson),
-            choices: [
-              for (final choice in question.choices)
-                ChoiceRow(
-                  letter: choice.label,
-                  text: choice.text,
-                  state: outcome == null
-                      ? choice.id == chosen
-                          ? ChoiceRowState.picked
-                          : ChoiceRowState.plain
-                      : choice.id == correct.id
-                          ? ChoiceRowState.right
-                          : choice.id == chosen
-                              ? ChoiceRowState.wrong
-                              : ChoiceRowState.dimmed,
-                  onTap: outcome != null ||
-                          running is! QuizRunning ||
-                          running.checking
+            figure: QuestionChoices.figure(question),
+            choices: QuestionChoices.build(
+              question,
+              chosenId: chosen,
+              stateOf: (choice) => outcome == null
+                  ? choice.id == chosen
+                      ? ChoiceRowState.picked
+                      : ChoiceRowState.plain
+                  : choice.id == correct.id
+                      ? ChoiceRowState.right
+                      : choice.id == chosen
+                          ? ChoiceRowState.wrong
+                          : ChoiceRowState.dimmed,
+              onPick:
+                  outcome != null || running is! QuizRunning || running.checking
                       ? null
-                      : () => ref
+                      : (choice) => ref
                           .read(quizControllerProvider.notifier)
                           .pick(chosenChoiceId: choice.id),
-                ),
-            ],
+            ),
           ),
           if (outcome != null) ...[
             const SizedBox(height: PantasSpace.s20),
@@ -691,7 +664,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   Timer? _toastRemove;
   final ScrollController _questionScroll = ScrollController();
   final Set<String> _reported = {};
+  bool _reportOpen = false;
   String? _reportStatus;
+  ReportDelivery _reportDelivery = ReportDelivery.saved;
   Timer? _reportTimer;
   final LayerLink _barLink = LayerLink();
 
@@ -838,16 +813,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     tooltip: 'Report a question',
                     icon: PantasIcons.report,
                     accent: _reported.contains(question.id),
-                    onPressed: () async {
-                      final saved = await openQuestionReport(
-                        context,
-                        question.id,
-                        queue: ReportQueue(ref.read(appDatabaseProvider)),
-                      );
-                      if ((saved ?? false) && mounted) {
-                        setState(() => _reported.add(question.id));
-                      }
-                    },
+                    onPressed: _reportOpen
+                        ? null
+                        : () => setState(() => _reportOpen = true),
                   ),
                 ],
               ),
@@ -856,10 +824,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
               child: LayoutBuilder(
                 builder: (context, constraints) {
                   final large = MediaQuery.textScalerOf(context).scale(16) > 24;
-                  // Under 400 the flag moves from the bar into the question
-                  // header, so the bar's hint fits on one line (D71).
-                  final narrow = MediaQuery.sizeOf(context).width <
-                      PantasLayout.bpPhoneNarrow;
+                  // The flag sits at the center of the bar at every phone
+                  // width and in every state: count left, button right.
                   final counter = _counter(
                     index,
                     session.questions.length,
@@ -916,58 +882,54 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                 : () => unawaited(_check()))
                             : () => unawaited(_next()),
                   );
-                  // The status line, read once as a status (FloatingBar):
-                  // 13 px, centered, `text-primary` once there is a result.
-                  final hint = Semantics(
-                    liveRegion: true,
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: PantasSpace.s4,
-                      ),
-                      child: Text(
-                        _barHint(
-                          outcome: outcome,
-                          picked: state.selectedChoiceId != null,
-                        ),
-                        textAlign: TextAlign.center,
-                        style: PantasType.phoneFootnote.copyWith(
-                          color: outcome == null
-                              ? context.colors.textSecondary
-                              : context.colors.textPrimary,
-                        ),
-                      ),
-                    ),
-                  );
-                  final bar = FloatingBar.content(
-                    state: outcome == null
-                        ? FloatingBarState.neutral
-                        : outcome.isCorrect
-                            ? FloatingBarState.right
-                            : FloatingBarState.wrong,
-                    child: large
-                        // Stacked (FloatingBar, ruling 5): the hint takes its
-                        // own line above the actions.
-                        ? Column(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              hint,
-                              Row(
-                                children: [
-                                  Expanded(child: counter),
-                                  if (!narrow) flag,
-                                ],
-                              ),
-                              action,
-                            ],
-                          )
-                        : Row(
-                            children: [
-                              counter,
-                              Expanded(child: hint),
-                              if (!narrow) flag,
-                              action,
-                            ],
-                          ),
+                  final barState = outcome == null
+                      ? FloatingBarState.neutral
+                      : outcome.isCorrect
+                          ? FloatingBarState.right
+                          : FloatingBarState.wrong;
+                  final Widget restContent = large
+                      // Stacked (FloatingBar, ruling 5): the count and flag
+                      // take their own line above the action.
+                      ? Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Row(
+                              children: [
+                                Expanded(child: _fitCount(counter)),
+                                flag,
+                              ],
+                            ),
+                            action,
+                          ],
+                        )
+                      : Stack(
+                          alignment: Alignment.center,
+                          children: [
+                            Row(
+                              children: [
+                                Expanded(child: _fitCount(counter)),
+                                // The result is read once as a status.
+                                _resultStatus(outcome),
+                                action,
+                              ],
+                            ),
+                            // On the bar's own center, whatever the widths
+                            // of the count and the button.
+                            flag,
+                          ],
+                        );
+                  // QN_Report: the bar itself becomes the report form.
+                  final bar = ReportBar(
+                    rest: restContent,
+                    restState: barState,
+                    open: _reportOpen,
+                    questionId: question.id,
+                    examId: widget.examId,
+                    questionVersion: question.version,
+                    onClosed: (delivered) => setState(() {
+                      _reportOpen = false;
+                      if (delivered != null) _reported.add(question.id);
+                    }),
                   );
                   final scroll = SingleChildScrollView(
                     key: const ValueKey('quiz-scroll'),
@@ -984,14 +946,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        _QuestionHeaderTrailing(
-                          questionId: question.id,
-                          trailing: narrow ? flag : null,
-                          child: _PreparedQuestionStage(
-                            proIsActive: pro,
-                            proPaused: paused,
-                            viewIndex: _viewIndex,
-                          ),
+                        _PreparedQuestionStage(
+                          proIsActive: pro,
+                          proPaused: paused,
+                          viewIndex: _viewIndex,
                         ),
                         if (_retryWrite != null)
                           saveFailureLine(() => unawaited(_retryWrite!())),
@@ -1071,11 +1029,11 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     final Widget passageSheetBody = sheetPassage == null
         ? const SizedBox.shrink()
         : Padding(
-            padding: const EdgeInsets.fromLTRB(
+            padding: EdgeInsets.fromLTRB(
               PantasSpace.s20,
               PantasSpace.s8,
               PantasSpace.s20,
-              PantasSpace.s16,
+              PantasSheet.bottomRest(context),
             ),
             // The Sheet keeps the lesson text scale (Sheet README,
             // `sheet--reader`).
@@ -1087,9 +1045,10 @@ class _QuizPageState extends ConsumerState<QuizPage> {
             ),
           );
     return PopScope(
-      canPop: _allowPop,
+      // While the report form is open, Back closes the form (ReportBar).
+      canPop: _allowPop && !_reportOpen,
       onPopInvokedWithResult: (didPop, result) {
-        if (!didPop && !wasGridOpen && !wasPassageOpen) {
+        if (!didPop && !wasGridOpen && !wasPassageOpen && !_reportOpen) {
           unawaited(_confirmLeave());
         }
       },
@@ -1098,10 +1057,12 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       child: PantasSheet(
         open: _passageSheetOpen,
         label: 'Passage',
-        closeLabel: 'Close',
         onDismiss: () => setState(() => _passageSheetOpen = false),
         page: QuestionGridSheet(
-          page: _PassageSheetHost(show: _showPassageSheet, child: page),
+          page: _PassageSheetHost(
+            show: _showPassageSheet,
+            child: page,
+          ),
           open: _gridOpen,
           onDismiss: () => setState(() => _gridOpen = false),
           summary: '${session.outcomes.length} of '
@@ -1190,6 +1151,22 @@ class _QuizPageState extends ConsumerState<QuizPage> {
       });
     }
 
+    // The bar keeps its width from pick to check: the button reserves room
+    // for its widest word.
+    final barButton = WebButton(
+      label: label,
+      pill: true,
+      keyHint: 'Enter',
+      reserveLabels: const ['Check', 'Next', 'Finish'],
+      busy: state.checking,
+      onPressed: state.checking ||
+              (!lookingBack &&
+                  outcome == null &&
+                  state.selectedChoiceId == null)
+          ? null
+          : action,
+    );
+
     // The Leave dialog owns the keys while it is open. Its own focus keeps
     // them away from this page; this is the second guard, for a page that
     // gets the focus back anyway.
@@ -1235,9 +1212,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
           () {
             if (!_leaveOpen) action();
           },
-          keepsEnter: (focused) =>
-              focused.findAncestorWidgetOfExactType<WebAnswerOption>()?.state ==
-              WebOptionState.selected,
+          keepsEnter: focusedAnswerIsPicked,
         ),
         child: PopScope(
           canPop: _allowPop,
@@ -1267,8 +1242,8 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                     mainAxisSize: MainAxisSize.min,
                     children: [
                       if (_reportStatus == question.id)
-                        Text(
-                          'Saved on this device.',
+                        ReportSoftLine(
+                          delivery: _reportDelivery,
                           style: t.sm,
                         ),
                       WebTopBarButton(
@@ -1277,15 +1252,16 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           final saved = await openQuestionReport(
                             context,
                             question.id,
-                            queue: ReportQueue(
-                              ref.read(appDatabaseProvider),
-                            ),
+                            queue: ref.read(reportQueueProvider),
+                            examId: widget.examId,
+                            questionVersion: question.version,
                           );
-                          if ((saved ?? false) && mounted) {
+                          if (saved != null && mounted) {
                             _reportTimer?.cancel();
                             setState(() {
                               _reported.add(question.id);
                               _reportStatus = question.id;
+                              _reportDelivery = saved;
                             });
                             _reportTimer = Timer(
                               const Duration(seconds: 4),
@@ -1364,10 +1340,6 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                           child: CompositedTransformTarget(
                             link: _barLink,
                             child: WebBottomBar(
-                              hint: _barHint(
-                                outcome: outcome,
-                                picked: state.selectedChoiceId != null,
-                              ),
                               counterChevron: true,
                               counter: '${index + 1} of $total',
                               counterLabel: 'Question ${index + 1} of $total. '
@@ -1382,77 +1354,60 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                   : outcome.isCorrect
                                       ? WebBarState.right
                                       : WebBarState.wrong,
-                              action: Row(
-                                mainAxisSize: MainAxisSize.min,
-                                children: [
-                                  // The same name and switch the phone
-                                  // gives its flag.
-                                  Semantics(
-                                    button: true,
-                                    enabled: !_flagBusy,
-                                    toggled: flagged.contains(question.id),
-                                    label: flagged.contains(question.id)
-                                        ? 'Remove flag from question '
-                                            '${index + 1}'
-                                        : 'Flag question ${index + 1}',
-                                    onTap: _flagBusy
-                                        ? null
-                                        : () => unawaited(
-                                              _toggleFlag(question.id),
-                                            ),
-                                    child: ExcludeSemantics(
-                                      child: PantasIconButton(
-                                        tooltip: flagged.contains(question.id)
-                                            ? 'Remove flag'
-                                            : 'Flag question',
-                                        // Stays enabled while the write
-                                        // runs: a disabled button gives
-                                        // up its focus, and the ring
-                                        // jumped to the counter.
-                                        onPressed: () {
-                                          if (!_flagBusy) {
-                                            unawaited(
-                                              _toggleFlag(question.id),
-                                            );
-                                          }
-                                        },
-                                        icon: _flag(
-                                          question.id,
-                                          flagged.contains(question.id),
-                                          web: true,
+                              status: _resultWord(outcome),
+                              // The same name and switch the phone gives
+                              // its flag, on the bar's own center.
+                              center: Semantics(
+                                button: true,
+                                enabled: !_flagBusy,
+                                toggled: flagged.contains(question.id),
+                                label: flagged.contains(question.id)
+                                    ? 'Remove flag from question '
+                                        '${index + 1}'
+                                    : 'Flag question ${index + 1}',
+                                onTap: _flagBusy
+                                    ? null
+                                    : () => unawaited(
+                                          _toggleFlag(question.id),
                                         ),
-                                      ),
+                                child: ExcludeSemantics(
+                                  child: PantasIconButton(
+                                    tooltip: flagged.contains(question.id)
+                                        ? 'Remove flag'
+                                        : 'Flag question',
+                                    // Stays enabled while the write
+                                    // runs: a disabled button gives
+                                    // up its focus, and the ring
+                                    // jumped to the counter.
+                                    onPressed: () {
+                                      if (!_flagBusy) {
+                                        unawaited(
+                                          _toggleFlag(question.id),
+                                        );
+                                      }
+                                    },
+                                    icon: _flag(
+                                      question.id,
+                                      flagged.contains(question.id),
+                                      web: true,
                                     ),
                                   ),
-                                  const SizedBox(width: PantasSpace.s6),
-                                  // While the explanation Drawer is open its
-                                  // foot has the action, so the bar's is
-                                  // hidden. It stays mounted, so focus can
-                                  // return to it.
-                                  FocusScope(
-                                    node: _barActionScope,
-                                    child: ExcludeFocus(
-                                      excluding: _explanationOpen,
-                                      child: Visibility(
-                                        visible: !_explanationOpen,
-                                        maintainState: true,
-                                        child: WebButton(
-                                          label: label,
-                                          pill: true,
-                                          keyHint: 'Enter',
-                                          busy: state.checking,
-                                          onPressed: state.checking ||
-                                                  (!lookingBack &&
-                                                      outcome == null &&
-                                                      state.selectedChoiceId ==
-                                                          null)
-                                              ? null
-                                              : action,
-                                        ),
-                                      ),
-                                    ),
+                                ),
+                              ),
+                              // While the explanation Drawer is open its
+                              // foot has the action, so the bar's is
+                              // hidden. It stays mounted, so focus can
+                              // return to it.
+                              action: FocusScope(
+                                node: _barActionScope,
+                                child: ExcludeFocus(
+                                  excluding: _explanationOpen,
+                                  child: Visibility(
+                                    visible: !_explanationOpen,
+                                    maintainState: true,
+                                    child: barButton,
                                   ),
-                                ],
+                                ),
                               ),
                             ),
                           ),
@@ -1487,7 +1442,9 @@ class _QuizPageState extends ConsumerState<QuizPage> {
                                             color: t.colors.textPrimary,
                                           ),
                                         ),
-                                        const SizedBox(width: PantasSpace.s12),
+                                        const SizedBox(
+                                          width: PantasSpace.s12,
+                                        ),
                                         Expanded(
                                           child: Text(
                                             '${session.outcomes.length} of '
@@ -1576,16 +1533,30 @@ class _QuizPageState extends ConsumerState<QuizPage> {
     );
   }
 
-  /// The bar's status line: read once as a status, so the result is a word
-  /// as well as a tint and a ring.
-  String _barHint({required AnswerOutcome? outcome, required bool picked}) =>
-      outcome != null
-          ? outcome.isCorrect
-              ? 'Correct'
-              : 'Not this one'
-          : picked
-              ? 'Check when you are ready'
-              : 'Pick one answer';
+  /// The result word, read once as a status. It is never drawn: the bar's
+  /// tint and the explanation show the result.
+  String? _resultWord(AnswerOutcome? outcome) => outcome == null
+      ? null
+      : outcome.isCorrect
+          ? 'Correct'
+          : 'Not this one';
+
+  Widget _resultStatus(AnswerOutcome? outcome) => Semantics(
+        liveRegion: true,
+        label: _resultWord(outcome),
+        child: const SizedBox.shrink(),
+      );
+
+  /// Last resort (ruling 6): if the count column does not fit beside the
+  /// flag and the button, it scales down as one piece. They never shrink.
+  Widget _fitCount(Widget counter) => Align(
+        alignment: Alignment.centerLeft,
+        child: FittedBox(
+          fit: BoxFit.scaleDown,
+          alignment: Alignment.centerLeft,
+          child: counter,
+        ),
+      );
 
   Widget _counter(int index, int total, {required bool enabled}) {
     void open() => setState(() => _gridOpen = true);
@@ -1907,6 +1878,7 @@ class _QuizPageState extends ConsumerState<QuizPage> {
   /// when there is no stack to pop: a notification tap opens the route cold.
   void _leave(BuildContext context) {
     ref.invalidate(sessionPanelProvider(widget.examId));
+    ref.read(quizPausedRevisionProvider.notifier).publishPause();
     if (context.canPop()) {
       context.pop();
     } else {

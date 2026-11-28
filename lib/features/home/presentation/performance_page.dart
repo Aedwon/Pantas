@@ -149,20 +149,6 @@ class _PerformancePageState extends State<PerformancePage> {
       onBack: widget.onBack,
       bottomInset: 104,
       children: [
-        // The same line the wide page puts under the title.
-        Padding(
-          padding: const EdgeInsets.fromLTRB(
-            PantasSpace.s4,
-            PantasSpace.s0,
-            PantasSpace.s4,
-            PantasSpace.s16,
-          ),
-          child: Text(
-            "Accuracy across everything you've answered.",
-            style: context.type.subhead
-                .copyWith(color: context.colors.textSecondary),
-          ),
-        ),
         if (accuracy != null) ...[
           // Boards (DT_Free, DT_TopicsA): the ring starts 4 px lower; the
           // switch is 6 px lower on the Pro Topics and Lessons views.
@@ -305,10 +291,8 @@ class _PerformancePageState extends State<PerformancePage> {
                     title: row.title,
                     subtitle: level == 0
                         ? _topicsLabel(widget.data.subjectCounts[row.id] ?? 0)
-                        : [
-                            if (row.subtext != null) row.subtext!,
-                            '${row.answered} answered',
-                          ].join(' · '),
+                        : row.subtext,
+                    count: '(${row.answered})',
                     accuracy: row.accuracy!,
                     divider: index < rows.length - 1,
                     onTap: () => setState(() {
@@ -397,12 +381,16 @@ class _PerformancePageState extends State<PerformancePage> {
     return PantasSheet(
       page: page,
       label: 'Subjects',
-      closeLabel: 'Cancel',
       open: _picker,
       onDismiss: () => setState(() => _picker = false),
       readerContents: true,
       child: Padding(
-        padding: const EdgeInsets.all(PantasSpace.s20),
+        padding: EdgeInsets.fromLTRB(
+          PantasSpace.s20,
+          PantasSpace.s20,
+          PantasSpace.s20,
+          PantasSheet.bottomRest(context),
+        ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -441,12 +429,14 @@ class _PerformanceRow extends StatelessWidget {
   const _PerformanceRow({
     required this.title,
     required this.subtitle,
+    required this.count,
     required this.accuracy,
     required this.divider,
     required this.onTap,
   });
   final String title;
-  final String subtitle;
+  final String? subtitle;
+  final String count;
   final double accuracy;
   final bool divider;
   final VoidCallback onTap;
@@ -458,6 +448,7 @@ class _PerformanceRow extends StatelessWidget {
           child: ScoreBreakdownRow.value(
             name: title,
             subtitle: subtitle,
+            count: count,
             accuracy: accuracy,
             chevron: true,
             divider: divider,

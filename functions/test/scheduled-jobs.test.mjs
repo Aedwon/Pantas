@@ -59,13 +59,13 @@ test('a missing or unreadable scheduled time still runs the hourly tasks', () =>
 });
 
 test('the two daily jobs carry the agreed tasks in order', () => {
-  assert.deepEqual(jobs.DAILY_EARLY_TASKS, ['cleanupOrphanAnons', 'purgeOldAuditLogs', 'checkRecentEntitlementClaims']);
+  assert.deepEqual(jobs.DAILY_EARLY_TASKS, ['cleanupOrphanAnons', 'purgeOldAuditLogs', 'checkRecentEntitlementClaims', 'purgeOverdueQuestionReports', 'npcDataSubjectCount']);
   assert.deepEqual(jobs.DAILY_LATE_TASKS, ['cleanupSyncData', 'purgeInactiveAccounts', 'cleanupWrappedOrphans']);
 });
 
-test('the three jobs cover all nine tasks exactly once', () => {
+test('the three jobs cover all eleven tasks exactly once', () => {
   const all = [...jobs.frequentTaskNames('2026-11-15T07:00:00Z'), ...jobs.DAILY_EARLY_TASKS, ...jobs.DAILY_LATE_TASKS];
-  assert.equal(all.length, 9);
+  assert.equal(all.length, 11);
   assert.deepEqual([...new Set(all)].sort(), [...jobs.TASK_NAMES].sort());
 });
 
@@ -108,7 +108,7 @@ test('one task throwing does not stop the others, logs one stable ERROR line, an
   const outcomes = await jobs.runJob(jobs.DAILY_EARLY_TASKS, registry, {log: (message, fields) => lines.push({message, fields})});
   assert.deepEqual(ran, jobs.DAILY_EARLY_TASKS);
   assert.deepEqual(outcomes.map((o) => [o.task, o.ok]),
-    [['cleanupOrphanAnons', true], ['purgeOldAuditLogs', false], ['checkRecentEntitlementClaims', true]]);
+    [['cleanupOrphanAnons', true], ['purgeOldAuditLogs', false], ['checkRecentEntitlementClaims', true], ['purgeOverdueQuestionReports', true], ['npcDataSubjectCount', true]]);
   assert.equal(lines.length, 1);
   assert.equal(lines[0].message, 'Scheduled task failed: purgeOldAuditLogs');
   assert.equal(lines[0].fields.task, 'purgeOldAuditLogs');

@@ -4,6 +4,7 @@ import 'package:pantas/core/auth/auth.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/storage/storage.dart';
+import 'package:pantas/core/ui/components/button_pair.dart';
 import 'package:pantas/core/ui/components/choice_row.dart';
 import 'package:pantas/core/ui/components/content_renderer.dart';
 import 'package:pantas/core/ui/components/floating_bar.dart';
@@ -14,12 +15,13 @@ import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_field.dart';
 import 'package:pantas/core/ui/components/pantas_icon_button.dart';
 import 'package:pantas/core/ui/components/pantas_tooltip.dart';
+import 'package:pantas/core/ui/components/question_choices.dart';
+import 'package:pantas/core/ui/components/ready_fade.dart';
 import 'package:pantas/core/ui/components/review_list.dart';
 import 'package:pantas/core/ui/components/segmented_switch.dart';
 import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
-import 'package:pantas/core/ui/figures/question_figure.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -44,6 +46,9 @@ import 'package:pantas/features/mock_exam/presentation/widgets/mock_tap.dart';
 
 /// The width of the question filter (board width; the system sets no token).
 const _filterWidth = 464.0;
+
+// ds-board: B5_ReviewAfter draws the Finish the Notes button 40 high
+const double _notesButtonHeight = 40;
 
 class MockReviewPage extends ConsumerStatefulWidget {
   const MockReviewPage({
@@ -507,24 +512,29 @@ class _ReviewListBody extends StatelessWidget {
                 if (proIsActive && filter == ReviewFilter.wrong) ...[
                   const SizedBox(height: PantasSpace.s20),
                   WebCard(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: PantasSpace.s20,
-                      vertical: PantasSpace.s18,
+                    // B5_ReviewAfter: padding 12 12 12 20.
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s20,
+                      PantasSpace.s12,
+                      PantasSpace.s12,
+                      PantasSpace.s12,
                     ),
                     child: Row(
                       children: [
                         Expanded(
                           child: Text(
-                            'Tell Pantas why you got each one wrong. The '
-                            'better your notes, the more every review '
-                            'helps.',
-                            style: t.sub,
+                            'Note why you missed each one.',
+                            // 15 on 1.5, the board's size and line.
+                            style: PantasType.phoneExplanation.copyWith(
+                              color: t.colors.textPrimary,
+                            ),
                           ),
                         ),
-                        const SizedBox(width: PantasSpace.s24),
+                        const SizedBox(width: PantasSpace.s18),
                         WebButton(
                           label: 'Finish the Notes',
                           variant: WebButtonVariant.secondary,
+                          height: _notesButtonHeight,
                           onPressed: onFinishNotes,
                         ),
                       ],
@@ -544,8 +554,7 @@ class _ReviewListBody extends StatelessWidget {
                           child: Text(
                             'You flagged $markedCount '
                             "${markedCount == 1 ? 'question' : 'questions'} "
-                            'while the clock was running. Do you want to '
-                            'save them?',
+                            'during the mock. Save them?',
                             style: t.sub.copyWith(color: t.colors.label),
                           ),
                         ),
@@ -774,8 +783,7 @@ class _NotesPrompt extends StatelessWidget {
           children: [
             // MK_ReviewWrong: 15 px text on 22 px lines, a 44 px tinted pill.
             Text(
-              'Tell Pantas why you got each one wrong. The better your notes, '
-              'the more every review helps.',
+              'Note why you missed each one.',
               style: context.type.subhead.copyWith(height: 22 / 15),
             ),
             const SizedBox(height: PantasSpace.s10),
@@ -907,7 +915,8 @@ class _MockReviewRow extends StatelessWidget {
         child: Row(
           children: [
             SizedBox(
-              width: PantasSpace.s44,
+              // Boards MK_ReviewAll, MK_ReviewFlagged: a 42 px column.
+              width: PantasSpace.s40 + PantasSpace.s2,
               child: Text(
                 '${entry.number}',
                 style: context.type.subheadStrong.copyWith(
@@ -954,7 +963,8 @@ class _MockReviewRow extends StatelessWidget {
                           else
                             ContentRenderer(text: entry.label),
                           if (!entry.isAnswered) ...[
-                            const SizedBox(height: PantasSpace.s4),
+                            // Boards: 1 px under the title.
+                            const SizedBox(height: PantasSpace.s2 / 2),
                             Text(
                               'Left blank',
                               style: context.type.footnote.copyWith(
@@ -1110,6 +1120,12 @@ class _QuestionViewer extends StatelessWidget {
           glyph: icon,
           onPressed: onPressed,
         );
+    final showNoteIcon = proIsActive && !entry.isCorrect;
+    final showNoteCard = noteOpen && showNoteIcon;
+    final counter = Text(
+      '${index + 1} of ${entries.length}',
+      style: PantasType.webLink.copyWith(color: context.colors.textPrimary),
+    );
     return Stack(
       children: [
         SingleChildScrollView(
@@ -1131,21 +1147,16 @@ class _QuestionViewer extends StatelessWidget {
                         title: entry.passage!.title,
                         text: entry.passage!.body,
                       ),
-                figure: entry.question.figureSpecJson == null
-                    ? null
-                    : QuestionFigure(specJson: entry.question.figureSpecJson),
-                choices: [
-                  for (final choice in entry.question.choices)
-                    ChoiceRow(
-                      letter: choice.label,
-                      text: choice.text,
-                      state: choice.isCorrect
-                          ? ChoiceRowState.right
-                          : choice.id == entry.chosenChoiceId
-                              ? ChoiceRowState.wrong
-                              : ChoiceRowState.dimmed,
-                    ),
-                ],
+                figure: QuestionChoices.figure(entry.question),
+                choices: QuestionChoices.build(
+                  entry.question,
+                  chosenId: entry.chosenChoiceId,
+                  stateOf: (choice) => choice.isCorrect
+                      ? ChoiceRowState.right
+                      : choice.id == entry.chosenChoiceId
+                          ? ChoiceRowState.wrong
+                          : ChoiceRowState.dimmed,
+                ),
               ),
               const SizedBox(height: PantasSpace.s20),
               AnswerReveal(
@@ -1162,16 +1173,6 @@ class _QuestionViewer extends StatelessWidget {
                         ?.rationale
                     : null,
               ),
-              if (noteOpen && proIsActive && !entry.isCorrect) ...[
-                const SizedBox(height: PantasSpace.s16),
-                _ReasonPanel(
-                  key: ValueKey(entry.question.id),
-                  savedAnswer: savedAnswer,
-                  isBlank: !entry.isAnswered,
-                  onBlankReason: onBlankReason,
-                  onMissReason: onMissReason,
-                ),
-              ],
             ],
           ),
         ),
@@ -1179,40 +1180,78 @@ class _QuestionViewer extends StatelessWidget {
           left: 16,
           right: 16,
           bottom: 26,
-          child: FloatingBar.content(
-            state: entry.isCorrect
-                ? FloatingBarState.right
-                : FloatingBarState.wrong,
-            inset: 0,
-            child: Padding(
-              padding: const EdgeInsets.fromLTRB(
-                PantasSpace.s4,
-                PantasSpace.s8,
-                PantasSpace.s8,
-                PantasSpace.s8,
-              ),
-              child: Row(
-                children: [
-                  arrow('Previous question', PantasIcons.back, onPrevious),
-                  const SizedBox(width: PantasSpace.s14),
-                  Text(
-                    '${index + 1} of ${entries.length}',
-                    style: PantasType.webLink.copyWith(
-                      color: context.colors.textPrimary,
+          // MK_ReviewQNote: the note card takes the bar's place, as in the
+          // quiz viewer.
+          child: showNoteCard
+              ? _ReasonPanel(
+                  key: ValueKey(entry.question.id),
+                  savedAnswer: savedAnswer,
+                  isBlank: !entry.isAnswered,
+                  onBlankReason: onBlankReason,
+                  onMissReason: onMissReason,
+                  onCancel: onNote,
+                )
+              : FloatingBar.content(
+                  state: entry.isCorrect
+                      ? FloatingBarState.right
+                      : FloatingBarState.wrong,
+                  inset: 0,
+                  child: Padding(
+                    padding: const EdgeInsets.fromLTRB(
+                      PantasSpace.s4,
+                      PantasSpace.s8,
+                      PantasSpace.s8,
+                      PantasSpace.s8,
                     ),
+                    // MK_ReviewQ, MK_ReviewQFree: a wrong Pro answer has the
+                    // counter left of the note icon; Free and right answers
+                    // have no icon, so the counter sits in the middle.
+                    child: showNoteIcon
+                        ? Row(
+                            children: [
+                              arrow(
+                                'Previous question',
+                                PantasIcons.back,
+                                onPrevious,
+                              ),
+                              const SizedBox(width: PantasSpace.s14),
+                              counter,
+                              const Spacer(),
+                              PantasIconButton(
+                                tooltip: 'Add note',
+                                glyph: PantasIcons.addNote,
+                                onPressed: onNote,
+                              ),
+                              arrow('Next question', PantasIcons.next, onNext),
+                            ],
+                          )
+                        : Row(
+                            children: [
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment.centerLeft,
+                                  child: arrow(
+                                    'Previous question',
+                                    PantasIcons.back,
+                                    onPrevious,
+                                  ),
+                                ),
+                              ),
+                              counter,
+                              Expanded(
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: arrow(
+                                    'Next question',
+                                    PantasIcons.next,
+                                    onNext,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
                   ),
-                  const Spacer(),
-                  if (proIsActive)
-                    PantasIconButton(
-                      tooltip: 'Add note',
-                      glyph: PantasIcons.addNote,
-                      onPressed: onNote,
-                    ),
-                  arrow('Next question', PantasIcons.next, onNext),
-                ],
-              ),
-            ),
-          ),
+                ),
         ),
       ],
     );
@@ -1261,6 +1300,60 @@ class _ReasonPanelState extends State<_ReasonPanel> {
     }
   }
 
+  void _choose(int index) {
+    if (_saving) return;
+    setState(() {
+      _selected = index;
+      _typing = index == 3;
+      _retry = null;
+      _trackAction();
+    });
+  }
+
+  void _commit() {
+    final selected = _selected;
+    if (selected == null || _saving) return;
+    final note = _typing ? _controller.text.trim() : null;
+    if (_typing && note!.isEmpty) return;
+    if (widget.isBlank) {
+      const reasons = [
+        BlankReason.ranOutOfTime,
+        BlankReason.skippedToReturn,
+        BlankReason.didNotKnow,
+        BlankReason.other,
+      ];
+      _save(() => widget.onBlankReason(reasons[selected], note));
+    } else {
+      const reasons = [
+        MissReason.misread,
+        MissReason.slipped,
+        MissReason.unknown,
+        MissReason.other,
+      ];
+      _save(() => widget.onMissReason(reasons[selected], note));
+    }
+  }
+
+  int? _savedIndex;
+  late final String _savedNote = widget.savedAnswer?.reasonNote?.trim() ?? '';
+  int _actionSerial = 0;
+  bool _actionReady = false;
+
+  /// Something is picked, a typed note is not empty, and a saved reason is
+  /// not just shown back again.
+  bool get _valid =>
+      _selected != null &&
+      (!_typing || _controller.text.trim().isNotEmpty) &&
+      (_savedIndex == null ||
+          _selected != _savedIndex ||
+          (_typing && _controller.text.trim() != _savedNote));
+
+  void _trackAction() {
+    final ready = _valid;
+    if (ready && !_actionReady) _actionSerial++;
+    _actionReady = ready;
+  }
+
   @override
   void initState() {
     super.initState();
@@ -1286,6 +1379,8 @@ class _ReasonPanelState extends State<_ReasonPanel> {
               null => null
             };
     }
+    _savedIndex = _selected;
+    _actionReady = _valid;
   }
 
   @override
@@ -1308,96 +1403,113 @@ class _ReasonPanelState extends State<_ReasonPanel> {
   @override
   Widget build(BuildContext context) {
     if (context.wideWeb) return _wide(context);
-    final title =
-        widget.isBlank ? 'Why did you leave it blank?' : 'Why did you miss it?';
-    return Container(
-      padding: const EdgeInsets.all(PantasSpace.s16),
-      decoration: BoxDecoration(
-        color: context.colors.surface,
-        borderRadius: BorderRadius.circular(PantasRadius.lg),
+    final colors = context.colors;
+    final blank = widget.isBlank;
+    // MK_ReviewQNote and MK_ReviewBlank: the quiz's card. Three plain
+    // reasons, then Type my own, picked first and saved with Add Note.
+    final labels = blank
+        ? const [
+            'I ran out of time',
+            'I skipped it to come back later',
+            "I didn't know it",
+            'Type my own',
+          ]
+        : const [
+            'I misread it',
+            'I knew it, I just slipped',
+            "I didn't know it",
+            'Type my own',
+          ];
+    final available = MediaQuery.sizeOf(context).height -
+        MediaQuery.viewInsetsOf(context).bottom -
+        MediaQuery.paddingOf(context).top -
+        PantasSize.reportFormClear;
+    final body = Padding(
+      padding: const EdgeInsets.fromLTRB(
+        PantasSpace.s18,
+        PantasSpace.s18,
+        PantasSpace.s18,
+        PantasSpace.s16,
       ),
       child: Column(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Text(
-            title,
-            style: context.type.subhead.copyWith(fontWeight: FontWeight.w600),
+            blank ? 'Why did you leave it blank?' : 'Why did you miss it?',
+            style: PantasType.phoneHeadline.copyWith(
+              color: colors.textPrimary,
+              fontWeight: FontWeight.w700,
+            ),
           ),
           const SizedBox(height: PantasSpace.s10),
-          if (widget.isBlank) ...[
+          for (final (index, label) in labels.indexed) ...[
+            if (index > 0)
+              Divider(height: .5, thickness: .5, color: colors.divider),
             _ReasonChoice(
-              label: 'I ran out of time',
-              selected:
-                  widget.savedAnswer?.blankReason == BlankReason.ranOutOfTime,
-              onTap: () => _save(
-                () => widget.onBlankReason(BlankReason.ranOutOfTime, null),
-              ),
-            ),
-            _ReasonChoice(
-              label: 'I skipped it to come back later',
-              selected: widget.savedAnswer?.blankReason ==
-                  BlankReason.skippedToReturn,
-              onTap: () => _save(
-                () => widget.onBlankReason(BlankReason.skippedToReturn, null),
-              ),
-            ),
-            _ReasonChoice(
-              label: "I didn't know",
-              selected:
-                  widget.savedAnswer?.blankReason == BlankReason.didNotKnow,
-              onTap: () => _save(
-                () => widget.onBlankReason(BlankReason.didNotKnow, null),
-              ),
-            ),
-          ] else ...[
-            _ReasonChoice(
-              label: 'I misread',
-              selected: widget.savedAnswer?.missReason == MissReason.misread,
-              onTap: () =>
-                  _save(() => widget.onMissReason(MissReason.misread, null)),
-            ),
-            _ReasonChoice(
-              label: 'I forgot',
-              selected: widget.savedAnswer?.missReason == MissReason.slipped,
-              onTap: () =>
-                  _save(() => widget.onMissReason(MissReason.slipped, null)),
-            ),
-            _ReasonChoice(
-              label: "I didn't know",
-              selected: widget.savedAnswer?.missReason == MissReason.unknown,
-              onTap: () =>
-                  _save(() => widget.onMissReason(MissReason.unknown, null)),
+              label: label,
+              selected: _selected == index,
+              onTap: _saving ? null : () => _choose(index),
             ),
           ],
-          _ReasonChoice(
-            label: 'Type my own',
-            selected: _typing,
-            onTap: () => setState(() => _typing = true),
-          ),
-          if (_retry != null) saveFailureLine(() => _save(_retry!)),
           if (_typing) ...[
             const SizedBox(height: PantasSpace.s8),
             PantasField.unlabeled(
               semanticLabel: 'Type my own',
+              hint: 'In your own words',
               controller: _controller,
               multiline: true,
-              maxLines: 3,
-            ),
-            const SizedBox(height: PantasSpace.s8),
-            PantasButton(
-              label: 'Save Note',
-              onPressed: () {
-                final note = _controller.text.trim();
-                if (note.isEmpty) return;
-                if (widget.isBlank) {
-                  _save(() => widget.onBlankReason(BlankReason.other, note));
-                } else {
-                  _save(() => widget.onMissReason(MissReason.other, note));
-                }
-              },
+              maxLines: 4,
+              onChanged: (_) => setState(() {
+                _retry = null;
+                _trackAction();
+              }),
             ),
           ],
+          const SizedBox(height: PantasSpace.s20),
+          if (_retry != null) saveFailureLine(() => _save(_retry!)),
+          ButtonPair(
+            secondary: PantasButton(
+              label: 'Cancel',
+              variant: PantasButtonVariant.neutral,
+              height: PantasSize.btn,
+              radius: PantasRadius.full,
+              fontSize: PantasType.webButton.fontSize,
+              onPressed: _saving ? null : widget.onCancel,
+            ),
+            primary: ReadyFade(
+              serial: _actionSerial,
+              child: PantasButton(
+                label: _savedIndex == null ? 'Add Note' : 'Update',
+                height: PantasSize.btn,
+                radius: PantasRadius.full,
+                fontSize: PantasType.webButton.fontSize,
+                busy: _saving,
+                disabledForeground: colors.textDisabled,
+                onPressed: _valid && !_saving ? _commit : null,
+              ),
+            ),
+          ),
         ],
+      ),
+    );
+    return ConstrainedBox(
+      constraints: BoxConstraints(
+        maxHeight: available.clamp(PantasSize.reportFormFloor, double.infinity),
+      ),
+      child: SingleChildScrollView(
+        child: FloatingBar.content(
+          state: FloatingBarState.wrong,
+          radius: PantasRadius.r2xl,
+          inset: 0,
+          child: DecoratedBox(
+            decoration: BoxDecoration(
+              color: colors.surfaceCard,
+              borderRadius: BorderRadius.circular(PantasRadius.r2xl),
+            ),
+            child: body,
+          ),
+        ),
       ),
     );
   }
@@ -1417,39 +1529,6 @@ class _ReasonPanelState extends State<_ReasonPanel> {
             "I didn't know",
             'Type my own',
           ];
-    void choose(int index) {
-      if (!_saving) {
-        setState(() {
-          _selected = index;
-          _typing = index == 3;
-        });
-      }
-    }
-
-    void commit() {
-      final selected = _selected;
-      if (selected == null || _saving) return;
-      final note = _typing ? _controller.text.trim() : null;
-      if (_typing && note!.isEmpty) return;
-      if (widget.isBlank) {
-        const reasons = [
-          BlankReason.ranOutOfTime,
-          BlankReason.skippedToReturn,
-          BlankReason.didNotKnow,
-          BlankReason.other,
-        ];
-        _save(() => widget.onBlankReason(reasons[selected], note));
-      } else {
-        const reasons = [
-          MissReason.misread,
-          MissReason.slipped,
-          MissReason.unknown,
-          MissReason.other,
-        ];
-        _save(() => widget.onMissReason(reasons[selected], note));
-      }
-    }
-
     return LetterShortcuts(
       bindings: {
         for (final (i, key) in const ['1', '2', '3', '4'].indexed)
@@ -1458,7 +1537,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
                 is EditableText) {
               return;
             }
-            choose(i);
+            _choose(i);
           },
       },
       child: Focus(
@@ -1507,7 +1586,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
                         SizedBox(
                           width: width,
                           child: MockTap(
-                            onTap: _saving ? null : () => choose(i),
+                            onTap: _saving ? null : () => _choose(i),
                             selectedFill:
                                 _selected == i ? t.colors.accentTint : null,
                             restFill: t.colors.background,
@@ -1571,7 +1650,7 @@ class _ReasonPanelState extends State<_ReasonPanel> {
                     onPressed: _selected == null ||
                             (_typing && _controller.text.trim().isEmpty)
                         ? null
-                        : commit,
+                        : _commit,
                   ),
                 ],
               ),
@@ -1590,7 +1669,7 @@ class _ReasonChoice extends StatelessWidget {
     this.selected = false,
   });
   final String label;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final bool selected;
 
   @override

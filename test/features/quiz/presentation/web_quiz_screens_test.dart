@@ -6,6 +6,7 @@ import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_progress.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_card.dart';
@@ -71,10 +72,24 @@ void main() {
         ),
       ),
       const SessionPanelNeedsAssessment(30),
+      SessionPanelNeedsAssessment(
+        30,
+        progress: AssessmentProgress(
+          examId: 'e',
+          attemptId: 'a',
+          startedAt: DateTime.utc(2026, 11, 26),
+          questionIds: [for (var i = 0; i < 30; i++) 'q$i'],
+          picks: {for (var i = 0; i < 8; i++) 'q$i': 'c'},
+        ),
+      ),
       const SessionPanelInProgress(position: 6, total: 10),
       const SessionPanelCaughtUp(answeredToday: 25, correctToday: 20),
     ]) {
-      testWidgets('wide tab ${state.runtimeType} dark=$dark', (tester) async {
+      final continuing =
+          state is SessionPanelNeedsAssessment && state.progress != null;
+      testWidgets(
+          'wide tab ${state.runtimeType} ${continuing ? 'continue ' : ''}'
+          'dark=$dark', (tester) async {
         await pump(
           tester,
           const Padding(
@@ -121,12 +136,24 @@ void main() {
           expect(find.text('Continue Reviews'), findsOneWidget);
         }
         if (state is SessionPanelNeedsAssessment) {
-          expect(find.text('First, a short assessment'), findsOneWidget);
+          if (state.progress == null) {
+            expect(find.text('First, a short assessment'), findsOneWidget);
+            expect(find.text('Start Assessment'), findsOneWidget);
+          } else {
+            expect(find.text('Continue the assessment'), findsOneWidget);
+            expect(find.text('8 of 30 answered.'), findsOneWidget);
+            expect(find.text('Continue'), findsOneWidget);
+            expect(find.text('Enter'), findsOneWidget);
+            expect(find.text('First, a short assessment'), findsNothing);
+          }
         }
         if (state is SessionPanelInProgress) {
+          // Board A (W_Quiz, his pick Nov 25): no sentence; Discard then
+          // Resume at the right of the foot.
+          expect(find.textContaining('You paused'), findsNothing);
           expect(
-            find.text('You paused. Every answer was saved.'),
-            findsOneWidget,
+            tester.getCenter(find.text('Discard this session')).dx,
+            lessThan(tester.getCenter(find.text('Resume')).dx),
           );
         }
         if (state is SessionPanelCaughtUp) {
@@ -171,6 +198,11 @@ void main() {
             find.text('Finish the Notes'),
             pro && correct < 10 ? findsOneWidget : findsNothing,
           );
+          expect(
+            find.text('Note why you missed each one.'),
+            pro && correct < 10 ? findsOneWidget : findsNothing,
+          );
+          expect(find.textContaining('Tell Pantas'), findsNothing);
           if (correct == 2) {
             expect(find.text('See all 8 mistakes'), findsOneWidget);
             // QS_EndLow: teal and bold; the all-questions link is plain.
@@ -183,7 +215,18 @@ void main() {
           final close = find.byKey(const ValueKey('results-close'));
           expect(tester.getSize(close), const Size(44, 44));
           expect(tester.getTopLeft(close), const Offset(20, 10));
-          expect(tester.getTopLeft(find.text('Done')).dy, greaterThan(400));
+          // Button placement: Done is top right, level with the title.
+          final title = find.text(
+            correct == 10 ? 'Perfect!' : 'Session finished.',
+          );
+          expect(
+            tester.getCenter(find.text('Done')).dy,
+            closeTo(tester.getCenter(title).dy, 1),
+          );
+          expect(
+            tester.getTopLeft(find.text('Done')).dx,
+            greaterThan(tester.getTopRight(title).dx),
+          );
           expect(tester.takeException(), isNull);
         });
       }

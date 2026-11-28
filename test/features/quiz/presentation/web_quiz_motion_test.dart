@@ -7,6 +7,7 @@ import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/report_form.dart';
+import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
@@ -330,7 +331,7 @@ void main() {
             pro: true,
             onBack: () {},
             onNote: (_, __, ___) async {},
-            onReport: (_) async => true,
+            onReport: (_) async => ReportDelivery.sent,
           ),
           still: still,
         ),
@@ -425,12 +426,12 @@ void main() {
       }
     });
 
-    testWidgets('Q6 wide report slides in and out like the phone, $mode',
+    testWidgets('Q6 wide report drops in like the board popover, $mode',
         (tester) async {
       wide(tester);
       final db = inMemoryDatabase();
       addTearDown(db.close);
-      final queue = ReportQueue(db);
+      final queue = ReportQueue(db, account: () => 'a');
       await tester.pumpWidget(
         app(
           Scaffold(
@@ -466,13 +467,22 @@ void main() {
         expect(form, findsNothing);
         return;
       }
-      await tester.pump(const Duration(milliseconds: 150));
-      expect(shown(tester, form), greaterThan(0));
-      expect(shown(tester, form), lessThan(1));
-      final rising = tester.getTopLeft(form).dy;
-      await tester.pumpAndSettle();
+      // QN_Report (Pantas Web): `.popover` is `drop .2s ease-out`, from 6 px
+      // above and transparent to in place. ease-out is cubic-bezier(0,0,.58,1).
+      expect(WebOverlayMotion.dropdown.open, const Duration(milliseconds: 200));
+      expect(WebOverlayMotion.dropdown.curve, const Cubic(0, 0, .58, 1));
+      expect(WebOverlayMotion.dropdown.rise, -6);
+      await tester.pump(const Duration(milliseconds: 100));
+      final eased = const Cubic(0, 0, .58, 1).transform(.5);
+      expect(shown(tester, form), closeTo(eased, .02));
+      final mid = tester.getTopLeft(form).dy;
+      await tester.pump(const Duration(milliseconds: 100));
       expect(shown(tester, form), 1);
-      expect(tester.getTopLeft(form).dy, lessThan(rising));
+      final landed = tester.getTopLeft(form).dy;
+      // Above its place at the start, and 6 px * (1 - eased) off at 100 ms.
+      expect(landed - mid, closeTo(6 * (1 - eased), .5));
+      await tester.pumpAndSettle();
+      expect(tester.getTopLeft(form).dy, landed);
       await tester.tap(find.byTooltip('Close report'));
       await tester.pump();
       await tester.pump(const Duration(milliseconds: 150));

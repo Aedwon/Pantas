@@ -4,13 +4,14 @@
 //   contentPro/{id}             wrong-choice notes (Pro only)
 //   content/catalog/items/{id}  the catalog (structure and ids, no text); format in web/README.md
 // Usage: node upload_content.mjs [--root content] [--dry-run] [--live] [--project ID] [--skip-invalid]
-//                                [--export FILE] [--out-dir DIR]
+//                                [--export FILE] [--out-dir DIR] [--full-scan]
 // The catalog needs the exam, subject, topic and blueprint rows the bundled build produces. Pass
 // --export FILE (the output of tools/build_content_export) or the tool runs that build itself with `dart`.
 // The approval gate and lesson checks run before document construction in every mode, including --dry-run,
 // --live, --out-dir and emulator runs. --skip-invalid does not bypass it.
 // --out-dir DIR writes every document to files and touches no database.
-// Without FIRESTORE_EMULATOR_HOST the tool refuses to write unless --live is given.
+// Without FIRESTORE_EMULATOR_HOST the tool refuses to write unless --live is given; --dry-run --live
+// reads the live project to plan and writes nothing.
 // Build the functions first (npm --prefix functions run build): this reads functions/lib.
 import {existsSync, mkdirSync, mkdtempSync, readdirSync, readFileSync, statSync, writeFileSync} from 'node:fs';
 import {spawnSync} from 'node:child_process';
@@ -20,6 +21,7 @@ import {dirname, join, relative, resolve} from 'node:path';
 import {fileURLToPath, pathToFileURL} from 'node:url';
 
 import {assertResolvedLessonSize, checkIllustrationFiles, resolveLessonIllustrations} from './lesson_illustrations.mjs';
+import {guardLiveRun} from './upload_budget.mjs';
 
 const here = dirname(fileURLToPath(import.meta.url));
 const functionsDir = resolve(here, '../../functions');
@@ -33,6 +35,9 @@ const root = resolve(option('--root', resolve(here, '../../content')));
 const dryRun = flag('--dry-run');
 const live = flag('--live');
 const skipInvalid = flag('--skip-invalid');
+// Plans from the stored version list by default (about 6 reads). --full-scan reads every stored document
+// instead, as a deliberate check, and rewrites the list.
+const fullScan = flag('--full-scan');
 const outDir = option('--out-dir', undefined);
 
 function walk(dir, ext) {
@@ -72,7 +77,7 @@ if (lessonChecks.status !== 0) {
   process.exit(1);
 }
 
-const {blueprintItem, catalogItems, gapItem, lessonItem, lessonQuizSize, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
+const {blueprintItem, catalogItems, expectedPlanReads, gapItem, lessonItem, lessonQuizSize, questionSetItems, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
 const items = [];
 const pros = [];
 const invalid = [];
@@ -176,16 +181,47 @@ if (outDir) {
     const served = payload === undefined ? fields : item.kind === 'catalog' ? JSON.parse(payload) : {id: item.id, ...JSON.parse(payload)};
     writeFileSync(join(dir, `${item.id}.json`), JSON.stringify(served));
   }
+  // The Pro copy of each question set, built the way getContent builds it (functions/src/_proNotes.ts).
+  const {mergeProNotes} = await import(pathToFileURL(join(functionsDir, 'lib/_proNotes.js')));
+  mkdirSync(join(resolve(outDir), 'questions-pro'), {recursive: true});
+  for (const item of items.filter(i => i.kind === 'questions')) {
+    const set = {id: item.id, ...JSON.parse(item.data.payload)};
+    const pro = pros.find(p => p.id === item.id);
+    if (pro) mergeProNotes(set.questions, JSON.parse(pro.data.payload));
+    writeFileSync(join(resolve(outDir), 'questions-pro', `${item.id}.json`), JSON.stringify(set));
+  }
   console.log(`wrote documents to ${resolve(outDir)}`);
   process.exit(0);
 }
 
-if (dryRun && !process.env.FIRESTORE_EMULATOR_HOST) {
+// --dry-run --live plans against the live project from the stored version list (about 6 reads; --full-scan
+// reads every stored version, about 1,500) and writes nothing. Before it reads, it checks the project's reads today against the budget and exits 75 if
+// the run would pass it (upload_budget.mjs). Still count the reads first (docs/deploy-prod.md, "Count before every hosted run").
+if (dryRun && !process.env.FIRESTORE_EMULATOR_HOST && !live) {
   console.log('dry run: no database was read or written');
   process.exit(0);
 }
+const project = option('--project', process.env.GCLOUD_PROJECT ?? 'demo-pantas-test');
+// The plan reads the version list (one document per kind) and the bank marker; --full-scan reads every stored
+// document instead. The check runs before the first Firestore read and has no override (upload_budget.mjs).
+// If a kind's list is missing or wrong, writeContent asks again before it scans that kind.
+let planned = 0;
+const checkReads = async (reads) => {
+  planned += reads;
+  return guardLiveRun({live, emulator: Boolean(process.env.FIRESTORE_EMULATOR_HOST), outDir, project, expected: planned});
+};
+const refused = await checkReads(expectedPlanReads(items, {fullScan}));
+if (refused) process.exit(refused);
 const {initializeApp} = require('firebase-admin/app');
 const {getFirestore} = require('firebase-admin/firestore');
-initializeApp({projectId: option('--project', process.env.GCLOUD_PROJECT ?? 'demo-pantas-test')});
-const result = await writeContent(getFirestore(), items, pros, {dryRun});
-console.log(`${dryRun ? 'dry run: would write' : 'wrote'} ${JSON.stringify(result.counts)}, pro documents changed: ${result.proWritten}`);
+initializeApp({projectId: project});
+let result;
+try {
+  result = await writeContent(getFirestore(), items, pros, {dryRun, fullScan, beforeReads: async (reads) => {
+    if (await checkReads(reads)) throw new Error('read budget');
+  }});
+} catch (error) {
+  if (error.message !== 'read budget') throw error;
+  process.exit(75);
+}
+console.log(`${dryRun ? 'dry run: would write' : 'wrote'} ${JSON.stringify(result.counts)}, pro documents changed: ${result.proWritten}, lesson and question-set changes: ${result.bankChanges}, exam summaries: ${result.summaries}`);

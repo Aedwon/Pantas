@@ -17,6 +17,7 @@ class PantasTapArea extends StatelessWidget {
     this.borderRadius = BorderRadius.zero,
     this.wash = true,
     this.focusRing = true,
+    this.pressScale = true,
     this.washColor,
     super.key,
   });
@@ -32,6 +33,9 @@ class PantasTapArea extends StatelessWidget {
 
   /// False when a parent draws the ring (a row inside a clipped card).
   final bool focusRing;
+
+  /// False when the child draws its own press (the reader bookmark's .82).
+  final bool pressScale;
 
   /// The color the hover wash is made from, at `opacity-hover`. An icon
   /// button washes in its icon's color (IconButton README); null uses
@@ -52,7 +56,7 @@ class PantasTapArea extends StatelessWidget {
           on: focusRing,
           borderRadius: borderRadius,
           child: PressScale(
-            enabled: enabled,
+            enabled: enabled && pressScale,
             child: FocusableActionDetector(
               enabled: enabled,
               mouseCursor:

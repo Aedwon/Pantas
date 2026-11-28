@@ -12,7 +12,6 @@ import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/lesson_search_providers.dart';
 import 'package:pantas/features/lesson/application/study_map_providers.dart';
 import 'package:pantas/features/lesson/domain/models/lesson_search_hit.dart';
@@ -55,12 +54,7 @@ class SearchResults extends ConsumerWidget {
                   title: lesson.title,
                   titleColor:
                       lesson.isRead ? context.colors.secondaryLabel : null,
-                  footer: LessonBiteLabel(
-                    lessonId: lesson.id,
-                    part: lesson.part,
-                    partCount: lesson.partCount,
-                    topicLine: topicByLesson[lesson.id],
-                  ),
+                  footer: lessonTopicFooter(context, topicByLesson[lesson.id]),
                   leading: SizedBox.square(
                     dimension: 24,
                     child: lesson.isRead
@@ -230,15 +224,10 @@ class _HitRow extends StatelessWidget {
             ? null
             : _spans(hit.titleMatch!, context.type.body),
         verticalPadding: 12,
-        // Line order: title, label, topic line, then the snippet.
+        // Line order: title, topic line, then the snippet.
         footer: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            LessonBiteLabel(
-              lessonId: hit.lessonId,
-              part: hit.part,
-              partCount: hit.partCount,
-            ),
             Builder(
               builder: (context) {
                 final topicMatch =

@@ -6,7 +6,8 @@ import 'dart:io';
 import '../generator/lib/src/check/files.dart';
 import 'check.dart';
 
-/// A generated list must never reach content delivery without independent checks.
+/// A generated list must never reach content delivery without independent
+/// checks.
 class GeneratedTypesCheck extends Check {
   const GeneratedTypesCheck();
   @override
@@ -19,15 +20,19 @@ class GeneratedTypesCheck extends Check {
     final heldPath = '$root/content/types-held';
     if (!Directory(path).existsSync() && !Directory(heldPath).existsSync()) {
       stdout.writeln(
-          '      no content/types/ directory; generated types skipped');
+        '      no content/types/ directory; generated types skipped',
+      );
       return [];
     }
     final failures = checkTypeFiles(root: root, typesPath: path)
       ..addAll(checkTypeFiles(root: root, typesPath: heldPath, held: true));
     return failures
-        .map((failure) => Violation(
+        .map(
+          (failure) => Violation(
             '${failure.typeId} #${failure.index} ${failure.check}',
-            failure.reason))
+            failure.reason,
+          ),
+        )
         .toList();
   }
 }

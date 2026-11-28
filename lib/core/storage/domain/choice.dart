@@ -16,6 +16,11 @@ abstract class Choice with _$Choice {
     /// who picked it. Null until the generation pass lands, in which case
     /// note B does not render.
     String? rationale,
+
+    /// JSON of one figure item, for a figure choice (a series item, a matrix
+    /// cell or a shape-row shape). Null for a text choice. `text` then
+    /// describes the figure for a screen reader and is never shown.
+    String? figureJson,
   }) = _Choice;
 
   factory Choice.fromJson(Map<String, dynamic> json) => _$ChoiceFromJson(json);

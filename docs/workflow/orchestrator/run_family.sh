@@ -4,14 +4,14 @@
 # Exit 75 means every Codex account is full; ORCH_DIR/CODEX_FULL holds the reset line.
 # A stage whose output already ends with STAGE-DONE is skipped, so a rerun resumes.
 n=$1; D=${ORCH_DIR:?}; W=${ORCH_WORKTREE:?}
-COMMON=(-m gpt-6.1-sol -c 'model_reasoning_effort="low"' -s workspace-write
+COMMON=(-m gpt-6.2-sol -c 'model_reasoning_effort="low"' -s workspace-write
   -c 'sandbox_workspace_write.network_access=true' -C "$W"
   --add-dir /opt/homebrew --add-dir ~/.pub-cache --add-dir ~/.dart-tool --add-dir ~/.flutter
   --add-dir ~/development --add-dir /private/tmp --add-dir ~/.cache --add-dir ~/.npm
   ${ORCH_EXTRA_DIRS:+--add-dir "$ORCH_EXTRA_DIRS"} --skip-git-repo-check)
 # Build and fix write to the worktree and need the Flutter, pub and npm caches and network for
 # dependency fetches. Review only reads, so it runs read-only with no network.
-REVIEW=(-m gpt-6.1-sol -c 'model_reasoning_effort="low"' -s read-only -C "$W" ${ORCH_EXTRA_DIRS:+--add-dir "$ORCH_EXTRA_DIRS"} --skip-git-repo-check)
+REVIEW=(-m gpt-6.2-sol -c 'model_reasoning_effort="low"' -s read-only -C "$W" ${ORCH_EXTRA_DIRS:+--add-dir "$ORCH_EXTRA_DIRS"} --skip-git-repo-check)
 step() { # $1 stage, $2 prompt
   [ -s "$D/$n.$1.out" ] && grep -q "^STAGE-DONE" "$D/$n.$1.out" && return 0
   if [ "$1" = review ]; then ARGS=("${REVIEW[@]}"); else ARGS=("${COMMON[@]}"); fi

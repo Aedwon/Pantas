@@ -65,6 +65,38 @@ void main() {
       expect(ring.top.width, 1);
     });
 
+    testWidgets('the onboarding Back is the OB_Days link $dark',
+        (tester) async {
+      await pump(
+        tester,
+        OnboardingWebPage(
+          title: 'Title',
+          onBack: () {},
+          children: const [SizedBox(height: 10)],
+        ),
+      );
+      // Board OB_Days: 36 high, 4 px before the arrow, 10 px after the label,
+      // radius 9, and 10 px left of the column.
+      final back = find.byType(WebBackLink);
+      final button = find.descendant(
+        of: back,
+        matching: find.byType(TextButton),
+      );
+      expect(tester.getSize(button).height, 36);
+      final shape = tester.widget<TextButton>(button).style!.shape!.resolve({})!
+          as RoundedRectangleBorder;
+      expect(shape.borderRadius, BorderRadius.circular(9));
+      final padding = tester
+          .widget<TextButton>(button)
+          .style!
+          .padding!
+          .resolve({})! as EdgeInsets;
+      expect(padding.left, 4);
+      expect(padding.right, 10);
+      final column = tester.getTopLeft(find.text('Title')).dx;
+      expect(tester.getTopLeft(button).dx, column - 10);
+    });
+
     testWidgets('onboarding buttons are 48 tall $dark', (tester) async {
       await pump(
         tester,

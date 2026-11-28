@@ -26,7 +26,9 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
     Stream<void> Function()? onlineEvents,
     Duration localMutationDebounce = const Duration(seconds: 5),
     Duration retryBaseDelay = const Duration(seconds: 1),
-  })  : _db = db,
+    DateTime Function()? now,
+  })  : _now = now ?? DateTime.now,
+        _db = db,
         _gateway = gateway,
         _activeContextStore = activeContextStore,
         _deviceId = deviceId,
@@ -47,6 +49,7 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
   /// seconds. Only tests shorten it.
   final Duration _retryBaseDelay;
   final Stream<void> Function() _onlineEvents;
+  final DateTime Function() _now;
 
   final _events = StreamController<SyncRuntimeEvent>.broadcast();
   final _remoteSubscriptions = <StreamSubscription<List<SyncDocument>>>[];
@@ -60,6 +63,10 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
   StreamSubscription<void>? _onlineSubscription;
   Timer? _localMutationTimer;
   Timer? _retryTimer;
+  Timer? _pauseTimer;
+  // Set while the server has paused this account's sync: nothing is pushed
+  // and no retry runs until this time.
+  DateTime? _pausedUntil;
   Duration _retryDelay;
   bool _awaitingFirstSnapshots = false;
   bool _flushWhenSettled = false;
@@ -71,6 +78,10 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
   String? _generationId;
   int _runToken = 0;
   bool _running = false;
+
+  /// sync_meta key naming the account and generation the engine last started
+  /// for on this device.
+  static const runKey = 'sync_engine_run';
 
   Stream<SyncRuntimeEvent> get events => _events.stream;
   bool get isRunning => _running;
@@ -95,6 +106,10 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
     _offlinePaths.clear();
     _uid = uid;
     _generationId = generationId;
+    final run = '$uid/$generationId';
+    await _db.into(_db.syncMeta).insertOnConflictUpdate(
+          SyncMetaCompanion.insert(key: runKey, value: run),
+        );
     final queue = PendingQueue(_db);
     final pull = PullPipeline(
       db: _db,
@@ -102,6 +117,15 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
       uid: uid,
       generationId: generationId,
       deviceId: _deviceId,
+      // The local wipe deletes this key, and a start elsewhere (another tab)
+      // replaces it. Either way, answers still arriving for this run are not
+      // written: they could put a previous account's rows back.
+      mayWrite: () async {
+        final row = await (_db.select(_db.syncMeta)
+              ..where((meta) => meta.key.equals(runKey)))
+            .getSingleOrNull();
+        return row?.value == run;
+      },
     );
     final loader = SyncLocalPayloadLoader(db: _db, deviceId: _deviceId);
     final push = PushPipeline(
@@ -113,6 +137,7 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
       isAnonymous: false,
       loadPayload: loader.load,
       handleResult: pull.handlePushResult,
+      onPermissionDenied: () => _enterPauseIfSuspended(uid, generationId),
     );
     final promoter = SyncOutboxPromoter(
       _db,
@@ -266,6 +291,9 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
     _offlinePaths.clear();
     _retryTimer?.cancel();
     _retryTimer = null;
+    _pauseTimer?.cancel();
+    _pauseTimer = null;
+    _pausedUntil = null;
     _retryDelay = _retryBaseDelay;
     _awaitingFirstSnapshots = false;
     _flushWhenSettled = false;
@@ -302,6 +330,7 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
       return Future<void>.value();
     }
 
+    if (_running && _pausedUntil != null) return Future<void>.value();
     if (_running && _awaitingFirstSnapshots) {
       _flushWhenSettled = true;
       return Future<void>.value();
@@ -400,7 +429,10 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
           variables: [Variable<String>(uid), Variable<String>(generationId)],
         ).get();
         if (_isCurrent(token, uid, generationId)) {
-          if (waiting.isNotEmpty || journal.isNotEmpty) {
+          if (_pausedUntil != null) {
+            _retryTimer?.cancel();
+            _retryTimer = null;
+          } else if (waiting.isNotEmpty || journal.isNotEmpty) {
             _scheduleRetry(token: token, uid: uid, generationId: generationId);
           } else {
             _retryTimer?.cancel();
@@ -437,9 +469,53 @@ class ProductionSyncRuntimeEngine implements SyncRuntimeEngine {
   }
 
   void _emit(SyncRuntimeEvent event) {
+    // While paused, a local change or a finished download must not read as
+    // backing up or as saved: nothing is being sent.
+    final pausedUntil = _pausedUntil;
+    final shown = pausedUntil != null &&
+            (event is SyncRuntimeActivity || event is SyncRuntimeSettled)
+        ? SyncRuntimePaused(pausedUntil)
+        : event;
     if (!_events.isClosed) {
-      _events.add(event);
+      _events.add(shown);
     }
+  }
+
+  /// After a push is refused with permission-denied: reads the account's
+  /// server-owned pause time. When it is still in the future, the engine
+  /// pauses until then and returns true. Any other case, including a failed
+  /// read, returns false and leaves the refusal to the usual handling.
+  Future<bool> _enterPauseIfSuspended(
+    String uid,
+    String generationId,
+  ) async {
+    final DateTime? until;
+    try {
+      final state =
+          await _gateway.readDocument('users/$uid/sync_state/current');
+      final value = state?.data['suspendedUntil'];
+      until = value is DateTime ? value.toUtc() : null;
+    } on Object {
+      return false;
+    }
+    if (until == null || !until.isAfter(_now().toUtc())) return false;
+    if (!_running || _uid != uid || _generationId != generationId) {
+      return false;
+    }
+    _pausedUntil = until;
+    _retryTimer?.cancel();
+    _retryTimer = null;
+    _retryDelay = _retryBaseDelay;
+    _pauseTimer?.cancel();
+    final token = _runToken;
+    _pauseTimer = Timer(until.difference(_now().toUtc()), () {
+      _pauseTimer = null;
+      if (!_isCurrent(token, uid, generationId)) return;
+      _pausedUntil = null;
+      unawaited(forceFlush().catchError((Object _, StackTrace __) {}));
+    });
+    _emit(SyncRuntimePaused(until));
+    return true;
   }
 
   Future<void> _enqueue(Future<void> Function() operation) {

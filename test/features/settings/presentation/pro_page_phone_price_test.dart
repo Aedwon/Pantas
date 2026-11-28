@@ -79,14 +79,37 @@ void main() {
     expect(hero, findsOneWidget);
     for (final text in [
       "See exactly what's losing you points.",
+      'Full adaptive plan, tailored for you',
       'Unlimited mock exams',
-      'Results by topic and lesson',
+      'Detailed explanations',
+      'Concept-specific results',
+      'Your tendencies as a test-taker',
     ]) {
       expect(
         find.descendant(of: hero, matching: find.text(text)),
         findsOneWidget,
       );
     }
+    for (final old in [
+      'Notes on why your answer was wrong',
+      'The figures behind your study habits',
+      "Progress that's always backed up",
+      'Results by topic and lesson',
+    ]) {
+      expect(find.descendant(of: hero, matching: find.text(old)), findsNothing);
+    }
+    // His order, top to bottom.
+    final tops = [
+      for (final text in [
+        'Full adaptive plan, tailored for you',
+        'Unlimited mock exams',
+        'Detailed explanations',
+        'Concept-specific results',
+        'Your tendencies as a test-taker',
+      ])
+        tester.getTopLeft(find.text(text)).dy,
+    ];
+    expect([...tops]..sort(), tops);
     final box = tester.widget<Container>(hero).decoration! as BoxDecoration;
     expect(box.gradient, isA<LinearGradient>());
   });

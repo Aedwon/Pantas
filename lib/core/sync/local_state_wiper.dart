@@ -1,8 +1,14 @@
+import 'package:drift/drift.dart' show StringExpressionOperators;
 import 'package:pantas/core/auth/auth_repository.dart';
 import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
+import 'package:pantas/core/storage/data/report_queue.dart';
+import 'package:pantas/core/storage/data/repos/app_preferences_repository.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart'
     show customExamIdPrefix;
+
+/// Device-prefs key of an open first run; the first-run store uses it too.
+const firstRunDeviceKey = 'first_run_open_v1';
 
 class SyncLocalStateWiper implements LocalStateWiper {
   SyncLocalStateWiper(
@@ -13,6 +19,12 @@ class SyncLocalStateWiper implements LocalStateWiper {
         _clearCustomExams = clearCustomExams;
 
   static const _selectedExamKey = 'selected_exam_id';
+  static const _guardianKeys = [
+    'guardian_contact_name',
+    'guardian_contact_email',
+    'guardian_status',
+    'guardian_sharing_applied',
+  ];
 
   final AppDatabase _db;
   final NotificationService? _notifications;
@@ -71,6 +83,33 @@ class SyncLocalStateWiper implements LocalStateWiper {
               (row) => row.key.equals('payment_last_confirmed_entitlement_v1'),
             ))
           .go();
+      // A guardian's name and email belong to a third party and sit here in
+      // plain text. The server keeps only a hash and a masked address, so
+      // nothing here is worth keeping for the next account. The closed-account
+      // marker stays: it belongs to the device.
+      await (_db.delete(_db.devicePrefs)
+            ..where((row) => row.key.isIn(_guardianKeys)))
+          .go();
+      // Question reports are the student's own words and are sent under the
+      // account that wrote them. Sign-out first sends this account's pending
+      // reports and refuses if any cannot go; whatever is left here (refused
+      // ones, a report filed in another tab) must not reach the next account.
+      await (_db.delete(_db.devicePrefs)
+            ..where((row) => row.key.equals(ReportQueue.storageKey)))
+          .go();
+      // A saved assessment in progress is the account's own answers. They sit
+      // in device prefs, keyed by account, so the wipe clears them by prefix.
+      await (_db.delete(_db.devicePrefs)
+            ..where(
+              (row) => row.key.like(
+                '${AppPreferencesRepository.assessmentProgressKeyPrefix}%',
+              ),
+            ))
+          .go();
+      // An open first run belongs to the account that started it.
+      await (_db.delete(_db.devicePrefs)
+            ..where((row) => row.key.equals(firstRunDeviceKey)))
+          .go();
       await _db.delete(_db.attemptsLocal).go();
       await _db.delete(_db.assessmentResultsLocal).go();
       await _db.delete(_db.reviewStateLocal).go();
@@ -92,6 +131,9 @@ class SyncLocalStateWiper implements LocalStateWiper {
       await _db.delete(_db.customBlueprintsLocal).go();
       // The next account on a shared browser must not see this track's name.
       await _db.delete(_db.customTrackMetaLocal).go();
+      // Change records and accepted versions for the rows deleted above.
+      await _db.delete(_db.syncLocalMutations).go();
+      await _db.delete(_db.syncRowMeta).go();
 
       // A custom exam belongs to the account. A listed exam's selection is
       // device state and stays.

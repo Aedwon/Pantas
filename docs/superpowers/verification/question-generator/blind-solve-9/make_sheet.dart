@@ -2,6 +2,7 @@
 // Picks index 0, the two audit examples (43, 46) and two seeded picks.
 // Run from the repository root:
 //   dart run docs/superpowers/verification/question-generator/blind-solve-9/make_sheet.dart <sheet.md> <key.txt>
+// ignore_for_file: cascade_invocations, lines_longer_than_80_chars
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';

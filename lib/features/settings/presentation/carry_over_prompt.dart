@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -552,6 +553,7 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                 Column(
                   children: [
                     Container(
+                      key: const ValueKey('transfer-vessel'),
                       width: 104,
                       height: 168,
                       clipBehavior: Clip.hardEdge,
@@ -559,7 +561,15 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                         color: old
                             ? Color.lerp(c.fill, c.accentTint, drain)
                             : c.fill,
-                        borderRadius: BorderRadius.circular(PantasRadius.r2xl),
+                        borderRadius: BorderRadius.circular(_vesselRadius),
+                      ),
+                      // The inset 1.5 px ring is drawn over the fill.
+                      foregroundDecoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(_vesselRadius),
+                        border: Border.all(
+                          color: c.separator,
+                          width: _vesselRing,
+                        ),
                       ),
                       child: Stack(
                         children: [
@@ -571,16 +581,38 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                               0,
                               168 * 1.1 * (old ? drain : 1 - drain),
                             ),
-                            child: SizedBox.expand(
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [c.liquidStart, c.liquidEnd],
+                            child: Stack(
+                              clipBehavior: Clip.none,
+                              children: [
+                                Positioned.fill(
+                                  child: DecoratedBox(
+                                    decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                        colors: [c.liquidStart, c.liquidEnd],
+                                      ),
+                                    ),
                                   ),
                                 ),
-                              ),
+                                // The meniscus: 8 px past each side, 10 px up.
+                                Positioned(
+                                  left: -8,
+                                  top: -10,
+                                  child: CustomPaint(
+                                    key: ValueKey(
+                                      old
+                                          ? 'transfer-wave-old'
+                                          : 'transfer-wave-new',
+                                    ),
+                                    size: const Size(120, 12),
+                                    painter: _TransferWave(
+                                      c.liquidStart,
+                                      half: true,
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           ),
                           if (check)
@@ -763,9 +795,14 @@ class _TransferScreenState extends ConsumerState<CarryOverScreen>
                                         ? null
                                         : () => _choose(count: true),
                                   ),
+                                  // Board ST_ExamSwitch: 8 px between them.
+                                  const SizedBox(height: PantasSpace.s8),
                                   PantasButton(
                                     label: 'Start My Numbers Fresh',
                                     variant: PantasButtonVariant.tertiary,
+                                    // ST_ExamSwitch: the 52 full-width ghost
+                                    // button.
+                                    size: PantasButtonSize.phone,
                                     onPressed: _saving
                                         ? null
                                         : () => _choose(count: false),
@@ -833,24 +870,37 @@ class CarryOverRequest {
 }
 
 // ST_ExamSwitchCount's SVG surface, repeated across the moving liquid.
+// ds-board: ST_ExamSwitchCount phone vessel radius and ring.
+const double _vesselRadius = 34;
+const double _vesselRing = 1.5;
+
 class _TransferWave extends CustomPainter {
-  const _TransferWave(this.color);
+  const _TransferWave(this.color, {this.half = false});
   final Color color;
+
+  /// The phone vessel draws one 120 wide period (board ST_ExamSwitchCount);
+  /// the wide vessel draws two.
+  final bool half;
 
   @override
   void paint(Canvas canvas, Size size) {
+    final span = half ? 120.0 : 240.0;
     canvas
       ..save()
-      ..scale(size.width / 240, size.height / 12);
+      ..scale(size.width / span, size.height / 12);
     final wave = Path()
       ..moveTo(0, 8)
       ..cubicTo(15, 2, 30, 2, 45, 7)
       ..cubicTo(60, 12, 75, 12, 90, 6)
-      ..cubicTo(105, 0, 112, 2, 120, 6)
-      ..cubicTo(128, 10, 135, 2, 165, 7)
-      ..cubicTo(195, 12, 195, 12, 210, 6)
-      ..cubicTo(225, 0, 232, 2, 240, 6)
-      ..lineTo(240, 12)
+      ..cubicTo(105, 0, 112, 2, 120, 6);
+    if (!half) {
+      wave
+        ..cubicTo(128, 10, 135, 2, 165, 7)
+        ..cubicTo(195, 12, 195, 12, 210, 6)
+        ..cubicTo(225, 0, 232, 2, 240, 6);
+    }
+    wave
+      ..lineTo(span, 12)
       ..lineTo(0, 12)
       ..close();
     canvas
@@ -859,5 +909,6 @@ class _TransferWave extends CustomPainter {
   }
 
   @override
-  bool shouldRepaint(_TransferWave oldDelegate) => oldDelegate.color != color;
+  bool shouldRepaint(_TransferWave oldDelegate) =>
+      oldDelegate.color != color || oldDelegate.half != half;
 }

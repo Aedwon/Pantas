@@ -218,80 +218,27 @@ const journeys = {
     await seeLabel(page, /What should we call you/, 90, 'Name after the reload');
   },
 
-  // Nov 10: a guardian can turn sharing off and withdraw from the manage page,
-  // and the student's account ends. The student is 17 on a new
-  // browser; the guardian's links come from the emulator's mail log.
-  async 'A guardian confirms, manages and withdraws, and the student is signed out'(page) {
-    const student = page;
-    await student.goto(`${BASE}/local-panel.html`, {waitUntil: 'load'});
-    await student.evaluate(() => localStorage.setItem('pantas.local.preset', 'birthYear'));
-    await student.goto(`${BASE}/local-reset.html`, {waitUntil: 'domcontentloaded'});
-    // The age step starts at 17, which is the age of this student.
-    await seeLabel(student, /How old are you/, 120, 'the age step');
-    await student.waitForTimeout(700);
-    await clickLabel(student, /^Continue/);
-    await seeLabel(student, /A parent or guardian needs to agree first/, 60, 'the guardian step');
-    // The first field has the keys already, as the page says.
-    await student.waitForTimeout(1000);
-    await student.keyboard.type('Maria Santos', {delay: 30});
-    await student.keyboard.press('Tab');
-    await student.waitForTimeout(700);
-    // A new address each run: the server allows three requests a day to one address.
-    await student.keyboard.type(`maria.${Date.now()}@example.com`, {delay: 30});
-    const before = logSize();
-    await clickLabel(student, /^Send Link/);
-    await seeLabel(student, /Waiting for your parent or guardian/, 60, 'the waiting page');
-    const links = await until('the guardian email in the emulator log',
-      async () => guardianLinks(before), 60, student);
-
-    // The guardian opens the links in another browser, signed out.
-    const guardian = await student.context().browser().newContext({
-      viewport: {width: 1440, height: 900}, locale: 'en-PH',
-    });
-    const g = await guardian.newPage();
-    try {
-      await g.goto(`${BASE}/guardian?token=${links.confirm}`, {waitUntil: 'domcontentloaded'});
-      await seeLabel(g, /Confirm your child's account/, 90, 'the confirm page');
-      await setControl(g, /I'm their parent or guardian, and I agree/, true);
-      await setControl(g, /Allow optional usage sharing/, true);
-      await clickLabel(g, /^Confirm$/);
-      await seeLabel(g, /^Thank you/, 60, 'Thank you');
-      await clickLabel(g, /^Manage Permission/);
-      await until('the manage address', () => /\/guardian\/manage\?token=/.test(g.url()), 30, g);
-      await seeLabel(g, /^Manage permission/, 60, 'the manage page');
-      await until('sharing shown on, as the guardian allowed it',
-        async () => (await controlState(g, /Allow optional usage sharing/)) === 'true', 30, g);
-
-      // Sharing off applies at once and stays after a reload.
-      const beforeOff = logSize();
-      await setControl(g, /Allow optional usage sharing/, false);
-      await until('the server to save sharing off',
-        async () => callSucceeded(beforeOff, 'setGuardianSharing'), 30, g);
-      await refuse(g, /Your change was not saved/);
-      await g.reload({waitUntil: 'domcontentloaded'});
-      await seeLabel(g, /^Manage permission/, 90, 'the manage page after a reload');
-      await until('sharing still off after the reload',
-        async () => (await controlState(g, /Allow optional usage sharing/)) === 'false', 30, g);
-
-      // Withdraw asks once, then the account closes.
-      await clickLabel(g, /^Withdraw Permission/);
-      await seeLabel(g, /^Your child is signed out, and their account/, 30, 'the Withdraw dialog');
-      await clickLabel(g, /^Withdraw$/);
-      await seeLabel(g, /^Permission withdrawn/, 90, 'the withdrawn page');
-    } catch (error) {
-      // The runner shows the student's page; the guardian's is the one that failed.
-      await g.screenshot({path: `${OUT}/guardian_page.png`}).catch(() => {});
-      const seen = JSON.stringify((await labels(g).catch(() => [])).slice(0, 30));
-      throw new Error(`${error.message} (guardian page ${g.url()}, labels ${seen})`);
-    } finally {
-      await guardian.close();
-    }
-
-    // The student's account is gone, so a new session starts over.
-    await student.reload({waitUntil: 'domcontentloaded'});
-    await seeLabel(student, /A parent or guardian needs to agree first/, 120,
-      'the student asked for a guardian again');
-    await refuse(student, /Waiting for your parent or guardian/);
+  // Nov 25 (option C): under-18 sign-up is closed, and the server refuses new
+  // guardian requests. A student who enters 17 meets the blocked page, there is
+  // no guardian step, and the block lasts through a reload. The Nov 10 journey
+  // that started a request from the age step, confirmed it as a guardian,
+  // managed sharing and withdrew can no longer start a request through the
+  // screens. The server side of that path stays covered by the emulator tests
+  // in functions/test/guardian-*.emulator.mjs and the widget tests.
+  async 'A student who enters 17 meets the blocked page and no guardian step'(page) {
+    await page.goto(`${BASE}/local-panel.html`, {waitUntil: 'load'});
+    await page.evaluate(() => localStorage.setItem('pantas.local.preset', 'birthYear'));
+    await page.goto(`${BASE}/local-reset.html`, {waitUntil: 'domcontentloaded'});
+    // The age step starts at 17.
+    await seeLabel(page, /How old are you/, 120, 'the age step');
+    await page.waitForTimeout(700);
+    await clickLabel(page, /^Continue/);
+    await seeLabel(page, /Sorry, this app isn't available for users under 18/, 60, 'the blocked page');
+    await refuse(page, /A parent or guardian needs to agree first/);
+    await page.reload({waitUntil: 'domcontentloaded'});
+    await seeLabel(page, /Sorry, this app isn't available for users under 18/, 120,
+      'the blocked page after a reload');
+    await refuse(page, /A parent or guardian needs to agree first/);
   },
 
   // Every student starts here.

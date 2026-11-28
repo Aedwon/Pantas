@@ -9,6 +9,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/shell/presentation/web_shell.dart';
 
+import '../../helpers/button_placement.dart';
 import '../golden_harness.dart';
 
 /// The two widths every key screen is captured at: a phone and the wide web
@@ -87,6 +88,10 @@ void goldenScreen(
         try {
           final target = await pump(tester, width);
           expect(tester.takeException(), isNull);
+          // Every wide screen sheet also checks button placement (patterns.md,
+          // "Button placement"), so a new screen cannot ship a left or
+          // reversed pair unseen.
+          if (width >= 1024) expectWidePlacement(tester);
           await expectLater(
             target,
             matchesGoldenFile('../files/screens/${name}_${width.toInt()}.png'),

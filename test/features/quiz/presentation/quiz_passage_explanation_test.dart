@@ -345,7 +345,8 @@ void main() {
         (w) => w is PantasSheet && w.label == 'Passage' && w.open,
       );
       expect(sheet, findsOneWidget);
-      await tester.tap(find.text('Close').last);
+      // The board draws no Close: Escape closes the sheet.
+      await tester.sendKeyEvent(LogicalKeyboardKey.escape);
       await tester.pumpAndSettle();
       expect(
         find.byWidgetPredicate(

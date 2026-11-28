@@ -3,11 +3,13 @@ import 'package:flutter/semantics.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
+import 'package:pantas/features/mock_exam/domain/mock_title.dart';
 import 'package:pantas/features/mock_exam/mock_exam.dart';
 
 import '../../../helpers/pump_app.dart';
 
 void main() {
+  _labelTests();
   testWidgets(
     'setup page shows blueprint table, total and start action',
     (tester) async {
@@ -106,5 +108,53 @@ void main() {
     await tester.pump();
     expect(find.textContaining('No pausing'), findsOneWidget);
     semantics.dispose();
+  });
+}
+
+void _labelTests() {
+  ParsedMockBlueprint bp(String examId, String name) => ParsedMockBlueprint(
+        blueprint: MockBlueprint(
+          id: 'bp',
+          examId: examId,
+          name: name,
+          durationMinutes: 90,
+          sectionsJson: '[]',
+          sectionalTiming: SectionalTiming.sectional,
+          totalPublishedItems: 10,
+        ),
+        sections: const [
+          BlueprintSection(
+            id: 's1',
+            name: 'Mental Ability',
+            questionCount: 10,
+            suggestedMinutes: 12,
+            topicIds: ['topic'],
+            topicWeights: {'topic': 1},
+          ),
+        ],
+      );
+  const label = 'Pantas practice exam, not the official format';
+
+  testWidgets('DCAT setup shows the practice-exam label', (tester) async {
+    await tester.pumpApp(
+      MockSetupPage(
+        parsedBlueprint: bp('exam_dlsucet', 'DCAT ($label)'),
+        onStart: (_) {},
+      ),
+    );
+    expect(find.text('DCAT simulation'), findsOneWidget);
+    expect(find.text(label), findsOneWidget);
+  });
+
+  testWidgets('UPCAT setup shows no label', (tester) async {
+    await tester.pumpApp(
+      MockSetupPage(
+        parsedBlueprint: bp('exam_upcat', 'UPCAT Practice Paper'),
+        onStart: (_) {},
+      ),
+    );
+    expect(find.text(label), findsNothing);
+    expect(mockPracticeLabelFor('CSE Professional Practice Paper'), isNull);
+    expect(mockPracticeLabelFor('USTET ($label)'), label);
   });
 }

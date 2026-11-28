@@ -1,39 +1,43 @@
 import 'dart:async';
 import 'dart:convert';
+import 'dart:math' as math;
 
-import 'package:flutter/gestures.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/auth/providers.dart';
+import 'package:pantas/core/config/seller_facts.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
-import 'package:pantas/core/storage/age_gate.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/telemetry.dart';
 import 'package:pantas/core/ui/components/google_sign_in_button.dart';
-import 'package:pantas/core/ui/components/grouped_section.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pro_paused_line.dart';
 import 'package:pantas/core/ui/components/pro_tag.dart';
+import 'package:pantas/core/ui/components/ring_pulse.dart';
 import 'package:pantas/core/ui/components/selectable_tile.dart';
-import 'package:pantas/core/ui/components/selection_row.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/leave_page.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/guardian/application/guardian_providers.dart';
 import 'package:pantas/features/home/application/study_delivery.dart';
 import 'package:pantas/features/paywall/application/custom_subject_tiers.dart';
 import 'package:pantas/features/paywall/application/custom_track_tier.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/data/web_payment_gateway.dart';
+import 'package:pantas/features/paywall/domain/checkout_declaration.dart';
 import 'package:pantas/features/paywall/domain/coverage.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
 import 'package:pantas/features/paywall/domain/payment_operation.dart';
@@ -44,6 +48,7 @@ import 'package:pantas/features/paywall/domain/products.dart';
 import 'package:pantas/features/review_prompt/application/review_prompt_providers.dart';
 import 'package:pantas/features/settings/application/carry_over_providers.dart';
 import 'package:pantas/features/settings/presentation/carry_over_prompt.dart';
+import 'package:pantas/features/settings/presentation/widgets/declaration_card.dart';
 import 'package:pantas/features/settings/presentation/widgets/phone_pro_hero.dart';
 import 'package:pantas/features/settings/presentation/widgets/pro_plan_tile.dart';
 import 'package:pantas/features/settings/presentation/widgets/settings_pane_page.dart';
@@ -111,8 +116,6 @@ class ProPage extends ConsumerStatefulWidget {
   ConsumerState<ProPage> createState() => _ProPageState();
 }
 
-const _guardianBoxLabel = 'I am the parent or guardian and accept the Terms.';
-
 class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   bool _awaitingCheckout = false;
   bool _wasCurrent = true;
@@ -123,19 +126,30 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   bool _restoring = false;
   bool _trialUnavailable = false;
 
-  /// The parent or guardian box on a minor's checkout (boards CB_*).
-  bool _guardianTicked = false;
+  /// The declaration tick beside Pay on every web checkout (boards CB_*,
+  /// S4*_T).
+  /// What the tick was given for: account, wording kind and version, Terms
+  /// version. A tick counts only while this still matches what is shown.
+  String? _tickedFor;
 
-  /// Opens the Terms from the link inside the box's label.
-  final TapGestureRecognizer _termsTap = TapGestureRecognizer();
+  /// The declaration last shown. When it changes, the tick is forgotten, even
+  /// if an earlier one comes back: each wording needs its own fresh tick.
+  String? _shownFor;
+
+  /// The wording the server asked for after it refused the one shown.
+  DeclarationKind? _serverKind;
+
+  /// Ruling C6: where the card and the bar are, so a tap on Pay while it is
+  /// off can bring the card to rest just above the bar.
+  final _cardKey = GlobalKey();
+  final _barKey = GlobalKey();
+  final _tickFocus = FocusNode(debugLabel: 'declaration-tick');
+  final _tickPulse = RingPulseController();
+  bool _showingTick = false;
 
   @override
   void initState() {
     super.initState();
-    _termsTap.onTap = () {
-      final router = GoRouter.maybeOf(context);
-      if (router != null) unawaited(router.push<void>('/legal/terms'));
-    };
     WidgetsBinding.instance.addObserver(this);
     unawaited(ref.read(telemetryProvider).log(TelemetryEvent.proView));
     unawaited(ref.read(reviewPromptControllerProvider).recordPaywallSeen());
@@ -167,19 +181,92 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
 
   @override
   void dispose() {
-    _termsTap.dispose();
     WidgetsBinding.instance.removeObserver(this);
+    _tickFocus.dispose();
     super.dispose();
   }
 
+  /// Ruling C6. Pay was pressed while the box is unticked: say why. A card
+  /// that is not fully visible scrolls to rest 16 px above the bar (400 ms on
+  /// the move curve). Then focus goes to the tick and the ring pulses once,
+  /// never during the scroll. Reduced motion jumps and does not pulse.
+  Future<void> _showTick() async {
+    if (_showingTick) return;
+    _showingTick = true;
+    try {
+      final still = MediaQuery.disableAnimationsOf(context);
+      final card = _cardKey.currentContext;
+      final bar = _barKey.currentContext?.findRenderObject();
+      final cardBox = card?.findRenderObject();
+      final scrollable = card == null ? null : Scrollable.maybeOf(card);
+      if (cardBox is RenderBox &&
+          bar is RenderBox &&
+          scrollable != null &&
+          cardBox.attached &&
+          bar.attached) {
+        final position = scrollable.position;
+        final viewport = scrollable.context.findRenderObject()! as RenderBox;
+        final top = cardBox.localToGlobal(Offset.zero).dy;
+        final bottom = top + cardBox.size.height;
+        final floor = viewport.localToGlobal(Offset.zero).dy;
+        final ceiling = math.min(
+          floor + viewport.size.height,
+          bar.localToGlobal(Offset.zero).dy,
+        );
+        if (top < floor || bottom > ceiling) {
+          // Rest the card's bottom 16 px above the bar; a card taller than
+          // the room keeps its top in view.
+          final move = math.min(
+            bottom - (bar.localToGlobal(Offset.zero).dy - PantasSpace.s16),
+            top - floor,
+          );
+          final target = (position.pixels + move).clamp(
+            position.minScrollExtent,
+            position.maxScrollExtent,
+          );
+          if (still) {
+            position.jumpTo(target);
+          } else {
+            await position.animateTo(
+              target,
+              // 400 ms, as ruling C6 sets it (this token's value).
+              duration: PantasDurations.drawerClose,
+              curve: PantasCurves.move,
+            );
+          }
+        }
+      }
+      if (!mounted) return;
+      _tickFocus.requestFocus();
+      if (!still) _tickPulse.play();
+    } finally {
+      _showingTick = false;
+    }
+  }
+
+  /// Drops this page's own pending switch. A page with no target exam never
+  /// owns one, and a switch for another exam stays until its checkout
+  /// confirms.
   Future<void> _clearPendingExamSwitch({String? uid}) async {
     final owner = uid ?? _checkoutUid;
-    if (owner == null) return;
+    final target = widget.targetExam;
+    if (owner == null || target == null) return;
     final telemetry = ref.read(telemetryProvider);
     try {
-      await ref
-          .read(appPreferencesRepositoryProvider)
-          .setDeviceValue('checkout_exam_v1:$owner', '');
+      final prefs = ref.read(appPreferencesRepositoryProvider);
+      final key = 'checkout_exam_v1:$owner';
+      final raw = await prefs.deviceValue(key);
+      if (raw == null || raw.isEmpty) return;
+      Object? decoded;
+      try {
+        decoded = jsonDecode(raw);
+      } on FormatException {
+        // Not an intent at all. Nothing to keep.
+      }
+      if (decoded is Map<String, dynamic> && decoded['examId'] != target.id) {
+        return;
+      }
+      await prefs.setDeviceValue(key, '');
     } catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
     }
@@ -273,6 +360,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     final prefs = ref.read(appPreferencesRepositoryProvider);
     final fromExamId = await prefs.selectedExamId();
     if (!_sameAccount(uid)) return false;
+    final before = ref.read(revenueCatGatewayProvider).cachedEntitlement;
+    final now = ref.read(paywallClockProvider)();
     await prefs.setDeviceValue(
       'checkout_exam_v1:$uid',
       jsonEncode({
@@ -281,6 +370,14 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         'count': choice,
         'tier': PriceTier.fromCatalog(target.priceTier).name,
         'fromExamId': fromExamId,
+        // What the account already had for this exam, so that coverage it
+        // already held cannot confirm this checkout.
+        'coveredAtStart': before?.coverage(at: now).coversExam(
+                  target.id,
+                  PriceTier.fromCatalog(target.priceTier),
+                ) ??
+            false,
+        'endsAtBefore': before?.endsAt?.millisecondsSinceEpoch,
       }),
     );
     return _sameAccount(uid);
@@ -298,6 +395,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     if (raw == null || raw.isEmpty || !_sameAccount(uid)) return;
     Map<String, dynamic> pending;
     PriceTier tier;
+    var matched = false;
+    Future<void> consume() => prefs.setDeviceValue(key, '');
     try {
       final decoded = jsonDecode(raw);
       if (decoded is! Map<String, dynamic>) {
@@ -310,9 +409,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           decoded['reference'] != reference) {
         return;
       }
-      // Only this checkout may consume its pending switch.
-      await prefs.setDeviceValue(key, '');
-      if (!_sameAccount(uid)) return;
+      // Only this checkout may consume its pending switch, and only once the
+      // checkout is confirmed or can no longer be (cancelled, invalid, old).
+      matched = true;
       if (decoded['uid'] is! String ||
           decoded['examId'] is! String ||
           decoded['count'] is! bool ||
@@ -328,6 +427,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       tier = PriceTier.values.byName(pending['tier'] as String);
     } catch (error, stack) {
       unawaited(ref.read(telemetryProvider).recordError(error, stack));
+      if (matched) await consume();
       return;
     }
     final target = widget.targetExam ??
@@ -337,24 +437,45 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     if (!_sameAccount(uid)) return;
     final created =
         DateTime.fromMillisecondsSinceEpoch(pending['createdAt'] as int);
-    final age = DateTime.now().difference(created);
+    final age = ref.read(paywallClockProvider)().difference(created);
     if (target == null ||
         pending['uid'] != uid ||
         pending['examId'] != target.id ||
         tier != PriceTier.fromCatalog(target.priceTier) ||
         age.isNegative ||
         age > const Duration(hours: 24)) {
+      await consume();
+      return;
+    }
+    if (operation.status == PaymentOperationStatus.userCancelled) {
+      await consume();
       return;
     }
     final entitlement = operation.confirmedEntitlement;
     final examId = target.id;
     if (operation.status != PaymentOperationStatus.success ||
         entitlement == null ||
-        !entitlement.coverage(at: DateTime.now()).coversExam(examId, tier)) {
+        !entitlement
+            .coverage(at: ref.read(paywallClockProvider)())
+            .coversExam(examId, tier)) {
+      // Not confirmed for this exam yet (the webhook can lag, or other
+      // coverage hides it). Keep the intent for the next return.
+      return;
+    }
+    // Coverage the account already held for this exam proves nothing about
+    // this checkout. It confirms only if the coverage now ends later.
+    final endsBefore = pending['endsAtBefore'];
+    if (pending['coveredAtStart'] == true &&
+        (endsBefore is! int ||
+            (entitlement.endsAt?.millisecondsSinceEpoch ?? 0) <= endsBefore)) {
       return;
     }
     final from = await prefs.selectedExamId();
-    if (!_sameAccount(uid) || from != pending['fromExamId']) return;
+    if (!_sameAccount(uid)) return;
+    if (from != pending['fromExamId']) {
+      await consume();
+      return;
+    }
     final publish =
         await ref.read(studySettingsCaptureProvider)(examId: examId);
     if (!_sameAccount(uid)) return;
@@ -378,7 +499,9 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
   String? _message(PaymentOperationStatus status, {bool restore = false}) =>
       switch (status) {
         PaymentOperationStatus.guardianConfirmationRequired =>
-          'A parent or guardian must confirm this purchase.',
+          'Read the box again, then tick it to pay.',
+        PaymentOperationStatus.alreadyPaid =>
+          'Your payment went through. Pro will appear shortly.',
         PaymentOperationStatus.success => restore ? 'Pro restored.' : null,
         PaymentOperationStatus.noActiveSubscription =>
           'No purchases found for this account.',
@@ -390,48 +513,26 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         PaymentOperationStatus.entitlementNotActive =>
           "We found a purchase, but Pro couldn't be confirmed yet. "
               'Try again in a moment.',
+        PaymentOperationStatus.checkoutClosed => 'Payments open soon.',
+        // Web plans are prepaid: a web checkout never says "subscription".
         PaymentOperationStatus.storeFailure => ref.read(paymentsOnWebProvider)
-            ? "We couldn't confirm your subscription. Try again."
+            ? (restore
+                ? "We couldn't confirm your subscription. Try again."
+                : "We couldn't start your payment. Try again.")
             : "Google Play couldn't complete this purchase. Try again.",
-        _ => "We couldn't confirm your subscription. Try again.",
+        _ => ref.read(paymentsOnWebProvider) && !restore
+            ? "We couldn't start your payment. Try again."
+            : "We couldn't confirm your subscription. Try again.",
       };
 
-  /// Boards CB_Wide, CB_Ph: the box in its own card under the plans. Terms
-  /// opens the Terms and does not tick the box.
-  Widget _guardianBoxCard(BuildContext context) {
-    final wide = context.wideWeb;
-    final style = PantasType.webRowTitleSettings
-        .copyWith(color: context.colors.textPrimary);
-    final row = CheckboxRow(
-      title: _guardianBoxLabel,
-      selected: _guardianTicked,
-      gap: PantasSpace.s14,
-      standardDensity: true,
-      squareEdges: wide,
-      interactiveContent: true,
-      onTap: _busy
-          ? null
-          : () => setState(() => _guardianTicked = !_guardianTicked),
-      // One text flow, so the sentence wraps as one. The link is a span, and
-      // a tap on it opens the Terms without ticking the box.
-      content: Text.rich(
-        TextSpan(
-          style: style,
-          children: [
-            const TextSpan(text: 'I am the parent or guardian and accept the '),
-            TextSpan(
-              text: 'Terms',
-              style: style.copyWith(color: context.webTokens.colors.accent),
-              recognizer: _termsTap,
-              mouseCursor: SystemMouseCursors.click,
-            ),
-            const TextSpan(text: '.'),
-          ],
-        ),
-      ),
-    );
-    return wide ? WebCard(child: row) : GroupedSection(children: [row]);
+  /// Opens the Terms from the link in the declaration. The box is untouched.
+  void _openTerms() {
+    final router = GoRouter.maybeOf(context);
+    if (router != null) unawaited(router.push<void>('/legal/terms'));
   }
+
+  void _emailSupport() =>
+      unawaited(launchUrl(Uri(scheme: 'mailto', path: sellerEmail)));
 
   Future<void> _restore() async {
     if (_busy) return;
@@ -460,7 +561,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
     PaywallPassPackage? pass,
     ExamCatalogEntry exam, {
     required bool allowTrial,
-    bool guardianAttested = false,
+    CheckoutDeclaration? declaration,
   }) async {
     if (_busy || (package == null && pass == null)) return;
     final telemetry = ref.read(telemetryProvider);
@@ -482,6 +583,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
       }
     }
     PaymentOperationStatus status;
+    DeclarationKind? refusedKind;
     final gateway = ref.read(revenueCatGatewayProvider);
     if (web &&
         widget.targetExam == null &&
@@ -540,7 +642,8 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           final pending = jsonDecode(raw!) as Map<String, dynamic>;
           pending['sessionId'] = sessionId;
           pending['reference'] = reference;
-          pending['createdAt'] = DateTime.now().millisecondsSinceEpoch;
+          pending['createdAt'] =
+              ref.read(paywallClockProvider)().millisecondsSinceEpoch;
           await prefs.setDeviceValue(
             'checkout_exam_v1:$uid',
             jsonEncode(pending),
@@ -553,14 +656,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 pass,
                 exam: exam,
                 beforeRedirect: beforeRedirect,
-                guardianAttested: guardianAttested,
+                declaration: declaration,
               )
             : await gateway.purchase(
                 package!,
                 beforeRedirect: beforeRedirect,
-                guardianAttested: guardianAttested,
+                declaration: declaration,
               );
         status = result.status;
+        refusedKind = result.declarationKind;
         if (status != PaymentOperationStatus.operationAlreadyInProgress) {
           await _clearPendingExamSwitch(uid: uid);
         }
@@ -570,6 +674,13 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             : await controller.purchase(package!);
         status = result.status;
       }
+    }
+    if (status == PaymentOperationStatus.alreadyPaid && mounted) {
+      // The buyer's payment exists: read the ledger now, as Restore does.
+      await ref.read(paywallControllerProvider).restore();
+      ref
+        ..invalidate(webGrantHistoryProvider)
+        ..invalidate(unfilteredPaywallOfferingProvider);
     }
     if (!mounted) return;
     final sameAccount = web
@@ -594,6 +705,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
           status == PaymentOperationStatus.operationAlreadyInProgress;
       _busy = _awaitingCheckout;
       if (sameAccount) _feedback = _message(status);
+      // The server named the wording this account needs. Show it, unticked.
+      if (sameAccount && refusedKind != null) {
+        _serverKind = refusedKind;
+        _tickedFor = null;
+      }
     });
   }
 
@@ -760,19 +876,35 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         : ownedPasses?.valueOrNull ?? const <String, ExamCatalogEntry>{};
     final fallbackPlanEnd =
         entitlement.passes.isEmpty ? entitlement.endsAt : null;
-    final planDate = entitlement.plan != EntitlementPlan.free
-        ? (entitlement.isTrial
-                ? entitlement.chargesAt
-                : entitlement.willRenew
-                    ? entitlement.renewsAt
-                    : entitlement.expiresAt) ??
-            entitlement.expiresAt ??
-            fallbackPlanEnd
-        : entitlement.promotions.isNotEmpty
-            ? entitlement.promotions
-                .map((p) => p.endsAt)
-                .reduce((a, b) => a.isAfter(b) ? a : b)
-            : entitlement.expiresAt ?? fallbackPlanEnd;
+    // A reward ends per exam: show this exam's end, as a Manila date.
+    // An ended reward, or a reward for another exam only, is no plan here.
+    final rewardEnd = exam == null ? null : entitlement.betaPasses[exam.id];
+    final rewardLive = rewardEnd != null &&
+        rewardEnd.isAfter(ref.read(paywallClockProvider)().toUtc());
+    final rewardShown = rewardLive &&
+        entitlement.plan == EntitlementPlan.free &&
+        entitlement.promotions.isEmpty;
+    final rewardElsewhere = !rewardShown &&
+        entitlement.plan == EntitlementPlan.free &&
+        entitlement.passes.isEmpty &&
+        entitlement.promotions.isEmpty &&
+        entitlement.betaPasses.isNotEmpty;
+    final rewardOnly = rewardShown || rewardElsewhere;
+    final planDate = rewardOnly
+        ? rewardEnd?.toUtc().add(const Duration(hours: 8))
+        : entitlement.plan != EntitlementPlan.free
+            ? (entitlement.isTrial
+                    ? entitlement.chargesAt
+                    : entitlement.willRenew
+                        ? entitlement.renewsAt
+                        : entitlement.expiresAt) ??
+                entitlement.expiresAt ??
+                fallbackPlanEnd
+            : entitlement.promotions.isNotEmpty
+                ? entitlement.promotions
+                    .map((p) => p.endsAt)
+                    .reduce((a, b) => a.isAfter(b) ? a : b)
+                : entitlement.expiresAt ?? fallbackPlanEnd;
     final past = web
         ? ref
             .watch(webGrantHistoryProvider)
@@ -780,7 +912,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
             .valueOrNull
             ?.where(
               (row) =>
-                  row.endsAt.isBefore(DateTime.now()) &&
+                  row.endsAt.isBefore(ref.read(paywallClockProvider)()) &&
                   (row.isTrial ||
                       (productForId(row.productId)?.kind ==
                               ProductKind.subscription &&
@@ -802,9 +934,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         offering.unwrapPrevious().hasValue &&
         gateway.googlePlayPlanRenews;
 
-    final lapsed =
-        covered == false && ended != null && ended.isBefore(DateTime.now());
-    final now = DateTime.now().toUtc().add(const Duration(hours: 8));
+    final lapsed = covered == false &&
+        ended != null &&
+        ended.isBefore(ref.read(paywallClockProvider)());
+    final now =
+        ref.read(paywallClockProvider)().toUtc().add(const Duration(hours: 8));
     final today = DateTime.utc(now.year, now.month, now.day);
     final sitting = exam?.publishedSittings
         .where((s) => !s.firstDay.isBefore(today) && s.sourceUrl.isNotEmpty)
@@ -831,17 +965,33 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         : '${_periodName(pendingPackage.sku)}, '
             '${_money(pendingPackage.priceString)}. ';
     final showOffers = covered == false && !paused && !waiting;
-    // A minor's payment needs the box ticked. The server is the control; the
-    // device age group only decides whether the box shows. The free trial
-    // takes no payment, so it has no box.
+    // Every web payment needs the declaration ticked. The server is the
+    // control and tells which wording the account needs; the device only
+    // guesses it first. The free trial takes no payment, so it has no box.
     final buyShown = showOffers &&
         !(web && anonymous) &&
         exam != null &&
         (selectedPackage != null || selectedPass != null);
-    final guardianBox = buyShown &&
-        ref.watch(ageGroupProvider).valueOrNull == 'minor' &&
-        !(trial && !lapsed);
-    final buyLocked = _busy || (guardianBox && !_guardianTicked);
+    final declarationBox = web && buyShown && !(trial && !lapsed);
+    // The guardian status is asked only on web, and only while the card shows.
+    final declarationKind = _serverKind ??
+        (declarationBox &&
+                (ref.watch(guardianConfirmedProvider).valueOrNull ?? false)
+            ? DeclarationKind.guardian
+            : DeclarationKind.adult);
+    final declaration =
+        declarationBox ? CheckoutDeclaration(declarationKind) : null;
+    final tickKey = declaration == null
+        ? null
+        : '${user?.uid}|${declaration.toJson().values.join('|')}';
+    if (_shownFor != tickKey) {
+      _shownFor = tickKey;
+      _tickedFor = null;
+    }
+    final declarationTicked = tickKey != null && _tickedFor == tickKey;
+    final buyLocked = _busy || (declarationBox && !declarationTicked);
+    // Ruling C6: on the phone Pay shows off but stays tappable, to say why.
+    final payOff = declarationBox && !declarationTicked && !_busy;
     final purchaseLabel = selectedPass != null
         ? 'Buy Season Pass'
         : selectedPackage == null
@@ -867,6 +1017,18 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 : context.type.subhead
                     .copyWith(color: context.colors.textSecondary),
           );
+    // Phone Restore (boards ST_ProFree, ST_ProPending, ST_ProPro,
+    // ST_ProPassHave, ST_ProLapsed): a 24 high line in the bar while the page
+    // sells Pro; a teal row in the last card once Pro is owned or has lapsed,
+    // where the boards draw no bar for it.
+    final restoreRow = !context.wideWeb && !upgrade && (owned || lapsed);
+    final restoreLine = !context.wideWeb && !upgrade && !restoreRow;
+    final manageRow = !web &&
+        entitlement.proIsActive &&
+        entitlement.plan != EntitlementPlan.free;
+    final phoneOpen = waiting && !context.wideWeb;
+    final phoneBar =
+        showOffers || upgrade || restoreLine || playRenews || phoneOpen;
     return SettingsPanePage(
       section: 'Pantas Pro',
       title: context.wideWeb ? 'Pantas Pro' : '',
@@ -877,8 +1039,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Transform.translate(
-                      offset: const Offset(-PantasSpace.s14, 0),
+                    // ST_Pro: the row pads 4 and the button 14, so the label
+                    // sits 18 in.
+                    Padding(
+                      padding: const EdgeInsets.only(left: PantasSpace.s4),
                       child: WebButton(
                         label: upgrade
                             ? (widget.freeLabel ?? 'Switch on Free')
@@ -921,7 +1085,7 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                           selectedPass,
                                           exam,
                                           allowTrial: trial && !lapsed,
-                                          guardianAttested: guardianBox,
+                                          declaration: declaration,
                                         ),
                               ),
                           if (showOffers &&
@@ -954,6 +1118,18 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                                 style: context.webTokens.sm,
                               ),
                             ),
+                          if (declarationBox)
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: PantasSpace.s8),
+                              child: SellerLine(
+                                facts: sellerFacts,
+                                style: context.webTokens.sm,
+                                textAlign: TextAlign.right,
+                                maxWidth: 480,
+                                onEmail: _emailSupport,
+                              ),
+                            ),
                         ],
                       ),
                     ),
@@ -973,14 +1149,21 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ],
             )
           : _FadedBar(
+              visible: phoneBar,
               child: SafeArea(
+                key: _barKey,
                 top: false,
+                // The boards pad the bar 14 16 30, home indicator included.
+                minimum: const EdgeInsets.only(
+                  bottom: PantasSpace.s28 + PantasSpace.s2,
+                ),
                 child: Padding(
+                  key: const ValueKey('pro-bar'),
                   padding: const EdgeInsets.fromLTRB(
                     PantasSpace.s16,
                     PantasSpace.s14,
                     PantasSpace.s16,
-                    PantasSpace.s16,
+                    PantasSpace.s0,
                   ),
                   child: Column(
                     mainAxisSize: MainAxisSize.min,
@@ -998,15 +1181,19 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           PantasButton(
                             label: purchaseLabel,
                             busy: _busy,
-                            onPressed: buyLocked
-                                ? null
-                                : () => _purchase(
-                                      selectedPackage,
-                                      selectedPass,
-                                      exam,
-                                      allowTrial: trial && !lapsed,
-                                      guardianAttested: guardianBox,
-                                    ),
+                            inactive: payOff,
+                            hint: _tickHint,
+                            onPressed: payOff
+                                ? () => unawaited(_showTick())
+                                : buyLocked
+                                    ? null
+                                    : () => _purchase(
+                                          selectedPackage,
+                                          selectedPass,
+                                          exam,
+                                          allowTrial: trial && !lapsed,
+                                          declaration: declaration,
+                                        ),
                           ),
                         if (selectedPass != null && sitting != null) ...[
                           const SizedBox(height: PantasSpace.s8),
@@ -1029,6 +1216,15 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                             style: context.type.footnote,
                           ),
                         ],
+                        if (declarationBox) ...[
+                          const SizedBox(height: PantasSpace.s8),
+                          SellerLine(
+                            facts: sellerFacts,
+                            style: context.type.footnote,
+                            textAlign: TextAlign.center,
+                            onEmail: _emailSupport,
+                          ),
+                        ],
                       ],
                       if (playRenews)
                         Text(
@@ -1037,20 +1233,43 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                           textAlign: TextAlign.center,
                           style: context.type.footnote,
                         ),
+                      // ST_ProPending: Open Google Play is the filled button.
+                      if (phoneOpen)
+                        PantasButton(
+                          label: 'Open Google Play',
+                          onPressed: _busy ? null : () => _manage(entitlement),
+                        ),
+                      // ST_SwitchUpgrade draws it as the 52 full-width ghost
+                      // button under the CTA.
                       if (upgrade)
                         PantasButton(
                           label: widget.freeLabel ?? 'Switch on Free',
                           variant: PantasButtonVariant.tertiary,
+                          size: PantasButtonSize.phone,
                           onPressed: _busy ? null : _switchOnFree,
                         ),
-                      if (!upgrade)
+                      // The boards put 8 between the CTA, the fine print and
+                      // the Restore line.
+                      if (restoreLine) ...[
+                        if (showOffers || playRenews || phoneOpen)
+                          const SizedBox(height: PantasSpace.s8),
                         PantasButton(
                           label: 'Restore Purchases',
                           variant: PantasButtonVariant.tertiary,
+                          size: PantasButtonSize.textPhoneSm,
                           busy: _busy,
                           onPressed: _busy ? null : _restore,
                         ),
-                      if (_feedback != null)
+                      ],
+                      // Ruling C6: with the card on the page the line always
+                      // holds its height, so the bar never changes size.
+                      if (declarationBox)
+                        _StatusLine(
+                          message: _feedback,
+                          hint: _tickHint,
+                          showHint: payOff,
+                        )
+                      else if (_feedback != null)
                         Text(
                           _feedback!,
                           textAlign: TextAlign.center,
@@ -1186,11 +1405,13 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
         ],
         if (paused) const ProPausedLine(),
         if (!upgrade &&
+            !rewardElsewhere &&
             (entitlement.proIsActive || paused) &&
             (entitlement.passes.isEmpty ||
+                rewardShown ||
                 entitlement.plan != EntitlementPlan.free ||
                 entitlement.isUnknownPlan ||
-                entitlement.promotions.isNotEmpty))
+                entitlement.promotions.isNotEmpty)) ...[
           SettingsSection(
             header: 'Your plan',
             footer: web && entitlement.isTrial && planDate != null
@@ -1225,6 +1446,10 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                 ),
             ],
           ),
+          // The phone boards put 22 between cards (ST_ProPro).
+          if (!context.wideWeb)
+            const SizedBox(height: PantasSpace.s20 + PantasSpace.s2),
+        ],
         for (final pass in entitlement.passes.entries) ...[
           SettingsSection(
             header: 'Your plan',
@@ -1252,7 +1477,11 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ),
             ],
           ),
-          const SizedBox(height: PantasSpace.s20),
+          SizedBox(
+            height: context.wideWeb
+                ? PantasSpace.s20
+                : PantasSpace.s20 + PantasSpace.s2,
+          ),
         ],
         if (waiting)
           SettingsSection(
@@ -1272,11 +1501,12 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
                       'Pro turns on as soon as Google Play confirms it.',
                       style: context.type.body,
                     ),
-                    PantasButton(
-                      label: 'Open Google Play',
-                      variant: PantasButtonVariant.tertiary,
-                      onPressed: _busy ? null : () => _manage(entitlement),
-                    ),
+                    if (context.wideWeb)
+                      PantasButton(
+                        label: 'Open Google Play',
+                        variant: PantasButtonVariant.tertiary,
+                        onPressed: _busy ? null : () => _manage(entitlement),
+                      ),
                   ],
                 ),
               ),
@@ -1375,17 +1605,30 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               ],
             ),
           ],
-          if (guardianBox) ...[
+          if (declarationBox) ...[
             SizedBox(
               height: context.wideWeb ? PantasSpace.s28 : PantasSpace.s24,
             ),
-            _guardianBoxCard(context),
+            DeclarationCard(
+              key: _cardKey,
+              tickFocus: _tickFocus,
+              tickPulse: _tickPulse,
+              kind: declarationKind,
+              ticked: declarationTicked,
+              onToggle: _busy
+                  ? null
+                  : () => setState(
+                        () => _tickedFor = declarationTicked ? null : tickKey,
+                      ),
+              onOpenTerms: _openTerms,
+            ),
           ],
           // The wide page adds its own 24 px before the Restore row.
           SizedBox(
             height: context.wideWeb ? PantasSpace.s0 : PantasSpace.s24,
           ),
-          if (!offering.isLoading && packages.isEmpty)
+          // A pass-only exam has something to buy: no retry.
+          if (!offering.isLoading && packages.isEmpty && passes.isEmpty)
             PantasButton(
               label: 'Try Again',
               variant: PantasButtonVariant.secondary,
@@ -1403,9 +1646,27 @@ class _ProPageState extends ConsumerState<ProPage> with WidgetsBindingObserver {
               onPressed: () => ref.invalidate(activeCustomTrackTierProvider),
             ),
         ],
-        if (!web &&
-            entitlement.proIsActive &&
-            entitlement.plan != EntitlementPlan.free)
+        if (!context.wideWeb && (manageRow || restoreRow))
+          SettingsSection(
+            // With a bar on the page the bar already says how Restore went.
+            footer: phoneBar ? null : _feedback,
+            children: [
+              if (manageRow)
+                SettingsRow(
+                  title: 'Manage in Google Play',
+                  divider: restoreRow,
+                  onTap: _busy ? null : () => _manage(entitlement),
+                ),
+              if (restoreRow)
+                SettingsRow(
+                  title: 'Restore purchases',
+                  titleColor: context.colors.accent,
+                  hideChevron: true,
+                  onTap: _busy ? null : _restore,
+                ),
+            ],
+          )
+        else if (manageRow)
           SettingsRow(
             title: 'Manage in Google Play',
             onTap: _busy ? null : () => _manage(entitlement),
@@ -1560,12 +1821,55 @@ String _periodName(PaywallSku sku) => switch (sku) {
 /// The phone's bottom action bar (PhoneFrame `.phone-bottom`): on the page
 /// color, with a fade from transparent so the scrolling plans do not end in a
 /// hard cut under it.
-class _FadedBar extends StatelessWidget {
-  const _FadedBar({required this.child});
-  final Widget child;
+/// What the status line and Pay's screen reader hint say while the box is
+/// unticked (ruling C6).
+const _tickHint = 'Tick the box to pay.';
+
+/// The phone bar's status line. It always takes one line of room, so the bar
+/// keeps its height. A message shows as it is; the hint fades out over 150 ms
+/// once the box is ticked.
+class _StatusLine extends StatelessWidget {
+  const _StatusLine({
+    required this.message,
+    required this.hint,
+    required this.showHint,
+  });
+  final String? message;
+  final String hint;
+  final bool showHint;
 
   @override
   Widget build(BuildContext context) {
+    final shown = message != null || showHint;
+    return ExcludeSemantics(
+      // Pay carries the hint for a screen reader; only a message is read here.
+      excluding: message == null,
+      child: AnimatedOpacity(
+        opacity: shown ? 1 : 0,
+        duration: MediaQuery.disableAnimationsOf(context)
+            ? Duration.zero
+            : PantasDurations.short2,
+        curve: PantasCurves.fade,
+        child: Text(
+          message ?? hint,
+          textAlign: TextAlign.center,
+          style: context.type.footnote,
+        ),
+      ),
+    );
+  }
+}
+
+class _FadedBar extends StatelessWidget {
+  const _FadedBar({required this.child, this.visible = true});
+  final Widget child;
+
+  /// False when the bar would hold nothing (Pro owned: Restore is a card row).
+  final bool visible;
+
+  @override
+  Widget build(BuildContext context) {
+    if (!visible) return const SizedBox.shrink();
     final page = context.colors.background;
     return Stack(
       clipBehavior: Clip.none,

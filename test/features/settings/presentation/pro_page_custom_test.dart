@@ -11,12 +11,10 @@ import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
-import 'package:pantas/features/paywall/application/beta_pro_provider.dart';
 import 'package:pantas/features/paywall/application/custom_track_tier.dart';
 import 'package:pantas/features/paywall/domain/price_tier.dart';
 import 'package:pantas/features/paywall/paywall.dart';
 import 'package:pantas/features/settings/presentation/pages/pro_page.dart';
-import 'package:pantas/features/settings/presentation/widgets/beta_pro_row.dart';
 
 import '../../../helpers/in_memory_database.dart';
 import 'pro_page_payments_test.dart' show SettingsGateway;
@@ -322,45 +320,4 @@ void main() {
       if (width < 1000) expect(error, isNull);
     });
   }
-
-  group('beta row', () {
-    Future<void> pumpBeta(
-      WidgetTester tester, {
-      required bool custom,
-    }) async {
-      await tester.pumpWidget(
-        ProviderScope(
-          overrides: [
-            betaProProvider.overrideWith(
-              (ref) => Stream.value(
-                BetaProState(until: DateTime(2099), enabled: true),
-              ),
-            ),
-            activeExamFocusProvider.overrideWith(
-              (ref) async => ActiveExamFocus.selected(_exam(custom: custom)),
-            ),
-          ],
-          child: MaterialApp(
-            theme: buildLightTheme(web: false),
-            home: const Scaffold(
-              body: Column(children: [BetaProRow(), BetaProNote()]),
-            ),
-          ),
-        ),
-      );
-      await tester.pumpAndSettle();
-    }
-
-    testWidgets('hides on a custom exam', (tester) async {
-      await pumpBeta(tester, custom: true);
-      expect(find.text('Beta: Pro Features'), findsNothing);
-      expect(find.textContaining('Pro features are on'), findsNothing);
-    });
-
-    testWidgets('stays on a listed exam', (tester) async {
-      await pumpBeta(tester, custom: false);
-      expect(find.text('Beta: Pro Features'), findsOneWidget);
-      expect(find.textContaining('Pro features are on'), findsOneWidget);
-    });
-  });
 }

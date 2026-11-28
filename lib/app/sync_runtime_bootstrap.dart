@@ -6,6 +6,7 @@ import 'package:pantas/app/firebase_bootstrap.dart';
 import 'package:pantas/core/auth/auth_state.dart';
 import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/content/content.dart';
+import 'package:pantas/core/notifications/notification_service.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/custom_track_repository.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -19,6 +20,7 @@ import 'package:pantas/core/sync/firestore/firebase_firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/firebase_sync_functions_gateway.dart';
 import 'package:pantas/core/sync/firestore/firestore_gateway.dart';
 import 'package:pantas/core/sync/firestore/functions_gateway.dart';
+import 'package:pantas/core/sync/local_state_wiper.dart';
 import 'package:pantas/core/sync/providers.dart';
 import 'package:pantas/core/sync/runtime/production_sync_runtime_engine.dart';
 import 'package:pantas/core/sync/runtime/sync_runtime_controller.dart';
@@ -76,14 +78,32 @@ class SyncRuntimeBinding {
   Future<void> _updateTail = Future<void>.value();
   bool _disposed = false;
 
+  // The newest state not yet handed to Sync.
+  ({SyncIdentity identity, SyncEntitlement entitlement})? _waiting;
+
   void _scheduleUpdate() {
     if (_disposed || _auth == null || _entitlement == null) return;
-    final identity = _toSyncIdentity(_auth!);
-    final entitlement = _toSyncEntitlement(_entitlement!);
+    _waiting = (
+      identity: _toSyncIdentity(_auth!),
+      entitlement: _toSyncEntitlement(_entitlement!),
+    );
     _updateTail = _updateTail.then(
-      (_) => _runtime.update(identity: identity, entitlement: entitlement),
-      onError: (Object _, StackTrace __) =>
-          _runtime.update(identity: identity, entitlement: entitlement),
+      (_) => _sendWaiting(),
+      onError: (Object _, StackTrace __) => _sendWaiting(),
+    );
+  }
+
+  /// Hands Sync only the newest state. An update waits for the one before to
+  /// finish, which can take a while (a first download). An account that came
+  /// and went in that time is skipped: handled late, it would claim, or wipe,
+  /// the device's data for an account no longer signed in.
+  Future<void> _sendWaiting() {
+    final waiting = _waiting;
+    if (waiting == null) return Future<void>.value();
+    _waiting = null;
+    return _runtime.update(
+      identity: waiting.identity,
+      entitlement: waiting.entitlement,
     );
   }
 
@@ -210,6 +230,12 @@ Future<SyncRuntimeSurface> buildConfiguredSyncRuntime(
     ),
     coordinator: coordinator,
     engine: engine,
+    // The same wipe Sign Out runs, for a switch between two accounts.
+    localStateWiper: SyncLocalStateWiper(
+      db,
+      notifications: container.read(notificationServiceProvider),
+      clearCustomExams: () => deleteCustomContentExams(contentDb),
+    ),
     runtimeEvents: engine.events,
   );
   return ConfiguredSyncRuntimeSurface(controller: controller, engine: engine);
