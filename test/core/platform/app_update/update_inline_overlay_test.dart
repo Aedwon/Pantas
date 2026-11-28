@@ -8,7 +8,7 @@ import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_side_drawer.dart';
 import 'package:pantas/core/ui/web/web_side_overlay.dart';
 
-import 'update_coordinator_test.dart' show FakeBridge;
+import 'update_coordinator_test.dart' show SafePoints;
 
 void main() {
   for (final kind in ['sheet', 'home overlay', 'drawer', 'dialog']) {
@@ -16,11 +16,10 @@ void main() {
       tester.view.physicalSize = const Size(1440, 900);
       tester.view.devicePixelRatio = 1;
       addTearDown(tester.view.reset);
-      final bridge = FakeBridge();
+      final safe = SafePoints();
       final coordinator = UpdateCoordinator(
-        bridge: bridge,
-        waitForWrites: () async {},
         onFailure: (error, _) => fail('$error'),
+        onSafePoint: safe.call,
       )..routeChanged('/home');
       final Widget overlay = switch (kind) {
         'sheet' => PantasSheet(
@@ -62,11 +61,11 @@ void main() {
       );
       expect(updateOverlayRegistry.hasOpenOverlays, isTrue);
       await coordinator.check();
-      expect(bridge.applies, 0);
+      expect(safe.count, 0);
       await tester.pumpWidget(const SizedBox());
       expect(updateOverlayRegistry.hasOpenOverlays, isFalse);
       await coordinator.check();
-      expect(bridge.applies, 1);
+      expect(safe.count, 1);
     });
   }
 }

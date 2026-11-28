@@ -8,7 +8,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/update_coordinator_provider.dart';
 import 'package:pantas/core/content/content.dart';
-import 'package:pantas/core/platform/app_update/update_bridge.dart';
 import 'package:pantas/core/platform/app_update/update_coordinator.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -85,13 +84,12 @@ void main() {
 
   tearDown(() => db.close());
 
-  testWidgets('reader applies a pending update after its ending frame',
+  testWidgets('reader reaches a safe point after its ending frame',
       (tester) async {
-    final bridge = _LessonUpdateBridge();
+    var safePoints = 0;
     final updates = UpdateCoordinator(
-      bridge: bridge,
-      waitForWrites: db.waitForDurableWrites,
       onFailure: (error, _) => fail('$error'),
+      onSafePoint: () async => safePoints++,
     )..routeChanged('/lesson/l1');
     await tester.pumpAppWithProviders(
       const LessonPage(lessonId: 'l1'),
@@ -103,13 +101,13 @@ void main() {
     );
     await tester.pumpAndSettle();
     await updates.check();
-    expect(bridge.applies, 0);
+    expect(safePoints, 0);
     final pull = tester.widget<PullToAdvance>(find.byType(PullToAdvance));
     expect(pull.onAdvance, isNotNull);
     pull.onCommit?.call();
     pull.onAdvance!();
     await tester.pumpAndSettle();
-    expect(bridge.applies, 1);
+    expect(safePoints, 1);
   });
 
   testWidgets('audit guarded open refreshes cached Study consumers',
@@ -1094,17 +1092,5 @@ class _HeldPositionCompletion extends _FailReaderPositions {
       await deliver.future;
     }
     return saved;
-  }
-}
-
-class _LessonUpdateBridge implements UpdateBridge {
-  int applies = 0;
-  @override
-  Future<UpdateStatus> check() async =>
-      const UpdateStatus(available: true, version: 'next');
-  @override
-  Future<bool> apply() async {
-    applies++;
-    return true;
   }
 }

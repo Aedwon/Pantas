@@ -6,24 +6,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/content/remote/content_service_providers.dart';
-import 'package:pantas/core/platform/app_update/update_bridge.dart';
 import 'package:pantas/core/platform/app_update/update_coordinator.dart';
 import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
-import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/telemetry/report_failure.dart';
 
 final updateCoordinatorProvider = Provider<UpdateCoordinator>((ref) {
   final coordinator = UpdateCoordinator(
-    bridge: createUpdateBridge(),
-    waitForWrites: () => ref.read(appDatabaseProvider).waitForDurableWrites(),
     onFailure: (error, stack) => reportFailure(
       ref.read(telemetryProvider),
       'update.apply',
       error,
       stack,
     ),
-    // The web content mirror compares the server's content version here, at
-    // the same safe points the build update uses.
+    // The web content mirror compares the server's content version at safe
+    // points (Home, the end of a lesson or a quiz, no overlay open).
     onSafePoint: kIsWeb
         ? () => ref.read(contentMirrorProvider).checkContentVersion()
         : null,
@@ -99,22 +95,6 @@ class UpdateOverlayObserver extends NavigatorObserver {
     _changed();
   }
 }
-
-/// Holds the safe route for the entire asynchronous activation. Bypass normal
-/// redirects even on that path, so an auth/flags refresh cannot bounce between
-/// the held route and a gate until go_router reaches its redirect limit.
-GoRouterRedirect guardUpdateActivation(
-  UpdateCoordinator? coordinator,
-  GoRouterRedirect redirect,
-) =>
-    (context, state) {
-      if (coordinator != null && coordinator.isApplying) {
-        return state.uri.path == coordinator.currentPath
-            ? null
-            : coordinator.currentPath;
-      }
-      return redirect(context, state);
-    };
 
 /// Observes settled matches rather than incoming URLs or tab highlights.
 /// The delegate is empty until Router performs its first parse during boot.

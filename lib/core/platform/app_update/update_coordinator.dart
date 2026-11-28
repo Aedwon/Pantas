@@ -1,42 +1,32 @@
 import 'dart:async';
 
-import 'package:pantas/core/platform/app_update/update_bridge.dart';
 import 'package:pantas/core/platform/app_update/update_overlay_registry.dart';
 
-/// Applies a browser update only at an explicitly safe point.
+/// Finds the safe points of a session (Home, the end of a lesson or a quiz,
+/// with no overlay open) and runs the content-version check at each one.
+/// It no longer applies a browser update: a new build reaches a student only
+/// when every Pantas tab is closed, or through the Update Required screen.
 class UpdateCoordinator {
   UpdateCoordinator({
-    required UpdateBridge bridge,
-    required Future<void> Function() waitForWrites,
     required void Function(Object, StackTrace) onFailure,
     Future<void> Function()? onSafePoint,
-  })  : _bridge = bridge,
-        _waitForWrites = waitForWrites,
-        _onFailure = onFailure,
+  })  : _onFailure = onFailure,
         _onSafePoint = onSafePoint;
 
-  final UpdateBridge _bridge;
-  final Future<void> Function() _waitForWrites;
   final void Function(Object, StackTrace) _onFailure;
 
   /// Runs, without being waited for, each time a check finds a safe point.
-  /// Its own failures are reported and never stop the update.
+  /// Its own failures are reported.
   final Future<void> Function()? _onSafePoint;
-  final Set<String> _attempted = {};
   final Set<Object> _overlays = {};
   String _path = '';
   int _quizRevision = 0;
   bool _lessonEnded = false;
   bool _quizEnded = false;
   bool _disposed = false;
-  bool _applying = false;
-
-  bool get isApplying => _applying;
-  String get currentPath => _path;
 
   /// Invalidates completion work after navigation or a session start.
   int get quizRevision => _quizRevision;
-  int _epoch = 0;
   Future<void>? _checking;
 
   void routeChanged(String path) {
@@ -52,32 +42,25 @@ class UpdateCoordinator {
     } else {
       _overlays.remove(owner);
     }
-    _epoch++;
   }
 
   void lessonStarted() {
     _lessonEnded = false;
-    _epoch++;
   }
 
   void lessonEnded() {
     if (_path.startsWith('/lesson/') || _path.startsWith('/study/ending/')) {
       _lessonEnded = true;
-      _epoch++;
     }
   }
 
   void quizStarted() {
     _quizRevision++;
     _quizEnded = false;
-    _epoch++;
   }
 
   void quizEnded() {
-    if (!_quizEnded) {
-      _quizEnded = true;
-      _epoch++;
-    }
+    _quizEnded = true;
     unawaited(check());
   }
 
@@ -101,22 +84,6 @@ class UpdateCoordinator {
       if (onSafePoint != null && _safe) {
         unawaited(onSafePoint().catchError(_onFailure));
       }
-      final status = await _bridge.check();
-      final version = status.version;
-      if (!status.available || version == null || !_safe) return;
-      if (_attempted.contains(version)) return;
-      final epoch = _epoch;
-      await _waitForWrites();
-      if (!_safe || _epoch != epoch) return;
-      _applying = true;
-      try {
-        final applied = await _bridge.apply();
-        // Failed checks, refused applies (another window is open) and applies
-        // with nothing to switch to remain eligible at the next safe point.
-        if (applied) _attempted.add(version);
-      } finally {
-        _applying = false;
-      }
     } on Object catch (error, stack) {
       _onFailure(error, stack);
     }
@@ -124,6 +91,5 @@ class UpdateCoordinator {
 
   void dispose() {
     _disposed = true;
-    _epoch++;
   }
 }

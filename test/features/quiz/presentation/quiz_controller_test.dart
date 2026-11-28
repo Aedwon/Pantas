@@ -23,7 +23,7 @@ import 'package:pantas/features/quiz/domain/use_cases/submit_answer.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
 import '../../../core/platform/app_update/update_coordinator_test.dart'
-    show FakeBridge;
+    show SafePoints;
 import '../../../helpers/in_memory_database.dart';
 import '../../../helpers/pump_app.dart';
 import '../../../helpers/recording_telemetry.dart';
@@ -285,11 +285,10 @@ void main() {
             persisted: any(named: 'persisted'),
           ),
         ).thenAnswer((_) => pending.future);
-        final bridge = FakeBridge();
+        final safe = SafePoints();
         final updates = UpdateCoordinator(
-          bridge: bridge,
-          waitForWrites: () async {},
           onFailure: (error, stack) => fail('$error'),
+          onSafePoint: safe.call,
         )..routeChanged('/quiz/inline/lesson');
         addTearDown(updates.dispose);
         final container = await makeContainer(
@@ -318,12 +317,12 @@ void main() {
         );
         await finishing;
         await updates.check();
-        expect(bridge.applies, 0);
+        expect(safe.count, 0);
         expect(container.read(quizControllerProvider), isA<QuizRunning>());
       });
     }
 
-    test('inline QuizComplete applies a pending update without a route change',
+    test('inline QuizComplete reaches a safe point without a route change',
         () async {
       stubFullRun();
       final inline = _MockInline();
@@ -345,11 +344,10 @@ void main() {
           ),
         ),
       );
-      final bridge = FakeBridge();
+      final safe = SafePoints();
       final updates = UpdateCoordinator(
-        bridge: bridge,
-        waitForWrites: () async {},
         onFailure: (error, stack) => fail('$error'),
+        onSafePoint: safe.call,
       )..routeChanged('/quiz/inline/lesson');
       addTearDown(updates.dispose);
       final container = await makeContainer(
@@ -361,21 +359,20 @@ void main() {
       final notifier = container.read(quizControllerProvider.notifier);
       await notifier.startInline(examId: 'e', lessonId: 'lesson');
       await updates.check();
-      expect(bridge.applies, 0, reason: 'An open question is unsafe');
+      expect(safe.count, 0, reason: 'An open question is unsafe');
       notifier.markQuestionReady(sessionId: 'sess', questionIndex: 0);
       await notifier.answer(chosenChoiceId: 'c1a');
       await updates.check();
-      expect(bridge.applies, 0, reason: 'The answer reveal is still unsafe');
+      expect(safe.count, 0, reason: 'The answer reveal is still unsafe');
       await notifier.next();
       expect(container.read(quizControllerProvider), isA<QuizComplete>());
       await Future<void>.delayed(Duration.zero);
-      expect(bridge.applies, 1, reason: 'Completion must check immediately');
+      expect(safe.count, 1, reason: 'Completion must check immediately');
 
-      // Start again on the same URL. A later version must wait for completion.
-      bridge.version = 'later';
+      // Start again on the same URL. A new session clears completion.
       await notifier.startInline(examId: 'e', lessonId: 'lesson');
       await updates.check();
-      expect(bridge.applies, 1, reason: 'A new session clears completion');
+      expect(safe.count, 1, reason: 'A new session clears completion');
     });
 
     test('a session logs one start and one finish, with exam, kind and count',
