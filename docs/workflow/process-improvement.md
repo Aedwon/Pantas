@@ -126,6 +126,13 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### The manager kept raising outside work and re-asking answered questions (Nov 28)
+
+- His words (about 9:30 PM Manila Nov 28): "don't think about it. can you stop please. you're ruining everything", then "stop worrying about that damn NPC. let me handle outside work. you just do what i tell you to do. this is extremely annoying". Earlier the same day: "keep it open, how many times do I have to repeat this".
+- Wrong: the manager researched NPC registration, a privacy assessment and the beta records unasked, then sent him rounds of follow-up decisions on them, and asked twice whether checkout should stay open after he had answered.
+- Why it got through: the standing "act in his interest without being asked" rule (Nov 15) was read as covering business compliance, and each new finding was turned into a question for him.
+- Fix (required step, manager and every lead): outside work (NPC, permits, registrations, filings, other business admin) is his only; do not research, prepare, surface or ask about it unless he raises it. Never re-ask a question he has answered; act on the first answer. The proactive sweep covers the product, cost, users and dates of in-app work only.
+
 ### A lead drew an option with a middle-dot separator (Nov 28)
 
 - His words: "no not like that, just Analytical Ability (35%)" and "please note to never do that bullet separation. it's an AI pattern i prefer not using".
