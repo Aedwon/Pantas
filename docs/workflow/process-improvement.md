@@ -131,7 +131,7 @@ pass 15, retire or merge one first.
 - His words: "no not like that, just Analytical Ability (35%)" and "please note to never do that bullet separation. it's an AI pattern i prefer not using".
 - Wrong: the sidebar card UX lead offered the CSE part weight as "Verbal Ability · 30%". The same "·" joins items in about 58 existing app strings and in older approved wording.
 - Why it got through: no rule or check named the pattern, and the codebase and older decisions use it, so it read as house style.
-- Fix: the rule is in `design/system/patterns.md` ("Joining text items") and `docs/design/DECISIONS.md`. A check is due next: `tool/checks/no_middle_dot_separator.dart` fails when a line added since main puts "·" or "•" inside a string literal in `lib/`, with a test on a sample. It ignores existing lines, so the 58 old strings do not trip it. It is queued for the next worker run, the sidebar card build (manager's go). Until it lands, every UI lead checks its boards, specs and new strings for "·" before handing them over.
+- Fix: the rule is in `design/system/patterns.md` ("Joining text items") and `docs/design/DECISIONS.md`. Required step (every UI lead): before handing over a board, spec or change, scan its own new text for "·" and "•" and replace them. Proposed, waiting on his yes (no build until then): a check, `tool/checks/no_middle_dot_separator.dart`, that fails when a line added since main puts "·" or "•" inside a string literal in `lib/` (about one file and its test; existing lines are ignored, so the 58 old strings do not trip it).
 
 ### Workers broke the shell rule again because the lead's own worktree had no hook (Nov 28)
 
