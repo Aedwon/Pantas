@@ -2431,8 +2431,13 @@ class _ContentImage extends StatefulWidget {
     required this.label,
     required this.credit,
     this.reader = false,
+    this.plate = false,
   });
   final bool reader;
+
+  /// Drawn as a plate in the held reader's figure column. Only an SVG picture
+  /// goes there (see `_marginFigure`), so only the SVG path reads this.
+  final bool plate;
   final String url;
   final String label;
   final String credit;
@@ -2490,6 +2495,7 @@ class _ContentImageState extends State<_ContentImage> {
         excludeFromSemantics: widget.label.isEmpty,
         placeholderBuilder: (context) => _FigureFrame(
           reader: true,
+          plate: widget.plate,
           labelViewer: true,
           label: widget.label,
           credit: widget.credit,
@@ -2500,6 +2506,7 @@ class _ContentImageState extends State<_ContentImage> {
         errorBuilder: (context, error, stackTrace) => failure,
         imageBuilder: (context, child) => _FigureFrame(
           reader: true,
+          plate: widget.plate,
           labelViewer: true,
           label: widget.label,
           credit: widget.credit,

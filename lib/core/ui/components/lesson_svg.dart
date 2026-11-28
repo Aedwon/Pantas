@@ -119,6 +119,64 @@ Uint8List? lessonDataUrlBytes(String url) {
   return bytes;
 }
 
+/// Width over height of an SVG `data:` URL, read at once from its markup: the
+/// root's viewBox, else its width and height. The held reader needs this
+/// before the picture paints, to place it (spec rule 7, place before paint).
+///
+/// Null when the URL is not an SVG `data:` URL, is damaged, or its markup
+/// gives no size. A remote picture has no size until it loads, so it is null
+/// too. Callers keep such a picture inline, which is always safe.
+///
+/// The answer is kept per URL (64 at most, oldest dropped), because the held
+/// reader asks again on every build.
+double? lessonSvgRatio(String url) {
+  if (_ratios.containsKey(url)) {
+    final kept = _ratios.remove(url);
+    _ratios[url] = kept;
+    return kept;
+  }
+  final ratio = _readSvgRatio(url);
+  _ratios[url] = ratio;
+  if (_ratios.length > _ratiosLimit) _ratios.remove(_ratios.keys.first);
+  return ratio;
+}
+
+final _ratios = <String, double?>{};
+const _ratiosLimit = 64;
+
+double? _readSvgRatio(String url) {
+  if (!url.startsWith('data:') || !isLessonSvg(url)) return null;
+  final bytes = lessonDataUrlBytes(url);
+  if (bytes == null) return null;
+  // The root tag sits at the top; a tag past 4 KB reads as no size.
+  final head = utf8.decode(
+    bytes.length > 4096 ? bytes.sublist(0, 4096) : bytes,
+    allowMalformed: true,
+  );
+  final tag = RegExp(r'<svg\b[^>]*>').firstMatch(head)?.group(0);
+  if (tag == null) return null;
+  String? attribute(String name) {
+    final m =
+        RegExp('\\s$name\\s*=\\s*(?:"([^"]*)"|\'([^\']*)\')').firstMatch(tag);
+    return m?.group(1) ?? m?.group(2);
+  }
+
+  double? length(String? text) => text == null
+      ? null
+      : double.tryParse(
+          RegExp(r'^\s*([0-9.]+)\s*(?:px)?\s*$').firstMatch(text)?[1] ?? '',
+        );
+
+  final box = attribute('viewBox')?.trim().split(RegExp(r'[\s,]+'));
+  final width =
+      box?.length == 4 ? double.tryParse(box![2]) : length(attribute('width'));
+  final height =
+      box?.length == 4 ? double.tryParse(box![3]) : length(attribute('height'));
+  return width != null && height != null && width > 0 && height > 0
+      ? width / height
+      : null;
+}
+
 BytesLoader lessonSvgLoader(String url, PantasColors colors) {
   final theme = SvgTheme(currentColor: colors.label);
   final mapper = LessonSvgColors(colors);
