@@ -12,50 +12,135 @@ keyPoints:
   - "Apply none to every member of the named group."
   - "Keep may as a possibility."
 ---
+
 ## Core Concept
 
-- **None** means no members. If no inspectors are trainees, any known inspector is not a trainee.
-- **May** means something is possible. It does not mean it will happen.
+### Applying "No" and "None" to Every Member
+
+**No** and **none** keep two groups apart with zero overlap. **"No $A$ are $B$"** means every $A$ is outside $B$, and every $B$ is outside $A$.
+
+What follows: "No unregistered vehicles are allowed inside a compound. Every vehicle inside complied with that rule. Vehicle A is inside."
+
+1. *Unregistered* and *allowed inside* share zero members.
+2. Since Vehicle A is inside in compliance, it cannot be unregistered.
+3. Conclusion: **Vehicle A is registered.**
+
+:::pair #reverse-none-rule
+Right: from "No unregistered vehicles are allowed inside" and "Vehicle A is inside," conclude **Vehicle A is registered.**
+Wrong: Every registered vehicle is inside the compound.
+Being allowed inside does not mean every registered vehicle entered. *No* keeps two groups apart without filling one group with everything eligible.
+:::
+
+What follows: "No judge is also listed as a speaker. Some observers are on the judges' list."
+
+1. At least $1$ observer sits on the judges' list.
+2. Because no judge is a speaker, that observer cannot be on the speakers' list.
+3. Conclusion: **Some observers are not speakers.**
+
+:::why
+Why does "No $A$ are $B$" swap cleanly to "No $B$ are $A$" while "All $A$ are $B$" does not? Two separate groups never touch from either side, whereas putting $A$ inside $B$ still leaves space in $B$ outside $A$.
+:::
+
+:::pair #stretch-some-to-none
+Right: when no judge is a speaker and some observers are judges, conclude **Some observers are not speakers.**
+Wrong: No observer can appear on the speakers' list at this meet.
+Only observers who serve as judges are barred from speaking. Never stretch *some* into *no*.
+:::
+
+:::check
+No book sold at the booth is lent to a class. Book 5 was lent to a class. Which note on Book 5 is an error: "Also lent to a class in June", "Also sold at the booth", or "Also donated for the booth"?
+:::answer
+The answer is **"Also sold at the booth."** Zero overlap means a book lent to a class cannot also be sold at the booth.
+:::
+
+### Keeping "May" as Possibility
+
+**May** means *possible*. It neither guarantees nor rules out an outcome, and promises nothing when the condition is absent.
+
+What follows: "The interview may be postponed if the panel lacks a quorum."
+
+1. Condition: the panel lacks a quorum.
+2. Effect of *may*: **A lack of quorum allows possible postponement.**
+3. It guarantees neither postponement nor the outcome with a full quorum.
+
+:::pair #may-to-must-certainty
+Right: "The interview may be postponed if the panel lacks a quorum" means **A lack of quorum allows possible postponement.**
+Wrong: A lack of quorum guarantees that the interview is postponed.
+*May* leaves either outcome open. Never turn *may* into *will* or *must*.
+:::
+
+:::check
+A notice says, "The class may end early." Which statement follows?
+
+(A) The class will end early.
+
+(B) The class will not end early.
+
+(C) The class could end early or at the usual time.
+:::answer
+The answer is **(C)**. *May* leaves both outcomes open. (A) turns *may* into certainty, and (B) rules the outcome out.
+:::
 
 ## Examples
 
-### #1: Using None
+### #1: Applying "No" to a Member
 
-Premises: "No contract staff are permanent employees. Joel is contract staff."
-
-Which conclusion must be true?
+Premises: "No contract staff are permanent employees. Joel is contract staff." Which conclusion follows?
 
 **Solution:**
 
-1. The first premise excludes every contract staff member from the group of permanent employees.
-2. Joel is contract staff. Therefore, **Joel is not a permanent employee**.
+1. Premise $1$: *contract staff* and *permanent employees* share zero members.
+2. Premise $2$: Joel is inside *contract staff*.
+3. Conclusion: **Joel is not a permanent employee.**
 
-### #2: Reading May Correctly
+**Check:** Picture two separate groups (*Contract* and *Permanent*): putting Joel in *Contract* puts him outside *Permanent*.
 
-Statement: "The road may close if the river rises further."
+### #2: Comparing "May" and "Will"
 
-Which conclusion is justified?
-
-- (A) The road will close if the river rises further.
-- (B) The road cannot close if the river rises further.
-- (C) Road closure is possible if the river rises further.
+A health center says, "Walk-in consultations may resume on Friday." A radio host says, "Walk-in consultations will resume on Friday." What change did the host introduce?
 
 **Solution:**
 
-1. The word "may" allows a road closure. It does not promise one.
-2. Choice (A) makes closure certain. Choice (B) rules it out.
-3. Only **(C)** keeps the meaning of the statement.
+1. Event and day stay the same: walk-in consultations on Friday.
+2. Certainty changes: *may* (possible) became *will* (certain).
+3. Change: **The host made the restart sound certain.**
+
+**Check:** Both statements name Friday and walk-in consultations, so only the certainty changed.
+
+### #3: A Volunteer List
+
+Premises: "No volunteer under $18$ is a driver. Some drivers are volunteers." Which conclusion follows?
+
+(A) No driver is under $18$.
+
+(B) Some volunteers under $18$ are not drivers.
+
+(C) Some volunteers are not under $18$.
+
+**Solution:**
+
+Let's test each choice against the two premises:
+
+1. Premise $1$: *Volunteers under $18$* and *Drivers* have zero overlap.
+2. Premise $2$: at least $1$ driver is a volunteer.
+3. Drop (A): Premise $1$ covers only volunteers; a driver who is not one could be under $18$.
+
+:::try
+Finish the last step: compare (B) and (C) against the two premises.
+:::answer
+The answer is **(C) Some volunteers are not under $18$.** A volunteer who drives cannot be a volunteer under $18$. Choice (B) needs at least $1$ volunteer under $18$, and the premises never say one exists.
+
+**Check:** Picture adult volunteers who all drive: both premises hold, (B) fails, and (C) still holds.
+:::
+
+## Speed Tricks & Shortcuts
+
+**Test separate groups and possibilities.** For *no*, picture two separate groups. For *may*, replace *may* with *possibly, yet maybe not*.
 
 ## Traps to Watch For
 
-### #1: Weakening None
-
-> None excludes every member of the named group.
-
-"No contract staff are permanent employees" applies to every contract staff member. An answer saying only that some are not permanent loses part of what the premise tells us.
-
-### #2: Turning May into Must
-
-> A possible event is not a certain event.
-
-Keep "may" as a possibility. Do not choose "will" unless the passage supports that stronger claim.
+:::checklist
+- "No $A$ are $B$" with a member in $B$: prove that member is outside $A$, never that all non-$A$ items are in $B$. {#reverse-none-rule}
+- "No $A$ are $B$" with "some $C$ are $A$": conclude *some $C$ are not $B$*, never *no $C$ are $B$*. {#stretch-some-to-none}
+- Seeing *may*: keep the outcome possible, never guaranteed. {#may-to-must-certainty}
+:::
