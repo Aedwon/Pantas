@@ -20,7 +20,7 @@ To solve a letter sequence with jumps, convert each letter to its English alphab
 
 1. Find the next letter in $A, C, E, G, \ldots$
 2. Write the positions: $A=1$, $C=3$, $E=5$, $G=7$.
-3. Each position increases by $2$: $7+2=9$.
+3. Find the gaps: $3-1=2$, $5-3=2$, $7-5=2$. Add the same gap: $7+2=9$.
 4. Position $9$ is **$I$**.
 
 :::pair #off-by-one-position
@@ -84,7 +84,7 @@ Find the next letter: $B, D, G, K, \ldots$
 
 $$4-2=2,\quad 7-4=3,\quad 11-7=4$$
 
-3. Jumps grow by $1$; add $5$ to $K=11$:
+3. Jumps grow by $1$, so the next jump is $4+1=5$. Add it to $K=11$:
 
 $$\text{Next}=11+5=16$$
 
@@ -138,5 +138,5 @@ Memorize five anchor positions to find letters faster without counting from $A$:
 :::checklist
 - Converting numbers back to letters: anchor at $A=1$ and $T=20$, so position $21$ is $U$, not $V$. {#off-by-one-position}
 - Counting letter moves: count the moves after the current letter, so $+3$ from $F$ reaches $I$, not $H$ or $J$. {#wraparound-miscount}
-- Repeating letters in a word list: check months, days, or number words before guessing a letter pattern, so $J, F, M, A, M, J, J$ goes to $A$. {#force-letter-jump}
+- Repeated letters in a series: check whether they stand for months, days, or number words, so two $J$s for June and July lead to $A$ (August). {#force-letter-jump}
 :::

@@ -19,8 +19,8 @@ keyPoints:
 In an **interleaved pattern**, odd positions follow one rule and even positions follow another. Odd and even name the position ($1, 2, 3, 4, \ldots$), not the number value.
 
 1. Look at $1, 10, 3, 8, 5, 6, \ldots$ and find the $7$th term.
-2. Read the odd positions ($1, 3, 5$): $1, 3, 5$ (adds $2$ each time).
-3. Read the even positions ($2, 4, 6$): $10, 8, 6$ (subtracts $2$ each time).
+2. Read the odd positions ($1, 3, 5$): $1, 3, 5$, with gaps $3-1=2$ and $5-3=2$.
+3. Read the even positions ($2, 4, 6$): $10, 8, 6$, with gaps $8-10=-2$ and $6-8=-2$.
 4. Position $7$ is odd, so continue the odd track: $5+2=7$.
 
 :::why
@@ -77,8 +77,8 @@ Find the next term in the sequence: $2, 9, 4, 12, 6, 15, \ldots$
 **Solution:**
 
 1. Label positions $1$ to $6$. The blank is position $7$ (odd).
-2. Odd positions ($1, 3, 5$): $2, 4, 6$ (add $2$).
-3. Even positions ($2, 4, 6$): $9, 12, 15$ (add $3$).
+2. Odd positions ($1, 3, 5$): $2, 4, 6$, with gaps $4-2=2$ and $6-4=2$.
+3. Even positions ($2, 4, 6$): $9, 12, 15$, with gaps $12-9=3$ and $15-12=3$.
 4. Add $2$ to $6$ for position $7$:
 
 $$\text{Term 7}=6+2=8$$
@@ -122,7 +122,9 @@ $$\text{Term 4}=13\times3+1=40$$
 
 3. Apply the full rule to $40$ for term $5$:
 
-$$\text{Term 5}=40\times3+1=121$$
+$$40\times3=120$$
+
+$$\text{Term 5}=120+1=121$$
 
 The next term is $121$.
 
@@ -138,7 +140,7 @@ Find the next letter pair, using English alphabet positions ($A=1$ through $Z=26
 
 $$25-26=-1,\quad 23-25=-2,\quad 20-23=-3$$
 
-4. The jumps grow by $1$ each time, so the next jump is $-4$.
+4. Each jump goes one letter farther back, so the next jump is $-4$.
 
 :::try
 Finish the last step: move back $4$ from $T(20)$ and give the next pair, which starts with $K$.
@@ -149,7 +151,7 @@ The answer is **$KP$**. $20-4=16$, which is $P$.
 ## Traps to Watch For
 
 :::checklist
-- Interleaved sequence: check whether the missing position is odd or even before picking a track, so position $7$ of $1, 10, 3, 8, 5, 6$ gives $7$, not $4$. {#wrong-position-track}
-- Alternating cycle: check which step came last instead of repeating it, so $+3, -1$ after $11$ gives $10$, not $14$. {#repeat-wrong-step}
+- Interleaved sequence: label the missing position odd or even before picking a track: odd gives $5+2=7$, not $4$. {#wrong-position-track}
+- Alternating cycle: the last move was $+3$, so subtract $1$: $11-1=10$, not $14$. {#repeat-wrong-step}
 - Two-operation rule: apply both operations in order at the final step, so $47\times2+1=95$, not $94$. {#drop-second-operation}
 :::

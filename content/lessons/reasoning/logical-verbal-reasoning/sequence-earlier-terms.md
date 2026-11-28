@@ -124,7 +124,7 @@ The answer is $29$. Add the last three terms: $4+9+16=29$.
 ## Traps to Watch For
 
 :::checklist
-- Counting how many earlier terms a rule uses: verify on every shown term the rule can build, so a three-term rule on $1, 1, 2, 4, 7$ gives $2+4+7=13$, not $11$. {#too-few-earlier-terms}
-- Doubling the final term by mistake: test your rule on the middle terms too, so $1, 1, 2, 3, 5, 8$ gives $13$, not $16$. {#double-last-term}
+- Counting how many earlier terms a rule uses: check on every term the rule can build whether it adds two or three: $2+4+7=13$, not $11$. {#too-few-earlier-terms}
+- Doubling the final term: test doubling on a middle term first, then use the sum that fits: $5+8=13$, not $16$. {#double-last-term}
 - Adding one step past the blank: match the exact position asked, so the term after $8$ is $13$, not $21$. {#skip-to-next-blank}
 :::

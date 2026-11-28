@@ -146,6 +146,6 @@ The answer is $26$. Add the gap of $6$: $20+6=26$.
 
 :::checklist
 - Asked for a missing term: put the result of the move in the blank, not the step size by itself. {#wrong-step-size}
-- Rapidly growing numbers: test ratios before adding the last gap, and pick the simplest rule that fits every shown term, so $2, 6, 18, 54$ multiplies by $3$ to $162$, not $90$. {#add-last-gap-in-ratio}
-- Growing gaps between terms: check each gap from the start instead of repeating the last one, so $2, 3, 5, 8, 12$ adds $5$ to $17$. {#repeat-last-gap}
+- Rapidly growing numbers: test ratios and pick the simplest rule that fits every shown term: $54\times3=162$, not $90$. {#add-last-gap-in-ratio}
+- Growing gaps between terms: check each gap from the start, then use the next gap: $12+5=17$, not $16$. {#repeat-last-gap}
 :::
