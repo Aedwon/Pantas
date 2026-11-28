@@ -1,0 +1,274 @@
+{
+  "variants": [
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "form": "triangle",
+            "line": 270
+          },
+          "text": "Triangle; ray W"
+        },
+        {
+          "figure": {
+            "form": "triangle",
+            "lines": [
+              225,
+              270,
+              315
+            ]
+          },
+          "mistake": "union-not-intersection",
+          "text": "Triangle; SW+W+NW"
+        },
+        {
+          "figure": {
+            "form": "triangle",
+            "lines": [
+              225,
+              270
+            ]
+          },
+          "mistake": "second-ray-only",
+          "text": "Triangle; SW+W"
+        },
+        {
+          "figure": {
+            "form": "triangle",
+            "line": 225
+          },
+          "mistake": "second-exclusive",
+          "text": "Triangle; ray SW"
+        }
+      ],
+      "cosmetics": {},
+      "figureSpec": {
+        "cells": [
+          {
+            "form": "circle",
+            "lines": [
+              180,
+              45
+            ]
+          },
+          {
+            "form": "circle",
+            "lines": [
+              180,
+              315
+            ]
+          },
+          {
+            "form": "circle",
+            "line": 180
+          },
+          {
+            "form": "triangle",
+            "lines": [
+              270,
+              315
+            ]
+          },
+          {
+            "form": "triangle",
+            "lines": [
+              270,
+              225
+            ]
+          },
+          "blank"
+        ],
+        "cols": 3,
+        "kind": "figure-matrix",
+        "rows": 2
+      },
+      "index": 2,
+      "ruleKey": "2fa3e4bcd34027331482d47bbc2d1e1b1d44b88a74da3faf3247fe1bd554f188",
+      "signature": "94849bd27cfd097553ec23e7a67470ee277194559ebbf2a146856617429f0907",
+      "slots": {
+        "answerText": "Triangle; ray W"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "form": "pentagon",
+            "line": 90
+          },
+          "text": "Pentagon; ray E"
+        },
+        {
+          "figure": {
+            "form": "pentagon",
+            "lines": [
+              45,
+              90,
+              180
+            ]
+          },
+          "mistake": "union-not-intersection",
+          "text": "Pentagon; NE+E+S"
+        },
+        {
+          "figure": {
+            "form": "pentagon",
+            "lines": [
+              90,
+              180
+            ]
+          },
+          "mistake": "second-ray-only",
+          "text": "Pentagon; E+S"
+        },
+        {
+          "figure": {
+            "form": "pentagon",
+            "line": 180
+          },
+          "mistake": "second-exclusive",
+          "text": "Pentagon; ray S"
+        }
+      ],
+      "cosmetics": {},
+      "figureSpec": {
+        "cells": [
+          {
+            "form": "circle",
+            "lines": [
+              270,
+              135
+            ]
+          },
+          {
+            "form": "circle",
+            "lines": [
+              270,
+              90
+            ]
+          },
+          {
+            "form": "circle",
+            "line": 270
+          },
+          {
+            "form": "pentagon",
+            "lines": [
+              90,
+              45
+            ]
+          },
+          {
+            "form": "pentagon",
+            "lines": [
+              90,
+              180
+            ]
+          },
+          "blank"
+        ],
+        "cols": 3,
+        "kind": "figure-matrix",
+        "rows": 2
+      },
+      "index": 8,
+      "ruleKey": "c58a2951bc3570d064d500e2344a952f63c4aa739c64217173abccf3bd95a2b5",
+      "signature": "977fdb337c407758cf0bc7305fcc81ccd15814b841c0c9b44cd11203af7b8c3b",
+      "slots": {
+        "answerText": "Pentagon; ray E"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "form": "star",
+            "line": 270
+          },
+          "text": "Star; ray W"
+        },
+        {
+          "figure": {
+            "form": "star",
+            "lines": [
+              0,
+              135,
+              270
+            ]
+          },
+          "mistake": "union-not-intersection",
+          "text": "Star; N+SE+W"
+        },
+        {
+          "figure": {
+            "form": "star",
+            "lines": [
+              135,
+              270
+            ]
+          },
+          "mistake": "second-ray-only",
+          "text": "Star; SE+W"
+        },
+        {
+          "figure": {
+            "form": "star",
+            "line": 135
+          },
+          "mistake": "second-exclusive",
+          "text": "Star; ray SE"
+        }
+      ],
+      "cosmetics": {},
+      "figureSpec": {
+        "cells": [
+          {
+            "form": "triangle",
+            "lines": [
+              90,
+              270
+            ]
+          },
+          {
+            "form": "triangle",
+            "lines": [
+              90,
+              315
+            ]
+          },
+          {
+            "form": "triangle",
+            "line": 90
+          },
+          {
+            "form": "star",
+            "lines": [
+              270,
+              0
+            ]
+          },
+          {
+            "form": "star",
+            "lines": [
+              270,
+              135
+            ]
+          },
+          "blank"
+        ],
+        "cols": 3,
+        "kind": "figure-matrix",
+        "rows": 2
+      },
+      "index": 12,
+      "ruleKey": "a770a296ce9b9d1faf4f13c6ee38959ae7b64e4448955fb587ba60d779d1b21b",
+      "signature": "fa1dc572f160c8f7ec133f0eb62bc993a16b0946ac2522f3a4f854abf06008b2",
+      "slots": {
+        "answerText": "Star; ray W"
+      }
+    }
+  ]
+}

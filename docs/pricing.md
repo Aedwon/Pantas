@@ -28,7 +28,7 @@ Prices follow the exam the user has selected. Each tier has its own paywall.
 | Student, academy exams | PMA, PNPA, PMMA, MAAP | Student plans above, plus a ₱299 season pass | Content is a future update. Release requires the abstract reasoning generator |
 | Civil Service | CSE Professional and Subprofessional, NAPOLCOM, AFPSAT | ₱49 weekly, ₱149 monthly, ₱1,199 yearly, or a ₱499 pass valid to the next exam date (weekly and yearly added by Aedwon, 6 October 2026) | New products needed. NAPOLCOM and AFPSAT content is a future update |
 | Licensure | LET, PNLE, and later PRC exams | ₱249 monthly, or a ₱1,499 pass valid to the board exam date | Content is a future update |
-| PSHS-NCE | PSHS National Competitive Examination | ₱1,499 season pass only. No subscription | Content is a future update. Release requires the abstract reasoning generator |
+| PSHS-NCE | PSHS National Competitive Examination | ₱1,499 season pass only. No subscription | Content is a future update. Written questions are enough to release (generator rule lifted Nov 28); release still requires under-13 accounts |
 
 A season pass is a one-time purchase that expires after the exam date. It never
 renews.
@@ -43,8 +43,10 @@ superseded.
 
 ## Release requirement: abstract reasoning generator
 
-The academy exams and PSHS-NCE do not go on sale until the procedural generation
-engine for abstract reasoning questions ships. Abstract reasoning is a scored part
+The academy exams do not go on sale until the procedural generation
+engine for abstract reasoning questions ships. PSHS-NCE is exempt (Aedwon, Nov 28, 2026:
+"okay i will lift that rule regarding generator dependency"): it may release with written
+abstract reasoning questions, and the generator joins it when ready. Abstract reasoning is a scored part
 of PSHS-NCE, PMA, and PMMA. MAAP tests IQ and aptitude, which usually includes
 pattern items. PNPA coverage is not yet confirmed from an official source. If
 NAPOLCOM or AFPSAT coverage is confirmed to include abstract reasoning, the same

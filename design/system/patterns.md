@@ -177,6 +177,11 @@ Groups in this order: Your exam, Account, Appearance, Accessibility, Pro, About.
 - Data values are set as `style="--value:N"` on the bar, ring, gauge or chart column; the other inline properties are the data and state ones the README lists, never styling.
 - A subject row that opens its page is a StatRow link (`.stat-row--link`, ruling 8): the whole row, a chevron, the hover well.
 
+## Joining text items
+- Never join text items with a middle dot (·) or a bullet (•) separator, in interface text or copy (Aedwon, Nov 28: "please note to never do that bullet separation. it's an AI pattern i prefer not using").
+- Use words or punctuation instead: parentheses for a value that belongs to a name ("Analytical Ability (35%)"), a comma or a line break for two facts, or two lines (a title and a caption).
+- Applies to new work from Nov 28. Existing strings that use one change only when their screen is next worked on or when Aedwon approves a sweep.
+
 ## Secondary navigation
 - A teal text link with an arrow that nudges 4px on hover: "See all questions →". Never a box, tint or border.
 - Place it inside the card it extends, under the rows, or at the right end of a section header. An action on the section itself (Custom Quiz "Select All") is a small teal tertiary Button (`.btn--tertiary.btn--accent.btn--sm`) in the same slot, never a link.

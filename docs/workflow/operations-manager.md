@@ -38,6 +38,10 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
   first; paused lanes commit their work in progress and wait to be resumed.
   Relaxed Nov 15 (Aedwon: "you can accelerate things, still have plenty of usage left"): run lanes and
   parallel Codex jobs as needed while he has usage; return to the cap if he asks.
+  Restored and tightened Nov 28, about 4 AM (Aedwon: "obviously i want you to slow down", after four
+  leads ran at once): one build lane at a time, plus short one-off jobs. The integrator goes first.
+  Every other lane is paused until he names it. Before starting or resuming any lane, the manager says
+  which lane stops to make room.
 
 **Leads**
 - Own their lane end to end: plan, brief workers, review every result, merge, log to main.
@@ -52,14 +56,18 @@ subagents. In the T3 sidebar, a worker shows as a child of its lead.
 - Get a written brief, do one job, return a short summary (pass or fail, errors, files touched).
 - Never talk to Aedwon, never merge, and never start work outside their brief.
 
-## Lanes (current as of November 27, 4:15 PM Manila)
+## Lanes (current as of November 28, 3:45 PM Manila)
 
-Manager: `c517ddef-dfdb-4aa6-9f0a-401e7c34873d` ("Operations Manager Handoff", opened by Aedwon Nov 27 1:28 PM). It took over because every heartbeat of the previous manager timed out from 6:33 AM to 1:17 PM Nov 27, so the 6:45 AM lesson lead restart never ran. The 8 future bound schedules were rebound to it; the Fri 7:00 PM r10 restart now names it as the report target.
-Old managers, retired (do not message): `mcp:launch:aec6f0b94357a6bdd55f540c8424f611aeda70dba0b2000f468126a93604918c`, `mcp:launch:00976645432b2f793e42bfeeea73583c727484762376837beea722b8a3c65b8d`, `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926`.
-Active: CSE release lead r9 (same thread), integrator, service worker fix, P12 loop runs, payment PR merges, then the opening ship `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
-UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (idle; guided first run handed to the release lead Nov 26);
-security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (alert email confirmed 1:22 AM; live PayMongo key Nov 26 9 AM, first real payment).
-Walk-through Math pilot, Claude lead: `mcp:launch:d0b92d05876bd9854657cafae346820c99095f72f43494be336846fad3ba9c63`, branch `content/lesson-walkthrough-cse-r1` (WIP ca590443b). Paused since Nov 27 3:55 PM; restarts fresh Sat Nov 28 8:30 AM for the Math pilot under the Nov 27 spec revision (scheduled). Its other subjects stop: their drafts stay on the branch, unused.
+Manager: `mcp:61bb1f57-51d4-46fa-a3a3-b4e0e667778b` ("Operations Manager (Nov 28 afternoon)"). It took over Nov 28 about 2:15 PM Manila from `docs/superpowers/handoffs/2026-11-28-operations-manager-afternoon.md`, because the previous manager's context was nearly full. Every future bound schedule was rebound to it.
+Old managers, retired (do not message): `c517ddef-dfdb-4aa6-9f0a-401e7c34873d` ("Operations Manager Handoff", retired Nov 28 for length), `mcp:launch:aec6f0b94357a6bdd55f540c8424f611aeda70dba0b2000f468126a93604918c`, `mcp:launch:00976645432b2f793e42bfeeea73583c727484762376837beea722b8a3c65b8d`, `mcp:launch:2f628e2495c6e1411884e3ca9e4a1bdc13467273ae2643e58f0fdb984177a926`.
+Focus since Nov 28 about 3:40 PM: CSE only (Aedwon: "let's put efforts into CSE please, though some lanes might still be working on something let them finish and pause"). Two build lanes, 1 Claude worker each.
+Active: CSE release lead r11, integrator (revision 2 service worker, content uploads, the C11 content re-check) `mcp:launch:55d23bdfde1cbdbac9638f0f42400f367a941a688ddb9d6bea85cda3646e2cd2`;
+CSE Math finish and reasoning walk-through lead r2 `mcp:launch:d2654fd4c4db418913f2b10aff7823cada61e8bb02b69d06d89a539699eb8ee1`, branch `content/cse-math-finish-r2` from main (two held Math lessons first, then a step-based reasoning plan before writing);
+security and billing lead r2 `mcp:launch:e29d46394b524c9bb1b3efca97421eeae55d54872d03697127a873b07e99ebc5` (no build work; scheduled checks only).
+PAUSED Nov 28 by his CSE focus: generator lead `mcp:09b2a2c5-80a9-422e-827e-188156b04c2e` (Phase 1 merged as PR #168; Phase 2 plan ready, not started); guardian accounts and PSHS content (not launched).
+UX lead `mcp:d8548b12-d7ea-4fd6-8dc3-919a8b8c0570` (paused; Lesson Author queued).
+Sidebar account card UX lead `mcp:launch:b1b6815e49252b948740be35128202d2a3651c7fe478eda720136050406e87c6`, branch `ux/sidebar-account-r1` (opened Nov 28 about 4:15 PM at his request; Aedwon talks to it directly for the brainstorm; brainstorm and board only, no workers; building waits for a free slot and the manager's go).
+Retired Nov 28 (do not message): old walk-through Math lead `mcp:launch:d0b92d05876bd9854657cafae346820c99095f72f43494be336846fad3ba9c63` (its worktree predates the shell hook; its branch `content/lesson-walkthrough-cse-r1` 9cad788a2 is the source the r2 lead copies from).
 Closed Nov 27 (do not message): General Information Gemini lead `mcp:launch:b0df58086776a5a77d6f3512e73088175546b9de53242fd3645752a166cae361` (drafts on `content/lesson-walkthrough-cse-gi-r1` WIP 15cd3a90a; General Information keeps its live lessons).
 Retired (do not message): first Gemini walk-through lead `mcp:launch:b7636146c2e66e268cb6e853fade6c2d585c3fa734c80ae1f6ecaaec1648308c`, Claude stopgap lead `mcp:launch:9311c7e2af7f6722e8eefce7355936436161d5ed206f07d80f15c3fb95927ab9`, old Claude lesson walk-through lead `mcp:launch:6fcf82ba3dd0d64d320c20b9d5b7dff27f1315495e1704252607c246f86f05dd`.
 Paused by him: under-13 (keep 13 to 17 closed), PSHS-NCE (go/no-go Dec 8), QG Phase 2, dots.
@@ -159,8 +167,12 @@ When a manager thread gets too long, Aedwon opens a new thread in the Pantas T3 
    to the new one: `schedule_task` with its `scheduledTaskId` and `bindToCurrentThread: true`,
    leaving schedule and prompt unchanged. Then update the heartbeat and cache-warming prompts if the
    lanes table changed.
-6. **Announce the handover to each active lead:** "Manager: a new manager thread has taken over.
-   Report to it from now on." Leads take messages from whichever thread Aedwon names as manager.
+6. **Announce the handover to each active lead:** "Manager: a new manager thread (<new id>) has
+   taken over. Report to it from now on; never send to <old id>." Use `mode: steer` for a lead
+   whose turn is running, so it does not report to the old thread first; `queue` only for idle
+   leads. Then send the old thread one message: reply only "Retired" to anything that reaches it,
+   and act on nothing (Nov 28 entry in `process-improvement.md`). Leads take messages from
+   whichever thread Aedwon names as manager.
 7. **Tell Aedwon in under 150 words:** what is running, what waits on him (with a recommendation
    for each), and what is next with a time estimate. Ask him to stop using the old manager thread,
    so two managers never send conflicting instructions.

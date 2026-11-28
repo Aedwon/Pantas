@@ -43,6 +43,23 @@ List<GateFinding> runContentGate(
         )) {
       findings.add(const GateFinding('legacy.json', 'legacy list changed'));
     }
+    for (final type in activeProblemTypes(contentRoot)) {
+      final hash = problemTypeHash(
+        typeBytes: type.file.readAsBytesSync(),
+        rule: type.data['rule'] as String,
+        ruleVersion: type.data['ruleVersion'] as int,
+        variantBytes: type.variants.readAsBytesSync(),
+      );
+      if (approved[type.id]?['hash'] == hash) continue;
+      findings.add(
+        GateFinding(
+          type.id,
+          approved.containsKey(type.id)
+              ? 'edited after approval'
+              : 'not approved',
+        ),
+      );
+    }
     final splitTopics = <String>{};
     final lessons = Directory(p.join(contentRoot, 'lessons'));
     if (lessons.existsSync()) {

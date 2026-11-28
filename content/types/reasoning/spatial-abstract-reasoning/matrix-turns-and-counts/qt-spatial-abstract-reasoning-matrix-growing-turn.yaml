@@ -1,0 +1,107 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-growing-turn",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-turns-and-counts",
+  "keyPoint": 1,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-growing-turn",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "Each row uses equal clockwise turns. The turn grows by the same amount from one row to the next. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "use-smallest-step",
+      "note": "This uses the first row's turn again. That is a valid turn in the grid. Use the larger turn that belongs to the row with the blank."
+    },
+    {
+      "id": "freeze-ray",
+      "note": "This repeats the adjacent line direction. That line is beside the blank. Continue the equal turn used across the row."
+    },
+    {
+      "id": "copy-first-row-diagonal",
+      "note": "This copies the top middle line. That direction appears in a completed row. Apply the turn from the row with the blank instead."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0018",
+      "index": 0
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-binary-fill",
+  "lesson": "lesson-spatial-abstract-reasoning-figure-counts-and-fills",
+  "keyPoint": 2,
+  "difficulty": "easy",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-binary-fill",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      3,
+      4,
+      5
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2
+    ],
+    "initialEdges": [
+      0,
+      1,
+      2
+    ]
+  },
+  "stem": "Which figure best continues the simplest consistent pattern shown?\n",
+  "explanation": "The fill alternates black and white. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "repeat-fill",
+      "note": "This repeats the last fill. That fill is most recent. Check each change between neighbors."
+    },
+    {
+      "id": "average-fill",
+      "note": "This averages the two fills. Both fills appear in the series. Check whether a half fill belongs to the cycle."
+    },
+    {
+      "id": "gradual-fill",
+      "note": "This adds a partial fill. Fill is the changing feature. Check that the series uses only black and white."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0003",
+      "index": 0
+    }
+  ]
+}

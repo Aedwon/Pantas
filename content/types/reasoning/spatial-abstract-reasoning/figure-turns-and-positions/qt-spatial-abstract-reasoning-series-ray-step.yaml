@@ -1,0 +1,74 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-ray-step",
+  "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+  "keyPoint": 1,
+  "difficulty": "easy",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-ray-step",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      3,
+      4,
+      5
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2
+    ],
+    "initialEdges": [
+      0,
+      1,
+      2
+    ]
+  },
+  "stem": "Which figure best continues the simplest consistent pattern shown?\n",
+  "explanation": "The ray makes the same clockwise turn each time. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "double-turn",
+      "note": "This doubles the equal turn. A larger turn can look like progress. Check the earlier turn sizes."
+    },
+    {
+      "id": "early-restart",
+      "note": "This selects {restartAction} instead of making the next equal turn. A familiar ray can look right. Check the turn from the last shown ray."
+    },
+    {
+      "id": "reverse-turn",
+      "note": "This turns backward once. A previous ray can look familiar. Check the direction of both earlier turns."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0001",
+      "index": 0
+    }
+  ]
+}

@@ -887,12 +887,15 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                           // to the lesson's own top padding, so the text stays
                           // exactly where it was.
                           final lift = _barHeight - shown;
-                          Widget scroll(Widget child) => _wheel(
+                          Widget scroll(Widget child, {double side = 0}) =>
+                              _wheel(
                                 SingleChildScrollView(
                                   key: const ValueKey('web-reader-scroll'),
                                   controller: widget.controller,
                                   primary: false,
                                   padding: EdgeInsets.only(
+                                    left: side,
+                                    right: side,
                                     top: _columnTop + lift,
                                     bottom: PantasSpace.s56,
                                   ),
@@ -908,13 +911,23 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                           return Align(
                             alignment: Alignment.topCenter,
                             child: LayoutBuilder(
+                              // The scroll view is 14 px wider than the column
+                              // on each side, with that room as padding, so
+                              // its clip does not cut a Why? button's 14 px
+                              // hang to the left of the text.
                               builder: (context, constraints) => SizedBox(
-                                key: const ValueKey('web-reader-column'),
                                 width: WebReaderMetrics.columnWidth(
-                                  constraints.maxWidth,
-                                  fullWidth: fullWidth,
+                                      constraints.maxWidth,
+                                      fullWidth: fullWidth,
+                                    ) +
+                                    2 * PantasSpace.s14,
+                                child: scroll(
+                                  SizedBox(
+                                    key: const ValueKey('web-reader-column'),
+                                    child: columnBody,
+                                  ),
+                                  side: PantasSpace.s14,
                                 ),
-                                child: scroll(columnBody),
                               ),
                             ),
                           );

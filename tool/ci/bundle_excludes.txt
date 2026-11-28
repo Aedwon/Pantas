@@ -4,4 +4,5 @@ test/core/ui/components/selection_row_states_test.dart  focus state from an earl
 test/performance/frame_work_test.dart  frame timing and fake async; hung for minutes when bundled
 test/features/paywall/application/active_exam_coverage_test.dart  times out inside a bundle with the privacy batch tests in the shard; passes alone
 test/features/mock_exam/presentation/mock_card_test.dart  its one-line name checks assume the square test font; a neighbor that loads Geist moved the length beside the name on CI (Nov 24)
+test/core/ui/figures/nested_boxes_layout_test.dart  loads Geist to measure real label widths; in shard 3 the font stayed loaded and performance_row_counts_test measured "(123)" at 38 instead of over 40 (Nov 28)
 test/app/router_settings_test.dart  hung the test process after router_screen_views_test.dart in the same bundle (idle, no timeout fires); passes alone; found Nov 25 when new tests reshuffled shard 0, hangs with main's lib too

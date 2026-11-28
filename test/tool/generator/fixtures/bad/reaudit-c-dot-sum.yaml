@@ -1,0 +1,515 @@
+{
+  "variants": [
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "dots": 4,
+            "form": "circle"
+          },
+          "text": "Circle with four dots"
+        },
+        {
+          "figure": {
+            "dots": 5,
+            "form": "circle"
+          },
+          "mistake": "add-sequence-step",
+          "text": "Circle with five dots"
+        },
+        {
+          "figure": {
+            "dots": 3,
+            "form": "circle"
+          },
+          "mistake": "copy-second",
+          "text": "Circle with three dots"
+        },
+        {
+          "figure": {
+            "dots": 2,
+            "form": "circle"
+          },
+          "mistake": "subtract-inputs",
+          "text": "Circle with two dots"
+        }
+      ],
+      "cosmetics": {
+        "form": "circle"
+      },
+      "figureSpec": {
+        "cells": [
+          {
+            "dots": 1,
+            "form": "circle"
+          },
+          {
+            "dots": 2,
+            "form": "circle"
+          },
+          {
+            "dots": 3,
+            "form": "circle"
+          },
+          {
+            "dots": 2,
+            "form": "circle"
+          },
+          {
+            "dots": 2,
+            "form": "circle"
+          },
+          {
+            "dots": 4,
+            "form": "circle"
+          },
+          {
+            "dots": 1,
+            "form": "circle"
+          },
+          {
+            "dots": 3,
+            "form": "circle"
+          },
+          "blank"
+        ],
+        "cols": 3,
+        "kind": "figure-matrix",
+        "rows": 3
+      },
+      "index": 0,
+      "ruleKey": "5264a8cad88672af3b1c6e3b98572ff833f274d730ae3c29347309c6d6e0cfa9",
+      "signature": "d8d17552c4039a9c1a30c4568712c5fde1f79ab03db5f0603bba894805603dd4",
+      "slots": {
+        "answerText": "Circle; 4 dots"
+      },
+      "source": "q-spatial-abstract-reasoning-figure-matrices-0016"
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "dots": 5,
+            "form": "square"
+          },
+          "text": "Square; 5 dots"
+        },
+        {
+          "figure": {
+            "dots": 4,
+            "form": "square"
+          },
+          "mistake": "add-sequence-step",
+          "text": "Square; 4 dots"
+        },
+        {
+          "figure": {
+            "dots": 3,
+            "form": "square"
+          },
+          "mistake": "copy-second",
+          "text": "Square; 3 dots"
+        },
+        {
+          "figure": {
+            "dots": 1,
+            "form": "square"
+          },
+          "mistake": "subtract-inputs",
+          "text": "Square; 1 dot"
+        }
+      ],
+      "cosmetics": {
+        "form": "square"
+      },
+      "figureSpec": {
+        "cells": [
+          {
+            "dots": 2,
+            "form": "square"
+          },
+          {
+            "dots": 1,
+            "form": "square"
+          },
+          {
+            "dots": 3,
+            "form": "square"
+          },
+          {
+            "dots": 1,
+            "form": "square"
+          },
+          {
+            "dots": 3,
+            "form": "square"
+          },
+          {
+            "dots": 4,
+            "form": "square"
+          },
+          {
+            "dots": 2,
+            "form": "square"
+          },
+          {
+            "dots": 3,
+            "form": "square"
+          },
+          "blank"
+        ],
+        "cols": 3,
+        "kind": "figure-matrix",
+        "rows": 3
+      },
+      "index": 10,
+      "ruleKey": "ca80795f1bfa7d2bcc6495f73f60e06f9303c25b148b01aa67d57956bea5fa35",
+      "signature": "c0c8955d7ec86214089b06c17e8f303467931b7da84050edc6983202d8c58d84",
+      "slots": {
+        "answerText": "Square; 5 dots"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "dots": 4,
+            "form": "triangle"
+          },
+          "text": "Triangle; 4 dots"
+        },
+        {
+          "figure": {
+            "dots": 5,
+            "form": "triangle"
+          },
+          "mistake": "add-sequence-step",
+          "text": "Triangle; 5 dots"
+        },
+        {
+          "figure": {
+            "dots": 3,
+            "form": "triangle"
+          },
+          "mistake": "copy-second",
+          "text": "Triangle; 3 dots"
+        },
+        {
+          "figure": {
+            "dots": 2,
+            "form": "triangle"
+          },
+          "mistake": "subtract-inputs",
+          "text": "Triangle; 2 dots"
+        }
+      ],
+      "cosmetics": {
+        "form": "triangle"
+      },
+      "figureSpec": {
+        "cells": [
+          {
+            "dots": 2,
+            "form": "triangle"
+          },
+          {
+            "dots": 2,
+            "form": "triangle"
+          },
+          {
+            "dots": 4,
+            "form": "triangle"
+          },
+          {
+            "dots": 2,
+            "form": "triangle"
+          },
+          {
+            "dots": 2,
+            "form": "triangle"
+          },
+          {
+            "dots": 4,
+            "form": "triangle"
+          },
+          {
+            "dots": 1,
+            "form": "triangle"
+          },
+          {
+            "dots": 3,
+            "form": "triangle"
+          },
+          "blank"
+        ],
+        "cols": 3,
+        "kind": "figure-matrix",
+        "rows": 3
+      },
+      "index": 53,
+      "ruleKey": "a1e007e2ef3830ccfcab2df28d3abbcb2a50951f17c1939aca983c301a19c7e0",
+      "signature": "4e242d2842c4b8c9748250fc5d197c6b3101d3219f593c7b09b7dde1980322d7",
+      "slots": {
+        "answerText": "Triangle; 4 dots"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "dots": 4,
+            "form": "triangle"
+          },
+          "text": "Triangle; 4 dots"
+        },
+        {
+          "figure": {
+            "dots": 5,
+            "form": "triangle"
+          },
+          "mistake": "add-sequence-step",
+          "text": "Triangle; 5 dots"
+        },
+        {
+          "figure": {
+            "dots": 3,
+            "form": "triangle"
+          },
+          "mistake": "copy-second",
+          "text": "Triangle; 3 dots"
+        },
+        {
+          "figure": {
+            "dots": 2,
+            "form": "triangle"
+          },
+          "mistake": "subtract-inputs",
+          "text": "Triangle; 2 dots"
+        }
+      ],
+      "cosmetics": {
+        "form": "triangle"
+      },
+      "figureSpec": {
+        "cells": [
+          {
+            "dots": 1,
+            "form": "triangle"
+          },
+          {
+            "dots": 4,
+            "form": "triangle"
+          },
+          {
+            "dots": 5,
+            "form": "triangle"
+          },
+          {
+            "dots": 2,
+            "form": "triangle"
+          },
+          {
+            "dots": 1,
+            "form": "triangle"
+          },
+          {
+            "dots": 3,
+            "form": "triangle"
+          },
+          {
+            "dots": 1,
+            "form": "triangle"
+          },
+          {
+            "dots": 3,
+            "form": "triangle"
+          },
+          "blank"
+        ],
+        "cols": 3,
+        "kind": "figure-matrix",
+        "rows": 3
+      },
+      "index": 68,
+      "ruleKey": "437a7a1f00473b4bfb7dc8c152447306e27e68e04f2ac55f46fa0d5b2ce579ca",
+      "signature": "c8caa4c61aba81a17a07b95e498776d5a4d6388ac344ce4a811dc2b705c2e931",
+      "slots": {
+        "answerText": "Triangle; 4 dots"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "dots": 4,
+            "form": "square"
+          },
+          "text": "Square; 4 dots"
+        },
+        {
+          "figure": {
+            "dots": 5,
+            "form": "square"
+          },
+          "mistake": "add-sequence-step",
+          "text": "Square; 5 dots"
+        },
+        {
+          "figure": {
+            "dots": 3,
+            "form": "square"
+          },
+          "mistake": "copy-second",
+          "text": "Square; 3 dots"
+        },
+        {
+          "figure": {
+            "dots": 2,
+            "form": "square"
+          },
+          "mistake": "subtract-inputs",
+          "text": "Square; 2 dots"
+        }
+      ],
+      "cosmetics": {
+        "form": "square"
+      },
+      "figureSpec": {
+        "cells": [
+          {
+            "dots": 2,
+            "form": "square"
+          },
+          {
+            "dots": 3,
+            "form": "square"
+          },
+          {
+            "dots": 5,
+            "form": "square"
+          },
+          {
+            "dots": 1,
+            "form": "square"
+          },
+          {
+            "dots": 4,
+            "form": "square"
+          },
+          {
+            "dots": 5,
+            "form": "square"
+          },
+          {
+            "dots": 1,
+            "form": "square"
+          },
+          {
+            "dots": 3,
+            "form": "square"
+          },
+          "blank"
+        ],
+        "cols": 3,
+        "kind": "figure-matrix",
+        "rows": 3
+      },
+      "index": 69,
+      "ruleKey": "f4a6e6e06789d4c8706796dff1c9eb7b397568220647b96babb469e82651d8e9",
+      "signature": "2ad7bb29c0e554da3e2ae14dbcf2fee1e02d606e6b1d011037f614d7792bf1de",
+      "slots": {
+        "answerText": "Square; 4 dots"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "dots": 4,
+            "form": "square"
+          },
+          "text": "Square; 4 dots"
+        },
+        {
+          "figure": {
+            "dots": 5,
+            "form": "square"
+          },
+          "mistake": "add-sequence-step",
+          "text": "Square; 5 dots"
+        },
+        {
+          "figure": {
+            "dots": 3,
+            "form": "square"
+          },
+          "mistake": "copy-second",
+          "text": "Square; 3 dots"
+        },
+        {
+          "figure": {
+            "dots": 2,
+            "form": "square"
+          },
+          "mistake": "subtract-inputs",
+          "text": "Square; 2 dots"
+        }
+      ],
+      "cosmetics": {
+        "form": "square"
+      },
+      "figureSpec": {
+        "cells": [
+          {
+            "dots": 1,
+            "form": "square"
+          },
+          {
+            "dots": 3,
+            "form": "square"
+          },
+          {
+            "dots": 4,
+            "form": "square"
+          },
+          {
+            "dots": 1,
+            "form": "square"
+          },
+          {
+            "dots": 1,
+            "form": "square"
+          },
+          {
+            "dots": 2,
+            "form": "square"
+          },
+          {
+            "dots": 1,
+            "form": "square"
+          },
+          {
+            "dots": 3,
+            "form": "square"
+          },
+          "blank"
+        ],
+        "cols": 3,
+        "kind": "figure-matrix",
+        "rows": 3
+      },
+      "index": 79,
+      "ruleKey": "de46c99c1475311d1f0b362ef5b3424acb27352105dfce12bb6f7479c111d7f0",
+      "signature": "a08134f779a50991291ca350b115e6cbb097322f31fc54381197e7cdd30ff29f",
+      "slots": {
+        "answerText": "Square; 4 dots"
+      }
+    }
+  ]
+}

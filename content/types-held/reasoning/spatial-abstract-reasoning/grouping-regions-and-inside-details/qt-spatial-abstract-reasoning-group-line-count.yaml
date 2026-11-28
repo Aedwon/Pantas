@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-line-count",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details",
+  "keyPoint": 2,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-line-count",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": false,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "choose-first",
+      "note": "This picks the start of the row. Its first position makes it noticeable. Count its lines.\n"
+    },
+    {
+      "id": "choose-central",
+      "note": "This selects a matching figure because it is central. Its {lineCount} internal lines can look like a different pattern. Count full lines rather than regions."
+    },
+    {
+      "id": "miscount-repeated-cuts",
+      "note": "This mistakes a repeated pattern for a new count. It has the same {lineCount} internal lines as the other matching figures. Trace each full line once."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0009",
+      "index": 0
+    }
+  ]
+}

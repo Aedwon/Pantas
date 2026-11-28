@@ -166,7 +166,12 @@ Direction B "Clarity": Apple principles, no liquid glass. Geist everywhere; Sour
 - For Claude Code: questions are mixed across lessons; practice skips questions answered in the last 7 days, topping up with older ones before showing a smaller count; the picker remembers the last picks and length; switching modes lands on the nearest matching value; the time estimate starts at about 50 seconds a question and learns each student's own pace; a custom quiz left partway shows on the Quiz tab like any paused quiz.
 - Options not picked (tile layouts, the "Your quiz" sheet, the slim line, icon choices) are on Archive ("Quiz (earlier rounds)").
 ## Wording (3 Oct)
-- "Session", never "Sitting": one run of questions is a session; a long day of reviews is split into sessions ("Reviews · Session 1 of 2", "60 due · 6 sessions of 10").
+- "Session", never "Sitting": one run of questions is a session; a long day of reviews is split into sessions ("Reviews · Session 1 of 2", "60 due · 6 sessions of 10"). The middle dots in these examples predate the Nov 28 rule below.
+
+## No middle-dot or bullet separators (Nov 28)
+- Aedwon, verbatim: "please note to never do that bullet separation. it's an AI pattern i prefer not using". Said when an option drew a CSE weight as "Verbal Ability · 30%"; his format instead: "no not like that, just Analytical Ability (35%)".
+- Rule: never join text items with "·" or "•" in interface text or copy. Use parentheses, a comma, a line break, or a title and caption. Full rule: `design/system/patterns.md`, "Joining text items".
+- New work from Nov 28. About 58 existing string literals in `lib/` still use "·"; they change when their screen is next worked on, or in a sweep if he approves one.
 ## Quiz screens (APPROVED 3 Oct; page "Quiz", rows "Quiz screens" and "Question viewer and the bottom bar")
 - One set of screens for every quiz: today's reviews, today's new questions, a lesson's quiz, Customize your own, Your past mistakes, Flagged questions. Only the end screen's line and where Done returns change (board QV_Sources). The mock gets its own screens.
 - Top: X (leave) on the left, Report on the right. Everything else lives in a floating bottom bar: the counter "4 of 10 ⌄" (opens the questions sheet), Flag, and the action. 44pt touch targets; the counter has room on both sides.

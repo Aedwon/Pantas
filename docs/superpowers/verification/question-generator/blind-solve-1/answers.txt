@@ -1,0 +1,75 @@
+qt-spatial-abstract-reasoning-series-fill-ray-dots#0 B sure alternating fill and line, 5th odd position
+qt-spatial-abstract-reasoning-series-fill-ray-dots#9 B sure odd position repeats 75%/E
+qt-spatial-abstract-reasoning-series-fill-ray-dots#46 C sure odd position repeats 50%/NW
+qt-spatial-abstract-reasoning-series-fill-ray-dots#51 A sure 5th item repeats 50%/S
+qt-spatial-abstract-reasoning-series-fill-ray-dots#79 B sure 5th item repeats 75%/E
+qt-spatial-abstract-reasoning-series-four-tracks#0 B sure form alternates, size alternates, edges +1, line +90
+qt-spatial-abstract-reasoning-series-four-tracks#14 A sure pentagon large, edges 3, line +90 to 360
+qt-spatial-abstract-reasoning-series-four-tracks#28 D sure triangle small, edges 5, line 90
+qt-spatial-abstract-reasoning-series-four-tracks#41 D sure star small, edges 4, line +90 to 135
+qt-spatial-abstract-reasoning-series-four-tracks#87 D sure star small, edges 3, line 45
+qt-spatial-abstract-reasoning-series-interleaved-count#0 D sure circle count 1,2 then 3
+qt-spatial-abstract-reasoning-series-interleaved-count#50 A sure pentagon 0,1 then 2
+qt-spatial-abstract-reasoning-series-interleaved-count#61 B sure triangle 1,2 then 3
+qt-spatial-abstract-reasoning-series-interleaved-count#87 A sure circle 1,2 then 3
+qt-spatial-abstract-reasoning-series-interleaved-count#94 A sure triangle 0,1 then 2
+qt-spatial-abstract-reasoning-series-size-corner-ray#0 C sure corner clockwise to TL, medium, line 90
+qt-spatial-abstract-reasoning-series-size-corner-ray#8 D sure TL, small, line 0
+qt-spatial-abstract-reasoning-series-size-corner-ray#24 B sure BR, small, line 315
+qt-spatial-abstract-reasoning-series-size-corner-ray#71 C sure BR, medium, line 0
+qt-spatial-abstract-reasoning-series-size-corner-ray#88 A sure TR, medium, line 90
+qt-spatial-abstract-reasoning-series-ray-step#0 C sure +45 step
+qt-spatial-abstract-reasoning-series-ray-step#6 C sure +45 step
+qt-spatial-abstract-reasoning-series-ray-step#57 D sure +45 to 360=0
+qt-spatial-abstract-reasoning-series-ray-step#63 A sure +135 step to 90
+qt-spatial-abstract-reasoning-series-ray-step#70 D sure +135 step to 90
+qt-spatial-abstract-reasoning-group-boundary#0 B sure only curved
+qt-spatial-abstract-reasoning-group-boundary#16 D sure blob
+qt-spatial-abstract-reasoning-group-boundary#25 B sure blob figure 2
+qt-spatial-abstract-reasoning-group-boundary#43 A sure circle figure 4
+qt-spatial-abstract-reasoning-group-boundary#93 A sure circle figure 2
+qt-spatial-abstract-reasoning-group-polygon-replacement#0 A sure hexagon is straight-sided
+qt-spatial-abstract-reasoning-group-polygon-replacement#28 B sure only polygon
+qt-spatial-abstract-reasoning-group-polygon-replacement#45 B sure only polygon
+qt-spatial-abstract-reasoning-group-polygon-replacement#51 D sure only polygon
+qt-spatial-abstract-reasoning-group-polygon-replacement#65 A sure only polygon
+qt-spatial-abstract-reasoning-group-side-count-easy#0 C sure triangle 3 sides vs 4
+qt-spatial-abstract-reasoning-group-side-count-easy#32 A sure hexagon 6 vs 4
+qt-spatial-abstract-reasoning-group-side-count-easy#50 C sure pentagon figure 1
+qt-spatial-abstract-reasoning-group-side-count-easy#52 B sure hexagon figure 3
+qt-spatial-abstract-reasoning-group-side-count-easy#96 A sure pentagon figure 1
+qt-spatial-abstract-reasoning-group-side-count-medium#0 B sure hexagon third
+qt-spatial-abstract-reasoning-group-side-count-medium#3 A sure rectangle figure 3
+qt-spatial-abstract-reasoning-group-side-count-medium#11 D sure triangle figure 2
+qt-spatial-abstract-reasoning-group-side-count-medium#14 A sure pentagon figure 4
+qt-spatial-abstract-reasoning-group-side-count-medium#25 D sure hexagon figure 4
+qt-spatial-abstract-reasoning-group-side-parity#0 D sure pentagon odd
+qt-spatial-abstract-reasoning-group-side-parity#5 D sure pentagon figure 3
+qt-spatial-abstract-reasoning-group-side-parity#21 D sure triangle figure 1
+qt-spatial-abstract-reasoning-group-side-parity#53 A sure triangle figure 2
+qt-spatial-abstract-reasoning-group-side-parity#68 D sure pentagon figure 1
+qt-spatial-abstract-reasoning-group-center-cuts#0 B sure off-centre rightmost
+qt-spatial-abstract-reasoning-group-center-cuts#15 D sure figure 2 off
+qt-spatial-abstract-reasoning-group-center-cuts#41 B sure figure 4 off
+qt-spatial-abstract-reasoning-group-center-cuts#53 B sure figure 1 off
+qt-spatial-abstract-reasoning-group-center-cuts#65 A sure figure 2 off
+qt-spatial-abstract-reasoning-group-dot-count#0 C sure hexagon has 2 dots
+qt-spatial-abstract-reasoning-group-dot-count#3 D sure figure 2 has 4 dots
+qt-spatial-abstract-reasoning-group-dot-count#49 A sure figure 3 has 3 dots
+qt-spatial-abstract-reasoning-group-dot-count#85 A sure figure 3 has 2 dots
+qt-spatial-abstract-reasoning-group-dot-count#87 B sure figure 4 has 0 dots
+qt-spatial-abstract-reasoning-group-dot-parity#0 D sure circle 3 odd
+qt-spatial-abstract-reasoning-group-dot-parity#11 A sure figure 2 has 3
+qt-spatial-abstract-reasoning-group-dot-parity#20 D sure figure 1 has 3
+qt-spatial-abstract-reasoning-group-dot-parity#80 D sure figure 3 has 3
+qt-spatial-abstract-reasoning-group-dot-parity#90 B sure figure 2 has 3
+qt-spatial-abstract-reasoning-group-side-double-dots#0 C sure triangle 3 sides vs 2 dots
+qt-spatial-abstract-reasoning-group-side-double-dots#35 D sure pentagon 5 vs 0 dots
+qt-spatial-abstract-reasoning-group-side-double-dots#45 C sure rhombus 1 dot
+qt-spatial-abstract-reasoning-group-side-double-dots#65 D sure rectangle 1 dot
+qt-spatial-abstract-reasoning-group-side-double-dots#79 A sure rhombus 3 dots
+qt-spatial-abstract-reasoning-group-specific-rule#0 C sure three sides splits triangles from rhombus
+qt-spatial-abstract-reasoning-group-specific-rule#18 C sure 5 sides
+qt-spatial-abstract-reasoning-group-specific-rule#37 D sure 4 sides covers three
+qt-spatial-abstract-reasoning-group-specific-rule#47 A sure 4 sides covers three
+qt-spatial-abstract-reasoning-group-specific-rule#86 C sure 4 sides covers three

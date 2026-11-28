@@ -675,7 +675,7 @@ void main() {
     final fill = tester.widget<AnimatedContainer>(
       find.descendant(of: row, matching: find.byType(AnimatedContainer)).first,
     );
-    expect((fill.decoration! as BoxDecoration).color, Colors.transparent);
+    expect((fill.decoration! as BoxDecoration).color!.a, 0);
   });
 }
 

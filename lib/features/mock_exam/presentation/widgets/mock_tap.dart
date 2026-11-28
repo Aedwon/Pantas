@@ -88,15 +88,19 @@ class MockTap extends StatelessWidget {
                           color: hovered && enabled
                               ? colors.accent
                                   .withValues(alpha: PantasOpacity.hover)
-                              : Colors.transparent,
+                              : colors.accent.withValues(alpha: 0),
                           borderRadius: border,
                         )
                       : null,
                   decoration: BoxDecoration(
+                    // Rest is the hover color at zero alpha: transparent black
+                    // lerps through dark gray.
                     color: selectedFill ??
                         (hovered && enabled && !washOnTop
                             ? (hoverFill ?? colors.surfaceHover)
-                            : restFill ?? Colors.transparent),
+                            : restFill ??
+                                (hoverFill ?? colors.surfaceHover)
+                                    .withValues(alpha: 0)),
                     borderRadius: border,
                   ),
                   child: child,

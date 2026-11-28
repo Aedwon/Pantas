@@ -1,0 +1,107 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-binary-fill-row",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-row-and-column-rules",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-binary-fill-row",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "Fill alternates between black and white across each row. Both rows use the same order. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "repeat-middle",
+      "note": "This repeats the other fill instead of alternating. That fill occurs in the neighboring column. Follow the alternating fill order."
+    },
+    {
+      "id": "average-fill",
+      "note": "This averages black and white. Both fills occur in the grid. Check that completed cells alternate rather than use partial fill."
+    },
+    {
+      "id": "change-form",
+      "note": "This changes the outline. The other feature follows the pattern. Check the outline shown throughout."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0011",
+      "index": 0
+    }
+  ]
+}

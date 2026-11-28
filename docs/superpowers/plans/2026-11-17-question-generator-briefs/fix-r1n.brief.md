@@ -1,0 +1,5 @@
+Task: fix the cube-net types that failed the release audit or ruling R6. Rulings R1 to R6: docs/superpowers/plans/2026-11-17-question-generator-briefs/fix-rulings.md. Findings: docs/superpowers/verification/question-generator/audit-r1c.md. Tests first; index 0 must reproduce its source on prod root 646326517.
+
+1. net-nonadjacent, net-opposite-easy, net-opposite-medium, net-top-and-shadow (Major): a named mistake must select a face that matches its premise in that variant (R3). Where no face fits a mistake's premise, offer another named mistake or redraw the variant; never fall back to the nearest face under a name that is false. Notes must be true per variant; one note per distinct mistake.
+2. net-adjacent-relation and net-validity-test (R6): change the rule so the correct answer varies across the list (adjacent and opposite pairs; valid and invalid nets), keeping index 0 exact, or hold the type.
+3. R5 for each: regenerate at min(100, capacity), re-measure, hold under 20. Report counts and checker results. Do not touch other types or approve anything.

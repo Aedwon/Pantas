@@ -126,6 +126,34 @@ pass 15, retire or merge one first.
 
 ## Entries
 
+### A lead drew an option with a middle-dot separator (Nov 28)
+
+- His words: "no not like that, just Analytical Ability (35%)" and "please note to never do that bullet separation. it's an AI pattern i prefer not using".
+- Wrong: the sidebar card UX lead offered the CSE part weight as "Verbal Ability · 30%". The same "·" joins items in about 58 existing app strings and in older approved wording.
+- Why it got through: no rule or check named the pattern, and the codebase and older decisions use it, so it read as house style.
+- Fix: the rule is in `design/system/patterns.md` ("Joining text items") and `docs/design/DECISIONS.md`. Required step (every UI lead): before handing over a board, spec or change, scan its own new text for "·" and "•" and replace them. Proposed, waiting on his yes (no build until then): a check, `tool/checks/no_middle_dot_separator.dart`, that fails when a line added since main puts "·" or "•" inside a string literal in `lib/` (about one file and its test; existing lines are ignored, so the 58 old strings do not trip it).
+
+### Workers broke the shell rule again because the lead's own worktree had no hook (Nov 28)
+
+- Words: none from Aedwon; found by the CSE release lead r11. Repeat of "Manager ran build and content workers from its own thread (Nov 26)", whose fix was the `refuse_shell_writes.py` hook.
+- Wrong: three Sonnet workers of the service worker lane used `sed -i` and heredocs on Nov 28 (each disclosed it), against their briefs and the hook's rule. None waited on an approval prompt here, but the same commands prompted him on Nov 26.
+- Why it got through: Claude Code loads hooks from the session's project folder, and subagents inherit the lead's session. The r11 lead runs in `qa-cse-content-fixes-r1-e2be285e666bb7e9`, detached at 2c9cf8a87 (Nov 25), which has no `.claude/hooks/`. The workers worked in `cse-sw`, which has the hook, but their commands were never checked. The Nov 26 note "a worktree gets the hook once its branch contains this main commit" covered the worker's folder, not the lead's.
+- Fix (required step, manager and every lead): a lead thread is launched in a worktree whose branch contains main's `.claude/settings.json` and `.claude/hooks/` (a fresh worktree from current main). At startup a lead checks `ls .claude/hooks/refuse_shell_writes.py` in its own working folder; if it is missing, it says so to the manager, and until a relaunch every worker brief repeats the shell rule and the lead reads each worker's disclosed slips. Applied now: r11 reported it; its next restart starts from main.
+
+### Leads kept reporting to the retired manager after a takeover (Nov 28)
+
+- His words (about 2:35 PM Manila Nov 28): "why are leads still talking to that other settled operations manager thread can you stop it and have them report to you".
+- Wrong: after the 2:15 PM takeover, the security lead and the generator lead sent reports to the old manager thread, which then relayed them through Aedwon.
+- Why it got through: the outgoing manager told leads to report "to the thread named on the Manager: line ... once it changes" instead of naming the new thread. The new manager then sent its handover with `mode: queue`, so leads mid-turn saw it only after they had already reported. The old thread was left able to act on what reached it.
+- Fix (takeover step 6, operations-manager.md): send the handover with `mode: steer` to every running lead (`queue` only to idle ones), with the new thread id and "never send to <old id>". Send the retired thread one message: reply only "Retired" and act on nothing. Applied now to all three leads and the old thread.
+
+### Four leads ran at once overnight against his usage words (Nov 28)
+
+- His words (about 4 AM Manila Nov 28), after the manager listed four working leads and offered to slow down: "obviously i want you to slow down".
+- Wrong: after the opening, the manager started or kept four Claude leads busy at once (release lead with a worker, Math lead, UX lead, SSOT keeper), although his standing words were Nov 14 "don't do too many at once, mind my 5-hour limits" and Nov 27 "i do not want to waste any more usage than necessary". The manager offered the slowdown only when asked, instead of holding the pace itself.
+- Why it got through: the Nov 15 relaxation ("you can accelerate things") was still the working rule in operations-manager.md, and each new request was started as soon as it came, with no count of lanes before starting one.
+- Fix (required step, manager): one build lane at a time plus short one-off jobs (operations-manager.md, rule restored Nov 28). Before starting or resuming a lane, the manager counts running leads with `t3_thread_list` and names in the same message which lane stops to make room. The heartbeat counts leads too and pauses any lane over the cap. Applied now: the Math lead paused (batch 3 plan not started), the UX lead holds Lesson Author after its small fix, and the release lead is the only build lane with 1 worker.
+
 ### Upload runs read past the free tier again (Nov 28)
 
 - Words: none from Aedwon on this instance; the CSE release lead r10 found and reported it (about 2:56 AM Manila). His standing words are in written rule 7 (Nov 15: "the only thing that should bill us is due to users"; Nov 21: ">:( how many times should I mention this").

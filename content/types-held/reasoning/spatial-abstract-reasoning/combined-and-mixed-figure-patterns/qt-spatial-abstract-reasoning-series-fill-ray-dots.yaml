@@ -1,0 +1,71 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-fill-ray-dots",
+  "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+  "keyPoint": 1,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-fill-ray-dots",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      4
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1
+    ],
+    "initialEdges": [
+      0,
+      1,
+      2
+    ]
+  },
+  "stem": "All choices below would have {answerDotCount} dots. Which fill and line direction complete the shown pattern?\n",
+  "explanation": "The two fill levels and ray directions alternate. The dot count rises by one. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "freeze-fill",
+      "note": "This keeps the last fill. The other tracks can look right. Check the fill alternation separately."
+    },
+    {
+      "id": "freeze-ray",
+      "note": "This keeps the last ray direction. The other tracks can look right. Check the ray alternation separately."
+    },
+    {
+      "id": "accumulate-fill",
+      "note": "This treats the two fills as parts to add. They can look like steps that build on each other. Check which fill level repeats next."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0018",
+      "index": 0
+    }
+  ]
+}
