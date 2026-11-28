@@ -1,0 +1,72 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-two-arrow-turns",
+  "lesson": "lesson-spatial-abstract-reasoning-figure-turns-and-positions",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-two-arrow-turns",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      3
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2
+    ],
+    "initialEdges": [
+      0,
+      1,
+      2
+    ]
+  },
+  "stem": "Continue the shown rotation rule for two further steps. What arrow direction appears on the second of those steps?\n",
+  "explanation": "Each arrow turns clockwise by 90 degrees. Count two more turns. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "one-step-only",
+      "note": "This takes only one more step. It gives the immediate next state. Count both steps requested by the stem."
+    },
+    {
+      "id": "reverse-once",
+      "note": "This turns backward once. That direction appeared earlier. Keep the clockwise direction and count two turns."
+    },
+    {
+      "id": "zero-steps",
+      "note": "This repeats the last arrow. It is the most recent direction. Apply both requested turns."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0006",
+      "index": 0
+    }
+  ]
+}

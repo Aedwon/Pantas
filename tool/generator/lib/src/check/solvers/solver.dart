@@ -1,0 +1,106 @@
+import '../../model.dart';
+import '../math_solver.dart';
+import 'figure_grouping/grouping_solver.dart';
+import 'figure_matrices/library_solver.dart';
+import 'figure_matrices/matrix_solver.dart';
+import 'figure_series/series_solver.dart';
+import 'mental_rotation/net_solver.dart';
+
+/// Independent of generation. Read the rule's documented params contract.
+// Range validation is a per-rule contract shared by math and figure solvers.
+// ignore: one_member_abstracts
+abstract class Solver {
+  Map<String, Object?> ruleParams(ProblemType type, Variant variant);
+  List<String> validateCosmetics(ProblemType type, Variant variant);
+  List<String> validateRanges(ProblemType type, Variant variant);
+}
+
+abstract class FigureSolver implements Solver {
+  String get kind;
+
+  /// True only when the shown figures obey this rule
+  /// and candidate completes it. Figure choices pass their figure map.
+  /// Text choices pass rendered `text` and optional `value`, without key or
+  /// mistake metadata. Mistake solvers return the same candidate shape.
+  /// [query] is the variant's slots: what the stem asks (for example the
+  /// queried face or operation) lives there, never in the figure data, so
+  /// merged questions keep their exact figure maps.
+  bool fits(
+    Map<String, Object?> shown,
+    Map<String, Object?> candidate,
+    Map<String, Object?> query,
+  );
+}
+
+typedef MistakeSolver = Object Function(ProblemType type, Variant variant);
+
+const _rayDirections = {
+  'highest': 0,
+  'northeast': 45,
+  'rightmost': 90,
+  'southeast': 135,
+  'lowest': 180,
+  'southwest': 225,
+  'leftmost': 270,
+  'northwest': 315,
+};
+
+final mathSolvers = <String, MathSolver>{};
+final figureSolvers = <String, FigureSolver>{
+  for (final axis in [90, 270])
+    'matrix-ray-diagonal-$axis':
+        MatrixLibrarySolver('reflection', diagonal: axis),
+  for (final op in ['product', 'difference', 'maximum', 'minimum', 'quotient'])
+    for (final columns in [false, true])
+      'matrix-dot-$op-${columns ? 'column' : 'row'}':
+          MatrixLibrarySolver(op, columns: columns),
+  'matrix-ray-reflection-up-down':
+      MatrixSolver('ray-turn', reflectRaysUpDown: true),
+  'matrix-dot-counting-sequence': MatrixSolver('dot-sum', continueCounts: true),
+  for (final direction in _rayDirections.entries) ...{
+    'matrix-${direction.key}-ray':
+        MatrixSolver('ray-intersection', extremeRay: direction.value),
+    'matrix-${direction.key}-ray-tip': MatrixSolver(
+      'ray-intersection',
+      extremeRay: direction.value,
+      projectRayTips: true,
+    ),
+  },
+  'matrix-ray-reflection': MatrixSolver('ray-turn', reflectRays: true),
+  // Competing count rules remain in the library even when their source type
+  // is held. Two shown count values can fit both addition and doubling.
+  for (final pattern in [
+    'dots-size',
+    'four-tracks',
+    'corner-edge-count',
+    'transfer-count',
+    'interleaved-count',
+    'fill-ray-dots',
+  ])
+    'series-$pattern-doubling': SeriesSolver(pattern, doubleCounts: true),
+  for (final pattern in matrixMistakes.keys)
+    'matrix-$pattern': MatrixSolver(pattern),
+  for (final pattern in netMistakes.keys) 'net-$pattern': NetSolver(pattern),
+  for (final pattern in groupingMistakes.keys)
+    'group-$pattern': GroupingSolver(pattern),
+  for (final pattern in seriesMistakes.keys)
+    'series-$pattern': SeriesSolver(pattern),
+};
+final mistakeSolvers = <(String, String), MistakeSolver>{
+  for (final entry in matrixMistakes.entries)
+    for (final id in entry.value)
+      ('matrix-${entry.key}', id): (type, variant) =>
+          MatrixSolver(entry.key).mistake(variant, id),
+  for (final entry in netMistakes.entries)
+    for (final id in entry.value)
+      ('net-${entry.key}', id): (type, variant) =>
+          NetSolver(entry.key).mistake(variant, id),
+  for (final entry in groupingMistakes.entries)
+    for (final id in entry.value)
+      ('group-${entry.key}', id): (type, variant) =>
+          GroupingSolver(entry.key).mistake(variant, id),
+  for (final entry in seriesMistakes.entries)
+    for (final id in entry.value)
+      ('series-${entry.key}', id): (type, variant) =>
+          SeriesSolver(entry.key).mistake(variant, id),
+};

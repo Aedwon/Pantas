@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-polygon-replacement",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry",
+  "keyPoint": 1,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-polygon-replacement",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "keep-circle",
+      "note": "This keeps the differing boundary type. The replacement matches the removed outline. Check whether it has straight segments.\n"
+    },
+    {
+      "id": "change-curved-shape",
+      "note": "This uses a different curved outline without changing boundary type. Its irregular shape seems unlike a circle. Check straight versus curved edges.\n"
+    },
+    {
+      "id": "change-internal-marks",
+      "note": "This changes internal marks instead of the outline. Dots add a visible difference. Check the feature that defines the group.\n"
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0017",
+      "index": 0
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-size-fill",
+  "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-size-fill",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      5
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2
+    ],
+    "initialEdges": [
+      0,
+      1,
+      2
+    ]
+  },
+  "stem": "Which figure best continues the simplest consistent pattern shown?\n",
+  "explanation": "Sizes repeat small, medium, large. Fill alternates black and white. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "freeze-fill",
+      "note": "This keeps the last fill. The other tracks can look right. Check the fill alternation separately."
+    },
+    {
+      "id": "reset-size-early",
+      "note": "This returns to small too soon. Small starts the size cycle. Check which size follows the last size."
+    },
+    {
+      "id": "freeze-size",
+      "note": "This keeps the last size. The other tracks can look right. Check the size cycle separately."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0004",
+      "index": 0
+    }
+  ]
+}

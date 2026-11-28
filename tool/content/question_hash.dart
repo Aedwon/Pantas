@@ -56,3 +56,20 @@ String questionHash(
       .convert(utf8.encode(jsonEncode(canonicalValue(value))))
       .toString();
 }
+
+/// Byte-exact approval of a type, its rule identity and its complete list.
+/// JSON frames each part so no boundary between byte sequences is ambiguous.
+String problemTypeHash({
+  required List<int> typeBytes,
+  required String rule,
+  required int ruleVersion,
+  required List<int> variantBytes,
+}) {
+  final framed = jsonEncode([
+    base64Encode(typeBytes),
+    rule,
+    ruleVersion,
+    base64Encode(variantBytes),
+  ]);
+  return sha256.convert(utf8.encode(framed)).toString();
+}

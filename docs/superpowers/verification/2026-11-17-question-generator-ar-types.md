@@ -1,0 +1,110 @@
+# Abstract reasoning types: approval evidence
+
+Lane branch gen/question-generator-r1 at 6d13e9bf5. Plan Task 1.4. One section per approval check (spec B6).
+
+## Checker
+
+`dart run tool/generator/bin/check.dart`: exit 0 on 15 active types (5 figure series, 10 figure grouping) and the held types. `flutter test test/tool/generator --no-test-assets`: 137 passed.
+
+## Blind solve (Nov 17, 01:40 UTC)
+
+- Solver: Sonnet 5.5 subagent (Anthropic; the types were written by Codex GPT 6.1 Sol, OpenAI). It read only the sheet and the figure contract section of ar-grouping.md, with no key.
+- Sample: 5 variants per type: index 0 and 4 seeded random picks (seed 20261117), choices shuffled per variant. Sheet, key, answers and the sheet script: blind-solve-1/.
+- Result: 75 of 75 match the key. 0 unsure, 0 second answers, 0 text mismatches. All 15 types pass this check.
+
+## Blind solve 2 (Nov 17, 03:45 UTC): mental rotation
+
+- Same method and solver vendor; sheet, key and answers in blind-solve-2/.
+- Types: net-adjacent-relation, net-opposite-hard. Result: 10 of 10 match. 0 unsure, 0 second answers, 0 text mismatches.
+- Solver note for the audit: in net-adjacent-relation the choice "They meet only at one corner" can never be correct for two faces of a cube, so it may be a filler distractor. The audit must say whether it names a real mistake.
+
+## Blind solve 3 (Nov 17, 04:20 UTC): figure matrices
+
+- Same method and solver vendor; sheet, key and answers in blind-solve-3/.
+- 13 types, 65 variants. Result: 65 of 65 match. 0 unsure, 0 second answers, 0 text mismatches.
+
+Blind solve total: 30 types, 150 variants, 150 match.
+
+## Codex GPT 6.1 Sol high audit
+
+Audits: audit-a.md and audit-b.md (first pass, 30 types), reaudit-a.md (12 types after fixes), reaudit-b.md (5 types not reached in the first pass), reaudit-c.md (ray-turn and dot-sum, both then held). Fix records: fix-a-findings.md, fix-b-findings.md, fix-c-findings.md. Lead rulings: plans/2026-11-17-question-generator-briefs/fix-rulings.md.
+
+## Final state and approval (Nov 17, 09:20 UTC)
+
+Blind solves 1 to 3 ran on lists that the audit fixes later regenerated. Blind solve 4 (blind-solve-4/) ran on the final lists: 75 of 75 match across the 15 types active then. Two of those 15 were held afterward.
+
+| Type (qt-spatial-abstract-reasoning-) | Checker | Blind solve 4 | Audit verdict (file) |
+|---|---|---|---|
+| series-fill-ray-dots | pass | 5 of 5 | PASS (reaudit-a) |
+| series-four-tracks | pass | 5 of 5 | PASS (reaudit-a) |
+| series-ray-step | pass | 5 of 5 | PASS (reaudit-a) |
+| group-dot-count | pass | 5 of 5 | PASS (reaudit-a) |
+| group-dot-parity | pass | 5 of 5 | PASS (reaudit-a) |
+| group-polygon-replacement | pass | 5 of 5 | PASS, Minor accepted (reaudit-a) |
+| matrix-form-ray | pass | 5 of 5 | PASS (reaudit-a) |
+| matrix-outline-latin | pass | 5 of 5 | PASS (reaudit-a) |
+| matrix-size-dots | pass | 5 of 5 | PASS (reaudit-a) |
+| matrix-size-transfer | pass | 5 of 5 | PASS (reaudit-a) |
+| matrix-ray-union | pass | 5 of 5 | PASS (reaudit-b) |
+| matrix-sized-ray-union | pass | 5 of 5 | PASS (reaudit-b) |
+| matrix-corner-reflection | pass | 5 of 5 | PASS, Minor accepted (reaudit-b) |
+
+The lead approves these 13 types in the ledger with this file as evidence. The fourth check, Aedwon's figure sheets, gates the first prod release only (spec B6).
+
+## Revision 1 release, approval 2 (Nov 17, 11:10 UTC)
+
+Types released under Revision 1 (true size 20 to 100). Checks per type: checker pass on the grown library and the new prod root 646326517 (rel1-findings.md, lib1-findings.md); blind solve 5 (blind-solve-5/, 125 of 125 match across all 25 released types); audits audit-r1a.md, audit-r1b.md, audit-r1c.md; answer variety R6 (no key in more than half the list), checked by the lead with a script over every active list.
+
+| Type (qt-spatial-abstract-reasoning-) | List size | Audit verdict | R6 |
+|---|---|---|---|
+| series-dots-size | 90 | PASS (audit-r1a.md) | pass |
+| series-size-corner-ray | 48 | PASS (audit-r1a.md) | pass |
+| series-transfer-count | 45 | PASS (audit-r1a.md) | pass |
+| series-binary-fill | 24 | PASS (audit-r1a.md) | pass |
+| group-boundary | 42 | PASS (audit-r1a.md) | pass |
+| group-side-double-dots | 68 | PASS (audit-r1a.md) | pass |
+| matrix-dot-sum | 100 | PASS (audit-r1b.md) | pass |
+| matrix-fill-union | 24 | PASS (audit-r1b.md) | pass |
+| matrix-binary-fill-row | 32 | PASS (audit-r1b.md) | pass |
+| matrix-size-fill | 40 | PASS (audit-r1b.md) | pass |
+| matrix-size-latin | 72 | PASS (audit-r1b.md) | pass |
+| matrix-arrow-column | 30 | PASS (audit-r1b.md) | pass |
+| matrix-growing-turn | 80 | PASS (audit-r1b.md) | pass |
+| matrix-ray-turn | 100 | PASS (audit-r1b.md) | pass |
+| net-three-at-corner | 64 | PASS (audit-r1c.md) | pass |
+
+Not approved in this round: series-corner-edge-count, group-center-cuts, group-line-count, net-nonadjacent, net-opposite-easy, net-opposite-medium, net-top-and-shadow (audit Majors); group-specific-rule, net-adjacent-relation, net-validity-test (R6).
+
+## Re-sync approval 3 (Nov 17, 11:45 UTC)
+
+| Type (qt-spatial-abstract-reasoning-) | List size | Checker | Blind solve 6 | Audit (audit-r2.md) | R6 |
+|---|---|---|---|---|---|
+| series-interleaved-count | 100 | pass, source on 646326517 | 5 of 5 | PASS, two Minors accepted (narrow numeric variety; source key one character longest) | pass (13/100) |
+
+Not approved: matrix-ray-intersection (audit-r2 Blocker: lowest, leftmost and rightmost ray rules select a wrong choice). Those rules join the library next.
+
+## Re-approval after the sheet-review fix round (Nov 17, 13:30 UTC)
+
+The sheet-review fixes (fix-sheet-findings.md) regenerated 21 lists, which voided their approvals. Checks on the new lists: checker and R6 pass; blind solve 7 (104 of 105; the one miss, matrix-ray-union #75, was a solver slip, see blind-solve-7/NOTE.md) and blind solve 8 (matrix-ray-union re-test, 5 of 5); Sol high re-audits audit-w1.md and audit-w2.md. Re-approved (19):
+
+- matrix-arrow-column
+- matrix-binary-fill-row
+- matrix-corner-reflection
+- matrix-dot-sum
+- matrix-fill-union
+- matrix-form-ray
+- matrix-growing-turn
+- matrix-ray-turn
+- matrix-ray-union
+- matrix-size-dots
+- matrix-size-transfer
+- matrix-sized-ray-union
+- series-binary-fill
+- series-dots-size
+- series-four-tracks
+- series-interleaved-count
+- series-ray-step
+- series-size-corner-ray
+- series-transfer-count
+
+Held after this round: series-fill-ray-dots (audit-w1 Major: the accumulate-fill note is false for quarter and half alternations) and matrix-ray-intersection (audit-w2 Blocker: diagonal-extreme ray selection picks an offered wrong choice; the library must gain those rules before it returns).

@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-specific-rule",
+  "lesson": "lesson-spatial-abstract-reasoning-testing-a-figure-group-rule",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-specific-rule",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": false,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "overbroad-side-minimum",
+      "note": "This keeps the rule too broad. Every figure has at least three sides. Check that the proposed rule must leave exactly one out.\n"
+    },
+    {
+      "id": "common-symmetry",
+      "note": "This uses a feature shared by all these symmetric outlines. Their reflected halves match. Check whether the rule excludes any figure."
+    },
+    {
+      "id": "common-closure",
+      "note": "This uses closure, which every figure shares. All outlines enclose space. Check whether the rule splits the group.\n"
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0010",
+      "index": 0
+    }
+  ]
+}

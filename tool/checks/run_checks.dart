@@ -15,6 +15,7 @@ import 'content_approval_check.dart';
 import 'custom_subject_tiers.dart';
 import 'design_token_literals.dart';
 import 'figure_classes.dart';
+import 'generated_types_check.dart';
 import 'internal_terms.dart';
 import 'legal_text_drafting.dart';
 import 'lesson_list_exam_scope.dart';
@@ -39,6 +40,7 @@ import 'walkthrough_slim_format_check.dart';
 import 'walkthrough_trap_pair_check.dart';
 
 const allChecks = <Check>[
+  GeneratedTypesCheck(),
   ContentApprovalCheck(),
   LessonSizeCheck(),
   LessonSplitCoverageCheck(),

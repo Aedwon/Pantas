@@ -1,0 +1,194 @@
+{
+  "variants": [
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "form": "square",
+            "line": 270
+          },
+          "text": "Square with line pointing left"
+        },
+        {
+          "figure": {
+            "form": "square",
+            "line": 180
+          },
+          "mistake": "hold-ray",
+          "text": "Square with line pointing down"
+        },
+        {
+          "figure": {
+            "form": "square",
+            "line": 90
+          },
+          "mistake": "copy-first-row-ray",
+          "text": "Square with line pointing right"
+        },
+        {
+          "figure": {
+            "form": "triangle",
+            "line": 270
+          },
+          "mistake": "copy-first-row-form",
+          "text": "Triangle with line pointing left"
+        }
+      ],
+      "cosmetics": {},
+      "figureSpec": {
+        "cells": [
+          {
+            "form": "triangle",
+            "line": 0
+          },
+          {
+            "form": "triangle",
+            "line": 90
+          },
+          {
+            "form": "square",
+            "line": 180
+          },
+          "blank"
+        ],
+        "cols": 2,
+        "kind": "figure-matrix",
+        "rows": 2
+      },
+      "index": 0,
+      "ruleKey": "a97e8ac6b3174c857fe31f4a6edac9ba628b8a6b6dfb47886783df97f736cd3d",
+      "signature": "5423ecede04c3fc07119f7614c641573f2af2502d51fc0e845c61df687397ede",
+      "slots": {
+        "answerText": "Square; ray W"
+      },
+      "source": "q-spatial-abstract-reasoning-figure-matrices-0001"
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "form": "star",
+            "line": 45
+          },
+          "text": "Star; ray NE"
+        },
+        {
+          "figure": {
+            "form": "star",
+            "line": 315
+          },
+          "mistake": "hold-ray",
+          "text": "Star; ray NW"
+        },
+        {
+          "figure": {
+            "form": "star",
+            "line": 0
+          },
+          "mistake": "copy-first-row-ray",
+          "text": "Star; ray N"
+        },
+        {
+          "figure": {
+            "form": "triangle",
+            "line": 45
+          },
+          "mistake": "copy-first-row-form",
+          "text": "Triangle; ray NE"
+        }
+      ],
+      "cosmetics": {},
+      "figureSpec": {
+        "cells": [
+          {
+            "form": "triangle",
+            "line": 270
+          },
+          {
+            "form": "triangle",
+            "line": 0
+          },
+          {
+            "form": "star",
+            "line": 315
+          },
+          "blank"
+        ],
+        "cols": 2,
+        "kind": "figure-matrix",
+        "rows": 2
+      },
+      "index": 6,
+      "ruleKey": "0c096b19f90452126dbdf8c679bfbf8a7398d0a44ebab7982f5b731354d4eb36",
+      "signature": "10c24d4145cfafeceb5fdf44de71bc30127ff80e5005f7e32cd46566398f667f",
+      "slots": {
+        "answerText": "Star; ray NE"
+      }
+    },
+    {
+      "choices": [
+        {
+          "correct": true,
+          "figure": {
+            "form": "triangle",
+            "line": 315
+          },
+          "text": "Triangle; ray NW"
+        },
+        {
+          "figure": {
+            "form": "triangle",
+            "line": 225
+          },
+          "mistake": "hold-ray",
+          "text": "Triangle; ray SW"
+        },
+        {
+          "figure": {
+            "form": "triangle",
+            "line": 90
+          },
+          "mistake": "copy-first-row-ray",
+          "text": "Triangle; ray E"
+        },
+        {
+          "figure": {
+            "form": "pentagon",
+            "line": 315
+          },
+          "mistake": "copy-first-row-form",
+          "text": "Pentagon; ray NW"
+        }
+      ],
+      "cosmetics": {},
+      "figureSpec": {
+        "cells": [
+          {
+            "form": "pentagon",
+            "line": 0
+          },
+          {
+            "form": "pentagon",
+            "line": 90
+          },
+          {
+            "form": "triangle",
+            "line": 225
+          },
+          "blank"
+        ],
+        "cols": 2,
+        "kind": "figure-matrix",
+        "rows": 2
+      },
+      "index": 59,
+      "ruleKey": "8f9fb396d6497e08ba2b9f3fb529e76420128cd56c50787794b23525c6ec8a05",
+      "signature": "c0e4b7cd3b223bf938b6938411246423c1260e442ca65750cb3a5811c287a291",
+      "slots": {
+        "answerText": "Triangle; ray NW"
+      }
+    }
+  ]
+}

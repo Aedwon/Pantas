@@ -1,0 +1,5 @@
+qt-spatial-abstract-reasoning-matrix-ray-union#11 D
+qt-spatial-abstract-reasoning-matrix-ray-union#16 D
+qt-spatial-abstract-reasoning-matrix-ray-union#53 B
+qt-spatial-abstract-reasoning-matrix-ray-union#64 A
+qt-spatial-abstract-reasoning-matrix-ray-union#75 D

@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-region-parity",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-region-parity",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "line-is-region",
+      "note": "This treats one dividing line as one region. Only one cut is visible. Count both areas on its sides.\n"
+    },
+    {
+      "id": "line-parity-is-region-parity",
+      "note": "This confuses two lines with an odd region count. Both cross in the center. Count the four separate areas.\n"
+    },
+    {
+      "id": "three-lines-three-regions",
+      "note": "This treats three lines as three regions. Three is odd. Count the areas between the six radiating segments.\n"
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0012",
+      "index": 0
+    }
+  ]
+}

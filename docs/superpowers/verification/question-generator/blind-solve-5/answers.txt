@@ -1,0 +1,125 @@
+qt-spatial-abstract-reasoning-series-corner-edge-count#0 D sure dot cycles TL TR BR BL then TL; edges 5
+qt-spatial-abstract-reasoning-series-corner-edge-count#6 D sure dot cycle returns BL; edges 5
+qt-spatial-abstract-reasoning-series-corner-edge-count#10 C sure dot returns BL; edges 4
+qt-spatial-abstract-reasoning-series-corner-edge-count#13 D sure dot TL; edges 5
+qt-spatial-abstract-reasoning-series-corner-edge-count#24 C sure dot BR; edges 5
+qt-spatial-abstract-reasoning-series-dots-size#0 B sure sizes alternate; dots +1
+qt-spatial-abstract-reasoning-series-dots-size#23 D sure medium; 5 dots
+qt-spatial-abstract-reasoning-series-dots-size#42 B sure medium; 4 dots
+qt-spatial-abstract-reasoning-series-dots-size#80 B sure large; 5 dots
+qt-spatial-abstract-reasoning-series-dots-size#84 A sure small; 3 dots
+qt-spatial-abstract-reasoning-series-size-corner-ray#0 C sure corner cycle, ray alternates, size alternates
+qt-spatial-abstract-reasoning-series-size-corner-ray#4 D sure BL, ray 90, medium
+qt-spatial-abstract-reasoning-series-size-corner-ray#6 C sure BL, 270, small
+qt-spatial-abstract-reasoning-series-size-corner-ray#19 B sure TR, 135, large
+qt-spatial-abstract-reasoning-series-size-corner-ray#27 D sure TR, 225, small
+qt-spatial-abstract-reasoning-series-transfer-count#0 C sure dots +1, edges -1
+qt-spatial-abstract-reasoning-series-transfer-count#5 D sure 5 dots 1 edge
+qt-spatial-abstract-reasoning-series-transfer-count#36 C sure 3 dots 1 edge
+qt-spatial-abstract-reasoning-series-transfer-count#38 D sure 5 dots 0 edge
+qt-spatial-abstract-reasoning-series-transfer-count#43 D sure 5 dots 2 edge
+qt-spatial-abstract-reasoning-series-binary-fill#0 D sure alternates, white next
+qt-spatial-abstract-reasoning-series-binary-fill#2 D sure white next
+qt-spatial-abstract-reasoning-series-binary-fill#13 A sure black next
+qt-spatial-abstract-reasoning-series-binary-fill#15 A sure white next
+qt-spatial-abstract-reasoning-series-binary-fill#16 B sure white next
+qt-spatial-abstract-reasoning-net-adjacent-relation#0 A sure folded: adjacent
+qt-spatial-abstract-reasoning-net-adjacent-relation#5 C sure folded: adjacent
+qt-spatial-abstract-reasoning-net-adjacent-relation#8 B sure folded: adjacent
+qt-spatial-abstract-reasoning-net-adjacent-relation#15 A sure folded: adjacent
+qt-spatial-abstract-reasoning-net-adjacent-relation#16 B sure folded: adjacent
+qt-spatial-abstract-reasoning-net-nonadjacent#0 D sure F opposite B
+qt-spatial-abstract-reasoning-net-nonadjacent#6 B sure F opposite B
+qt-spatial-abstract-reasoning-net-nonadjacent#14 D sure D opposite B
+qt-spatial-abstract-reasoning-net-nonadjacent#26 B sure A opposite D
+qt-spatial-abstract-reasoning-net-nonadjacent#47 B sure F opposite C
+qt-spatial-abstract-reasoning-net-opposite-easy#0 A sure F opposite C
+qt-spatial-abstract-reasoning-net-opposite-easy#11 B sure F opposite C
+qt-spatial-abstract-reasoning-net-opposite-easy#17 D sure E opposite B
+qt-spatial-abstract-reasoning-net-opposite-easy#41 B sure D opposite F
+qt-spatial-abstract-reasoning-net-opposite-easy#42 A sure C opposite F
+qt-spatial-abstract-reasoning-net-opposite-medium#0 C sure C opposite F
+qt-spatial-abstract-reasoning-net-opposite-medium#7 A sure E opposite B
+qt-spatial-abstract-reasoning-net-opposite-medium#21 D sure F opposite C
+qt-spatial-abstract-reasoning-net-opposite-medium#33 B sure D opposite F
+qt-spatial-abstract-reasoning-net-opposite-medium#37 A sure A opposite F
+qt-spatial-abstract-reasoning-net-three-at-corner#0 A sure only A,B,C has no opposite pair
+qt-spatial-abstract-reasoning-net-three-at-corner#8 D sure B,C,F no opposite pair
+qt-spatial-abstract-reasoning-net-three-at-corner#20 B sure A,B,F no opposite pair
+qt-spatial-abstract-reasoning-net-three-at-corner#45 C sure C,D,E no opposite pair
+qt-spatial-abstract-reasoning-net-three-at-corner#47 C sure A,B,F no opposite pair
+qt-spatial-abstract-reasoning-net-top-and-shadow#0 B sure top F, square
+qt-spatial-abstract-reasoning-net-top-and-shadow#2 C sure top E, square
+qt-spatial-abstract-reasoning-net-top-and-shadow#7 B sure top E, square
+qt-spatial-abstract-reasoning-net-top-and-shadow#24 A sure top C, square
+qt-spatial-abstract-reasoning-net-top-and-shadow#29 C sure top E, square
+qt-spatial-abstract-reasoning-net-validity-test#0 C sure net invalid; faces overlap
+qt-spatial-abstract-reasoning-net-validity-test#4 A sure net invalid; faces overlap
+qt-spatial-abstract-reasoning-net-validity-test#6 C sure net invalid; faces overlap
+qt-spatial-abstract-reasoning-net-validity-test#13 A sure net invalid; faces overlap
+qt-spatial-abstract-reasoning-net-validity-test#14 D sure net invalid; faces overlap
+qt-spatial-abstract-reasoning-group-boundary#0 B sure circle curved
+qt-spatial-abstract-reasoning-group-boundary#4 D sure blob is figure 1
+qt-spatial-abstract-reasoning-group-boundary#7 A sure circle figure 1
+qt-spatial-abstract-reasoning-group-boundary#12 B sure blob figure 2
+qt-spatial-abstract-reasoning-group-boundary#40 C sure circle figure 2
+qt-spatial-abstract-reasoning-group-center-cuts#0 B sure off-center circle
+qt-spatial-abstract-reasoning-group-center-cuts#2 D sure figure 3 off
+qt-spatial-abstract-reasoning-group-center-cuts#11 C sure figure 4 off
+qt-spatial-abstract-reasoning-group-center-cuts#13 C sure figure 4 off
+qt-spatial-abstract-reasoning-group-center-cuts#20 B sure figure 2 off
+qt-spatial-abstract-reasoning-group-line-count#0 D sure one line vs two
+qt-spatial-abstract-reasoning-group-line-count#8 D sure three vs zero
+qt-spatial-abstract-reasoning-group-line-count#14 D sure zero vs two
+qt-spatial-abstract-reasoning-group-line-count#15 D sure zero vs three
+qt-spatial-abstract-reasoning-group-line-count#18 D sure three vs one
+qt-spatial-abstract-reasoning-group-side-double-dots#0 C sure triangle 3 sides 2 dots
+qt-spatial-abstract-reasoning-group-side-double-dots#44 A sure parallelogram 4 sides 0 dots
+qt-spatial-abstract-reasoning-group-side-double-dots#51 B sure figure 4 hexagon 0 dots
+qt-spatial-abstract-reasoning-group-side-double-dots#60 B sure rhombus 0 dots
+qt-spatial-abstract-reasoning-group-side-double-dots#63 B sure parallelogram 1 dot
+qt-spatial-abstract-reasoning-matrix-dot-sum#0 B sure third = sum of first two
+qt-spatial-abstract-reasoning-matrix-dot-sum#7 C sure 2+3
+qt-spatial-abstract-reasoning-matrix-dot-sum#11 D sure 2+3
+qt-spatial-abstract-reasoning-matrix-dot-sum#27 B sure 1+3
+qt-spatial-abstract-reasoning-matrix-dot-sum#32 B sure 1+3
+qt-spatial-abstract-reasoning-matrix-fill-union#0 A sure two halves union black
+qt-spatial-abstract-reasoning-matrix-fill-union#9 B sure black medium
+qt-spatial-abstract-reasoning-matrix-fill-union#12 A sure black small
+qt-spatial-abstract-reasoning-matrix-fill-union#19 B sure black large
+qt-spatial-abstract-reasoning-matrix-fill-union#21 C sure black small
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#0 A sure row B W B
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#10 B sure row B W B
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#18 C sure row B W B
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#25 D sure row B W B
+qt-spatial-abstract-reasoning-matrix-binary-fill-row#30 A sure row B W B
+qt-spatial-abstract-reasoning-matrix-size-fill#0 B sure middle col white, large
+qt-spatial-abstract-reasoning-matrix-size-fill#2 D sure small white
+qt-spatial-abstract-reasoning-matrix-size-fill#19 A sure large white
+qt-spatial-abstract-reasoning-matrix-size-fill#28 C sure large white
+qt-spatial-abstract-reasoning-matrix-size-fill#29 A sure small white
+qt-spatial-abstract-reasoning-matrix-size-latin#0 D sure latin square medium
+qt-spatial-abstract-reasoning-matrix-size-latin#6 A sure small
+qt-spatial-abstract-reasoning-matrix-size-latin#7 C sure large
+qt-spatial-abstract-reasoning-matrix-size-latin#49 A sure large
+qt-spatial-abstract-reasoning-matrix-size-latin#65 B sure small
+qt-spatial-abstract-reasoning-matrix-arrow-column#0 A sure row 3 down
+qt-spatial-abstract-reasoning-matrix-arrow-column#4 C sure down
+qt-spatial-abstract-reasoning-matrix-arrow-column#9 D sure up
+qt-spatial-abstract-reasoning-matrix-arrow-column#16 B sure left
+qt-spatial-abstract-reasoning-matrix-arrow-column#19 D sure up
+qt-spatial-abstract-reasoning-matrix-growing-turn#0 C sure step grows 45 per row; 270
+qt-spatial-abstract-reasoning-matrix-growing-turn#17 D sure 180
+qt-spatial-abstract-reasoning-matrix-growing-turn#54 A sure 0
+qt-spatial-abstract-reasoning-matrix-growing-turn#59 B sure 270
+qt-spatial-abstract-reasoning-matrix-growing-turn#77 B sure 225
+qt-spatial-abstract-reasoning-matrix-ray-turn#0 D sure row +90, column changes form to square
+qt-spatial-abstract-reasoning-matrix-ray-turn#26 B sure star 45
+qt-spatial-abstract-reasoning-matrix-ray-turn#31 C sure circle 180
+qt-spatial-abstract-reasoning-matrix-ray-turn#42 B sure star 270
+qt-spatial-abstract-reasoning-matrix-ray-turn#70 A sure triangle 315
+qt-spatial-abstract-reasoning-group-specific-rule#0 C sure three sides
+qt-spatial-abstract-reasoning-group-specific-rule#5 B sure 6 sides
+qt-spatial-abstract-reasoning-group-specific-rule#11 D sure 4 sides
+qt-spatial-abstract-reasoning-group-specific-rule#23 A sure 4 sides
+qt-spatial-abstract-reasoning-group-specific-rule#29 C sure 4 sides

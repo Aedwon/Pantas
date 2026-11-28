@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-outline-symmetry",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-outlines-and-symmetry",
+  "keyPoint": 2,
+  "difficulty": "easy",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-outline-symmetry",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "boundary-type",
+      "note": "This selects curved boundaries instead of testing the stated rule. A curved outline looks different. Check for a reflection axis instead."
+    },
+    {
+      "id": "equal-sides",
+      "note": "This selects equal side lengths instead of testing the stated rule. Equal lengths stand out. Test the property named in the question."
+    },
+    {
+      "id": "side-count",
+      "note": "This selects side count instead of testing the stated rule. A triangle has fewer sides. Check for a reflection axis instead."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0002",
+      "index": 0
+    }
+  ]
+}

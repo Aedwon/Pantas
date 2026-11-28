@@ -1,0 +1,107 @@
+{
+  "id": "qt-spatial-abstract-reasoning-matrix-sized-ray-union",
+  "lesson": "lesson-spatial-abstract-reasoning-matrix-keeping-all-features",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-matrix",
+  "rule": "matrix-sized-ray-union",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "rays": [
+      0,
+      45,
+      90,
+      135,
+      180,
+      225,
+      270,
+      315
+    ],
+    "dots": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "edgeLines": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "initialDots": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "initialEdges": [
+      2,
+      3,
+      4,
+      5
+    ],
+    "sumInputs": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "growingSteps": [
+      45,
+      90
+    ]
+  },
+  "stem": "Which figure completes the blank cell under the simplest consistent row and column rules?\n",
+  "explanation": "The last cell keeps both starting rays in its row. Size follows the same order down each column. The blank needs {answerText}.",
+  "mistakes": [
+    {
+      "id": "copy-middle-size",
+      "note": "This copies the middle size. It is a visible row size. Check the size required at the blank."
+    },
+    {
+      "id": "second-ray-only",
+      "note": "This keeps only the second input ray. That ray belongs in the result. Check that the first input ray is included too."
+    },
+    {
+      "id": "first-ray-only",
+      "note": "This keeps only the first input ray. That ray starts the row. Include the second input ray as the completed rows do."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-matrices-0014",
+      "index": 0
+    }
+  ]
+}

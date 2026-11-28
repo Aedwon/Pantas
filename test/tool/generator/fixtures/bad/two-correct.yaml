@@ -1,0 +1,11 @@
+variants:
+  - index: 0
+    slots: {a: 5, b: 3, answer: 8}
+    ruleKey: e4a5906691180ba9956e9e21f87f0a785e49b39a90ac8dbfca8393634676036f
+    cosmetics: {}
+    signature: first
+    choices:
+      - {correct: true, text: '8', value: '8'}
+      - {correct: true, text: '2', value: '2'}
+      - {mistake: extra-one, text: '9', value: '9'}
+      - {mistake: missing-one, text: '7', value: '7'}

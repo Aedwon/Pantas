@@ -1,0 +1,72 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-transfer-count",
+  "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+  "keyPoint": 1,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-transfer-count",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      3
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2
+    ],
+    "initialEdges": [
+      3,
+      4,
+      5
+    ]
+  },
+  "stem": "Which figure best continues the simplest consistent pattern shown?\n",
+  "explanation": "Each step removes one edge line and adds one dot. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "freeze-edges",
+      "note": "This keeps the last edge count. The dot count continues correctly. Check the matching decrease in edge lines."
+    },
+    {
+      "id": "freeze-dots",
+      "note": "This keeps the last dot count. Another feature changes correctly. Check the dot count separately."
+    },
+    {
+      "id": "restart-edge-count",
+      "note": "This restores the first edge count. That count appears at the start. Check the constant total of dots and edges."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0016",
+      "index": 0
+    }
+  ]
+}

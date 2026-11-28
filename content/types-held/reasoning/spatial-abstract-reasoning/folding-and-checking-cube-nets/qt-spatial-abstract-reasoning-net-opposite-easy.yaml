@@ -1,0 +1,66 @@
+{
+  "id": "qt-spatial-abstract-reasoning-net-opposite-easy",
+  "lesson": "lesson-spatial-abstract-reasoning-folding-and-checking-cube-nets",
+  "keyPoint": 1,
+  "difficulty": "easy",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "mental-rotation",
+  "rule": "net-opposite-easy",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "profiles": [
+      0,
+      1
+    ],
+    "coordinateMin": 0,
+    "coordinateMax": 5,
+    "cells": 6,
+    "validNets": 11
+  },
+  "stem": "{stemText}",
+  "explanation": "{explanationText}",
+  "mistakes": [
+    {
+      "id": "stop-at-first-fold",
+      "note": "{noteText}"
+    },
+    {
+      "id": "left-arm-is-top",
+      "note": "{noteText}"
+    },
+    {
+      "id": "stop-at-lower-neighbor",
+      "note": "{noteText}"
+    },
+    {
+      "id": "attached-face-is-opposite",
+      "note": "{noteText}"
+    },
+    {
+      "id": "pick-next-strip-side",
+      "note": "{noteText}"
+    },
+    {
+      "id": "pick-branch-support",
+      "note": "{noteText}"
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0001",
+      "index": 0
+    },
+    {
+      "id": "q-spatial-abstract-reasoning-mental-rotation-3d-visualization-0015",
+      "index": 1
+    }
+  ]
+}

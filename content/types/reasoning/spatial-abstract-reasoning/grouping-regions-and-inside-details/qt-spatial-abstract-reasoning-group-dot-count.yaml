@@ -1,0 +1,60 @@
+{
+  "id": "qt-spatial-abstract-reasoning-group-dot-count",
+  "lesson": "lesson-spatial-abstract-reasoning-grouping-regions-and-inside-details",
+  "keyPoint": 2,
+  "difficulty": "medium",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "odd-figure",
+  "rule": "group-dot-count",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "text",
+  "enabled": true,
+  "params": {
+    "forms": [
+      "square",
+      "rectangle",
+      "rhombus",
+      "parallelogram",
+      "triangle",
+      "circle",
+      "pentagon",
+      "hexagon",
+      "blob"
+    ],
+    "counts": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "stem": "{stem}",
+  "explanation": "{explanation}",
+  "mistakes": [
+    {
+      "id": "curved-outline",
+      "note": "This selects a curved outline instead of testing the stated rule. A circle looks different from polygons. Count the internal dots instead."
+    },
+    {
+      "id": "fewest-sides",
+      "note": "This selects the fewest polygon sides instead of testing the stated rule. A simpler outline stands out. Count the internal dots instead."
+    },
+    {
+      "id": "uncommon-outline",
+      "note": "This selects an uncommon outline instead of testing the stated rule. Its boundary attracts attention. Count the internal dots instead."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-grouping-0004",
+      "index": 0
+    }
+  ]
+}

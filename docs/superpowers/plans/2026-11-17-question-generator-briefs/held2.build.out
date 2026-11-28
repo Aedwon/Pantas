@@ -1,0 +1,15 @@
+**Matrix ray intersection is ready for the lead’s blind solve and audit.** The regenerated held list has 100 distinct ruleKeys and 100 signatures. The checker passed all 100 versions against the eight-direction rule library, including exact reproduction of live question 0009. A 10,000-draw capacity run found 9,966 distinct ruleKeys and signatures.
+
+**Series fill, ray, and dots stays held.** All 99 new versions passed. Live question 0018 still fails the `accumulate-fill` check at index 0. Three-quarters plus one-half gives 1¼, while the source offers a full fill.
+
+All 28 active types passed the checker, including merged-source checks against `d97de9415`.
+
+- PASS `flutter test test/tool/generator` · `04:10 +290 ~10: All tests passed!`
+- PASS `flutter analyze tool/generator test/tool/generator` · `No issues found!`
+- PASS `dart format --output=none --set-exit-if-changed tool/generator test/tool/generator` · `Formatted 65 files (0 changed).`
+- PASS `dart run tool/checks/run_checks.dart` · `OK generated-types`, `OK content-approval`, `OK legal-text-drafting`.
+- PASS `dart run tool/check_no_ai_attribution.dart` · `check_no_ai_attribution: OK`.
+
+Files touched include the generator rules and solvers, held series definition, held matrix list, and regression tests and fixture. The exact paths and per-type results are in [FINDINGS-held2.md](/Users/aedwon/.t3/worktrees/Pantas/gen-question-generator-r1-held/FINDINGS-held2.md) and [FINDINGS.md](/Users/aedwon/.t3/worktrees/Pantas/gen-question-generator-r1-held/FINDINGS.md). Approvals remain with the lead.
+
+STAGE-DONE

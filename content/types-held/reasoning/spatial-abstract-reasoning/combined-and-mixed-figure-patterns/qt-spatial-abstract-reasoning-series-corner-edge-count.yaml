@@ -1,0 +1,71 @@
+{
+  "id": "qt-spatial-abstract-reasoning-series-corner-edge-count",
+  "lesson": "lesson-spatial-abstract-reasoning-combined-and-mixed-figure-patterns",
+  "keyPoint": 1,
+  "difficulty": "hard",
+  "exams": [
+    "acet",
+    "ustet",
+    "dost-sei",
+    "cse-pro"
+  ],
+  "format": "figure-series",
+  "rule": "series-corner-edge-count",
+  "ruleVersion": 1,
+  "choiceCount": 4,
+  "choiceKind": "figure",
+  "enabled": false,
+  "params": {
+    "forms": [
+      "square",
+      "circle",
+      "triangle",
+      "pentagon",
+      "star"
+    ],
+    "sizes": [
+      "small",
+      "medium",
+      "large"
+    ],
+    "lengths": [
+      4
+    ],
+    "steps": [
+      45,
+      90,
+      135
+    ],
+    "initialDots": [
+      0,
+      1,
+      2
+    ],
+    "initialEdges": [
+      0,
+      1
+    ]
+  },
+  "stem": "Which figure best continues the simplest consistent pattern shown?\n",
+  "explanation": "The dot moves clockwise by one corner. The edge count rises by one. The requested figure is: {answerText}.\n",
+  "mistakes": [
+    {
+      "id": "freeze-dot",
+      "note": "This keeps the dot in its last corner. The other tracks continue correctly. Take one more step around the corners."
+    },
+    {
+      "id": "freeze-lines",
+      "note": "This keeps the last edge count. The dot continues correctly. Check each edge-count increase."
+    },
+    {
+      "id": "skip-corner",
+      "note": "This skips the next corner. The chosen corner appears in the cycle. Take only one step from the last corner."
+    }
+  ],
+  "mergedQuestions": [
+    {
+      "id": "q-spatial-abstract-reasoning-figure-series-0014",
+      "index": 0
+    }
+  ]
+}
