@@ -422,6 +422,60 @@ test('web sets keep problem type rows behind a separate key and apply alias acti
   }
 });
 
+const typeRow = (id, lesson, exams = ['cse-pro']) => ({id, lesson, topic: 'topic_upcat_biology', exams, isActive: true,
+  variantCount: 2, mergedQuestions: [{id: 'q1', variantIndex: 0}]});
+
+test('type rows form one type-only set per lesson, so no old reader sees them as questions', () => {
+  assert.equal(typeof upload.typeSetSources, 'function');
+  const rows = [typeRow('qt-a', 'lesson-biology-botany', ['acet', 'cse-pro']), typeRow('qt-b', 'lesson-biology-cells'),
+    typeRow('qt-c', 'lesson-biology-botany', ['cse-pro', 'pshs-nce'])];
+  const sets = upload.typeSetSources(rows);
+  assert.deepEqual(sets.map(s => s.relativePath), ['types/lesson-biology-botany.yaml', 'types/lesson-biology-cells.yaml']);
+  const [botany] = sets;
+  assert.deepEqual(botany.source.meta, {topic: 'biology', subtopic: 'botany', lesson: 'lesson-biology-botany',
+    exams: ['acet', 'cse-pro', 'pshs-nce']});
+  assert.deepEqual(botany.source.problemTypes.map(r => r.id), ['qt-a', 'qt-c']);
+  const {item, pro} = questionSetItems(botany.source, botany.relativePath);
+  const served = JSON.parse(item.data.payload);
+  assert.deepEqual(served.questions, []);
+  assert.deepEqual(served.problemTypes.map(r => r.id), ['qt-a', 'qt-c']);
+  assert.equal(pro, undefined);
+});
+
+test('the catalog set of a type-only set names its lesson and carries the type rows, not question ids', () => {
+  const [botany] = upload.typeSetSources([typeRow('qt-a', 'lesson-biology-botany', ['upcat'])]);
+  const exam = parsed(catalogItems({...catalogInput, sets: [botany]})).exam_upcat;
+  const found = exam.sets.find(s => s.id === 'qs-types__lesson-biology-botany');
+  assert.ok(found, JSON.stringify(exam.sets.map(s => s.id)));
+  assert.equal(found.lesson, 'lesson-biology-botany');
+  assert.deepEqual(found.questions, []);
+  assert.deepEqual(found.problemTypes.map(r => r.id), ['qt-a']);
+});
+
+test('a Free variant document never holds a note; the Pro document holds them by variantIndex and choice position', () => {
+  const free = {id: 'qt-a', exams: ['cse-pro'], variants: [
+    {variantIndex: 0, stem: 'S0', choices: [{text: 'right', correct: true}, {text: 'wrong one', correct: false}, {text: 'wrong two', correct: false}]},
+    {variantIndex: 1, stem: 'S1', choices: [{text: 'right', correct: true}, {text: 'wrong one', correct: false}, {text: 'wrong two', correct: false}]}]};
+  const notes = {rationales: {0: [null, 'NOTE-ZERO-ONE', 'NOTE-ZERO-TWO'], 1: [null, 'NOTE-ONE-ONE', 'NOTE-ONE-TWO']}};
+  const {item, pro} = upload.variantItems(free, notes);
+  const freeText = JSON.stringify(item.data);
+  for (const note of ['NOTE-ZERO-ONE', 'NOTE-ZERO-TWO', 'NOTE-ONE-ONE', 'NOTE-ONE-TWO', 'rationale']) assert.equal(freeText.includes(note), false, note);
+  assert.deepEqual(JSON.parse(pro.data.payload), notes);
+  assert.equal(pro.id, item.id);
+});
+
+test('a Free read of the type-only question set never receives a note', async () => {
+  const db = memoryDb();
+  db.runTransaction = async callback => callback({get: async ref => ref.get ? ref.get() : {docs: [], empty: true}, getAll: async (...refs) => Promise.all(refs.map(ref => ref.get()))});
+  const [botany] = upload.typeSetSources([typeRow('qt-a', 'lesson-biology-botany')]);
+  const {item} = questionSetItems(botany.source, botany.relativePath);
+  const {item: variant, pro} = upload.variantItems({id: 'qt-a', exams: ['cse-pro'], variants: []}, {rationales: {0: [null, 'NOTE-SECRET']}});
+  await writeContent(db, [item, variant], [pro], {});
+  const response = await serveContent({uid: 'free-type', token: {}}, {kind: 'questions', ids: [item.id]}, {db, allow: async () => true});
+  assert.equal(response.tier, 'free');
+  assert.equal(JSON.stringify(response).includes('NOTE-SECRET'), false);
+});
+
 // Nov 28, 2026: four uploads that night timed out committing the exam summaries (Firestore's 60 s deadline
 // on a slow link) after the lessons were live, leaving the bank marker invalid until a rerun
 // (process-improvement, "A content upload left prod's exam summaries invalid for 5 minutes").

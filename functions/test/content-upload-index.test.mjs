@@ -4,10 +4,10 @@
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import test from 'node:test';
-import {lessonItem, writeContent, expectedPlanReads, VERSION_INDEX_COLLECTION} from '../lib/contentUpload.js';
+import {lessonItem, variantItems, writeContent, expectedPlanReads, VERSION_INDEX_COLLECTION} from '../lib/contentUpload.js';
 import {serveContent} from '../lib/content.js';
 
-const KINDS = ['lessons', 'questions', 'mocks', 'catalog', 'gaps'];
+const KINDS = ['lessons', 'questions', 'variants', 'mocks', 'catalog', 'gaps'];
 const indexPath = (kind) => `${VERSION_INDEX_COLLECTION}/${kind}`;
 
 /** An in-memory Firestore that counts billed reads: one per document returned (one at least per query) and one per get. */
@@ -173,6 +173,32 @@ test('expected reads: the index documents plus the marker, or one per stored doc
   const items = lessons(300);
   assert.equal(expectedPlanReads(items, {}), KINDS.length + 1);
   assert.equal(expectedPlanReads(items, {fullScan: true}), 300 + 1);
+});
+
+// Problem type variant documents (Phase 2). They count in the plan and in the read estimate like any kind.
+const variantDocs = (n) => Array.from({length: n}, (_, i) => variantItems(
+  {id: `qt-type-${i}`, exams: ['cse-pro'], variants: []}, {rationales: {0: [null, `note ${i}`]}}));
+
+test('variant documents are planned, indexed and counted in the read estimate', async () => {
+  const docs = variantDocs(4);
+  const items = [...lessons(3), ...docs.map(({item}) => item)];
+  const pros = docs.map(({pro}) => pro);
+  assert.equal(expectedPlanReads(items, {}), KINDS.length + 1);
+  assert.equal(expectedPlanReads(items, {fullScan: true}), 7 + 1);
+  const db = memoryDb();
+  const first = await writeContent(db, items, pros, {});
+  assert.deepEqual(first.counts, {create: 7, update: 0, unchanged: 0});
+  assert.equal(first.proWritten, 4);
+  assert.equal(db.stored.get(indexPath('variants')).count, 4);
+  const again = await writeContent(clone(db), items, pros, {dryRun: true});
+  assert.deepEqual(again.counts, {create: 0, update: 0, unchanged: 7});
+  // A missing variants index scans that kind and asks the read guard first, counting the variant documents.
+  const lost = clone(db);
+  lost.stored.delete(indexPath('variants'));
+  const asked = [];
+  await writeContent(lost, items, pros, {dryRun: true, beforeReads: async (n) => asked.push(n)});
+  assert.deepEqual(asked, [4]);
+  assert.deepEqual(lost.scans, ['content/variants/items']);
 });
 
 test('the version list is never served as a kind and no client can read it', async () => {

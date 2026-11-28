@@ -86,6 +86,27 @@ export type QuestionSource = {meta: Record<string, unknown>; questions: Record<s
   passages?: {id: string; title?: string; body?: string}[];
   problemTypes?: Record<string, unknown>[]};
 
+/**
+ * Type rows ride in a type-only question set per lesson, in `problemTypes`, never in `questions`: an
+ * installed client reads every entry of `questions` as a question and would show a type row as a blank one
+ * (plan ruling R2, Nov 28). The set holds no single questions, so the file sets keep their ids and bodies.
+ */
+export function typeSetSources(types: Record<string, unknown>[]): {source: QuestionSource; relativePath: string}[] {
+  const byLesson = new Map<string, Record<string, unknown>[]>();
+  for (const type of types) {
+    const lesson = String(type.lesson);
+    byLesson.set(lesson, [...(byLesson.get(lesson) ?? []), type]);
+  }
+  return [...byLesson].map(([lesson, rows]) => {
+    const topic = String(rows[0].topic).replace(/^topic_upcat_/, '').replaceAll('_', '-');
+    const exams = [...new Set(rows.flatMap((row) => (Array.isArray(row.exams) ? row.exams.map(String) : [])))];
+    return {
+      source: {meta: {topic, subtopic: lesson.replace(`lesson-${topic}-`, ''), lesson, exams}, questions: [], problemTypes: rows},
+      relativePath: `types/${lesson}.yaml`,
+    };
+  });
+}
+
 export function withProblemTypes(source: QuestionSource, problemTypes: Record<string, unknown>[],
   mergedActivity: Record<string, boolean>): QuestionSource {
   return {...source, problemTypes, questions: source.questions.map(question => {

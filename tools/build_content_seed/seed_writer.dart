@@ -14,8 +14,6 @@ import 'package:pantas/core/content/sanity/parsers/question_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/subject_parser.dart';
 import 'package:pantas/core/content/sanity/parsers/topic_parser.dart';
 
-import 'problem_type_seed.dart';
-
 Future<void> main(List<String> args) async {
   if (args.length != 2) {
     stderr.writeln('Usage: seed_writer.dart <input.json> <output.db>');
@@ -93,11 +91,6 @@ Future<void> writeContentSeed({
                   : parseLesson(doc),
             );
       });
-      if (!legacySchema8Fixture) {
-        await _insertMaybeList(json['problemTypes'], (doc) async {
-          await _insertProblemType(db, doc);
-        });
-      }
       await _insertMaybeList(json['mockBlueprint'], (doc) {
         final row = parseMockBlueprint(doc);
         return db.into(db.contentMockBlueprints).insertOnConflictUpdate(
@@ -121,59 +114,6 @@ Future<void> writeContentSeed({
   } finally {
     await db.close();
   }
-}
-
-Future<void> _insertProblemType(
-  ContentDatabase db,
-  Map<String, Object?> record,
-) async {
-  final seed = nativeProblemType(record);
-  final row = seed.question;
-  final id = row['id']! as String;
-  await db.into(db.contentQuestions).insert(
-        ContentQuestionsCompanion.insert(
-          id: id,
-          schemaVersion: 1,
-          updatedAt: DateTime.fromMillisecondsSinceEpoch(0, isUtc: true),
-          isActive: Value(row['isActive']! as bool),
-          topicId: row['topic']! as String,
-          language: row['language']! as String,
-          stemJson: '[]',
-          explanationJson: '[]',
-          version: row['questionVersion']! as int,
-          lessonId: Value(row['lesson']! as String),
-          keyPoint: Value(row['keyPoint']! as int),
-        ),
-      );
-  await db.batch(
-    (batch) => batch.insertAll(
-      db.contentQuestionExams,
-      [
-        for (final examId in seed.examIds)
-          ContentQuestionExamsCompanion.insert(questionId: id, examId: examId),
-      ],
-    ),
-  );
-  // Content Resolve owns the schema. Keep the write in the seed transaction
-  // so an incompatible schema cannot yield a package with missing variants.
-  await db.customStatement(
-    'UPDATE content_questions SET variant_count = ?, merged_questions_json = ?, '
-    'choice_kind = ?, show_question_figure = ?, difficulty = ?, type = ? '
-    'WHERE id = ?',
-    [
-      row['variantCount'],
-      jsonEncode(row['mergedQuestions']),
-      row['choiceKind'],
-      row['showQuestionFigure'],
-      row['difficulty'],
-      row['type'],
-      id,
-    ],
-  );
-  await db.customStatement(
-    'INSERT INTO content_variants (type_id, free_json, pro_json) VALUES (?, ?, ?)',
-    [id, seed.freeJson, seed.proJson],
-  );
 }
 
 Future<void> _insertMaybeList(

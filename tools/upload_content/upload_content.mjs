@@ -77,7 +77,7 @@ if (lessonChecks.status !== 0) {
   process.exit(1);
 }
 
-const {blueprintItem, catalogItems, expectedPlanReads, gapItem, lessonItem, lessonQuizSize, questionSetItems, variantItems, withProblemTypes, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
+const {blueprintItem, catalogItems, expectedPlanReads, gapItem, lessonItem, lessonQuizSize, questionSetItems, typeSetSources, variantItems, withProblemTypes, writeContent} = await import(pathToFileURL(join(functionsDir, 'lib/contentUpload.js')));
 const items = [];
 const pros = [];
 const invalid = [];
@@ -95,14 +95,12 @@ for (const file of existsSync(sourcesRoot) ? walk(sourcesRoot, '.yaml') : []) {
 const exported = loadExport();
 const exportedLessons = new Map((exported?.lesson ?? []).map(l => [l._id, l]));
 const mergedActivity = exported?.mergedQuestionActivity ?? {};
-const typesByLesson = new Map();
+const typeRows = [];
 for (const {question, free, pro: notes} of exported?.problemTypes ?? []) {
   const {item, pro} = variantItems(free, notes);
   items.push(item);
   pros.push(pro);
-  const types = typesByLesson.get(question.lesson) ?? [];
-  types.push(question);
-  typesByLesson.set(question.lesson, types);
+  typeRows.push(question);
 }
 const lessonKeys = new Set();
 for (const file of walk(join(root, 'lessons'), '.md')) {
@@ -136,15 +134,7 @@ for (const file of walk(questionsRoot, '.yaml')) {
   } catch (error) { invalid.push(`${relative(root, file)}: ${error.message.split('\n')[0]}`); }
 }
 
-for (const [lesson, types] of typesByLesson) {
-  const topic = types[0].topic.replace(/^topic_upcat_/, '').replaceAll('_', '-');
-  const subtopic = lesson.replace(`lesson-${topic}-`, '');
-  const source = {
-    meta: {topic, subtopic, lesson, exams: [...new Set(types.flatMap(type => type.exams))]},
-    questions: [],
-    problemTypes: types,
-  };
-  const relativePath = `types/${lesson}.yaml`;
+for (const {source, relativePath} of typeSetSources(typeRows)) {
   items.push(questionSetItems(source, relativePath).item);
   setSources.push({source, relativePath});
 }
