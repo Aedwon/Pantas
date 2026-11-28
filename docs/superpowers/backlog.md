@@ -184,6 +184,7 @@ Rulings of Nov 17 are in **bold** on each line. Item numbers are unchanged, so t
 - Nov 23 16:00 UTC (Nov 24 00:00 PHT) | warm-up stops in code; CI free-tier check fails on every branch unless the secrets merge ships | `LL:3902,3734` | security fixes lead
 - Nov 24 00:00 PHT | exit survey closes; old secrets must be destroyed before this | `LL:3715,3908` | Aedwon, security fixes lead
 - Nov 30 | beta reward appeal window | `LL:2639` | Aedwon
+- Dec 10 | PSHS-NCE exam roster export fix (`tools/pshs-nce-export-roster` ecaf38861, paused content lane) merged to main, so the Dec 11 release cut carries it into the Dec 12 generator Phase 2 staging run; later slips Dec 17 | launch log Nov 28 2:30 PM entry | PSHS content lead (paused), manager
 - Dec 15 (decision), January 2027 (removal) | Gmail "Send as" for third-party addresses ends January 2027; new setups may be restricted from Q3 to Q4 2026 (Gmail Help 17101213, verified Nov 28). Pick a $0 mail app over Resend SMTP or a Workspace seat for support@ replies | A24 | Aedwon, security lead
 - Nov 25 sweep: no code, config, schedule or test date fires Nov 25 to Dec 9 (tests use injected clocks). Prod still sets WARMUP_ENABLED=true; harmless, the warm-up stops in code since Nov 24 | manager
 - Nov 28 | D16 DMARC trigger (two weeks of reports); a one-shot schedule (Nov 28 10:00 Manila) sends it to the security and billing lead, now active again | manager
