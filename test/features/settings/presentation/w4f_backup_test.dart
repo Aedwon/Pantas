@@ -110,6 +110,35 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.text('Saved'), findsOneWidget);
   });
+  testWidgets('a paused backup (M4b sync quota) says Paused and cannot flush',
+      (tester) async {
+    final runtime = _Runtime();
+    await tester.pumpAppWithProviders(
+      const BackupPage(),
+      overrides: [
+        isAnonymousProvider.overrideWith((ref) async => false),
+        entitlementProvider.overrideWith(
+          (ref) =>
+              Stream.value(const Entitlement(plan: EntitlementPlan.monthly)),
+        ),
+        syncRuntimeProvider.overrideWith((ref) => runtime),
+        syncStatusProvider.overrideWith(
+          (ref) =>
+              Stream.value(SyncPaused(resumesAt: DateTime.utc(2026, 11, 23))),
+        ),
+      ],
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Paused'), findsOneWidget);
+    final button = tester.widgetList<PantasButton>(
+      find.byWidgetPredicate(
+        (w) => w is PantasButton && w.label == 'Back Up Now' && !w.busy,
+      ),
+    );
+    expect(button.single.onPressed, isNull);
+    expect(runtime.forceFlushCalls, 0);
+  });
+
   testWidgets('offline backup says Offline and cannot flush', (tester) async {
     final runtime = _Runtime();
     await tester.pumpAppWithProviders(
@@ -167,6 +196,7 @@ void main() {
       SyncUpToDate(lastSyncedAt: DateTime.now()),
       const SyncOffline(pendingCount: 3),
       const SyncError(),
+      SyncPaused(resumesAt: DateTime.utc(2026, 11, 23)),
     ]) {
       statuses.add(status);
       await tester.pump();

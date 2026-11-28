@@ -94,6 +94,9 @@ void main() {
     tester.view
       ..physicalSize = Size(wide ? 1440 : 390, 900)
       ..devicePixelRatio = 1;
+    // CI bundles test files into one isolate, so an unreset view leaked 1440
+    // wide into the next file (the drawer footer test, Nov 26).
+    addTearDown(tester.view.reset);
     Widget host = _Host(question: question, page: page, picks: picks);
     host = wrap == null ? host : wrap(host);
     await tester.pumpWidget(

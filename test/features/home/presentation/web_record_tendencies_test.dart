@@ -286,7 +286,7 @@ void main() {
         expect(lessons.dy, questions.dy);
         if (first) {
           expect(
-            find.text('Your line starts after two weeks of answers.'),
+            find.text('Your line starts after two weeks with answers.'),
             findsOneWidget,
           );
           expect(find.text('best mock'), findsNothing);

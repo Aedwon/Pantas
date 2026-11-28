@@ -39,11 +39,10 @@ void main() {
           ),
         ),
       );
-      expect(find.text('Keep Pantas on your Home Screen'), findsOneWidget);
+      expect(find.text('Keep Pantas one tap away'), findsOneWidget);
       expect(
         find.text(
-          'Pantas opens faster and keeps working without internet. '
-          'Your progress stays the same.',
+          'Add it to your Home Screen. Your progress stays the same.',
         ),
         findsOneWidget,
       );
@@ -65,6 +64,12 @@ void main() {
     });
 
     testWidgets('wide card, native install, $theme', (tester) async {
+      // The card picks its wide copy from its own width, so the screen must be
+      // wide enough for the 1080 px host whatever an earlier test left behind.
+      tester.view
+        ..physicalSize = const Size(1440, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
       await tester.pumpWidget(
         _host(
           brightness: brightness,
@@ -105,7 +110,7 @@ void main() {
       );
       expect(find.text('Show Me How'), findsOneWidget);
       expect(find.text('Install Pantas'), findsNothing);
-      expect(find.text('Keep Pantas on your Home Screen'), findsOneWidget);
+      expect(find.text('Keep Pantas one tap away'), findsOneWidget);
     });
 
     testWidgets('the iPhone sheet shows three steps, $theme', (tester) async {
@@ -146,8 +151,7 @@ void main() {
     });
   }
 
-  testWidgets('an iPad-wide iOS card keeps the Home Screen wording',
-      (tester) async {
+  testWidgets('an iPad-wide iOS card keeps the phone wording', (tester) async {
     await tester.pumpWidget(
       _host(
         width: 1080,
@@ -158,7 +162,7 @@ void main() {
         ),
       ),
     );
-    expect(find.text('Keep Pantas on your Home Screen'), findsOneWidget);
+    expect(find.text('Keep Pantas one tap away'), findsOneWidget);
     expect(find.text('Show Me How'), findsOneWidget);
   });
 

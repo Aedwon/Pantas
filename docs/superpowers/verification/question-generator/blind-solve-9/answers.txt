@@ -1,0 +1,9 @@
+Blind solve 9, Nov 28, 2026. Solver: Claude Sonnet 5.5 subagent (a different vendor from the Codex author), sheet.md only, no key, no repository access. Key kept outside the repository until the solve returned. Result: 5 of 5 match the key.
+
+qt-spatial-abstract-reasoning-matrix-ray-intersection#0 A | rule: column 3 keeps only the ray shared by columns 1 and 2, so row 2 gives lower-right | second defensible choice: none
+qt-spatial-abstract-reasoning-matrix-ray-intersection#43 A | rule: column 3 keeps only the shared ray, so row 2 gives up | second defensible choice: none
+qt-spatial-abstract-reasoning-matrix-ray-intersection#46 A | rule: column 3 keeps only the shared ray, so row 2 gives lower-left | second defensible choice: none
+qt-spatial-abstract-reasoning-matrix-ray-intersection#84 D | rule: column 3 keeps only the shared ray, so row 2 gives up | second defensible choice: none
+qt-spatial-abstract-reasoning-matrix-ray-intersection#93 B | rule: column 3 keeps only the shared ray, so row 2 gives down | second defensible choice: none
+
+Solver note: wrong choices are the union of the rays, the wrong single ray, or an input cell copied unchanged. One alternative rule, "take the first ray listed in the middle cell," fits every shown cell but gives the same answer in all five, so it adds no second defensible choice. Lead: list order is data order, not drawn, so a student cannot see it; not a rule a student can hold.

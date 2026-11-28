@@ -33,6 +33,8 @@ class _Telemetry extends DisabledTelemetry {
   }
 }
 
+final _clock = DateTime.utc(2026, 11, 24, 4);
+
 const _target = ExamCatalogEntry(
   id: 'exam_cse_pro',
   name: 'CSE Professional',
@@ -61,6 +63,8 @@ void main() {
     'expired',
     'malformed',
     'abandoned then purchase',
+    'covered before checkout',
+    'extended by checkout',
   ]) {
     testWidgets('pending exam switch: $scenario', (tester) async {
       final telemetry = _Telemetry();
@@ -86,9 +90,17 @@ void main() {
                 'fromExamId': 'exam_upcat',
                 'sessionId': 'cs_original',
                 'reference': 'ref_original',
-                'createdAt': DateTime.now()
+                'createdAt': _clock
                     .subtract(Duration(hours: scenario == 'expired' ? 25 : 1))
                     .millisecondsSinceEpoch,
+                if (scenario == 'covered before checkout' ||
+                    scenario == 'extended by checkout') ...{
+                  'coveredAtStart': true,
+                  // The grant below ends in 2035.
+                  'endsAtBefore': DateTime.utc(
+                    scenario == 'covered before checkout' ? 2035 : 2030,
+                  ).millisecondsSinceEpoch,
+                },
               }),
       );
       final gateway = WebPaymentGateway(
@@ -109,6 +121,7 @@ void main() {
           if (scenario.startsWith('owner ')) await refresh.future;
         },
         openUrl: (_) async => true,
+        now: () => _clock,
       );
       final uid = scenario == 'other account' ? 'other' : 'owner';
       await gateway.logIn(uid);
@@ -140,6 +153,7 @@ void main() {
                 : AuthUser(uid: uid, email: 'a@example.com', displayName: 'A'),
           ),
           isAnonymousProvider.overrideWith((ref) async => false),
+          paywallClockProvider.overrideWithValue(() => _clock),
           paymentsOnWebProvider.overrideWithValue(true),
           revenueCatGatewayProvider.overrideWithValue(gateway),
           proForActiveExamProvider.overrideWith((ref) async => false),
@@ -171,7 +185,7 @@ void main() {
       }
       expect(
         await prefs.selectedExamId(),
-        ['success', 'no target'].contains(scenario)
+        ['success', 'no target', 'extended by checkout'].contains(scenario)
             ? 'exam_cse_pro'
             : scenario == 'focus changed'
                 ? 'exam_dost'
@@ -180,7 +194,9 @@ void main() {
       expect(
         (await container.read(settingsRepositoryProvider).readUserSettings())
             .carryOverProgress,
-        ['success', 'no target'].contains(scenario) ? isFalse : isTrue,
+        ['success', 'no target', 'extended by checkout'].contains(scenario)
+            ? isFalse
+            : isTrue,
       );
       if (scenario.startsWith('owner ')) {
         nextOwner.complete(
@@ -198,6 +214,14 @@ void main() {
       if (scenario.contains('wrong reference') ||
           scenario == 'missing reference' ||
           scenario == 'malformed') {
+        expect(await prefs.deviceValue('checkout_exam_v1:owner'), isNotEmpty);
+      } else if ([
+        'unconfirmed',
+        'student coverage only',
+        'abandoned then purchase',
+        'covered before checkout',
+      ].contains(scenario)) {
+        // Not confirmed for this exam yet: keep the intent for the return.
         expect(await prefs.deviceValue('checkout_exam_v1:owner'), isNotEmpty);
       } else if (!['other account', 'owner loading'].contains(scenario)) {
         expect(await prefs.deviceValue('checkout_exam_v1:owner'), isEmpty);

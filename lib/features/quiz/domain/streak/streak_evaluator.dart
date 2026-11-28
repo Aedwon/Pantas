@@ -74,13 +74,44 @@ class StreakEvaluator {
     if (lastActive == null) {
       return (1, false, snapshot.freezesRemaining);
     }
-    final gap = studyDays.missedBetween(lastActive, today);
-    if (gap == 0) {
-      return (snapshot.current + 1, false, snapshot.freezesRemaining);
-    }
-    if (gap == 1 && snapshot.freezesRemaining > 0) {
-      return (snapshot.current + 1, true, snapshot.freezesRemaining - 1);
-    }
-    return (1, false, snapshot.freezesRemaining);
+    final continuation = _continuation(snapshot, lastActive, today, studyDays);
+    if (continuation == null) return (1, false, snapshot.freezesRemaining);
+    return (
+      snapshot.current + 1,
+      continuation.freezeUsed,
+      snapshot.freezesRemaining - (continuation.freezeUsed ? 1 : 0),
+    );
   }
+}
+
+/// The one rule for whether a streak last credited on [lastActive] carries on
+/// into [today]: no study day missed, or exactly one missed with a freeze left.
+/// Null when it breaks. Credit and read both use it.
+({bool freezeUsed})? _continuation(
+  StreakSnapshot snapshot,
+  DateTime lastActive,
+  DateTime today,
+  StudyDays studyDays,
+) {
+  final gap = studyDays.missedBetween(lastActive, today);
+  if (gap == 0) return (freezeUsed: false);
+  if (gap == 1 && snapshot.freezesRemaining > 0) return (freezeUsed: true);
+  return null;
+}
+
+/// The streak to show on [today], read from the stored [snapshot] and never
+/// written back. The stored count is only updated when a session completes, so
+/// after missed days it is stale. If the next session today would start over,
+/// the streak already stands at zero.
+int streakOn(StreakSnapshot snapshot, DateTime today, StudyDays studyDays) {
+  final stored = snapshot.lastActiveDate;
+  if (snapshot.current <= 0 || stored == null) return 0;
+  final continues = _continuation(
+        snapshot,
+        localDay(stored),
+        localDay(today),
+        studyDays,
+      ) !=
+      null;
+  return continues ? snapshot.current : 0;
 }

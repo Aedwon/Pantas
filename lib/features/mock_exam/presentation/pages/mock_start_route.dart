@@ -25,6 +25,7 @@ import 'package:pantas/features/mock_exam/domain/mock_attempt.dart';
 import 'package:pantas/features/mock_exam/domain/mock_sample.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_snapshot.dart';
 import 'package:pantas/features/mock_exam/domain/mock_session_state.dart';
+import 'package:pantas/features/mock_exam/domain/mock_title.dart';
 import 'package:pantas/features/mock_exam/domain/use_cases/start_mock.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_session_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_route.dart';
@@ -223,7 +224,7 @@ class _MockStartRouteState extends ConsumerState<MockStartRoute>
           userId: mockAttemptLocalUserId,
           examId: widget.examId!,
           blueprintId: widget.blueprintId!,
-          blueprintName: parsed.blueprint.name,
+          blueprintName: mockNameWithoutLabel(parsed.blueprint.name),
           durationMinutes: parsed.blueprint.durationMinutes,
           strictMode: strictMode,
           sample: sample,

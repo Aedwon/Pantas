@@ -11,7 +11,7 @@ import '../../../../helpers/in_memory_database.dart';
 StartAssessment _makeUseCase(AppDatabase db, ContentDatabase contentDb) {
   final content = ContentRepository(contentDb);
   final review = ReviewStateRepository(db);
-  return StartAssessment(AssessmentQuestionSelector(content, review));
+  return StartAssessment(assessmentQuestionSelector(content, review));
 }
 
 void main() {

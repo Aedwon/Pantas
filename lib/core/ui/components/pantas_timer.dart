@@ -9,12 +9,14 @@ import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 
-enum PantasTimerState { running, warning, paused }
+enum PantasTimerState { running, warning, last, paused }
 
 /// The clock of the mock exam (design system Timer): the time left over a thin
-/// bar. Under five minutes the time and the bar turn `warning-text` and a
-/// visible tag says so; a paused clock is `text-secondary` with a gray tag.
-/// The warning is on the clock itself, never a toast.
+/// bar. Under five minutes the time and the bar turn `warning-text`; in the
+/// last minute they turn `danger` (MK_FiveMin, MK_LastMinute). Neither draws a
+/// tag: the proctor line says the words and the semantics value carries them.
+/// A paused clock is `text-secondary` with a gray tag. The warning is on the
+/// clock itself, never a toast.
 ///
 /// The clock is not a live region, so a running clock does not announce every
 /// second. The five-minute warning is announced once, when [state] first
@@ -27,6 +29,7 @@ class PantasTimer extends StatefulWidget {
     this.inline = false,
     this.semanticLabel = 'Time left',
     this.warningLabel = '5 min left',
+    this.lastLabel = '1 min left',
     this.pausedLabel = 'Paused',
     this.warningAnnouncement = 'Five minutes left.',
     this.announceWarning = true,
@@ -47,6 +50,7 @@ class PantasTimer extends StatefulWidget {
   final bool inline;
   final String semanticLabel;
   final String warningLabel;
+  final String lastLabel;
   final String pausedLabel;
   final String warningAnnouncement;
 
@@ -79,12 +83,15 @@ class _PantasTimerState extends State<PantasTimer> {
   Widget build(BuildContext context) {
     final colors = context.colors;
     final warning = widget.state == PantasTimerState.warning;
+    final last = widget.state == PantasTimerState.last;
     final paused = widget.state == PantasTimerState.paused;
-    final timeColor = warning
-        ? colors.warningText
-        : paused
-            ? colors.textSecondary
-            : colors.textPrimary;
+    final timeColor = last
+        ? colors.dangerText
+        : warning
+            ? colors.warningText
+            : paused
+                ? colors.textSecondary
+                : colors.textPrimary;
     final time = Text(
       widget.timeText,
       key: const ValueKey('timer-time'),
@@ -97,20 +104,20 @@ class _PantasTimerState extends State<PantasTimer> {
       child: PantasProgressBar(
         value: widget.fractionLeft,
         warning: warning,
+        danger: last,
       ),
     );
-    final tag = warning
-        ? PantasTag(widget.warningLabel, tone: PantasTagTone.warning)
-        : paused
-            ? PantasTag(widget.pausedLabel, tone: PantasTagTone.gray)
-            : null;
+    final tag =
+        paused ? PantasTag(widget.pausedLabel, tone: PantasTagTone.gray) : null;
     return Semantics(
       label: widget.semanticLabel,
-      value: warning
-          ? '${widget.timeText}, ${widget.warningLabel}'
-          : paused
-              ? '${widget.timeText}, ${widget.pausedLabel}'
-              : widget.timeText,
+      value: last
+          ? '${widget.timeText}, ${widget.lastLabel}'
+          : warning
+              ? '${widget.timeText}, ${widget.warningLabel}'
+              : paused
+                  ? '${widget.timeText}, ${widget.pausedLabel}'
+                  : widget.timeText,
       liveRegion: false,
       child: ExcludeSemantics(
         child: widget.inline

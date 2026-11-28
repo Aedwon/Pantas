@@ -3,10 +3,15 @@ import 'dart:io';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/features/legal/legal.dart';
 
-/// The reviewed texts, copied from the review file Aedwon checked. The app
-/// must carry them word for word, so this test reports any difference after
-/// whitespace and markdown markers are normalized.
-const _reviewPath = 'test/fixtures/legal/2026-11-09-legal-texts-review.md';
+/// The signed-off public-launch texts. The app must carry them word for
+/// word, so this test reports any difference after whitespace and markdown
+/// markers are normalized.
+const _folder = 'docs/legal-drafts/2026-11-22-public-launch';
+const _files = <String, String>{
+  'privacy': '$_folder/privacy-policy.md',
+  'terms': '$_folder/terms.md',
+  'teens': '$_folder/teen-notice.md',
+};
 
 String _normalize(String text) => text
     .replaceAll('**', '')
@@ -14,93 +19,97 @@ String _normalize(String text) => text
     .replaceAll(RegExp(r'\s+'), ' ')
     .trim();
 
-/// Splits the lines between two `## ` markers into `### ` sections.
-Map<String, String> _reviewSections(
-  List<String> lines,
-  String startsWith,
-  String endsWith,
-) {
-  final start = lines.indexWhere((l) => l.startsWith(startsWith));
-  final end = lines.indexWhere((l) => l.startsWith(endsWith));
-  expect(start, greaterThanOrEqualTo(0), reason: startsWith);
-  expect(end, greaterThan(start), reason: endsWith);
+/// Splits a signed-off file into its `## ` sections. Lines between the first
+/// `---` and the first `## `, except the version stamp, belong to the first
+/// section: they are part of the published text. Everything above the `---`
+/// is drafting notes and is not published.
+Map<String, String> _sections(List<String> lines) {
+  final rule = lines.indexWhere((l) => l.trim() == '---');
+  expect(rule, greaterThan(0), reason: 'no --- line');
   final sections = <String, StringBuffer>{};
+  final lead = StringBuffer();
   StringBuffer? current;
-  for (final line in lines.sublist(start + 1, end)) {
-    if (line.startsWith('### ')) {
-      current = sections[line.substring(4)] = StringBuffer();
-    } else if (line.trim() != '---') {
-      current?.writeln(line);
+  for (final line in lines.sublist(rule + 1)) {
+    if (line.startsWith('## ')) {
+      current = sections[line.substring(3)] = StringBuffer();
+    } else if (current == null) {
+      if (!line.startsWith('**Version:**')) lead.writeln(line);
+    } else {
+      current.writeln(line);
     }
   }
+  final first = sections.keys.first;
+  sections[first] = StringBuffer('$lead\n${sections[first]}');
   return {for (final e in sections.entries) e.key: _normalize('${e.value}')};
 }
 
-List<String> _differences(
-  String label,
-  List<LegalSection> app,
-  Map<String, String> review,
-) {
-  final found = <String>[];
-  final appByHeading = {for (final s in app) s.heading: _normalize(s.body)};
-  for (final entry in review.entries) {
-    final text = appByHeading[entry.key];
-    if (text == null) {
-      found.add('$label/${entry.key}: missing from the app');
-    } else if (text != entry.value) {
-      found.add('$label/${entry.key}: text differs');
-    }
-  }
-  return found;
-}
+String _text(String key) =>
+    legalDocumentFallbacks[key]!.sections.map((s) => s.body).join('\n');
 
 void main() {
-  late List<String> lines;
-  setUpAll(() {
-    lines = File(_reviewPath).readAsLinesSync();
-  });
+  for (final entry in _files.entries) {
+    group(entry.key, () {
+      late String source;
+      late Map<String, String> review;
+      late LegalDocument document;
+      setUpAll(() {
+        source = File(entry.value).readAsStringSync();
+        review = _sections(source.split('\n'));
+        document = legalDocumentFallbacks[entry.key]!;
+      });
 
-  test('the review file has no em dashes', () {
-    expect(lines.join('\n'), isNot(contains('—')));
-  });
+      test('the signed-off file has no brackets and no em dashes', () {
+        expect(source, isNot(contains('[')));
+        expect(source, isNot(contains('—')));
+      });
 
-  test('teens, privacy and the replaced Terms sections match the review', () {
-    final teens = _reviewSections(lines, '## A.', '## B.');
-    final subscriptions = _reviewSections(lines, '## B.', '## C.');
-    final privacy = _reviewSections(lines, '## D.', '## E.');
-    final terms = _reviewSections(lines, '## E.', '## F.');
-    final docs = legalDocumentFallbacks;
+      test('the app has the same sections in the same order', () {
+        expect(document.sections.map((s) => s.heading), review.keys);
+      });
 
+      test('the app text matches the signed-off file word for word', () {
+        final differences = <String>[];
+        for (final s in document.sections) {
+          final expected = review[s.heading];
+          if (expected != null && _normalize(s.body) != expected) {
+            differences.add('${s.heading}: text differs');
+          }
+        }
+        expect(differences, isEmpty);
+      });
+
+      test('the document date matches its guardian version stamp', () {
+        final d = document.updatedAt;
+        final stamp = '${d.year}-${d.month.toString().padLeft(2, '0')}-'
+            '${d.day.toString().padLeft(2, '0')}';
+        expect(stamp, guardianDocumentVersions[entry.key]);
+      });
+    });
+  }
+  // His words (Nov 25): "yes i can issue invoices from my BIR printed
+  // invoices, but note that they are physical invoices that I can take a
+  // picture of, not e-invoices". The Terms promise an invoice, never an
+  // e-invoice or an invoice sent automatically by email.
+  test('the Terms promise a sales invoice, and no text promises e-invoices',
+      () {
     expect(
-      docs['teens']!.sections.map((s) => s.heading),
-      teens.keys,
+      _text('terms'),
+      contains('Pantas issues a sales invoice for each web purchase.'),
     );
-    expect(
-      docs['privacy']!.sections.map((s) => s.heading),
-      privacy.keys,
+    final promise = RegExp(
+      'e-invoic|electronic invoice|invoices? (by|via|through) e-?mail|'
+      'e-?mail(s|ed)? (you )?(a |an |the |your )?(sales )?invoice|'
+      'automatic(ally)? (send|email|issue)',
+      caseSensitive: false,
     );
-    // Terms order is fixed by the review file. Intellectual property is the
-    // one section the review does not replace, so the app keeps its own.
-    expect(docs['terms']!.sections.map((s) => s.heading), [
-      'Use of the app',
-      ...subscriptions.keys,
-      'Study content and results',
-      'Changes, suspension and ending',
-      'Limits of responsibility',
-      'Intellectual property',
-      'Governing law and disputes',
-      'Changes to these Terms',
-    ]);
-
-    final differences = [
-      ..._differences('teens', docs['teens']!.sections, teens),
-      ..._differences('privacy', docs['privacy']!.sections, privacy),
-      ..._differences(
-        'terms',
-        docs['terms']!.sections,
-        {...subscriptions, ...terms},
-      ),
-    ];
-    expect(differences, isEmpty);
+    for (final key in _files.keys) {
+      final source = File(_files[key]!).readAsStringSync();
+      expect(promise.hasMatch(source), isFalse, reason: _files[key]);
+      expect(
+        promise.hasMatch(_text(key)),
+        isFalse,
+        reason: key,
+      );
+    }
   });
 }

@@ -122,16 +122,6 @@ void main() {
     });
   }
 
-  testWidgets('the wheel over the outline itself scrolls the lesson',
-      (tester) async {
-    await pump(tester);
-    final box =
-        tester.getRect(find.byKey(const ValueKey('web-reader-outline')));
-    expect(box.left, greaterThan(0));
-    await wheelAt(tester, box.center.dx);
-    expect(scroll.offset, 120);
-  });
-
   testWidgets('the wheel over the top bar scrolls the lesson too',
       (tester) async {
     await pump(tester);
@@ -156,26 +146,5 @@ void main() {
     );
     await tester.pump();
     expect(scroll.offset, 0);
-  });
-
-  testWidgets('an outline that scrolls keeps the wheel for itself',
-      (tester) async {
-    // Forty sections make an outline taller than the window.
-    await pump(tester, sections: 40);
-    final outline = find.descendant(
-      of: find.byKey(const ValueKey('web-reader-outline')),
-      matching: find.byType(Scrollable),
-    );
-    final position = tester.state<ScrollableState>(outline).position;
-    expect(position.maxScrollExtent, greaterThan(0));
-    final box =
-        tester.getRect(find.byKey(const ValueKey('web-reader-outline')));
-    await wheelAt(tester, box.center.dx);
-    expect(position.pixels, 120, reason: 'the outline scrolls itself');
-    expect(scroll.offset, 0, reason: 'and the lesson stays');
-    // Over the right margin there is no outline: the lesson moves.
-    await wheelAt(tester, 1300);
-    expect(scroll.offset, 120);
-    expect(position.pixels, 120);
   });
 }

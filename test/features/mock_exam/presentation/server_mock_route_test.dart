@@ -22,6 +22,7 @@ import 'package:pantas/features/mock_exam/presentation/pages/mock_start_route.da
 import 'package:pantas/features/mock_exam/presentation/pages/server_mock_route.dart';
 import 'package:pantas/features/mock_exam/presentation/part_transition_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pause_page.dart';
+import 'package:pantas/features/mock_exam/presentation/proctor_toast.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_finale.dart';
 import 'package:pantas/features/paywall/application/paywall_providers.dart';
 import 'package:pantas/features/paywall/domain/entitlement.dart';
@@ -1414,6 +1415,14 @@ void main() {
           expect(server.named('getMockPaper'), hasLength(1));
           expect(find.text('Could not save your progress.'), findsOneWidget);
           expect(find.text('Try Again'), findsOneWidget);
+          // The line sits on the proctor toast's surface, not bare Material.
+          expect(
+            find.ancestor(
+              of: find.text('Could not save your progress.'),
+              matching: find.byType(MockToastSurface),
+            ),
+            findsOneWidget,
+          );
           // The clock stays at zero.
           expect(find.text('00:00'), findsOneWidget);
           await elapse(tester, fixture, const Duration(milliseconds: 500));

@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'dart:collection';
 import 'dart:math' as math;
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
@@ -9,22 +11,30 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:pantas/core/platform/figure_viewer_back.dart';
 import 'package:pantas/core/platform/figure_viewer_history.dart';
 import 'package:pantas/core/platform/route_leave_guard.dart';
+import 'package:pantas/core/ui/components/figure_highlight.dart';
+import 'package:pantas/core/ui/components/held_reader.dart';
 import 'package:pantas/core/ui/components/lesson_svg.dart';
 import 'package:pantas/core/ui/components/math_support.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/pantas_shadows.dart';
 import 'package:pantas/core/ui/components/reader_blocks.dart';
+import 'package:pantas/core/ui/components/reader_figure_placement.dart';
+import 'package:pantas/core/ui/components/reader_link_words.dart';
+import 'package:pantas/core/ui/components/walkthrough_parts.dart';
 import 'package:pantas/core/ui/figures/figure_registry.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_colors.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+
+part 'content_renderer_held.dart';
 
 // Credits use secondaryLabel under the Task8b contrast ruling.
 
@@ -33,6 +43,14 @@ import 'package:pantas/core/ui/web/web_tokens.dart';
 /// The height a reader figure holds while it loads (board value, no token).
 // ds-board: Figure README sets no placeholder height; as built
 const double _figurePlaceholderHeight = 223;
+
+/// The width of a solution step's number column and the gap after it. The step
+/// text starts [_stepColumn] + [_stepGap] in; the answer line of a
+/// walk-through solution lines up with it (walk.css `.note` padding-left 31).
+// ds-board: ReaderBlock README has no step column; as built
+const double _stepColumn = 22;
+// ds-board: ReaderBlock README has no step gap; as built
+const double _stepGap = 9;
 
 class ReaderResizedNotification extends Notification {
   const ReaderResizedNotification();
@@ -47,14 +65,35 @@ class ContentRenderer extends StatelessWidget {
     this.figureBuilder,
     this.readerFigures = false,
     this.questionStem = false,
+    this.openSolutions = false,
+    this.walkthrough,
+    this.mathLinePadding = 0,
     super.key,
   }) : assert(blocks != null || text != null, 'Provide blocks or text.');
   final List<Map<String, Object?>>? blocks;
+
+  /// Room above and below every inline formula, so lines that each hold a
+  /// fraction do not touch. The walk-through parts set it; every other
+  /// reader keeps its lines as they were (0).
+  final double mathLinePadding;
+
+  /// Whether the lesson is in walk-through mode: example solutions show open
+  /// and in step groups. Null reads it from [blocks] (any block whose type
+  /// starts with `walk`). A page that draws one lesson in several renderers
+  /// passes the answer for the whole lesson.
+  final bool? walkthrough;
+
+  bool get _walk =>
+      readerFigures &&
+      (walkthrough ?? (blocks != null && lessonIsWalkthrough(blocks!)));
   final String? text;
   final TextStyle? style;
   final int? maxLines;
   final Widget Function(BuildContext, Map<String, Object?>)? figureBuilder;
   final bool readerFigures;
+
+  /// Shows each example's solution open from the start (the first run).
+  final bool openSolutions;
 
   /// Keeps authored bold words distinct from the rest of a question stem.
   final bool questionStem;
@@ -257,14 +296,27 @@ class ContentRenderer extends StatelessWidget {
       _inline(
     BuildContext context,
     List<Map<String, Object?>> runs,
-    TextStyle type,
-  ) {
+    TextStyle type, {
+    Map<String, Object?>? links,
+  }) {
     final stemBold = _hasStemBold;
     final spans = <InlineSpan>[];
     final spoken = StringBuffer();
     var hasMath = false;
     var validSpeech = true;
-    for (final run in runs) {
+    // Words that name a part of the figure beside the text (held layout).
+    final figure = links?['figure'];
+    final linked = figure is int && links?['labels'] is List<Object?>
+        ? {
+            for (final m in findLinks(runs, [
+              for (final l in links!['labels']! as List<Object?>)
+                if (l is String) l,
+            ]))
+              m.run: m,
+          }
+        : const <int, LinkMatch>{};
+    for (var runIndex = 0; runIndex < runs.length; runIndex++) {
+      final run = runs[runIndex];
       final source = string(run['text']);
       final marks = run['marks'] is List<Object?>
           ? (run['marks']! as List<Object?>).whereType<String>().toSet()
@@ -281,13 +333,26 @@ class ContentRenderer extends StatelessWidget {
         decoration:
             marks.contains('underline') ? TextDecoration.underline : null,
       );
+      final link = linked[runIndex];
       if (marks.contains('latex')) {
+        final span = inlineMathSpan(
+          source,
+          style: runStyle,
+          onErrorFallback: readerFigures ? fallback : null,
+          verticalPadding: mathLinePadding,
+        );
         spans.add(
-          inlineMathSpan(
-            source,
-            style: runStyle,
-            onErrorFallback: readerFigures ? fallback : null,
-          ),
+          link != null && span is WidgetSpan
+              ? WidgetSpan(
+                  alignment: span.alignment,
+                  baseline: span.baseline,
+                  child: LinkedWord(
+                    figure: figure! as int,
+                    label: link.label,
+                    child: span.child,
+                  ),
+                )
+              : span,
         );
         final label = inlineMathExpressionSemanticsLabel(source);
         if (label == null) {
@@ -296,12 +361,50 @@ class ContentRenderer extends StatelessWidget {
           spoken.write(label);
         }
         hasMath = true;
+      } else if (link != null) {
+        // A bold word that names a part: the words around it stay as they
+        // were, and the word itself carries the dotted underline.
+        spans
+          ..addAll(
+            inlineMathSpans(
+              source.substring(0, link.start),
+              style: runStyle,
+              onErrorFallback: readerFigures ? fallback : null,
+            ),
+          )
+          ..add(
+            WidgetSpan(
+              alignment: PlaceholderAlignment.baseline,
+              baseline: TextBaseline.alphabetic,
+              child: LinkedWord(
+                figure: figure! as int,
+                label: link.label,
+                text: source.substring(link.start, link.end),
+                style: runStyle,
+              ),
+            ),
+          )
+          ..addAll(
+            inlineMathSpans(
+              source.substring(link.end),
+              style: runStyle,
+              onErrorFallback: readerFigures ? fallback : null,
+            ),
+          );
+        final label = inlineMathSemantics(source);
+        if (label == null) {
+          validSpeech = false;
+        } else {
+          spoken.write(label.label);
+          hasMath = hasMath || label.hasMath;
+        }
       } else {
         spans.addAll(
           inlineMathSpans(
             source,
             style: runStyle,
             onErrorFallback: readerFigures ? fallback : null,
+            verticalPadding: mathLinePadding,
           ),
         );
         final label = inlineMathSemantics(source);
@@ -415,7 +518,14 @@ class ContentRenderer extends StatelessWidget {
     final numbered = readerFigures && name.startsWith('h')
         ? _numbered(runs)
         : (number: null, runs: runs);
-    final inline = _inline(context, numbered.runs, type);
+    final inline = _inline(
+      context,
+      numbered.runs,
+      type,
+      links: block['_links'] is Map<String, Object?>
+          ? block['_links']! as Map<String, Object?>
+          : null,
+    );
     if (numbered.number != null) {
       return Row(
         crossAxisAlignment: CrossAxisAlignment.baseline,
@@ -469,13 +579,13 @@ class ContentRenderer extends StatelessWidget {
             if (step)
               ConstrainedBox(
                 // ds-board: ReaderBlock README has no step column; as built
-                constraints: const BoxConstraints(minWidth: 22),
+                constraints: const BoxConstraints(minWidth: _stepColumn),
                 child: Text(marker, style: markerStyle),
               )
             else
               Text(marker, style: markerStyle),
             // ds-board: ReaderBlock README has no step gap; as built
-            SizedBox(width: readerFigures ? 9 : PantasSpace.s12),
+            SizedBox(width: readerFigures ? _stepGap : PantasSpace.s12),
             Expanded(child: body),
           ],
         ),
@@ -727,6 +837,7 @@ class ContentRenderer extends StatelessWidget {
     String? marker,
     ReaderSection section = ReaderSection.plain,
     bool step = false,
+    bool inSolution = false,
   }) {
     final type = string(block['_type']);
     switch (type) {
@@ -799,7 +910,12 @@ class ContentRenderer extends StatelessWidget {
           ),
         );
       default:
-        return fallback(context);
+        // Walk-through parts draw only in the reader; a block of a type this
+        // build does not know keeps the fallback.
+        return (readerFigures && type.startsWith('walk')
+                ? buildWalkPart(context, block, inSolution: inSolution)
+                : null) ??
+            fallback(context);
     }
   }
 
@@ -834,9 +950,13 @@ class ContentRenderer extends StatelessWidget {
     for (var i = 0; i < slots.length; i++) {
       if (i > 0) {
         final prev = slots[i - 1];
+        // A negative margin pulls a block up under the board's 18 px
+        // paragraph margin, as "Why?" does (-10, so 8 under its paragraph).
         final gap = prev.list && slots[i].list
             ? PantasSpace.s8
-            : math.max(prev.below, slots[i].above);
+            : slots[i].above < 0
+                ? math.max(PantasSpace.s0, PantasSpace.s18 + slots[i].above)
+                : math.max(prev.below, slots[i].above);
         if (gap > 0) children.add(SizedBox(height: gap));
       }
       children.add(slots[i].child);
@@ -849,14 +969,20 @@ class ContentRenderer extends StatelessWidget {
     List<ReaderItem> items, {
     bool solution = false,
     bool choices = false,
+    Map<int, int>? sharedCounters,
   }) {
     final slots = <_Slot>[];
-    final counters = <int, int>{};
+    final counters = sharedCounters ?? <int, int>{};
     for (var index = 0; index < items.length; index++) {
       final item = items[index];
       if (item is ReaderExample) {
         counters.clear();
-        slots.add(_Slot(_exampleCard(context, item)));
+        slots.add(
+          _Slot(
+            _exampleCard(context, item),
+            kind: FlowKind.example,
+          ),
+        );
         continue;
       }
       final plain = item as ReaderPlain;
@@ -949,28 +1075,82 @@ class ContentRenderer extends StatelessWidget {
         counters.clear();
       }
       final style = isBlock ? string(block['style']) : '';
-      final (above, below) = switch (style) {
-        // ReaderLayout rhythm: 16 between blocks, h2 40 above and 12 under,
-        // h3 28 above and 8 under. Display math has no value in the system
-        // and takes the h3 rhythm.
-        'h2' => (PantasSpace.s40, PantasSpace.s12),
-        'h3' => (PantasSpace.s28, PantasSpace.s8),
-        _ when block['_type'] == 'latex' => (PantasSpace.s28, PantasSpace.s8),
+      final type = string(block['_type']);
+      // A walk-through part under display maths gets the same 28 under the
+      // formula's box as any block does (Aedwon, Nov 27: it must match the
+      // space above). Other blocks keep their rhythm.
+      final afterMath = type.startsWith('walk') &&
+          index > 0 &&
+          items[index - 1] is ReaderPlain &&
+          (items[index - 1] as ReaderPlain).block['_type'] == 'latex';
+      final (rhythmAbove, below) = switch (style) {
+        // ReaderLayout rhythm: 16 between blocks, h2 56 above and 12 under,
+        // h3 40 above and 8 under (Aedwon, Nov 28: more space above a
+        // heading than under it, so it groups with its own content, and a
+        // section stays more separated than a subsection).
+        'h2' => (PantasSpace.s56, PantasSpace.s12),
+        'h3' => (PantasSpace.s40, PantasSpace.s8),
+        // Walk-through parts (walk.css): "Why?" is pulled up 10 under the
+        // block before it; a card inside a solution has 8 above and 16 under;
+        // every other part has 18 under.
+        _ when type == 'walkWhy' => (-PantasSpace.s10, PantasSpace.s18),
+        // Try the last step in a solution is not a card: its rule sits 16
+        // under the work (board option A, `.tryA` margin-top 16).
+        _ when type == 'walkTry' && solution => (
+            PantasSpace.s16,
+            PantasSpace.s16,
+          ),
+        _ when type == 'walkCheck' && solution => (
+            PantasSpace.s8,
+            PantasSpace.s16,
+          ),
+        _ when type.startsWith('walk') => (PantasSpace.s0, PantasSpace.s18),
+        // The space under display maths equals the space above it (28), so
+        // the formula sits evenly between its neighbors.
+        _ when block['_type'] == 'latex' => (PantasSpace.s28, PantasSpace.s28),
         _ when list.isNotEmpty && solution => (PantasSpace.s0, PantasSpace.s8),
         _ => (PantasSpace.s0, PantasSpace.s16),
       };
+      final above = afterMath ? PantasSpace.s28 : rhythmAbove;
+      var child = dispatch(
+        context,
+        block,
+        marker: marker,
+        section: plain.section,
+        step: solution && list == 'number',
+        inSolution: solution,
+      );
+      // A heading a checklist line points at: its anchor is a tap-back target.
+      final anchor = block['anchor'];
+      if (style == 'h3' && anchor is String && anchor.isNotEmpty && _walk) {
+        child = WalkTarget(slug: anchor, heading: true, child: child);
+      }
+      // The answer line of a walk-through solution lines up with the step text
+      // (walk.css `.note`), not with the step number.
+      if (_walk &&
+          solution &&
+          isBlock &&
+          style == 'normal' &&
+          list.isEmpty &&
+          readerBlockText(block).trimLeft().startsWith('The answer is')) {
+        child = Padding(
+          padding: const EdgeInsets.only(left: _stepColumn + _stepGap),
+          child: child,
+        );
+      }
       slots.add(
         _Slot(
-          dispatch(
-            context,
-            block,
-            marker: marker,
-            section: plain.section,
-            step: solution && list == 'number',
-          ),
+          child,
           above: above,
           below: below,
           list: list.isNotEmpty,
+          kind: switch (style) {
+            'h2' || 'h3' => FlowKind.heading,
+            'blockquote' => FlowKind.note,
+            _ => FlowKind.text,
+          },
+          text: isBlock ? readerBlockText(block) : '',
+          major: style == 'h2',
         ),
       );
     }
@@ -1072,7 +1252,11 @@ class ContentRenderer extends StatelessWidget {
     );
   }
 
-  Widget _exampleCard(BuildContext context, ReaderExample example) {
+  Widget _exampleCard(
+    BuildContext context,
+    ReaderExample example, {
+    _HeldExampleHook? held,
+  }) {
     final title = _numbered(maps(example.title['children']));
     final titleStyle = _readerH3(context);
     final inline = _inline(context, title.runs, titleStyle);
@@ -1081,31 +1265,94 @@ class ContentRenderer extends StatelessWidget {
         context,
         [
           for (final block in example.stem)
-            ReaderPlain(block, ReaderSection.examples),
+            if (held == null || !held.moved.contains(block))
+              ReaderPlain(block, ReaderSection.examples),
         ],
         choices: true,
       ),
     );
     final wide = context.wideWeb;
+    final walk = _walk;
+    final solutionBlocks = [
+      for (final block in example.solution)
+        if (held == null || !held.moved.contains(block)) block,
+    ];
     final solution = example.solution.isEmpty
         ? null
-        : _solutionBody(
-            context,
-            example.solution,
-            ReaderSection.examples,
-            inCard: true,
-          );
+        : walk
+            ? _walkSolution(context, solutionBlocks)
+            : _solutionBody(
+                context,
+                solutionBlocks,
+                ReaderSection.examples,
+                inCard: true,
+              );
+    var heading = _spoken(
+      Text.rich(TextSpan(children: inline.spans), style: titleStyle),
+      inline,
+    );
+    // The example's heading is a tap-back target like any other heading.
+    final anchor = example.title['anchor'];
+    if (walk && anchor is String && anchor.isNotEmpty) {
+      heading = WalkTarget(slug: anchor, heading: true, child: heading);
+    }
     return _ExampleCard(
       key: ValueKey('reader-example-${example.number}'),
       wide: wide,
       label: 'Example ${example.number}',
-      title: _spoken(
-        Text.rich(TextSpan(children: inline.spans), style: titleStyle),
-        inline,
-      ),
+      title: heading,
       stem: stem.children,
       stemTail: stem.tail,
       solution: solution,
+      open: held?.open,
+      startOpen: openSolutions,
+      walk: walk,
+    );
+  }
+
+  /// A solution in a walk-through lesson: open from the start, in step groups.
+  /// Four or more groups show the first and open the rest one at a time.
+  Widget _walkSolution(
+    BuildContext context,
+    List<Map<String, Object?>> blocks,
+  ) {
+    final groups = splitStepGroups(blocks);
+    // One count across the groups, so a step keeps its number when a group
+    // ends in a paragraph.
+    final counters = <int, int>{};
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        caps(
+          'Solution',
+          PantasType.webEyebrow.copyWith(color: context.colors.textSecondary),
+        ),
+        const SizedBox(height: PantasSpace.s10),
+        WalkSteps(
+          stepped: groups.length >= walkStepThreshold,
+          groups: [
+            for (final group in groups)
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                // The last margin of a group is not drawn: the space between
+                // groups is the step gap (`.sg`).
+                children: _stack(
+                  _readerSlots(
+                    context,
+                    [
+                      for (final block in group)
+                        ReaderPlain(block, ReaderSection.examples),
+                    ],
+                    solution: true,
+                    sharedCounters: counters,
+                  ),
+                ).children,
+              ),
+          ],
+        ),
+      ],
     );
   }
 
@@ -1145,7 +1392,14 @@ class ContentRenderer extends StatelessWidget {
               : string(block['url']))
           .isNotEmpty;
     }).toList();
-    if (readerFigures) return _readerColumn(context, visible);
+    if (readerFigures) {
+      final column = _readerColumn(context, visible);
+      // One controller serves the whole lesson. A page that draws the lesson
+      // in several renderers puts a scope above them all.
+      return _walk && WalkScope.maybeOf(context) == null
+          ? WalkScope(child: column)
+          : column;
+    }
     final children = <Widget>[];
     final counters = <int, int>{};
     for (var index = 0; index < visible.length; index++) {
@@ -1188,11 +1442,23 @@ class _Slot {
     this.above = 0,
     this.below = 18,
     this.list = false,
+    this.kind = FlowKind.text,
+    this.text = '',
+    this.major = false,
   });
+
+  /// A `##` heading, which opens a section.
+  final bool major;
   final Widget child;
   final double above;
   final double below;
   final bool list;
+
+  /// What the held layout treats the block as.
+  final FlowKind kind;
+
+  /// The block's words, for the held layout's anchor rule.
+  final String text;
 }
 
 /// An example in the reader: a card with its title, its question, and a
@@ -1208,8 +1474,21 @@ class _ExampleCard extends StatefulWidget {
     required this.stem,
     required this.stemTail,
     required this.solution,
+    this.open,
+    this.startOpen = false,
+    this.walk = false,
     super.key,
   });
+
+  /// The solution is open when the card first shows.
+  final bool startOpen;
+
+  /// The lesson is in walk-through mode: the solution is open and has no
+  /// "Show solution" button. It draws with no fade, as part of the page.
+  final bool walk;
+
+  /// Told when the solution opens, so a figure beside the card can follow.
+  final ValueNotifier<bool>? open;
 
   final bool wide;
   final String label;
@@ -1225,7 +1504,7 @@ class _ExampleCard extends StatefulWidget {
 class _ExampleCardState extends State<_ExampleCard> {
   final _button = FocusNode(debugLabel: 'Show solution');
   final _panel = FocusNode(debugLabel: 'Solution', skipTraversal: true);
-  bool _open = false;
+  late bool _open = widget.startOpen || widget.walk;
 
   @override
   void dispose() {
@@ -1239,6 +1518,7 @@ class _ExampleCardState extends State<_ExampleCard> {
     // moves to the solution instead of being lost.
     final moveFocus = _button.hasFocus;
     setState(() => _open = true);
+    widget.open?.value = true;
     if (moveFocus) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
         if (mounted) _panel.requestFocus();
@@ -1287,7 +1567,7 @@ class _ExampleCardState extends State<_ExampleCard> {
             ),
           ),
         );
-        region = still
+        region = still || widget.walk
             ? panel
             : TweenAnimationBuilder<double>(
                 tween: Tween(begin: 0, end: 1),
@@ -1322,7 +1602,7 @@ class _ExampleCardState extends State<_ExampleCard> {
       }
       // A zero-length AnimatedSize re-enters its own layout, so reduced
       // motion skips it and the panel appears at once.
-      if (!still) {
+      if (!still && !widget.walk) {
         region = AnimatedSize(
           // ds-board: no README entry; flip token is the flip role
           duration: const Duration(milliseconds: 300),
@@ -1445,7 +1725,13 @@ class _FigureFrame extends StatelessWidget {
     this.imageSemantics = true,
     this.expandable = true,
     this.labelViewer = false,
+    this.plate = false,
   });
+
+  /// A plate in the held reader's figure column (spec "Layout"): #FAFAF7,
+  /// radius 14, 14 px above and below, 20 px at the sides, and the expand
+  /// button 34 px at the top right, 10 px in. No caption or credit.
+  final bool plate;
 
   /// Height of the strip below a phone figure that holds the zoom badge.
   static const _expandStrip = PantasSpace.s40;
@@ -1524,105 +1810,180 @@ class _FigureFrame extends StatelessWidget {
     );
   }
 
-  @override
-  Widget build(BuildContext context) => Column(
-        mainAxisSize: MainAxisSize.min,
-        crossAxisAlignment: CrossAxisAlignment.stretch,
+  Widget _plate(BuildContext context) {
+    final c = context.colors;
+    return Container(
+      key: const ValueKey('reader-figure-plate'),
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: c.readerFigureBackground,
+        borderRadius: BorderRadius.circular(PantasRadius.lg),
+      ),
+      child: Stack(
         children: [
-          ClipRRect(
-            borderRadius: BorderRadius.circular(PantasRadius.md),
-            child: Container(
-              key: reader ? const ValueKey('reader-figure-frame') : null,
-              foregroundDecoration: reader
-                  ? BoxDecoration(
-                      border: Border.all(
-                        color: context.colors.separator,
-                      ),
-                      borderRadius: BorderRadius.circular(PantasRadius.md),
-                    )
-                  : null,
-              child: Stack(
-                children: [
-                  Container(
-                    width: reader && context.wideWeb ? double.infinity : null,
-                    // The zoom badge sits in the frame's bottom-right corner.
-                    // Wide web keeps it in the 22 px padding; on a phone the
-                    // frame has none, so the button gets a strip of its own
-                    // and never lands on a label of the figure.
-                    padding: reader && context.wideWeb
-                        ? const EdgeInsets.all(PantasSpace.s20)
-                        : expandable
-                            ? const EdgeInsets.only(bottom: _expandStrip)
-                            : null,
-                    alignment:
-                        reader && context.wideWeb ? Alignment.center : null,
-                    color: reader
-                        ? context.colors.readerFigureBackground
-                        : context.colors.figureBackground,
-                    child: imageSemantics
-                        ? Semantics(
-                            label: label,
-                            image: true,
-                            excludeSemantics: true,
-                            child: Theme(
-                              data: buildLightTheme(),
-                              child: figure,
-                            ),
-                          )
-                        : Theme(data: buildLightTheme(), child: figure),
-                  ),
-                  if (expandable)
-                    Positioned(
-                      right: 1,
-                      bottom: 1,
-                      child: SizedBox.square(
-                        dimension: PantasSize.targetTouch,
-                        child: IconButton(
-                          tooltip: 'Expand figure',
-                          onPressed: () => expand(context),
-                          padding: EdgeInsets.zero,
-                          icon: Container(
-                            width: PantasSize.iconBtnSm,
-                            height: PantasSize.iconBtnSm,
-                            decoration: BoxDecoration(
-                              color: context.colors.surface,
-                              borderRadius:
-                                  BorderRadius.circular(PantasRadius.sm),
-                              boxShadow: context.shadows.popover,
-                            ),
-                            alignment: Alignment.center,
-                            child: Icon(
-                              PantasIcons.magnifyingGlassPlus,
-                              size: PantasSpace.s16,
-                              color: context.colors.secondaryLabel,
-                            ),
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              vertical: PantasSpace.s14,
+              horizontal: PantasSpace.s20,
+            ),
+            child: Center(
+              child: Semantics(
+                label: label,
+                image: true,
+                excludeSemantics: true,
+                child: Theme(data: buildLightTheme(), child: figure),
+              ),
+            ),
+          ),
+          Positioned(
+            top: 10,
+            right: 10,
+            child: Tooltip(
+              message: 'Expand figure',
+              child: Semantics(
+                button: true,
+                label: 'Expand figure',
+                excludeSemantics: true,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () => expand(context),
+                  child: MouseRegion(
+                    cursor: SystemMouseCursors.click,
+                    // The plate stays light in both themes, so its button
+                    // takes the light theme's colors.
+                    child: Theme(
+                      data: buildLightTheme(),
+                      child: Builder(
+                        builder: (context) => Container(
+                          // ds-board: fs.css .fx, the expand button is 34 px
+                          width: 34,
+                          // ds-board: fs.css .fx, 34 px square
+                          height: 34,
+                          decoration: BoxDecoration(
+                            color: context.colors.fill,
+                            borderRadius:
+                                BorderRadius.circular(PantasRadius.sm),
+                          ),
+                          alignment: Alignment.center,
+                          child: Icon(
+                            PantasIcons.expandFigure,
+                            size: PantasSpace.s16,
+                            color: context.colors.secondaryLabel,
                           ),
                         ),
                       ),
                     ),
-                ],
+                  ),
+                ),
               ),
             ),
           ),
-          if (credit.isNotEmpty) ...[
-            const SizedBox(height: PantasSpace.s6),
-            Text(
-              credit,
-              style: context.type.caption.copyWith(
-                fontSize: reader
-                    ? context.wideWeb
-                        // ds-board: Figure README sets no credit size; as built
-                        ? 13
-                        // ds-board: Figure README sets no credit size; as built
-                        : 11
+        ],
+      ),
+    );
+  }
+
+  @override
+  Widget build(BuildContext context) => plate
+      ? _plate(context)
+      : Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            ClipRRect(
+              borderRadius: BorderRadius.circular(PantasRadius.md),
+              child: Container(
+                key: reader ? const ValueKey('reader-figure-frame') : null,
+                foregroundDecoration: reader
+                    ? BoxDecoration(
+                        border: Border.all(
+                          color: context.colors.separator,
+                        ),
+                        borderRadius: BorderRadius.circular(PantasRadius.md),
+                      )
                     : null,
-                fontWeight: FontWeight.w400,
-                color: context.colors.secondaryLabel,
+                child: Stack(
+                  children: [
+                    Container(
+                      width: reader && context.wideWeb ? double.infinity : null,
+                      // The zoom badge sits in the frame's bottom-right corner.
+                      // Wide web keeps it in the 22 px padding; on a phone the
+                      // frame has none, so the button gets a strip of its own
+                      // and never lands on a label of the figure.
+                      padding: reader && context.wideWeb
+                          ? const EdgeInsets.all(PantasSpace.s20)
+                          : expandable
+                              ? const EdgeInsets.only(bottom: _expandStrip)
+                              : null,
+                      alignment:
+                          reader && context.wideWeb ? Alignment.center : null,
+                      color: reader
+                          ? context.colors.readerFigureBackground
+                          : context.colors.figureBackground,
+                      child: imageSemantics
+                          ? Semantics(
+                              label: label,
+                              image: true,
+                              excludeSemantics: true,
+                              child: Theme(
+                                data: buildLightTheme(),
+                                child: figure,
+                              ),
+                            )
+                          : Theme(data: buildLightTheme(), child: figure),
+                    ),
+                    if (expandable)
+                      Positioned(
+                        right: 1,
+                        bottom: 1,
+                        child: SizedBox.square(
+                          dimension: PantasSize.targetTouch,
+                          child: IconButton(
+                            tooltip: 'Expand figure',
+                            onPressed: () => expand(context),
+                            padding: EdgeInsets.zero,
+                            icon: Container(
+                              width: PantasSize.iconBtnSm,
+                              height: PantasSize.iconBtnSm,
+                              decoration: BoxDecoration(
+                                color: context.colors.surface,
+                                borderRadius:
+                                    BorderRadius.circular(PantasRadius.sm),
+                                boxShadow: context.shadows.popover,
+                              ),
+                              alignment: Alignment.center,
+                              child: Icon(
+                                PantasIcons.magnifyingGlassPlus,
+                                size: PantasSpace.s16,
+                                color: context.colors.secondaryLabel,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
               ),
             ),
+            if (credit.isNotEmpty) ...[
+              const SizedBox(height: PantasSpace.s6),
+              Text(
+                credit,
+                style: context.type.caption.copyWith(
+                  fontSize: reader
+                      ? context.wideWeb
+                          // ds-board: Figure README: no credit size
+                          ? 13
+                          // ds-board: Figure README: no credit size
+                          : 11
+                      : null,
+                  fontWeight: FontWeight.w400,
+                  color: context.colors.secondaryLabel,
+                ),
+              ),
+            ],
           ],
-        ],
-      );
+        );
 }
 
 class _FigureViewer extends StatefulWidget {

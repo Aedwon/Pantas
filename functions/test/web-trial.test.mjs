@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {FieldValue} from 'firebase-admin/firestore';
+import {FieldValue, Timestamp} from 'firebase-admin/firestore';
 import {listPlans} from '../lib/webPlans.js';
 import {startTrial, trialEligible} from '../lib/webTrial.js';
 import {changeBetaPro, BETA_CUTOFF} from '../lib/betaPro.js';
@@ -20,7 +20,12 @@ function memoryDb() {
   let nextId = 0;
   const snapshot = ref => ({ref, id: ref.path.split('/').at(-1), exists: rows.has(ref.path),
     get: key => rows.get(ref.path)?.[key], data: () => rows.get(ref.path)});
-  const doc = path => ({path, get: async () => snapshot(doc(path))});
+  // update() fails with NOT_FOUND (5) on a missing document, like Firestore: the sync_state mirror relies on it.
+  const doc = path => ({path, get: async () => snapshot(doc(path)),
+    update: async value => {
+      if (!rows.has(path)) throw Object.assign(new Error('not found'), {code: 5});
+      rows.set(path, {...rows.get(path), ...value});
+    }});
   const collection = path => ({path, collection: true, doc: () => doc(`${path}/${++nextId}`),
     where: (field, op, value) => ({get: async () => ({docs: [...rows.entries()]
       .filter(([key, row]) => key.startsWith(`${path}/`) && row[field] === value)
@@ -238,4 +243,42 @@ test('a code sign-in also counts the providers linked to the account', async () 
   await assert.rejects(startTrial(auth, deps(db)), {code: 'failed-precondition'});
   // Without the link the same code sign-in is a different person.
   assert.equal(await trialEligible(codeUser('c2', {email: 'new@example.com'}), db), true);
+});
+
+for (const marker of [{}, {startedAt: 1}]) {
+  test(`trial and beta grants refuse a closed account and write nothing: ${JSON.stringify(marker)}`, async () => {
+    const db = memoryDb();
+    db.rows.set('accountDeletions/tester', marker);
+    const before = db.rows.size;
+    const d = {...deps(db), until: () => BETA_CUTOFF};
+    // Main's shared account-closed error (permission-denied) replaced this branch's failed-precondition for trials.
+    await assert.rejects(startTrial(named('tester'), d), {code: 'permission-denied'});
+    await assert.rejects(changeBetaPro({auth: named('tester'), app: {appId: 'test'},
+      data: {enabled: true, examId: 'exam_cse_pro'}}, d), {code: 'failed-precondition'});
+    assert.equal(db.rows.size, before);
+  });
+}
+
+const TRIAL_CODE_MS = 730 * 86400000;
+
+test('D7: each new trial code stores the trial start and an expireAt 730 days later', async () => {
+  const db = memoryDb();
+  await startTrial(named('tester'), deps(db));
+  const rows = identityRows(db).map(path => db.rows.get(path));
+  assert.ok(rows.length >= 1);
+  for (const row of rows) {
+    assert.equal(row.used, true);
+    assert.equal(row.startedAt, NOW);
+    assert.ok(row.expireAt instanceof Timestamp);
+    assert.equal(row.expireAt.toMillis(), NOW + TRIAL_CODE_MS);
+  }
+});
+
+test('D7: a code that has not expired still refuses a second trial', async () => {
+  const db = memoryDb();
+  await startTrial(named('tester'), deps(db));
+  // A different account on the same identity, one day before the code expires.
+  const later = {...deps(db), now: () => NOW + TRIAL_CODE_MS - 86400000};
+  assert.equal(await trialEligible(named('other'), db), false);
+  await assert.rejects(startTrial(named('other'), later), {code: 'failed-precondition'});
 });

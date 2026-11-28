@@ -34,12 +34,12 @@ import 'package:pantas_lints/src/source_scope.dart';
 /// color, a font size, a size, a spacing or a duration.
 class DsNoDesignLiteral extends AnalysisRule {
   DsNoDesignLiteral()
-    : super(
-        name: 'ds_no_design_literal',
-        description:
-            'Design values come from the Pantas token classes, never from '
-            'literals.',
-      );
+      : super(
+          name: 'ds_no_design_literal',
+          description:
+              'Design values come from the Pantas token classes, never from '
+              'literals.',
+        );
 
   static const LintCode code = LintCode(
     'ds_no_design_literal',
@@ -411,12 +411,12 @@ class DesignFlow {
   }
 
   bool _isPlainValue(Expression node) => switch (node) {
-    IntegerLiteral() => (node.value ?? 0) > 1,
-    DoubleLiteral() => node.value > 1,
-    SimpleIdentifier() || PrefixedIdentifier() || PropertyAccess() => true,
-    ParenthesizedExpression() => _isPlainValue(node.expression),
-    _ => false,
-  };
+        IntegerLiteral() => (node.value ?? 0) > 1,
+        DoubleLiteral() => node.value > 1,
+        SimpleIdentifier() || PrefixedIdentifier() || PropertyAccess() => true,
+        ParenthesizedExpression() => _isPlainValue(node.expression),
+        _ => false,
+      };
 
   /// Whether [node] is a number written out, or a variable that holds one.
   /// Such a factor scales a value; it is not the value.
@@ -426,9 +426,8 @@ class DesignFlow {
       IntegerLiteral() || DoubleLiteral() => true,
       ParenthesizedExpression() => _isLiteralOnly(node.expression, depth + 1),
       PrefixExpression() => _isLiteralOnly(node.operand, depth + 1),
-      BinaryExpression() =>
-        _isLiteralOnly(node.leftOperand, depth + 1) &&
-            _isLiteralOnly(node.rightOperand, depth + 1),
+      BinaryExpression() => _isLiteralOnly(node.leftOperand, depth + 1) &&
+          _isLiteralOnly(node.rightOperand, depth + 1),
       SimpleIdentifier() => _variableIsLiteralOnly(node.element, depth),
       _ => false,
     };

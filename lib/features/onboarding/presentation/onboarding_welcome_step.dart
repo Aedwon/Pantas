@@ -2,12 +2,14 @@ import 'package:flutter/services.dart';
 import 'package:pantas/core/platform/first_screen_ready.dart';
 import 'package:pantas/core/ui/components/page_title.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_button_spec.dart';
 import 'package:pantas/core/ui/components/pantas_logo.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_curves.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
+import 'package:pantas/core/ui/theme/tokens/pantas_size.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_type.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
@@ -21,19 +23,21 @@ import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart
 const double _logoWide = 120;
 const double _logoPhone = 104;
 
-/// Wide web: the Get Started button's width, as the HTML welcome has it.
-const double _buttonWidth = 260;
-
 /// Phone: space above the mark, which sets the title at the board's height.
 const double _phoneLogoTop = 180;
 
 class OnboardingWelcomeStep extends StatelessWidget {
   const OnboardingWelcomeStep({
     required this.onAdvance,
+    this.onSignIn,
     this.underCover = false,
     super.key,
   });
   final VoidCallback onAdvance;
+
+  /// Opens the sign-in page for a returning student. Null hides the
+  /// "Already have an account? Sign in" line (a named account is signed in).
+  final VoidCallback? onSignIn;
 
   /// The HTML Welcome screen is still up over this step. It is the page, so
   /// this step draws only the background and the tap that removes the screen
@@ -89,18 +93,22 @@ class OnboardingWelcomeStep extends StatelessWidget {
                         .copyWith(color: t.colors.textSecondary),
                   ),
                   const SizedBox(height: PantasSpace.s44),
-                  // The HTML welcome the first visit shows has a 260 px button
-                  // (OB_Welcome). This step, shown after Back, matches it.
-                  SizedBox(
-                    width: _buttonWidth,
-                    child: WebButton(
-                      label: 'Get Started',
-                      large: true,
-                      expand: true,
-                      keyHint: 'Enter',
-                      onPressed: onAdvance,
-                    ),
+                  // Wide button placement (patterns.md): a centered layout
+                  // centers its single action at natural width. The HTML
+                  // welcome the first visit shows is a separate page.
+                  WebButton(
+                    label: 'Get Started',
+                    large: true,
+                    keyHint: 'Enter',
+                    onPressed: onAdvance,
                   ),
+                  if (onSignIn case final signIn?) ...[
+                    const SizedBox(height: PantasSpace.s12),
+                    _SignInLine(
+                      onSignIn: signIn,
+                      color: t.colors.textSecondary,
+                    ),
+                  ],
                 ],
               ),
             ),
@@ -162,14 +170,55 @@ class OnboardingWelcomeStep extends StatelessWidget {
                     PantasSpace.s20,
                     PantasSpace.s32,
                   ),
-                  child:
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
                       PantasButton(label: 'Get Started', onPressed: onAdvance),
+                      if (onSignIn case final signIn?) ...[
+                        const SizedBox(height: PantasSpace.s12),
+                        _SignInLine(
+                          onSignIn: signIn,
+                          color: context.colors.textSecondary,
+                        ),
+                      ],
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+/// "Already have an account? Sign in": a returning student signs in before
+/// onboarding. "Sign in" is the system's text button, 48 high so it meets the
+/// phone tap-target guideline.
+class _SignInLine extends StatelessWidget {
+  const _SignInLine({required this.onSignIn, required this.color});
+  final VoidCallback onSignIn;
+  final Color color;
+
+  @override
+  Widget build(BuildContext context) {
+    final style = PantasType.webSub.copyWith(color: color);
+    return Wrap(
+      alignment: WrapAlignment.center,
+      crossAxisAlignment: WrapCrossAlignment.center,
+      children: [
+        Text('Already have an account?', style: style),
+        PantasButton(
+          label: 'Sign in',
+          onPressed: onSignIn,
+          kind: PantasButtonKind.tertiary,
+          tone: PantasButtonTone.accent,
+          height: PantasSize.field,
+          horizontalPadding: PantasSpace.s8,
+        ),
+      ],
     );
   }
 }

@@ -1,5 +1,6 @@
 import {FieldValue, Timestamp, getFirestore, type Firestore} from 'firebase-admin/firestore';
 import {getAuth, type Auth} from 'firebase-admin/auth';
+import {logger} from 'firebase-functions';
 import {paymentSecrets, secret} from './_secrets.js';
 import {onRequest} from 'firebase-functions/v2/https';
 import {copyEntitlementClaims} from './revenuecatClaims.js';
@@ -9,6 +10,7 @@ import {commitPaymongoGrant, resolvePaymongoDispute, revokePaymongoPayment} from
 import {httpPaymongoClient, type PaymongoClient} from './paymongoClient.js';
 import {normalizePaymongoEvent, priceCentavos, verifyPaymongoSignature, webProduct} from './paymongoPolicy.js';
 import {WEBHOOK_MAX_INSTANCES} from './_options.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 const MAX_EVENTS_PER_MINUTE = 30;
 const PAID = 'checkout_session.payment.paid';
@@ -24,7 +26,8 @@ const obj = (v: unknown): Record<string, unknown> =>
   v !== null && typeof v === 'object' && !Array.isArray(v) ? v as Record<string, unknown> : {};
 
 async function audit(db: Firestore, uid: string | null, event: string, metadata: Record<string, unknown>) {
-  console.error('PayMongo webhook', {event, uid, ...metadata});
+  // The audit record below keeps the detail. The log line names the event only.
+  console.error('PayMongo webhook', {reason: event.replace(/^paymongo/, '').replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()});
   await db.collection('audit_logs').add({uid, event, timestamp: FieldValue.serverTimestamp(), metadata});
 }
 
@@ -56,7 +59,8 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
       if (!paymentId || !disputeId) return 500;
       if (attributes.status !== 'won' && attributes.status !== 'lost') return 500;
       const uid = await resolvePaymongoDispute(deps.db, {eventId: event.id, paymentId,
-        disputeId, won: attributes.status === 'won'}, now());
+        disputeId, won: attributes.status === 'won',
+        ...(validAmount(attributes.amount) ? {disputedAmount: attributes.amount} : {})}, now());
       if (uid) await copyIfPending(deps, uid);
       return 200;
     }
@@ -64,67 +68,101 @@ export async function handlePaymongoWebhook(rawBody: unknown, signature: string,
     if (event.type !== PAID) return 200;
     const sessionId = text(event.data.id);
     if (!sessionId || event.data.type !== 'checkout_session') return 400;
-    // The event body grants nothing: the session is read again from PayMongo.
-    const session = await deps.client.getCheckoutSession(sessionId);
-    const uid = session.metadata.uid, productId = session.metadata.product;
-    const claimed = obj(attributes.metadata);
-    if (!uid || !productId || uid.includes('/') || uid.length > 128 ||
-        claimed.uid !== uid || claimed.product !== productId) {
-      await audit(deps.db, null, 'paymongoMetadataMismatch', {eventId: event.id, sessionId});
-      return unfulfilled(deps.db, event.id, sessionId, 'metadataMismatch');
-    }
-    const product = webProduct(productId);
-    if (!product) {
-      await audit(deps.db, uid, 'paymongoUnknownProduct', {eventId: event.id, sessionId, productId});
-      return unfulfilled(deps.db, event.id, sessionId, 'unknownProduct', uid);
-    }
-    const paid = session.payments.filter(p => p.status === 'paid');
-    // PayMongo may report the payment a moment after the event: retry rather than lose it.
-    if (paid.length === 0) return unfulfilled(deps.db, event.id, sessionId, 'paymentNotYetPaid', uid);
-    if (paid.length !== 1 || !paid[0].id || paid[0].currency !== 'PHP' || paid[0].amount !== priceCentavos(product)) {
-      await audit(deps.db, uid, 'paymongoAmountMismatch', {eventId: event.id, sessionId, productId,
-        payments: paid.map(p => ({id: p.id, amount: p.amount, currency: p.currency}))});
-      return unfulfilled(deps.db, event.id, sessionId, 'amountMismatch', uid, paid[0]?.id);
-    }
-    const reference = session.metadata.reference;
-    const checkout = await deps.db.doc(reference && /^[0-9a-f-]{36}$/.test(reference)
-      ? `paymongoOrders/${reference}` : `paymongoCheckouts/${sessionId}`).get();
-    const paidAt = paid[0].paidAt;
-    const bound = checkout.exists && checkout.get('uid') === uid && checkout.get('product') === productId &&
-      (!checkout.get('sessionId') || checkout.get('sessionId') === sessionId);
-    if (!bound || !Number.isSafeInteger(paidAt) || paidAt! <= 0 || paidAt! > now() || paidAt! < Math.floor(Number(checkout.get('createdAt')) / 1000) * 1000) {
-      await deps.db.doc(`paymongoFollowUps/${encodeURIComponent(paid[0].id)}`).set({uid, sessionId,
-        paymentId: paid[0].id, eventId: event.id, reason: 'unverifiedCheckoutOrPaymentTime', status: 'pending'});
-      return 500;
-    }
-    try { await deps.auth.getUser(uid); }
-    catch (error) {
-      if (!isUnresolvedFirebaseIdentityError(error)) throw error;
-      await audit(deps.db, uid, 'paymongoPaidUnknownAccount', {eventId: event.id, sessionId, paymentId: paid[0].id});
-      return unfulfilled(deps.db, event.id, sessionId, 'unknownAccount', uid, paid[0].id);
-    }
-    const duplicate = await deps.db.doc(`webhookEvents/${event.id}/users/${uid}`).get();
-    if (!duplicate.exists) {
-      if (!await withinRate(deps.db, uid, now())) {
-        await unfulfilled(deps.db, event.id, sessionId, 'rateLimited', uid, paid[0].id);
-        return 429;
-      }
-      const outcome = await commitPaymongoGrant(deps.db, {uid, eventId: event.id, sessionId,
-        paymentId: paid[0].id, paidAmount: paid[0].amount, product, paidAt: paidAt!, sitting: checkout.get('sitting') as Sitting | undefined}, now(), deps.catalog ?? examCatalog);
-      if (outcome === 'noSitting') return 500;
-    }
-    const sessionFollowUp = deps.db.doc(`paymongoFollowUps/${encodeURIComponent(sessionId)}`);
-    if ((await sessionFollowUp.get()).exists) await sessionFollowUp.update({status: 'resolved'});
-    await copyIfPending(deps, uid);
-    return 200;
+    return await fulfillPaidSession(deps, event.id, sessionId, obj(attributes.metadata), now);
   } catch (error) {
-    console.error('PayMongo reconciliation failed', {eventId: event.id, error});
+    console.error('PayMongo reconciliation failed', {reason: 'reconciliation-failed'});
     const sessionId = text(event.data.id);
     if (event.type === PAID && event.data.type === 'checkout_session' && sessionId) {
       return unfulfilled(deps.db, event.id, sessionId, 'reconciliationFailed');
     }
     return 500;
   }
+}
+
+/**
+ * Completes the grant for one paid checkout session. The webhook calls it for each
+ * `checkout_session.payment.paid` event, with the event's own metadata as `claimed`. A checkout call
+ * calls it to finish a payment whose event never granted, with `claimed` null and a `heal_` event id.
+ * Either way the session and its payment are read from PayMongo here, never taken from the caller.
+ * Returns the HTTP status the webhook answers with; 200 means handled.
+ */
+export async function fulfillPaidSession(deps: Pick<PaymongoWebhookDeps, 'db' | 'auth' | 'client' | 'catalog'>,
+  eventId: string, sessionId: string, claimed: Record<string, unknown> | null, now: () => number): Promise<number> {
+  // The event body grants nothing: the session is read again from PayMongo.
+  const session = await deps.client.getCheckoutSession(sessionId);
+  const uid = session.metadata.uid, productId = session.metadata.product;
+  if (!uid || !productId || uid.includes('/') || uid.length > 128 ||
+      (claimed !== null && (claimed.uid !== uid || claimed.product !== productId))) {
+    await audit(deps.db, null, 'paymongoMetadataMismatch', {eventId, sessionId});
+    return unfulfilled(deps.db, eventId, sessionId, 'metadataMismatch');
+  }
+  const product = webProduct(productId);
+  if (!product) {
+    await audit(deps.db, uid, 'paymongoUnknownProduct', {eventId, sessionId, productId});
+    return unfulfilled(deps.db, eventId, sessionId, 'unknownProduct', uid);
+  }
+  const paid = session.payments.filter(p => p.status === 'paid');
+  // PayMongo may report the payment a moment after the event: retry rather than lose it.
+  if (paid.length === 0) return unfulfilled(deps.db, eventId, sessionId, 'paymentNotYetPaid', uid);
+  const reference = session.metadata.reference;
+  const checkoutPath = reference && /^[0-9a-f-]{36}$/.test(reference)
+    ? `paymongoOrders/${reference}` : `paymongoCheckouts/${sessionId}`;
+  const checkout = await deps.db.doc(checkoutPath).get();
+  const paidAt = paid[0].paidAt;
+  const validPayment = paid.length === 1 && !!paid[0].id && paid[0].currency === 'PHP' &&
+    Number.isSafeInteger(paid[0].amount) && paid[0].amount > 0;
+  // A deleted account's refund task refunds what the payer actually paid, so it uses PayMongo's amount, not the quote.
+  const refundIfDeleted = async () => (await commitPaymongoGrant(deps.db, {uid, eventId, sessionId,
+    paymentId: paid[0].id, paidAmount: paid[0].amount, product, paidAt: paidAt ?? 0, deletionOnly: true},
+  now(), deps.catalog ?? examCatalog)) === 'accountDeleted';
+  if (validPayment && (await deps.db.doc(`accountDeletions/${uid}`).get()).exists && await refundIfDeleted()) return 200;
+  const quotedAmount = checkout.get('amountCentavos') ?? priceCentavos(product);
+  if (!validPayment || paid[0].amount !== quotedAmount) {
+    await audit(deps.db, uid, 'paymongoAmountMismatch', {eventId, sessionId, productId,
+      payments: paid.map(p => ({id: p.id, amount: p.amount, currency: p.currency}))});
+    return unfulfilled(deps.db, eventId, sessionId, 'amountMismatch', uid, paid[0]?.id);
+  }
+  const bound = checkout.exists && checkout.get('uid') === uid && checkout.get('product') === productId &&
+    (!checkout.get('sessionId') || checkout.get('sessionId') === sessionId);
+  if (!bound || !Number.isSafeInteger(paidAt) || paidAt! <= 0 || paidAt! > now() || paidAt! < Math.floor(Number(checkout.get('createdAt')) / 1000) * 1000) {
+    await deps.db.doc(`paymongoFollowUps/${encodeURIComponent(paid[0].id)}`).set({uid, sessionId,
+      paymentId: paid[0].id, eventId, reason: 'unverifiedCheckoutOrPaymentTime', status: 'pending'});
+    return 500;
+  }
+  try { await deps.auth.getUser(uid); }
+  catch (error) {
+    if (!isUnresolvedFirebaseIdentityError(error)) throw error;
+    if (await refundIfDeleted()) return 200;
+    await audit(deps.db, uid, 'paymongoPaidUnknownAccount', {eventId, sessionId, paymentId: paid[0].id});
+    return unfulfilled(deps.db, eventId, sessionId, 'unknownAccount', uid, paid[0].id);
+  }
+  const duplicate = await deps.db.doc(`webhookEvents/${eventId}/users/${uid}`).get();
+  if (!duplicate.exists) {
+    if (!await withinRate(deps.db, uid, now())) {
+      await unfulfilled(deps.db, eventId, sessionId, 'rateLimited', uid, paid[0].id);
+      return 429;
+    }
+    const outcome = await commitPaymongoGrant(deps.db, {uid, eventId, sessionId,
+      paymentId: paid[0].id, paidAmount: paid[0].amount, product, paidAt: paidAt!, sitting: checkout.get('sitting') as Sitting | undefined}, now(), deps.catalog ?? examCatalog);
+    if (outcome === 'noSitting') return 500;
+    if (outcome === 'accountDeleted') return 200;
+  }
+  const sessionFollowUp = deps.db.doc(`paymongoFollowUps/${encodeURIComponent(sessionId)}`);
+  if ((await sessionFollowUp.get()).exists) await sessionFollowUp.update({status: 'resolved'});
+  await copyIfPending(deps, uid);
+  // A session made before declarations existed can still be paid. Access is granted and the
+  // claims copied above, so a failed flag write never delays it. The order is flagged once for
+  // manual follow-up; only a reason code is logged.
+  if (!checkout.get('declaration') && typeof checkout.get('attestedAt') !== 'number' &&
+      checkout.get('declarationMissing') !== true) {
+    try {
+      await deps.db.doc(checkoutPath).update({declarationMissing: true});
+      logger.warn('Paid checkout has no declaration', {reason: 'declaration-missing'});
+    } catch {
+      logger.warn('Could not flag a paid checkout with no declaration', {reason: 'declaration-flag-failed'});
+    }
+  }
+  return 200;
 }
 
 /** The payment id sits in data.id when the payment is the resource, else in payment_id. */
@@ -164,7 +202,6 @@ function refundsIn(type: string, data: Record<string, unknown>): RefundEntry[] {
 
 async function handleRevoke(event: {id: string; type: string; data: Record<string, unknown>},
   attributes: Record<string, unknown>, deps: PaymongoWebhookDeps, now: () => number): Promise<number> {
-  void attributes;
   const paymentId = paymentIdOf(event.data);
   if (!paymentId) {
     // Fail so PayMongo retries and the log alerts; never guess which grant to revoke.
@@ -173,7 +210,8 @@ async function handleRevoke(event: {id: string; type: string; data: Record<strin
   }
   let outcome;
   if (event.type === 'dispute.created') {
-    outcome = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type, dispute: true, disputeId: text(event.data.id) ?? undefined}, now());
+    outcome = await revokePaymongoPayment(deps.db, {eventId: event.id, paymentId, reason: event.type, dispute: true, disputeId: text(event.data.id) ?? undefined,
+      ...(validAmount(attributes.amount) ? {disputedAmount: attributes.amount} : {})}, now());
   } else {
     const entries = refundsIn(event.type, event.data);
     if (entries.length === 0) {
@@ -222,14 +260,14 @@ async function withinRate(db: Firestore, uid: string, at: number): Promise<boole
   });
 }
 
-async function copyIfPending(deps: PaymongoWebhookDeps, uid: string) {
+async function copyIfPending(deps: Pick<PaymongoWebhookDeps, 'db' | 'auth'>, uid: string) {
   const current = await deps.db.doc(`users/${uid}/server/entitlement`).get();
   if (current.get('claimsPending') === true || current.get('claimsVersion') !== current.get('version')) {
     await copyEntitlementClaims(deps.db, deps.auth, uid);
   }
 }
 
-export const paymongoWebhook = onRequest({region: 'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [paymentSecrets]},
+export const paymongoWebhook = onRequest({region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-payments'), maxInstances: WEBHOOK_MAX_INSTANCES, secrets: [paymentSecrets]},
   async (req, res) => {
     if (req.method !== 'POST') {res.status(405).json({ok: false}); return;}
     const key = secret('PAYMONGO_SECRET_KEY');

@@ -15,7 +15,9 @@ import 'package:pantas/core/ui/components/state_view.dart';
 import 'package:pantas/core/ui/components/week_strip.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/features/assessment/application/assessment_progress_providers.dart';
 import 'package:pantas/features/assessment/application/assessment_result_providers.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_progress.dart';
 import 'package:pantas/features/assessment/domain/models/assessment_result.dart';
 import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/application/home_day_extras.dart';
@@ -317,7 +319,7 @@ void main() {
       ),
     );
     await tester.pumpAndSettle();
-    final card = find.text('Keep Pantas on your Home Screen');
+    final card = find.text('Keep Pantas one tap away');
     await tester.ensureVisible(card);
     expect(card, findsOneWidget);
     expect(find.text('Show Me How'), findsOneWidget);
@@ -365,6 +367,58 @@ void main() {
     await tester.tap(find.text('Start Assessment'));
     await tester.pumpAndSettle();
     expect(find.text('assessment'), findsOneWidget);
+  });
+
+  testWidgets('with saved progress the card offers Continue with the count',
+      (tester) async {
+    await tester.pumpWidget(
+      harness(
+        extra: [
+          assessmentProgressProvider(examId).overrideWith(
+            (ref) async => AssessmentProgress(
+              examId: examId,
+              attemptId: 'a',
+              startedAt: DateTime.utc(2026, 11, 26),
+              questionIds: [for (var i = 0; i < 30; i++) 'q$i'],
+              picks: {for (var i = 0; i < 8; i++) 'q$i': 'c'},
+            ),
+          ),
+        ],
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Continue the assessment'), findsOneWidget);
+    expect(find.text('8 of 30 answered.'), findsOneWidget);
+    expect(find.text('First, a short assessment'), findsNothing);
+    expect(find.text('Start Assessment'), findsNothing);
+    await tester.tap(find.text('Continue'));
+    await tester.pumpAndSettle();
+    expect(find.text('assessment'), findsOneWidget);
+  });
+
+  testWidgets('the Today screen offers Continue too, as the Plan page does',
+      (tester) async {
+    await tester.pumpWidget(
+      harness(
+        server: true,
+        today: todayFor(planWithWork, state: RoadmapState.needsAssessment),
+        extra: [
+          assessmentProgressProvider(examId).overrideWith(
+            (ref) async => AssessmentProgress(
+              examId: examId,
+              attemptId: 'a',
+              startedAt: DateTime.utc(2026, 11, 26),
+              questionIds: [for (var i = 0; i < 12; i++) 'q$i'],
+              picks: {for (var i = 0; i < 5; i++) 'q$i': 'c'},
+            ),
+          ),
+        ],
+      ),
+    );
+    await tester.pumpAndSettle();
+    expect(find.text('Continue the assessment'), findsOneWidget);
+    expect(find.text('5 of 12 answered.'), findsOneWidget);
+    expect(find.text('Start Assessment'), findsNothing);
   });
 
   testWidgets('with no exam: the choose-exam fallback and no masthead',

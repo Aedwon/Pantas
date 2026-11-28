@@ -15,6 +15,7 @@ import 'package:pantas/features/home/domain/home_today_lesson.dart';
 import 'package:pantas/features/home/domain/study_models.dart';
 import 'package:pantas/features/home/presentation/home_today_screen.dart';
 import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
+import 'package:pantas/features/quiz/application/quiz_providers.dart';
 
 // Home builds its plan once per plan change (spec S6): the cached copy and the
 // network copy of the same plan are one build, a changed plan rebuilds without
@@ -224,6 +225,29 @@ void main() {
     await tester.pumpAndSettle();
     expect(find.byType(HomeTodaySkeleton), findsNothing);
     expect(find.text('Lesson l2 (r2)'), findsOneWidget);
+  });
+
+  // Nov 24, his screenshot: a Reviews session was paused at 1 of 11 from the
+  // Quiz tab while Home stayed alive in its own tab. Home kept the counts it
+  // read before the session began, so its sheet said "0 of 11" and "Start
+  // Reviews" for the session in progress.
+  testWidgets(
+      'a quiz paused in another tab makes Home read its questions again',
+      (tester) async {
+    final home = _Harness();
+    await home.pump(tester);
+    home.lastLoad.complete(built(roadmap('r1')));
+    await tester.pumpAndSettle();
+    expect(home.loads, hasLength(1));
+
+    ProviderScope.containerOf(tester.element(find.byType(HomeTodayScreen)))
+        .read(quizPausedRevisionProvider.notifier)
+        .publishPause();
+    await tester.pump();
+
+    expect(home.loads, hasLength(2), reason: 'the counts are read again');
+    expect(find.byType(HomeTodaySkeleton), findsNothing);
+    expect(find.text('Lesson l1 (r1)'), findsOneWidget, reason: 'kept on show');
   });
 
   testWidgets('a build that fails after a plan copy arrived builds again',

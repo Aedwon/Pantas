@@ -5,6 +5,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:go_router/go_router.dart';
 import 'package:mocktail/mocktail.dart';
 import 'package:pantas/app/telemetry_providers.dart';
+import 'package:pantas/core/auth/auth_state.dart';
+import 'package:pantas/core/auth/providers.dart';
 import 'package:pantas/core/storage/data/app_database.dart';
 import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/attempt.dart';
@@ -18,6 +20,7 @@ import 'package:pantas/core/ui/components/floating_bar.dart';
 import 'package:pantas/core/ui/components/math_text.dart';
 import 'package:pantas/core/ui/components/new_design/question_grid_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/report_bar.dart';
 import 'package:pantas/core/ui/components/toast.dart';
 import 'package:pantas/core/ui/icons/pantas_icons.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
@@ -184,6 +187,10 @@ void main() {
       ProviderScope(
         overrides: [
           appDatabaseProvider.overrideWithValue(db),
+          // A report is made under the signed-in account.
+          authStateProvider.overrideWith(
+            (ref) => Stream.value(const AnonymousAuthState(uid: 'student')),
+          ),
           if (telemetry != null) telemetryProvider.overrideWithValue(telemetry),
           if (preferences != null)
             appPreferencesRepositoryProvider.overrideWithValue(preferences(db)),
@@ -638,7 +645,9 @@ void main() {
 
   testWidgets('report opens the existing form and recolors after queued send',
       (tester) async {
-    await pump(tester);
+    final container = await pump(tester);
+    // The app listens to the account from start; here the form reads it.
+    await container.read(authStateProvider.future);
     await tester.tap(find.byTooltip('Report a question'));
     await tester.pumpAndSettle();
     await tester.enterText(
@@ -646,9 +655,12 @@ void main() {
       'This choice is missing a unit.',
     );
     await tester.pumpAndSettle();
-    await tester.tap(find.text('Save'));
+    await tester.tap(find.text('Send'));
     await tester.pumpAndSettle();
-    await tester.pump(const Duration(milliseconds: 2300));
+    // The bar thanks the student, then gives the bar back; the icon turns
+    // teal as the bar returns.
+    await tester.pump(reportNoticeHold);
+    await tester.pump(const Duration(milliseconds: 700));
     await tester.pumpAndSettle();
     final report = find.byTooltip('Report a question');
     final theme = tester.widget<IconTheme>(

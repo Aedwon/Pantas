@@ -52,7 +52,8 @@
 /// 0018 fill-ray-dots: four shown; distinct fills from
 /// quarter/half/three-quarter
 /// alternate; rays alternate with 45/90/135 separation, start on 45 grid; dots
-/// start 0..1, rise one. freeze-fill; freeze-ray; accumulate-fill gives full.
+/// start 0..1, rise one. freeze-fill; freeze-ray; accumulate-fill adds the
+/// two shown levels.
 /// Stem's requested next dot count is slotted. Cosmetic form stays constant.
 /// 0020 size-corner-ray: four shown; two sizes alternate, two rays alternate
 /// separated by 90 degrees; clockwise corners, any phase; relative ray/corner
@@ -107,6 +108,7 @@ class SeriesRule implements Rule {
         as Map<String, dynamic>;
     final original = source['figureSpec'] as Map<String, dynamic>;
     final fixed = index == 0;
+    draw:
     for (var attempt = 0; attempt < 1000; attempt++) {
       T pick<T>(List<T> values) => values[r.nextInt(values.length)];
       final forms = (t.params['forms']! as List).cast<String>().toList()
@@ -327,8 +329,19 @@ class SeriesRule implements Rule {
           case 'invent-four-direction-cycle':
             wrong['arrow'] = _arrows[
                 (_arrows.indexOf(items[1]['arrow']! as String) + 2) % 4];
-          case 'keep-increasing' || 'accumulate-fill':
+          case 'keep-increasing':
             wrong['fill'] = 1;
+          case 'accumulate-fill':
+            if (fixed) {
+              // The live source is kept even when its mistake fails checking.
+              final choices =
+                  (source['choices']! as List).cast<Map<String, Object?>>();
+              wrong['fill'] = choices[figures.length]['fill'];
+              break;
+            }
+            final sum = (first['fill']! as num) + (items[1]['fill']! as num);
+            if (![.25, .5, .75, 1].contains(sum)) continue draw;
+            wrong['fill'] = sum;
           case 'restart-early':
             wrong['form'] = first['form'];
           case 'increase-sides' || 'change-outline':

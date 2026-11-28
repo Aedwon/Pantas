@@ -11,6 +11,7 @@ import 'package:pantas/features/guardian/application/minor_sharing.dart';
 import 'package:pantas/features/legal/legal.dart';
 import 'package:pantas/features/settings/application/settings_providers.dart';
 import 'package:pantas/features/settings/presentation/pages/about_page.dart';
+import 'package:pantas/features/settings/presentation/widgets/settings_row.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../helpers/in_memory_database.dart';
@@ -40,8 +41,8 @@ void main() {
     await tester.pumpAppWithProviders(const AboutPage(), overrides: []);
     await tester.pumpAndSettle();
 
-    expect(find.text('Privacy Policy'), findsOneWidget);
-    expect(find.text('Terms of Service'), findsOneWidget);
+    expect(find.text('Privacy policy'), findsOneWidget);
+    expect(find.text('Terms of service'), findsOneWidget);
     expect(
       find.text('Help improve Pantas by sharing usage data'),
       findsOneWidget,
@@ -230,6 +231,44 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(opened.single, Uri.parse(defaultLegalContact.communityGroupUrl));
+    expect(modes.single, LaunchMode.externalApplication);
+  });
+
+  testWidgets('the support row opens mail to support, first under Get in touch',
+      (tester) async {
+    final opened = <Uri>[];
+    final modes = <LaunchMode>[];
+
+    await tester.pumpAppWithProviders(
+      AboutPage(
+        opener: (url, {mode = LaunchMode.platformDefault}) async {
+          opened.add(url);
+          modes.add(mode);
+          return true;
+        },
+      ),
+      overrides: [],
+    );
+    await tester.pumpAndSettle();
+
+    final row = find.ancestor(
+      of: find.text('Email support'),
+      matching: find.byType(SettingsRow),
+    );
+    expect(
+      find.descendant(of: row, matching: find.text('support@pantas.study')),
+      findsOneWidget,
+    );
+    expect(
+      tester.getTopLeft(find.text('Email support')).dy,
+      lessThan(tester.getTopLeft(find.text('Send feedback')).dy),
+    );
+
+    await tester.ensureVisible(find.text('Email support'));
+    await tester.tap(find.text('Email support'));
+    await tester.pumpAndSettle();
+
+    expect(opened.single, Uri(scheme: 'mailto', path: 'support@pantas.study'));
     expect(modes.single, LaunchMode.externalApplication);
   });
 

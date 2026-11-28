@@ -1,3 +1,5 @@
+import 'dart:math' as math;
+
 import '../../../model.dart';
 import '../../signature.dart';
 import '../solver.dart';
@@ -74,6 +76,43 @@ Map<String, Object?> _normal(Map<String, Object?> a) => {
 bool _same(Map<String, Object?> a, Map<String, Object?> b) =>
     dataKey(_normal(a)) == dataKey(_normal(b));
 
+// In radius units, the drawn ray reaches 80% of the nearer of the
+// nominal radius and the outline. The common 80% factor cancels in ranking.
+double _rayTipReach(Object? form, num ray) {
+  final sides = switch (form) {
+    'circle' || 'square' => 0,
+    'triangle' => 3,
+    'pentagon' => 5,
+    'star' => 10,
+    _ => throw const FormatException('unsupported ray outline'),
+  };
+  if (sides == 0) return 1;
+  ({double x, double y}) vertex(int index) {
+    final angle = index * 2 * math.pi / sides;
+    final radius = form == 'star' && index.isOdd ? 0.42 : 1.0;
+    return (x: radius * math.sin(angle), y: -radius * math.cos(angle));
+  }
+
+  final angle = ray * math.pi / 180;
+  final dx = math.sin(angle);
+  final dy = -math.cos(angle);
+  var reach = 1.0;
+  for (var i = 0; i < sides; i++) {
+    final a = vertex(i);
+    final b = vertex(i + 1);
+    final ex = b.x - a.x;
+    final ey = b.y - a.y;
+    final cross = dx * ey - dy * ex;
+    if (cross.abs() < 1e-9) continue;
+    final distance = (a.x * ey - a.y * ex) / cross;
+    final alongEdge = (a.x * dy - a.y * dx) / cross;
+    if (distance > 0 && alongEdge >= -1e-9 && alongEdge <= 1 + 1e-9) {
+      reach = math.min(reach, distance);
+    }
+  }
+  return reach;
+}
+
 /// Independent matrix checker derived from the matrix contract, not rule code.
 /// Reconstructs the missing cell from visible rows and columns, then checks
 /// every supplied cell. Candidate feature keys must match exactly.
@@ -83,38 +122,34 @@ class MatrixSolver implements FigureSolver {
     this.reflectRays = false,
     this.reflectRaysUpDown = false,
     this.continueCounts = false,
-    this.highestRay = false,
     this.extremeRay,
+    this.projectRayTips = false,
   });
   final bool reflectRays;
   final bool reflectRaysUpDown;
   final bool continueCounts;
-  final bool highestRay;
-  final String? extremeRay;
+  final int? extremeRay;
+  final bool projectRayTips;
 
-  num _highestRay(Iterable<num> rays) {
-    // Compass-grid heights, scaled without floating-point tie errors.
-    final heights = switch (extremeRay) {
-      'lowest' => [-2, -1, 0, 1, 2, 1, 0, -1],
-      'leftmost' => [0, -1, -2, -1, 0, 1, 2, 1],
-      'rightmost' => [0, 1, 2, 1, 0, -1, -2, -1],
-      _ => [2, 1, 0, -1, -2, -1, 0, 1],
-    };
-    final values = rays.toSet();
-    int height(num ray) {
+  num _projectedExtreme(Iterable<num> rays, Object? form) {
+    const ranks = [2, 1, 0, -1, -2, -1, 0, 1];
+    final scores = <num, double>{};
+    for (final ray in rays.toSet()) {
       if (ray < 0 || ray >= 360 || ray % 45 != 0) {
         throw const FormatException('unsupported ray');
       }
-      return heights[ray ~/ 45];
+      final difference = (ray - extremeRay!) % 360;
+      scores[ray] = projectRayTips
+          ? _rayTipReach(form, ray) * math.cos(difference * math.pi / 180)
+          : ranks[difference ~/ 45].toDouble();
     }
 
-    final highest = values.where(
-      (ray) => values.every((other) => height(ray) >= height(other)),
-    );
+    final best = scores.values.reduce(math.max);
+    final highest = scores.entries.where((e) => (best - e.value).abs() < 1e-9);
     if (highest.length != 1) {
-      throw const FormatException('highest ray is not unique');
+      throw const FormatException('directional extreme ray is not unique');
     }
-    return highest.single;
+    return highest.single.key;
   }
 
   final String pattern;
@@ -164,9 +199,12 @@ class MatrixSolver implements FigureSolver {
       case 'ray-intersection':
         return _withRays(
           a,
-          highestRay || extremeRay != null
+          extremeRay != null
               ? [
-                  _highestRay([..._rays(at(y, 0)), ..._rays(at(y, 1))]),
+                  _projectedExtreme(
+                    [..._rays(at(y, 0)), ..._rays(at(y, 1))],
+                    a['form'],
+                  ),
                 ]
               : _rays(at(y, 0)).where(_rays(at(y, 1)).contains),
         );
@@ -441,9 +479,9 @@ class MatrixSolver implements FigureSolver {
               return false;
             }
             final rays = pattern == 'ray-intersection'
-                ? highestRay || extremeRay != null
+                ? extremeRay != null
                     ? {
-                        _highestRay([...left, ...right]),
+                        _projectedExtreme(left.union(right), at(y, 0)['form']),
                       }
                     : left.intersection(right)
                 : left.union(right);

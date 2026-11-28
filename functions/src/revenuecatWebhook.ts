@@ -12,6 +12,7 @@ import {nativeRowsFor} from './entitlementInputs.js';
 import {reanchorQueued} from './paymongoGrants.js';
 import {preparePassReconciliation, examCatalog, type CatalogExam, type Pass} from './revenuecatPasses.js';
 import {WEBHOOK_MAX_INSTANCES} from './_options.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 export { verifyRevenueCatSignature } from './revenuecatPolicy.js';
 
 const MAX_EVENTS_PER_MINUTE = 30;
@@ -112,7 +113,7 @@ export async function reconcileWebhook(body: unknown, rawBody: unknown, signatur
   }
 }
 
-export const revenuecatWebhook = onRequest({region:'asia-southeast1', maxInstances: WEBHOOK_MAX_INSTANCES, secrets:[paymentSecrets]}, async (req,res) => {
+export const revenuecatWebhook = onRequest({region:'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-payments'), maxInstances: WEBHOOK_MAX_INSTANCES, secrets:[paymentSecrets]}, async (req,res) => {
   const projectId = process.env.REVENUECAT_PROJECT_ID;
   const appId = process.env.REVENUECAT_APP_ID;
   if (!projectId || !appId) {res.status(500).send('RevenueCat configuration required'); return;}
@@ -135,8 +136,8 @@ export async function runCheckRecentEntitlementClaims(): Promise<void> {
   await checkRecentClaims(getFirestore(), getAuth());
 }
 
-export const repairEntitlementClaims = onSchedule({schedule:'every 60 minutes',region:'asia-southeast1'},
+export const repairEntitlementClaims = onSchedule({schedule:'every 60 minutes',region:'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-jobs')},
   () => runRepairEntitlementClaims());
 
-export const checkRecentEntitlementClaims = onSchedule({schedule:'every 24 hours',region:'asia-southeast1'},
+export const checkRecentEntitlementClaims = onSchedule({schedule:'every 24 hours',region:'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-jobs')},
   () => runCheckRecentEntitlementClaims());

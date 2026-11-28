@@ -14,6 +14,7 @@ import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/sync/engine/sync_active_context_store.dart';
 import 'package:pantas/core/sync/local_state_wiper.dart';
+import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/features/home/application/today_questions.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
@@ -255,42 +256,27 @@ void main() {
         );
 
         if (exit == 'paused') {
-          // 7W-11: a paused quiz is named, with Resume and Discard, not
-          // reported as a failure that Try Again could never fix.
+          // Board A (Nov 25): another paused quiz is named in one line and
+          // Start is dimmed, never a failure that Try Again could not fix.
+          // The paused card on this tab keeps its own Resume and Discard.
           for (var i = 0;
-              i < 80 && find.text('Discard this session').evaluate().isEmpty;
+              i < 80 && find.text(pausedQuizBlockLine).evaluate().isEmpty;
               i++) {
             await tester.pump(const Duration(milliseconds: 20));
             await tester.runAsync(
               () => Future<void>.delayed(const Duration(milliseconds: 2)),
             );
           }
+          expect(find.text(pausedQuizBlockLine), findsOneWidget);
           expect(find.text('Could not start your quiz.'), findsNothing);
           expect(find.text('Try Again'), findsNothing);
-          expect(find.text('Resume'), findsOneWidget);
           final paused = await tester.runAsync(
             () => QuizSessionRepository(db)
                 .activeFor(userId: 'local', examId: 'e'),
           );
           expect(paused!.id, 'paused');
           expect(paused.quitAt, isNull);
-          await tester.tap(find.text('Discard this session'));
-          for (var i = 0;
-              i < 80 && find.text('Discard this session').evaluate().isNotEmpty;
-              i++) {
-            await tester.pump(const Duration(milliseconds: 20));
-            await tester.runAsync(
-              () => Future<void>.delayed(const Duration(milliseconds: 2)),
-            );
-          }
-          expect(find.text('Discard this session'), findsNothing);
-          await tester.tap(
-            find.text(
-              kind == TodayQuestionKind.reviews
-                  ? 'Start Reviews'
-                  : 'Start New Questions',
-            ),
-          );
+          return;
         }
         if (!completes && exit != 'paused') {
           for (var i = 0; i < 80 && !pending.entered.isCompleted; i++) {

@@ -1,3 +1,5 @@
+import 'dart:math' show min;
+
 import 'package:cloud_functions/cloud_functions.dart';
 import 'package:drift/drift.dart' show StringExpressionOperators;
 import 'package:pantas/core/storage/data/app_database.dart';
@@ -168,22 +170,112 @@ class StudyObservations {
         () => studySessionPayload(attempt),
       );
     }
-    for (final row in reads) {
-      final id = 'lesson_${row.lessonId}_${row.readAt.millisecondsSinceEpoch}';
-      if (receipts.contains(_receiptKey(id))) continue;
-      await deliver(
-        'recordLessonRead',
-        id,
-        () => {
-          'lessonId': row.lessonId,
-          'readAt': row.readAt.millisecondsSinceEpoch,
-        },
+    // A first sync on a new device holds every lesson read at once. They go
+    // out in as few calls as the server allows, not one call per lesson.
+    final unsentReads = [
+      for (final row in reads)
+        if (!receipts.contains(_receiptKey(_readId(row)))) row,
+    ];
+    for (var start = 0; start < unsentReads.length; start += _readsPerCall) {
+      final chunk = unsentReads.sublist(
+        start,
+        min(start + _readsPerCall, unsentReads.length),
       );
+      try {
+        await _sendReads(chunk);
+      } catch (error, stack) {
+        if (!await request.isCurrent()) rethrow;
+        if (error is FirebaseFunctionsException &&
+            error.code == 'resource-exhausted') {
+          rethrow;
+        }
+        firstFailure ??= error;
+        firstStack ??= stack;
+      }
     }
     if (firstFailure != null) {
       Error.throwWithStackTrace(firstFailure!, firstStack!);
     }
   }
+
+  /// The server accepts at most this many reads in one call.
+  static const _readsPerCall = 200;
+
+  String _readId(LessonProgressLocalRow row) =>
+      'lesson_${row.lessonId}_${row.readAt.millisecondsSinceEpoch}';
+
+  /// Sends one chunk of lesson reads in a single call and sets each row's
+  /// receipt from the server's per-item answer. The result lists indexes into
+  /// the sent reads: `rejected` rows can never succeed and get the same
+  /// permanent `rejected` receipt as before; every other row is done. A whole
+  /// call that fails follows the same rules as a single send: a permanent
+  /// error rejects the chunk, any other error leaves it for the next sync.
+  Future<void> _sendReads(List<LessonProgressLocalRow> rows) async {
+    final prefs = AppPreferencesRepository(db);
+    if (!await request.isCurrent()) throw StateError('Study owner changed');
+    final Map<String, Object?> result;
+    try {
+      result = await request.read(
+        'recordLessonRead',
+        payload: {
+          'reads': [
+            for (final row in rows)
+              {
+                'lessonId': row.lessonId,
+                'readAt': row.readAt.millisecondsSinceEpoch,
+              },
+          ],
+        },
+      );
+    } catch (error) {
+      // Our client never sends a bad envelope, so invalid-argument on a batch
+      // means a server that does not know batches (an older one, or a
+      // rollback). Those reads stay unsent rather than rejected for good.
+      final oldServer = error is FirebaseFunctionsException &&
+          error.code == 'invalid-argument';
+      if (_isPermanent(error) && !oldServer && await request.isCurrent()) {
+        await _setReceipts(prefs, {
+          for (final row in rows) _receiptKey(_readId(row)): 'rejected',
+        });
+      }
+      rethrow;
+    }
+    final rejected = <int>{
+      if (result['rejected'] case final List<Object?> list)
+        for (final index in list)
+          if (index is int) index,
+    };
+    await _setReceipts(prefs, {
+      for (var i = 0; i < rows.length; i++)
+        _receiptKey(_readId(rows[i])): rejected.contains(i) ? 'rejected' : '1',
+    });
+  }
+
+  Future<void> _setReceipts(
+    AppPreferencesRepository prefs,
+    Map<String, String> receipts,
+  ) async {
+    await db.transaction(() async {
+      if (!await request.isCurrent()) throw StateError('Study owner changed');
+      for (final entry in receipts.entries) {
+        await prefs.setDeviceValue(entry.key, entry.value);
+      }
+      if (!await request.isCurrent()) throw StateError('Study owner changed');
+    });
+  }
+
+  bool _isPermanent(Object error) => error is FirebaseFunctionsException
+      ? const {
+          'invalid-argument',
+          'not-found',
+          'permission-denied',
+          'failed-precondition',
+          'already-exists',
+          'out-of-range',
+          'unimplemented',
+        }.contains(error.code)
+      : error is StateError &&
+          error.message == 'Completed session timing required';
 
   Future<void> _send(
     String endpoint,
@@ -198,18 +290,7 @@ class StudyObservations {
       final data = payload();
       await request.read(endpoint, payload: data);
     } catch (error) {
-      final permanent = error is FirebaseFunctionsException
-          ? const {
-              'invalid-argument',
-              'not-found',
-              'permission-denied',
-              'failed-precondition',
-              'already-exists',
-              'out-of-range',
-              'unimplemented',
-            }.contains(error.code)
-          : error is StateError &&
-              error.message == 'Completed session timing required';
+      final permanent = _isPermanent(error);
       if (permanent && await request.isCurrent()) {
         await db.transaction(() async {
           if (!await request.isCurrent()) {

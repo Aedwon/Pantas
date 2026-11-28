@@ -7,6 +7,7 @@ import 'package:pantas/core/time/date_entry_validator.dart';
 import 'package:pantas/core/ui/components/date_grid_focus.dart';
 import 'package:pantas/core/ui/components/month_first_date_picker.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/pantas_sheet.dart';
 import 'package:pantas/core/ui/components/pantas_tap_area.dart';
 import 'package:pantas/core/ui/components/typed_date_field.dart';
 import 'package:pantas/core/ui/ds.dart';
@@ -89,11 +90,11 @@ class _HomeExamDateSheetState extends State<HomeExamDateSheet> {
     final content = Padding(
       padding: wide
           ? const EdgeInsets.all(PantasSpace.s24)
-          : const EdgeInsets.fromLTRB(
+          : EdgeInsets.fromLTRB(
               PantasSpace.s20,
               PantasSpace.s8,
               PantasSpace.s20,
-              PantasSpace.s32,
+              PantasSheet.bottomRest(context),
             ),
       child: Column(
         mainAxisSize: MainAxisSize.min,

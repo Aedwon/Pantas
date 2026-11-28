@@ -4,8 +4,12 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/storage.dart';
 import 'package:pantas/core/storage/track_scope.dart';
+import 'package:pantas/features/assessment/application/assessment_progress_providers.dart';
+import 'package:pantas/features/assessment/domain/models/assessment_progress.dart';
+import 'package:pantas/features/assessment/domain/services/assessment_question_selector.dart';
 import 'package:pantas/features/quiz/application/today_quiz_preparer.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
+import 'package:pantas/features/quiz/domain/models/session_origin.dart';
 import 'package:pantas/features/quiz/domain/use_cases/build_today_plan.dart';
 import 'package:pantas/features/quiz/presentation/quiz_controller.dart';
 
@@ -20,11 +24,15 @@ sealed class SessionPanelState {
 
 /// Nothing has been assessed yet, so there is no basis for a session.
 class SessionPanelNeedsAssessment extends SessionPanelState {
-  const SessionPanelNeedsAssessment(this.questionCount);
+  const SessionPanelNeedsAssessment(this.questionCount, {this.progress});
 
   /// The length `AssessmentQuestionSelector` will actually produce. Never a
   /// constant: it is 21 with seven contributing topics and 18 with eighteen.
   final int questionCount;
+
+  /// Answers saved on this device from an assessment left part way. When set,
+  /// the card offers Continue instead of Start.
+  final AssessmentProgress? progress;
 }
 
 /// A session was left part way through. It is still open and still counted.
@@ -34,6 +42,7 @@ class SessionPanelInProgress extends SessionPanelState {
     required this.total,
     this.topicName,
     this.reviewSession,
+    this.origin,
   });
 
   /// The one-based question Resume will reopen.
@@ -44,6 +53,31 @@ class SessionPanelInProgress extends SessionPanelState {
   /// and inline lesson quizzes.
   final String? topicName;
   final ({int ordinal, int total, int done, int questions})? reviewSession;
+
+  /// Where the paused quiz began. Null in presentation tests that build the
+  /// state by hand.
+  final SessionOrigin? origin;
+
+  /// The quiz Resume opens, named when the Today rows do not show it: a
+  /// practice, a flagged or mistakes quiz, a lesson quiz. Null for a Reviews
+  /// session and for New questions, whose rows carry the progress. Lead copy
+  /// under rule 4, Nov 25: his wide screenshot showed Reviews "0 of 11" with a
+  /// practice quiz paused and nothing saying which quiz Resume would open.
+  String? get pausedName {
+    if (reviewSession != null) return null;
+    final topic = topicName;
+    return switch (origin) {
+      null || SessionOrigin.newQuestions || SessionOrigin.mock => null,
+      SessionOrigin.drill => topic == null ? 'Custom quiz' : '$topic practice',
+      SessionOrigin.todayTopic ||
+      SessionOrigin.todayInterleaved =>
+        topic == null ? 'Weakest topics practice' : '$topic practice',
+      SessionOrigin.flagged => 'Flagged questions',
+      SessionOrigin.retake => 'Past mistakes',
+      SessionOrigin.inline => 'Lesson quiz',
+      SessionOrigin.assessment => 'Assessment',
+    };
+  }
 }
 
 /// Everything due, weak and new has been worked through for today.
@@ -112,6 +146,7 @@ final sessionPanelProvider =
       position: position,
       total: total,
       topicName: topic?.name,
+      origin: SessionOrigin.fromStorage(open.origin),
       reviewSession: batch == null
           ? null
           : (
@@ -126,8 +161,12 @@ final sessionPanelProvider =
   final assessed =
       await ref.watch(assessmentRepositoryProvider).hasCompletedForExam(examId);
   if (!assessed) {
+    final saved = await ref.watch(assessmentProgressProvider(examId).future);
+    if (saved != null) {
+      return SessionPanelNeedsAssessment(saved.total, progress: saved);
+    }
     final scopedTopics = await ref.watch(scopedTopicsProvider(examId).future);
-    final questions = await AssessmentQuestionSelector(
+    final questions = await assessmentQuestionSelector(
       ref.watch(contentRepositoryProvider),
       ref.watch(reviewStateRepositoryProvider),
     ).select(examId, topics: scopedTopics);

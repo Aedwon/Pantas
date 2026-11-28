@@ -34,6 +34,17 @@ abstract class FigureSolver implements Solver {
 
 typedef MistakeSolver = Object Function(ProblemType type, Variant variant);
 
+const _rayDirections = {
+  'highest': 0,
+  'northeast': 45,
+  'rightmost': 90,
+  'southeast': 135,
+  'lowest': 180,
+  'southwest': 225,
+  'leftmost': 270,
+  'northwest': 315,
+};
+
 final mathSolvers = <String, MathSolver>{};
 final figureSolvers = <String, FigureSolver>{
   for (final axis in [90, 270])
@@ -46,10 +57,15 @@ final figureSolvers = <String, FigureSolver>{
   'matrix-ray-reflection-up-down':
       MatrixSolver('ray-turn', reflectRaysUpDown: true),
   'matrix-dot-counting-sequence': MatrixSolver('dot-sum', continueCounts: true),
-  for (final direction in ['lowest', 'leftmost', 'rightmost'])
-    'matrix-$direction-ray':
-        MatrixSolver('ray-intersection', extremeRay: direction),
-  'matrix-highest-ray': MatrixSolver('ray-intersection', highestRay: true),
+  for (final direction in _rayDirections.entries) ...{
+    'matrix-${direction.key}-ray':
+        MatrixSolver('ray-intersection', extremeRay: direction.value),
+    'matrix-${direction.key}-ray-tip': MatrixSolver(
+      'ray-intersection',
+      extremeRay: direction.value,
+      projectRayTips: true,
+    ),
+  },
   'matrix-ray-reflection': MatrixSolver('ray-turn', reflectRays: true),
   // Competing count rules remain in the library even when their source type
   // is held. Two shown count values can fit both addition and doubling.

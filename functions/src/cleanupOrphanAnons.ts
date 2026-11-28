@@ -3,6 +3,7 @@ import { getFirestore, type Firestore } from 'firebase-admin/firestore';
 import { logger } from 'firebase-functions';
 import { onSchedule } from 'firebase-functions/v2/scheduler';
 import { deleteGuardianRecords } from './guardianConsent.js';
+import {serviceAccountEmail} from './serviceAccounts.js';
 
 function isOldAnonymous(user: UserRecord, cutoff: number): boolean {
   // Pantas anonymous identities have no linked provider, email, or phone.
@@ -107,7 +108,7 @@ export async function runCleanupOrphanAnons(): Promise<{scanned: number; deleted
 }
 
 export const cleanupOrphanAnons = onSchedule(
-  { schedule: 'every day 03:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', timeoutSeconds: 540 },
+  { schedule: 'every day 03:00', timeZone: 'Asia/Singapore', region: 'asia-southeast1', serviceAccount: serviceAccountEmail('pantas-jobs'), timeoutSeconds: 540 },
   async () => {
     await runCleanupOrphanAnons();
   },

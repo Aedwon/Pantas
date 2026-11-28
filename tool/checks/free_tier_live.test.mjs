@@ -2,7 +2,7 @@
 // cloud login, so it runs by hand (see the header of free_tier_live.mjs).
 import assert from 'node:assert/strict';
 import test from 'node:test';
-import {judge, formatRow} from './free_tier_live.mjs';
+import {judge, formatRow, pacificMidnight} from './free_tier_live.mjs';
 import {loadWaivers} from './free_tier.mjs';
 
 const waivers = {...loadWaivers(), secrets: {ceiling: 16, expires: '2026-11-24', reference: 'test waiver'}};
@@ -16,7 +16,7 @@ const project = (over = {}) => ({
   secretVersions: [],
   registry: [{name: 'gcf-artifacts', location: 'asia-southeast1', sizeBytes: 10 * MIB}],
   hostingEgress24h: 10 * MIB,
-  firestore: {schedules: 0, backups: 0, daily: days(7)},
+  firestore: {schedules: 0, backups: 0, ttl: [], daily: days(7)},
   buckets: [{name: 'b', location: 'asia-southeast1', bytes: 50 * MIB}],
   apis: ['firestore.googleapis.com', 'run.googleapis.com'],
   alerts: {policies: 0, conditions: 0},
@@ -107,10 +107,14 @@ test('alerting: no SKU and no priced SKU is OK; a priced alerting SKU with polic
   assert.equal(status(data({}, {}, priced), 'alerting'), 'OK');
 });
 
-test('reCAPTCHA: the daily caps times 31 days stay at or under 10,000', () => {
+test('reCAPTCHA: staging fits the free tier alone; prod is user traffic up to his approved 1,000 a day', () => {
   assert.equal(status(data({recaptchaCap: 280}, {recaptchaCap: 40}), 'reCAPTCHA'), 'OK');
-  assert.equal(status(data({recaptchaCap: 300}, {recaptchaCap: 300}), 'reCAPTCHA'), 'OVER');
+  // Launch limits (Nov 25, his "yes"): prod 1,000 a day; past 10,000 a month only users can cost money.
+  assert.equal(status(data({recaptchaCap: 1000}, {recaptchaCap: 40}), 'reCAPTCHA'), 'WARN');
+  assert.equal(status(data({recaptchaCap: 1001}, {recaptchaCap: 40}), 'reCAPTCHA'), 'OVER');
+  assert.equal(status(data({recaptchaCap: 280}, {recaptchaCap: 330}), 'reCAPTCHA'), 'OVER');
   assert.equal(status(data({recaptchaCap: -1}, {recaptchaCap: 40}), 'reCAPTCHA'), 'OVER');
+  assert.equal(status(data({recaptchaCap: 280}, {recaptchaCap: -1}), 'reCAPTCHA'), 'OVER');
   assert.match(find(rows(data({recaptchaCap: 280}, {recaptchaCap: 40})), 'reCAPTCHA').detail, /9920 .*free 10000/);
 });
 
@@ -118,9 +122,31 @@ test('Firestore daily operations: over 50,000 reads or 20,000 writes a day is OV
   const heavy = (reads, writes) => ({firestore: {schedules: 0, backups: 0, daily: [...days(6), {day: '2026-11-10', reads, writes, deletes: 0}]}});
   assert.equal(status(data({}, heavy(57791, 100)), 'Firestore daily operations'), 'OVER');
   assert.equal(status(data({}, heavy(100, 20001)), 'Firestore daily operations'), 'OVER');
-  assert.equal(status(data({}, heavy(50000, 20000)), 'Firestore daily operations'), 'OK');
+  assert.equal(status(data({}, heavy(50000, 20000)), 'Firestore daily operations'), 'WARN'); // within free, over the staging budget
+  assert.equal(status(data(heavy(50000, 20000)), 'Firestore daily operations'), 'OK');
   assert.equal(status(data(heavy(57791, 100)), 'Firestore daily operations'), 'WARN');
   assert.match(find(rows(data({}, heavy(57791, 100))), 'Firestore daily operations').detail, /57791 reads on 2026-11-10.*free 50000/);
+});
+
+test('staging read budget (Nov 16 ruling): above 40,000 reads or 16,000 writes a day is WARN on staging', () => {
+  const heavy = (reads, writes) => ({firestore: {schedules: 0, backups: 0, daily: [...days(6), {day: '2026-11-20', reads, writes, deletes: 0}]}});
+  assert.equal(status(data({}, heavy(40001, 100)), 'Firestore daily operations'), 'WARN');
+  assert.equal(status(data({}, heavy(100, 16001)), 'Firestore daily operations'), 'WARN');
+  assert.equal(status(data({}, heavy(40000, 16000)), 'Firestore daily operations'), 'OK');
+  assert.match(find(rows(data({}, heavy(40001, 100))), 'Firestore daily operations').detail, /staging budget 40000/);
+  // Prod has no staging budget: real users may read it.
+  assert.equal(status(data(heavy(45000, 100)), 'Firestore daily operations'), 'OK');
+});
+
+test('Firestore daily operations show the current Pacific quota day, for the pre-run count (rule 7, Nov 21)', () => {
+  const recent = {firestore: {schedules: 0, backups: 0, daily: days(7), today: {since: '2026-11-21T08:00:00Z', reads: 12345, writes: 678}}};
+  assert.match(find(rows(data({}, recent)), 'Firestore daily operations').detail, /staging: quota day since 2026-11-21T08:00:00Z 12345 reads, 678 writes/);
+});
+
+test('the quota day starts at midnight Pacific time, in both standard and daylight time', () => {
+  assert.equal(pacificMidnight(new Date('2026-11-22T00:30:00Z')).toISOString(), '2026-11-21T08:00:00.000Z');
+  assert.equal(pacificMidnight(new Date('2026-11-21T07:59:00Z')).toISOString(), '2026-11-20T08:00:00.000Z');
+  assert.equal(pacificMidnight(new Date('2026-07-01T12:00:00Z')).toISOString(), '2026-07-01T07:00:00.000Z');
 });
 
 test('both billing-cutoff functions must exist, and no service keeps a minimum instance', () => {
@@ -135,4 +161,13 @@ test('a row prints on one line with its status, item and detail', () => {
   assert.equal(line, 'OVER  scheduler jobs (account): 18, free 3');
   assert.equal(formatRow({status: 'OK', item: 'x', detail: 'y'}), 'OK    x: y');
   assert.equal(formatRow({status: 'WARN', item: 'x', detail: 'y'}), 'WARN  x: y');
+});
+
+test('Firestore TTL policies: any on staging is OVER, prod keeps its own, none is OK', () => {
+  const withTtl = (ttl) => ({firestore: {schedules: 0, backups: 0, ttl, daily: days(7)}});
+  assert.equal(status(data({}, withTtl([])), 'Firestore TTL'), 'OK');
+  assert.equal(status(data({}, withTtl(['sessions.expiresAt'])), 'Firestore TTL'), 'OVER');
+  const row = find(rows(data(withTtl(['sessions.expiresAt']), withTtl([]))), 'Firestore TTL');
+  assert.equal(row.status, 'OK');
+  assert.match(row.detail, /prod 1 \(sessions\.expiresAt\), staging 0/);
 });

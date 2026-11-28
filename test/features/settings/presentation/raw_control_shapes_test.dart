@@ -50,7 +50,13 @@ void main() {
     );
     final finder = find.byType(PantasButton);
     expectRounded(hoverShape(tester, finder), tester.getSize(finder));
-    expectHitArea(tester, finder);
+    // A wide text button is the boards' 42 high `.btn3`.
+    expectHitArea(
+      tester,
+      finder,
+      min: const Size(44, 42),
+      reason: 'wide text button, board .btn3',
+    );
   });
 
   testWidgets('a disabled PantasButton takes no wash and no tap',

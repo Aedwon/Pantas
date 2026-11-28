@@ -560,7 +560,8 @@ const seriesSources = '''
         "text": "Three-quarter-filled square; line right"
       },
       {
-        "text": "Fully filled square; line up"
+        "text": "Fully filled square; line up",
+        "fill": 1
       }
     ]
   },

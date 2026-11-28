@@ -15,6 +15,10 @@ void main() {
     // The shared cache retains a Future from this real async zone. A later
     // widget test cannot drain its callbacks in fake async while settling.
     addTearDown(() => rootBundle.evict('content/exams/catalog.json'));
+    // The reverse also holds: an earlier widget test in the same isolate (CI
+    // bundles several files) may have cached a Future from its fake async
+    // zone, which never completes here. Start from an empty entry.
+    rootBundle.evict('content/exams/catalog.json');
     final database = ContentDatabase(NativeDatabase.memory());
     addTearDown(database.close);
     final catalog = ExamCatalogRepository(database);

@@ -682,13 +682,13 @@ void additionalTests() {
       // Under the title: 18 px padding, 22 px icon and 12 px gap.
       expect(title.dx, notice.left + 52);
       expect(tester.getTopLeft(text).dx, notice.left + 18 + 34);
-      // The buttons end 18 px inside the right edge, Later before Add, 12 px
+      // The buttons end 18 px inside the right edge, Later before Add, 8 px
       // apart, 12 px under the text.
       final later = tester.getRect(find.widgetWithText(WebButton, 'Later'));
       final add =
           tester.getRect(find.widgetWithText(WebButton, 'Add Exam Date'));
       expect(add.right, notice.right - 18);
-      expect(add.left - later.right, 12);
+      expect(add.left - later.right, 8);
       expect(later.top, add.top);
       expect(add.top - tester.getBottomLeft(text).dy, 12);
       expect(tester.takeException(), isNull);

@@ -44,7 +44,8 @@ class _FailingSettings extends DriftSettingsRepository {
   _FailingSettings(super.db);
 
   @override
-  Future<void> recordPolicyAcceptance() => Future.error(StateError('policy'));
+  Future<void> recordPolicyAcceptance({DateTime? acceptedAt}) =>
+      Future.error(StateError('policy'));
 }
 
 class _FailingTracks extends CustomTrackRepository {

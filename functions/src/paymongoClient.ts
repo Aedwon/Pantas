@@ -13,6 +13,8 @@ export interface PaymongoClient {
   getRefund(id: string): Promise<PaymongoRefund>;
   createCheckoutSession(input: CheckoutSessionInput): Promise<{id: string; checkoutUrl: string}>;
   getCheckoutSession(id: string): Promise<PaymongoCheckoutSession>;
+  /** True when PayMongo expired the session; false when it refused (400: already expired or paid, or a payment is pending). Any other failure throws. */
+  expireCheckoutSession(id: string): Promise<boolean>;
 }
 type Fetch = (url: string, init: {method: string; headers: Record<string, string>; body?: string}) =>
   Promise<{ok: boolean; status: number; json(): Promise<unknown>}>;
@@ -52,6 +54,17 @@ export function httpPaymongoClient(secretKey: string, fetchImpl: Fetch = fetch a
       const a = obj(data.attributes);
       if (data.id !== id) throw new Error('PayMongo returned a different refund');
       return {id, amount: Number(a.amount), status: String(a.status ?? ''), paymentId: String(a.payment_id ?? '')};
+    },
+    async expireCheckoutSession(id) {
+      if (!/^[A-Za-z0-9_]+$/.test(id)) throw new Error('Invalid checkout session id');
+      // Expire a Checkout Session: POST /v1/checkout_sessions/{id}/expire
+      // https://docs.paymongo.com/reference/expire-a-checkout-session
+      // Sessions never expire on their own. PayMongo answers 400 when the session is already
+      // expired or paid, or has a payment pending or processing. It sends no webhook on expiry.
+      const response = await fetchImpl(`${API}/v1/checkout_sessions/${id}/expire`, {method: 'POST', headers});
+      if (response.ok) return true;
+      if (response.status === 400) return false;
+      throw new Error(`PayMongo checkout expire failed: ${response.status}`);
     },
     async getCheckoutSession(id) {
       if (!/^[A-Za-z0-9_]+$/.test(id)) throw new Error('Invalid checkout session id');

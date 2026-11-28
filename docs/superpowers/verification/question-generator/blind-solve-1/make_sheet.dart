@@ -1,3 +1,5 @@
+// One-off evidence script, kept as the record of how blind solve 1 was made.
+// ignore_for_file: avoid_multiple_declarations_per_line, lines_longer_than_80_chars
 import 'dart:convert';
 import 'dart:io';
 import 'dart:math';

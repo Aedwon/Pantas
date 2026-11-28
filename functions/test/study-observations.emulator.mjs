@@ -282,6 +282,106 @@ test('a lesson read with custom settings active is stored and the rebuild does n
  assert.equal((await db.doc(`users/${uid}/server/roadmapDays/items/${CUSTOM}:2026-10-24`).get()).exists,true);
 });
 
+// ---- batched lesson reads: one call for a first sync ----
+const readAtOf=(uid,id)=>db.doc('users/'+uid+'/server/lessonReads/items/'+id).get().then(d=>d.exists?d.get('readAt'):null);
+const revisionOf=uid=>db.doc('users/'+uid+'/server/studyRevision').get().then(d=>d.exists?d.get('value'):0);
+// Counts roadmap rebuilds: each one reads the settings document first.
+function countingDeps(){
+ const counts={rebuilds:0};
+ const proxy=new Proxy(db,{get(target,prop){const v=target[prop];if(typeof v!=='function')return v;
+  return (...args)=>{if(prop==='doc'&&String(args[0]).endsWith('/server/settings'))counts.rebuilds++;return v.apply(target,args);};}});
+ return {counts,deps:{db:proxy,now:()=>now,allow:async()=>true}};
+}
+test('batch lesson reads: mixed valid, invalid and unknown items never fail each other',async()=>{
+ const m=await import('../lib/studyObservations.js');
+ const uid='w4b-batch-mixed';await db.recursiveDelete(db.doc('users/'+uid));
+ for(const id of ['batch-a','batch-b','batch-c'])await db.doc('content/lessons/items/'+id).set({title:id});
+ await db.doc('users/'+uid+'/server/lessonReads/items/batch-c').set({lessonId:'batch-c',readAt:now-9000});
+ const {counts,deps:cd}=countingDeps();
+ const out=await m.writeLessonRead(auth(uid),{expectedUid:uid,reads:[
+  {lessonId:'batch-a',readAt:now-5000},   // 0 new
+  {lessonId:'missing-lesson',readAt:now-1}, // 1 unknown
+  {lessonId:'bad/id',readAt:now-1},        // 2 bad id
+  {lessonId:'batch-b',readAt:'x'},         // 3 bad time
+  {lessonId:'batch-c',readAt:now-1000},    // 4 later than stored
+  null,                                    // 5 not an object
+  {lessonId:'batch-b',readAt:now-2000},    // 6 new
+ ]},cd);
+ assert.deepEqual(out,{stored:[0,6],unchanged:[4],rejected:[1,2,3,5]});
+ assert.equal(await readAtOf(uid,'batch-a'),now-5000);
+ assert.equal(await readAtOf(uid,'batch-b'),now-2000);
+ assert.equal(await readAtOf(uid,'batch-c'),now-9000,'a later read does not replace the stored one');
+ assert.equal(await readAtOf(uid,'missing-lesson'),null);
+ assert.equal(await revisionOf(uid),1,'one increment for two stored reads');
+ assert.equal(counts.rebuilds,1,'one roadmap rebuild for the whole batch');
+});
+test('batch lesson reads: an earlier read replaces a stored one, a repeat batch changes nothing',async()=>{
+ const m=await import('../lib/studyObservations.js');
+ const uid='w4b-batch-earlier';await db.recursiveDelete(db.doc('users/'+uid));
+ await db.doc('users/'+uid+'/server/lessonReads/items/batch-a').set({lessonId:'batch-a',readAt:now-1000});
+ const reads=[{lessonId:'batch-a',readAt:now-4000},{lessonId:'batch-b',readAt:now-3000}];
+ assert.deepEqual(await m.writeLessonRead(auth(uid),{expectedUid:uid,reads},deps),{stored:[0,1],unchanged:[],rejected:[]});
+ assert.equal(await readAtOf(uid,'batch-a'),now-4000);
+ const {counts,deps:cd}=countingDeps();
+ assert.deepEqual(await m.writeLessonRead(auth(uid),{expectedUid:uid,reads},cd),{stored:[],unchanged:[0,1],rejected:[]});
+ assert.equal(await revisionOf(uid),1,'a batch that stores nothing leaves the revision alone');
+ assert.equal(counts.rebuilds,0,'and rebuilds nothing');
+});
+test('batch lesson reads: duplicate lessons keep the earliest read',async()=>{
+ const m=await import('../lib/studyObservations.js');
+ const uid='w4b-batch-dupes';await db.recursiveDelete(db.doc('users/'+uid));
+ const out=await m.writeLessonRead(auth(uid),{expectedUid:uid,reads:[
+  {lessonId:'batch-a',readAt:now-1000},{lessonId:'batch-a',readAt:now-6000},{lessonId:'batch-a',readAt:now-3000}]},deps);
+ assert.deepEqual(out,{stored:[1],unchanged:[0,2],rejected:[]});
+ assert.equal(await readAtOf(uid,'batch-a'),now-6000);
+ const none=await m.writeLessonRead(auth(uid),{expectedUid:uid,reads:[
+  {lessonId:'unknown-x',readAt:now-1},{lessonId:'unknown-x',readAt:now-2}]},deps);
+ assert.deepEqual(none,{stored:[],unchanged:[],rejected:[0,1]},'duplicates of an unknown lesson are all rejected');
+});
+test('batch lesson reads: the envelope is validated, 200 is the limit, and the limiter is charged per lesson',async()=>{
+ const m=await import('../lib/studyObservations.js');
+ const uid='w4b-batch-envelope';await db.recursiveDelete(db.doc('users/'+uid));
+ const read=i=>({lessonId:'batch-a',readAt:now-1000-i});
+ const bad=async body=>code(m.writeLessonRead(auth(uid),body,deps));
+ assert.equal(await bad({expectedUid:'other',reads:[read(0)]}),'failed-precondition');
+ assert.equal(await bad({reads:[read(0)]}),'invalid-argument');
+ assert.equal(await bad({expectedUid:uid,reads:[]}),'invalid-argument');
+ assert.equal(await bad({expectedUid:uid,reads:'nope'}),'invalid-argument');
+ assert.equal(await bad({expectedUid:uid,reads:Array.from({length:201},(_,i)=>read(i))}),'invalid-argument');
+ assert.equal(await revisionOf(uid),0,'a bad envelope stores nothing');
+ let ticks=0,calls=0;const counted={db,now:()=>now,allow:async(u,k,cost)=>{calls++;ticks+=cost;assert.equal(k,'recordLessonRead');return true;}};
+ const lessons=Array.from({length:200},(_,i)=>'batch-many-'+i);
+ await Promise.all(lessons.map(id=>db.doc('content/lessons/items/'+id).set({title:id})));
+ const out=await m.writeLessonRead(auth(uid),{expectedUid:uid,reads:lessons.map((lessonId,i)=>({lessonId,readAt:now-1000-i}))},counted);
+ assert.equal(out.stored.length,200);assert.equal(calls,1);assert.equal(ticks,200,'200 distinct lessons cost 200 units');
+ assert.equal(await revisionOf(uid),1);
+ const limited={db,now:()=>now,allow:async()=>false};
+ await m.writeLessonRead(auth(uid),{expectedUid:uid,reads:[{lessonId:'batch-a',readAt:now-1},{lessonId:'batch-a',readAt:now-2},{lessonId:'missing-lesson',readAt:now-1},{lessonId:'bad/id',readAt:now}]},counted);
+ assert.equal(ticks,202,'duplicates and invalid items add one unit per distinct valid lesson only (batch-a, missing-lesson)');
+ assert.equal(await code(m.writeLessonRead(auth(uid),{expectedUid:uid,reads:[read(0)]},limited)),'resource-exhausted');
+});
+test('batch lesson reads: the real limiter refuses a batch that would pass 600 in the window',async()=>{
+ const m=await import('../lib/studyObservations.js');
+ const uid='w4b-batch-limit';await db.recursiveDelete(db.doc('users/'+uid));
+ const real={db,now:()=>now};
+ const lessons=Array.from({length:200},(_,i)=>'batch-many-'+i);
+ const send=()=>m.writeLessonRead(auth(uid),{expectedUid:uid,reads:lessons.map((lessonId,i)=>({lessonId,readAt:now-1000-i}))},real);
+ for(let i=0;i<3;i++)await send();
+ assert.equal((await db.doc('users/'+uid+'/limits/recordLessonRead').get()).get('count'),600);
+ assert.equal(await code(send()),'resource-exhausted');
+ assert.equal(await code(m.writeLessonRead(auth(uid),{expectedUid:uid,lessonId:'batch-a',readAt:now-1},real)),'resource-exhausted');
+ assert.equal(await revisionOf(uid),1,'the refused call stored nothing');
+});
+test('batch lesson reads: the single shape behaves as before',async()=>{
+ const m=await import('../lib/studyObservations.js');
+ const uid='w4b-batch-single';await db.recursiveDelete(db.doc('users/'+uid));
+ assert.deepEqual(await m.writeLessonRead(auth(uid),{expectedUid:uid,lessonId:'batch-a',readAt:now-2000},deps),{stored:true});
+ assert.deepEqual(await m.writeLessonRead(auth(uid),{expectedUid:uid,lessonId:'batch-a',readAt:now-1000},deps),{stored:false});
+ assert.equal(await code(m.writeLessonRead(auth(uid),{expectedUid:uid,lessonId:'missing-lesson',readAt:now},deps)),'invalid-argument');
+ assert.equal(await code(m.writeLessonRead(auth(uid),{expectedUid:uid,lessonId:'a/b',readAt:now},deps)),'invalid-argument');
+ assert.equal(await revisionOf(uid),1);
+});
+
 test('custom observations cleanup',async()=>{
  for(const id of ['index','exam_cx','exam_cy'])await db.doc('content/catalog/items/'+id).delete();
  clearExamContentCache();

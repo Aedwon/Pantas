@@ -399,7 +399,6 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
         label: 'How long?',
         open: _lengthOpen,
         onDismiss: () => setState(() => _lengthOpen = false),
-        closeLabel: 'Close',
         child: _length(index, summary, pace),
       ),
     );
@@ -958,13 +957,17 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   saveFailureLine(_save),
               ],
               SizedBox(height: summary.isEmpty ? 14 : 16),
-              WebButton(
-                label: 'Start',
-                large: true,
-                expand: true,
-                keyHint: 'Enter',
-                onPressed: canStart ? start : null,
-                busy: _starting,
+              // Wide button placement (patterns.md): a side panel's action sits
+              // at its bottom right at natural width.
+              Align(
+                alignment: Alignment.centerRight,
+                child: WebButton(
+                  label: 'Start',
+                  large: true,
+                  keyHint: 'Enter',
+                  onPressed: canStart ? start : null,
+                  busy: _starting,
+                ),
               ),
             ],
           ),
@@ -1317,29 +1320,17 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
           ),
         );
     return Padding(
-      padding: const EdgeInsets.fromLTRB(
+      padding: EdgeInsets.fromLTRB(
         PantasSpace.s20,
-        PantasSpace.s8,
+        PantasSpace.s0,
         PantasSpace.s20,
-        PantasSpace.s32,
+        PantasSheet.bottomRest(context),
       ),
       child: Column(
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          Center(
-            child: Container(
-              width: 36,
-              height: 5,
-              decoration: BoxDecoration(
-                // Board (QZS_1b): the handle is #D1D1D6 in light mode.
-                color: Theme.of(context).brightness == Brightness.dark
-                    ? context.colors.borderControl
-                    : context.colors.dividerStrong,
-                borderRadius: BorderRadius.circular(PantasRadius.sm),
-              ),
-            ),
-          ),
+          // The sheet shell draws the one 36 by 5 grabber.
           const SizedBox(height: PantasSpace.s12),
           Row(
             children: [
@@ -1352,12 +1343,9 @@ class _PracticePickerScreenState extends ConsumerState<PracticePickerScreen> {
                   ),
                 ),
               ),
-              PantasButton(
+              PantasSheetAction(
                 label: 'Done',
-                kind: PantasButtonKind.tertiary,
-                tone: PantasButtonTone.accent,
-                height: PantasSize.btn,
-                fullWidth: false,
+                strong: true,
                 onPressed: () => setState(() => _lengthOpen = false),
               ),
             ],

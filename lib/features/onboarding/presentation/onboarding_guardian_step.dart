@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:pantas/app/telemetry_providers.dart';
 import 'package:pantas/core/error/state_patterns.dart';
 import 'package:pantas/core/storage/storage.dart';
@@ -15,8 +16,17 @@ import 'package:pantas/features/onboarding/presentation/onboarding_web_page.dart
 /// Asks a student under 18 for a parent or guardian's contact and sends them
 /// the link. Also serves Change Email from the Waiting screen.
 class OnboardingGuardianStep extends ConsumerStatefulWidget {
-  const OnboardingGuardianStep({required this.onSent, this.onBack, super.key});
+  const OnboardingGuardianStep({
+    required this.onSent,
+    this.onBack,
+    this.onClosed,
+    super.key,
+  });
   final VoidCallback onSent;
+
+  /// The server refused because under-18 sign-up is closed. The block is
+  /// already saved. Defaults to onboarding, which resumes on the blocked page.
+  final VoidCallback? onClosed;
   final VoidCallback? onBack;
   @override
   ConsumerState<OnboardingGuardianStep> createState() =>
@@ -83,6 +93,15 @@ class _OnboardingGuardianStepState
             guardianEmail: _email.text,
           );
       if (mounted) widget.onSent();
+    } on GuardianSignupClosedException {
+      if (mounted) {
+        final custom = widget.onClosed;
+        if (custom != null) {
+          custom();
+        } else {
+          GoRouter.maybeOf(context)?.go('/onboarding');
+        }
+      }
     } on Object catch (error, stack) {
       unawaited(telemetry.recordError(error, stack));
       if (mounted) {

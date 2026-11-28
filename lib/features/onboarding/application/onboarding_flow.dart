@@ -106,9 +106,19 @@ class OnboardingFlow {
   OnboardingStep step;
   final List<OnboardingStep> _history = [];
 
+  /// The account's record already covered the Terms, so the student never
+  /// stopped there: Back from the step after it goes to the age step.
+  bool termsSkipped = false;
+
   void reach(OnboardingStep next) {
     if (next == step) return;
     _history.add(step);
+    step = next;
+  }
+
+  /// Moves on from Terms without leaving it in the Back history.
+  void skipTerms(OnboardingStep next) {
+    termsSkipped = true;
     step = next;
   }
 
@@ -130,7 +140,8 @@ class OnboardingFlow {
             OnboardingStep.age => OnboardingStep.welcome,
             OnboardingStep.guardian => OnboardingStep.age,
             OnboardingStep.terms => OnboardingStep.age,
-            OnboardingStep.picker => OnboardingStep.terms,
+            OnboardingStep.picker =>
+              termsSkipped ? OnboardingStep.age : OnboardingStep.terms,
             OnboardingStep.customName => OnboardingStep.picker,
             OnboardingStep.customSubjects => OnboardingStep.customName,
             OnboardingStep.examDate => OnboardingStep.picker,

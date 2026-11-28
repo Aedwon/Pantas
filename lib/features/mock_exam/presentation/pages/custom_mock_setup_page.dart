@@ -17,6 +17,7 @@ import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/features/mock_exam/domain/corpus_ceiling.dart';
 import 'package:pantas/features/mock_exam/domain/custom_blueprint.dart';
+import 'package:pantas/features/mock_exam/presentation/pages/mock_setup_page.dart';
 import 'package:pantas/features/mock_exam/presentation/pages/web_custom_mock_setup.dart';
 import 'package:pantas/features/mock_exam/presentation/widgets/mock_tap.dart';
 
@@ -92,6 +93,11 @@ class CustomMockSetupPage extends StatefulWidget {
 enum _Field { questions, time }
 
 class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
+  // ds-board: CM_Setup column gap 22
+  static const double _blockGap = PantasSpace.s20 + PantasSpace.s2;
+  // ds-board: CM_Setup bar padding-bottom 30
+  static const double _barBottom = PantasSpace.s28 + PantasSpace.s2;
+
   late int _questions;
   late int _minutes;
   late bool _breakdownOpen;
@@ -541,7 +547,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
             PantasSpace.s16,
             PantasSpace.s14,
             PantasSpace.s16,
-            PantasSpace.s32,
+            _barBottom,
           ),
           child: Column(
             mainAxisSize: MainAxisSize.min,
@@ -576,17 +582,8 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Align(
-              alignment: Alignment.centerLeft,
-              child: Padding(
-                padding: const EdgeInsets.only(left: PantasSpace.s16),
-                child: WebBackLink(
-                  label: 'Quiz',
-                  onPressed: back ?? () {},
-                  nudge: false,
-                ),
-              ),
-            ),
+            // Board CM_Setup: the 44 px Quiz row under 6 px of padding.
+            MockSetupBackLink(onPressed: back),
             Expanded(
               child: SingleChildScrollView(
                 padding: const EdgeInsets.fromLTRB(
@@ -621,7 +618,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: PantasSpace.s24),
+                    const SizedBox(height: _blockGap),
                     if (!_showCeiling)
                       totals
                     else
@@ -639,7 +636,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                           ),
                         ],
                       ),
-                    const SizedBox(height: PantasSpace.s24),
+                    const SizedBox(height: _blockGap),
                     GroupedSection(
                       footer: _breakdownOpen
                           ? null
@@ -666,7 +663,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
                       ],
                     ),
                     if (_breakdownOpen) ...[
-                      const SizedBox(height: PantasSpace.s24),
+                      const SizedBox(height: _blockGap),
                       GroupedSection(
                         header: 'Section breakdown',
                         footer: 'The totals above now add these up.',

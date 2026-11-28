@@ -328,7 +328,7 @@ void main() {
       await tester.pumpAndSettle();
       for (final (document, heading) in [
         ('privacy', 'What we collect'),
-        ('terms', 'Use of the app'),
+        ('terms', '1. Use of Pantas'),
         ('teens', 'Who this is for'),
       ]) {
         container.read(routerProvider).go('/legal/$document');

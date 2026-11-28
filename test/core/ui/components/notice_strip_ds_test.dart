@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:pantas/core/ui/components/notice_strip.dart';
-import 'package:pantas/core/ui/components/paused_quiz_notice.dart';
+import 'package:pantas/core/ui/components/pantas_button.dart';
+import 'package:pantas/core/ui/components/today_questions.dart';
 import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_border.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_radius.dart';
@@ -119,17 +120,51 @@ void main() {
   });
 
   dsMatrix(
-    'Paused quiz notice fits every width, theme and text scale',
+    'Questions sheet with its own paused session fits every cell (board A)',
     (context) => Material(
-      child: PausedQuizNotice(onResume: () {}, onDiscard: () {}),
+      child: TodayQuestionsSheet(
+        title: 'Reviews',
+        done: 1,
+        total: 11,
+        rows: const [],
+        startLabel: 'Resume',
+        onStart: () {},
+        onDiscard: () {},
+      ),
     ),
     check: (tester, cell) async {
-      final colors = tester.element(find.byType(PausedQuizNotice)).colors;
-      final line =
-          tester.widget<Text>(find.textContaining('You paused a quiz'));
-      expect(line.style!.color, colors.textSecondary);
       expect(find.text('Resume'), findsOneWidget);
       expect(find.text('Discard this session'), findsOneWidget);
+      expect(find.textContaining('You paused'), findsNothing);
+    },
+  );
+
+  dsMatrix(
+    'Questions sheet while another quiz is paused fits every cell',
+    (context) => Material(
+      child: TodayQuestionsSheet(
+        title: 'Reviews',
+        done: 0,
+        total: 11,
+        rows: const [],
+        startLabel: 'Start Reviews',
+        onStart: () {},
+        blocked: true,
+      ),
+    ),
+    check: (tester, cell) async {
+      final colors = tester.element(find.byType(TodayQuestionsSheet)).colors;
+      final line = tester.widget<Text>(find.text(pausedQuizBlockLine));
+      expect(line.style!.color, colors.textSecondary);
+      expect(find.text('Discard this session'), findsNothing);
+      expect(
+        tester
+            .widget<PantasButton>(
+              find.widgetWithText(PantasButton, 'Start Reviews'),
+            )
+            .onPressed,
+        isNull,
+      );
     },
   );
 }

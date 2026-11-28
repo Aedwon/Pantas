@@ -789,6 +789,44 @@ void main() {
     setUp(() => parts = _PartServer());
 
     group('what a one-block paper keeps', () {
+      test('every section of a one-block paper is reachable (CSE mocks)',
+          () async {
+        // A one-block paper with several sections: the CSE papers carry four.
+        // Found on staging, Nov 26: only the first section could be reached.
+        final view = server.view();
+        final paper = view['paper']! as Map<String, Object?>;
+        paper['expectedQuestionCount'] = 5;
+        paper['sections'] = [
+          {
+            'sectionId': 'gi',
+            'name': 'General Information',
+            'questions': [
+              {'id': 'q1', 'setId': ''},
+              {'id': 'q2', 'setId': ''},
+            ],
+          },
+          {
+            'sectionId': 'va',
+            'name': 'Verbal Ability',
+            'questions': [
+              {'id': 'q3', 'setId': ''},
+              {'id': 'q4', 'setId': ''},
+              {'id': 'q5', 'setId': ''},
+            ],
+          },
+        ];
+        final roam = open(view: view);
+        expect(roam.byPart, isFalse);
+        expect(roam.partTotal, 5);
+        roam.goTo(1);
+        expect(roam.canGoNext, isTrue, reason: 'q2 leads on to q3');
+        roam.goTo(4);
+        expect(roam.cursor, 4);
+        expect(roam.partPosition, 5);
+        expect(roam.canGoNext, isFalse);
+        expect(roam.canGoPrevious, isTrue);
+      });
+
       test('a paper without the block is one part, whatever the server holds',
           () async {
         expect(session.byPart, isFalse);

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:pantas/core/fsrs/fsrs_scheduler.dart';
 import 'package:pantas/core/storage/data/repos/review_log_repository.dart';
 import 'package:pantas/core/storage/data/repos/review_state_repository.dart';
@@ -55,16 +57,6 @@ class SubmitAnswer {
         text: '',
         isCorrect: isCorrect,
       ),
-    );
-
-    await _telemetry?.log(
-      TelemetryEvent.questionAnswered,
-      properties: {
-        'question_id': question.id,
-        'is_correct': isCorrect,
-        'chosen_label': chosenChoice.label,
-        'origin': origin ?? 'unknown',
-      },
     );
 
     final existing = await _reviewRepo.byQuestionId(question.id);
@@ -127,6 +119,39 @@ class SubmitAnswer {
       );
     }
 
+    // Only after the answer is saved, and never waited on: on Nov 22 2026 an
+    // analytics check that threw before the save stopped answers to 261 prod
+    // questions from being saved.
+    _logAnswered(
+      questionId: question.id,
+      isCorrect: isCorrect,
+      chosenLabel: chosenChoice.label,
+      origin: origin,
+    );
+
     return outcome;
+  }
+
+  void _logAnswered({
+    required String questionId,
+    required bool isCorrect,
+    required String chosenLabel,
+    required String? origin,
+  }) {
+    final telemetry = _telemetry;
+    if (telemetry == null) return;
+    unawaited(
+      Future.sync(
+        () => telemetry.log(
+          TelemetryEvent.questionAnswered,
+          properties: {
+            'question_id': questionId,
+            'is_correct': isCorrect,
+            'chosen_label': chosenLabel,
+            'origin': origin ?? 'unknown',
+          },
+        ),
+      ).catchError((Object _) {}),
+    );
   }
 }

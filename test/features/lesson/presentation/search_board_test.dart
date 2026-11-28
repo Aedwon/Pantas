@@ -10,6 +10,8 @@ import 'package:pantas/features/lesson/domain/use_cases/build_search_snippet.dar
 import 'package:pantas/features/lesson/presentation/widgets/search_results.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 
+import '../../../helpers/no_part_label.dart';
+
 void main() {
   for (final dark in [false, true]) {
     for (final scale in [1.0, 2.0]) {
@@ -69,10 +71,12 @@ void main() {
         expect(label.style!.height, 1.35);
         expect(label.style!.letterSpacing, .26);
         expect(find.textContaining(' min'), findsNothing);
+        // The hit has part 2 of 9 and 4 questions; none of it shows.
+        expectNoPartLabel();
         final minutes =
-            tester.widget<Text>(find.text('Part 2 of 9 · 4 questions'));
-        expect(minutes.style!.fontSize, 13);
-        expect(minutes.style!.height, 1.35);
+            tester.widget<Text>(find.text('Chemistry')).textSpan!.style!;
+        expect(minutes.fontSize, 13);
+        expect(minutes.height, 1.35);
         final row = tester.widget<ListRow>(find.byType(ListRow));
         expect(row.verticalPadding, 12);
         final title = tester.widget<Text>(find.text('Stoichiometry'));
@@ -80,9 +84,10 @@ void main() {
         expect(title.style!.letterSpacing, -.204);
         expect(title.maxLines, 1);
         expect(title.overflow, TextOverflow.ellipsis);
-        for (final text in [label, minutes, title]) {
-          final foreground = text.style!.color!;
-          final background = text == label ? colors.background : colors.surface;
+        for (final style in [label.style!, minutes, title.style!]) {
+          final foreground = style.color!;
+          final background =
+              style == label.style ? colors.background : colors.surface;
           final a = foreground.computeLuminance();
           final b = background.computeLuminance();
           expect(

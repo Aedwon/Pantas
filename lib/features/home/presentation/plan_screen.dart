@@ -10,11 +10,13 @@ import 'package:pantas/core/time/local_day.dart';
 import 'package:pantas/core/ui/components/pantas_page.dart';
 import 'package:pantas/core/ui/ds.dart';
 import 'package:pantas/core/ui/motion/web_overlay_motion.dart';
+import 'package:pantas/core/ui/theme/app_theme.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_durations.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_layout.dart';
 import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
+import 'package:pantas/core/ui/web/web_tokens.dart';
 import 'package:pantas/features/home/application/plan_data.dart';
 import 'package:pantas/features/home/application/plan_provider.dart';
 import 'package:pantas/features/home/application/settling_retry.dart';
@@ -170,7 +172,7 @@ class _PlanScreenState extends ConsumerState<PlanScreen> {
       onBack: () => widget.webPane != null && widget.onPaneClose != null
           ? widget.onPaneClose!()
           : _back(context),
-      onToday: () => context.wideWeb ? _backToHome(context) : _back(context),
+      onToday: context.wideWeb ? () => _backToHome(context) : null,
       onWeek: (start) => unawaited(context.push<void>('/plan/week/$start')),
       onPro: () => unawaited(context.push<void>('/settings/pro')),
     );
@@ -251,17 +253,18 @@ class _NoPlanDayState extends State<_NoPlanDay> {
   Widget build(BuildContext context) {
     if (widget.popover) return const SizedBox.shrink();
     final title = DateFormat('EEEE, MMMM d', 'en_US').format(widget.date);
-    const line = 'Your plan had not started on this day.';
+    const message = 'No plan on this day.';
+    // Board PL_DayPast: one gray sub line, no card of its own.
     if (context.wideWeb) {
       return PlanWebFrame(
         title: title,
         onBack: () => _back(context),
-        child: const WebCard(
-          padding: EdgeInsets.symmetric(
+        child: WebCard(
+          padding: const EdgeInsets.symmetric(
             vertical: PantasSpace.s56 + PantasSpace.s24,
             horizontal: PantasSpace.s24,
           ),
-          child: Center(child: Text(line)),
+          child: Center(child: Text(message, style: context.webTokens.sub)),
         ),
       );
     }
@@ -269,7 +272,13 @@ class _NoPlanDayState extends State<_NoPlanDay> {
       title: title,
       backLabel: 'Home',
       onBack: () => _back(context),
-      children: const [Text(line)],
+      children: [
+        Text(
+          message,
+          style: context.type.subhead
+              .copyWith(color: context.colors.textSecondary),
+        ),
+      ],
     );
   }
 }
@@ -470,6 +479,8 @@ class _PlanDayScreenState extends ConsumerState<PlanDayScreen> {
               lessonIds: plan.lessonIds,
               index: plan.lessonIds.indexOf(lesson.id),
               moreToDo: moreToDo,
+              // Board DP_DayRead: the back link names the day.
+              backLabel: DateFormat('EEEE', 'en_US').format(view.date),
             ),
           );
         }
@@ -566,9 +577,7 @@ class PlanWeekScreen extends ConsumerWidget {
       // A week opened directly has no page behind it, and its parent is the
       // plan, not Home (5Q-13).
       onBack: () => _back(context, fallback: '/plan'),
-      onChange: context.wideWeb
-          ? () => unawaited(context.push<void>('/settings/exam'))
-          : null,
+      onChange: () => unawaited(context.push<void>('/settings/exam')),
       onDay: (day) => unawaited(
         context.push<void>(
           '/plan/day/${dayKey(day)}',

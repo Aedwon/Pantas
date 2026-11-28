@@ -12,7 +12,6 @@ import 'package:pantas/core/storage/data/repos/content_repository.dart';
 import 'package:pantas/core/storage/domain/exam.dart';
 import 'package:pantas/core/storage/selected_exam_focus.dart';
 import 'package:pantas/core/storage/storage.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/presentation/widgets/reader_gap.dart';
 import 'package:pantas/features/quiz/application/quiz_starts.dart';
 import 'package:pantas/features/quiz/data/repos/quiz_session_repository.dart';
@@ -312,32 +311,6 @@ void main() {
     );
     await settle(tester);
     expect(find.text('Quiz yourself, 4 questions'), findsOneWidget);
-  });
-
-  testWidgets('the study list label counts split and unsplit lessons',
-      (tester) async {
-    await tester.runAsync(() async {
-      for (final id in [_part1, _part2, _plain]) {
-        await mirror.ensureLesson(id);
-      }
-      await mirror.ensureQuestions(['p1a', 'plain1']);
-    });
-    await tester.pumpAppWithProviders(
-      const Scaffold(
-        body: Column(
-          children: [
-            LessonBiteLabel(lessonId: _part1, part: 1, partCount: 2),
-            LessonBiteLabel(lessonId: _part2, part: 2, partCount: 2),
-            LessonBiteLabel(lessonId: _plain, part: null, partCount: null),
-          ],
-        ),
-      ),
-      overrides: overrides(),
-    );
-    await settle(tester);
-    expect(find.text('Part 1 of 2 · 4 questions'), findsOneWidget);
-    expect(find.text('Part 2 of 2 · 2 questions'), findsOneWidget);
-    expect(find.text('3 questions'), findsOneWidget);
   });
 
   test('a split part quiz serves quizSize, one per key point first', () async {

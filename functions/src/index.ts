@@ -20,6 +20,7 @@ export { revenuecatWebhook } from './revenuecatWebhook.js';
 export { recomputePassEnds } from './revenuecatPasses.js';
 export { recordSignInEvent } from './recordSignInEvent.js';
 export { onUserCreated } from './onUserCreated.js';
+export { countSyncWrites } from './countSyncWrites.js';
 export { createPaymongoCheckout } from './paymongoCheckout.js';
 export { paymongoWebhook } from './paymongoWebhook.js';
 export { startWebTrial } from './webTrial.js';
@@ -51,7 +52,7 @@ export {setBetaPro} from './betaPro.js';
 
 export {sendGuardianLink, answerGuardianRequest, getGuardianStatus, getGuardianRequest,
   getGuardianManage, setGuardianSharing, withdrawGuardianPermission, markGuardianAdult} from './guardianConsent.js';
-export {recordSetupAcceptance} from './setupAcceptance.js';
+export {getSetupAcceptance, recordSetupAcceptance} from './setupAcceptance.js';
 
 export {getBetaAccess} from './betaAccess.js';
 
@@ -81,3 +82,5 @@ export const cleanupWrappedOrphans = scheduledJobsOn && legacySchedulesOn ? lega
 export const purgeOldGuardianRecords = scheduledJobsOn && legacySchedulesOn ? legacy_purgeOldGuardianRecords : undefined;
 export const purgeInactiveAccounts = scheduledJobsOn && legacySchedulesOn ? legacy_purgeInactiveAccounts : undefined;
 export const keepCallablesWarm = scheduledJobsOn && legacySchedulesOn ? legacy_keepCallablesWarm : undefined;
+
+export {sendQuestionReport} from './questionReports.js';

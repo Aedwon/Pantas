@@ -256,8 +256,10 @@ class SeriesSolver implements FigureSolver {
       case 'invent-four-direction-cycle':
         result['arrow'] =
             _arrows[(_arrows.indexOf(a[1]['arrow']! as String) + 2) % 4];
-      case 'keep-increasing' || 'accumulate-fill':
+      case 'keep-increasing':
         result['fill'] = 1;
+      case 'accumulate-fill':
+        result['fill'] = (_fill(a.first) as num) + (_fill(a[1]) as num);
       case 'restart-early':
         result['form'] = a.first['form'];
       case 'increase-sides':

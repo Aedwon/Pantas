@@ -130,6 +130,7 @@ void main() {
   quietDayTests();
   auditTests();
   sheetHandleTests();
+  wideDrawerCloseTests();
   testWidgets('a lesson row starts the real lesson with its day context',
       (tester) async {
     LessonDayContext? context;
@@ -642,6 +643,46 @@ void sheetHandleTests() {
       await tester.pumpAndSettle();
       expect(find.byType(TodayQuestionsSheet), findsOneWidget);
       expect(find.byType(PantasSheetGrabber), findsOneWidget);
+    });
+  }
+}
+
+/// W_Home draws the Reviews drawer's Close X centred on its one-line title
+/// (no count). New questions keeps its two-line header and its X.
+void wideDrawerCloseTests() {
+  for (final row in ['Reviews', 'New questions']) {
+    testWidgets('wide $row drawer: Close X centres on the title block',
+        (tester) async {
+      tester.view
+        ..physicalSize = const Size(1440, 900)
+        ..devicePixelRatio = 1;
+      addTearDown(tester.view.reset);
+      debugWebPlatformOverride = true;
+      addTearDown(() => debugWebPlatformOverride = null);
+      await pumpData(tester, sheetWorkData());
+      await tester.tap(find.text(row).first);
+      await tester.pumpAndSettle();
+      final drawer = find.byKey(const ValueKey('home-web-drawer'));
+      final title = tester.getRect(
+        find.descendant(of: drawer, matching: find.text(row)),
+      );
+      final count = find.descendant(
+        of: drawer,
+        matching: find.textContaining(RegExp(r'^\d+ of \d+$')),
+      );
+      final top = title.top;
+      final bottom =
+          row == 'Reviews' ? title.bottom : tester.getRect(count.first).bottom;
+      if (row == 'Reviews') {
+        expect(count, findsNothing);
+      }
+      final close = tester.getCenter(find.byTooltip('Close')).dy;
+      if (row == 'Reviews') {
+        expect(close, closeTo((top + bottom) / 2, 0.6));
+      } else {
+        // The two-line header keeps its measured spot.
+        expect(close, closeTo(50.5, 0.1));
+      }
     });
   }
 }

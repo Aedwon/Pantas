@@ -13,7 +13,6 @@ import 'package:pantas/core/telemetry/perf_timeline.dart';
 import 'package:pantas/core/ui/components/check_mark.dart';
 import 'package:pantas/core/ui/components/list_row.dart';
 import 'package:pantas/core/ui/components/pantas_sheet.dart';
-import 'package:pantas/core/ui/components/paused_quiz_notice.dart';
 import 'package:pantas/core/ui/components/progress_ring.dart';
 import 'package:pantas/core/ui/components/skeleton.dart';
 import 'package:pantas/core/ui/components/state_view.dart';
@@ -26,6 +25,7 @@ import 'package:pantas/core/ui/theme/tokens/pantas_space.dart';
 import 'package:pantas/core/ui/web/web_components.dart';
 import 'package:pantas/core/ui/web/web_layout.dart';
 import 'package:pantas/core/ui/web/web_tokens.dart';
+import 'package:pantas/features/assessment/application/assessment_progress_providers.dart';
 import 'package:pantas/features/home/application/home_boundary.dart';
 import 'package:pantas/features/home/application/home_today.dart';
 import 'package:pantas/features/home/application/performance/topic_accuracy_provider.dart';
@@ -43,7 +43,6 @@ import 'package:pantas/features/home/presentation/widgets/home_skeletons.dart';
 import 'package:pantas/features/home/presentation/widgets/home_state_card.dart';
 import 'package:pantas/features/home/presentation/widgets/home_today_checklist.dart';
 import 'package:pantas/features/home/presentation/widgets/home_web_layout.dart';
-import 'package:pantas/features/lesson/application/lesson_bite_label.dart';
 import 'package:pantas/features/lesson/application/reader_providers.dart';
 import 'package:pantas/features/quiz/application/quiz_providers.dart';
 import 'package:pantas/features/quiz/domain/paused_quiz_conflict.dart';
@@ -121,6 +120,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   /// The failed start was refused because another quiz is paused.
   bool _pausedBlock = false;
   bool _discarding = false;
+
+  /// Home pushed the quiz itself and reads again when it returns.
+  bool _inOwnQuiz = false;
   int _generation = 0;
   StudyAdvance? _pendingAdvance;
 
@@ -493,9 +495,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           .start(work, kind: kind, isAlive: current);
       if (!mounted || !current()) return;
       _dismiss();
-      await context
-          .push<void>('/quiz/resume/${Uri.encodeComponent(widget.examId)}');
-      if (_current()) _retry();
+      await _pushQuiz();
     } on Object catch (error, stack) {
       // A paused quiz is the student's own state, not a fault to report.
       if (error is! PausedQuizConflict) {
@@ -518,9 +518,30 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   /// Opens the paused quiz, as the Quiz tab's Resume does.
   Future<void> _resumePaused() async {
     _dismiss();
-    await context
-        .push<void>('/quiz/resume/${Uri.encodeComponent(widget.examId)}');
+    await _pushQuiz();
+  }
+
+  /// Opens the open quiz, then reads Home again for what it changed.
+  Future<void> _pushQuiz() async {
+    _inOwnQuiz = true;
+    try {
+      await context
+          .push<void>('/quiz/resume/${Uri.encodeComponent(widget.examId)}');
+    } finally {
+      _inOwnQuiz = false;
+    }
     if (_current()) _retry();
+  }
+
+  /// A quiz was left part way through, or discarded, from another tab. Home
+  /// stays alive behind the tab bar, so the question counts and work it holds
+  /// were read before that quiz began or moved on (Nov 24: the sheet said
+  /// "0 of 11" and "Start Reviews" for a Reviews session paused at 1 of 11).
+  /// Read again; the plan on screen stays while the read runs.
+  void _onQuizPaused() {
+    if (_inOwnQuiz || !_current()) return;
+    setState(() => _failed = _pausedBlock = false);
+    _retry();
   }
 
   /// Discards the paused quiz, as the Quiz tab's Discard does. The panel then
@@ -534,7 +555,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         examId: widget.examId,
         now: ref.read(nowProvider)(),
       );
-      if (_current()) setState(() => _failed = _pausedBlock = false);
+      if (_current()) {
+        setState(() => _failed = _pausedBlock = false);
+        _retry();
+      }
     } on Object catch (error, stack) {
       unawaited(ref.read(telemetryProvider).recordError(error, stack));
     } finally {
@@ -616,7 +640,8 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
   Widget build(BuildContext context) {
     ref
       ..watch(activeExamFocusProvider)
-      ..listen(homeBoundaryProvider, (_, next) => _onBoundary(next));
+      ..listen(homeBoundaryProvider, (_, next) => _onBoundary(next))
+      ..listen(quizPausedRevisionProvider, (_, __) => _onQuizPaused());
     // The listener runs after this build when the move is first seen here, so
     // nothing built for the owner before is drawn meanwhile.
     final moved = ref.watch(homeBoundaryProvider).movedFrom(_boundary);
@@ -679,6 +704,9 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                         : 'New questions',
             open: _sheet != null && data != null,
             drawer: true,
+            closeTop: _sheet == 'reviews'
+                ? HomeWebOverlay.oneLineCloseTop
+                : HomeWebOverlay.twoLineCloseTop,
             onDismiss: _dismiss,
             child: data == null ? const SizedBox.shrink() : _contents(data),
           );
@@ -694,7 +722,6 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                       : 'New questions',
           open: _sheet != null && data != null,
           onDismiss: _dismiss,
-          closeLabel: 'Close',
           readerContents: true,
           scrollable: false,
           child: data == null ? const SizedBox.shrink() : _contents(data),
@@ -757,6 +784,10 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
       examDate: snapshot.digest.examDate,
     );
     final note = homeDayNoteLabel(data);
+    // Answers saved on this device turn the Start card into Continue.
+    final progress = view.kind == HomeTodayKind.assessment
+        ? ref.watch(assessmentProgressProvider(widget.examId)).valueOrNull
+        : null;
     final body = switch (view.kind) {
       HomeTodayKind.checklist => _list(data, view),
       HomeTodayKind.examDay => HomeExamDay(
@@ -770,8 +801,12 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
         ),
       HomeTodayKind.assessment || HomeTodayKind.noContent => HomeStateCard(
           state: view.kind == HomeTodayKind.assessment
-              ? HomeState.assessment
+              ? (progress == null
+                  ? HomeState.assessment
+                  : HomeState.continueAssessment)
               : HomeState.noContent,
+          answered: progress?.answered ?? 0,
+          total: progress?.total ?? 0,
           examName: data.examName,
           examShortName: data.examShortName,
           onPrimary: () => view.kind == HomeTodayKind.assessment
@@ -839,6 +874,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
           examName: data.examName,
           examShortName: data.examShortName,
           hasExamDate: data.today.snapshot.digest.examDate.isNotEmpty,
+          streakStands: data.streakStands,
           examDateLabel: passed && examDay != null
               ? DateFormat('MMMM d', 'en_US').format(examDay)
               : null,
@@ -916,11 +952,6 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
               ),
               boardMetrics: true,
               divider: !last,
-              footer: LessonBiteLabel(
-                lessonId: lesson.id,
-                part: lesson.part,
-                partCount: lesson.partCount,
-              ),
               leading: HomeDrawerRing(
                 lesson.read ? 1 : lesson.fraction ?? 0,
                 done: lesson.read,
@@ -930,11 +961,6 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
             )
           : ListRow(
               title: lesson.title,
-              footer: LessonBiteLabel(
-                lessonId: lesson.id,
-                part: lesson.part,
-                partCount: lesson.partCount,
-              ),
               variant: ListRowVariant.value,
               naturalValue: true,
               // A long title is read in full, not cut with dots (Nov 3 rule).
@@ -1049,6 +1075,11 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
             )
           : const SizedBox.shrink();
     }
+    final kind =
+        reviews ? TodayQuestionKind.reviews : TodayQuestionKind.newQuestions;
+    // Board A (his pick Nov 25): this sheet's own paused session offers Resume
+    // and Discard; another paused quiz dims Start under one line.
+    final here = work.pausedHere(kind);
     return sheet(
       title: reviews ? 'Reviews' : 'New questions',
       done: reviews ? work.reviewsDone : work.newDone,
@@ -1072,42 +1103,38 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
                   last: row == work.newRows.last,
                 ),
             ],
-      startLabel: reviews
-          ? work.storedReviews == null
-              ? 'Start Reviews'
-              : 'Continue Reviews'
-          : 'Start New Questions',
-      onStart:
-          (reviews ? work.reviewSizes.isNotEmpty : work.newQuestions.isNotEmpty)
-              ? () => unawaited(
-                    _start(
-                      data,
-                      reviews
-                          ? TodayQuestionKind.reviews
-                          : TodayQuestionKind.newQuestions,
-                    ),
-                  )
+      startLabel: here
+          ? 'Resume'
+          : reviews
+              ? work.storedReviews == null
+                  ? 'Start Reviews'
+                  : 'Continue Reviews'
+              : 'Start New Questions',
+      onStart: here
+          ? () => unawaited(_resumePaused())
+          : (reviews
+                  ? work.reviewSizes.isNotEmpty
+                  : work.newQuestions.isNotEmpty)
+              ? () => unawaited(_start(data, kind))
               : null,
       busy: _busy,
-      failure: !_failed
+      showCount: !reviews,
+      onDiscard: here ? () => unawaited(_discardPaused()) : null,
+      discarding: _discarding,
+      blocked: !here && (work.pausedElsewhere(kind) || _failed && _pausedBlock),
+      failure: !_failed || _pausedBlock
           ? null
-          : _pausedBlock
-              ? PausedQuizNotice(
-                  onResume: () => unawaited(_resumePaused()),
-                  onDiscard:
-                      _discarding ? null : () => unawaited(_discardPaused()),
-                )
-              : StateView(
-                  message: 'Could not start your quiz.',
-                  onRetry: () => unawaited(
-                    _start(
-                      data,
-                      reviews
-                          ? TodayQuestionKind.reviews
-                          : TodayQuestionKind.newQuestions,
-                    ),
-                  ),
+          : StateView(
+              message: 'Could not start your quiz.',
+              onRetry: () => unawaited(
+                _start(
+                  data,
+                  reviews
+                      ? TodayQuestionKind.reviews
+                      : TodayQuestionKind.newQuestions,
                 ),
+              ),
+            ),
     );
   }
 
@@ -1126,7 +1153,7 @@ class _HomeTodayScreenState extends ConsumerState<HomeTodayScreen> {
             )
           : ListRow(
               title: title,
-              value: '$total',
+              value: questionRowCount(done, total),
               variant: ListRowVariant.value,
               naturalValue: true,
               leading: done == total

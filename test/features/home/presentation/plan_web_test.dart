@@ -320,6 +320,28 @@ void main() {
         dark: dark,
       );
       expect(find.text('Stored reason'), findsOneWidget);
+      // Web PL_History: See more is a white 44 px button with a hairline
+      // border, never a text link (U51).
+      final seeMore = find.widgetWithText(WebButton, 'See more');
+      expect(seeMore, findsOneWidget);
+      expect(tester.getSize(seeMore).height, 44);
+      expect(tester.widget<WebButton>(seeMore).variant, WebButtonVariant.white);
+      await tester.tap(find.text('See more'));
+      expect(more, 1);
+      // While more loads the label stays, and the button waits.
+      await pumpWide(
+        tester,
+        PlanWebHistory(
+          entries: const [
+            PlanHistoryEntry(id: '1', date: 'Today', text: 'Stored reason'),
+          ],
+          hasMore: true,
+          loading: true,
+          onMore: () => more++,
+        ),
+        dark: dark,
+      );
+      expect(find.text('Loading'), findsNothing);
       await tester.tap(find.text('See more'));
       expect(more, 1);
       await pumpWide(tester, const PlanWebHistory(entries: []), dark: dark);

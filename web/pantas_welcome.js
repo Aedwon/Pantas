@@ -139,6 +139,17 @@
       if (!holdForTap || state.started) env.afterPaint(finish);
     }
 
+    // "Already have an account? Sign in": a returning student on a new browser
+    // goes straight to the email sign-in page and skips the onboarding. The
+    // visit is remembered, so the cover does not show again after the page
+    // loads. Marked as started so a second tap, or Enter, does nothing more.
+    function signIn() {
+      if (!state.shown || state.done || state.started) return;
+      state.started = true;
+      remember();
+      if (env.navigate) env.navigate('/auth/email-link');
+    }
+
     // A parent or guardian opening the emailed link is not a new student, and
     // the Terms and Privacy pages open for anyone, so a link to them never
     // waits behind a Welcome screen. The screen would hide the page they came
@@ -159,6 +170,7 @@
       doc.addEventListener('click', function (event) {
         var target = event.target;
         if (target && target.closest && target.closest('#pw-start')) start();
+        else if (target && target.closest && target.closest('#pw-signin')) signIn();
       });
       // The Enter hint on the button only exists on wide screens. Flutter's view
       // holds keyboard focus under the cover (a hidden text input) and its own
@@ -171,6 +183,9 @@
         'keydown',
         function (event) {
           if (event.key !== 'Enter' || state.done || !env.wide()) return;
+          // Enter on the Sign in link activates that link, not Get Started.
+          var focused = event.target;
+          if (focused && focused.closest && focused.closest('#pw-signin')) return;
           if (event.preventDefault) event.preventDefault();
           if (event.stopImmediatePropagation) event.stopImmediatePropagation();
           else if (event.stopPropagation) event.stopPropagation();
@@ -187,6 +202,7 @@
       ready: ready,
       onLeave: onLeave,
       start: start,
+      signIn: signIn,
       state: state,
     };
   }
@@ -217,6 +233,9 @@
     },
     pathname: function () {
       return root.location.pathname;
+    },
+    navigate: function (path) {
+      root.location.assign(path);
     },
   });
 })(typeof window !== 'undefined' ? window : globalThis);

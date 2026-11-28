@@ -60,13 +60,24 @@ void main() {
 
       final sources = readSourceQuestions(
         '.',
-        pattern == 'interleaved-count'
-            ? '646326517'
-            : 'origin/content/bite-sized-cse-algebra-r1',
+        switch (pattern) {
+          'fill-ray-dots' => 'origin/content/cet-bite-r1',
+          'interleaved-count' => '646326517',
+          _ => 'origin/content/bite-sized-cse-algebra-r1',
+        },
         type.mergedQuestions.map((m) => m.id).toSet(),
       );
       final failures = checkVariants(type, list.variants, questions: sources);
-      expect(failures, isEmpty);
+      if (pattern == 'fill-ray-dots') {
+        // Live 0018 is held because its full-fill distractor differs from
+        // the sum of the shown three-quarter and half fills.
+        final failure = failures.single;
+        expect(failure.index, 0);
+        expect(failure.check, 'choices');
+        expect(failure.reason, 'choice differs from mistake accumulate-fill');
+      } else {
+        expect(failures, isEmpty);
+      }
       for (var i = 1; i <= 20; i++) {
         final result = ruleRegistry[name]!.generate(type, Random(i), i);
         final solver = figureSolvers[name]!;

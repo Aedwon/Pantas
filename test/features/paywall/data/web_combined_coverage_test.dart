@@ -22,11 +22,9 @@ void main() {
     expect(entitlement.endsAt, end);
     expect(entitlement.willRenew, isFalse);
   });
-  for (final anchor in [
-    'promo_civil_service',
-    'pantas_cs_monthly',
-    'pantas_pass_cse_pro',
-  ]) {
+  // A pass is not an anchor: it covers its own exam only, so a plan queued
+  // behind it waits for its start (see the pass case in the gateway tests).
+  for (final anchor in ['promo_civil_service', 'pantas_cs_monthly']) {
     test('refresh keeps Pro through Monthly queued behind $anchor', () async {
       final end = now.add(const Duration(days: 10));
       final queuedEnd = end.add(const Duration(days: 30));

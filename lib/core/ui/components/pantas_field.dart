@@ -132,6 +132,7 @@ class PantasField extends StatefulWidget {
     this.onSubmitted,
     this.action,
     this.announceError = false,
+    this.flat = false,
     super.key,
   }) : showLabel = true;
 
@@ -162,6 +163,7 @@ class PantasField extends StatefulWidget {
     this.onSubmitted,
     this.action,
     this.announceError = false,
+    this.flat = false,
     super.key,
   })  : label = semanticLabel,
         optional = false,
@@ -205,6 +207,10 @@ class PantasField extends StatefulWidget {
 
   /// Announces the error when it appears; set it on submit only.
   final bool announceError;
+
+  /// A flat well on a card: the page fill (`bg-page`) with no ring, and the
+  /// 2 px `accent` ring only while it has focus (QN_Report on the phone).
+  final bool flat;
 
   @override
   State<PantasField> createState() => _PantasFieldState();
@@ -257,7 +263,13 @@ class _PantasFieldState extends State<PantasField> {
     final Color well;
     Color? ring;
     var ringWidth = PantasBorder.ring;
-    if (disabled) {
+    if (widget.flat && !invalid && !readOnly) {
+      well = colors.bgPage;
+      if (_focused && !disabled) {
+        ring = colors.accent;
+        ringWidth = PantasBorder.ringSelected;
+      }
+    } else if (disabled) {
       well = colors.fill;
     } else if (readOnly) {
       well = colors.surfaceInset;

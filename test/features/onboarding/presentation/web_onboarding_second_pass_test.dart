@@ -241,7 +241,8 @@ void main() {
         find.byWidgetPredicate((w) => w is CheckboxRow && w.title == label),
       );
       expect(row.selected, isTrue);
-      expect(tester.getTopLeft(find.text('Terms and Privacy')).dy, 172);
+      // The Back link is the board's 36 high (OB_Days), 4 less than before.
+      expect(tester.getTopLeft(find.text('Terms and Privacy')).dy, 168);
       // The test font wraps the label to two lines; the hover test checks the
       // one-line board height of exactly 56.
       expect(
