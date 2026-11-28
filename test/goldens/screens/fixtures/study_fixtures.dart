@@ -114,8 +114,8 @@ Future<Finder> pumpStudyScreen(
           ? WebShellFrame(
               activeIndex: shellTab,
               person: 'Student',
-              exam: 'CSE',
               plan: 'Free',
+              onAccount: () {},
               web: true,
               onNavigate: (_) {},
               onSearch: () {},

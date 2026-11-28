@@ -9,8 +9,8 @@ Widget _sidebar(int active) => SizedBox(
       child: WebSidebar(
         activeIndex: active,
         person: 'Maria Santos',
-        exam: 'UPCAT',
         plan: 'Free',
+        onAccount: () {},
         onNavigate: (_) {},
         onSearch: () {},
       ),

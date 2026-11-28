@@ -37,8 +37,8 @@ Widget _side(int index, {bool reduced = false}) => MaterialApp(
               WebSidebar(
                 activeIndex: index,
                 person: 'Aedwon',
-                exam: 'CSE',
                 plan: 'Free',
+                onAccount: () {},
                 onNavigate: (_) {},
                 onSearch: () {},
               ),

@@ -177,8 +177,8 @@ Future<Finder> pumpBiteScreen(
           ? WebShellFrame(
               activeIndex: 1,
               person: 'Student',
-              exam: 'CSE',
               plan: 'Free',
+              onAccount: () {},
               web: true,
               onNavigate: (_) {},
               onSearch: () {},
