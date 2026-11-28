@@ -538,6 +538,10 @@ void main() {
         isBookmarked: false,
         examId: 'e',
       );
+      // Full width is on by default since Aedwon's Nov 28 decision. This
+      // test checks the standard column, so it saves the standard choice.
+      await AppPreferencesRepository(db)
+          .setDeviceValue('reader_full_width', '0');
       await pump(
         tester,
         WebReaderLayout(

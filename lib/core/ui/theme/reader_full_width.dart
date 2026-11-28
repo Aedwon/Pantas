@@ -22,7 +22,9 @@ final readerFullWidthProvider =
 });
 
 class ReaderFullWidthController extends StateNotifier<bool> {
-  ReaderFullWidthController(this._preferences) : super(false) {
+  // Aedwon, Nov 28: with no saved choice the toggle starts on, so a lesson
+  // with figures opens in the two-column layout.
+  ReaderFullWidthController(this._preferences) : super(true) {
     unawaited(_load());
   }
 
@@ -35,9 +37,9 @@ class ReaderFullWidthController extends StateNotifier<bool> {
     final revision = _revision;
     try {
       final raw = await _preferences.deviceValue(_key);
-      if (mounted && revision == _revision && raw == '1') state = true;
+      if (mounted && revision == _revision && raw == '0') state = false;
     } on Exception {
-      // An unavailable preference keeps the standard width.
+      // An unavailable preference keeps the default, full width.
     }
   }
 

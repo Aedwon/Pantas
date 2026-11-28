@@ -68,7 +68,7 @@ void main() {
   late ValueNotifier<double> offset;
   late ValueNotifier<double> progress;
 
-  setUp(() {
+  setUp(() async {
     db = inMemoryDatabase();
     prefs = AppPreferencesRepository(db);
     addTearDown(db.close);
@@ -78,6 +78,9 @@ void main() {
     addTearDown(scroll.dispose);
     addTearDown(offset.dispose);
     addTearDown(progress.dispose);
+    // Aedwon, Nov 28: full width is on by default. These tests start from the
+    // standard width, so they save that choice first.
+    await prefs.setDeviceValue('reader_full_width', '0');
   });
 
   Future<void> pump(WidgetTester tester, double width) async {
