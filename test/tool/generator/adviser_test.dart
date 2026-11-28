@@ -16,12 +16,7 @@ import 'figure_check_test.dart' show asVariant, figureData, figureType;
 import 'support.dart';
 
 void main() {
-  setUp(registerTestSolvers);
-  tearDown(() {
-    mathSolvers.clear();
-    figureSolvers.clear();
-    mistakeSolvers.clear();
-  });
+  useTestSolverRegistry();
   test('figure stem with text choices passes independent checking', () {
     final type =
         parseProblemType(figureType().toMap()..['choiceKind'] = 'text');

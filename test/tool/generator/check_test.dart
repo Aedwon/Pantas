@@ -17,12 +17,7 @@ List<Variant> fixture(String name) => parseVariants(
     );
 
 void main() {
-  setUp(registerTestSolvers);
-  tearDown(() {
-    mathSolvers.clear();
-    figureSolvers.clear();
-    mistakeSolvers.clear();
-  });
+  useTestSolverRegistry();
   final cases = {
     'two-correct': 'correctness',
     'wrong-key': 'correctness',

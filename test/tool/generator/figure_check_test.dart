@@ -51,12 +51,7 @@ Variant asVariant(Map<String, Object?> data) => parseVariants({
     }).single;
 
 void main() {
-  setUp(registerTestSolvers);
-  tearDown(() {
-    mathSolvers.clear();
-    figureSolvers.clear();
-    mistakeSolvers.clear();
-  });
+  useTestSolverRegistry();
   test('good figure list passes', () {
     expect(checkVariants(figureType(), [asVariant(figureData())]), isEmpty);
   });
