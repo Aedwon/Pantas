@@ -1171,6 +1171,7 @@ Ruled by a Claude Fable 5.2 agent, acting as the design sub-agent, under Aedwon'
 4. **Width control: hidden on a lesson with margin figures. Confirmed.**
    - The held layout already uses the full width, which is what the control was for (Aedwon, Nov 3: "so they can choose to utilize more of the whole screen area or not"). Wider text there would break the 640 px measure. No held board draws the control.
    - The saved choice is kept and applies again on lessons with the single column (680 or 800 px). No disabled state and no empty gap. The bookmark does not move.
+   - Replaced Nov 28 by Aedwon: "what? that doesn't make sense. the reason we added the 2 column layout was to make the toggle more useful". The toggle now shows on every lesson and turns the two-column layout on. See "Full-width toggle drives the two-column reader (Nov 28)" in `docs/design/DECISIONS.md`.
 
 5. **Stacked figures: one unit only when they share a passage. Change, about 0.25 day.**
    - Figures whose passages end at the same place (no text between them in the source) and that stack are one unit. They hold and leave together, 18 px apart. Rule 5's cap applies to this unit.

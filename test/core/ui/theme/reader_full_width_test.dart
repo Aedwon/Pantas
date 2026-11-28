@@ -21,11 +21,18 @@ void main() {
     addTearDown(() => container.dispose());
   });
 
-  test('starts at the standard width without a saved choice', () async {
-    expect(container.read(readerFullWidthProvider), isFalse);
+  // Aedwon, Nov 28: with no saved choice the toggle starts on.
+  test('starts at full width without a saved choice', () async {
+    expect(container.read(readerFullWidthProvider), isTrue);
     await Future<void>.delayed(Duration.zero);
-    expect(container.read(readerFullWidthProvider), isFalse);
+    expect(container.read(readerFullWidthProvider), isTrue);
     expect(await prefs.deviceValue('reader_full_width'), isNull);
+  });
+
+  test('a saved 0 stays at the standard width', () async {
+    await prefs.setDeviceValue('reader_full_width', '0');
+    container.read(readerFullWidthProvider);
+    await _waitFor(container, false);
   });
 
   test('the column is 680 px, or at most 800 px at full width', () {
@@ -50,13 +57,19 @@ void main() {
         .read(readerFullWidthProvider.notifier)
         .setFullWidth(fullWidth: false);
     expect(await prefs.deviceValue('reader_full_width'), '0');
+    container.dispose();
+
+    container = open();
+    addTearDown(() => container.dispose());
+    container.read(readerFullWidthProvider);
+    await _waitFor(container, false);
   });
 
-  test('an unreadable saved value keeps the standard width', () async {
+  test('an unreadable saved value keeps the default, full width', () async {
     await prefs.setDeviceValue('reader_full_width', 'wide');
     container.read(readerFullWidthProvider);
     await Future<void>.delayed(const Duration(milliseconds: 50));
-    expect(container.read(readerFullWidthProvider), isFalse);
+    expect(container.read(readerFullWidthProvider), isTrue);
   });
 
   test('rapid changes save the last one', () async {

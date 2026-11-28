@@ -38,9 +38,10 @@ import 'package:pantas/features/lesson/presentation/widgets/web_pull_to_advance.
 
 /// The lesson column on wide web.
 ///
-/// A lesson with figures uses the held layout (`HeldMetrics`): text on the
-/// left, figures on the right. A lesson with none keeps one centered column,
-/// 680 px, or 800 px when the student chose full width.
+/// With full width on (the default), a lesson with figures uses the held
+/// layout (`HeldMetrics`): text on the left, figures on the right. A lesson
+/// with none keeps one centered column, 800 px. With full width off, every
+/// lesson is one centered 680 px column with its figures inline.
 abstract final class WebReaderMetrics {
   /// The lesson column for a window [maxWidth] wide, when the lesson has no
   /// figures to put beside it.
@@ -351,7 +352,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   /// Takes the page to section [index] on the reader's shared ease, or at once
   /// with reduced motion. The section's heading lands where the old jump put
   /// it: 5 percent of the room under the bar.
-  Future<void> _jumpTo(int index) async {
+  Future<void> _jumpTo(int index, {bool instant = false}) async {
     final controller = widget.controller;
     final layout = context.findRenderObject();
     final heading = _anchors[index].currentContext?.findRenderObject();
@@ -368,7 +369,7 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     final landing = _barHeight + .05 * (layout.size.height - _barHeight);
     final destination = (position.pixels + now - landing)
         .clamp(position.minScrollExtent, position.maxScrollExtent);
-    if (MediaQuery.disableAnimationsOf(context)) {
+    if (instant || MediaQuery.disableAnimationsOf(context)) {
       controller.jumpTo(destination);
       return;
     }
@@ -742,6 +743,17 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
   }
 
   void _setFullWidth(bool value) {
+    // The two layouts differ in height, so bring the section being read back
+    // under the bar once the new layout is in place.
+    final section = _active;
+    if (section > 0 &&
+        lessonHasMarginFigures(
+          [for (final b in widget.reader.lesson.bodyJson) b],
+        )) {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (mounted) unawaited(_jumpTo(section, instant: true));
+      });
+    }
     // The choice applies at once. A failed save leaves it on for this visit.
     unawaited(
       ref
@@ -840,7 +852,8 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
     final held = lessonHasMarginFigures(
       [for (final b in reader.lesson.bodyJson) b],
     );
-    final heldLesson = held
+    // Aedwon, Nov 28: full width is what turns the two-column layout on.
+    final heldLesson = held && fullWidth
         ? _HeldLessonBody(
             key: ValueKey(('web-reader-held', reader.lesson.id)),
             reader: reader,
@@ -981,10 +994,8 @@ class _WebReaderLayoutState extends ConsumerState<WebReaderLayout> {
                                   const Spacer(),
                                   if (ending == null) ...[
                                     const SizedBox(width: PantasSpace.s12),
-                                    if (heldBody == null) ...[
-                                      _widthControl(t, fullWidth: fullWidth),
-                                      const SizedBox(width: PantasSpace.s12),
-                                    ],
+                                    _widthControl(t, fullWidth: fullWidth),
+                                    const SizedBox(width: PantasSpace.s12),
                                     PantasIconButton(
                                       tooltip: withLetterKey(
                                         context,
