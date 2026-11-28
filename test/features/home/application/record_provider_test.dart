@@ -477,6 +477,64 @@ void main() {
     expect(record.mocks, isEmpty);
   });
 
+  test('a CSE Professional mock reads on the weighted scale, others do not',
+      () async {
+    final taken = DateTime(2026, 7, 9);
+    Map<String, Object> part(String name, int correct, int wrong, int blank) =>
+        {
+          'sectionId': name,
+          'name': name,
+          'correct': correct,
+          'wrong': wrong,
+          'blank': blank,
+          'total': correct + wrong + blank,
+          'retiredCount': 0,
+          'timeSeconds': 1,
+        };
+    final sections = jsonEncode({
+      'sections': [
+        part('Verbal Ability', 20, 10, 10),
+        part('Analytical Ability', 10, 5, 5),
+        part('Numerical Ability', 30, 0, 0),
+        part('General Information', 0, 0, 0),
+      ],
+    });
+    for (final examId in ['exam_cse_pro', 'exam_cse_sub']) {
+      await db.into(db.mockAttempts).insert(
+            MockAttemptsCompanion.insert(
+              id: 'mock_$examId',
+              userId: 'local',
+              examId: examId,
+              blueprintId: 'bp',
+              blueprintName: examId,
+              durationMinutes: 60,
+              status: 'completed',
+              strictMode: false,
+              sampledQuestionsJson: jsonEncode([]),
+              scoreRaw: const Value(60),
+              scoreTotal: const Value(90),
+              sectionResultsJson: Value(sections),
+              startedAt: taken,
+              lastFlushedAt: taken,
+              submittedAt: Value(taken),
+              updatedAt: taken,
+            ),
+          );
+    }
+    container = ProviderContainer(
+      overrides: [
+        appDatabaseProvider.overrideWithValue(db),
+        contentDatabaseProvider.overrideWithValue(contentDb),
+      ],
+    );
+
+    final record = await container.read(recordProvider.future);
+    final byName = {for (final m in record.mocks) m.blueprintName: m.percent};
+    // 62.5 of 95 weighted points, against 60 of 90 items.
+    expect(byName['exam_cse_pro'], 66);
+    expect(byName['exam_cse_sub'], 67);
+  });
+
   test('the accuracy series is empty below two points', () async {
     // One week of attempts only.
     final week1 = DateTime(2026, 7, 13); // Monday

@@ -1,6 +1,7 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:pantas/core/content/domain/mock_blueprint.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/ui/components/data_table.dart';
 import 'package:pantas/core/ui/components/pantas_button.dart';
 import 'package:pantas/core/ui/components/pantas_switch.dart';
@@ -72,6 +73,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
     // MK_SetupCSE and MK_SetupStrict: a green "< Quiz" link, a white table
     // card, a white strict-mode card and a Start button pinned to the bottom.
     final table = _SetupTable(
+      examId: blueprint.examId,
       sections: sections,
       sectional: isSectional,
       showCounts: _showsSectionCounts(blueprint),
@@ -278,6 +280,7 @@ class _MockSetupPageState extends State<MockSetupPage> {
     final t = context.webTokens;
     final blueprint = widget.parsedBlueprint.blueprint;
     final table = _SetupTable(
+      examId: blueprint.examId,
       sections: widget.parsedBlueprint.sections,
       sectional: sectional,
       showCounts: _showsSectionCounts(blueprint),
@@ -531,10 +534,12 @@ class MockSetupBackLink extends StatelessWidget {
 
 class _SetupTable extends StatelessWidget {
   const _SetupTable({
+    required this.examId,
     required this.sections,
     required this.sectional,
     this.showCounts = true,
   });
+  final String examId;
   final List<BlueprintSection> sections;
   final bool sectional;
 
@@ -574,7 +579,7 @@ class _SetupTable extends StatelessWidget {
       rows: [
         for (final section in sections)
           [
-            section.name,
+            csePartLabel(examId, section.name),
             if (showCounts)
               figure(section.questionCountFigure, section.questionCount),
             if (sectional)

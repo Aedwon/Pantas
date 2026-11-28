@@ -1,5 +1,6 @@
 import 'dart:math' as math;
 
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 import 'package:pantas/core/storage/domain/ids.dart';
 import 'package:pantas/core/storage/domain/subject.dart';
 import 'package:pantas/core/storage/domain/topic.dart';
@@ -300,7 +301,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
         value == null ? 'Set' : format(value);
     final stack = MediaQuery.textScalerOf(context).scale(17) > 25.5;
     final label = Text(
-      subject.name,
+      csePartLabel(widget.data.examId, subject.name),
       style: context.type.body,
     );
     final unit = context.type.footnote.copyWith(color: c.secondaryLabel);
@@ -451,6 +452,7 @@ class _CustomMockSetupPageState extends State<CustomMockSetupPage> {
 
     if (context.wideWeb) {
       return WebCustomMockSetup(
+        examId: widget.data.examId,
         questions: _effectiveQuestions,
         minutes: _effectiveMinutes,
         available: widget.data.availableQuestions,

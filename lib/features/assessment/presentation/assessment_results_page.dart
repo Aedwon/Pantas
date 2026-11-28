@@ -88,8 +88,9 @@ final _resultDataProvider =
   for (final mastery in result.topicMasteries) {
     final subject = await content.subjectById(mastery.topic.subjectId);
     if (subject == null) continue;
-    final name = examSubjectName(id, mastery.topic.name, subject.name);
-    if (name == null) continue;
+    final plainName = examSubjectName(id, mastery.topic.name, subject.name);
+    if (plainName == null) continue;
+    final name = csePartLabel(id, plainName);
     final key = csePartForTopic(id, mastery.topic.name)?.key ?? subject.id;
     names[mastery.topic.id] = name;
     final previous = subjects[key];

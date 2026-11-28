@@ -1,4 +1,5 @@
 import 'package:meta/meta.dart';
+import 'package:pantas/core/metrics/overall_accuracy.dart';
 
 /// The middle band is "close to passing". "Borderline" is banned by the
 /// copy register, so the code and the copy use the same word.
@@ -106,11 +107,30 @@ class WeakTopic {
 }
 
 /// Percent units, never a rounded stored decimal. UPCAT deducts a quarter
-/// per wrong answer; blanks do not change the earned points.
+/// per wrong answer; blanks do not change the earned points. CSE Professional
+/// weights its parts as Home's overall accuracy does (Aedwon, 28 November):
+/// each part's correct over its items on the paper, so a blank scores as
+/// wrong, as in the real exam. A part not on the paper drops out.
+/// Counts are all a saved result holds, so an old result is read the same way.
 double mockScorePercent({
   required String? examId,
   required Iterable<SectionResult> sections,
 }) {
+  final parts = <String, ({CseExamPart area, int correct, int answered})>{};
+  for (final section in sections) {
+    final part = cseWeightedPartNamed(examId, section.name);
+    if (part == null) continue;
+    final before = parts[part.key];
+    parts[part.key] = (
+      area: part,
+      correct: (before?.correct ?? 0) + section.correct,
+      // Every item on the paper counts, so a blank scores as wrong.
+      answered: (before?.answered ?? 0) + section.total,
+    );
+  }
+  if (parts.isNotEmpty) {
+    return (OverallAccuracy.weighted(parts.values).value ?? 0) * 100;
+  }
   var correct = 0;
   var wrong = 0;
   var total = 0;

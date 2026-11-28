@@ -34,20 +34,31 @@ class OverallAccuracy {
         answered: counts.fold(0, (sum, row) => sum + row.answered),
       );
     }
+    return OverallAccuracy.weighted([
+      for (final area in _cscAreas)
+        (
+          area: area,
+          correct: counts
+              .where((row) => area.topicIds.contains(row.topicId))
+              .fold(0, (sum, row) => sum + row.correct),
+          answered: counts
+              .where((row) => area.topicIds.contains(row.topicId))
+              .fold(0, (sum, row) => sum + row.answered),
+        ),
+    ]);
+  }
+
+  /// Each area's accuracy counts by its weight. An area with no answers drops
+  /// out of the weights, so it does not count against the student.
+  factory OverallAccuracy.weighted(
+    Iterable<({CseExamPart area, int correct, int answered})> areas,
+  ) {
     var weighted = 0.0;
     var weights = 0;
-    for (final area in _cscAreas) {
-      var correct = 0;
-      var answered = 0;
-      final topicIds = area.topicIds;
-      for (final row in counts) {
-        if (!topicIds.contains(row.topicId)) continue;
-        correct += row.correct;
-        answered += row.answered;
-      }
-      if (answered == 0) continue;
-      weighted += area.weight * correct / answered;
-      weights += area.weight;
+    for (final row in areas) {
+      if (row.answered == 0) continue;
+      weighted += row.area.weight * row.correct / row.answered;
+      weights += row.area.weight;
     }
     return OverallAccuracy(weights == 0 ? null : weighted / weights);
   }
@@ -158,6 +169,26 @@ CseExamPart? csePartForTopic(String examId, String topicName) {
     if (part.topicNames.contains(topicName)) return part;
   }
   return null;
+}
+
+/// Only CSE Professional counts its parts by weight. Subprofessional shares
+/// the part objects, so the exam decides, not the weight.
+bool cseWeightsApply(String? examId) => examId == _cscProfessionalExamId;
+
+/// A weighted part known by its exact name, such as a mock section's.
+CseExamPart? cseWeightedPartNamed(String? examId, String name) {
+  if (!cseWeightsApply(examId)) return null;
+  for (final part in csePartsForExam(examId!)) {
+    if (part.name == name && part.weight > 0) return part;
+  }
+  return null;
+}
+
+/// "Analytical Ability (35%)" for a weighted part, the plain name for anything
+/// else. Aedwon, 28 November: "just Analytical Ability (35%)".
+String csePartLabel(String? examId, String name) {
+  final part = cseWeightedPartNamed(examId, name);
+  return part == null ? name : '$name (${part.weight}%)';
 }
 
 /// Null for a CSE topic outside its parts. Other exams keep their own heading.
