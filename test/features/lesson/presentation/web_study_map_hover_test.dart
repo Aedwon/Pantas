@@ -132,11 +132,11 @@ void main() {
 
     void expectOnlyHoverHue(String moment) {
       lit(tester).forEach((name, color) {
-        expect(
-          (color.r, color.g, color.b),
-          (hover.r, hover.g, hover.b),
-          reason: '$name at $moment is $color, not $hover at some alpha',
-        );
+        final why = '$name at $moment is $color, not $hover at some alpha';
+        // The blend multiplies each channel, so allow float rounding only.
+        expect(color.r, closeTo(hover.r, 1e-6), reason: why);
+        expect(color.g, closeTo(hover.g, 1e-6), reason: why);
+        expect(color.b, closeTo(hover.b, 1e-6), reason: why);
       });
     }
 
